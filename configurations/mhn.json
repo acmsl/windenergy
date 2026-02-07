@@ -1,1 +1,45 @@
-// ...existing code from configurations/mhn.json...
+{
+  "lang": "fr",
+  "header.title": "Simuladores MHN personalizados",
+  "header.subtitle": "Cette installation est personnalisée pour MHN.",
+  "buttons": [
+    {
+      "target": "opcionSimuladores",
+      "image": "img/vista-wt-reducida.png",
+      "title": "Accès aux Simulateurs en Temps Réel d'Éoliennes",
+      "i18n": "card.grid.title3"
+    },
+    {
+      "target": "concepts",
+      "image": "img/mindmaprecortado.png",
+      "title": "Introduction a les concepts de l'énergie éolienne",
+      "i18n": "card.intro.title"
+    },
+    {
+      "target": "Wind Farm SCADA",
+      "image": "img/ParqueEolico.png",
+      "title": "Concepts du réseau électrique et des parcs éoliens",
+      "i18n": "card.grid.title2"
+    },
+    {
+      "target": "opcion5",
+      "image": "img/powervsrpms-reducido.png",
+      "title": "Logiciel d'analyse de la chaîne cinématique",
+      "i18n": "card.grid.title4",
+      "helpImage": "img/OperCurveVarSpeedWTs.jpg",
+      "helpText": "Logiciel pour le calcul de la <strong>courbe opérationnelle des éoliennes à vitesse variable</strong> (familles DFIG et convertisseur complet)."
+    },
+    {
+      "target": "opcion6",
+      "image": "img/CollageImagenesVideos-reducido.png",
+      "title": "Quelques vidéos significatives",
+      "i18n": "card.grid.title6"
+    },
+    {
+      "target": "opcionTutoriales",
+      "image": "img/AccesoaTutoriales.png",
+      "title": "Accès aux tutoriels",
+      "i18n": "card.grid.title7"
+    }
+  ]
+}
