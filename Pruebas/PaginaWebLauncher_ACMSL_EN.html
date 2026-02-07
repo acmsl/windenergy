@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+		<link href="favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+		<meta charset="utf-8"/>
+		<title>Wind Energy Applications</title>
+		<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+		<style>
+    :root {
+      --primary: #006699;
+      --primary-light: #e3f4ff;
+      --dark: #123047;
+      --bg: #f5f7fb;
+      --card-bg: #ffffff;
+      --accent: #00a878;
+      --danger: #c0392b;
+      --radius: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #0099cc);
+      color: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .logo-acm {
+      height: 37px;
+      width: auto;
+      display: block;
+    }
+
+    .acmsl-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    .acmsl-text:hover {
+      text-decoration: underline;
+    }
+
+
+    .home-btn {
+      border: none;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .home-btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 1.5rem auto 2rem;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+
+    .section-header p {
+      font-size: 0.95rem;
+      color: #4a5a6a;
+    }
+
+    /* GRID LANDING 6 OPCIONES */
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 0;
+      border: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 180px;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .card-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.85);
+      transition: filter 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-title {
+      color: white;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      font-size: 1.05rem;
+    }
+
+    /* HELP TEXT ON HOVER (OPCIONES 4 y 5 EN LANDING) */
+    .card-help-text {
+      position: absolute;
+      inset: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--primary-light);
+      color: var(--dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .card.help:hover .card-image,
+    .card.help:hover .card-overlay {
+      opacity: 0;
+    }
+
+    .card.help:hover .card-help-text {
+      opacity: 1;
+    }
+
+    /* SUBOPCIONES */
+    .suboptions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 1.25rem;
+    }
+
+    .sub-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sub-card h3 {
+      font-size: 1.02rem;
+      color: var(--dark);
+    }
+
+    .sub-card p {
+      font-size: 0.9rem;
+      color: #4a5a6a;
+      flex: 1;
+    }
+
+    .btn-row {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.1s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #005580;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ecf1f8;
+      color: var(--dark);
+    }
+    .btn-secondary:hover {
+      background: #dde5f2;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #c4cfdd;
+      box-shadow: none;
+    }
+    .btn-ghost:hover {
+      background: #edf1f8;
+    }
+
+    /* OPCION 3: 3 CARDS EN UNA FILA */
+    .row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .row-3 {
+        grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      }
+    }
+
+    .sim-card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 190px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+
+    .sim-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .sim-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.85);
+      transition: opacity 0.2s ease-out;
+    }
+
+    .sim-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0.9rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.98rem;
+    }
+
+    .sim-help {
+      position: absolute;
+      inset: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--primary-light);
+      color: var(--dark);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    .sim-card:hover .sim-image,
+    .sim-card:hover .sim-overlay {
+      opacity: 0;
+    }
+
+    .sim-card:hover .sim-help {
+      opacity: 1;
+    }
+
+    /* VIDEOS */
+    .video-wrapper {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrapper h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .video-wrapper p {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      color: #4a5a6a;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* PEQUEÑO TOAST PARA ERRORES / ESTADO */
+    .toast {
+      position: fixed;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      background: #333;
+      color: #fff;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 20;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+  </style>
+	</head>
+	<body>
+		<header>
+			<div class="header-left">
+				<img alt="Logo ACM" class="logo-acm" src="data:image/png;base64,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"/>
+				<a class="acmsl-text" href="https://www.acm-sl.com" rel="noopener noreferrer" target="_blank">ACMSL</a>
+				<div>
+					<h1>Wind Energy Applications</h1>
+					<p>Select an option to access simulators, training resources, and multimedia material.</p>
+				</div>
+			</div>
+			<button class="home-btn" onclick="showSection('landing')" type="button">⬅ Back to home</button>
+		</header>
+		<main>
+			<!-- LANDING: 6 OPCIONES -->
+			<section class="active" id="landing">
+				<div class="section-header">
+					<h2>Select a category</h2>
+					<p>Click on one of the following options to access the corresponding applications.</p>
+				</div>
+				<div class="grid-6">
+					<!-- 1. Introducción a la Energía Eólica -->
+					<button class="card" data-target="opcion1" type="button">
+						<div class="card-image" style="background-image:url('img/opcion1-introduccion.jpg');"/>
+						<div class="card-overlay">
+							<div class="card-title">Introduction to Wind Energy</div>
+						</div>
+					</button>
+					<!-- 2. Parques eólicos -->
+					<button class="card" data-target="opcion2" type="button">
+						<div class="card-image" style="background-image:url('img/ParqueEolico.png');"/>
+						<div class="card-overlay">
+							<div class="card-title">Wind Farms</div>
+						</div>
+					</button>
+					<!-- 3. Aerogeneradores en Parques Eólicos -->
+					<button class="card" data-target="opcion3" type="button">
+						<div class="card-image" style="background-image:url('img/opcion3-aerogeneradores.jpg');"/>
+						<div class="card-overlay">
+							<div class="card-title">Wind Turbines in Wind Farms</div>
+						</div>
+					</button>
+					<!-- 4. Análisis del Tren de Potencia (hover ayuda) -->
+					<button class="card help" data-target="opcion4" type="button">
+						<div class="card-image" style="background-image:url('img/opcion4-tren-potencia.jpg');"/>
+						<div class="card-overlay">
+							<div class="card-title">Power Train Analysis</div>
+						</div>
+						<div class="card-help-text">This program allows you to analyze the behavior of a wind turbine power train, identifying losses, efficiencies, and critical operating points.</div>
+					</button>
+					<!-- 5. Cálculos sobre Back-to-Back converters (hover ayuda) -->
+					<button class="card help" data-target="opcion5" type="button">
+						<div class="card-image" style="background-image:url('img/opcion5-back-to-back.jpg');"/>
+						<div class="card-overlay">
+							<div class="card-title">Back-to-Back Converter Calculations</div>
+						</div>
+						<div class="card-help-text">This program allows you to perform calculations and analysis on Back-to-Back converters, evaluating currents, voltages, harmonics, and control strategies.</div>
+					</button>
+					<!-- 6. Vídeos interesantes -->
+					<button class="card" data-target="opcion6" type="button">
+						<div class="card-image" style="background-image:url('img/opcion6-videos.jpg');"/>
+						<div class="card-overlay">
+							<div class="card-title">Interesting Videos</div>
+						</div>
+					</button>
+				</div>
+			</section>
+			<!-- OPCIÓN 1: INTRODUCCIÓN A LA ENERGÍA EÓLICA -->
+			<section id="opcion1">
+				<div class="section-header">
+					<h2>Introduction to Wind Energy</h2>
+					<p>Select one of the available applications.</p>
+				</div>
+				<div class="suboptions">
+					<!-- 1-1 -->
+					<div class="sub-card">
+						<h3>1-1 Mind map of Wind Energy concepts</h3>
+						<p>Access an interactive mind map with the covering concepts of wind energy.</p>
+						<div class="btn-row">
+							<button class="btn btn-primary" onclick="window.location.href='acmsl://shellcommand%20" ""C:\Proyectos\LdP\v1r12\Web_Launcher\mind_map_wind_energy.bat"""'" type="button">▶ Run process</button>
+						</div>
+					</div>
+					<!-- 1-2 -->
+					<div class="sub-card">
+						<h3>1-2 Training on industrial aspects of Wind Energy</h3>
+						<p>Start a training session focused on the industrial reality of the wind energy sector.</p>
+						<div class="btn-row">
+							<button class="btn btn-primary" onclick="window.location.href='acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C636F6E665C547261696E696E6720696E20496E647573747269616C2061737065637473206F662057696E6420456E657267795C496E74726F64756374696F6E2E68746D6C65'" type="button">▶ Run process</button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- OPCIÓN 2: PARQUES EÓLICOS -->
+			<section id="opcion2">
+				<div class="section-header">
+					<h2>Wind Farms</h2>
+					<p>Choose the tool related to wind farms.</p>
+				</div>
+				<div class="suboptions">
+					<!-- 2-1 -->
+					<div class="sub-card">
+						<h3>2-1 Launch Wind Farm Simulator</h3>
+						<p>Runs the complete wind farm simulator for production and operational analysis.</p>
+						<div class="btn-row">
+							<button class="btn btn-primary" onclick="runBatch('wind_farm_simulator.bat')" type="button">▶ Run simulator</button>
+						</div>
+					</div>
+					<!-- 2-2 -->
+					<div class="sub-card">
+						<h3>2-2 Guided exploration of the Control Center</h3>
+						<p>Open the available guide of the wind farm Control Center (SCADA), with a guided exploration of its functionalities.</p>
+						<div class="btn-row">
+							<button class="btn btn-secondary" onclick="abrirGuiaSCADA()" type="button">📖 Open SCADA guide</button>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- OPCIÓN 3: AEROGENERADORES EN PARQUES EÓLICOS -->
+			<section id="opcion3">
+				<div class="section-header">
+					<h2>Wind Turbines in Wind Farms</h2>
+					<p>Hover over each simulator to see its description and click to launch it.</p>
+				</div>
+				<div class="row-3">
+					<!-- 3-1 -->
+					<div class="sim-card" onclick="runBatch('sim_aerogenerador_jaula_active_stall.bat')">
+						<div class="sim-image" style="background-image:url('img/sim-3-1.jpg');"/>
+						<div class="sim-overlay">3-1 Squirrel cage generator (Active Stall)</div>
+						<div class="sim-help">This simulator is used to analyze the behavior of a wind turbine with a squirrel cage generator and <em>Active Stall</em> control, including power curves and response to wind variations.</div>
+					</div>
+					<!-- 3-2 -->
+					<div class="sim-card" onclick="runBatch('sim_aerogenerador_control_resistencia_rotor.bat')">
+						<div class="sim-image" style="background-image:url('img/sim-3-2.jpg');"/>
+						<div class="sim-overlay">3-2 Rotor Resistance Control</div>
+						<div class="sim-help">This simulator is used to study power and torque control in wind turbines by varying rotor resistance, allowing exploration of different operating scenarios.</div>
+					</div>
+					<!-- 3-3 -->
+					<div class="sim-card" onclick="runBatch('sim_aerogenerador_dfig.bat')">
+						<div class="sim-image" style="background-image:url('img/sim-3-3.jpg');"/>
+						<div class="sim-overlay">3-3 Doubly Fed Induction Generator (DFIG)</div>
+						<div class="sim-help">This simulator is used to analyze a wind turbine with a doubly fed induction generator (DFIG), including vector control strategies and interaction with the electrical grid.</div>
+					</div>
+				</div>
+			</section>
+			<!-- OPCIÓN 4: ANÁLISIS DEL TREN DE POTENCIA -->
+			<section id="opcion4">
+				<div class="section-header">
+					<h2>Power Train Analysis</h2>
+					<h3>Program for detailed study of the power train of a variable blade-speed wind turbine.</h3>
+				</div>
+				<div class="sub-card">
+					<h3>Launch power train analysis tool</h3>
+					<p>To extract the maximum available power from the wind, the rotational speed of the blades must 
+be adjusted according to wind speed.</p>
+					<p>This program allows you to study each component of the power train (gearbox, shaft, generator, etc.), evaluating losses, efficiencies, and dynamic response.</p>
+					<div class="btn-row">
+						<button class="btn btn-primary"
+						<!-- onclick="runBatch('analisis_tren_potencia.bat')" -->
+
+type="button">▶ Run tool</button>
+				</div>
+			</div>
+		</section>
+		<!-- OPCIÓN 5: CÁLCULOS SOBRE BACK-TO-BACK CONVERTERS -->
+		<section id="opcion5">
+			<div class="section-header">
+				<h2>Back-to-Back Converter Calculations</h2>
+				<p>Analysis and calculation tool for Back-to-Back converters.</p>
+			</div>
+			<div class="sub-card">
+				<h3>Launch Back-to-Back calculation tool</h3>
+				<p>This program allows you to analyze currents, voltages, losses, and harmonics in Back-to-Back converters, as well as study different control strategies.</p>
+				<div class="btn-row">
+					<button class="btn btn-primary" onclick="runBatch('calculos_back_to_back.bat')" type="button">▶ Run tool</button>
+				</div>
+			</div>
+		</section>
+		<!-- OPCIÓN 6: VÍDEOS INTERESANTES -->
+		<section id="opcion6">
+			<div class="section-header">
+				<h2>Interesting Videos</h2>
+				<p>Access selected videos about wind energy and wind turbine technology.</p>
+			</div>
+			<div class="video-wrapper">
+				<h3>Video 1: Introduction to Wind Energy</h3>
+				<p>Subtitle: Overview of wind power generation, main wind turbine components, and basic design aspects.</p>
+				<!-- Sustituye el src del iframe por el enlace concreto del vídeo -->
+				<div class="video-frame">
+					<iframe allowfullscreen="" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Introducción a la Energía Eólica"/>
+				</div>
+				<div class="btn-row" style="margin-top:0.9rem;">
+					<button class="btn btn-secondary" onclick="abrirVideoEnVentana()" type="button">⧉ Open video in new window</button>
+				</div>
+			</div>
+		</section>
+	</main>
+	<div class="toast" id="toast"/>
+	<script>
+  // --- Navegación entre "páginas" (secciones) ---
+  function showSection(id) {
+    document.querySelectorAll('main section').forEach(sec => {
+      sec.classList.toggle('active', sec.id === id);
+    });
+  }
+
+  // Click en las tarjetas del landing
+  document.querySelectorAll('.card[data-target]').forEach(card => {
+    card.addEventListener('click', () => {
+      const target = card.getAttribute('data-target');
+      showSection(target);
+    });
+  });
+
+  // --- Lanzamiento de procesos batch en el servidor ---
+  function showToast(msg, type = 'info') {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.style.background =
+      type === 'error' ? '#c0392b' :
+      type === 'success' ? '#00a878' : '#333';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  async function runBatch(batchName) {
+    try {
+      // Ajusta la URL y el cuerpo según tu backend real
+      const res = await fetch('/api/run-batch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ script: batchName })
+      });
+
+      if (!res.ok) {
+        throw new Error('Server response error');
+      }
+
+      showToast('Process started: ' + batchName, 'success');
+    } catch (err) {
+      console.error(err);
+      showToast('The batch process could not be started.', 'error');
+    }
+  }
+
+  // Abre la guía SCADA existente (ruta relativa que comentas)
+  function abrirGuiaSCADA() {
+    window.location.href = 'Guia_Simulador_WFS_SCADA_Parque_Eolico/index.html';
+  }
+
+  // Abre el vídeo de la opción 6 en otra ventana/pestaña
+  function abrirVideoEnVentana() {
+    const urlVideo = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // sustituir por tu URL real
+    window.open(urlVideo, '_blank', 'noopener');
+  }
+</script>
+</body>
+</html>

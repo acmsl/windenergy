@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="icon" type="image/png" href="ACM_LOGO_42x37.png" />
+  <link rel="shortcut icon" type="image/png" href="ACM_LOGO_42x37.png" />
+  <meta charset="UTF-8" />
+  <title>Wind Energy Applications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --primary: #006699;
+      --primary-light: #e3f4ff;
+      --dark: #123047;
+      --bg: #f5f7fb;
+      --card-bg: #ffffff;
+      --accent: #00a878;
+      --danger: #c0392b;
+      --radius: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #0099cc);
+      color: white;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+    }
+
+    .logo-acm {
+      height: 37px;
+      width: auto;
+      display: block;
+    }
+
+    .acmsl-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    .acmsl-text:hover {
+      text-decoration: underline;
+    }
+
+
+    .home-btn {
+      border: none;
+      background: rgba(255,255,255,0.12);
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .home-btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-1px);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 1.5rem auto 2rem;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    section {
+      display: none;
+      animation: fadeIn 0.25s ease-out;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+
+    .section-header p {
+      font-size: 0.95rem;
+      color: #4a5a6a;
+    }
+
+    /* GRID LANDING 6 OPCIONES */
+    .grid-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 0;
+      border: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 180px;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .card-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.85);
+      transition: filter 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.15));
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card-title {
+      color: white;
+      font-weight: 600;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+      font-size: 1.05rem;
+    }
+
+    /* HELP TEXT ON HOVER (OPCIONES 4 y 5 EN LANDING) */
+    .card-help-text {
+      position: absolute;
+      inset: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--primary-light);
+      color: var(--dark);
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .card.help:hover .card-image,
+    .card.help:hover .card-overlay {
+      opacity: 0;
+    }
+
+    .card.help:hover .card-help-text {
+      opacity: 1;
+    }
+
+    /* SUBOPCIONES */
+    .suboptions {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 1.25rem;
+    }
+
+    .sub-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.2rem;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--primary);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .sub-card h3 {
+      font-size: 1.02rem;
+      color: var(--dark);
+    }
+
+    .sub-card p {
+      font-size: 0.9rem;
+      color: #4a5a6a;
+      flex: 1;
+    }
+
+    .btn-row {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: background 0.15s, transform 0.1s, box-shadow 0.1s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #005580;
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: #ecf1f8;
+      color: var(--dark);
+    }
+    .btn-secondary:hover {
+      background: #dde5f2;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid #c4cfdd;
+      box-shadow: none;
+    }
+    .btn-ghost:hover {
+      background: #edf1f8;
+    }
+
+    /* OPCION 3: 3 CARDS EN UNA FILA */
+    .row-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .row-3 {
+        grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      }
+    }
+
+    .sim-card {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      min-height: 190px;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.12s, box-shadow 0.12s;
+    }
+
+    .sim-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+
+    .sim-image {
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.85);
+      transition: opacity 0.2s ease-out;
+    }
+
+    .sim-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0.9rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+      color: white;
+      font-weight: 600;
+      text-align: center;
+      font-size: 0.98rem;
+    }
+
+    .sim-help {
+      position: absolute;
+      inset: 0;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: var(--primary-light);
+      color: var(--dark);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+      font-size: 0.93rem;
+      font-weight: 500;
+    }
+
+    .sim-card:hover .sim-image,
+    .sim-card:hover .sim-overlay {
+      opacity: 0;
+    }
+
+    .sim-card:hover .sim-help {
+      opacity: 1;
+    }
+
+    /* VIDEOS */
+    .video-wrapper {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1.1rem 1.25rem 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .video-wrapper h3 {
+      margin-bottom: 0.3rem;
+    }
+
+    .video-wrapper p {
+      font-size: 0.9rem;
+      margin-bottom: 0.8rem;
+      color: #4a5a6a;
+    }
+
+    .video-frame {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 10px;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* PEQUEÑO TOAST PARA ERRORES / ESTADO */
+    .toast {
+      position: fixed;
+      bottom: 1.2rem;
+      right: 1.2rem;
+      background: #333;
+      color: #fff;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s;
+      z-index: 20;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <img src="ACM_LOGO_42x37.png" alt="Logo ACM" class="logo-acm" />
+    <a href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer" class="acmsl-text">ACMSL</a>
+    <div>
+      <h1>Wind Energy Applications</h1>
+      <p>Seleccione una opción para acceder a simuladores, formación y material multimedia.</p>
+    </div>
+  </div>
+  <button class="home-btn" type="button" onclick="showSection('landing')">
+    ⬅ Back to start
+  </button>
+</header>
+
+<main>
+  <!-- LANDING: 6 OPCIONES -->
+  <section id="landing" class="active">
+    <div class="section-header">
+      <h2>Seleccione una categoría</h2>
+      <p>Haga clic en una de las siguientes opciones para acceder a las aplicaciones correspondientes.</p>
+    </div>
+
+    <div class="grid-6">
+      <!-- 1. Introducción a la Energía Eólica -->
+      <button class="card" type="button" data-target="opcion1">
+        <div class="card-image" style="background-image:url('img/opcion1-introduccion.jpg');"></div>
+        <div class="card-overlay">
+          <div class="card-title">Introducción a la Energía Eólica</div>
+        </div>
+      </button>
+
+      <!-- 2. Wind Farms -->
+      <button class="card" type="button" data-target="opcion2">
+        <div class="card-image" style="background-image:url('ParqueEolico.png');"></div>
+        <div class="card-overlay">
+          <div class="card-title">Wind Farms</div>
+        </div>
+      </button>
+
+      <!-- 3. Aerogeneradores en Parques Eólicos -->
+      <button class="card" type="button" data-target="opcion3">
+        <div class="card-image" style="background-image:url('img/opcion3-aerogeneradores.jpg');"></div>
+        <div class="card-overlay">
+          <div class="card-title">Aerogeneradores en Parques Eólicos</div>
+        </div>
+      </button>
+
+      <!-- 4. Analysis del Tren de Potencia (hover ayuda) -->
+      <button class="card help" type="button" data-target="opcion4">
+        <div class="card-image" style="background-image:url('img/opcion4-tren-potencia.jpg');"></div>
+        <div class="card-overlay">
+          <div class="card-title">Analysis del Tren de Potencia</div>
+        </div>
+        <div class="card-help-text">
+          Este programa le permite analizar el comportamiento del tren de potencia de un aerogenerador, 
+          identificando pérdidas, rendimientos y puntos críticos de funcionamiento.
+        </div>
+      </button>
+
+      <!-- 5. Cálculos sobre Back-to-Back converters (hover ayuda) -->
+      <button class="card help" type="button" data-target="opcion5">
+        <div class="card-image" style="background-image:url('img/opcion5-back-to-back.jpg');"></div>
+        <div class="card-overlay">
+          <div class="card-title">Cálculos sobre Back-to-Back converters</div>
+        </div>
+        <div class="card-help-text">
+          Este programa le permite realizar cálculos y análisis sobre convertidores Back-to-Back,
+          evaluando corrientes, tensiones, armónicos y estrategias de control.
+        </div>
+      </button>
+
+      <!-- 6. Vídeos interesantes -->
+      <button class="card" type="button" data-target="opcion6">
+        <div class="card-image" style="background-image:url('img/opcion6-videos.jpg');"></div>
+        <div class="card-overlay">
+          <div class="card-title">Vídeos interesantes</div>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- OPCIÓN 1: INTRODUCCIÓN A LA ENERGÍA EÓLICA -->
+  <section id="opcion1">
+    <div class="section-header">
+      <h2>Introducción a la Energía Eólica</h2>
+      <p>Seleccione una de las aplicaciones disponibles.</p>
+    </div>
+
+    <div class="suboptions">
+      <!-- 1-1 -->
+      <div class="sub-card">
+        <h3>1-1 Mind Map mental con conceptos en Energía Eólica</h3>
+        <p>Acceda a un mapa mental interactivo con los conceptos fundamentales de la energía eólica.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="button"
+                  onclick="runAfile('C:\\ACMSL\\ACM SL Wind Energy Applications\\English\\files\\Training in Industrial aspects of Wind Energy.mm')">
+            ▶ Run proceso
+          </button>
+        </div>
+      </div>
+
+      <!-- 1-2 -->
+      <div class="sub-card">
+        <h3>1-2 Training en aspectos industriales de la Energía Eólica</h3>
+        <p>Inicie una sesión de formación centrada en la realidad industrial del sector eólico.</p>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="button"
+                  onclick="runAfile('C:\\ACMSL\\WindFarmSimulator\\conf\\Formacion-en-aspectos-industriales-de-la-Energia-Eolica\\Introduccion.html')">
+            ▶ Run proceso
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPCIÓN 2: PARQUES EÓLICOS -->
+  <section id="opcion2">
+    <div class="section-header">
+      <h2>Wind Farms</h2>
+      <p>Elija la herramienta relacionada con parques eólicos.</p>
+    </div>
+
+    <div class="suboptions">
+      <!-- 2-1 -->
+      <div class="sub-card">
+        <h3>2-1 Lanzamiento del Simulator de Parque Eólico</h3>
+        <p>
+          Ejecuta el simulador completo de un parque eólico para el análisis de producción y operación.
+        </p>
+        <div class="btn-row">
+          <button class="btn btn-primary" type="button"
+                  onclick="runAldp('WFSSCADAr12.conf','Spanish')">
+            ▶ Run simulador
+          </button>
+        </div>
+      </div>
+
+      <!-- 2-2 -->
+      <div class="sub-card">
+        <h3>2-2 Exploración guiada del Centro de Control</h3>
+        <p>
+          Abra la guía ya disponible del Centro de Control (SCADA) del parque eólico, con una exploración guiada
+          de sus funcionalidades.
+        </p>
+        <div class="btn-row">
+          <button class="btn btn-secondary" type="button"
+                  onclick="abrirGuiaSCADA()">
+            📖 Abrir guía SCADA
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPCIÓN 3: AEROGENERADORES EN PARQUES EÓLICOS -->
+  <section id="opcion3">
+    <div class="section-header">
+      <h2>Aerogeneradores en Parques Eólicos</h2>
+      <p>Pase el ratón por cada simulador para ver su descripción y haga clic para lanzarlo.</p>
+    </div>
+
+    <div class="row-3">
+      <!-- 3-1 -->
+      <div class="sim-card" onclick="runAfile(\'sim_aerogenerador_jaula_active_stall.bat\')">
+        <div class="sim-image" style="background-image:url('img/sim-3-1.jpg');"></div>
+        <div class="sim-overlay">
+          3-1 Generador de jaula de ardilla (Active Stall)
+        </div>
+        <div class="sim-help">
+          Este simulador sirve para analizar el comportamiento de un aerogenerador con generador
+          de jaula de ardilla y control por <em>Active Stall</em>, incluyendo curvas de potencia
+          y respuesta ante variaciones de viento.
+        </div>
+      </div>
+
+      <!-- 3-2 -->
+      <div class="sim-card" onclick="runAfile(\'sim_aerogenerador_control_resistencia_rotor.bat\')">
+        <div class="sim-image" style="background-image:url('img/sim-3-2.jpg');"></div>
+        <div class="sim-overlay">
+          3-2 Control por Resistencia del Rotor
+        </div>
+        <div class="sim-help">
+          Este simulador sirve para estudiar el control de potencia y par en aerogeneradores
+          mediante la variación de la resistencia del rotor, permitiendo explorar diferentes escenarios de operación.
+        </div>
+      </div>
+
+      <!-- 3-3 -->
+      <div class="sim-card" onclick="runAdfig('DFIG','Spanish')">
+        <div class="sim-image" style="background-image:url('img/sim-3-3.jpg');"></div>
+        <div class="sim-overlay">
+          3-3 Generador doblemente alimentado (DFIG)
+        </div>
+        <div class="sim-help">
+          Este simulador sirve para analizar un aerogenerador con generador doblemente alimentado (DFIG),
+          incluyendo estrategias de control vectorial y su interacción con la red.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPCIÓN 4: ANÁLISIS DEL TREN DE POTENCIA -->
+  <section id="opcion4">
+    <div class="section-header">
+      <h2>Analysis del Tren de Potencia</h2>
+      <p>
+        Programa para el estudio detallado del tren de potencia de un aerogenerador.
+      </p>
+    </div>
+
+    <div class="sub-card">
+      <h3>Lanzar herramienta de análisis del tren de potencia</h3>
+      <p>
+        Este programa le permite estudiar cada componente del tren de potencia (multiplicadora, eje, generador, etc.),
+        evaluando pérdidas, rendimientos y respuesta dinámica.
+      </p>
+      <div class="btn-row">
+        <button class="btn btn-primary" type="button"
+                onclick="runAfile(\'analisis_tren_potencia.bat\')">
+          ▶ Run herramienta
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPCIÓN 5: CÁLCULOS SOBRE BACK-TO-BACK CONVERTERS -->
+  <section id="opcion5">
+    <div class="section-header">
+      <h2>Cálculos sobre Back-to-Back converters</h2>
+      <p>
+        Herramienta de análisis y cálculo para convertidores Back-to-Back.
+      </p>
+    </div>
+
+    <div class="sub-card">
+      <h3>Lanzar herramienta de cálculo Back-to-Back</h3>
+      <p>
+        Este programa le permite analizar corrientes, tensiones, pérdidas y armónicos en convertidores
+        Back-to-Back, así como estudiar diferentes estrategias de control.
+      </p>
+      <div class="btn-row">
+        <button class="btn btn-primary" type="button"
+                onclick="runAfile(\'calculos_back_to_back.bat\')">
+          ▶ Run herramienta
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPCIÓN 6: VÍDEOS INTERESANTES -->
+  <section id="opcion6">
+    <div class="section-header">
+      <h2>Vídeos interesantes</h2>
+      <p>
+        Acceda a vídeos seleccionados sobre energía eólica y tecnología de aerogeneradores.
+      </p>
+    </div>
+
+    <div class="video-wrapper">
+      <h3>Vídeo 1: Introducción a la Energía Eólica</h3>
+      <p>
+        Subtítulo: Visión general de la generación de energía a partir del viento, componentes
+        principales de un aerogenerador y aspectos básicos de diseño.
+      </p>
+
+      <!-- Sustituye el src del iframe por el enlace concreto del vídeo -->
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Introducción a la Energía Eólica"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="btn-row" style="margin-top:0.9rem;">
+        <button class="btn btn-secondary" type="button"
+                onclick="abrirVideoEnVentana()">
+          ⧉ Abrir vídeo en nueva ventana
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="toast" class="toast"></div>
+
+<script>
+  // --- Navigation between "pages" (sections) ---
+  function showSection(id) {
+    document.querySelectorAll('main section').forEach(sec => {
+      sec.classList.toggle('active', sec.id === id);
+    });
+  }
+
+  // Click on landing cards
+  document.querySelectorAll('.card[data-target]').forEach(card => {
+    card.addEventListener('click', () => {
+      const target = card.getAttribute('data-target');
+      showSection(target);
+    });
+  });
+
+  // --- Small toast for status/errors ---
+  function showToast(msg, type = 'info') {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.style.background =
+      type === 'error' ? '#c0392b' :
+      type === 'success' ? '#00a878' : '#333';
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 3000);
+  }
+
+  // --- ACMSL custom protocol launchers ---
+  // NOTE: These functions build a custom URI and trigger the OS handler via window.location.href.
+
+  function _acmslEnc(s) {
+    // Replace spaces with %20 (keep other characters as-is, matching your command format)
+    return String(s ?? "").replace(/ /g, "%20");
+  }
+
+  function _toHex(str) {
+    // Two hex chars per character (00-FF), uppercase
+    let out = "";
+    const s = String(str ?? "");
+    for (let i = 0; i < s.length; i++) {
+      out += s.charCodeAt(i).toString(16).toUpperCase().padStart(2, "0");
+    }
+    return out;
+  }
+
+  function runAldp(param1, param2) {
+    const comando = "acmsl://ldp%20-c%20" + _acmslEnc(param1) + "%20-l%20" + _acmslEnc(param2);
+    window.location.href = comando;
+  }
+
+  function runAopercurv(param1) {
+    const comando = "acmsl://operationalcurvewt%20-v%20-name%20" + _acmslEnc(param1);
+    window.location.href = comando;
+  }
+
+  function runAdfig(param1, param2) {
+    // dfigb2b -v -name <param1> <param2>
+    const comando = "acmsl://dfigb2b%20-v%20-name%20" + _acmslEnc(param1) + "%20" + _acmslEnc(param2);
+    window.location.href = comando;
+  }
+
+  function runAviewer(param1) {
+    const comandoHex = _toHex(param1);
+    const comando = "acmsl://viewertutorial%20-h" + comandoHex;
+    window.location.href = comando;
+  }
+
+  function runAfile(param1) {
+    const comandoHex = _toHex(param1);
+    const comando = "acmsl://file%20-h" + comandoHex;
+    window.location.href = comando;
+  }
+
+  // Open existing SCADA guide (relative path)
+  function abrirGuiaSCADA() {
+    window.location.href = 'Guia_Simulator_WFS_SCADA_Parque_Eolico/index.html';
+  }
+
+  // Open video in a new window/tab
+  function abrirVideoEnVentana() {
+    const urlVideo = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'; // replace with your real URL
+    window.open(urlVideo, '_blank', 'noopener');
+  }
+</script>
+
+</body>
+</html>

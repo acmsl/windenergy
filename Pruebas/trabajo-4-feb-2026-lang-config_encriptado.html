@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
     <link rel="shortcut icon" type="image/png" href="img/ACM_LOGO.png" />
     <meta charset="UTF-8" />
-    <title>Wind Turbine Real-Time Simulators, Training & Engineering Tools</title>
+    <title>ooooWind Turbine Real-Time Simulators, Training & Engineering Tools</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       :root {
@@ -768,13 +768,13 @@
         <img src="img/ACM_LOGO.png" alt="Logo ACM" class="logo-acm" />
         <a href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer" class="acmsl-text">ACMSL</a>
         <div>
-          <h1 data-i18n="header.title">header.title</h1>
-          <p data-i18n="header.subtitle">header.subtitle</p>
+          <h1 data-i18n="header.title">Wind Turbine Real-Time Simulators, Training & Engineering Tools</h1>
+          <p>Reduce Training Costs and Strengthen Your Maintenance Workforce</p>
         </div>
       </div>
       <div class="search-wrap">
         <input id="searchInput" type="text" data-i18n-placeholder="search.placeholder" placeholder="Search…" autocomplete="off" />
-        <button id="searchBtn" class="btn btn-secondary" type="button" data-i18n="search.button">search.button</button>
+        <button id="searchBtn" class="btn btn-secondary" type="button" data-i18n="search.button">Search</button>
         <div id="searchSuggest" class="suggest" role="listbox" aria-label="Search suggestions"></div>
       </div>
       <div style="display:flex;align-items:center;gap:0.5rem">
@@ -783,10 +783,8 @@
           <option value="es">ES</option>
           <option value="fr">FR</option>
           <option value="it">IT</option>
-          <option value="de">DE</option>
-          <option value="pt">PT</option>
         </select>
-        <button class="home-btn" type="button" onclick="goHome()">🏠 <span data-i18n="home">home</span></button>
+        <button class="home-btn" type="button" onclick="goHome()">🏠 <span data-i18n="home">Home</span></button>
       </div>
     </header>
 
@@ -794,61 +792,61 @@
 
     <main>
       <!-- LANDING: 6 OPCIONES -->
-      <section id="landing" class="active" data-breadcrumb="Home1">
+      <section id="landing" class="active" data-breadcrumb="Home">
         <div class="section-header">
-          <h2 data-i18n="landing.title">Select a subject</h2>
-          <p data-i18n="landing.subtitle">Click on a subject to access the corresponding applications</p>
+          <h2>Select a subject</h2>
+          <p>Click on a subject to access the corresponding applications</p>
         </div>
 
         <div class="grid-6">
           <!-- 1. Introducción a la Energía Eólica -->
           <button class="card" type="button" data-target="concepts" data-keywords="wind energy,turbine concepts,energy generation, mind map">
             <div class="card-image" style="background-image:url('img/mindmaprecortado.png');"></div>
-            <div class="card-title" data-i18n="card.intro.title">card.intro.title</div>
+            <div class="card-title" data-i18n="card.intro.title">Introduction to Wind Turbines concepts</div>
           </button>
 
           <!-- 2. Wind Farms -->
           <button class="card" type="button" data-target="Wind Farm SCADA">
             <div class="card-image" style="background-image:url('img/ParqueEolico.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title2">card.grid.title2</div>
+            <div class="card-title">Electric Grid and Wind Farms concepts</div>
           </button>
 
           <!-- 3. Aerogeneradores en Parques Eólicos -->
           <button class="card" type="button" data-target="opcionSimuladores">
             <div class="card-image" style="background-image:url('img/vista-wt-reducida.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title3">card.grid.title3</div>
+            <div class="card-title">Access to Real-Time Wind Turbine Simulators</div>
           </button>
 
           <!-- 4. Analysis del Tren de Potencia (hover ayuda) -->
-          <button class="card help" type="button" data-target="opcOperCurve">
+          <button class="card help" type="button" data-target="opcion5">
             <div class="card-image" style="background-image:url('img/powervsrpms-reducido.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title4">card.grid.title4</div>
+            <div class="card-title">Drive Train analysis software</div>
             <div class="card-help-popup">
               <img src="img/OperCurveVarSpeedWTs.jpg" alt="Help image" />
-              <p data-i18n="card.grid.help4">Program for computing of the <strong>Operational Curve of Variable Speed Wind Turbines</strong> (DFIGs and Full Converter families).</p>
+              <p>Program for computing of the <strong>Operational Curve of Variable Speed Wind Turbines</strong> (DFIGs and Full Converter families).</p>
             </div>
           </button>
 
           <!-- 5. Cálculos sobre Back-to-Back converters (hover ayuda) -->
-          <button class="card help" type="button" data-target="opcDFIGB2B">
+          <button class="card help" type="button" data-target="opcion5">
             <div class="card-image" style="background-image:url('img/dfigradar.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title5">card.grid.title5</div>
+            <div class="card-title">Back-to-Back converters of DFIGs</div>
             <div class="card-help-popup">
               <img src="img/dfigb2b.png" alt="Help image" />
-              <p data-i18n="card.grid.help5">Program to compute the values of the magnetic and electric variables in the Asynchronous Induction Machine in <strong>DFIG Wind Turbines</strong>, assuming it is connected to a <strong>Power Electronics Back-to-Back converter</strong>.</p>
+              <p>Program to compute the values of the magnetic and electric variables in the Asynchronous Induction Machine in <strong>DFIG Wind Turbines</strong>, assuming it is connected to a <strong>Power Electronics Back-to-Back converter</strong>.</p>
             </div>
           </button>
 
           <!-- 6. Vídeos interesantes -->
           <button class="card" type="button" data-target="opcion6">
             <div class="card-image" style="background-image:url('img/CollageImagenesVideos-reducido.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title6">card.grid.title6</div>
+            <div class="card-title">Some significant Vídeos</div>
           </button>
 
           <!-- 7. Tutoriales -->
           <button class="card" type="button" data-target="opcionTutoriales">
             <div class="card-image" style="background-image:url('img/AccesoaTutoriales.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title7">card.grid.title7</div>
+            <div class="card-title">Access to the Tutorials</div>
           </button>
 
           <!-- 8. Guias y experimentos -->
@@ -863,7 +861,7 @@
       <section id="concepts">
         <div class="section-header">
           <h2 data-i18n="concepts.title">concepts.title</h2>
-          <p data-i18n="concepts.title.p"></p>
+          <p></p>
         </div>
 
         <div class="suboptions">
@@ -891,60 +889,60 @@
       <!-- OPCIÓN 7: Tutoriales -->
       <section id="opcionTutoriales" data-breadcrumb="Tutorials">
         <div class="section-header">
-          <h2 data-i18n="tutorials.directaccess.title">Direct access to the Tutorials</h2>
-          <p data-i18n="tutorials.directaccess.p">The Tutorials are a key component of the product line of ACM SL. They normally are associated to the Real-Time Simulators and Applications, and can be access from whitin them: here you can access them directly.</p>
+          <h2>Direct access to the Tutorials</h2>
+          <p>The Tutorials are a key component of the product line of ACM SL. They normally are associated to the Real-Time Simulators and Applications, and can be access from whitin them: here you can access them directly.</p>
         </div>
 
         <div class="suboptions one-per-row">
           <!-- Wind Farm Control Center -->
-          <div class="sub-card" id="tutorialSCADA">
-            <h3 data-i18n="tutorials.windfarm_scada.h3">Tutorial of the "Wind Farm Control Center/SCADA" Simulator</h3>
-            <p data-i18n="tutorials.windfarm_scada.p1">Learn about the Wind Farm components, the electric Substation, the SCADA control and its functionalities, the Meteorological Tower, the communications withe Wind Turbine, the relationship with the Transmission System Operator of the Grid.</p>
-            <p data-i18n="tutorials.windfarm_scada.p2">And about the main characteristics of the Electic Grid affecting the operation of the Wind Farm.</p>
+          <div class="sub-card">
+            <h3>Tutorial of the "Wind Farm Control Center/SCADA" Simulator</h3>
+            <p>Learn about the Wind Farm components, the electric Substation, the SCADA control and its functionalities, the Meteorological Tower, the communications withe Wind Turbine, the relationship with the Transmission System Operator of the Grid.</p>
+            <p>And about the main characteristics of the Electic Grid affecting the operation of the Wind Farm.</p>
             <div class="btn-row">
-              <button id="btnTutorialWFSCADA" class="btn btn-primary" type="button" data-i18n="tutorials.windfarm_scada.button">📖 Open the "Wind Farm Control Center/SCADA" Tutorial</button>
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html')">📖 Open the "Wind Farm Control Center/SCADA" Tutorial</button>
             </div>
           </div>
 
           <!-- DSAS WT -->
-          <div class="sub-card" >
-            <h3 data-i18n="tutorials.dsaswt.h3">Tutorial of the "Real-Time Dual Speed Active Stall WT Simulator"</h3>
-            <p data-i18n="tutorials.dsaswt.p1">In this tutorial you will find the description of:</p>
-            <p data-i18n="tutorials.dsaswt.p2">* the most common subsystems in a modern WT</p>
-            <p data-i18n="tutorials.dsaswt.p3">* the description of its working conditions</p>
-            <p data-i18n="tutorials.dsaswt.p4">* the basis of the asynchronous induction generator</p>
+          <div class="sub-card">
+            <h3>Tutorial of the "Real-Time Dual Speed Active Stall WT Simulator"</h3>
+            <p>In this tutorial you will find the description of:</p>
+            <p>* the most common subsystems in a modern WT</p>
+            <p>* the description of its working conditions</p>
+            <p>* the basis of the asynchronous induction generator</p>
             <div class="btn-row">
-              <button id="btnTutorialDSAS" class="btn btn-primary" type="button" data-i18n="tutorials.dsaswt.button">📖 Open the "Real-Time Dual Speed Active-Stall WT Simulator" Tutorial</button>
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\DSASWTSimulator\\Introduction.html')">📖 Open the "Real-Time Dual Speed Active-Stall WT Simulator" Tutorial</button>
             </div>
           </div>
 
           <!-- RRC WT -->
-          <div class="sub-card" id="tutorialRRC">
-            <h3 data-i18n="tutorials.rrcwt.h3">Tutorial of the "Real-Time Rotor Resistance Controlled WT Simulator"</h3>
-            <p data-i18n="tutorials.rrcwt.p1">This WT family constitutes an important step in the development of modern WTs, like DFIGs.</p>
-            <p data-i18n="tutorials.rrcwt.p2">It uses a common characteristic of the Asynchronous Induction Generators to solve the problem of using the Drive Train as an energy storage device to cope with the problems associated with wind gusts.</p>
+          <div class="sub-card">
+            <h3>Tutorial of the "Real-Time Rotor Resistance Controlled WT Simulator"</h3>
+            <p>This WT family constitutes an important step in the development of modern WTs, like DFIGs.</p>
+            <p>It uses a common characteristic of the Asynchronous Induction Generators to solve the problem of using the Drive Train as an energy storage device to cope with the problems associated with wind gusts.</p>
             <div class="btn-row">
-              <button id="btnTutorialRRC" class="btn btn-primary" type="button" data-i18n="tutorials.rrcwt.button">📖 Open the "Real-Time Rotor Resistance Controlled WT Simulator" Tutorial</button>
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\RRCWTSimulator\\Introduction.html')">📖 Open the "Real-Time Rotor Resistance Controlled WT Simulator" Tutorial</button>
             </div>
           </div>
 
           <!-- DFIG WT -->
-          <div class="sub-card" id="tutorialDFIG">
-            <h3 data-i18n="tutorials.dfigwt.h3">Tutorial of the "Real-Time Doubly-Fed Induction Generator WT Simulator"</h3>
-            <p data-i18n="tutorials.dfigwt.p1">This WT family constitutes the vast majority of the WTs installed on Wind Farms, world-wide.</p>
-            <p data-i18n="tutorials.dfigwt.p2">It is a complex production plant that exploit the capabilities of modern Power Electronics.</p>
+          <div class="sub-card">
+            <h3>Tutorial of the "Real-Time Doubly-Fed Induction Generator WT Simulator"</h3>
+            <p>This WT family constitutes the vast majority of the WTs installed on Wind Farms, world-wide.</p>
+            <p>It is a complex production plant that exploit the capabilities of modern Power Electronics.</p>
             <div class="btn-row">
-              <button id="btnTutorialDFIG" class="btn btn-primary" type="button" data-i18n="tutorials.dfigwt.button">📖 Open the "Real-Time Doubly-Fed Induction Generator WT Simulator" Tutorial</button>
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\DFIGWTSimulator\\Introduction.html')">📖 Open the "Real-Time Doubly-Fed Induction Generator WT Simulator" Tutorial</button>
             </div>
           </div>
 
           <!-- LdP WT -->
-          <div class="sub-card" id="tutorialLdP">
-            <h3 data-i18n="tutorials.ldpframework.h3">Tutorial of the "LdP framework"</h3>
-            <p data-i18n="tutorials.ldpframework.p1">All the Real-Time simulators of ACMSL are based on the framework <strong>LdP</strong>, developed by ACM SL, that poses unique functionalities for the development of Real-Time Simulators, that, in turn, are based on <strong>Digital Twins</strong></p>
-            <p data-i18n="tutorials.ldpframework.p2">In this tutorial you have a description of its characteristics.</p>
+          <div class="sub-card">
+            <h3>Tutorial of the "LdP framework"</h3>
+            <p>All the Real-Time simulators of ACMSL are based on the framework <strong>LdP</strong>, developed by ACM SL, that poses unique functionalities for the development of Real-Time Simulators, that, in turn, are based on <strong>Digital Twins</strong></p>
+            <p>In this tutorial you have a description of its characteristics.</p>
             <div class="btn-row">
-              <button id="btnTutorialLdP" class="btn btn-primary" type="button" data-i18n="tutorials.ldpframework.button"></button>
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\LdP_Help\\Introduction.html')">📖 Open the "Real-Time Doubly-Fed Induction Generator WT Simulator" Tutorial</button>
             </div>
           </div>
         </div>
@@ -952,7 +950,7 @@
 
       <section id="opcionGuiaWFSSCADA" data-breadcrumb="Guide SCADA">
         <div class="section-header">
-          <h2 data-i18n="scada.guide.title">Guided exploration of the Wind Farm Control Center/SCADA</h2>
+          <h2>Guided exploration of the Wind Farm Control Center/SCADA</h2>
         </div>
 
         <div class="suboptions one-per-row">
@@ -1003,8 +1001,8 @@
       <!-- OPCIÓN 8: Guias y experimentos -->
       <section id="opcionGuias" data-breadcrumb="Guides">
         <div class="section-header">
-          <h2 data-i18n="guided.learning.title">Access to Guided learning and suggested Experiments</h2>
-          <p data-i18n="guided.learning.p">You will find in this section sets of Guided tours around the Tutorials, as well as Suggested Experiments described in the Tutorials</p>
+          <h2>Access to Guided learning and suggested Experiments</h2>
+          <p>You will find in this section sets of Guided tours around the Tutorials, as well as Suggested Experiments described in the Tutorials</p>
         </div>
 
         <div class="suboptions">
@@ -1029,26 +1027,24 @@
       <!-- OPCIÓN 2: PARQUES EÓLICOS -->
       <section id="Wind Farm SCADA" data-breadcrumb="Wind Farm SCADA">
         <div class="section-header">
-          <h2 data-i18n="windfarms.title">The Wind Farms and the Electric Grid</h2>
-          <p data-i18n="windfarms.p">Wind farms serve as the fundamental production units, supplying their generated power directly to the Transmission Tetwork of the Electric Grid.</p>
+          <h2>The Wind Farms and the Electric Grid</h2>
+          <p>Wind farms serve as the fundamental production units, supplying their generated power directly to the Transmission Tetwork of the Electric Grid.</p>
         </div>
 
         <div class="suboptions">
           <div class="sub-card">
-            <h3 data-i18n="simulator.wfscada.h3">ACMSL "Wind Farm Control Center/SCADA" Simulator</h3>
-            <p data-i18n="simulator.wfscada.p">This simulator, together with its Tutorial, enables users to understand the Wind Farm components, their operational roles, and the way they interact with one another and with the Electric Grid.</p>
+            <h3>ACMSL "Wind Farm Control Center/SCADA" Simulator</h3>
+            <p>This simulator, together with its Tutorial, enables users to understand the Wind Farm components, their operational roles, and the way they interact with one another and with the Electric Grid.</p>
             <div class="btn-row">
               <button class="btn btn-primary" type="button" onclick="runAldp('WFSSCADAr12.conf','English')">▶ Run the "Wind Farm Control Center/SCADA" Simulator</button>
             </div>
           </div>
 
           <div class="sub-card">
-            <h3 data-i18n="tutorials.windfarm_scada.h3">Access to the "Wind Farm Control Center/SCADA" Simulator" Tutorial</h3>
-            <p data-i18n="tutorials.windfarm_scada.p1">While the Wind Farm Control Center/SCADA Simulator includes built‑in access to its tutorial, this option lets users open the tutorial separately, without launching the simulator itself.</p>
+            <h3>Access to the "Wind Farm Control Center/SCADA" Simulator" Tutorial</h3>
+            <p>While the Wind Farm Control Center/SCADA Simulator includes built‑in access to its tutorial, this option lets users open the tutorial separately, without launching the simulator itself.</p>
             <div class="btn-row">
-              <button id="btnTutorialWFSCADA"  class="btn btn-primary" type="button" data-i18n="tutorial.wfsscada.button">tutorial.wfsscada.button</button>
-            <!-- button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html')">📖 Open the "Wind Farm Control Center/SCADA" Simulator's Tutorial</button-->
-
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html')">📖 Open the "Wind Farm Control Center/SCADA" Simulator's Tutorial</button>
             </div>
           </div>
         </div>
@@ -1057,63 +1053,61 @@
       <!-- OPCIÓN 3: AEROGENERADORES EN PARQUES EÓLICOS -->
       <section id="opcionSimuladores" data-breadcrumb="Simulators">
         <div class="section-header">
-          <h2 data-i18n="turbinefamilies.title">Families of Wind Turbines in Wind Farms</h2>
-          <p data-i18n="turbinefamilies.p">You have a introductory presentation in <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C636F6E665C547261696E696E6720696E20496E647573747269616C2061737065637473206F662057696E6420456E657267795C57696E6454757262696E6546616D696C6965732E68746D6C" target="_blank" rel="noopener noreferrer">Families of Wind Turbines</a></p>
+          <h2>Families of Wind Turbines in Wind Farms</h2>
+          <p>You have a introductory presentation in <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C636F6E665C547261696E696E6720696E20496E647573747269616C2061737065637473206F662057696E6420456E657267795C57696E6454757262696E6546616D696C6965732E68746D6C" target="_blank" rel="noopener noreferrer">Families of Wind Turbines</a></p>
         </div>
 
         <div class="row-3">
-          <button id="btnSimuladorDSAS" class="card help" type="button" >
-          <!--button class="card help" type="button" onclick="runAldp('dsasr12.conf','English')"-->
+          <button class="card help" type="button" onclick="runAldp('dsasr12.conf','English')">
             <div class="card-image" style="background-image:url('img/hawt-generico-reducido.png');"></div>
-            <div class="card-title" data-i18n="simulator.dsaswt.title">For the Squirrel Cage generator, Active Stall Controlled, Dual Speed family of WTs</div>
+            <div class="card-title">For the Squirrel Cage generator, Active Stall Controlled, Dual Speed family of WTs</div>
             <div class="card-help-popup">
               <img src="img/hawt-generico.png" alt="Help image" />
-              <p data-i18n="simulator.dsaswt.p">Real-Time Simulator for the family of WTs with variable Pitch blades, and control using <strong>Active-Stall principle</strong>, and <strong>two operative Hub rotational speeds</strong>.</p>
+              <p>Real-Time Simulator for the family of WTs with variable Pitch blades, and control using <strong>Active-Stall principle</strong>, and <strong>two operative Hub rotational speeds</strong>.</p>
             </div>
           </button>
 
-          <!-- button class="card help" type="button" onclick="runAldp('rrcr12.conf','English')"-->
-          <button id="btnSimuladorRRC" class="card help" type="button" > <!--onclick="runAldp('rrcr12.conf','English')"-->
+          <button class="card help" type="button" onclick="runAldp('rrcr12.conf','English')">
             <div class="card-image" style="background-image:url('img/rrc-reducido.png');"></div>
-            <div class="card-title" data-i18n="simulator.rrcwt.title">For the Rotor Resistance Controlled family of WTs</div>
+            <div class="card-title">For the Rotor Resistance Controlled family of WTs</div>
             <div class="card-help-popup">
               <img src="img/rrc.png" alt="Help image" />
-              <p data-i18n="simulator.rrcwt.p">Real-Time Simulator for the family of WTs that implements control through two mechanism: the Blades Pitch and the <em>Winding Rotor Resistance of the asynchronous induction generator</em>.</p>
+              <p>Real-Time Simulator for the family of WTs that implements control through two mechanism: the Blades Pitch and the <strong>Winding Rotor Resistance of the asynchronous induction generator</strong>.</p>
             </div>
           </button>
 
-          <button id="btnSimuladorDFIG" class="card help" type="button" > <!--onclick="runAldp('dfigr12.conf','English')"-->
+          <button class="card help" type="button" onclick="runAldp('dfigr12.conf','English')">
             <div class="card-image" style="background-image:url('img/dfigr12.png');"></div>
-            <div class="card-title" data-i18n="simulator.dfigwt.title">For the Doubly-Fed Induction Generator (DFIG) family of WTs</div>
+            <div class="card-title">For the Doubly-Fed Induction Generator (DFIG)family of WTs</div>
             <div class="card-help-popup">
               <img src="img/dfigr12-normal.png" alt="Help image" />
-              <p data-i18n="simulator.dfigwt.p">Real-Time Simulator for the family of DFIG WTs including the simulation of the Power Electronics <strong>Back-to-Back converter</strong>.</p>
+              <p>Real-Time Simulator for the family of DFIG WTs including the simulation of the Power Electronics <strong>Back-to-Back converter</strong>.</p>
             </div>
           </button>
         </div>
       </section>
 
       <!-- OPCIÓN 4: ANÁLISIS DEL TREN DE POTENCIA -->
-      <section id="opcOperCurve" data-breadcrumb="Drive Train">
+      <section id="opcion4" data-breadcrumb="Drive Train">
         <div class="section-header">
-          <h2 data-i18n="drivetrain.title">On the Wind Turbine Drivetrain</h2>
-          <p data-i18n="drivetrain.p">Documentation about the Drive Train, and access to the tool for designing and for studiying its Operational Curve (<em>Blade rpms versus Wind Speed</em>)</p>
+          <h2>On the Wind Turbine Drivetrain</h2>
+          <p>Documentation about the Drive Train, and access to the tool for designing and for studiying its Operational Curve (<em>Blade rpms versus Wind Speed</em>)</p>
         </div>
 
         <div class="sub-card">
-          <h3 data-i18n="nrel.access.h3">Acces to the National Renewable Energy Laboratory (NREL) documentation</h3>
-          <p data-i18n="nrel.access.p1">NREL published in March 2008 this reference paper: <strong>"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Test - Part I: Control Design, Implementation, and Initial Tests"</strong>.</p>
-          <p data-i18n="nrel.access.p2">It contains the description of algorithms required for designing Drive Trains that extract the maximum power from the existing wind.</p>
+          <h3>Acces to the National Renewable Energy Laboratory (NREL) documentation</h3>
+          <p>NREL published in March 2008 this reference paper: <strong>"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Test - Part I: Control Design, Implementation, and Initial Tests"</strong>.</p>
+          <p>It contains the description of algorithms required for designing Drive Trains that extract the maximum power from the existing wind.</p>
           <div class="btn-row">
             <button class="btn btn-primary" type="button" onclick="runAfile('https://docs.nrel.gov/docs/fy08osti/42437.pdf')">📖 Acces to the paper</button>
           </div>
         </div>
 
         <div class="sub-card">
-          <h3 data-i18n="opcurve.h3">Operational Curve of Variable Speed Wind Turbines</h3>
-          <p data-i18n="opcurve.p1">To get the maxmimum power from the existing wind speed, a technique known as <strong>Maximum Power Point Tracking</strong> algorithm (or <strong>MPPT</strong>) Blades must rotated with a velocity proportional to the Wind Speed.</p>
-          <p data-i18n="opcurve.p2">This applications permits the evaluation of algorithms that must be implemented to achieve it.</p>
-          <p data-i18n="opcurve.p3">It is an engineering tool designed to analyze and define the operating conditions of a wind turbine DriveTrain based on blade type, blade length, and its coupling with the electrical generator, including synchronous speed and the selected gearbox ratio.</p>
+          <h3>Operational Curve of Variable Speed Wind Turbines</h3>
+          <p>To get the maxmimum power from the existing wind speed, a technique known as <strong>Maximum Power Point Tracking</strong> algorithm (or <strong>MPPT</strong>) Blades must rotated with a velocity proportional to the Wind Speed.</p>
+          <p>This applications permits the evaluation of algorithms that must be implemented to achieve it.</p>
+          <p>It is an engineering tool designed to analyze and define the operating conditions of a wind turbine DriveTrain based on blade type, blade length, and its coupling with the electrical generator, including synchronous speed and the selected gearbox ratio.</p>
           <div class="btn-row">
             <button class="btn btn-primary" type="button" onclick="runAopercurv('English')">▶ Execute 'Operational Curve of Variable Speed Wind Turbines'</button>
           </div>
@@ -1121,16 +1115,16 @@
       </section>
 
       <!-- OPCIÓN 5: CÁLCULOS SOBRE BACK-TO-BACK CONVERTERS -->
-      <section id="opcDFIGB2B" data-breadcrumb="Back-to-Back">
+      <section id="opcion5" data-breadcrumb="Back-to-Back">
         <div class="section-header">
-          <h2 data-i18n="b2b.title">Power Electronics Back-to-Back converters</h2>
-          <p data-i18n="b2b.p">Program to compute the demand on Back-to-Back converters when connected to a Asynchronous Induction Machine, in DFIG Wind Turbines.</p>
+          <h2>Power Electronics Back-to-Back converters</h2>
+          <p>Program to compute the demand on Back-to-Back converters when connected to a Asynchronous Induction Machine, in DFIG Wind Turbines.</p>
         </div>
 
         <div class="sub-card">
-          <h3 data-i18n="dfigb2b.h3">Run the application "DFIGB2B"</h3>
-          <p data-i18n="dfigb2b.p1">This program computes all the magnetic and electric variable on the Asynchronous Induction Machine used of the Doubly Fed Induction Generator family of Wind Turbine, and also the demand placed on the Back-to-&gt;Back converter. Ideal for post-morten analysis of these converters.</p>
-          <p data-i18n="dfigb2b.p2">This <a href="https://youtu.be/AfkW0Qvy8AI" target="_blank" rel="noopener noreferrer">video</a> contains a brief explanation.</p>
+          <h3>Run the application "DFIGB2B"</h3>
+          <p>This program computes all the magnetic and electric variable on the Asynchronous Induction Machine used of the Doubly Fed Induction Generator family of Wind Turbine, and also the demand placed on the Back-to-&gt;Back converter. Ideal for post-morten analysis of these converters.</p>
+          <p>This <a href="https://youtu.be/AfkW0Qvy8AI" target="_blank" rel="noopener noreferrer">video</a> contains a brief explanation.</p>
           <div class="btn-row">
             <button class="btn btn-primary" type="button" onclick="runAdfig('DFIGB2B','DFIGB2B_ABB_1500KW_50Hz.conf')">▶ Run DFIGB2B</button>
           </div>
@@ -1140,8 +1134,8 @@
       <!-- OPTION 6: INTERESTING VIDEOS -->
       <section id="opcion6" data-breadcrumb="Videos">
         <div class="section-header">
-          <h2 data-i18n="videos.title">Wind Turbine related videos</h2>
-          <p data-i18n="videos.p">Select a video to watch.</p>
+          <h2>Wind Turbine related videos</h2>
+          <p>Select a video to watch. Titles come from <code>Videos.txt</code>.</p>
         </div>
 
         <div id="videos-container" class="videos-grid"></div>
@@ -1156,7 +1150,7 @@
         { "keywords": ["yaw system", "yaw drive", "yaw motor"], "section": "Wind Farm SCADA" },
         { "keywords": ["active stall", "stall control", "pitchless"], "section": "opcion3" },
         { "keywords": ["scada", "wind farm scada", "supervisory control"], "section": "tutorials" },
-        { "keywords": ["gearbox", "planetary stage", "epicyclic"], "section": "opcOperCurve" }
+        { "keywords": ["gearbox", "planetary stage", "epicyclic"], "section": "opcion4" }
       ]
     </script>
 
@@ -1174,83 +1168,42 @@
       "breadcrumb.opcionTutoriales": "Tutorials",
       "breadcrumb.opcionGuias": "Guides",
       "breadcrumb.opcion6": "Videos",
-      "breadcrumb.opcOperCurve": "Tren de Potencia",
-      "breadcrumb.opcDFIGB2B": "Back-to-Back converter",
-      "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
-      "landing.title": "Selecciona un tema",
-      "landing.subtitle": "Haz clic en un tema para acceder a las aplicaciones correspondientes",
-      "card.intro.title": "Introducción a los conceptos de Aerogeneradores",
-      "card.grid.title2": "Conceptos de Red Eléctrica y Parques Eólicos",
-      "card.grid.title3": "Acceso a los Simuladores de Aerogeneradores en Tiempo Real",
-      "card.grid.title4": "Software de análisis del Tren de Potencia",
-      "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
-      "card.grid.title6": "Algunos vídeos significativos",
-      "card.grid.title7": "Acceso a los Tutoriales",
-      "card.grid.title8": "Aprendizaje guiado y experimentos sugeridos",
-      "concepts.title": "Introdución a conceptos de Energía Eólica",
-      "concepts.intro.mindmap": "Mapa mental con los conceptos clave en Energia Eólica",
-      "concepts.intro.family": "Introducción a las familias de Aerogeneradores y su evolución",
-      "concepts.intro.textbutton": "▶ Visualizar el Tutorial",
-      "concepts.intro.mindmap.button": "▶ Abre el Mapa Mental",
-      "tutorial.family.path": "Tutorials/WindTurbineFamilies.html",
-      "mindmap.windenergy.path": "Tutorials/WindEnergyMindMap.html",
-      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
-      "tutorial.dsas.path": "Tutorials/DSAS.html",
-      "tutorial.rrc.path": "Tutorials/RRC.html",
-      "tutorial.dfig.path": "Tutorials/DFIG.html",
-      "languagename": "English",
-      "simuladorDFIG.50hz": "dfigr12_50hz.conf",
-      "simuladorDFIG.60hz": "dfigr12_60hz.conf",
-      "dfig.modal.question": "Which version do you want to run?",
-      "dfig.modal.50hz": "50Hz",
-      "dfig.modal.60hz": "60Hz"
+      "card.intro.title": "Introduction to Wind Turbines concepts"
     }
     </script>
     <script id="i18n-es" type="application/json">
     {
       "header.title": "Simuladores y Herramientas de Aerogeneradores en Tiempo Real",
-      "header.subtitle": "Reduce los costes de formación y refuerza tu equipo de mantenimiento",
-      "search.placeholder": "Buscar…",
-      "search.button": "Buscar",
-      "home": "Inicio",
-      "breadcrumb.landing": "Inicio",
-      "breadcrumb.concepts": "Conceptos de Energía Eólica",
-      "breadcrumb.Wind Farm SCADA": "Parque Eólico SCADA",
-      "breadcrumb.opcionSimuladores": "Simuladores",
-      "breadcrumb.opcionTutoriales": "Tutoriales",
-      "breadcrumb.opcionGuias": "Guias",
-      "breadcrumb.opcion6": "Vídeos",
-      "breadcrumb.opcOperCurve": "Tren de Potencia",
-      "breadcrumb.opcDFIGB2B": "Back-to-Back converter",
-      "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
-      "landing.title": "Selecciona un tema",
-      "landing.subtitle": "Haz clic en un tema para acceder a las aplicaciones correspondientes",
-      "card.intro.title": "Introducción a los conceptos de Aerogeneradores",
-      "card.grid.title2": "Conceptos de Red Eléctrica y Parques Eólicos",
-      "card.grid.title3": "Acceso a los Simuladores de Aerogeneradores en Tiempo Real",
-      "card.grid.title4": "Software de análisis del Tren de Potencia",
-      "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
-      "card.grid.title6": "Algunos vídeos significativos",
-      "card.grid.title7": "Acceso a los Tutoriales",
-      "card.grid.title8": "Aprendizaje guiado y experimentos sugeridos",
-      "concepts.title": "Introdución a conceptos de Energía Eólica",
-      "concepts.intro.mindmap": "Mapa mental con los conceptos clave en Energia Eólica",
-      "concepts.intro.family": "Introducción a las familias de Aerogeneradores y su evolución",
-      "concepts.intro.textbutton": "▶ Visualizar el Tutorial",
-      "concepts.intro.mindmap.button": "▶ Abre el Mapa Mental",
-      "tutorial.family.path": "Tutoriales/FamiliasAerogeneradores.html",
-      "mindmap.windenergy.path": "Tutoriales/MapaMentalEnergiaEolica.html",
-      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
-      "tutorial.dsas.path": "Tutoriales/DSAS.html",
-      "tutorial.rrc.path": "Tutoriales/RRC.html",
-      "tutorial.dfig.path": "Tutoriales/DFIG.html",
-      "languagename": "Español",
-      "simuladorDFIG.50hz": "dfigr12_50hz.conf",
-      "simuladorDFIG.60hz": "dfigr12_60hz.conf",
-      "dfig.modal.question": "¿Qué versión desea ejecutar?",
-      "dfig.modal.50hz": "50Hz",
-      "dfig.modal.60hz": "60Hz"
-    }
+  "header.subtitle": "Reduce los costes de formación y refuerza tu equipo de mantenimiento",
+  "search.placeholder": "Buscar…",
+  "search.button": "Buscar",
+  "home": "Inicio",
+  "breadcrumb.landing": "Inicio",
+  "breadcrumb.concepts": "Conceptos de Energía Eólica",
+  "breadcrumb.Wind Farm SCADA": "Parque Eólico SCADA",
+  "breadcrumb.opcionSimuladores": "Simuladores",
+  "breadcrumb.opcionTutoriales": "Tutoriales",
+  "breadcrumb.opcionGuias": "Guías",
+  "breadcrumb.opcion6": "Vídeos",
+  "breadcrumb.opcion4": "Tren de Potencia",
+  "breadcrumb.opcion5": "Back-to-Back converter",
+  "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
+  "landing.title": "Selecciona un tema",
+  "landing.subtitle": "Haz clic en un tema para acceder a las aplicaciones correspondientes",
+  "card.intro.title": "Introducción a los conceptos de Aerogeneradores",
+  "card.grid.title2": "Conceptos de Red Eléctrica y Parques Eólicos",
+  "card.grid.title3": "Acceso a los Simuladores de Aerogeneradores en Tiempo Real",
+  "card.grid.title4": "Software de análisis del Tren de Potencia",
+  "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
+  "card.grid.title6": "Algunos vídeos significativos",
+  "card.grid.title7": "Acceso a los Tutoriales",
+  "card.grid.title8": "Aprendizaje guiado y experimentos sugeridos",
+  "concepts.title": "Introdución a conceptos de Energía Eólica",
+  "concepts.intro.mindmap": "Mapa mental con los conceptos clave en Energia Eólica",
+  "concepts.intro.family": "Introducción a las familias de Aerogeneradores y su evolución",
+  "concepts.intro.textbutton": "▶ Visualizar el Tutorial",
+  "concepts.intro.mindmap.button": "▶ Abre el Mapa Mental"    }
+    </script>
 
     <!-- Embedded videos catalog (Option C: offline, no fetch). Replace the contents with your Videos.txt XML -->
     <script id="videosXml" type="text/plain">
@@ -1444,7 +1397,7 @@
       function getUrlLangParam() {
         const params = new URLSearchParams(window.location.search);
         const lang = params.get('lang');
-        if (lang && ['en','es','fr','it','de','pt'].includes(lang.toLowerCase())) {
+        if (lang && ['en','es','fr','it'].includes(lang.toLowerCase())) {
           return lang.toLowerCase();
         }
         return null;
@@ -1457,7 +1410,6 @@
  */
 function setActionButton(btnId, fn, i18nPathKeys) {
   const btn = document.getElementById(btnId);
-  
   if (!btn) return;
   btn.onclick = function() {
     if (fn === 'runAviewer') {
@@ -1473,97 +1425,17 @@ function setActionButton(btnId, fn, i18nPathKeys) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Obtener idioma actual
-  let lang = (localStorage.getItem('lang') || (navigator.language||'en').split('-')[0] || 'en').toLowerCase();
-  if (!['es','en','fr','it','de','pt'].includes(lang)) lang = 'en';
+  setActionButton('btnTutorialFamily', 'runAfile', 'tutorial.family.path');
 
-  // Función para obtener la traducción de una clave i18n
-  function t(key) {
-    let dict = {};
-    try {
-      const script = document.getElementById('i18n-' + lang);
-      if (script) dict = JSON.parse(script.textContent);
-    } catch (e) {}
-    return dict[key] || key;
-  }
+  setActionButton('btnMindMap', 'runAfile', 'mindmap.windenergy.path');
 
-  setActionButton('btnTutorialFamily', 'runAfile', t('tutorial.family.path'));
-  setActionButton('btnMindMap', 'runAfile', t('mindmap.windenergy.path'));
+  setActionButton('btnTutorialWFSCADA', 'runAviewer', 'tutorial.wfscada.path');
 
-  setActionButton('btnTutorialWFSCADA', 'runAviewer', t('tutorial.wfscada.path'));
-  setActionButton('btnTutorialDSAS', 'runAviewer', t('tutorial.dsaswt.path'));
-  setActionButton('btnTutorialRRC', 'runAviewer', t('tutorial.rrcwt.path'));
-  setActionButton('btnTutorialDFIG', 'runAviewer', t('tutorial.dfigwt.path'));
+  setActionButton('btnTutorialDSAS', 'runAviewer', 'tutorial.dsas.path');
 
-    setActionButton('btnSimuladorDSAS', 'runAldp', ['simuladorDSAS.configuracion', 'languagename']);
-    setActionButton('btnSimuladorRRC', 'runAldp', ['simuladorRRC.configuracion', 'languagename']);
-  // Modal personalizado para DFIG
-  function ensureDFIGModal() {
-    if (document.getElementById('modalDFIG')) return;
-    const modal = document.createElement('div');
-    modal.id = 'modalDFIG';
-    modal.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.35);display:flex;align-items:center;justify-content:center;z-index:9999;';
-    modal.innerHTML = `
-      <div style="background:#fff;padding:2rem 1.5rem;border-radius:12px;box-shadow:0 8px 32px #0002;min-width:260px;max-width:90vw;text-align:center;">
-        <div id="modalDFIGMsg" data-i18n="dfig.modal.question" style="margin-bottom:1.2rem;font-size:1.1rem;"></div>
-        <div style="display:flex;gap:1.5rem;justify-content:center;">
-          <button id="btnDFIG50" class="btn btn-primary" style="min-width:80px;">50Hz</button>
-          <button id="btnDFIG60" class="btn btn-secondary" style="min-width:80px;">60Hz</button>
-        </div>
-        <button id="btnDFIGCancel" class="btn btn-ghost" style="margin-top:1.5rem;">&times; <span data-i18n="dfig.modal.cancel">Cancel</span></button>
-      </div>
-    `;
-    modal.style.display = 'none';
-    document.body.appendChild(modal);
-  }
+  setActionButton('btnTutorialRRC', 'runAviewer', 'tutorial.rrc.path');
 
-  function showDFIGModal(onSelect) {
-    ensureDFIGModal();
-    const modal = document.getElementById('modalDFIG');
-    modal.style.display = 'flex';
-    // Traducir textos
-    let lang = (localStorage.getItem('lang') || (navigator.language||'en').split('-')[0] || 'en').toLowerCase();
-    if (!['es','en','fr','it','de','pt'].includes(lang)) lang = 'en';
-    let dict = {};
-    try {
-      const script = document.getElementById('i18n-' + lang);
-      if (script) dict = JSON.parse(script.textContent);
-    } catch (e) {}
-    document.getElementById('modalDFIGMsg').textContent = dict['dfig.modal.question'] || 'Which version do you want to run?';
-    document.querySelector('#btnDFIG50').textContent = dict['dfig.modal.50hz'] || '50Hz';
-    document.querySelector('#btnDFIG60').textContent = dict['dfig.modal.60hz'] || '60Hz';
-    document.querySelector('#btnDFIGCancel span').textContent = dict['cancel'] || 'Cancel';
-    // Asignar eventos
-    document.getElementById('btnDFIG50').onclick = function() { modal.style.display = 'none'; onSelect('50hz'); };
-    document.getElementById('btnDFIG60').onclick = function() { modal.style.display = 'none'; onSelect('60hz'); };
-    document.getElementById('btnDFIGCancel').onclick = function() { modal.style.display = 'none'; };
-  }
-
-  const btnDFIG = document.getElementById('btnSimuladorDFIG');
-  if (btnDFIG) {
-    btnDFIG.onclick = function() {
-      showDFIGModal(function(freq) {
-        let lang = (localStorage.getItem('lang') || (navigator.language||'en').split('-')[0] || 'en').toLowerCase();
-        if (!['es','en','fr','it','de','pt'].includes(lang)) lang = 'en';
-        let dict = {};
-        try {
-          const script = document.getElementById('i18n-' + lang);
-          //alert("Hola - Script element for language: " + lang + "\\n" + script.textContent);
-          if (script) dict = JSON.parse(script.textContent);
-        } catch (e) {}
-
-        // El primer parámetro es siempre 'dfigr12_50hz' o 'dfigr12_60hz'
-        const confValue = (freq === '50hz') ? 'dfigr12_50hz.conf' : 'dfigr12_60hz.conf';
-        const langNames = { en: 'English', es: 'Spanish', fr: 'French', it: 'Italian', de: 'German', pt: 'Portuguese' };
-        let idiomaValue = dict['languagename'];
-        if (!idiomaValue) idiomaValue = langNames[lang] || lang;
-        alert ("Idioma: " + idiomaValue);
-        runAldp(confValue, idiomaValue);
-      });
-    };
-  }
-
-  setActionButton('btnTutorialLdP', 'runAviewer', t('tutorial.ldpframework.path'));
+  setActionButton('btnTutorialDFIG', 'runAviewer', 'tutorial.dfig.path');
 });
       
     </script>
@@ -1573,7 +1445,6 @@ document.addEventListener('DOMContentLoaded', function() {
       let _currentSection = "landing";
 
       function showSection(id, pushHistory = true) {
-
         document.querySelectorAll('section').forEach(sec => {
           if (sec.id === id) {
             sec.classList.add('active');
@@ -1581,10 +1452,6 @@ document.addEventListener('DOMContentLoaded', function() {
             sec.classList.remove('active');
           }
         });
-        // Llamar a initVideosOnce si es la sección de videos
-        if (id === 'opcion6' && typeof initVideosOnce === 'function') {
-          initVideosOnce();
-        }
 
         if (pushHistory && id !== _currentSection) {
           _navStack.push(_currentSection);
@@ -1714,7 +1581,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function runAldp(param1, param2) {
         const comando = "acmsl://ldp%20-c%20" + _acmslEnc(param1) + "%20-l%20" + _acmslEnc(param2);
-        alert("Executing command:\n" + comando);
         window.location.href = comando;
       }
 
@@ -1748,26 +1614,9 @@ document.addEventListener('DOMContentLoaded', function() {
       function _extractYouTubeId(url) {
         try {
           const u = new URL(url);
-          // youtu.be short links
-          if (u.hostname.includes('youtu.be')) {
-            // Remove leading slash
-            return u.pathname.replace(/^\//, '');
-          }
-          // youtube.com links
-          if (u.hostname.includes('youtube.com')) {
-            // Standard watch?v=ID
-            if (u.searchParams.has('v')) return u.searchParams.get('v');
-            // Shorts: /shorts/ID
-            const shortsMatch = u.pathname.match(/\/shorts\/([\w-]+)/);
-            if (shortsMatch) return shortsMatch[1];
-            // Embed: /embed/ID
-            const embedMatch = u.pathname.match(/\/embed\/([\w-]+)/);
-            if (embedMatch) return embedMatch[1];
-          }
+          if (u.hostname.includes('youtu.be')) return u.pathname.replace('/', '');
+          if (u.hostname.includes('youtube.com')) return u.searchParams.get('v');
         } catch (e) {}
-        // Fallback: try to extract ID from URL string
-        const idMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
-        if (idMatch) return idMatch[1];
         return null;
       }
 
@@ -1792,10 +1641,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Detectar idioma
         let lang = (localStorage.getItem('lang') || (navigator.language||'en').split('-')[0] || 'en').toLowerCase();
-        // Soportar cualquier idioma disponible, fallback a 'en' si no existe el fichero
-        const supportedLangs = ['en','es','fr','it','de','pt'];
-        if (!supportedLangs.includes(lang)) lang = 'en';
-        const xmlUrl = `configurations/videos/videos-${lang}.xml`;
+        if (lang !== 'es' && lang !== 'en') lang = 'en';
+        const xmlUrl = `videos-${lang}.xml`;
         let xmlText = '';
         let loadedExternally = false;
         try {
@@ -1859,36 +1706,32 @@ document.addEventListener('DOMContentLoaded', function() {
           const thumb = document.createElement('div');
           thumb.className = 'video-thumb';
           thumb.title = 'Open video';
-          const img = document.createElement('img');
-          img.alt = title || 'Video thumbnail';
-          img.src = imgAlternativa ? imgAlternativa : _thumbFromUrl(exec);
-          thumb.appendChild(img);
-          thumb.addEventListener('click', () => openVideo(title, exec));
-          card.appendChild(thumb);
+          if (imgAlternativa) thumb.innerHTML = '<img alt="" src="' + imgAlternativa + '">';
+          else thumb.innerHTML = '<img alt="" src="' + _thumbFromUrl(exec) + '">';
+          thumb.addEventListener('click', () => window.open(exec, '_blank', 'noopener'));
           const content = document.createElement('div');
           content.className = 'video-content';
-          const titleDiv = document.createElement('div');
-          titleDiv.className = 'video-title';
-          titleDiv.textContent = title;
-          content.appendChild(titleDiv);
+          const t = document.createElement('div');
+          t.className = 'video-title';
+          t.textContent = title;
           const buttons = document.createElement('div');
           buttons.className = 'video-buttons';
           const openBtn = document.createElement('button');
           openBtn.className = 'btn btn-primary';
           openBtn.type = 'button';
-          openBtn.textContent = '▶ ' + t('open');
-          openBtn.setAttribute('data-i18n', 'open');
-          openBtn.addEventListener('click', () => openVideo(title, exec));
+          openBtn.textContent = '▶ Open';
+          openBtn.addEventListener('click', () => window.open(exec, '_blank', 'noopener'));
           const helpBtn = document.createElement('button');
           helpBtn.className = 'btn help-btn';
           helpBtn.type = 'button';
-          helpBtn.textContent = 'ℹ ' + t('help');
-          helpBtn.setAttribute('data-i18n', 'help');
+          helpBtn.textContent = 'ℹ Help';
           helpBtn.disabled = !helpHtml;
           helpBtn.addEventListener('click', () => openHelpModal(title, helpHtml));
           buttons.appendChild(openBtn);
           buttons.appendChild(helpBtn);
+          content.appendChild(t);
           content.appendChild(buttons);
+          card.appendChild(thumb);
           card.appendChild(content);
           container.appendChild(card);
         });
@@ -2177,7 +2020,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       async function loadTranslations(lang){
         try{
-          const res = await fetch('configurations/i18n/' + lang + '.json');
+          const res = await fetch('i18n/' + lang + '.json');
           if(res.ok){
             __translations = await res.json();
             console.log('Loaded i18n from file:', lang);
@@ -2273,7 +2116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Añadir CryptoJS si no está
         if (typeof CryptoJS === 'undefined') {
           const script = document.createElement('script');
-          script.src = 'libs/crypto-js.min.js';
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
           document.head.appendChild(script);
           await new Promise(resolve => { script.onload = resolve; });
         }
@@ -2283,9 +2126,9 @@ document.addEventListener('DOMContentLoaded', function() {
         let clConfig = null;
         const passphrase = 'clave_fija_segura'; // Cambia esto por tu clave real
         async function fetchConfig(cl) {
-          // Intenta primero el archivo encriptado en 'configurations/'
+          // Intenta primero el archivo encriptado
           try {
-            const encRes = await fetch('configurations/' + cl + '.enc');
+            const encRes = await fetch(cl + '.enc');
             if (encRes.ok) {
               const encryptedText = await encRes.text();
               const decrypted = CryptoJS.AES.decrypt(encryptedText, passphrase);
@@ -2294,8 +2137,8 @@ document.addEventListener('DOMContentLoaded', function() {
               return JSON.parse(jsonStr);
             }
           } catch (e) { /* Si falla, sigue con el JSON normal */ }
-          // Si no existe el .enc, usa el .json en 'configurations/'
-          const res = await fetch('configurations/' + cl + '.json');
+          // Si no existe el .enc, usa el .json
+          const res = await fetch(cl + '.json');
           if (res.ok) return await res.json();
           throw new Error('No se pudo cargar el archivo de configuración');
         }
@@ -2304,24 +2147,6 @@ document.addEventListener('DOMContentLoaded', function() {
           try {
             clConfig = await fetchConfig(cl);
             renderLandingButtons(clConfig);
-            // Si el config tiene 'langs', reconstruir el selector solo con esos idiomas
-            if (clConfig.langs && Array.isArray(clConfig.langs) && clConfig.langs.length > 0) {
-              const sel = document.getElementById('langSelect');
-              if (sel) {
-                sel.innerHTML = '';
-                clConfig.langs.forEach(lang => {
-                  const langOpt = document.createElement('option');
-                  langOpt.value = lang.toLowerCase();
-                  langOpt.textContent = lang.toUpperCase();
-                  sel.appendChild(langOpt);
-                });
-                sel.style.display = '';
-                // Seleccionar el idioma por defecto
-                const defLang = clConfig.defaultLang ? clConfig.defaultLang.toLowerCase() : clConfig.langs[0].toLowerCase();
-                sel.value = defLang;
-                await setLang(defLang);
-              }
-            }
             // Guardar header personalizado en variables globales
             let customTitle = null, customSubtitle = null;
             if (clConfig.header && clConfig.header.title) {
@@ -2354,15 +2179,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const urlLang = getUrlLangParam();
         let langToUse = urlLang || localStorage.getItem('lang') || (navigator.language||'en').split('-')[0];
         langToUse = langToUse.toLowerCase();
-        // Solo cargar traducciones si no se ha cargado un idioma por config
-        if (!cl || !clConfig || !clConfig.lang) {
-          if (urlLang && sel) {
-            sel.style.display = 'none'; // Oculta el selector si hay lang en la URL
-          } else if (sel) {
-            sel.value = langToUse;
-          }
-          await loadTranslations(langToUse);
+        if (urlLang && sel) {
+          sel.style.display = 'none'; // Oculta el selector si hay lang en la URL
+        } else if (sel) {
+          sel.value = langToUse;
         }
+        await loadTranslations(langToUse);
         if(sel && !urlLang) sel.addEventListener('change', e => setLang(e.target.value));
       });
     </script>

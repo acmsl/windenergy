@@ -1,0 +1,1 @@
+start "" "C:\ACMSL\ACM SL Wind Energy Applications\English\files\Training in Industrial aspects of Wind Energy.mm"

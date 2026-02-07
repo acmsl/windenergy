@@ -1,5 +1,6 @@
 {
-  "lang": "fr",
+  "langs": ["fr", "en"],
+  "defaultLang": "fr",
   "header.title": "Simuladores MHN personalizados",
   "header.subtitle": "Cette installation est personnalisée pour MHN.",
   "buttons": [
