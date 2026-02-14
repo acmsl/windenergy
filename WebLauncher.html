@@ -1238,7 +1238,7 @@
       "concepts.intro.family": "Introducción a las familias de Aerogeneradores y su evolución",
       "concepts.intro.textbutton": "▶ Visualizar el Tutorial",
       "concepts.intro.mindmap.button": "▶ Abre el Mapa Mental",
-      "tutorial.family.path": "Tutoriales/FamiliasAerogeneradores.html",
+      "tutorial.family.path": "utToriales/FamiliasAerogeneradores.html",
       "mindmap.windenergy.path": "Tutoriales/MapaMentalEnergiaEolica.html",
       "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
       "tutorial.dsas.path": "Tutoriales/DSAS.html",
@@ -1736,7 +1736,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function runAfile(param1) {
         const comandoHex = _toHex(param1);
-        const comando = "acmsl://file%20-h" + comandoHex;
+        //const comando = "acmsl://file%20-h" + comandoHex;
+        const comando = "acmsl://file%20" + "\"" +param1 +"\"";
+        alert("Executing file param1:\n" + param1 + "\n\nFull command:\n" + comando);
         window.location.href = comando;
       }
 
