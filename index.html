@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
+    <link rel="shortcut icon" type="image/png" href="img/ACM_LOGO.png" />
+    <meta charset="UTF-8" />
+    <title>Wind Turbine Real-Time Simulators, Training & Engineering Tools | ACMSL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Real-time wind turbine simulators for training, engineering tools for DFIG, Active Stall, and Rotor Resistance Controlled wind turbines. Free evaluation available." />
+    <meta name="keywords" content="wind turbine simulator, DFIG, wind energy training, SCADA, wind farm, real-time simulator, back-to-back converter, drive train, wind turbine families" />
+    <meta property="og:title" content="Wind Turbine Real-Time Simulators & Training Tools" />
+    <meta property="og:description" content="Professional real-time simulators for wind turbine training and engineering. Covers DFIG, Active Stall, RRC families. Free 2-day evaluation." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://acmsl.github.io/launcher/" />
+    <style>
+      :root {
+        --primary: #006699;
+        --primary-light: #e3f4ff;
+        --dark: #123047;
+        --bg: #f5f7fb;
+        --card-bg: #ffffff;
+        --accent: #00a878;
+        --danger: #c0392b;
+        --radius: 12px;
+        --shadow: 0 10px 25px rgba(0,0,0,0.08);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--dark);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), #0099cc);
+        color: white;
+        padding: 1.25rem 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        flex-wrap: wrap;
+      }
+
+      header h1 {
+        font-size: 1.4rem;
+        font-weight: 600;
+      }
+
+      header p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      .header-left {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+      }
+
+      .logo-acm {
+        height: 37px;
+        width: auto;
+        display: block;
+      }
+
+      .acmsl-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-decoration: none;
+        letter-spacing: 0.06em;
+      }
+
+      .acmsl-text:hover {
+        text-decoration: underline;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .home-btn, .web-btn {
+        border: none;
+        background: rgba(255,255,255,0.12);
+        color: white;
+        padding: 0.6rem 1rem;
+        border-radius: 999px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        transition: background 0.2s, transform 0.1s;
+        text-decoration: none;
+      }
+
+      .home-btn:hover, .web-btn:hover {
+        background: rgba(255,255,255,0.25);
+        transform: translateY(-1px);
+      }
+
+      .web-btn {
+        background: rgba(255,255,255,0.22);
+        font-weight: 600;
+        border: 1px solid rgba(255,255,255,0.4);
+      }
+
+      .breadcrumb {
+        position: sticky;
+        top: 5rem;
+        background: var(--bg);
+        padding: 0.25rem 2rem;
+        font-size: 0.75rem;
+        color: #666;
+        font-style: italic;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        z-index: 100;
+        line-height: 1.2;
+      }
+
+      .bc-link {
+        color: var(--primary);
+        cursor: pointer;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .bc-link:hover {
+        color: #005580;
+        text-decoration: underline;
+      }
+
+      .bc-current {
+        color: var(--dark);
+        font-weight: 500;
+      }
+
+      main {
+        flex: 1;
+        max-width: 1100px;
+        margin: 1.5rem auto 2rem;
+        padding: 0 1rem;
+        width: 100%;
+      }
+
+      section {
+        display: none;
+        animation: fadeIn 0.25s ease-out;
+      }
+
+      section.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+
+      .section-header {
+        margin-bottom: 1.5rem;
+        z-index: 5;
+      }
+
+      .section-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.3rem;
+        color: var(--dark);
+      }
+
+      .section-header p {
+        font-size: 0.95rem;
+        color: #4a5a6a;
+      }
+
+      /* GRID LANDING */
+      .grid-6 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+        gap: 1.25rem;
+      }
+
+      .card {
+        position: relative;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 0;
+        border: none;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        min-height: 180px;
+        transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+      }
+
+      .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+        z-index: 12000;
+      }
+
+      .card-image {
+        flex: 1;
+        min-height: 200px;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.85);
+        transition: filter 0.2s ease-out, opacity 0.2s ease-out;
+        z-index: 10;
+      }
+
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+      }
+
+      .card-title {
+        color: black;
+        font-weight: 600;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        font-size: 1.05rem;
+      }
+
+      /* HELP TEXT ON HOVER */
+      .card-help-text {
+        position: absolute;
+        inset: 0;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: var(--primary-light);
+        color: var(--dark);
+        font-size: 0.95rem;
+        font-weight: 500;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-out;
+      }
+
+      .card.help:hover .card-image,
+      .card.help:hover .card-overlay {
+        opacity: 0.5;
+        z-index: 10;
+      }
+
+      .card.help:hover .card-help-text {
+        opacity: 1;
+      }
+
+      .card.help:hover::before{
+        content:"";
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.35);
+        z-index: 10010;
+      }
+
+      .card-help-popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 600px;
+        max-width: 90vw;
+        max-height: 85vh;
+        overflow: auto;
+        padding: 12px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-top: 4px solid #005F9E;
+        border-radius: 6px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        z-index: 10060;
+      }
+
+      .card.help:hover .card-help-popup {
+        display: block;
+      }
+
+      .card-help-popup img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        margin-bottom: 8px;
+      }
+
+      .card-help-popup p {
+        margin: 0;
+        font-size: 0.9rem;
+        line-height: 1.3;
+      }
+
+      .grid-container {
+        isolation: isolate;
+      }
+
+      /* SUBOPCIONES */
+      .suboptions {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+        gap: 1.25rem;
+      }
+
+      .sub-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 1.1rem 1.2rem;
+        box-shadow: var(--shadow);
+        border-left: 4px solid var(--primary);
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+
+      .sub-card h3 {
+        font-size: 1.02rem;
+        color: var(--dark);
+      }
+
+      .sub-card p {
+        font-size: 0.9rem;
+        color: #4a5a6a;
+        flex: 1;
+      }
+
+      .btn-row {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .btn {
+        border-radius: 999px;
+        border: none;
+        padding: 0.5rem 0.9rem;
+        font-size: 0.9rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: background 0.15s, transform 0.1s, box-shadow 0.1s;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        text-decoration: none;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #005580;
+        transform: translateY(-1px);
+      }
+
+      .btn-accent {
+        background: var(--accent);
+        color: white;
+      }
+
+      .btn-accent:hover {
+        background: #008a60;
+        transform: translateY(-1px);
+      }
+
+      .btn-secondary {
+        background: #ecf1f8;
+        color: var(--dark);
+      }
+
+      .btn-secondary:hover {
+        background: #dde5f2;
+        transform: translateY(-1px);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        border: 1px solid #c4cfdd;
+        box-shadow: none;
+      }
+
+      .btn-ghost:hover {
+        background: #edf1f8;
+      }
+
+      /* 3-COLUMN GRID */
+      .row-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        gap: 1.25rem;
+      }
+
+      .one-per-row {
+        grid-template-columns: 1fr !important;
+      }
+
+      @media (max-width: 900px) {
+        .row-3 {
+          grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+        }
+      }
+
+      .sim-card {
+        position: relative;
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        overflow: visible;
+        min-height: 190px;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.12s, box-shadow 0.12s;
+      }
+
+      .sim-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      }
+
+      .sim-image {
+        flex: 1;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.85);
+        transition: opacity 0.2s ease-out;
+      }
+
+      .sim-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 0.9rem;
+        background: linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0.1));
+        color: white;
+        font-weight: 600;
+        text-align: center;
+        font-size: 0.98rem;
+      }
+
+      .sim-help {
+        position: absolute;
+        inset: 0;
+        padding: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: var(--primary-light);
+        color: var(--dark);
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+        font-size: 0.93rem;
+        font-weight: 500;
+      }
+
+      .sim-card:hover .sim-image,
+      .sim-card:hover .sim-overlay {
+        opacity: 0;
+      }
+
+      .sim-card:hover .sim-help {
+        opacity: 1;
+      }
+
+      /* VIDEOS */
+      .videos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .video-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .video-thumb {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #000;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .video-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .video-content {
+        padding: 0.9rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+      }
+
+      .video-title {
+        font-weight: 650;
+        color: var(--dark);
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+
+      .video-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      /* VIDEO MODAL */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.55);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.2rem;
+        z-index: 999;
+      }
+
+      .modal-backdrop.show {
+        display: flex;
+      }
+
+      .modal {
+        width: min(980px, 96vw);
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+        overflow: visible;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid rgba(0,0,0,0.08);
+      }
+
+      .modal-header .modal-title {
+        font-weight: 650;
+        color: var(--dark);
+        font-size: 1rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .modal-close {
+        border: none;
+        background: #ecf1f8;
+        color: var(--dark);
+        border-radius: 999px;
+        padding: 0.45rem 0.75rem;
+        cursor: pointer;
+      }
+
+      .modal-body {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        background: #000;
+      }
+
+      .modal-body iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* SEARCH */
+      .search-wrap {
+        position: relative;
+      }
+
+      .suggest {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--card-bg);
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 8px 8px;
+        max-height: 300px;
+        overflow-y: auto;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      }
+
+      .suggest.show {
+        display: block;
+      }
+
+      .suggest .item {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.9rem;
+        color: var(--dark);
+        transition: background 0.15s;
+      }
+
+      .suggest .item:hover {
+        background: var(--primary-light);
+      }
+
+      .suggest .item:last-child {
+        border-bottom: none;
+      }
+
+      button.card {
+        position: relative;
+        display: block;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        cursor: pointer;
+        z-index: 0;
+      }
+
+      button.card:hover {
+        z-index: 10;
+      }
+
+      /* DOWNLOAD BANNER */
+      .download-banner {
+        background: linear-gradient(135deg, #00a878, #006699);
+        color: white;
+        border-radius: var(--radius);
+        padding: 1.5rem 2rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+      }
+
+      .download-banner h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .download-banner p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+        margin-bottom: 1rem;
+      }
+
+      .download-banner .btn {
+        background: white;
+        color: var(--dark);
+        font-weight: 600;
+        padding: 0.6rem 1.2rem;
+      }
+
+      .download-banner .btn:hover {
+        background: #f0f0f0;
+        transform: translateY(-1px);
+      }
+
+      /* CTA CARD */
+      .cta-card {
+        background: var(--primary-light);
+        border: 2px dashed var(--primary);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        text-align: center;
+        margin-top: 1.25rem;
+      }
+
+      .cta-card h4 {
+        color: var(--primary);
+        margin-bottom: 0.4rem;
+      }
+
+      .cta-card p {
+        font-size: 0.88rem;
+        color: #4a5a6a;
+        margin-bottom: 0.8rem;
+      }
+
+      /* DOWNLOAD SECTION CARDS */
+      .download-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+        margin-top: 1.25rem;
+      }
+
+      .dl-card {
+        background: var(--card-bg);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        box-shadow: var(--shadow);
+        border-top: 4px solid var(--accent);
+        text-align: center;
+      }
+
+      .dl-card h4 {
+        margin-bottom: 0.3rem;
+        color: var(--dark);
+      }
+
+      .dl-card p {
+        font-size: 0.85rem;
+        color: #4a5a6a;
+        margin-bottom: 0.8rem;
+      }
+
+      .dl-card .size {
+        display: inline-block;
+        background: #ecf1f8;
+        border-radius: 999px;
+        padding: 0.15rem 0.6rem;
+        font-size: 0.78rem;
+        color: #666;
+        margin-bottom: 0.6rem;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--dark);
+        color: rgba(255,255,255,0.7);
+        text-align: center;
+        padding: 1.5rem 2rem;
+        font-size: 0.85rem;
+        margin-top: auto;
+      }
+
+      footer a {
+        color: #6bb8e8;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* TOAST */
+      .toast {
+        position: fixed;
+        bottom: 1.2rem;
+        right: 1.2rem;
+        background: #333;
+        color: #fff;
+        padding: 0.6rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        opacity: 0;
+        transform: translateY(10px);
+        pointer-events: none;
+        transition: opacity 0.2s, transform 0.2s;
+        z-index: 20;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        header {
+          padding: 1rem;
+          gap: 0.5rem;
+        }
+        header h1 { font-size: 1.1rem; }
+        .acmsl-text { font-size: 1.4rem; }
+        main { padding: 0 0.5rem; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <img src="img/ACM_LOGO.png" alt="Logo ACM" class="logo-acm" />
+        <a href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer" class="acmsl-text">ACMSL</a>
+        <div>
+          <h1 data-i18n="header.title">Wind Turbine Real-Time Simulators, Training &amp; Engineering Tools</h1>
+          <p data-i18n="header.subtitle">Reduce training costs and strengthen your maintenance team</p>
+        </div>
+      </div>
+      <div class="search-wrap">
+        <input id="searchInput" type="text" data-i18n-placeholder="search.placeholder" placeholder="Search..." autocomplete="off" style="border-radius:999px;padding:0.4rem 0.8rem;border:1px solid #ddd;" />
+        <button id="searchBtn" class="btn btn-secondary" type="button" data-i18n="search.button">Search</button>
+        <div id="searchSuggest" class="suggest" role="listbox" aria-label="Search suggestions"></div>
+      </div>
+      <div class="header-right">
+        <select id="langSelect" aria-label="Language" style="border-radius:999px;padding:0.35rem;">
+          <option value="en">EN</option>
+          <option value="es">ES</option>
+          <option value="fr">FR</option>
+        </select>
+        <button class="home-btn" type="button" onclick="goHome()"><span data-i18n="home">Home</span></button>
+        <a href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer" class="web-btn" data-i18n="header.website">Website &amp; Contact</a>
+      </div>
+    </header>
+
+    <div id="breadcrumb" class="breadcrumb"></div>
+
+    <main>
+      <!-- ==================== LANDING: 8 CARDS ==================== -->
+      <section id="landing" class="active" data-breadcrumb="Home">
+        <div class="section-header">
+          <h2 data-i18n="landing.title">Explore our Wind Energy Training Suite</h2>
+          <p data-i18n="landing.subtitle">Click on a topic to discover simulators, tutorials, and engineering tools</p>
+        </div>
+
+        <div class="grid-6">
+          <!-- 1. Introduction -->
+          <button class="card" type="button" data-target="concepts" data-keywords="wind energy,turbine concepts,energy generation,mind map">
+            <div class="card-image" style="background-image:url('img/mindmaprecortado.png');"></div>
+            <div class="card-title" data-i18n="card.intro.title">Introduction to Wind Turbine Concepts</div>
+          </button>
+
+          <!-- 2. Wind Farms -->
+          <button class="card" type="button" data-target="windfarm">
+            <div class="card-image" style="background-image:url('img/ParqueEolico.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title2">Electric Grid &amp; Wind Farm Concepts</div>
+          </button>
+
+          <!-- 3. Simulators -->
+          <button class="card" type="button" data-target="simulators">
+            <div class="card-image" style="background-image:url('img/vista-wt-reducida.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title3">Real-Time Wind Turbine Simulators</div>
+          </button>
+
+          <!-- 4. Drive Train Analysis -->
+          <button class="card help" type="button" data-target="drivetrain">
+            <div class="card-image" style="background-image:url('img/powervsrpms-reducido.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title4">Drive Train Analysis Software</div>
+            <div class="card-help-popup">
+              <img src="img/OperCurveVarSpeedWTs.jpg" alt="Operational Curve" />
+              <p data-i18n="card.grid.help4">Software for computing the <strong>Operational Curve of Variable Speed Wind Turbines</strong> (DFIG and Full Converter families). Engineering tool for drive train design and analysis.</p>
+            </div>
+          </button>
+
+          <!-- 5. Back-to-Back Converters -->
+          <button class="card help" type="button" data-target="b2b">
+            <div class="card-image" style="background-image:url('img/dfigradar.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title5">DFIG Back-to-Back Converters</div>
+            <div class="card-help-popup">
+              <img src="img/dfigb2b.png" alt="DFIG B2B" />
+              <p data-i18n="card.grid.help5">Software to compute the values of the magnetic and electric variables in the Asynchronous Induction Machine in <strong>DFIG Wind Turbines</strong>, connected to a <strong>Power Electronics Back-to-Back converter</strong>.</p>
+            </div>
+          </button>
+
+          <!-- 6. Videos -->
+          <button class="card" type="button" data-target="videos">
+            <div class="card-image" style="background-image:url('img/CollageImagenesVideos-reducido.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title6">Videos &amp; Demonstrations</div>
+          </button>
+
+          <!-- 7. Tutorials -->
+          <button class="card" type="button" data-target="tutorials">
+            <div class="card-image" style="background-image:url('img/AccesoaTutoriales.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title7">Access to Tutorials</div>
+          </button>
+
+          <!-- 8. Downloads -->
+          <button class="card" type="button" data-target="downloads">
+            <div class="card-image" style="background-image:url('img/AccesoaGuias-2.png');"></div>
+            <div class="card-title" data-i18n="card.grid.title8">Downloads &amp; Free Evaluation</div>
+          </button>
+        </div>
+      </section>
+
+      <!-- ==================== CONCEPTS ==================== -->
+      <section id="concepts" data-breadcrumb="Concepts">
+        <div class="section-header">
+          <h2 data-i18n="concepts.title">Introduction to Wind Energy Concepts</h2>
+          <p data-i18n="concepts.subtitle">Explore the fundamentals of wind energy technology through free educational resources</p>
+        </div>
+
+        <div class="suboptions">
+          <div class="sub-card">
+            <h3 data-i18n="concepts.mindmap.h3">Wind Energy Knowledge Map</h3>
+            <p data-i18n="concepts.mindmap.p">This comprehensive mind map presents a structural view of the essential technical, operational, and technological aspects of wind energy, serving as a complete reference for planning, training, and decision-making.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/wind-energy-mindmap.html" class="btn btn-primary" data-i18n="concepts.mindmap.button">View the Mind Map</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3 data-i18n="concepts.intro.family">Wind Turbine Families &amp; Evolution</h3>
+            <p data-i18n="concepts.intro.p">Learn about the 5 main families of industrial wind turbines, their historical evolution, the key differences in their electrical generators, and the typical Production vs Wind Speed curve for each type.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/wind-turbine-families.html" class="btn btn-primary" data-i18n="concepts.intro.textbutton">View the Tutorial</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3 data-i18n="concepts.industrial.h3">Industrial Wind Turbines</h3>
+            <p data-i18n="concepts.industrial.p">Discover the main components and characteristics of modern industrial wind turbines: nacelle structure, blade systems, generators, and the relationship between blade size and nominal power.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/industrial-wind-turbines.html" class="btn btn-primary" data-i18n="concepts.industrial.button">View the Tutorial</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3 data-i18n="concepts.operational.h3">Operational Wind Ranges</h3>
+            <p data-i18n="concepts.operational.p">Understand the cut-in, nominal, and cut-out wind speeds, and how the drive train manages power extraction across different wind conditions.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/operational-wind-ranges.html" class="btn btn-primary" data-i18n="concepts.operational.button">View the Tutorial</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-card">
+          <h4 data-i18n="cta.trysimulator">Want to experience it hands-on?</h4>
+          <p data-i18n="cta.trysimulator.p">Download our real-time simulators and explore wind turbine behavior interactively. Free 2-day evaluation license, granted immediately.</p>
+          <button class="btn btn-accent" type="button" onclick="showSection('downloads')" data-i18n="cta.download">Download Free Evaluation</button>
+        </div>
+      </section>
+
+      <!-- ==================== WIND FARM SCADA ==================== -->
+      <section id="windfarm" data-breadcrumb="Wind Farm SCADA">
+        <div class="section-header">
+          <h2 data-i18n="windfarms.title">Wind Farms and the Electric Grid</h2>
+          <p data-i18n="windfarms.p">Wind farms serve as fundamental production units, supplying generated power directly to the Transmission Network of the Electric Grid. Our SCADA simulator lets you explore every component.</p>
+        </div>
+
+        <div class="suboptions">
+          <div class="sub-card">
+            <h3 data-i18n="simulator.wfscada.h3">Wind Farm Control Center / SCADA Simulator</h3>
+            <p data-i18n="simulator.wfscada.p">This real-time simulator, together with its comprehensive tutorial, enables users to understand the Wind Farm components, their operational roles, and the way they interact with one another and with the Electric Grid.</p>
+            <p data-i18n="simulator.wfscada.p2">Learn about: the electrical substation, meteorological tower, SCADA control functionalities, communications with wind turbines, and the relationship with the Transmission System Operator.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent" data-i18n="btn.download.simulator">Download Simulator (free evaluation)</a>
+              <a href="https://youtu.be/0bZFwWSccGQ" target="_blank" class="btn btn-secondary">Video demo</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3 data-i18n="tutorials.windfarm_scada.h3">Wind Farm SCADA Tutorial (free preview)</h3>
+            <p data-i18n="tutorials.windfarm_scada.p1">Explore key topics covered in the SCADA tutorial: basic characteristics of the Electric Grid, structure and functionalities of a Wind Farm, control of Wind Turbines, connection to the Grid, and Grid Codes.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/simulators-and-tutorials.html" class="btn btn-primary" data-i18n="btn.preview">Free Preview</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== SIMULATORS ==================== -->
+      <section id="simulators" data-breadcrumb="Simulators">
+        <div class="section-header">
+          <h2 data-i18n="turbinefamilies.title">Real-Time Wind Turbine Simulators</h2>
+          <p data-i18n="turbinefamilies.p">Three families of wind turbines, three real-time simulators. Each includes comprehensive tutorials, practical exercises, and realistic operational scenarios.</p>
+        </div>
+
+        <div class="row-3">
+          <button class="card help" type="button" data-target="sim-dsas">
+            <div class="card-image" style="background-image:url('img/hawt-generico-reducido.png');"></div>
+            <div class="card-title" data-i18n="simulator.dsaswt.title">Dual Speed Active Stall WT</div>
+            <div class="card-help-popup">
+              <img src="img/hawt-generico.png" alt="DSAS Wind Turbine" />
+              <p data-i18n="simulator.dsaswt.p">Real-Time Simulator for the family of WTs with variable pitch blades, <strong>Active-Stall</strong> control, and <strong>two operative hub rotational speeds</strong>. Squirrel cage induction generator directly connected to the grid.</p>
+            </div>
+          </button>
+
+          <button class="card help" type="button" data-target="sim-rrc">
+            <div class="card-image" style="background-image:url('img/rrc-reducido.png');"></div>
+            <div class="card-title" data-i18n="simulator.rrcwt.title">Rotor Resistance Controlled WT</div>
+            <div class="card-help-popup">
+              <img src="img/rrc.png" alt="RRC Wind Turbine" />
+              <p data-i18n="simulator.rrcwt.p">Real-Time Simulator for WTs that implement control through blade pitch and <em>variable winding rotor resistance</em> of the asynchronous induction generator. Key step toward understanding DFIGs.</p>
+            </div>
+          </button>
+
+          <button class="card help" type="button" data-target="sim-dfig">
+            <div class="card-image" style="background-image:url('img/dfigr12.png');"></div>
+            <div class="card-title" data-i18n="simulator.dfigwt.title">Doubly-Fed Induction Generator (DFIG) WT</div>
+            <div class="card-help-popup">
+              <img src="img/dfigr12-normal.png" alt="DFIG Wind Turbine" />
+              <p data-i18n="simulator.dfigwt.p">Real-Time Simulator for the most widely installed family of wind turbines, including full simulation of the Power Electronics <strong>Back-to-Back converter</strong>. Available in 50Hz and 60Hz grid versions.</p>
+            </div>
+          </button>
+        </div>
+
+        <div class="cta-card">
+          <h4 data-i18n="cta.allsimulators">Download all three simulators</h4>
+          <p data-i18n="cta.allsimulators.p">Install the base package once, then add any simulator. Each comes with its own tutorial and practical exercises. Free 2-day evaluation license, granted immediately.</p>
+          <button class="btn btn-accent" type="button" onclick="showSection('downloads')" data-i18n="cta.download">Download Free Evaluation</button>
+        </div>
+      </section>
+
+      <!-- SIMULATOR DETAIL: DSAS -->
+      <section id="sim-dsas" data-breadcrumb="Active Stall Simulator">
+        <div class="section-header">
+          <h2>Dual Speed Active Stall Wind Turbine Simulator</h2>
+          <p>The entry-level simulator that introduces the fundamental concepts of wind turbine operation.</p>
+        </div>
+        <div class="suboptions one-per-row">
+          <div class="sub-card">
+            <h3>What you will learn</h3>
+            <p>This simulator covers the most common subsystems in a modern wind turbine, operational conditions, the basis of the asynchronous induction generator (squirrel cage), active stall control principles, and dual-speed operation.</p>
+            <p>Recommended as the <strong>first simulator</strong> in the learning path, as it introduces concepts used by all other simulator types.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Simulator</a>
+              <a href="https://youtu.be/0bZFwWSccGQ" target="_blank" class="btn btn-secondary">Video: Introduction</a>
+              <a href="https://youtu.be/UOjPvVjseVc" target="_blank" class="btn btn-secondary">Video: START &amp; STOP operations</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIMULATOR DETAIL: RRC -->
+      <section id="sim-rrc" data-breadcrumb="RRC Simulator">
+        <div class="section-header">
+          <h2>Rotor Resistance Controlled Wind Turbine Simulator</h2>
+          <p>An important step in the evolution toward modern variable-speed wind turbines.</p>
+        </div>
+        <div class="suboptions one-per-row">
+          <div class="sub-card">
+            <h3>What you will learn</h3>
+            <p>This family uses a key characteristic of asynchronous induction generators to solve the problem of using the drive train as an energy storage device to cope with wind gusts. It introduces the concept of variable rotor resistance control.</p>
+            <p>Understanding this family is essential before progressing to DFIG turbines.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Simulator</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIMULATOR DETAIL: DFIG -->
+      <section id="sim-dfig" data-breadcrumb="DFIG Simulator">
+        <div class="section-header">
+          <h2>DFIG Wind Turbine Simulator</h2>
+          <p>The most widely installed family of wind turbines worldwide.</p>
+        </div>
+        <div class="suboptions one-per-row">
+          <div class="sub-card">
+            <h3>What you will learn</h3>
+            <p>The Doubly-Fed Induction Generator is a complex production plant that exploits the capabilities of modern Power Electronics. This simulator includes full simulation of the Back-to-Back converter, realistic wind gust scenarios, and grid interaction.</p>
+            <p>Available in <strong>50Hz</strong> and <strong>60Hz</strong> grid frequency versions to match your regional power grid.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Simulator</a>
+              <a href="https://youtu.be/iNcIchrkLNM" target="_blank" class="btn btn-secondary">Video: DFIG internal signals</a>
+              <a href="https://youtu.be/zwhvSf7LGbg" target="_blank" class="btn btn-secondary">Video: Pitch system problems</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DRIVE TRAIN ==================== -->
+      <section id="drivetrain" data-breadcrumb="Drive Train">
+        <div class="section-header">
+          <h2 data-i18n="drivetrain.title">Wind Turbine Drive Train Analysis</h2>
+          <p data-i18n="drivetrain.p">Engineering tool for designing and studying the Operational Curve (blade RPM vs. wind speed) of variable-speed wind turbines.</p>
+        </div>
+
+        <div class="suboptions one-per-row">
+          <div class="sub-card">
+            <h3>NREL Reference Documentation</h3>
+            <p>NREL published in March 2008 the reference paper: <strong>"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Tests"</strong>. It contains the description of algorithms required for designing drive trains that extract the maximum power from the available wind.</p>
+            <div class="btn-row">
+              <a href="https://docs.nrel.gov/docs/fy08osti/42437.pdf" target="_blank" class="btn btn-primary">Read the NREL paper (PDF)</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>Operational Curve Calculator</h3>
+            <p>To extract maximum power from existing wind speed, a <strong>Maximum Power Point Tracking (MPPT)</strong> algorithm controls blade rotation proportionally to wind speed. This application evaluates the algorithms needed to achieve it.</p>
+            <p>It is an engineering tool designed to analyze and define the operating conditions of a wind turbine drive train based on blade type, blade length, and its coupling with the electrical generator, including synchronous speed and the selected gearbox ratio.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Application (free evaluation)</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== BACK-TO-BACK ==================== -->
+      <section id="b2b" data-breadcrumb="Back-to-Back">
+        <div class="section-header">
+          <h2 data-i18n="b2b.title">Power Electronics Back-to-Back Converters</h2>
+          <p data-i18n="b2b.p">Engineering tool for computing the demand on Back-to-Back converters connected to asynchronous induction machines in DFIG wind turbines.</p>
+        </div>
+
+        <div class="suboptions one-per-row">
+          <div class="sub-card">
+            <h3>DFIG B2B Application</h3>
+            <p>This program computes all the magnetic and electric variables in the asynchronous induction machine of DFIG wind turbines, and the demand placed on the Back-to-Back converter. Ideal for post-mortem analysis of these converters.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Application (free evaluation)</a>
+              <a href="https://youtu.be/AfkW0Qvy8AI" target="_blank" class="btn btn-secondary">Video explanation</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== VIDEOS ==================== -->
+      <section id="videos" data-breadcrumb="Videos">
+        <div class="section-header">
+          <h2 data-i18n="videos.title">Wind Turbine Videos &amp; Demonstrations</h2>
+          <p data-i18n="videos.p">Watch demonstrations of our simulators and educational videos about wind turbine technology.</p>
+        </div>
+
+        <div id="videos-container" class="videos-grid"></div>
+
+        <div class="cta-card" style="margin-top:1.5rem;">
+          <h4>More videos on our YouTube channel</h4>
+          <p>Visit our YouTube channel for additional videos about wind turbine technology, simulator demonstrations, and training materials.</p>
+          <a href="https://www.youtube.com/@traininginwindenergy4937" target="_blank" class="btn btn-primary">Visit YouTube Channel</a>
+        </div>
+      </section>
+
+      <!-- ==================== TUTORIALS ==================== -->
+      <section id="tutorials" data-breadcrumb="Tutorials">
+        <div class="section-header">
+          <h2 data-i18n="tutorials.title">Tutorials</h2>
+          <p data-i18n="tutorials.subtitle">The tutorials are a key component of the ACMSL product line. They are normally associated with the real-time simulators, but can also be accessed independently.</p>
+        </div>
+
+        <div class="download-banner">
+          <h3>Free online tutorials</h3>
+          <p>The following introductory tutorials are available directly in your browser, no installation required.</p>
+        </div>
+
+        <div class="suboptions" style="margin-bottom:1.5rem;">
+          <div class="sub-card">
+            <h3>Wind Turbine Families</h3>
+            <p>The 5 families of industrial wind turbines, their generators, and key differences.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/wind-turbine-families.html" class="btn btn-primary">Read online (free)</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>Industrial Wind Turbines</h3>
+            <p>Components, nacelle structure, blade systems, and nominal power relationships.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/industrial-wind-turbines.html" class="btn btn-primary">Read online (free)</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>Operational Wind Ranges</h3>
+            <p>Cut-in, nominal, and cut-out wind speeds and drive train management.</p>
+            <div class="btn-row">
+              <a href="tutorials/en/operational-wind-ranges.html" class="btn btn-primary">Read online (free)</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="download-banner" style="background: linear-gradient(135deg, var(--primary), #004466);">
+          <h3>Complete simulator tutorials</h3>
+          <p>These in-depth tutorials accompany each simulator. They require the ACMSL Tutorial Viewer (<strong>free download, 15 MB</strong>).</p>
+        </div>
+
+        <div class="suboptions one-per-row">
+          <div class="sub-card">
+            <h3>Wind Farm Control Center / SCADA Tutorial</h3>
+            <p>Learn about Wind Farm components, the electrical substation, SCADA control functionalities, meteorological tower, communications with wind turbines, and the relationship with the Transmission System Operator.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Tutorial Viewer + Tutorials</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>Dual Speed Active Stall WT Tutorial</h3>
+            <p>Description of the most common subsystems in a modern WT, working conditions, and the basis of the asynchronous induction generator.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Tutorial Viewer + Tutorials</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>Rotor Resistance Controlled WT Tutorial</h3>
+            <p>This WT family constitutes an important step in the development of modern WTs. Learn about variable rotor resistance control and its role in managing wind gusts.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Tutorial Viewer + Tutorials</a>
+            </div>
+          </div>
+
+          <div class="sub-card">
+            <h3>DFIG Wind Turbine Tutorial</h3>
+            <p>The most widely installed WT family worldwide. A complex production plant that exploits the capabilities of modern Power Electronics.</p>
+            <div class="btn-row">
+              <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download Tutorial Viewer + Tutorials</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== DOWNLOADS ==================== -->
+      <section id="downloads" data-breadcrumb="Downloads">
+        <div class="section-header">
+          <h2 data-i18n="downloads.title">Downloads &amp; Free Evaluation</h2>
+          <p data-i18n="downloads.subtitle">All our products include a <strong>free 2-day evaluation license</strong>, granted immediately upon first launch. No credit card required.</p>
+        </div>
+
+        <div class="download-banner">
+          <h3 data-i18n="downloads.how">How it works</h3>
+          <p data-i18n="downloads.how.p">1. Download and install &bull; 2. Launch the application &bull; 3. Fill in your contact details &bull; 4. Receive your evaluation license instantly &bull; 5. Start exploring!</p>
+        </div>
+
+        <h3 style="margin-bottom:0.8rem; color:var(--dark);" data-i18n="downloads.viewer.title">Tutorial Viewer (required for encrypted tutorials)</h3>
+        <div class="download-grid">
+          <div class="dl-card">
+            <h4>Tutorial Viewer</h4>
+            <span class="size">~15 MB</span>
+            <p>Required to view the comprehensive, encrypted tutorials that accompany each simulator.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+
+          <div class="dl-card">
+            <h4>Tutorial Content Pack</h4>
+            <span class="size">~65 MB per language</span>
+            <p>The complete set of encrypted tutorials. Available in English, Spanish, and French. Download once, view offline.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 0.8rem; color:var(--dark);" data-i18n="downloads.simulators.title">Real-Time Simulators</h3>
+        <div class="download-grid">
+          <div class="dl-card">
+            <h4>Simulator Base Package</h4>
+            <span class="size">~50 MB</span>
+            <p>Common executables and libraries shared by all simulators. Install this first.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+
+          <div class="dl-card">
+            <h4>Active Stall WT Simulator</h4>
+            <span class="size">~65 MB</span>
+            <p>Squirrel cage induction generator, active stall control, dual-speed operation. Requires Base Package.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+
+          <div class="dl-card">
+            <h4>Rotor Resistance WT Simulator</h4>
+            <span class="size">~65 MB</span>
+            <p>Variable winding rotor resistance control. Key step toward understanding DFIGs. Requires Base Package.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+
+          <div class="dl-card">
+            <h4>DFIG WT Simulator</h4>
+            <span class="size">~65 MB</span>
+            <p>Doubly-Fed Induction Generator with Back-to-Back converter. 50Hz and 60Hz versions. Requires Base Package.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+        </div>
+
+        <h3 style="margin: 1.5rem 0 0.8rem; color:var(--dark);" data-i18n="downloads.apps.title">Engineering Applications</h3>
+        <div class="download-grid">
+          <div class="dl-card">
+            <h4>Operational Curve Calculator</h4>
+            <span class="size">&lt; 8 MB</span>
+            <p>Drive train analysis: compute the operational curve of variable-speed wind turbines (MPPT algorithms).</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+
+          <div class="dl-card">
+            <h4>DFIG B2B Converter Analyzer</h4>
+            <span class="size">&lt; 8 MB</span>
+            <p>Compute magnetic and electric variables in DFIG asynchronous machines and Back-to-Back converter demand.</p>
+            <a href="https://github.com/acmsl/launcher/releases" target="_blank" class="btn btn-accent">Download</a>
+          </div>
+        </div>
+
+        <div class="cta-card" style="margin-top:1.5rem;">
+          <h4 data-i18n="downloads.help">Need help or a longer evaluation?</h4>
+          <p data-i18n="downloads.help.p">Contact us for extended evaluation licenses, volume licensing, academic discounts, or technical support.</p>
+          <a href="https://www.acm-sl.com" target="_blank" class="btn btn-primary" data-i18n="downloads.contact">Contact ACMSL</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Automated Computing Machinery SL (ACMSL). All rights reserved.</p>
+      <p style="margin-top:0.4rem;">
+        <a href="https://www.acm-sl.com" target="_blank">www.acm-sl.com</a> &bull;
+        <a href="https://www.youtube.com/@traininginwindenergy4937" target="_blank">YouTube</a> &bull;
+        <a href="https://github.com/acmsl/launcher" target="_blank">GitHub</a>
+      </p>
+    </footer>
+
+    <div id="toast" class="toast"></div>
+
+    <!-- VIDEO MODAL -->
+    <div id="videoModal" class="modal-backdrop" onclick="closeVideoModal(event)">
+      <div class="modal" onclick="event.stopPropagation()">
+        <div class="modal-header">
+          <span class="modal-title" id="videoModalTitle"></span>
+          <button class="modal-close" onclick="closeVideoModal()">&times; Close</button>
+        </div>
+        <div class="modal-body">
+          <iframe id="videoModalIframe" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH KEYWORDS -->
+    <script id="searchKeywords" type="application/json">
+      [
+        { "keywords": ["wind energy", "introduction", "concepts", "turbine basics"], "section": "concepts" },
+        { "keywords": ["wind turbine families", "DFIG", "active stall", "rotor resistance", "full converter", "squirrel cage"], "section": "concepts" },
+        { "keywords": ["scada", "wind farm", "control center", "substation", "grid"], "section": "windfarm" },
+        { "keywords": ["simulator", "real-time", "training"], "section": "simulators" },
+        { "keywords": ["drive train", "operational curve", "MPPT", "gearbox", "blade rpm"], "section": "drivetrain" },
+        { "keywords": ["back-to-back", "B2B", "converter", "power electronics", "DFIG B2B"], "section": "b2b" },
+        { "keywords": ["video", "demonstration", "youtube"], "section": "videos" },
+        { "keywords": ["tutorial", "learning", "teaching"], "section": "tutorials" },
+        { "keywords": ["download", "install", "evaluation", "license", "free trial"], "section": "downloads" },
+        { "keywords": ["yaw system", "yaw drive", "yaw motor", "nacelle"], "section": "windfarm" },
+        { "keywords": ["pitch", "blade angle", "stall control"], "section": "simulators" },
+        { "keywords": ["wind gust", "gusts", "rafaga"], "section": "simulators" }
+      ]
+    </script>
+
+    <!-- I18N: ENGLISH -->
+    <script id="i18n-en" type="application/json">
+    {
+      "b2b.p": "Engineering tool for computing the demand on Back-to-Back converters connected to asynchronous induction machines in DFIG wind turbines.",
+      "b2b.title": "Power Electronics Back-to-Back Converters",
+      "breadcrumb.Wind Farm SCADA": "Wind Farm SCADA",
+      "breadcrumb.b2b": "Back-to-Back",
+      "breadcrumb.concepts": "Concepts",
+      "breadcrumb.downloads": "Downloads",
+      "breadcrumb.drivetrain": "Drive Train",
+      "breadcrumb.landing": "Home",
+      "breadcrumb.opcDFIGB2B": "Back-to-Back",
+      "breadcrumb.opcGuideSCADA": "Guide SCADA",
+      "breadcrumb.opcGuides": "Guides",
+      "breadcrumb.opcOperCurve": "Drive Train",
+      "breadcrumb.opcSimulators": "Simulators",
+      "breadcrumb.opcTutorials": "Tutorials",
+      "breadcrumb.opcVideos": "Videos",
+      "breadcrumb.simulators": "Simulators",
+      "breadcrumb.tutorials": "Tutorials",
+      "breadcrumb.videos": "Videos",
+      "breadcrumb.windfarm": "Wind Farm SCADA",
+      "btn.download.simulator": "Download Simulator (free evaluation)",
+      "btn.preview": "Free Preview",
+      "card.grid.help4": "Software for computing the <strong>Operational Curve of Variable Speed Wind Turbines</strong> (DFIG and Full Converter families). Engineering tool for drive train design and analysis.",
+      "card.grid.help5": "Software to compute the values of the magnetic and electric variables in the Asynchronous Induction Machine in <strong>DFIG Wind Turbines</strong>, connected to a <strong>Power Electronics Back-to-Back converter</strong>.",
+      "card.grid.title2": "Electric Grid & Wind Farm Concepts",
+      "card.grid.title3": "Real-Time Wind Turbine Simulators",
+      "card.grid.title4": "Drive Train Analysis Software",
+      "card.grid.title5": "DFIG Back-to-Back Converters",
+      "card.grid.title6": "Videos & Demonstrations",
+      "card.grid.title7": "Access to Tutorials",
+      "card.grid.title8": "Downloads & Free Evaluation",
+      "card.intro.title": "Introduction to Wind Turbine Concepts",
+      "concepts.industrial.button": "View the Tutorial",
+      "concepts.industrial.h3": "Industrial Wind Turbines",
+      "concepts.industrial.p": "Discover the main components and characteristics of modern industrial wind turbines: nacelle structure, blade systems, generators, and the relationship between blade size and nominal power.",
+      "concepts.intro.family": "Wind Turbine Families & Evolution",
+      "concepts.intro.p": "Learn about the 5 main families of industrial wind turbines, their historical evolution, the key differences in their electrical generators, and the typical Production vs Wind Speed curve for each type.",
+      "concepts.intro.textbutton": "View the Tutorial",
+      "concepts.mindmap.button": "View the Mind Map",
+      "concepts.mindmap.h3": "Wind Energy Knowledge Map",
+      "concepts.mindmap.p": "This comprehensive mind map presents a structural view of the essential technical, operational, and technological aspects of wind energy, serving as a complete reference for planning, training, and decision-making.",
+      "concepts.operational.button": "View the Tutorial",
+      "concepts.operational.h3": "Operational Wind Ranges",
+      "concepts.operational.p": "Understand the cut-in, nominal, and cut-out wind speeds, and how the drive train manages power extraction across different wind conditions.",
+      "concepts.subtitle": "Explore the fundamentals of wind energy technology through free educational resources",
+      "concepts.title": "Introduction to Wind Energy Concepts",
+      "concepts.title.p": "",
+      "cta.allsimulators": "Download all three simulators",
+      "cta.allsimulators.p": "Install the base package once, then add any simulator. Each comes with its own tutorial and practical exercises. Free 2-day evaluation license, granted immediately.",
+      "cta.download": "Download Free Evaluation",
+      "cta.trysimulator": "Want to experience it hands-on?",
+      "cta.trysimulator.p": "Download our real-time simulators and explore wind turbine behavior interactively. Free 2-day evaluation license, granted immediately.",
+      "dfig.modal.50hz": "50Hz",
+      "dfig.modal.60hz": "60Hz",
+      "dfig.modal.cancel": "Cancel",
+      "dfig.modal.question": "Which version do you want to run?",
+      "dfigb2b.h3": "Run the application \"DFIGB2B\"",
+      "dfigb2b.p1": "This program computes all the magnetic and electric variable on the Asynchronous Induction Machine used of the Doubly Fed Induction Generator family of Wind Turbine, and also the demand placed on the Back-to->Back converter. Ideal for post-morten analysis of these converters.",
+      "dfigb2b.p2": "This <a href=\"https://youtu.be/AfkW0Qvy8AI\" target=\"_blank\" rel=\"noopener noreferrer\">video</a> contains a brief explanation.",
+      "downloads.apps.title": "Engineering Applications",
+      "downloads.contact": "Contact ACMSL",
+      "downloads.help": "Need help or a longer evaluation?",
+      "downloads.help.p": "Contact us for extended evaluation licenses, volume licensing, academic discounts, or technical support.",
+      "downloads.how": "How it works",
+      "downloads.how.p": "1. Download and install &bull; 2. Launch the application &bull; 3. Fill in your contact details &bull; 4. Receive your evaluation license instantly &bull; 5. Start exploring!",
+      "downloads.simulators.title": "Real-Time Simulators",
+      "downloads.subtitle": "All our products include a <strong>free 2-day evaluation license</strong>, granted immediately upon first launch. No credit card required.",
+      "downloads.title": "Downloads & Free Evaluation",
+      "downloads.viewer.title": "Tutorial Viewer (required for encrypted tutorials)",
+      "drivetrain.p": "Engineering tool for designing and studying the Operational Curve (blade RPM vs. wind speed) of variable-speed wind turbines.",
+      "drivetrain.title": "Wind Turbine Drive Train Analysis",
+      "guided.learning.p": "You will find in this section sets of Guided tours around the Tutorials, as well as Suggested Experiments described in the Tutorials",
+      "guided.learning.title": "Access to Guided learning and suggested Experiments",
+      "header.subtitle": "Reduce training costs and strengthen your maintenance team",
+      "header.title": "Wind Turbine Real-Time Simulators, Training & Engineering Tools",
+      "header.website": "Website & Contact",
+      "help": "Help",
+      "home": "Home",
+      "landing.subtitle": "Click on a topic to discover simulators, tutorials, and engineering tools",
+      "landing.title": "Explore our Wind Energy Training Suite",
+      "languagename": "English",
+      "mindmap.windenergy.path": "C:\\ACMSL\\ACM SL Wind Energy Applications\\English\\files\\Training in Industrial aspects of Wind Energy.mm",
+      "nrel.access.h3": "Acces to the National Renewable Energy Laboratory (NREL) documentation",
+      "nrel.access.p1": "NREL published in March 2008 this reference paper: <strong>\"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Test - Part I: Control Design, Implementation, and Initial Tests\"</strong>.",
+      "nrel.access.p2": "It contains the description of algorithms required for designing Drive Trains that extract the maximum power from the existing wind.",
+      "opcurve.h3": "Operational Curve of Variable Speed Wind Turbines",
+      "opcurve.p1": "To get the maxmimum power from the existing wind speed, a technique known as <strong>Maximum Power Point Tracking</strong> algorithm (or <strong>MPPT</strong>) Blades must rotated with a velocity proportional to the Wind Speed.",
+      "opcurve.p2": "This applications permits the evaluation of algorithms that must be implemented to achieve it.",
+      "opcurve.p3": "It is an engineering tool designed to analyze and define the operating conditions of a wind turbine DriveTrain based on blade type, blade length, and its coupling with the electrical generator, including synchronous speed and the selected gearbox ratio.",
+      "open": "Open",
+      "scada.guide.title": "Guided exploration of the Wind Farm Control Center/SCADA",
+      "search.button": "Search",
+      "search.placeholder": "Search...",
+      "simuladorDFIG.50hz": "dfigr12_50hz.conf",
+      "simuladorDFIG.60hz": "dfigr12_60hz.conf",
+      "simuladorDSAS.configuracion": "DSASr12.conf",
+      "simuladorRRC.configuracion": "rrcr12.conf",
+      "simulator.dfigwt.p": "Real-Time Simulator for the most widely installed family of wind turbines, including full simulation of the Power Electronics <strong>Back-to-Back converter</strong>. Available in 50Hz and 60Hz grid versions.",
+      "simulator.dfigwt.title": "Doubly-Fed Induction Generator (DFIG) WT",
+      "simulator.dsaswt.p": "Real-Time Simulator for the family of WTs with variable pitch blades, <strong>Active-Stall</strong> control, and <strong>two operative hub rotational speeds</strong>. Squirrel cage induction generator directly connected to the grid.",
+      "simulator.dsaswt.title": "Dual Speed Active Stall WT",
+      "simulator.rrcwt.p": "Real-Time Simulator for WTs that implement control through blade pitch and <em>variable winding rotor resistance</em> of the asynchronous induction generator. Key step toward understanding DFIGs.",
+      "simulator.rrcwt.title": "Rotor Resistance Controlled WT",
+      "simulator.wfscada.h3": "Wind Farm Control Center / SCADA Simulator",
+      "simulator.wfscada.p": "This real-time simulator, together with its comprehensive tutorial, enables users to understand the Wind Farm components, their operational roles, and the way they interact with one another and with the Electric Grid.",
+      "simulator.wfscada.p2": "Learn about: the electrical substation, meteorological tower, SCADA control functionalities, communications with wind turbines, and the relationship with the Transmission System Operator.",
+      "turbinefamilies.p": "Three families of wind turbines, three real-time simulators. Each includes comprehensive tutorials, practical exercises, and realistic operational scenarios.",
+      "turbinefamilies.title": "Real-Time Wind Turbine Simulators",
+      "tutorial.dfigwt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\DFIGWTSimulator\\Introduction.html",
+      "tutorial.dsaswt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\DSASWTSimulator\\Introduction.html",
+      "tutorial.family.path": "C:\\ACMSL\\WindFarmSimulator\\conf\\Training in Industrial aspects of Wind Energy\\WindTurbineFamilies.htmle",
+      "tutorial.ldpframework.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\LdP_Help\\Introduction.html",
+      "tutorial.rrcwt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\RRCWTSimulator\\Introduction.html",
+      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
+      "tutorial.wfsscada.button": "📖 Open the 'Wind Farm Control Center/SCADA' Simulator's Tutorial",
+      "tutorials.dfigwt.button": "📖 Open the 'Real-Time Doubly-Fed Induction Generator WT Simulator' Tutorial",
+      "tutorials.dfigwt.h3": "Tutorial of the 'Real-Time Doubly-Fed Induction Generator WT Simulator'",
+      "tutorials.dfigwt.p1": "This WT family constitutes the vast majority of the WTs installed on Wind Farms, world-wide.",
+      "tutorials.dfigwt.p2": "It is a complex production plant that exploit the capabilities of modern Power Electronics.",
+      "tutorials.directaccess.p": "The Tutorials are a key component of the product line of ACM SL. They normally are associated to the Real-Time Simulators and Applications, and can be access from whitin them: here you can access them directly.",
+      "tutorials.directaccess.title": "Direct access to the Tutorials",
+      "tutorials.dsaswt.button": "📖 Open the 'Real-Time Dual Speed Active-Stall WT Simulator' Tutorial",
+      "tutorials.dsaswt.h3": "Tutorial of the 'Real-Time Dual Speed Active Stall WT Simulator'",
+      "tutorials.dsaswt.p1": "In this tutorial you will find the description of:",
+      "tutorials.dsaswt.p2": "* the most common subsystems in a modern WT",
+      "tutorials.dsaswt.p3": "* the description of its working conditions",
+      "tutorials.dsaswt.p4": "* the basis of the asynchronous induction generator",
+      "tutorials.ldpframework.button": "📖 Open the 'Real-Time Doubly-Fed Induction Generator WT Simulator' Tutorial",
+      "tutorials.ldpframework.h3": "Tutorial of the 'LdP framework'",
+      "tutorials.ldpframework.p1": "All the Real-Time simulators of ACMSL are based on the framework <strong>LdP</strong>, developed by ACM SL, that poses unique functionalities for the development of Real-Time Simulators, that, in turn, are based on <strong>Digital Twins</strong>",
+      "tutorials.ldpframework.p2": "In this tutorial you have a description of its characteristics.",
+      "tutorials.rrcwt.button": "📖 Open the 'Real-Time Rotor Resistance Controlled WT Simulator' Tutorial",
+      "tutorials.rrcwt.h3": "Tutorial of the 'Real-Time Rotor Resistance Controlled WT Simulator'",
+      "tutorials.rrcwt.p1": "This WT family constitutes an important step in the development of modern WTs, like DFIGs.",
+      "tutorials.rrcwt.p2": "It uses a common characteristic of the Asynchronous Induction Generators to solve the problem of using the Drive Train as an energy storage device to cope with the problems associated with wind gusts.",
+      "tutorials.subtitle": "The tutorials are a key component of the ACMSL product line. They are normally associated with the real-time simulators, but can also be accessed independently.",
+      "tutorials.title": "Tutorials",
+      "tutorials.windfarm_scada.button": "📖 Open the 'Wind Farm Control Center/SCADA' Tutorial",
+      "tutorials.windfarm_scada.h3": "Wind Farm SCADA Tutorial (free preview)",
+      "tutorials.windfarm_scada.p1": "Explore key topics covered in the SCADA tutorial: basic characteristics of the Electric Grid, structure and functionalities of a Wind Farm, control of Wind Turbines, connection to the Grid, and Grid Codes.",
+      "tutorials.windfarm_scada.p2": "And about the main characteristics of the Electic Grid affecting the operation of the Wind Farm.",
+      "videos.p": "Watch demonstrations of our simulators and educational videos about wind turbine technology.",
+      "videos.title": "Wind Turbine Videos & Demonstrations",
+      "windfarms.p": "Wind farms serve as fundamental production units, supplying generated power directly to the Transmission Network of the Electric Grid. Our SCADA simulator lets you explore every component.",
+      "windfarms.title": "Wind Farms and the Electric Grid"
+    }
+    </script>
+
+    <!-- I18N: SPANISH -->
+    <script id="i18n-es" type="application/json">
+    {
+      "b2b.p": "Herramienta de ingeniería para calcular la demanda sobre convertidores Back-to-Back conectados a máquinas de inducción asíncronas en aerogeneradores DFIG.",
+      "b2b.title": "Convertidores Back-to-Back de Electrónica de Potencia",
+      "breadcrumb.Wind Farm SCADA": "Parque Eólico SCADA",
+      "breadcrumb.b2b": "Back-to-Back",
+      "breadcrumb.concepts": "Conceptos",
+      "breadcrumb.downloads": "Descargas",
+      "breadcrumb.drivetrain": "Tren de Potencia",
+      "breadcrumb.landing": "Inicio",
+      "breadcrumb.opcDFIGB2B": "Back-to-Back",
+      "breadcrumb.opcGuideSCADA": "Guía SCADA",
+      "breadcrumb.opcGuides": "Guías",
+      "breadcrumb.opcOperCurve": "Tren de Potencia",
+      "breadcrumb.opcSimulators": "Simuladores",
+      "breadcrumb.opcTutorials": "Tutoriales",
+      "breadcrumb.opcVideos": "Vídeos",
+      "breadcrumb.simulators": "Simuladores",
+      "breadcrumb.tutorials": "Tutoriales",
+      "breadcrumb.videos": "Vídeos",
+      "breadcrumb.windfarm": "Parque Eólico SCADA",
+      "btn.download.simulator": "Descargar Simulador (evaluación gratuita)",
+      "btn.preview": "Vista Previa Gratuita",
+      "card.grid.help4": "Software para el cálculo de la <strong>Curva Operacional de Aerogeneradores de Velocidad Variable</strong> (familias DFIG y Full Converter). Herramienta de ingeniería para diseño y análisis del tren de potencia.",
+      "card.grid.help5": "Software para calcular los valores de las variables magnéticas y eléctricas en la Máquina de Inducción Asíncrona de <strong>Aerogeneradores DFIG</strong>, conectada a un <strong>convertidor electrónico Back-to-Back</strong>.",
+      "card.grid.title2": "Red Eléctrica y Parques Eólicos",
+      "card.grid.title3": "Simuladores de Aerogeneradores en Tiempo Real",
+      "card.grid.title4": "Software de Análisis del Tren de Potencia",
+      "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
+      "card.grid.title6": "Vídeos y Demostraciones",
+      "card.grid.title7": "Acceso a Tutoriales",
+      "card.grid.title8": "Descargas y Evaluación Gratuita",
+      "card.intro.title": "Introducción a los Conceptos de Aerogeneradores",
+      "concepts.industrial.button": "Ver el Tutorial",
+      "concepts.industrial.h3": "Aerogeneradores Industriales",
+      "concepts.industrial.p": "Descubre los principales componentes y características de los aerogeneradores industriales modernos: estructura de la góndola, sistemas de palas, generadores y la relación entre el tamaño de las palas y la potencia nominal.",
+      "concepts.intro.family": "Familias de Aerogeneradores y su Evolución",
+      "concepts.intro.p": "Conoce las 5 familias principales de aerogeneradores industriales, su evolución histórica, las diferencias clave en sus generadores eléctricos y la curva típica de Producción vs Velocidad de Viento.",
+      "concepts.intro.textbutton": "Ver el Tutorial",
+      "concepts.mindmap.button": "Ver el Mapa Mental",
+      "concepts.mindmap.h3": "Mapa de Conocimiento de Energía Eólica",
+      "concepts.mindmap.p": "Este completo mapa mental presenta una visión estructural de los aspectos técnicos, operacionales y tecnológicos esenciales de la energía eólica, sirviendo como referencia completa para planificación, formación y toma de decisiones.",
+      "concepts.operational.button": "Ver el Tutorial",
+      "concepts.operational.h3": "Rangos Operacionales de Viento",
+      "concepts.operational.p": "Comprende las velocidades de viento de arranque, nominal y parada, y cómo el tren de potencia gestiona la extracción de energía en diferentes condiciones de viento.",
+      "concepts.subtitle": "Explora los fundamentos de la tecnología eólica a través de recursos educativos gratuitos",
+      "concepts.title": "Introducción a los Conceptos de Energía Eólica",
+      "concepts.title.p": "",
+      "cta.allsimulators": "Descarga los tres simuladores",
+      "cta.allsimulators.p": "Instala el paquete base una vez y luego añade cualquier simulador. Cada uno incluye su propio tutorial y ejercicios prácticos. Licencia de evaluación gratuita de 2 días, concedida inmediatamente.",
+      "cta.download": "Descargar Evaluación Gratuita",
+      "cta.trysimulator": "¿Quieres experimentarlo de primera mano?",
+      "cta.trysimulator.p": "Descarga nuestros simuladores en tiempo real y explora el comportamiento de los aerogeneradores de forma interactiva. Licencia de evaluación gratuita de 2 días, concedida inmediatamente.",
+      "dfig.modal.50hz": "50Hz",
+      "dfig.modal.60hz": "60Hz",
+      "dfig.modal.cancel": "Cancelar",
+      "dfig.modal.question": "¿Qué versión desea ejecutar?",
+      "dfigb2b.h3": "Ejecutar la aplicación \"DFIGB2B\"",
+      "dfigb2b.p1": "Este programa calcula todas las variables magnéticas y eléctricas en la máquina de inducción asíncrona utilizada en la familia de aerogeneradores DFIG, así como la demanda sobre el convertidor Back-to-Back. Ideal para análisis post-mortem de estos convertidores.",
+      "dfigb2b.p2": "Este <a href=\"https://youtu.be/AfkW0Qvy8AI\" target=\"_blank\" rel=\"noopener noreferrer\">video</a> contiene una breve explicación.",
+      "downloads.apps.title": "Aplicaciones de Ingeniería",
+      "downloads.contact": "Contactar con ACMSL",
+      "downloads.help": "¿Necesitas ayuda o una evaluación más larga?",
+      "downloads.help.p": "Contáctanos para licencias de evaluación extendidas, licencias por volumen, descuentos académicos o soporte técnico.",
+      "downloads.how": "Cómo funciona",
+      "downloads.how.p": "1. Descarga e instala • 2. Ejecuta la aplicación • 3. Rellena tus datos de contacto • 4. Recibe tu licencia de evaluación al instante • 5. ¡Comienza a explorar!",
+      "downloads.simulators.title": "Simuladores en Tiempo Real",
+      "downloads.subtitle": "Todos nuestros productos incluyen una <strong>licencia de evaluación gratuita de 2 días</strong>, concedida inmediatamente al primer inicio. Sin tarjeta de crédito.",
+      "downloads.title": "Descargas y Evaluación Gratuita",
+      "downloads.viewer.title": "Visor de Tutoriales (requerido para tutoriales cifrados)",
+      "drivetrain.p": "Herramienta de ingeniería para diseñar y estudiar la Curva Operacional (RPM de las palas vs. velocidad del viento) de aerogeneradores de velocidad variable.",
+      "drivetrain.title": "Análisis del Tren de Potencia de Aerogeneradores",
+      "guided.learning.p": "En esta sección encontrarás recorridos guiados por los Tutoriales, así como Experimentos sugeridos descritos en los Tutoriales",
+      "guided.learning.title": "Acceso a aprendizaje guiado y experimentos sugeridos",
+      "header.subtitle": "Reduce los costes de formación y refuerza tu equipo de mantenimiento",
+      "header.title": "Simuladores en Tiempo Real, Formación y Herramientas de Ingeniería",
+      "header.website": "Web y Contacto",
+      "help": "Ayuda",
+      "home": "Inicio",
+      "landing.subtitle": "Haz clic en un tema para descubrir simuladores, tutoriales y herramientas de ingeniería",
+      "landing.title": "Explora nuestra Suite de Formación en Energía Eólica",
+      "mindmap.windenergy.path": "C:\\ACMSL\\ACM SL Wind Energy Applications\\Spanish\\files\\Training in Industrial aspects of Wind Energy.mm",
+      "nombre.idioma": "Español",
+      "nrel.access.h3": "Acceso a la documentación del National Renewable Energy Laboratory (NREL)",
+      "nrel.access.p1": "NREL publicó en marzo de 2008 este artículo de referencia: <strong>\"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Test - Part I: Control Design, Implementation, and Initial Tests\"</strong>.",
+      "nrel.access.p2": "Contiene la descripción de los algoritmos necesarios para diseñar trenes de potencia que extraigan la máxima energía del viento disponible.",
+      "opcurve.h3": "Curva Operativa de Aerogeneradores de Velocidad Variable",
+      "opcurve.p1": "Para obtener la máxima potencia del viento existente, se utiliza una técnica conocida como <strong>seguimiento del punto de máxima potencia</strong> (MPPT). Las palas deben girar a una velocidad proporcional a la velocidad del viento.",
+      "opcurve.p2": "Esta aplicación permite la evaluación de los algoritmos que deben implementarse para lograrlo.",
+      "opcurve.p3": "Es una herramienta de ingeniería diseñada para analizar y definir las condiciones de operación del tren de potencia de un aerogenerador en función del tipo de pala, longitud de pala y su acoplamiento con el generador eléctrico, incluyendo la velocidad síncrona y la relación de la caja de engranajes seleccionada.",
+      "open": "Abrir",
+      "scada.guide.title": "Exploración guiada del Centro de Control SCADA de Parque Eólico",
+      "search.button": "Buscar",
+      "search.placeholder": "Buscar...",
+      "simuladorDFIG.50hz": "dfigr12_50hz.conf",
+      "simuladorDFIG.60hz": "dfigr12_60hz.conf",
+      "simuladorDSAS.configuracion": "DSASr12.conf",
+      "simuladorRRC.configuracion": "rrcr12.conf",
+      "simulator.dfigwt.p": "Simulador en Tiempo Real para la familia de aerogeneradores más ampliamente instalada, incluyendo simulación completa del <strong>convertidor Back-to-Back</strong> de Electrónica de Potencia. Disponible en versiones para redes de 50Hz y 60Hz.",
+      "simulator.dfigwt.title": "Aerogenerador con Generador de Inducción Doblemente Alimentado (DFIG)",
+      "simulator.dsaswt.p": "Simulador en Tiempo Real para la familia de aerogeneradores con palas de paso variable, control <strong>Active-Stall</strong> y <strong>dos velocidades operativas del rotor</strong>. Generador de inducción de jaula de ardilla conectado directamente a la red.",
+      "simulator.dsaswt.title": "Aerogenerador de Doble Velocidad y Active Stall",
+      "simulator.rrcwt.p": "Simulador en Tiempo Real para aerogeneradores que implementan control mediante paso de pala y <em>resistencia rotórica variable del bobinado</em> del generador de inducción asíncrono. Paso clave hacia la comprensión de los DFIGs.",
+      "simulator.rrcwt.title": "Aerogenerador Controlado por Resistencia Rotórica",
+      "simulator.wfscada.h3": "Simulador del Centro de Control / SCADA de Parque Eólico",
+      "simulator.wfscada.p": "Este simulador en tiempo real, junto con su tutorial completo, permite a los usuarios comprender los componentes del Parque Eólico, sus funciones operativas y la forma en que interactúan entre sí y con la Red Eléctrica.",
+      "simulator.wfscada.p2": "Aprende sobre: la subestación eléctrica, torre meteorológica, funcionalidades de control SCADA, comunicaciones con los aerogeneradores y la relación con el Operador del Sistema de Transmisión.",
+      "turbinefamilies.p": "Tres familias de aerogeneradores, tres simuladores en tiempo real. Cada uno incluye tutoriales completos, ejercicios prácticos y escenarios operacionales realistas.",
+      "turbinefamilies.title": "Simuladores de Aerogeneradores en Tiempo Real",
+      "tutorial.dfigwt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\DFIGWTSimulator\\Introduction.html",
+      "tutorial.dsaswt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\DSASWTSimulator\\Introduction.html",
+      "tutorial.family.path": "C:\\ACMSL\\WindFarmSimulator\\conf\\Training in Industrial aspects of Wind Energy\\WindTurbineFamilies.htmle",
+      "tutorial.ldpframework.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\LdP_Help\\Introduction.html",
+      "tutorial.rrcwt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\RRCWTSimulator\\Introduction.html",
+      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\Wind_Farm_Simulator_SCADA\\Introduction.html",
+      "tutorial.wfsscada.button": "📖 Abrir el Tutorial del 'Centro de Control/SCADA de Parque Eólico'",
+      "tutorials.dfigwt.button": "📖 Abrir el Tutorial del 'Simulador en Tiempo Real de Aerogenerador de Doble Alimentación'",
+      "tutorials.dfigwt.h3": "Tutorial del 'Simulador en Tiempo Real de Aerogenerador de Doble Alimentación'",
+      "tutorials.dfigwt.p1": "Esta familia de aerogeneradores constituye la gran mayoría de los instalados en parques eólicos de todo el mundo.",
+      "tutorials.dfigwt.p2": "Es una planta de producción compleja que explota las capacidades de la electrónica de potencia moderna.",
+      "tutorials.directaccess.p": "Los Tutoriales son un componente clave de la línea de productos de ACM SL. Normalmente están asociados a los Simuladores y Aplicaciones en Tiempo Real, y pueden accederse desde ellos: aquí puedes acceder directamente.",
+      "tutorials.directaccess.title": "Acceso directo a los Tutoriales",
+      "tutorials.dsaswt.button": "📖 Abrir el Tutorial del 'Simulador en Tiempo Real de Aerogenerador de Velocidad Dual y Estol Activo'",
+      "tutorials.dsaswt.h3": "Tutorial del 'Simulador en Tiempo Real de Aerogenerador de Velocidad Dual y Estol Activo'",
+      "tutorials.dsaswt.p1": "En este tutorial encontrarás la descripción de:",
+      "tutorials.dsaswt.p2": "* los subsistemas más comunes en un aerogenerador moderno",
+      "tutorials.dsaswt.p3": "* la descripción de sus condiciones de trabajo",
+      "tutorials.dsaswt.p4": "* la base del generador de inducción asíncrono",
+      "tutorials.ldpframework.button": "📖 Abrir el Tutorial del 'Simulador en Tiempo Real de Aerogenerador de Doble Alimentación'",
+      "tutorials.ldpframework.h3": "Tutorial del 'framework LdP'",
+      "tutorials.ldpframework.p1": "Todos los simuladores en tiempo real de ACMSL están basados en el framework <strong>LdP</strong>, desarrollado por ACM SL, que ofrece funcionalidades únicas para el desarrollo de simuladores en tiempo real, que a su vez están basados en <strong>Gemelos Digitales</strong>",
+      "tutorials.ldpframework.p2": "En este tutorial tienes una descripción de sus características.",
+      "tutorials.rrcwt.button": "📖 Abrir el Tutorial del 'Simulador en Tiempo Real de Control de Resistencia de Rotor'",
+      "tutorials.rrcwt.h3": "Tutorial del 'Simulador en Tiempo Real de Control de Resistencia de Rotor'",
+      "tutorials.rrcwt.p1": "Esta familia de aerogeneradores constituye un paso importante en el desarrollo de aerogeneradores modernos, como los DFIG.",
+      "tutorials.rrcwt.p2": "Utiliza una característica común de los generadores de inducción asíncrona para resolver el problema de usar el tren de potencia como dispositivo de almacenamiento de energía para afrontar los problemas asociados a las ráfagas de viento.",
+      "tutorials.subtitle": "Los tutoriales son un componente clave de la línea de productos ACMSL. Normalmente están asociados con los simuladores en tiempo real, pero también se pueden acceder de forma independiente.",
+      "tutorials.title": "Tutoriales",
+      "tutorials.windfarm_scada.button": "📖 Abrir el Tutorial del 'Centro de Control/SCADA de Parque Eólico'",
+      "tutorials.windfarm_scada.h3": "Tutorial SCADA de Parque Eólico (vista previa gratuita)",
+      "tutorials.windfarm_scada.p1": "Explora los temas clave cubiertos en el tutorial SCADA: características básicas de la Red Eléctrica, estructura y funcionalidades de un Parque Eólico, control de Aerogeneradores, conexión a la Red y Códigos de Red.",
+      "tutorials.windfarm_scada.p2": "Y sobre las principales características de la Red Eléctrica que afectan la operación del Parque Eólico.",
+      "videos.p": "Observa demostraciones de nuestros simuladores y vídeos educativos sobre tecnología de aerogeneradores.",
+      "videos.title": "Vídeos y Demostraciones de Aerogeneradores",
+      "windfarms.p": "Los parques eólicos constituyen unidades fundamentales de producción, suministrando energía generada directamente a la Red de Transmisión de la Red Eléctrica. Nuestro simulador SCADA te permite explorar cada componente.",
+      "windfarms.title": "Parques Eólicos y la Red Eléctrica"
+}
+    </script>
+
+    <!-- I18N: FRENCH -->
+    <script id="i18n-fr" type="application/json">
+    {
+      "b2b.p": "Outil d'ingénierie pour calculer la demande sur les convertisseurs Back-to-Back connectés aux machines à induction asynchrones dans les éoliennes DFIG.",
+      "b2b.title": "Convertisseurs Back-to-Back d'Électronique de Puissance",
+      "breadcrumb.Wind Farm SCADA": "SCADA de parc éolien",
+      "breadcrumb.b2b": "Back-to-Back",
+      "breadcrumb.concepts": "Concepts",
+      "breadcrumb.downloads": "Téléchargements",
+      "breadcrumb.drivetrain": "Train de Puissance",
+      "breadcrumb.landing": "Accueil",
+      "breadcrumb.opcDFIGB2B": "Back-to-Back",
+      "breadcrumb.opcGuideSCADA": "Guide SCADA",
+      "breadcrumb.opcGuides": "Guides",
+      "breadcrumb.opcOperCurve": "Chaîne cinématique",
+      "breadcrumb.opcSimulators": "Simulateurs",
+      "breadcrumb.opcTutorials": "Tutoriels",
+      "breadcrumb.opcVideos": "Vidéos",
+      "breadcrumb.simulators": "Simulateurs",
+      "breadcrumb.tutorials": "Tutoriels",
+      "breadcrumb.videos": "Vidéos",
+      "breadcrumb.windfarm": "Parc Éolien SCADA",
+      "btn.download.simulator": "Télécharger le Simulateur (évaluation gratuite)",
+      "btn.preview": "Aperçu Gratuit",
+      "card.grid.help4": "Logiciel pour calculer la <strong>Courbe Opérationnelle des Éoliennes à Vitesse Variable</strong> (familles DFIG et Full Converter). Outil d'ingénierie pour la conception et l'analyse du train de puissance.",
+      "card.grid.help5": "Logiciel pour calculer les valeurs des variables magnétiques et électriques dans la Machine à Induction Asynchrone des <strong>Éoliennes DFIG</strong>, connectée à un <strong>convertisseur Back-to-Back d'électronique de puissance</strong>.",
+      "card.grid.title2": "Réseau Électrique et Parcs Éoliens",
+      "card.grid.title3": "Simulateurs d'Éoliennes en Temps Réel",
+      "card.grid.title4": "Logiciel d'Analyse du Train de Puissance",
+      "card.grid.title5": "Convertisseurs Back-to-Back DFIG",
+      "card.grid.title6": "Vidéos et Démonstrations",
+      "card.grid.title7": "Accès aux Tutoriels",
+      "card.grid.title8": "Téléchargements et Évaluation Gratuite",
+      "card.intro.title": "Introduction aux Concepts des Éoliennes",
+      "concepts.industrial.button": "Voir le Tutoriel",
+      "concepts.industrial.h3": "Éoliennes Industrielles",
+      "concepts.industrial.p": "Découvrez les principaux composants et caractéristiques des éoliennes industrielles modernes : structure de la nacelle, systèmes de pales, générateurs et la relation entre la taille des pales et la puissance nominale.",
+      "concepts.intro.family": "Familles d'Éoliennes et Évolution",
+      "concepts.intro.p": "Découvrez les 5 principales familles d'éoliennes industrielles, leur évolution historique, les différences clés de leurs générateurs électriques et la courbe typique Production vs Vitesse du Vent pour chaque type.",
+      "concepts.intro.textbutton": "Voir le Tutoriel",
+      "concepts.mindmap.button": "Voir la Carte Mentale",
+      "concepts.mindmap.h3": "Carte des Connaissances en Énergie Éolienne",
+      "concepts.mindmap.p": "Cette carte mentale complète présente une vision structurelle des aspects techniques, opérationnels et technologiques essentiels de l'énergie éolienne, servant de référence complète pour la planification, la formation et la prise de décision.",
+      "concepts.operational.button": "Voir le Tutoriel",
+      "concepts.operational.h3": "Plages Opérationnelles de Vent",
+      "concepts.operational.p": "Comprenez les vitesses de vent de démarrage, nominale et d'arrêt, et comment le train de puissance gère l'extraction d'énergie dans différentes conditions de vent.",
+      "concepts.subtitle": "Explorez les fondamentaux de la technologie éolienne à travers des ressources éducatives gratuites",
+      "concepts.title": "Introduction aux Concepts de l'Énergie Éolienne",
+      "concepts.title.p": "",
+      "cta.allsimulators": "Téléchargez les trois simulateurs",
+      "cta.allsimulators.p": "Installez le package de base une fois, puis ajoutez n'importe quel simulateur. Chacun est fourni avec son propre tutoriel et exercices pratiques. Licence d'évaluation gratuite de 2 jours, accordée immédiatement.",
+      "cta.download": "Télécharger l'Évaluation Gratuite",
+      "cta.trysimulator": "Vous voulez l'expérimenter en pratique ?",
+      "cta.trysimulator.p": "Téléchargez nos simulateurs en temps réel et explorez le comportement des éoliennes de manière interactive. Licence d'évaluation gratuite de 2 jours, accordée immédiatement.",
+      "dfig.modal.50hz": "50Hz",
+      "dfig.modal.60hz": "60Hz",
+      "dfig.modal.cancel": "Annuler",
+      "dfig.modal.question": "Quelle version souhaitez-vous exécuter ?",
+      "dfigb2b.h3": "Exécuter l'application \"DFIGB2B\"",
+      "dfigb2b.p1": "Ce programme calcule toutes les variables magnétiques et électriques de la machine asynchrone utilisée dans la famille d'éoliennes DFIG, ainsi que la demande sur le convertisseur Back-to-Back. Idéal pour l'analyse post-mortem de ces convertisseurs.",
+      "dfigb2b.p2": "Cette <a href=\"https://youtu.be/AfkW0Qvy8AI\" target=\"_blank\" rel=\"noopener noreferrer\">vidéo</a> contient une brève explication.",
+      "downloads.apps.title": "Applications d'Ingénierie",
+      "downloads.contact": "Contacter ACMSL",
+      "downloads.help": "Besoin d'aide ou d'une évaluation plus longue ?",
+      "downloads.help.p": "Contactez-nous pour des licences d'évaluation étendues, des licences en volume, des réductions académiques ou du support technique.",
+      "downloads.how": "Comment ça marche",
+      "downloads.how.p": "1. Téléchargez et installez • 2. Lancez l'application • 3. Remplissez vos coordonnées • 4. Recevez votre licence d'évaluation instantanément • 5. Commencez à explorer !",
+      "downloads.simulators.title": "Simulateurs en Temps Réel",
+      "downloads.subtitle": "Tous nos produits incluent une <strong>licence d'évaluation gratuite de 2 jours</strong>, accordée immédiatement au premier lancement. Pas de carte de crédit requise.",
+      "downloads.title": "Téléchargements et Évaluation Gratuite",
+      "downloads.viewer.title": "Visionneuse de Tutoriels (requis pour les tutoriels cryptés)",
+      "drivetrain.p": "Outil d'ingénierie pour concevoir et étudier la Courbe Opérationnelle (RPM des pales vs. vitesse du vent) des éoliennes à vitesse variable.",
+      "drivetrain.title": "Analyse du Train de Puissance des Éoliennes",
+      "guided.learning.p": "Dans cette section, vous trouverez des visites guidées des tutoriels ainsi que des expériences suggérées décrites dans les tutoriels",
+      "guided.learning.title": "Accès à l'apprentissage guidé et aux expériences suggérées",
+      "header.subtitle": "Réduisez les coûts de formation et renforcez votre équipe de maintenance",
+      "header.title": "Simulateurs d'Éoliennes en Temps Réel, Formation et Outils d'Ingénierie",
+      "header.website": "Site Web et Contact",
+      "help": "Aide",
+      "home": "Accueil",
+      "landing.subtitle": "Cliquez sur un sujet pour découvrir simulateurs, tutoriels et outils d'ingénierie",
+      "landing.title": "Explorez notre Suite de Formation en Énergie Éolienne",
+      "mindmap.windenergy.path": "C:\\ACMSL\\ACM SL Wind Energy Applications\\French\\files\\Training in Industrial aspects of Wind Energy.mm",
+      "nombre.idioma": "Français",
+      "nrel.access.h3": "Accès à la documentation du National Renewable Energy Laboratory (NREL)",
+      "nrel.access.p1": "Le NREL a publié en mars 2008 cet article de référence : <strong>\"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Test - Part I: Control Design, Implementation, and Initial Tests\"</strong>.",
+      "nrel.access.p2": "Il contient la description des algorithmes nécessaires à la conception de chaînes cinématiques extrayant la puissance maximale du vent disponible.",
+      "opcurve.h3": "Courbe opérationnelle des éoliennes à vitesse variable",
+      "opcurve.p1": "Pour obtenir la puissance maximale du vent existant, une technique appelée <strong>suivi du point de puissance maximale</strong> (MPPT) est utilisée. Les pales doivent tourner à une vitesse proportionnelle à la vitesse du vent.",
+      "opcurve.p2": "Cette application permet d'évaluer les algorithmes à mettre en œuvre pour y parvenir.",
+      "opcurve.p3": "Il s'agit d'un outil d'ingénierie conçu pour analyser et définir les conditions de fonctionnement de la chaîne cinématique d'une éolienne en fonction du type de pale, de la longueur de la pale et de son couplage avec le générateur électrique, y compris la vitesse synchrone et le rapport de la boîte de vitesses sélectionnée.",
+      "open": "Ouvrir",
+      "scada.guide.title": "Exploration guidée du SCADA de parc éolien",
+      "search.button": "Rechercher",
+      "search.placeholder": "Rechercher...",
+      "simuladorDFIG.configuracion.50hz": "dfigr12_50hz.conf",
+      "simuladorDFIG.configuracion.60hz": "dfigr12_60hz.conf",
+      "simuladorDSAS.configuracion": "DSASr12.conf",
+      "simuladorRRC.configuracion": "rrcr12.conf",
+      "simulator.dfigwt.p": "Simulateur en Temps Réel pour la famille d'éoliennes la plus largement installée, incluant la simulation complète du <strong>convertisseur Back-to-Back</strong> d'Électronique de Puissance. Disponible en versions pour réseaux 50Hz et 60Hz.",
+      "simulator.dfigwt.title": "Éolienne à Générateur à Induction Doublement Alimenté (DFIG)",
+      "simulator.dsaswt.p": "Simulateur en Temps Réel pour la famille d'éoliennes avec pales à pas variable, contrôle <strong>Active-Stall</strong> et <strong>deux vitesses de rotation opérationnelles du rotor</strong>. Générateur à induction à cage d'écureuil connecté directement au réseau.",
+      "simulator.dsaswt.title": "Éolienne à Double Vitesse et Active Stall",
+      "simulator.rrcwt.p": "Simulateur en Temps Réel pour les éoliennes qui mettent en œuvre un contrôle par pas de pale et <em>résistance rotorique variable du bobinage</em> du générateur à induction asynchrone. Étape clé vers la compréhension des DFIGs.",
+      "simulator.rrcwt.title": "Éolienne à Contrôle par Résistance Rotorique",
+      "simulator.wfscada.h3": "Simulateur du Centre de Contrôle / SCADA de Parc Éolien",
+      "simulator.wfscada.p": "Ce simulateur en temps réel, avec son tutoriel complet, permet aux utilisateurs de comprendre les composants du Parc Éolien, leurs rôles opérationnels et la façon dont ils interagissent les uns avec les autres et avec le Réseau Électrique.",
+      "simulator.wfscada.p2": "Découvrez : le poste électrique, la tour météorologique, les fonctionnalités de contrôle SCADA, les communications avec les éoliennes et la relation avec l'Opérateur du Système de Transmission.",
+      "turbinefamilies.p": "Trois familles d'éoliennes, trois simulateurs en temps réel. Chacun inclut des tutoriels complets, des exercices pratiques et des scénarios opérationnels réalistes.",
+      "turbinefamilies.title": "Simulateurs d'Éoliennes en Temps Réel",
+      "tutorial.dfigwt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\French\\DFIGWTSimulator\\Introduction.html",
+      "tutorial.dsaswt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\French\\DSASWTSimulator\\Introduction.html",
+      "tutorial.family.path": "C:\\ACMSL\\WindFarmSimulator\\conf\\Training in Industrial aspects of Wind Energy\\WindTurbineFamilies.htmle",
+      "tutorial.ldpframework.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\French\\LdP_Help\\Introduction.html",
+      "tutorial.rrcwt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\French\\RRCWTSimulator\\Introduction.html",
+      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\French\\Wind_Farm_Simulator_SCADA\\Introduction.html",
+      "tutorial.wfsscada.button": "📖 Ouvrir le tutoriel du 'Centre de Contrôle/SCADA de Parc Éolien'",
+      "tutorials.dfigwt.button": "📖 Ouvrir le tutoriel 'Simulateur en temps réel d'éolienne à générateur asynchrone à double alimentation'",
+      "tutorials.dfigwt.h3": "Tutoriel du 'Simulateur en temps réel d'éolienne à générateur asynchrone à double alimentation'",
+      "tutorials.dfigwt.p1": "Cette famille d'éoliennes constitue la grande majorité des éoliennes installées dans les parcs éoliens du monde entier.",
+      "tutorials.dfigwt.p2": "C'est une centrale de production complexe qui exploite les capacités de l'électronique de puissance moderne.",
+      "tutorials.directaccess.p": "Les tutoriels sont un élément clé de la gamme de produits ACM SL. Ils sont généralement associés aux simulateurs et applications en temps réel, et peuvent être consultés depuis ceux-ci : ici, vous pouvez y accéder directement.",
+      "tutorials.directaccess.title": "Accès direct aux tutoriels",
+      "tutorials.dsaswt.button": "📖 Ouvrir le tutoriel 'Simulateur en temps réel d'éolienne à deux vitesses et volet actif'",
+      "tutorials.dsaswt.h3": "Tutoriel du 'Simulateur en temps réel d'éolienne à deux vitesses et volet actif'",
+      "tutorials.dsaswt.p1": "Dans ce tutoriel, vous trouverez la description de :",
+      "tutorials.dsaswt.p2": "* les sous-systèmes les plus courants dans une éolienne moderne",
+      "tutorials.dsaswt.p3": "* la description de ses conditions de fonctionnement",
+      "tutorials.dsaswt.p4": "* les bases du générateur asynchrone",
+      "tutorials.ldpframework.button": "📖 Ouvrir le tutoriel du 'Cadre LdP'",
+      "tutorials.ldpframework.h3": "Tutoriel du 'Cadre LdP'",
+      "tutorials.ldpframework.p1": "Tous les simulateurs en temps réel d'ACMSL sont basés sur le cadre LdP, développé par ACM SL, qui offre des fonctionnalités uniques pour le développement de simulateurs en temps réel, qui, à leur tour, sont basés sur des <strong>Jumeaux Numériques</strong>",
+      "tutorials.ldpframework.p2": "Dans ce tutoriel, vous trouverez une description de ses caractéristiques.",
+      "tutorials.rrcwt.button": "📖 Ouvrir le tutoriel 'Simulateur en temps réel d'éolienne à résistance de rotor contrôlée'",
+      "tutorials.rrcwt.h3": "Tutoriel du 'Simulateur en temps réel d'éolienne à résistance de rotor contrôlée'",
+      "tutorials.rrcwt.p1": "Cette famille d'éoliennes constitue une étape importante dans le développement des éoliennes modernes, comme les DFIG.",
+      "tutorials.rrcwt.p2": "Elle utilise une caractéristique commune des générateurs asynchrones pour résoudre le problème de l'utilisation de la chaîne cinématique comme dispositif de stockage d'énergie afin de faire face aux problèmes associés aux rafales de vent.",
+      "tutorials.subtitle": "Les tutoriels sont un composant clé de la gamme de produits ACMSL. Ils sont normalement associés aux simulateurs en temps réel, mais peuvent également être consultés indépendamment.",
+      "tutorials.title": "Tutoriels",
+      "tutorials.windfarm_scada.button": "📖 Ouvrir le tutoriel du 'Centre de Contrôle/SCADA de Parc Éolien'",
+      "tutorials.windfarm_scada.h3": "Tutoriel SCADA de Parc Éolien (aperçu gratuit)",
+      "tutorials.windfarm_scada.p1": "Explorez les sujets clés couverts dans le tutoriel SCADA : caractéristiques de base du Réseau Électrique, structure et fonctionnalités d'un Parc Éolien, contrôle des Éoliennes, connexion au Réseau et Codes de Réseau.",
+      "tutorials.windfarm_scada.p2": "Et sur les principales caractéristiques du réseau électrique affectant le fonctionnement du parc éolien.",
+      "videos.p": "Visionnez des démonstrations de nos simulateurs et des vidéos éducatives sur la technologie éolienne.",
+      "videos.title": "Vidéos et Démonstrations d'Éoliennes",
+      "windfarms.p": "Les parcs éoliens constituent des unités de production fondamentales, fournissant l'énergie générée directement au Réseau de Transmission du Réseau Électrique. Notre simulateur SCADA vous permet d'explorer chaque composant.",
+      "windfarms.title": "Parcs Éoliens et le Réseau Électrique"
+}
+    </script>
+
+    <!-- EMBEDDED VIDEOS CATALOG -->
+    <script id="videosXml" type="text/plain">
+<Root>
+  <Video>
+    <Exec>https://youtu.be/rzArDywPrBY</Exec>
+    <Title>Transparent view of a Nacelle</Title>
+    <Help>This video provides a travelling view of a nacelle, with transparent walls</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/8wK1qmRv_l8</Exec>
+    <Title>Guided visit to a Wind Turbine</Title>
+    <Help></Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/tUse6mSeU-I</Exec>
+    <Title>Virtual Wind Farm Tour Ep 5: The Nacelle</Title>
+    <Help>This video shows the preparation stage of an intervention on a Wind Turbine</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/ZjvBbKqMvEM</Exec>
+    <Title>Key concepts of Wind Energy and Wind Turbines</Title>
+    <Help>A short presentation of the basic concepts on Wind Turbines</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/0bZFwWSccGQ</Exec>
+    <Title>Description of one Wind Turbine simulator</Title>
+    <Help>A short introduction to the Simulator for the Wind Turbine with Active Stall control</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/UOjPvVjseVc</Exec>
+    <Title>START and STOP operations of a Wind Turbine</Title>
+    <Help>Observe the evolution of the Active Stall Wind Turbine during START (cut-in) and STOP (cut-out) operations</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/iNcIchrkLNM</Exec>
+    <Title>Evolution of internal signals of a DFIG Wind Turbine with wind gusts</Title>
+    <Help>Detailed analysis of the evolution of key signals inside a DFIG, including wind gust scenarios</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/zwhvSf7LGbg</Exec>
+    <Title>DFIG during a wind gust with Pitch system problems - High Wind</Title>
+    <Help>Evolution of the Drive Train of a 1.5 MW WT under normal and faulty pitch conditions at high wind speed</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/6pmcnACDfq0</Exec>
+    <Title>DFIG Drive Train with wind gusts and Pitch problems - Low Wind</Title>
+    <Help>Drive Train evolution at low wind speed: normal vs faulty pitch system</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/OcR_WvUvN_M</Exec>
+    <Title>Management of incidences in Wind Turbines</Title>
+    <Help>Incidences are a key concept: familiarity with possible incidences is essential for Operation and Maintenance</Help>
+  </Video>
+  <Video>
+    <Exec>https://www.youtube.com/watch?v=84BeVq2Jm88</Exec>
+    <Title>Erection of a Wind Turbine - MidAmerican Energy</Title>
+    <Help></Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/whTfACs0Og8?t=8</Exec>
+    <Title>ACMSL simulators at Minnesota West Technical College</Title>
+    <Help>Minnesota West Technical College presents their wind turbine training installations featuring ACMSL WindFarmSimulator</Help>
+  </Video>
+  <Video>
+    <Exec>https://www.youtube.com/watch?v=7EQa-WZ9c3g</Exec>
+    <Title>Construction of Wind Turbine subsystems</Title>
+    <Help>Construction of different subsystems, notably the Yaw system in the Nacelle</Help>
+  </Video>
+  <Video>
+    <Exec>https://www.youtube.com/watch?v=THf6svHoqaA</Exec>
+    <Title>Visit inside a Wind Turbine</Title>
+    <Help></Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/Y5T5ZhJQr2o?t=147</Exec>
+    <Image>img/stall-vs-pitch-control.png</Image>
+    <Title>Wind Turbine Aerodynamics: Stall vs Pitch Regulation</Title>
+    <Help>The difference between the physical principles behind the two most used control methods</Help>
+  </Video>
+  <Video>
+    <Exec>https://www.youtube.com/watch?v=ARd-Om2VyiE</Exec>
+    <Title>How a Planetary stage works</Title>
+    <Help>Wind Turbine gearboxes use planetary stages (speed ratio 1:60 to 1:125). Often the first stage is planetary, connected to the Hub.</Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/1-2UVzTvhjc</Exec>
+    <Title>Aerodynamic stop during Cut Out of a fixed-pitch Wind Turbine</Title>
+    <Help></Help>
+  </Video>
+  <Video>
+    <Exec>https://youtu.be/AfkW0Qvy8AI</Exec>
+    <Title>DFIG Back-to-Back Converter Analysis Tool</Title>
+    <Help>Brief explanation of the DFIG B2B application for computing magnetic and electric variables</Help>
+  </Video>
+</Root>
+    </script>
+
+    <script>
+    /* ========== NAVIGATION ========== */
+    let _navStack = [];
+    let _currentSection = "landing";
+
+    function showSection(id, pushHistory = true) {
+      document.querySelectorAll('section').forEach(sec => {
+        sec.id === id ? sec.classList.add('active') : sec.classList.remove('active');
+      });
+
+      if (id === 'videos' && typeof initVideosOnce === 'function') {
+        initVideosOnce();
+      }
+
+      if (pushHistory && id !== _currentSection) {
+        _navStack.push(_currentSection);
+        _currentSection = id;
+      } else if (!pushHistory) {
+        _currentSection = id;
+      } else {
+        return;
+      }
+
+      if (id === "landing") _navStack = [];
+      renderBreadcrumb([..._navStack, _currentSection]);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function getBreadcrumbLabel(sectionId) {
+      const el = document.getElementById(sectionId);
+      return el?.dataset?.breadcrumb || sectionId;
+    }
+
+    function renderBreadcrumb(stack) {
+      const bc = document.getElementById("breadcrumb");
+      if (!bc) return;
+      bc.innerHTML = "";
+      if (stack.length === 1 && stack[0] === "landing") return;
+
+      stack.forEach((secId, i) => {
+        const span = document.createElement("span");
+        const i18nKey = "breadcrumb." + secId;
+        span.setAttribute("data-i18n", i18nKey);
+        span.textContent = getBreadcrumbLabel(secId);
+
+        if (i < stack.length - 1) {
+          span.className = "bc-link";
+          span.onclick = () => navigateToBreadcrumb(secId);
+        } else {
+          span.className = "bc-current";
+        }
+
+        bc.appendChild(span);
+        if (i < stack.length - 1) bc.append(" > ");
+      });
+    }
+
+    function navigateToBreadcrumb(targetSection) {
+      const index = _navStack.indexOf(targetSection);
+      _navStack = index !== -1 ? _navStack.slice(0, index) : [];
+      _currentSection = targetSection;
+
+      document.querySelectorAll('section').forEach(sec => {
+        sec.id === targetSection ? sec.classList.add('active') : sec.classList.remove('active');
+      });
+
+      renderBreadcrumb([..._navStack, _currentSection]);
+    }
+
+    function goHome() {
+      _navStack = [];
+      _currentSection = "landing";
+      showSection("landing", false);
+      const bc = document.getElementById("breadcrumb");
+      if (bc) bc.innerHTML = "";
+    }
+
+    /* ========== CARD NAVIGATION ========== */
+    document.querySelectorAll('.card[data-target]').forEach(card => {
+      card.addEventListener('click', () => {
+        showSection(card.getAttribute('data-target'));
+      });
+    });
+
+    /* ========== TOAST ========== */
+    function showToast(msg, type = 'info') {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.style.background = type === 'error' ? '#c0392b' : type === 'success' ? '#00a878' : '#333';
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 3000);
+    }
+
+    /* ========== VIDEOS ========== */
+    let _videosLoaded = false;
+
+    function _extractYouTubeId(url) {
+      try {
+        const u = new URL(url);
+        if (u.hostname.includes('youtu.be')) return u.pathname.replace(/^\//, '');
+        if (u.hostname.includes('youtube.com')) {
+          if (u.searchParams.has('v')) return u.searchParams.get('v');
+          const m = u.pathname.match(/\/(?:shorts|embed)\/([\w-]+)/);
+          if (m) return m[1];
+        }
+      } catch (e) {}
+      const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+      return m ? m[1] : null;
+    }
+
+    function _thumbFromUrl(url, customImage) {
+      if (customImage) return customImage;
+      const yt = _extractYouTubeId(url);
+      return yt ? "https://img.youtube.com/vi/" + yt + "/hqdefault.jpg" : "img/ACM_LOGO.png";
+    }
+
+    function _embedUrl(url) {
+      const yt = _extractYouTubeId(url);
+      return yt ? "https://www.youtube.com/embed/" + yt : url;
+    }
+
+    function openVideoModal(url, title) {
+      const modal = document.getElementById('videoModal');
+      document.getElementById('videoModalTitle').textContent = title;
+      document.getElementById('videoModalIframe').src = _embedUrl(url);
+      modal.classList.add('show');
+    }
+
+    function closeVideoModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('show');
+      document.getElementById('videoModalIframe').src = '';
+    }
+
+    function initVideosOnce() {
+      if (_videosLoaded) return;
+      _videosLoaded = true;
+      const container = document.getElementById('videos-container');
+      if (!container) return;
+
+      let videos = [];
+      const xmlScript = document.getElementById('videosXml');
+      if (xmlScript) {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(xmlScript.textContent, 'text/xml');
+        doc.querySelectorAll('Video').forEach(v => {
+          const exec = v.querySelector('Exec')?.textContent?.trim() || '';
+          const title = v.querySelector('Title')?.textContent?.trim() || '';
+          const help = v.querySelector('Help')?.textContent?.trim() || '';
+          const image = v.querySelector('Image')?.textContent?.trim() || '';
+          if (exec) videos.push({ exec, title, help, image });
+        });
+      }
+
+      container.innerHTML = '';
+      videos.forEach(v => {
+        const card = document.createElement('div');
+        card.className = 'video-card';
+        card.innerHTML = `
+          <div class="video-thumb" onclick="openVideoModal('${v.exec}', '${v.title.replace(/'/g, "\\'")}')">
+            <img src="${_thumbFromUrl(v.exec, v.image)}" alt="${v.title}" loading="lazy" />
+          </div>
+          <div class="video-content">
+            <div class="video-title">${v.title}</div>
+            ${v.help ? '<p style="font-size:0.85rem;color:#4a5a6a;">' + v.help + '</p>' : ''}
+            <div class="video-buttons">
+              <button class="btn btn-primary" onclick="openVideoModal('${v.exec}', '${v.title.replace(/'/g, "\\'")}')">Watch</button>
+              <a href="${v.exec}" target="_blank" class="btn btn-ghost">Open on YouTube</a>
+            </div>
+          </div>`;
+        container.appendChild(card);
+      });
+    }
+
+    /* ========== I18N ========== */
+    function applyI18n(lang) {
+      let dict = {};
+      try {
+        const script = document.getElementById('i18n-' + lang);
+        if (script) dict = JSON.parse(script.textContent);
+      } catch (e) {}
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          if (el.tagName === 'INPUT') el.placeholder = dict[key];
+          else el.innerHTML = dict[key];
+        }
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.placeholder = dict[key];
+      });
+
+      // Update tutorial links to match language
+      document.querySelectorAll('a[href*="/tutorials/"]').forEach(a => {
+        a.href = a.href.replace(/\/tutorials\/(en|es|fr)\//, '/tutorials/' + lang + '/');
+      });
+
+      document.documentElement.lang = lang === 'es' ? 'es' : lang === 'fr' ? 'fr' : 'en';
+    }
+
+    /* ========== SEARCH ========== */
+    function initSearch() {
+      const input = document.getElementById('searchInput');
+      const suggest = document.getElementById('searchSuggest');
+      const btn = document.getElementById('searchBtn');
+      let keywords = [];
+
+      try {
+        keywords = JSON.parse(document.getElementById('searchKeywords').textContent);
+      } catch (e) {}
+
+      function doSearch(query) {
+        const q = query.toLowerCase().trim();
+        if (!q) { suggest.classList.remove('show'); return; }
+
+        const matches = [];
+        keywords.forEach(entry => {
+          entry.keywords.forEach(kw => {
+            if (kw.toLowerCase().includes(q) && !matches.find(m => m.section === entry.section)) {
+              matches.push(entry);
+            }
+          });
+        });
+
+        suggest.innerHTML = '';
+        if (matches.length) {
+          matches.forEach(m => {
+            const div = document.createElement('div');
+            div.className = 'item';
+            div.textContent = getBreadcrumbLabel(m.section) || m.section;
+            div.onclick = () => {
+              showSection(m.section);
+              suggest.classList.remove('show');
+              input.value = '';
+            };
+            suggest.appendChild(div);
+          });
+          suggest.classList.add('show');
+        } else {
+          suggest.classList.remove('show');
+        }
+      }
+
+      input.addEventListener('input', () => doSearch(input.value));
+      input.addEventListener('keydown', e => { if (e.key === 'Escape') suggest.classList.remove('show'); });
+      btn.addEventListener('click', () => doSearch(input.value));
+      document.addEventListener('click', e => {
+        if (!e.target.closest('.search-wrap')) suggest.classList.remove('show');
+      });
+    }
+
+    /* ========== URL PARAMS ========== */
+    function getUrlParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    /* ========== INIT ========== */
+    document.addEventListener('DOMContentLoaded', function() {
+      // Language
+      let lang = getUrlParam('lang') || localStorage.getItem('lang') || (navigator.language || 'en').split('-')[0].toLowerCase();
+      if (!['en', 'es', 'fr'].includes(lang)) lang = 'en';
+
+      const langSelect = document.getElementById('langSelect');
+      langSelect.value = lang;
+      applyI18n(lang);
+
+      langSelect.addEventListener('change', function() {
+        const newLang = this.value;
+        localStorage.setItem('lang', newLang);
+        applyI18n(newLang);
+      });
+
+      // Section from URL
+      const section = getUrlParam('section');
+      if (section) {
+        const el = document.getElementById(section);
+        if (el && el.tagName === 'SECTION') showSection(section);
+      }
+
+      initSearch();
+    });
+    </script>
+  </body>
+</html>
