@@ -791,10 +791,9 @@
     </header>
 
     <div id="breadcrumb" class="breadcrumb"></div>
-
     <main>
       <!-- LANDING: 6 OPCIONES -->
-      <section id="landing" class="active" data-breadcrumb="Home1">
+      <section id="landing" class="active" data-breadcrumb="landing">
         <div class="section-header">
           <h2 data-i18n="landing.title">Select a subject</h2>
           <p data-i18n="landing.subtitle">Click on a subject to access the corresponding applications</p>
@@ -814,7 +813,7 @@
           </button>
 
           <!-- 3. Aerogeneradores en Parques Eólicos -->
-          <button class="card" type="button" data-target="opcionSimuladores">
+          <button class="card" type="button" data-target="opcSimulators">
             <div class="card-image" style="background-image:url('img/vista-wt-reducida.png');"></div>
             <div class="card-title" data-i18n="card.grid.title3">card.grid.title3</div>
           </button>
@@ -840,13 +839,13 @@
           </button>
 
           <!-- 6. Vídeos interesantes -->
-          <button class="card" type="button" data-target="opcion6">
+          <button class="card" type="button" data-target="opcVideos">
             <div class="card-image" style="background-image:url('img/CollageImagenesVideos-reducido.png');"></div>
             <div class="card-title" data-i18n="card.grid.title6">card.grid.title6</div>
           </button>
 
           <!-- 7. Tutoriales -->
-          <button class="card" type="button" data-target="opcionTutoriales">
+          <button class="card" type="button" data-target="opcTutorials">
             <div class="card-image" style="background-image:url('img/AccesoaTutoriales.png');"></div>
             <div class="card-title" data-i18n="card.grid.title7">card.grid.title7</div>
           </button>
@@ -889,7 +888,7 @@
 
       <!-- ====================== Opcion de Tutoriales ============== -->
       <!-- OPCIÓN 7: Tutoriales -->
-      <section id="opcionTutoriales" data-breadcrumb="Tutorials">
+      <section id="opcTutorials" data-breadcrumb="opcTutorials">
         <div class="section-header">
           <h2 data-i18n="tutorials.directaccess.title">Direct access to the Tutorials</h2>
           <p data-i18n="tutorials.directaccess.p">The Tutorials are a key component of the product line of ACM SL. They normally are associated to the Real-Time Simulators and Applications, and can be access from whitin them: here you can access them directly.</p>
@@ -1009,18 +1008,18 @@
 
         <div class="suboptions">
           <div class="sub-card">
-            <h3>Suggested Experiments - 1</h3>
+            <h3 data-i18n="guided.experiments1.title">Suggested Experiments - 1</h3>
             <div class="btn-row">
-              <p>In this Tutorial there are a list of experiments that illustrate key concepts, and comparisons between types of wind turbines families</p>
-              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Experiments\\Introduction.html')">📖 Open the "Experiments" Tutorial</button>
+              <p data-i18n="guided.experiments1.p">In this Tutorial there are a list of experiments that illustrate key concepts, and comparisons between types of wind turbines families</p>
+              <button class="btn btn-primary" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Experiments\\Introduction.html')">📖 <span data-i18n="guided.experiments1.button">Open the "Experiments" Tutorial</span></button>
             </div>
           </div>
 
           <div class="sub-card">
-            <h3>Guided learning for the Wind Farm Control Center/SCADA</h3>
+            <h3 data-i18n="guided.learning.scada.title">Guided learning for the Wind Farm Control Center/SCADA</h3>
             <div class="card-text">
-              <p>The items in the next links provide an ordered reading of the Tutorial of the Wind Farm Control Center/SCADA, following</p>
-              <button class="card" type="button" data-target="opcionGuiaWFSSCADA">📖 Open the Guide</button>
+              <p data-i18n="guided.learning.scada.p">The items in the next links provide an ordered reading of the Tutorial of the Wind Farm Control Center/SCADA, following</p>
+              <button class="card" type="button" data-target="opcionGuiaWFSSCADA"><span data-i18n="guided.learning.scada.button">📖 Open the Guide</span></button>
             </div>
           </div>
         </div>
@@ -1055,7 +1054,7 @@
       </section>
 
       <!-- OPCIÓN 3: AEROGENERADORES EN PARQUES EÓLICOS -->
-      <section id="opcionSimuladores" data-breadcrumb="Simulators">
+      <section id="opcSimulators" data-breadcrumb="opcSimulators">
         <div class="section-header">
           <h2 data-i18n="turbinefamilies.title">Families of Wind Turbines in Wind Farms</h2>
           <p data-i18n="turbinefamilies.p">You have a introductory presentation in <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C636F6E665C547261696E696E6720696E20496E647573747269616C2061737065637473206F662057696E6420456E657267795C57696E6454757262696E6546616D696C6965732E68746D6C" target="_blank" rel="noopener noreferrer">Families of Wind Turbines</a></p>
@@ -1138,7 +1137,7 @@
       </section>
 
       <!-- OPTION 6: INTERESTING VIDEOS -->
-      <section id="opcion6" data-breadcrumb="Videos">
+      <section id="opcVideos" data-breadcrumb="opcVideos">
         <div class="section-header">
           <h2 data-i18n="videos.title">Wind Turbine related videos</h2>
           <p data-i18n="videos.p">Select a video to watch.</p>
@@ -1170,10 +1169,10 @@
       "breadcrumb.landing": "Home",
       "breadcrumb.concepts": "Wind Energy Concepts",
       "breadcrumb.Wind Farm SCADA": "Wind Farm SCADA",
-      "breadcrumb.opcionSimuladores": "Simulators",
-      "breadcrumb.opcionTutoriales": "Tutorials",
+      "breadcrumb.opcSimulators": "Wind Turbine Simulators",
+      "breadcrumb.opcTutorials": "Tutorials",
       "breadcrumb.opcionGuias": "Guides",
-      "breadcrumb.opcion6": "Videos",
+      "breadcrumb.opcVideos": "Videos",
       "breadcrumb.opcOperCurve": "Tren de Potencia",
       "breadcrumb.opcDFIGB2B": "Back-to-Back converter",
       "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
@@ -1216,10 +1215,10 @@
       "breadcrumb.landing": "Inicio",
       "breadcrumb.concepts": "Conceptos de Energía Eólica",
       "breadcrumb.Wind Farm SCADA": "Parque Eólico SCADA",
-      "breadcrumb.opcionSimuladores": "Simuladores",
-      "breadcrumb.opcionTutoriales": "Tutoriales",
+      "breadcrumb.opcSimulators": "Simuladores de Aerogeneradores",
+      "breadcrumb.opcTutorials": "Tutoriales",
       "breadcrumb.opcionGuias": "Guias",
-      "breadcrumb.opcion6": "Vídeos",
+      "breadcrumb.opcVideos": "Vídeos",
       "breadcrumb.opcOperCurve": "Tren de Potencia",
       "breadcrumb.opcDFIGB2B": "Back-to-Back converter",
       "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
@@ -1582,7 +1581,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
         // Llamar a initVideosOnce si es la sección de videos
-        if (id === 'opcion6' && typeof initVideosOnce === 'function') {
+        if (id === 'opcVideos' && typeof initVideosOnce === 'function') {
           initVideosOnce();
         }
 
@@ -1625,7 +1624,8 @@ document.addEventListener('DOMContentLoaded', function() {
           const span = document.createElement("span");
           const i18nKey = "breadcrumb." + secId;
           span.setAttribute("data-i18n", i18nKey);
-          span.textContent = getBreadcrumbLabel(secId);
+          // Usar la función t(key) para traducir
+          span.textContent = t(i18nKey);
 
           if (i < stack.length - 1) {
             span.className = "bc-link";
@@ -1989,7 +1989,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const _showSectionBase = showSection;
       showSection = function(id) {
         _showSectionBase(id);
-        if (id === 'opcion6') initVideosOnce();
+        if (id === 'opcVideos') initVideosOnce();
       };
     </script>
 
@@ -2043,7 +2043,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         document.querySelectorAll(".video-card").forEach(card => {
           const title = (card.querySelector(".video-title")?.textContent || "").trim(); if (!title) return; const sec = card.closest("section");
-          items.push({ label: title, sectionId: sec ? sec.id : "opcion6", element: card });
+          items.push({ label: title, sectionId: sec ? sec.id : "opcVideos", element: card });
         });
         document.querySelectorAll(".tutorial-card").forEach(card => {
           const title = (card.querySelector(".tutorial-title")?.textContent || "").trim(); if (!title) return; const sec = card.closest("section");
@@ -2265,7 +2265,7 @@ document.addEventListener('DOMContentLoaded', function() {
             _customHeaderSubtitle = null;
           }
           // Si estamos en la sección de vídeos, recargar la lista
-          if (_currentSection === 'opcion6') {
+          if (_currentSection === 'opcVideos') {
             _videosLoaded = false;
             initVideosOnce();
           }
