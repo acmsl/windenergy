@@ -346,9 +346,66 @@ body {
 
 .tut-footer a:hover { text-decoration: underline; }
 
+/* TOOLBAR - Language selector, Home & ACMSL buttons */
+.tut-toolbar {
+  background: var(--dark);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 2rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tut-toolbar-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.tut-toolbar-actions a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.82rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.1);
+  transition: background 0.2s;
+}
+
+.tut-toolbar-actions a:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.tut-lang-selector {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.tut-lang-selector a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.tut-lang-selector a:hover {
+  color: white;
+  background: rgba(255,255,255,0.15);
+}
+
+.tut-lang-selector a.active {
+  color: white;
+  background: var(--primary);
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .tut-header { padding: 0.8rem 1rem; }
+  .tut-toolbar { padding: 0.35rem 1rem; }
   .tut-hero { padding: 1.5rem 1rem; }
   .tut-hero h1 { font-size: 1.4rem; }
   .tut-content { padding: 0 1rem; }
