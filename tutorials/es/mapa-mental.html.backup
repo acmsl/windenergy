@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Conocimiento en Energ&iacute;a E&oacute;lica - ACMSL</title>
+  <link rel="stylesheet" href="../tutorial.css">
+</head>
+<body>
+
+<div class="tut-toolbar">
+  <div class="tut-toolbar-actions">
+    <a href="../../index.html?lang=es" title="Inicio">&#127968; Inicio</a>
+    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
+  </div>
+  <div class="tut-lang-selector">
+    <a href="../en/wind-energy-mindmap.html">EN</a>
+    <a href="../es/mapa-mental.html" class="active">ES</a>
+    <a href="../fr/carte-mentale.html">FR</a>
+    <a href="../it/mappa-conoscenza-eolica.html">IT</a>
+    <a href="../de/windenergie-wissenskarte.html">DE</a>
+    <a href="../pt/mapa-conhecimento-eolico.html">PT</a>
+  </div>
+</div>
+
+<header class="tut-header">
+  <div class="tut-header-left">
+    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+  </div>
+  <nav>
+    <a href="introduccion.html">Introducci&oacute;n</a>
+    <a href="aerogeneradores-industriales.html">Aerogeneradores</a>
+    <a href="familias-aerogeneradores.html">Familias</a>
+    <a href="rangos-operacionales.html">Rangos de viento</a>
+    <a href="simuladores-y-tutoriales.html">Simuladores</a>
+    <a href="mapa-mental.html" class="active">Mapa mental</a>
+  </nav>
+</header>
+
+<section class="tut-hero">
+  <h1>Mapa de Conocimiento en Energ&iacute;a E&oacute;lica</h1>
+  <p>Un mapa mental exhaustivo que abarca todos los aspectos industriales del sector e&oacute;lico</p>
+</section>
+
+<main class="tut-content">
+
+  <h2>Conocimiento estructurado para profesionales</h2>
+  <p>
+    ACMSL ha desarrollado un <strong>mapa de conocimiento completo</strong> que cubre todos los aspectos
+    industriales de la energ&iacute;a e&oacute;lica, desde los fundamentos f&iacute;sicos hasta la financiaci&oacute;n de
+    proyectos, pasando por la aerodin&aacute;mica, la electr&oacute;nica de potencia, la meteorolog&iacute;a y la seguridad
+    laboral.
+  </p>
+  <p>
+    Este mapa ha sido elaborado como un <strong>mapa mental interactivo</strong> en formato
+    <a href="https://www.freeplane.org" target="_blank" rel="noopener">Freeplane</a>, una herramienta
+    de c&oacute;digo abierto que permite navegar, expandir y contraer ramas de conocimiento de forma intuitiva.
+    El contenido es biling&uuml;e (espa&ntilde;ol/ingl&eacute;s) y se actualiza peri&oacute;dicamente con las &uacute;ltimas
+    novedades del sector.
+  </p>
+
+  <figure class="tut-figure">
+    <img src="../../img/mindmaprecortado.png" alt="Mapa mental de energ&iacute;a e&oacute;lica - vista general">
+    <figcaption>Vista parcial del mapa de conocimiento en energ&iacute;a e&oacute;lica de ACMSL</figcaption>
+  </figure>
+
+  <h2>Contenido del mapa: 11 ramas principales</h2>
+  <p>
+    El mapa se organiza en <strong>11 ramas tem&aacute;ticas</strong>, cada una desplegable en m&uacute;ltiples
+    niveles de detalle. A continuaci&oacute;n se describe brevemente el contenido de cada rama:
+  </p>
+
+  <div class="tut-card">
+    <h4>1. Fundamentos y Contexto</h4>
+    <p>
+      Historia de la energ&iacute;a e&oacute;lica, estado actual del mercado global y espa&ntilde;ol, contexto
+      medioambiental y marco regulatorio. Desde los primeros molinos de viento hasta los parques
+      offshore de &uacute;ltima generaci&oacute;n.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>2. Recurso E&oacute;lico</h4>
+    <p>
+      Evaluaci&oacute;n del recurso e&oacute;lico: meteorolog&iacute;a del viento, campa&ntilde;as de medici&oacute;n (torres
+      meteorol&oacute;gicas, LiDAR, SoDAR), an&aacute;lisis estad&iacute;stico (distribuci&oacute;n de Weibull),
+      micrositing y mapas de recurso.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>3. Principios F&iacute;sicos</h4>
+    <p>
+      Aerodin&aacute;mica de palas (teor&iacute;a BEM, perfiles NACA), principios el&eacute;ctricos (m&aacute;quinas
+      rotativas, transformadores), generadores (SCIG, WRIG, DFIG, PMSG, EESG) y electr&oacute;nica
+      de potencia (convertidores, modulaci&oacute;n PWM, control vectorial).
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>4. Generaci&oacute;n y Distribuci&oacute;n El&eacute;ctrica</h4>
+    <p>
+      Caracter&iacute;sticas de la red el&eacute;ctrica, c&oacute;digos de red (grid codes), almacenamiento energ&eacute;tico
+      (BESS), calidad de suministro, gesti&oacute;n de reactiva y respuesta ante huecos de tensi&oacute;n
+      (<em>fault ride-through</em>).
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>5. Instrumentaci&oacute;n y Control Industrial</h4>
+    <p>
+      Sensores (anem&oacute;metros, aceler&oacute;metros, encoders, medidores de potencia), protocolos de
+      comunicaci&oacute;n (Modbus, OPC-UA, IEC 61400-25), algoritmos de control (PID, control predictivo),
+      sistemas SCADA y ciberseguridad.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>6. Parques E&oacute;licos</h4>
+    <p>
+      Evaluaci&oacute;n de emplazamientos, gesti&oacute;n de proyectos, fases de construcci&oacute;n, subestaciones
+      el&eacute;ctricas (componentes, niveles de tensi&oacute;n, compensaci&oacute;n de reactiva), estimaci&oacute;n de
+      producci&oacute;n (AEP) y estrategias de operaci&oacute;n y mantenimiento.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>7. Aerogeneradores</h4>
+    <p>
+      Dise&ntilde;o y clasificaci&oacute;n (IEC 61400), componentes detallados: torre (tubular, celosía, h&iacute;brida),
+      palas (materiales, fabricaci&oacute;n, ensayos), g&oacute;ndola (tren de potencia, sistemas hidr&aacute;ulicos,
+      subsistema el&eacute;ctrico con las 5 topolog&iacute;as), cimentaciones (onshore y offshore) y control avanzado.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>8. Predicci&oacute;n Meteorol&oacute;gica</h4>
+    <p>
+      Modelos num&eacute;ricos de predicci&oacute;n (NWP), modelos de mesoescala (WRF), predicci&oacute;n
+      <em>ensemble</em>, predicci&oacute;n estad&iacute;stica y su aplicaci&oacute;n a la operaci&oacute;n de parques
+      e&oacute;licos y mercados el&eacute;ctricos.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>9. Econom&iacute;a y Financiaci&oacute;n</h4>
+    <p>
+      Estructura de costes (CAPEX, OPEX), an&aacute;lisis de viabilidad econ&oacute;mica, modelos de negocio
+      (PPA, subastas, merchant), financiaci&oacute;n de proyectos (<em>project finance</em>), LCOE y
+      rentabilidad de inversiones.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>10. Aspectos Medioambientales y Sociales</h4>
+    <p>
+      Impacto sobre la fauna (aves, quir&oacute;pteros), ruido (mec&aacute;nico y aerodin&aacute;mico), impacto visual,
+      evaluaci&oacute;n de impacto ambiental (EIA), aceptaci&oacute;n social y medidas de mitigaci&oacute;n.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>11. Seguridad y Salud</h4>
+    <p>
+      Normativa de seguridad (IEC, ISO), certificaci&oacute;n GWO (Global Wind Organisation), equipos de
+      protecci&oacute;n individual (EPIs), procedimientos de emergencia, trabajos en altura, riesgos
+      el&eacute;ctricos, espacios confinados y rescate.
+    </p>
+  </div>
+
+  <h2>&iquest;C&oacute;mo usar el mapa mental?</h2>
+  <p>
+    El mapa mental est&aacute; en formato <strong>.mm</strong> (Freeplane). Para visualizarlo:
+  </p>
+  <ol>
+    <li>Descarga e instala <a href="https://www.freeplane.org" target="_blank" rel="noopener">Freeplane</a>
+    (gratuito, multiplataforma: Windows, macOS, Linux).</li>
+    <li>Abre el archivo <code>wind_energy_mindmap.mm</code>.</li>
+    <li>Navega por las ramas haciendo clic para expandir o contraer cada secci&oacute;n.</li>
+    <li>Utiliza la b&uacute;squeda integrada (Ctrl+F) para localizar temas espec&iacute;ficos.</li>
+  </ol>
+  <p>
+    Las ramas est&aacute;n codificadas por colores para facilitar la navegaci&oacute;n visual, y muchos nodos
+    incluyen contenido enriquecido con descripciones detalladas, f&oacute;rmulas y referencias.
+  </p>
+
+  <h2>Un recurso en constante evoluci&oacute;n</h2>
+  <p>
+    El mapa de conocimiento se actualiza peri&oacute;dicamente para reflejar los avances del sector:
+    nuevos modelos de aerogeneradores, evoluciones de la normativa, tecnolog&iacute;as emergentes (hidr&oacute;geno
+    verde, e&oacute;lica flotante) y mejores pr&aacute;cticas de la industria. Cada actualizaci&oacute;n estar&aacute;
+    disponible para descarga.
+  </p>
+
+  <div class="tut-cta">
+    <h3>Prueba los simuladores en tiempo real</h3>
+    <p>Evaluaci&oacute;n gratuita de 2 d&iacute;as &mdash; complementa el conocimiento te&oacute;rico con pr&aacute;ctica en simuladores</p>
+    <a href="../../index.html?section=downloads&lang=es">Descargar simuladores</a>
+  </div>
+
+  <div class="tut-nav">
+    <a href="simuladores-y-tutoriales.html">&larr; Anterior: Simuladores</a>
+    <span></span>
+  </div>
+
+</main>
+
+<footer class="tut-footer">
+  &copy; 2026 <a href="https://www.acm-sl.com">Automated Computing Machinery SL (ACMSL)</a>. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>
