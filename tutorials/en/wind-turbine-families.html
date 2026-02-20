@@ -8,34 +8,37 @@
 </head>
 <body>
 
-<div class="tut-toolbar">
-  <div class="tut-toolbar-actions">
-    <a href="../../index.html?lang=en" title="Home">&#127968; Home</a>
-    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
-  </div>
-  <div class="tut-lang-selector">
-    <a href="../en/wind-turbine-families.html" class="active">EN</a>
-    <a href="../es/familias-aerogeneradores.html">ES</a>
-    <a href="../fr/familles-eoliennes.html">FR</a>
-    <a href="../it/famiglie-turbine-eoliche.html">IT</a>
-    <a href="../de/windturbinen-familien.html">DE</a>
-    <a href="../pt/familias-turbinas-eolicas.html">PT</a>
-  </div>
-</div>
-
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="introduction.html">Introduction</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="introduction.html">Introduction</a>
     <a href="industrial-wind-turbines.html">Wind Turbines</a>
     <a href="wind-turbine-families.html" class="active">Families</a>
     <a href="operational-wind-ranges.html">Wind Ranges</a>
     <a href="simulators-and-tutorials.html">Simulators</a>
     <a href="wind-energy-mindmap.html">Knowledge Map</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=en">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/en/contact" target="_blank" rel="noopener">&#127760; Contact</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/wind-turbine-families.html" selected>EN</option>
+        <option value="../es/familias-aerogeneradores.html">ES</option>
+        <option value="../fr/familles-eoliennes.html">FR</option>
+        <option value="../it/famiglie-turbine-eoliche.html">IT</option>
+        <option value="../de/windturbinen-familien.html">DE</option>
+        <option value="../pt/familias-turbinas-eolicas.html">PT</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">
@@ -57,7 +60,7 @@
   <h2>Family 1: Fixed Pitch + Squirrel Cage (directly connected)</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog pala fija jaula ardilla.png" alt="Family 1 - Fixed pitch, squirrel cage wind turbine">
+    <img src="img/Aerog palafija-en.png" alt="Family 1 - Fixed pitch, squirrel cage wind turbine">
     <figcaption>Family 1: Fixed pitch blades with squirrel cage induction generator, directly connected to the grid</figcaption>
   </figure>
 
@@ -79,7 +82,7 @@
   <h2>Family 2: Active Stall + Squirrel Cage (directly connected)</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog active stall.png" alt="Family 2 - Active stall wind turbine">
+    <img src="img/Aerog active-stall-en.png" alt="Family 2 - Active stall wind turbine">
     <figcaption>Family 2: Variable pitch (active stall) with squirrel cage induction generator</figcaption>
   </figure>
 
@@ -112,7 +115,7 @@
   <h2>Family 3: Variable Pitch + Variable Rotor Resistance</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog resistencia rotor.png" alt="Family 3 - Variable rotor resistance wind turbine">
+    <img src="img/Aerog rrc-en.png" alt="Family 3 - Variable rotor resistance wind turbine">
     <figcaption>Family 3: Variable pitch with variable rotor resistance (wound rotor induction generator)</figcaption>
   </figure>
 
@@ -120,7 +123,7 @@
     This family uses a <strong>wound rotor induction generator (WRIG)</strong> with external resistors
     connected to the rotor circuit. By varying the rotor resistance, the generator's torque-speed
     characteristic can be modified, allowing <strong>limited variable speed operation</strong> (typically
-    &plusmn;10% around synchronous speed).
+    from synchronous speed to +10% above synchronous speed).
   </p>
   <ul>
     <li><strong>Typical power range:</strong> 1,500 &ndash; 1,800 kW</li>
@@ -145,7 +148,7 @@
   <h2>Family 4: DFIG &mdash; Doubly-Fed Induction Generator</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog dfig.png" alt="Family 4 - DFIG wind turbine">
+    <img src="img/Aerog dfig-en.png" alt="Family 4 - DFIG wind turbine">
     <figcaption>Family 4: DFIG with partial Back-to-Back converter &mdash; the most widely installed type</figcaption>
   </figure>
 

@@ -8,34 +8,37 @@
 </head>
 <body>
 
-<div class="tut-toolbar">
-  <div class="tut-toolbar-actions">
-    <a href="../../index.html?lang=pt" title="In&iacute;cio">&#127968; In&iacute;cio</a>
-    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
-  </div>
-  <div class="tut-lang-selector">
-    <a href="../en/wind-turbine-families.html">EN</a>
-    <a href="../es/familias-aerogeneradores.html">ES</a>
-    <a href="../fr/familles-eoliennes.html">FR</a>
-    <a href="../it/famiglie-turbine-eoliche.html">IT</a>
-    <a href="../de/windturbinen-familien.html">DE</a>
-    <a href="../pt/familias-turbinas-eolicas.html" class="active">PT</a>
-  </div>
-</div>
-
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="../en/introduction.html">Introdu&ccedil;&atilde;o</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="../en/introduction.html">Introdu&ccedil;&atilde;o</a>
     <a href="turbinas-eolicas-industriais.html">Turbinas e&oacute;licas</a>
     <a href="familias-turbinas-eolicas.html" class="active">Fam&iacute;lias</a>
     <a href="faixas-operacionais-vento.html">Faixas de vento</a>
     <a href="../en/simulators-and-tutorials.html">Simuladores</a>
     <a href="mapa-conhecimento-eolico.html">Mapa de conhecimento</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=pt">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/en/contact" target="_blank" rel="noopener">&#127760; Contacto</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/wind-turbine-families.html">EN</option>
+        <option value="../es/familias-aerogeneradores.html">ES</option>
+        <option value="../fr/familles-eoliennes.html">FR</option>
+        <option value="../it/famiglie-turbine-eoliche.html">IT</option>
+        <option value="../de/windturbinen-familien.html">DE</option>
+        <option value="../pt/familias-turbinas-eolicas.html" selected>PT</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">
@@ -55,7 +58,7 @@
   <h2>Fam&iacute;lia 1: Passo fixo + Gaiola de esquilo (conex&atilde;o direta)</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog pala fija jaula ardilla.png" alt="Fam&iacute;lia 1 - Turbina e&oacute;lica de passo fixo e gaiola de esquilo">
+    <img src="img/Aerog pala fija-pt.png" alt="Fam&iacute;lia 1 - Turbina e&oacute;lica de passo fixo e gaiola de esquilo">
     <figcaption>Fam&iacute;lia 1: P&aacute;s de passo fixo com gerador de indu&ccedil;&atilde;o de gaiola de esquilo, conectado diretamente &agrave; rede</figcaption>
   </figure>
 
@@ -74,7 +77,7 @@
   <h2>Fam&iacute;lia 2: Active Stall + Gaiola de esquilo (conex&atilde;o direta)</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog active stall.png" alt="Fam&iacute;lia 2 - Turbina e&oacute;lica Active Stall">
+    <img src="img/Aerog active-stall-pt.png" alt="Fam&iacute;lia 2 - Turbina e&oacute;lica Active Stall">
     <figcaption>Fam&iacute;lia 2: Passo vari&aacute;vel (active stall) com gerador de indu&ccedil;&atilde;o de gaiola de esquilo</figcaption>
   </figure>
 
@@ -101,14 +104,14 @@
   <h2>Fam&iacute;lia 3: Passo vari&aacute;vel + Resist&ecirc;ncia vari&aacute;vel do rotor</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog resistencia rotor.png" alt="Fam&iacute;lia 3 - Turbina e&oacute;lica com resist&ecirc;ncia do rotor vari&aacute;vel">
+    <img src="img/Aerog rrc-pt.png" alt="Fam&iacute;lia 3 - Turbina e&oacute;lica com resist&ecirc;ncia do rotor vari&aacute;vel">
     <figcaption>Fam&iacute;lia 3: Passo vari&aacute;vel com resist&ecirc;ncia vari&aacute;vel do rotor (gerador de indu&ccedil;&atilde;o de rotor bobinado)</figcaption>
   </figure>
 
   <p>
     Esta fam&iacute;lia utiliza um <strong>gerador de indu&ccedil;&atilde;o de rotor bobinado (WRIG)</strong>
     com resist&ecirc;ncias externas, permitindo <strong>opera&ccedil;&atilde;o a velocidade vari&aacute;vel
-    limitada</strong> (tipicamente &plusmn;10%).
+    limitada</strong> (tipicamente da velocidade s&iacute;ncrona at&eacute; +10% acima da velocidade s&iacute;ncrona).
   </p>
   <ul>
     <li><strong>Pot&ecirc;ncia t&iacute;pica:</strong> 1.500 &ndash; 1.800 kW</li>
@@ -129,7 +132,7 @@
   <h2>Fam&iacute;lia 4: DFIG &mdash; Gerador de Indu&ccedil;&atilde;o de Dupla Alimenta&ccedil;&atilde;o</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog dfig.png" alt="Fam&iacute;lia 4 - Turbina e&oacute;lica DFIG">
+    <img src="img/Aerog dfig-pt.png" alt="Fam&iacute;lia 4 - Turbina e&oacute;lica DFIG">
     <figcaption>Fam&iacute;lia 4: DFIG com conversor Back-to-Back parcial &mdash; o tipo mais instalado no mundo</figcaption>
   </figure>
 

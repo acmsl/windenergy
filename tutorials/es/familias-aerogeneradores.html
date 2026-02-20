@@ -8,34 +8,37 @@
 </head>
 <body>
 
-<div class="tut-toolbar">
-  <div class="tut-toolbar-actions">
-    <a href="../../index.html?lang=es" title="Inicio">&#127968; Inicio</a>
-    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
-  </div>
-  <div class="tut-lang-selector">
-    <a href="../en/wind-turbine-families.html">EN</a>
-    <a href="../es/familias-aerogeneradores.html" class="active">ES</a>
-    <a href="../fr/familles-eoliennes.html">FR</a>
-    <a href="../it/famiglie-turbine-eoliche.html">IT</a>
-    <a href="../de/windturbinen-familien.html">DE</a>
-    <a href="../pt/familias-turbinas-eolicas.html">PT</a>
-  </div>
-</div>
-
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="introduccion.html">Introducci&oacute;n</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="introduccion.html">Introducci&oacute;n</a>
     <a href="aerogeneradores-industriales.html">Aerogeneradores</a>
     <a href="familias-aerogeneradores.html" class="active">Familias</a>
     <a href="rangos-operacionales.html">Rangos de viento</a>
     <a href="simuladores-y-tutoriales.html">Simuladores</a>
     <a href="mapa-mental.html">Mapa mental</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=es">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/es/contacto" target="_blank" rel="noopener">&#127760; Contacto</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/wind-turbine-families.html">EN</option>
+        <option value="../es/familias-aerogeneradores.html" selected>ES</option>
+        <option value="../fr/familles-eoliennes.html">FR</option>
+        <option value="../it/famiglie-turbine-eoliche.html">IT</option>
+        <option value="../de/windturbinen-familien.html">DE</option>
+        <option value="../pt/familias-turbinas-eolicas.html">PT</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">
@@ -61,7 +64,7 @@
   <h2>Familia 1: Velocidad fija &mdash; Palas fijas + Generador de jaula de ardilla</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog pala fija jaula ardilla.png" alt="Aerogenerador de palas fijas y jaula de ardilla">
+    <img src="img/Aerog pala fija-es.png" alt="Aerogenerador de palas fijas y jaula de ardilla">
     <figcaption>Esquema de un aerogenerador Familia 1 &mdash; palas fijas, generador de inducci&oacute;n de jaula de ardilla conectado directamente a red</figcaption>
   </figure>
 
@@ -85,7 +88,7 @@
   <h2>Familia 2: Active Stall &mdash; Palas variables + Jaula de ardilla directa a red</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog active stall.png" alt="Aerogenerador Active Stall">
+    <img src="img/Aerog active-stall-es.png" alt="Aerogenerador Active Stall">
     <figcaption>Esquema de un aerogenerador Familia 2 &mdash; Active Stall con control de paso de pala y generador de doble velocidad</figcaption>
   </figure>
 
@@ -110,7 +113,7 @@
   <h2>Familia 3: Resistencia rotor variable &mdash; Palas variables + Resistencia externa</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog resistencia rotor.png" alt="Aerogenerador con resistencia de rotor variable">
+    <img src="img/Aerog rrc-es.png" alt="Aerogenerador con resistencia de rotor variable">
     <figcaption>Esquema de un aerogenerador Familia 3 &mdash; generador de rotor bobinado con resistencia variable en el rotor</figcaption>
   </figure>
 
@@ -118,7 +121,7 @@
     Un paso intermedio hacia la velocidad variable plena. Utiliza un <strong>generador de inducci&oacute;n de rotor
     bobinado (WRIG)</strong> con una <strong>resistencia variable conectada al rotor</strong> (sistema <em>OptiSlip</em>
     de Vestas). Esto permite variar el deslizamiento del generador y, por tanto, la velocidad de giro en un
-    rango limitado (t&iacute;picamente &plusmn;10%).
+    rango limitado (t&iacute;picamente desde la velocidad sincrona hasta un +10% por encima de la velocidad sincrona).
   </p>
 
   <div class="tut-card">
@@ -134,7 +137,7 @@
   <h2>Familia 4: DFIG &mdash; Generador de inducci&oacute;n doblemente alimentado</h2>
 
   <figure class="tut-figure">
-    <img src="img/Aerog dfig.png" alt="Aerogenerador DFIG">
+    <img src="img/Aerog dfig-es.png" alt="Aerogenerador DFIG">
     <figcaption>Esquema de un aerogenerador DFIG (Familia 4) &mdash; convertidor back-to-back parcial conectado al rotor del generador</figcaption>
   </figure>
 

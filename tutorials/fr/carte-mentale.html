@@ -5,186 +5,361 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Carte des Connaissances en &Eacute;nergie &Eacute;olienne - ACMSL</title>
   <link rel="stylesheet" href="../tutorial.css">
+  <style>
+    /* ── Mindmap-specific styles ── */
+    .mindmap-container {
+      position: relative;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .mindmap-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1rem;
+      background: linear-gradient(135deg, #f8fbff, #eef4fa);
+      border-bottom: 1px solid #dde6ef;
+      flex-wrap: wrap;
+    }
+
+    .mindmap-toolbar button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 0 2px 6px rgba(0,102,153,0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .mindmap-toolbar button:hover {
+      background: #005580;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,102,153,0.3);
+    }
+
+    .mindmap-toolbar button:active {
+      transform: translateY(0);
+    }
+
+    .mindmap-toolbar button.secondary {
+      background: rgba(0,102,153,0.1);
+      color: var(--primary);
+      box-shadow: none;
+      border: 1px solid rgba(0,102,153,0.2);
+    }
+
+    .mindmap-toolbar button.secondary:hover {
+      background: rgba(0,102,153,0.18);
+      box-shadow: 0 2px 6px rgba(0,102,153,0.1);
+    }
+
+    .mindmap-toolbar .separator {
+      width: 1px;
+      height: 1.4rem;
+      background: #ccd6df;
+      margin: 0 0.3rem;
+    }
+
+    .mindmap-toolbar .info {
+      font-size: 0.78rem;
+      color: #6a8090;
+      margin-left: auto;
+    }
+
+    .mindmap-svg-wrap {
+      width: 100%;
+      height: calc(100vh - 310px);
+      min-height: 400px;
+      cursor: grab;
+    }
+
+    .mindmap-svg-wrap:active {
+      cursor: grabbing;
+    }
+
+    .mindmap-svg-wrap svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* D3 tree nodes */
+    .mm-node circle {
+      stroke-width: 2px;
+      cursor: pointer;
+      transition: r 0.15s;
+    }
+
+    .mm-node circle:hover {
+      filter: brightness(1.15);
+    }
+
+    .mm-node text {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      pointer-events: none;
+    }
+
+    .mm-node .node-label {
+      fill: var(--dark);
+      font-size: 12px;
+    }
+
+    .mm-node .node-label-root {
+      fill: var(--dark);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .mm-node .link-icon {
+      cursor: pointer;
+      pointer-events: all;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .mm-node .link-icon:hover {
+      opacity: 1;
+    }
+
+    .mm-link {
+      fill: none;
+      stroke-width: 1.5px;
+      opacity: 0.5;
+    }
+
+    /* Badge showing child count on collapsed nodes */
+    .mm-badge {
+      font-size: 9px;
+      fill: white;
+      font-weight: 700;
+      pointer-events: none;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+
+    /* Search bar */
+    .mindmap-search {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .mindmap-search input {
+      padding: 0.35rem 0.7rem;
+      border: 1px solid #ccd6df;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      width: 180px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .mindmap-search input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0,102,153,0.12);
+    }
+
+    .highlight-match circle {
+      stroke: #ff9900 !important;
+      stroke-width: 3px !important;
+    }
+
+    /* Tooltip */
+    .mm-tooltip {
+      position: absolute;
+      background: var(--dark);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s;
+      max-width: 350px;
+      word-wrap: break-word;
+      z-index: 100;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .mm-tooltip.visible {
+      opacity: 1;
+    }
+
+    /* Loading / Error states */
+    .mindmap-status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(100vh - 310px);
+      min-height: 400px;
+      flex-direction: column;
+      gap: 1rem;
+      color: #6a8090;
+    }
+
+    .mindmap-status .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #dde6ef;
+      border-top: 4px solid var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .mindmap-status.error {
+      color: #cc3333;
+    }
+
+    .mindmap-status.error .icon {
+      font-size: 2rem;
+    }
+
+    /* Override tut-content max-width for full-width mindmap */
+    .tut-content.full-width {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+
+    /* Breadcrumb / path display */
+    .mindmap-breadcrumb {
+      font-size: 0.78rem;
+      color: #6a8090;
+      padding: 0.4rem 1rem;
+      background: #f8fbff;
+      border-top: 1px solid #eef2f7;
+      min-height: 1.6rem;
+    }
+
+    .mindmap-breadcrumb span {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .mindmap-svg-wrap {
+        height: calc(100vh - 350px);
+      }
+      .mindmap-toolbar {
+        padding: 0.5rem 0.7rem;
+      }
+      .mindmap-search input {
+        width: 130px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<div class="tut-toolbar">
-  <div class="tut-toolbar-actions">
-    <a href="../../index.html?lang=fr" title="Accueil">&#127968; Accueil</a>
-    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
-  </div>
-  <div class="tut-lang-selector">
-    <a href="../en/wind-energy-mindmap.html">EN</a>
-    <a href="../es/mapa-mental.html">ES</a>
-    <a href="../fr/carte-mentale.html" class="active">FR</a>
-    <a href="../it/mappa-conoscenza-eolica.html">IT</a>
-    <a href="../de/windenergie-wissenskarte.html">DE</a>
-    <a href="../pt/mapa-conhecimento-eolico.html">PT</a>
-  </div>
-</div>
-
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="introduction.html">Introduction</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="introduction.html">Introduction</a>
     <a href="eoliennes-industrielles.html">&Eacute;oliennes</a>
     <a href="familles-eoliennes.html">Familles</a>
     <a href="plages-operationnelles.html">Plages de vent</a>
     <a href="simulateurs-et-tutoriels.html">Simulateurs</a>
     <a href="carte-mentale.html" class="active">Carte mentale</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=fr">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/en/contact" target="_blank" rel="noopener">&#127760; Contact</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/wind-energy-mindmap.html">EN</option>
+        <option value="../es/mapa-mental.html">ES</option>
+        <option value="../fr/carte-mentale.html" selected>FR</option>
+        <option value="../it/mappa-conoscenza-eolica.html">IT</option>
+        <option value="../de/windenergie-wissenskarte.html">DE</option>
+        <option value="../pt/mapa-conhecimento-eolico.html">PT</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">
-  <h1>Carte des Connaissances en &Eacute;nergie &Eacute;olienne</h1>
-  <p>Une vue structurelle compl&egrave;te de la technologie &eacute;olienne</p>
+  <h1>Carte des Connaissances Interactive</h1>
+  <p>Explorez l'arbre complet des connaissances en &eacute;nergie &eacute;olienne &mdash; cliquez sur les n&oelig;uds pour d&eacute;plier, zoomez et d&eacute;placez-vous pour naviguer</p>
 </section>
 
-<main class="tut-content">
+<main class="tut-content full-width">
 
-  <h2>Un r&eacute;f&eacute;rentiel exhaustif</h2>
-  <p>
-    ACMSL a cr&eacute;&eacute; une <strong>carte mentale compl&egrave;te</strong> couvrant l'ensemble des aspects industriels
-    de l'&eacute;nergie &eacute;olienne. Ce r&eacute;f&eacute;rentiel structur&eacute; organise les connaissances du secteur
-    en un arbre hi&eacute;rarchique navigable, allant des fondamentaux th&eacute;oriques jusqu'aux d&eacute;tails techniques
-    les plus pointus.
-  </p>
-  <p>
-    Cette carte constitue &agrave; la fois un <strong>outil de r&eacute;f&eacute;rence</strong> pour les professionnels
-    et un <strong>guide p&eacute;dagogique</strong> pour les apprenants, permettant de situer chaque concept dans
-    son contexte global et de comprendre les interrelations entre les diff&eacute;rentes disciplines.
-  </p>
+  <div class="mindmap-container" id="mindmap-container">
+    <div class="mindmap-toolbar" id="toolbar">
+      <button id="btn-expand" title="D&eacute;plier tous les n&oelig;uds">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Tout d&eacute;plier
+      </button>
+      <button id="btn-collapse" title="Replier &agrave; 2 niveaux">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg>
+        Tout replier
+      </button>
+      <div class="separator"></div>
+      <button id="btn-reset" class="secondary" title="R&eacute;initialiser zoom et position">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+        R&eacute;initialiser la vue
+      </button>
+      <button id="btn-zoom-in" class="secondary" title="Zoom avant">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4M8 11h6M11 8v6"/></svg>
+      </button>
+      <button id="btn-zoom-out" class="secondary" title="Zoom arri&egrave;re">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4M8 11h6"/></svg>
+      </button>
+      <div class="separator"></div>
+      <div class="mindmap-search">
+        <input type="text" id="search-input" placeholder="Rechercher des n&oelig;uds..." aria-label="Rechercher des n&oelig;uds">
+        <button id="btn-search" class="secondary" title="Rechercher">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
+        </button>
+        <button id="btn-clear-search" class="secondary" title="Effacer la recherche" style="display:none">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <span class="info" id="toolbar-info"></span>
+    </div>
 
-  <figure class="tut-figure">
-    <img src="../../img/mindmaprecortado.png" alt="Carte mentale de l'&eacute;nergie &eacute;olienne">
-    <figcaption>Vue d'ensemble de la carte des connaissances en &eacute;nergie &eacute;olienne &mdash; 11 branches principales</figcaption>
-  </figure>
+    <div class="mindmap-svg-wrap" id="svg-wrap">
+      <div class="mindmap-status" id="loading-status">
+        <div class="spinner"></div>
+        <div>Chargement de la carte des connaissances...</div>
+      </div>
+    </div>
 
-  <h2>Les 11 branches principales</h2>
-
-  <div class="tut-card">
-    <h4>1. Fondamentaux et Contexte</h4>
-    <p>
-      Histoire de l'&eacute;nergie &eacute;olienne, &eacute;tat actuel du march&eacute;, contexte environnemental et
-      cadre r&eacute;glementaire. Des premiers moulins &agrave; vent aux m&eacute;ga-&eacute;oliennes offshore modernes.
-    </p>
+    <div class="mindmap-breadcrumb" id="breadcrumb">&nbsp;</div>
   </div>
 
-  <div class="tut-card">
-    <h4>2. Ressource &Eacute;olienne</h4>
-    <p>
-      &Eacute;valuation de la ressource en vent, m&eacute;t&eacute;orologie appliqu&eacute;e, campagnes de mesure,
-      analyse statistique du vent (distributions de Weibull) et micrositing pour l'optimisation du placement des &eacute;oliennes.
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>3. Principes Physiques</h4>
-    <p>
-      A&eacute;rodynamique des pales, principes &eacute;lectriques fondamentaux, types de g&eacute;n&eacute;rateurs
-      (asynchrones, synchrones, &agrave; aimants permanents) et &eacute;lectronique de puissance (convertisseurs,
-      onduleurs, redresseurs).
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>4. Production et Distribution d'&Eacute;nergie &Eacute;lectrique</h4>
-    <p>
-      Caract&eacute;ristiques du r&eacute;seau &eacute;lectrique, codes de r&eacute;seau (<em>grid codes</em>),
-      syst&egrave;mes de stockage d'&eacute;nergie et qualit&eacute; de l'&eacute;nergie (harmoniques, flicker,
-      facteur de puissance).
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>5. Instrumentation et Contr&ocirc;le Industriels</h4>
-    <p>
-      Capteurs et transducteurs, protocoles de communication industrielle, algorithmes de contr&ocirc;le (PID,
-      contr&ocirc;le vectoriel, contr&ocirc;le pr&eacute;dictif) et syst&egrave;mes SCADA pour la supervision des
-      parcs &eacute;oliens.
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>6. Parcs &Eacute;oliens</h4>
-    <p>
-      &Eacute;valuation des sites, gestion de projet, construction et g&eacute;nie civil, postes &eacute;lectriques
-      de transformation, estimation de la production &eacute;nerg&eacute;tique et strat&eacute;gies de maintenance
-      (pr&eacute;ventive, corrective, pr&eacute;dictive).
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>7. &Eacute;oliennes</h4>
-    <p>
-      Conception et classification, composants principaux (tour, pales, nacelle, fondation), syst&egrave;mes
-      m&eacute;caniques (multiplicateur, syst&egrave;me de lacet, freins), sous-syst&egrave;me &eacute;lectrique
-      et contr&ocirc;le avanc&eacute; de la machine.
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>8. Pr&eacute;vision M&eacute;t&eacute;orologique</h4>
-    <p>
-      Mod&egrave;les de pr&eacute;vision num&eacute;rique du temps (NWP), mod&egrave;les m&eacute;so-&eacute;chelle,
-      pr&eacute;vision d'ensemble (<em>ensemble forecasting</em>) et leur application &agrave; la pr&eacute;diction
-      de la production &eacute;olienne.
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>9. &Eacute;conomie et Financement</h4>
-    <p>
-      CAPEX (co&ucirc;ts d'investissement), OPEX (co&ucirc;ts d'exploitation), analyse de viabilit&eacute; &eacute;conomique,
-      mod&egrave;les d'affaires (PPA, march&eacute; spot, tarifs r&eacute;glement&eacute;s) et m&eacute;canismes
-      de financement de projets &eacute;oliens.
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>10. Aspects Environnementaux et Sociaux</h4>
-    <p>
-      Impact sur la faune (avifaune, chirop&egrave;res), nuisances sonores, impact visuel et paysager,
-      &eacute;tude d'impact environnemental (EIE) et acceptabilit&eacute; sociale des projets &eacute;oliens.
-    </p>
-  </div>
-
-  <div class="tut-card">
-    <h4>11. S&eacute;curit&eacute; et Sant&eacute;</h4>
-    <p>
-      Normes de s&eacute;curit&eacute; applicables, certification GWO (<em>Global Wind Organisation</em>),
-      &eacute;quipements de protection individuelle (EPI), proc&eacute;dures d'urgence et risques sp&eacute;cifiques
-      au travail en hauteur et en environnement &eacute;lectrique.
-    </p>
-  </div>
-
-  <h2>Outil de cr&eacute;ation</h2>
-  <p>
-    Cette carte des connaissances a &eacute;t&eacute; cr&eacute;&eacute;e avec <strong>Freeplane</strong>, un logiciel
-    libre de cartographie mentale. Le format ouvert permet une mise &agrave; jour continue et une navigation ais&eacute;e
-    &agrave; travers les diff&eacute;rentes branches th&eacute;matiques. La carte est bilingue (espagnol/anglais) et
-    couvre plus de 500 concepts techniques interconnect&eacute;s.
-  </p>
-
-  <div class="tut-cta">
-    <h3>Essayez nos simulateurs en temps r&eacute;el</h3>
-    <p>&Eacute;valuation gratuite de 2 jours &mdash; sans engagement, sans installation complexe</p>
-    <a href="../../index.html?section=downloads&lang=fr">T&eacute;l&eacute;charger les simulateurs</a>
-  </div>
-
-  <div class="tut-nav">
-    <a href="simulateurs-et-tutoriels.html">&larr; Pr&eacute;c&eacute;dent&nbsp;: Simulateurs et Tutoriels</a>
-    <span></span>
-  </div>
+  <div class="mm-tooltip" id="tooltip"></div>
 
 </main>
 
 <footer class="tut-footer">
   &copy; 2026 <a href="https://www.acm-sl.com">Automated Computing Machinery SL (ACMSL)</a>. Tous droits r&eacute;serv&eacute;s.
 </footer>
+
+<script src="../js/d3.v7.min.js"></script>
+<script src="../js/mm-render.js"></script>
 
 </body>
 </html>

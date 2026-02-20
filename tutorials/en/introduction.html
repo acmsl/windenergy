@@ -9,18 +9,33 @@
 <body>
 
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+      <a href="introduction.html" class="active">Introduction</a>
+      <a href="industrial-wind-turbines.html">Wind Turbines</a>
+      <a href="wind-turbine-families.html">Families</a>
+      <a href="operational-wind-ranges.html">Wind Ranges</a>
+      <a href="simulators-and-tutorials.html">Simulators</a>
+      <a href="wind-energy-mindmap.html">Knowledge Map</a>
+    </nav>
   </div>
-  <nav>
-    <a href="introduction.html" class="active">Introduction</a>
-    <a href="industrial-wind-turbines.html">Wind Turbines</a>
-    <a href="wind-turbine-families.html">Families</a>
-    <a href="operational-wind-ranges.html">Wind Ranges</a>
-    <a href="simulators-and-tutorials.html">Simulators</a>
-    <a href="wind-energy-mindmap.html">Knowledge Map</a>
-  </nav>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=en">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/en/contact" target="_blank" rel="noopener">&#127760; Contact</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/introduction.html" selected>EN</option>
+        <option value="../es/introduccion.html">ES</option>
+        <option value="../fr/introduction.html">FR</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">

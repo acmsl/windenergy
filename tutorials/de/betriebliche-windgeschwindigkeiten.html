@@ -8,34 +8,37 @@
 </head>
 <body>
 
-<div class="tut-toolbar">
-  <div class="tut-toolbar-actions">
-    <a href="../../index.html?lang=de" title="Startseite">&#127968; Startseite</a>
-    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
-  </div>
-  <div class="tut-lang-selector">
-    <a href="../en/operational-wind-ranges.html">EN</a>
-    <a href="../es/rangos-operacionales.html">ES</a>
-    <a href="../fr/plages-operationnelles.html">FR</a>
-    <a href="../it/intervalli-operativi-vento.html">IT</a>
-    <a href="../de/betriebliche-windgeschwindigkeiten.html" class="active">DE</a>
-    <a href="../pt/faixas-operacionais-vento.html">PT</a>
-  </div>
-</div>
-
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="../en/introduction.html">Einf&uuml;hrung</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="../en/introduction.html">Einf&uuml;hrung</a>
     <a href="industrielle-windturbinen.html">Windturbinen</a>
     <a href="windturbinen-familien.html">Familien</a>
     <a href="betriebliche-windgeschwindigkeiten.html" class="active">Windgeschw.</a>
     <a href="../en/simulators-and-tutorials.html">Simulatoren</a>
     <a href="windenergie-wissenskarte.html">Wissenskarte</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=de">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/en/contact" target="_blank" rel="noopener">&#127760; Kontakt</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/operational-wind-ranges.html">EN</option>
+        <option value="../es/rangos-operacionales.html">ES</option>
+        <option value="../fr/plages-operationnelles.html">FR</option>
+        <option value="../it/intervalli-operativi-vento.html">IT</option>
+        <option value="../de/betriebliche-windgeschwindigkeiten.html" selected>DE</option>
+        <option value="../pt/faixas-operacionais-vento.html">PT</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">

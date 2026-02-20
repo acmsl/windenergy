@@ -29,15 +29,21 @@ body {
 .tut-header {
   background: linear-gradient(135deg, var(--primary), #0099cc);
   color: white;
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.35rem;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   position: sticky;
   top: 0;
   z-index: 200;
+}
+
+.tut-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
@@ -48,12 +54,12 @@ body {
 }
 
 .tut-header .logo {
-  height: 32px;
+  height: 26px;
   width: auto;
 }
 
 .tut-header .brand {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: white;
   text-decoration: none;
@@ -71,9 +77,9 @@ body {
 .tut-header nav a {
   color: white;
   text-decoration: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0.25rem 0.65rem;
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   background: rgba(255,255,255,0.12);
   transition: background 0.2s;
 }
@@ -91,18 +97,18 @@ body {
 .tut-hero {
   background: linear-gradient(135deg, var(--dark), var(--primary));
   color: white;
-  padding: 2.5rem 2rem;
+  padding: 1rem 2rem;
   text-align: center;
 }
 
 .tut-hero h1 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
   font-weight: 700;
 }
 
 .tut-hero p {
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   opacity: 0.9;
   max-width: 700px;
   margin: 0 auto;
@@ -346,13 +352,11 @@ body {
 
 .tut-footer a:hover { text-decoration: underline; }
 
-/* TOOLBAR - Language selector, Home & ACMSL buttons */
-.tut-toolbar {
-  background: var(--dark);
+/* HEADER TOOLBAR - Language selector, Home & ACMSL buttons */
+.tut-header-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.35rem 2rem;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
@@ -366,40 +370,42 @@ body {
   color: white;
   text-decoration: none;
   font-size: 0.82rem;
-  padding: 0.25rem 0.7rem;
-  border-radius: 4px;
-  background: rgba(255,255,255,0.1);
-  transition: background 0.2s;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  transition: background 0.2s, transform 0.1s;
 }
 
 .tut-toolbar-actions a:hover {
   background: rgba(255,255,255,0.25);
+  transform: translateY(-1px);
 }
 
 .tut-lang-selector {
   display: flex;
-  gap: 0.3rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
-.tut-lang-selector a {
-  color: rgba(255,255,255,0.7);
-  text-decoration: none;
-  font-size: 0.78rem;
+.tut-lang-selector select {
+  background: rgba(255,255,255,0.12);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px;
+  padding: 0.35rem 0.6rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  transition: all 0.2s;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.tut-lang-selector a:hover {
-  color: white;
-  background: rgba(255,255,255,0.15);
+.tut-lang-selector select:hover {
+  background: rgba(255,255,255,0.22);
 }
 
-.tut-lang-selector a.active {
+.tut-lang-selector select option {
+  background: var(--dark);
   color: white;
-  background: var(--primary);
 }
 
 /* RESPONSIVE */

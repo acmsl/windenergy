@@ -8,34 +8,37 @@
 </head>
 <body>
 
-<div class="tut-toolbar">
-  <div class="tut-toolbar-actions">
-    <a href="../../index.html?lang=fr" title="Accueil">&#127968; Accueil</a>
-    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
-  </div>
-  <div class="tut-lang-selector">
-    <a href="../en/wind-turbine-families.html">EN</a>
-    <a href="../es/familias-aerogeneradores.html">ES</a>
-    <a href="../fr/familles-eoliennes.html" class="active">FR</a>
-    <a href="../it/famiglie-turbine-eoliche.html">IT</a>
-    <a href="../de/windturbinen-familien.html">DE</a>
-    <a href="../pt/familias-turbinas-eolicas.html">PT</a>
-  </div>
-</div>
-
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="introduction.html">Introduction</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="introduction.html">Introduction</a>
     <a href="eoliennes-industrielles.html">&Eacute;oliennes</a>
     <a href="familles-eoliennes.html" class="active">Familles</a>
     <a href="plages-operationnelles.html">Plages de vent</a>
     <a href="simulateurs-et-tutoriels.html">Simulateurs</a>
     <a href="carte-mentale.html">Carte mentale</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=fr">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/en/contact" target="_blank" rel="noopener">&#127760; Contact</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/wind-turbine-families.html">EN</option>
+        <option value="../es/familias-aerogeneradores.html">ES</option>
+        <option value="../fr/familles-eoliennes.html" selected>FR</option>
+        <option value="../it/famiglie-turbine-eoliche.html">IT</option>
+        <option value="../de/windturbinen-familien.html">DE</option>
+        <option value="../pt/familias-turbinas-eolicas.html">PT</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">
@@ -64,7 +67,7 @@
   </p>
 
   <figure class="tut-figure">
-    <img src="img/Aerog pala fija jaula ardilla.png" alt="&Eacute;olienne &agrave; pas fixe et cage d'&eacute;cureuil">
+    <img src="img/Aerog pala fija-fr.png" alt="&Eacute;olienne &agrave; pas fixe et cage d'&eacute;cureuil">
     <figcaption>Famille 1 &mdash; Sch&eacute;ma d'une &eacute;olienne &agrave; pas fixe avec g&eacute;n&eacute;rateur &agrave; cage d'&eacute;cureuil</figcaption>
   </figure>
 
@@ -78,7 +81,7 @@
   </p>
 
   <figure class="tut-figure">
-    <img src="img/Aerog active stall.png" alt="&Eacute;olienne Active Stall">
+    <img src="img/Aerog active-stall-fr.png" alt="&Eacute;olienne Active Stall">
     <figcaption>Famille 2 &mdash; Sch&eacute;ma d'une &eacute;olienne Active Stall avec contr&ocirc;le du pas</figcaption>
   </figure>
 
@@ -87,12 +90,12 @@
     Cette famille utilise un <strong>g&eacute;n&eacute;rateur asynchrone &agrave; rotor bobin&eacute;</strong> (WRIG) avec
     une <strong>r&eacute;sistance rotorique variable</strong>. En ajustant la r&eacute;sistance du circuit rotorique,
     on contr&ocirc;le le glissement du g&eacute;n&eacute;rateur et donc sa vitesse de rotation dans une plage limit&eacute;e
-    (typiquement &plusmn;10&nbsp;%). Le syst&egrave;me <em>OptiSlip</em> de Vestas est l'exemple le plus connu.
+    (typiquement de la vitesse synchrone jusqu&rsquo;à +10&nbsp;% au-dessus de la vitesse synchrone). Le syst&egrave;me <em>OptiSlip</em> de Vestas est l'exemple le plus connu.
     Puissance typique&nbsp;: environ <strong>1&nbsp;800 kW</strong>.
   </p>
 
   <figure class="tut-figure">
-    <img src="img/Aerog resistencia rotor.png" alt="&Eacute;olienne &agrave; r&eacute;sistance rotorique variable">
+    <img src="img/Aerog rrc-fr.png" alt="&Eacute;olienne &agrave; r&eacute;sistance rotorique variable">
     <figcaption>Famille 3 &mdash; Sch&eacute;ma avec r&eacute;sistance rotorique variable (type OptiSlip)</figcaption>
   </figure>
 
@@ -106,7 +109,7 @@
   </p>
 
   <figure class="tut-figure">
-    <img src="img/Aerog dfig.png" alt="&Eacute;olienne DFIG">
+    <img src="img/Aerog dfig-fr.png" alt="&Eacute;olienne DFIG">
     <figcaption>Famille 4 &mdash; Sch&eacute;ma DFIG avec convertisseur partiel back-to-back</figcaption>
   </figure>
 

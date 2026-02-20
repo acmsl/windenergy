@@ -9,18 +9,33 @@
 <body>
 
 <header class="tut-header">
-  <div class="tut-header-left">
-    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
-    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
-  </div>
-  <nav>
-    <a href="introduccion.html" class="active">Introducci&oacute;n</a>
+  <div class="tut-header-row">
+    <div class="tut-header-left">
+      <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+      <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+    </div>
+    <nav>
+<a href="introduccion.html" class="active">Introducci&oacute;n</a>
     <a href="aerogeneradores-industriales.html">Aerogeneradores</a>
     <a href="familias-aerogeneradores.html">Familias</a>
     <a href="rangos-operacionales.html">Rangos de viento</a>
     <a href="simuladores-y-tutoriales.html">Simuladores</a>
     <a href="mapa-mental.html">Mapa mental</a>
-  </nav>
+    </nav>
+  </div>
+  <div class="tut-header-toolbar">
+    <div class="tut-toolbar-actions">
+      <a href="../../index.html?lang=es">&#127968; Home</a>
+      <a href="https://www.acm-sl.com/es/contacto" target="_blank" rel="noopener">&#127760; Contacto</a>
+    </div>
+    <div class="tut-lang-selector">
+      <select onchange="window.location.href = this.value" aria-label="Language">
+        <option value="../en/introduction.html">EN</option>
+        <option value="../es/introduccion.html" selected>ES</option>
+        <option value="../fr/introduction.html">FR</option>
+      </select>
+    </div>
+  </div>
 </header>
 
 <section class="tut-hero">
