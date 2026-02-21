@@ -18,7 +18,7 @@
 </html>
 </richcontent>
 <hook NAME="MapStyle" zoom="0.56447387">
-    <properties show_tags="UNDER_NODES" fit_to_viewport="false" show_icons="BESIDE_NODES" show_note_icons="true" showTagCategories="false" show_icon_for_attributes="true"/>
+    <properties show_icon_for_attributes="true" show_tags="UNDER_NODES" show_note_icons="true" fit_to_viewport="false" show_icons="BESIDE_NODES" showTagCategories="false"/>
     <tags category_separator="::"/>
 
 <map_styles>
@@ -85,7 +85,7 @@
 <edge WIDTH="5"/>
 <node TEXT="Fondamenti e Contesto" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_FUND_001" CREATED="1403339001000" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#ff9900" WIDTH="5"/>
-<node TEXT="Storia dell'Energia Eolica" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_HIST_001" CREATED="1403339001001" MODIFIED="1769437734457" COLOR="#000000">
+<node TEXT="Storia dell&apos;Energia Eolica" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_HIST_001" CREATED="1403339001001" MODIFIED="1769437734457" COLOR="#000000">
 <node TEXT="Mulini tradizionali" ID="ID_HIST_002" CREATED="1403339001002" MODIFIED="1403339001003"/>
 <node TEXT="Prima generazione di aerogeneratori" ID="ID_HIST_003" CREATED="1403339001004" MODIFIED="1403339001005"/>
 <node TEXT="Evoluzione tecnologica" ID="ID_HIST_004" CREATED="1403339001006" MODIFIED="1403339001007"/>
@@ -171,14 +171,14 @@
 <node TEXT="Rapporto di velocità in punta (TSR)" ID="ID_AERO_002" CREATED="1403514974001" MODIFIED="1403514982020"/>
 <node TEXT="Coefficiente di potenza (Cp)" ID="ID_AERO_003" CREATED="1403514974002" MODIFIED="1403514982020"/>
 <node TEXT="Curve di potenza" ID="ID_AERO_004" CREATED="1403514974003" MODIFIED="1403514982020"/>
-<node TEXT="Teoria dell'elemento di pala" ID="ID_AERO_005" CREATED="1403514974004" MODIFIED="1403514982020"/>
+<node TEXT="Teoria dell&apos;elemento di pala" ID="ID_AERO_005" CREATED="1403514974004" MODIFIED="1403514982020"/>
 <node TEXT="Pale" ID="ID_1290813035" CREATED="1403514974045" MODIFIED="1403514982020">
 <node TEXT="Progettazione aerodinamica" ID="ID_BLADE_001" CREATED="1403514974046" MODIFIED="1403514982020"/>
 <node TEXT="Materiali compositi" ID="ID_BLADE_002" CREATED="1403514974047" MODIFIED="1403514982020"/>
-<node TEXT="Controllo dell'angolo di calettamento (pitch)" ID="ID_BLADE_003" CREATED="1403514974048" MODIFIED="1403514982020"/>
+<node TEXT="Controllo dell&apos;angolo di calettamento (pitch)" ID="ID_BLADE_003" CREATED="1403514974048" MODIFIED="1403514982020"/>
 </node>
 <node TEXT="Torre" ID="ID_672551256" CREATED="1403514983389" MODIFIED="1403514991435">
-<node TEXT="Effetti d'ombra della torre" ID="ID_TOWER_001" CREATED="1403514983390" MODIFIED="1403514991435"/>
+<node TEXT="Effetti d&apos;ombra della torre" ID="ID_TOWER_001" CREATED="1403514983390" MODIFIED="1403514991435"/>
 <node TEXT="Carichi aerodinamici" ID="ID_TOWER_002" CREATED="1403514983391" MODIFIED="1403514991435"/>
 </node>
 </node>
@@ -316,12 +316,12 @@
 <node TEXT="Accelerometri" ID="ID_VIB_001" CREATED="1403508815112" MODIFIED="1403508824367"/>
 <node TEXT="CMS (Monitoraggio di Condizione)" ID="ID_VIB_002" CREATED="1403508815113" MODIFIED="1403508824367"/>
 </node>
-<node TEXT="Qualità dell'olio" ID="ID_542445279" CREATED="1403508854337" MODIFIED="1403508875194"/>
+<node TEXT="Qualità dell&apos;olio" ID="ID_542445279" CREATED="1403508854337" MODIFIED="1403508875194"/>
 <node TEXT="Coppia" ID="ID_1819931213" CREATED="1403508878187" MODIFIED="1403508895590"/>
 <node TEXT="Angolo di calettamento (pitch)" ID="ID_SENS_001" CREATED="1403508878188" MODIFIED="1403508895590"/>
 <node TEXT="Posizione di imbardata (yaw)" ID="ID_SENS_002" CREATED="1403508878189" MODIFIED="1403508895590"/>
 </node>
-<node TEXT="Comunicazioni dell'Impianto" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_364116083" CREATED="1403508587278" MODIFIED="1403513201024">
+<node TEXT="Comunicazioni dell&apos;Impianto" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_364116083" CREATED="1403508587278" MODIFIED="1403513201024">
 <node TEXT="Configurazioni" ID="ID_836076012" CREATED="1403508896900" MODIFIED="1403508901610">
 <node TEXT="Topologia a stella" ID="ID_CONF_001" CREATED="1403508896901" MODIFIED="1403508901610"/>
 <node TEXT="Topologia ad anello" ID="ID_CONF_002" CREATED="1403508896902" MODIFIED="1403508901610"/>
@@ -352,7 +352,7 @@
 <node TEXT="Controllori di campo" ID="ID_SUB_002" CREATED="1403515864026" MODIFIED="1538150870050"/>
 </node>
 </node>
-<node TEXT="Parchi Eolici" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="top_or_left" ID="ID_158094941" CREATED="1403339203083" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Parchi Eolici" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_158094941" CREATED="1403339203083" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#0000ff" WIDTH="5"/>
 <node TEXT="Valutazione del Sito" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_436132783" CREATED="1403339289452" MODIFIED="1769536527161" COLOR="#000000">
 <node TEXT="Analisi topografica" ID="ID_SITE_001" CREATED="1403339289453" MODIFIED="1769536527161"/>
@@ -389,7 +389,7 @@
 <node TEXT="Sistemi di Monitoraggio di Condizione (CMS)" ID="ID_PRED_001" CREATED="1403341267001" MODIFIED="1769932800000">
 <node TEXT="Produttori di Apparecchiature CMS" ID="ID_CMS_001" CREATED="1769932800001" MODIFIED="1769932800001">
 <node TEXT="CMS di Vibrazione del Treno di Trasmissione" ID="ID_CMS_002" CREATED="1769932800002" MODIFIED="1769932800002">
-<node TEXT="Br&#xfc;el &amp; Kj&#xe6;r Vibro (HBK)" ID="ID_CMS_003" CREATED="1769932800003" MODIFIED="1769932800003">
+<node TEXT="Brüel &amp; Kjær Vibro (HBK)" ID="ID_CMS_003" CREATED="1769932800003" MODIFIED="1769932800003">
 <node TEXT="Unità di acquisizione dati DDAU3" ID="ID_CMS_004" CREATED="1769932800004" MODIFIED="1769932800004"/>
 <node TEXT="Piattaforma software VibroSuite" ID="ID_CMS_005" CREATED="1769932800005" MODIFIED="1769932800005"/>
 <node TEXT="20.000+ installazioni su aerogeneratori" ID="ID_CMS_006" CREATED="1769932800006" MODIFIED="1769932800006"/>
@@ -398,7 +398,7 @@
 <node TEXT="CMScompact (certificato DNV)" ID="ID_CMS_008" CREATED="1769932800008" MODIFIED="1769932800008"/>
 <node TEXT="Moduli I/O AIC214 / AIC206" ID="ID_CMS_009" CREATED="1769932800009" MODIFIED="1769932800009"/>
 <node TEXT="HUMS (Health &amp; Usage Monitoring System)" ID="ID_CMS_010" CREATED="1769932800010" MODIFIED="1769932800010"/>
-<node TEXT="Integrato con controllore dell'aerogeneratore" ID="ID_CMS_011" CREATED="1769932800011" MODIFIED="1769932800011"/>
+<node TEXT="Integrato con controllore dell&apos;aerogeneratore" ID="ID_CMS_011" CREATED="1769932800011" MODIFIED="1769932800011"/>
 </node>
 <node TEXT="SKF" ID="ID_CMS_012" CREATED="1769932800012" MODIFIED="1769932800012">
 <node TEXT="Multilog IMx-W (WindCon)" ID="ID_CMS_013" CREATED="1769932800013" MODIFIED="1769932800013"/>
@@ -439,7 +439,7 @@
 </node>
 </node>
 <node TEXT="Specialisti nel Monitoraggio delle Pale" ID="ID_CMS_041" CREATED="1769932800041" MODIFIED="1769932800041">
-<node TEXT="Weidm&#xfc;ller" ID="ID_CMS_042" CREATED="1769932800042" MODIFIED="1769932800042">
+<node TEXT="Weidmüller" ID="ID_CMS_042" CREATED="1769932800042" MODIFIED="1769932800042">
 <node TEXT="BLADEcontrol (accelerometri nelle pale)" ID="ID_CMS_043" CREATED="1769932800043" MODIFIED="1769932800043"/>
 <node TEXT="Capacità di rilevamento ghiaccio" ID="ID_CMS_044" CREATED="1769932800044" MODIFIED="1769932800044"/>
 <node TEXT="5.900+ turbine equipaggiate" ID="ID_CMS_045" CREATED="1769932800045" MODIFIED="1769932800045"/>
@@ -464,7 +464,7 @@
 </node>
 </node>
 <node TEXT="Monitoraggio di Salute Strutturale (SHM)" ID="ID_CMS_059" CREATED="1769932800059" MODIFIED="1769932800059">
-<node TEXT="W&#xf6;lfel Wind Systems" ID="ID_CMS_060" CREATED="1769932800060" MODIFIED="1769932800060">
+<node TEXT="Wölfel Wind Systems" ID="ID_CMS_060" CREATED="1769932800060" MODIFIED="1769932800060">
 <node TEXT="SHM.Tower / SHM.Foundation / SHM.Blade" ID="ID_CMS_061" CREATED="1769932800061" MODIFIED="1769932800061"/>
 <node TEXT="Conformità ISO 10816-21 e VDI 3834" ID="ID_CMS_062" CREATED="1769932800062" MODIFIED="1769932800062"/>
 </node>
@@ -495,11 +495,11 @@
 <node TEXT="Analisi spettrale (FFT, cepstrum)" ID="ID_CMS_105" CREATED="1769932800105" MODIFIED="1769932800105"/>
 <node TEXT="Analisi di inviluppo" ID="ID_CMS_106" CREATED="1769932800106" MODIFIED="1769932800106"/>
 <node TEXT="Tracciamento degli ordini" ID="ID_CMS_107" CREATED="1769932800107" MODIFIED="1769932800107"/>
-<node TEXT="Analisi forma d'onda temporale" ID="ID_CMS_108" CREATED="1769932800108" MODIFIED="1769932800108"/>
+<node TEXT="Analisi forma d&apos;onda temporale" ID="ID_CMS_108" CREATED="1769932800108" MODIFIED="1769932800108"/>
 </node>
 <node TEXT="Analisi Condizione Olio" ID="ID_CMS_109" CREATED="1769932800109" MODIFIED="1769932800109">
 <node TEXT="Conteggio particelle (ferrose / non ferrose)" ID="ID_CMS_110" CREATED="1769932800110" MODIFIED="1769932800110"/>
-<node TEXT="Misura del contenuto d'acqua" ID="ID_CMS_111" CREATED="1769932800111" MODIFIED="1769932800111"/>
+<node TEXT="Misura del contenuto d&apos;acqua" ID="ID_CMS_111" CREATED="1769932800111" MODIFIED="1769932800111"/>
 <node TEXT="Costante dielettrica / conduttività" ID="ID_CMS_112" CREATED="1769932800112" MODIFIED="1769932800112"/>
 <node TEXT="Monitoraggio temperatura olio" ID="ID_CMS_113" CREATED="1769932800113" MODIFIED="1769932800113"/>
 </node>
@@ -515,7 +515,7 @@
 </node>
 <node TEXT="Spostamento Albero / Sonde di Prossimità" ID="ID_CMS_122" CREATED="1769932800122" MODIFIED="1769932800122">
 <node TEXT="Sonde a correnti parassite" ID="ID_CMS_123" CREATED="1769932800123" MODIFIED="1769932800123"/>
-<node TEXT="Spostamento assiale e radiale dell'albero" ID="ID_CMS_124" CREATED="1769932800124" MODIFIED="1769932800124"/>
+<node TEXT="Spostamento assiale e radiale dell&apos;albero" ID="ID_CMS_124" CREATED="1769932800124" MODIFIED="1769932800124"/>
 <node TEXT="Verifica gioco cuscinetti" ID="ID_CMS_125" CREATED="1769932800125" MODIFIED="1769932800125"/>
 </node>
 <node TEXT="Analisi di Firma Elettrica (ESA / MCSA)" ID="ID_CMS_126" CREATED="1769932800126" MODIFIED="1769932800126">
@@ -527,7 +527,7 @@
 <node TEXT="Monitoraggio delle Pale" ID="ID_CMS_131" CREATED="1769932800131" MODIFIED="1769932800131">
 <node TEXT="Misura di deformazione (fibra ottica / estensimetri)" ID="ID_CMS_132" CREATED="1769932800132" MODIFIED="1769932800132"/>
 <node TEXT="Rilevamento ghiaccio" ID="ID_CMS_133" CREATED="1769932800133" MODIFIED="1769932800133"/>
-<node TEXT="Rilevamento fessure bordo d'uscita" ID="ID_CMS_134" CREATED="1769932800134" MODIFIED="1769932800134"/>
+<node TEXT="Rilevamento fessure bordo d&apos;uscita" ID="ID_CMS_134" CREATED="1769932800134" MODIFIED="1769932800134"/>
 <node TEXT="Separazione anima e difetti di incollaggio" ID="ID_CMS_135" CREATED="1769932800135" MODIFIED="1769932800135"/>
 <node TEXT="Rilevamento squilibrio rotore" ID="ID_CMS_136" CREATED="1769932800136" MODIFIED="1769932800136"/>
 </node>
@@ -549,7 +549,7 @@
 </node>
 </node>
 <node TEXT="Analisi dei dati SCADA" ID="ID_PRED_002" CREATED="1403341267002" MODIFIED="1403341279120"/>
-<node TEXT="Analisi dell'olio" ID="ID_PRED_003" CREATED="1403341267003" MODIFIED="1403341279120"/>
+<node TEXT="Analisi dell&apos;olio" ID="ID_PRED_003" CREATED="1403341267003" MODIFIED="1403341279120"/>
 <node TEXT="Termografia" ID="ID_PRED_004" CREATED="1403341267004" MODIFIED="1403341279120"/>
 <node TEXT="Controllo a ultrasuoni" ID="ID_PRED_005" CREATED="1403341267005" MODIFIED="1403341279120"/>
 <node TEXT="Ispezioni con droni" ID="ID_PRED_006" CREATED="1403341267006" MODIFIED="1403341279120"/>
@@ -559,7 +559,7 @@
 <node TEXT="Gestione ricambi" ID="ID_MAINT_001" CREATED="1403341758197" MODIFIED="1403341766430"/>
 <node TEXT="Gestione garanzie" ID="ID_MAINT_002" CREATED="1403341758198" MODIFIED="1403341766430"/>
 </node>
-<node TEXT="Sottostazione Elettrica" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_SUBST_001" CREATED="1769892400000" MODIFIED="1769892400000" COLOR="#000000">
+<node TEXT="Sottostazione Elettrica" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" FOLDED="true" ID="ID_SUBST_001" CREATED="1769892400000" MODIFIED="1769892400000" COLOR="#000000">
 <node TEXT="Composizione e Componenti Principali" ID="ID_SUBST_002" CREATED="1769892400001" MODIFIED="1769892400001">
 <node TEXT="Trasformatori di Potenza" ID="ID_SUBST_003" CREATED="1769892400002" MODIFIED="1769892400002">
 <node TEXT="Trasformatore elevatore (MT/AT)" ID="ID_SUBST_004" CREATED="1769892400003" MODIFIED="1769892400003"/>
@@ -607,9 +607,9 @@
 </node>
 <node TEXT="Alta Tensione (AT) - 66-400 kV" ID="ID_SUBST_046" CREATED="1769892400037" MODIFIED="1769892400037">
 <node TEXT="Connessione alla rete: 66 kV, 110 kV, 132 kV, 220 kV, 400 kV" ID="ID_SUBST_047" CREATED="1769892400038" MODIFIED="1769892400038"/>
-<node TEXT="Dipende dall'operatore di rete e capacità del parco" ID="ID_SUBST_048" CREATED="1769892400039" MODIFIED="1769892400039"/>
+<node TEXT="Dipende dall&apos;operatore di rete e capacità del parco" ID="ID_SUBST_048" CREATED="1769892400039" MODIFIED="1769892400039"/>
 </node>
-<node TEXT="Coordinamento dell'isolamento (livelli BIL)" ID="ID_SUBST_049" CREATED="1769892400040" MODIFIED="1769892400040"/>
+<node TEXT="Coordinamento dell&apos;isolamento (livelli BIL)" ID="ID_SUBST_049" CREATED="1769892400040" MODIFIED="1769892400040"/>
 </node>
 <node TEXT="Gestione della Potenza Reattiva" ID="ID_SUBST_060" CREATED="1769892400041" MODIFIED="1769892400041">
 <node TEXT="Compensatore Statico di Reattiva (SVC)" ID="ID_SUBST_061" CREATED="1769892400042" MODIFIED="1769892400042">
@@ -629,7 +629,7 @@
 <node TEXT="Regolazione di tensione al PCC" ID="ID_SUBST_072" CREATED="1769892400053" MODIFIED="1769892400053"/>
 <node TEXT="Conformità potenza reattiva secondo codice di rete" ID="ID_SUBST_073" CREATED="1769892400054" MODIFIED="1769892400054"/>
 </node>
-<node TEXT="Miglioramento dell'Inerzia Elettrica" ID="ID_SUBST_080" CREATED="1769892400055" MODIFIED="1769892400055">
+<node TEXT="Miglioramento dell&apos;Inerzia Elettrica" ID="ID_SUBST_080" CREATED="1769892400055" MODIFIED="1769892400055">
 <node TEXT="Sistemi di Accumulo a Batterie (BESS)" ID="ID_SUBST_081" CREATED="1769892400056" MODIFIED="1769892400056">
 <node TEXT="Tecnologia litio-ione (Li-ion)" ID="ID_SUBST_082" CREATED="1769892400057" MODIFIED="1769892400057"/>
 <node TEXT="LFP (Litio Ferro Fosfato)" ID="ID_SUBST_083" CREATED="1769892400058" MODIFIED="1769892400058"/>
@@ -658,7 +658,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Aerogeneratori" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="top_or_left" ID="ID_1879732168" CREATED="1403339441747" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Aerogeneratori" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_1879732168" CREATED="1403339441747" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#ff00ff" WIDTH="5"/>
 <node TEXT="Evoluzione del Progetto" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1480711894" CREATED="1403339452276" MODIFIED="1769437809068" COLOR="#000000">
 <node TEXT="Concetto danese" ID="ID_DES_001" CREATED="1403339452277" MODIFIED="1769437809068"/>
@@ -693,7 +693,7 @@
 </node>
 <node TEXT="Pale" ID="ID_434040287" CREATED="1403339534490" MODIFIED="1403339538311">
 <node TEXT="Materiali (fibra di vetro, fibra di carbonio)" ID="ID_BLA_001" CREATED="1403339534491" MODIFIED="1403339538311"/>
-<node TEXT="Erosione del bordo d'attacco" ID="ID_BLA_002" CREATED="1403339534492" MODIFIED="1403339538311"/>
+<node TEXT="Erosione del bordo d&apos;attacco" ID="ID_BLA_002" CREATED="1403339534492" MODIFIED="1403339538311"/>
 <node TEXT="Protezione contro i fulmini" ID="ID_BLA_003" CREATED="1403339534493" MODIFIED="1403339538311"/>
 </node>
 <node TEXT="Navicella" ID="ID_234410849" CREATED="1403339541930" MODIFIED="1403339558233">
@@ -713,7 +713,7 @@
 <node TEXT="E-175 EP5 E2 (7.0 MW, 175 m rotor)" ID="ID_DD_004" CREATED="1769892600004" MODIFIED="1769892600004" LINK="https://www.enercon.de/en/turbines/e-175-ep5"/>
 <node TEXT="E-138 EP3 E2 (4.2 MW)" ID="ID_DD_005" CREATED="1769892600005" MODIFIED="1769892600005" LINK="https://www.enercon.de/en/turbines/e-138-ep3"/>
 <node TEXT="E-160 EP5 (5.56 MW)" ID="ID_DD_006" CREATED="1769892600006" MODIFIED="1769892600006" LINK="https://www.enercon.de/en/turbines/e-160-ep5"/>
-<node TEXT="Pioniere nel concetto senza moltiplicatore dagli anni '90" ID="ID_DD_007" CREATED="1769892600007" MODIFIED="1769892600007"/>
+<node TEXT="Pioniere nel concetto senza moltiplicatore dagli anni &apos;90" ID="ID_DD_007" CREATED="1769892600007" MODIFIED="1769892600007"/>
 <node TEXT="60+ GW installati, 32.000+ turbine nel mondo" ID="ID_DD_008" CREATED="1769892600008" MODIFIED="1769892600008"/>
 </node>
 <node TEXT="Siemens Gamesa (Germany/Spain) - PMSG" ID="ID_DD_010" CREATED="1769892600010" MODIFIED="1769892600010">
@@ -730,7 +730,7 @@
 <node TEXT="Haliade-X 14.7 MW (DNV type-certified)" ID="ID_DD_023" CREATED="1769892600023" MODIFIED="1769892600023" LINK="https://www.gevernova.com/news/press-releases/ge-haliade-x-14-7mw-220-turbine-obtains-full-dnv-type-certificate"/>
 <node TEXT="Haliade-X 17-18 MW (in development)" ID="ID_DD_024" CREATED="1769892600024" MODIFIED="1769892600024"/>
 <node TEXT="63% fattore di capacità lordo (record)" ID="ID_DD_025" CREATED="1769892600025" MODIFIED="1769892600025"/>
-<node TEXT="Piattaforma orientata all'offshore" ID="ID_DD_026" CREATED="1769892600026" MODIFIED="1769892600026"/>
+<node TEXT="Piattaforma orientata all&apos;offshore" ID="ID_DD_026" CREATED="1769892600026" MODIFIED="1769892600026"/>
 </node>
 <node TEXT="Goldwind (China) - PMSG" ID="ID_DD_030" CREATED="1769892600030" MODIFIED="1769892600030">
 <node TEXT="Azionamento Diretto a Magneti Permanenti (PMDD)" ID="ID_DD_031" CREATED="1769892600031" MODIFIED="1769892600031"/>
@@ -753,7 +753,7 @@
 <node TEXT="Avviatore graduale" ID="ID_ESUB_003" CREATED="1769892500003" MODIFIED="1769892500003">
 <node TEXT="A base di tiristori (SCRs back-to-back)" ID="ID_ESUB_004" CREATED="1769892500004" MODIFIED="1769892500004"/>
 <node TEXT="Limitazione della corrente di spunto alla connessione" ID="ID_ESUB_005" CREATED="1769892500005" MODIFIED="1769892500005"/>
-<node TEXT="Contattore di bypass dopo l'avviamento" ID="ID_ESUB_006" CREATED="1769892500006" MODIFIED="1769892500006"/>
+<node TEXT="Contattore di bypass dopo l&apos;avviamento" ID="ID_ESUB_006" CREATED="1769892500006" MODIFIED="1769892500006"/>
 </node>
 <node TEXT="Banco condensatori per compensazione reattiva" ID="ID_ESUB_007" CREATED="1769892500007" MODIFIED="1769892500007"/>
 <node TEXT="Connessione diretta alla rete (senza convertitore)" ID="ID_ESUB_008" CREATED="1769892500008" MODIFIED="1769892500008"/>
@@ -899,9 +899,9 @@
 <node TEXT="Previsione Numerica del Tempo (NWP)" ID="ID_WEATH_001" CREATED="1403508117772" MODIFIED="1769537468613"/>
 <node TEXT="Modelli mesoscala" ID="ID_WEATH_002" CREATED="1403508117773" MODIFIED="1769537468613"/>
 <node TEXT="Post-elaborazione statistica" ID="ID_WEATH_003" CREATED="1403508117774" MODIFIED="1769537468613"/>
-<node TEXT="Previsione d'insieme" ID="ID_WEATH_004" CREATED="1403508117775" MODIFIED="1769537468613"/>
+<node TEXT="Previsione d&apos;insieme" ID="ID_WEATH_004" CREATED="1403508117775" MODIFIED="1769537468613"/>
 </node>
-<node TEXT="Economia e Finanziamento" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="bottom_or_right" ID="ID_ECON_001" CREATED="1403339003000" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Economia e Finanziamento" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="bottom_or_right" ID="ID_ECON_001" CREATED="1403339003000" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#cc6600" WIDTH="5"/>
 <node TEXT="Costi di Investimento (CAPEX)" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_CAPEX_001" CREATED="1403339003001" MODIFIED="1769437734457" COLOR="#000000">
 <node TEXT="Aerogeneratori" ID="ID_CAPEX_002" CREATED="1403339003002" MODIFIED="1403339003003"/>
@@ -917,7 +917,7 @@
 <node TEXT="Affitto dei terreni" ID="ID_OPEX_005" CREATED="1403339003019" MODIFIED="1403339003020"/>
 </node>
 <node TEXT="Analisi di Fattibilità" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_VIA_001" CREATED="1403339003021" MODIFIED="1769437734457" COLOR="#000000">
-<node TEXT="LCOE (Costo Livellato dell'Energia)" ID="ID_VIA_002" CREATED="1403339003022" MODIFIED="1403339003023"/>
+<node TEXT="LCOE (Costo Livellato dell&apos;Energia)" ID="ID_VIA_002" CREATED="1403339003022" MODIFIED="1403339003023"/>
 <node TEXT="TIR (Tasso Interno di Rendimento)" ID="ID_VIA_003" CREATED="1403339003024" MODIFIED="1403339003025"/>
 <node TEXT="VAN (Valore Attuale Netto)" ID="ID_VIA_004" CREATED="1403339003026" MODIFIED="1403339003027"/>
 <node TEXT="Periodo di ritorno" ID="ID_VIA_005" CREATED="1403339003028" MODIFIED="1403339003029"/>
@@ -940,7 +940,7 @@
 <node TEXT="Collisione di uccelli" ID="ID_FAUNA_002" CREATED="1403339004002" MODIFIED="1403339004003"/>
 <node TEXT="Chirotteri (pipistrelli)" ID="ID_FAUNA_003" CREATED="1403339004004" MODIFIED="1403339004005"/>
 <node TEXT="Sistemi di rilevamento e arresto" ID="ID_FAUNA_004" CREATED="1403339004006" MODIFIED="1403339004007"/>
-<node TEXT="Studi sull'avifauna" ID="ID_FAUNA_005" CREATED="1403339004008" MODIFIED="1403339004009"/>
+<node TEXT="Studi sull&apos;avifauna" ID="ID_FAUNA_005" CREATED="1403339004008" MODIFIED="1403339004009"/>
 </node>
 <node TEXT="Impatto Visivo e Paesaggistico" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_VISUAL_001" CREATED="1403339004010" MODIFIED="1769437734457" COLOR="#000000">
 <node TEXT="Bacino visuale" ID="ID_VISUAL_002" CREATED="1403339004011" MODIFIED="1403339004012"/>

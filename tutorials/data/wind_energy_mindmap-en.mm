@@ -18,7 +18,7 @@
 </html>
 </richcontent>
 <hook NAME="MapStyle" zoom="0.56447387">
-    <properties show_tags="UNDER_NODES" fit_to_viewport="false" show_icons="BESIDE_NODES" show_note_icons="true" showTagCategories="false" show_icon_for_attributes="true"/>
+    <properties show_icon_for_attributes="true" show_tags="UNDER_NODES" show_note_icons="true" fit_to_viewport="false" show_icons="BESIDE_NODES" showTagCategories="false"/>
     <tags category_separator="::"/>
 
 <map_styles>
@@ -83,7 +83,7 @@
 <hook NAME="AutomaticEdgeColor" COUNTER="12" RULE="ON_BRANCH_CREATION"/>
 <hook NAME="accessories/plugins/AutomaticLayout.properties" VALUE="ALL"/>
 <edge WIDTH="5"/>
-<node TEXT="Fundamentos y Contexto" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_FUND_001" CREATED="1403339001000" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Fundamentos y Contexto" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_FUND_001" CREATED="1403339001000" MODIFIED="1771705109634" COLOR="#000000">
 <edge COLOR="#ff9900" WIDTH="5"/>
 <node TEXT="Historia de la Energía Eólica" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_HIST_001" CREATED="1403339001001" MODIFIED="1769437734457" COLOR="#000000">
 <node TEXT="Molinos tradicionales" ID="ID_HIST_002" CREATED="1403339001002" MODIFIED="1403339001003"/>
@@ -97,7 +97,7 @@
 <node TEXT="Tendencias de crecimiento" ID="ID_SIT_004" CREATED="1403339001015" MODIFIED="1403339001016"/>
 <node TEXT="Principales fabricantes" ID="ID_SIT_005" CREATED="1403339001017" MODIFIED="1403339001018"/>
 </node>
-<node TEXT="Aspectos Ambientales" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_AMB_001" CREATED="1403339001019" MODIFIED="1769437734457" COLOR="#000000">
+<node TEXT="Aspectos Ambientales" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_AMB_001" CREATED="1403339001019" MODIFIED="1771705110423" COLOR="#000000">
 <node TEXT="Reducción de emisiones CO2" ID="ID_AMB_002" CREATED="1403339001020" MODIFIED="1403339001021"/>
 <node TEXT="Huella de carbono" ID="ID_AMB_003" CREATED="1403339001022" MODIFIED="1403339001023"/>
 <node TEXT="Análisis de ciclo de vida" ID="ID_AMB_004" CREATED="1403339001024" MODIFIED="1403339001025"/>
@@ -166,7 +166,7 @@
 </html>
 </richcontent>
 <edge STYLE="bezier" COLOR="#00007c" WIDTH="5"/>
-<node TEXT="Aerodynamic principles" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" FOLDED="true" ID="ID_1804292542" CREATED="1403339106636" MODIFIED="1769437897612" COLOR="#000000">
+<node TEXT="Aerodynamic principles" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1804292542" CREATED="1403339106636" MODIFIED="1769437897612" COLOR="#000000">
 <node TEXT="Límite de Betz" ID="ID_AERO_001" CREATED="1403514974000" MODIFIED="1403514982020"/>
 <node TEXT="Tip Speed Ratio (TSR)" ID="ID_AERO_002" CREATED="1403514974001" MODIFIED="1403514982020"/>
 <node TEXT="Coeficiente de potencia (Cp)" ID="ID_AERO_003" CREATED="1403514974002" MODIFIED="1403514982020"/>
@@ -352,7 +352,7 @@
 <node TEXT="Bay controllers" ID="ID_SUB_002" CREATED="1403515864026" MODIFIED="1538150870050"/>
 </node>
 </node>
-<node TEXT="Wind Farms" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="top_or_left" ID="ID_158094941" CREATED="1403339203083" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Wind Farms" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_158094941" CREATED="1403339203083" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#0000ff" WIDTH="5"/>
 <node TEXT="Site evaluation" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_436132783" CREATED="1403339289452" MODIFIED="1769536527161" COLOR="#000000">
 <node TEXT="Topography analysis" ID="ID_SITE_001" CREATED="1403339289453" MODIFIED="1769536527161"/>
@@ -389,7 +389,7 @@
 <node TEXT="Condition Monitoring Systems (CMS)" ID="ID_PRED_001" CREATED="1403341267001" MODIFIED="1769932800000">
 <node TEXT="CMS Equipment Manufacturers" ID="ID_CMS_001" CREATED="1769932800001" MODIFIED="1769932800001">
 <node TEXT="Drivetrain Vibration CMS" ID="ID_CMS_002" CREATED="1769932800002" MODIFIED="1769932800002">
-<node TEXT="Br&#xfc;el &amp; Kj&#xe6;r Vibro (HBK)" ID="ID_CMS_003" CREATED="1769932800003" MODIFIED="1769932800003">
+<node TEXT="Brüel &amp; Kjær Vibro (HBK)" ID="ID_CMS_003" CREATED="1769932800003" MODIFIED="1769932800003">
 <node TEXT="DDAU3 data acquisition unit" ID="ID_CMS_004" CREATED="1769932800004" MODIFIED="1769932800004"/>
 <node TEXT="VibroSuite software platform" ID="ID_CMS_005" CREATED="1769932800005" MODIFIED="1769932800005"/>
 <node TEXT="20,000+ wind turbine installations" ID="ID_CMS_006" CREATED="1769932800006" MODIFIED="1769932800006"/>
@@ -439,7 +439,7 @@
 </node>
 </node>
 <node TEXT="Blade Monitoring Specialists" ID="ID_CMS_041" CREATED="1769932800041" MODIFIED="1769932800041">
-<node TEXT="Weidm&#xfc;ller" ID="ID_CMS_042" CREATED="1769932800042" MODIFIED="1769932800042">
+<node TEXT="Weidmüller" ID="ID_CMS_042" CREATED="1769932800042" MODIFIED="1769932800042">
 <node TEXT="BLADEcontrol (accelerometers in blades)" ID="ID_CMS_043" CREATED="1769932800043" MODIFIED="1769932800043"/>
 <node TEXT="Ice detection capability" ID="ID_CMS_044" CREATED="1769932800044" MODIFIED="1769932800044"/>
 <node TEXT="5,900+ turbines equipped" ID="ID_CMS_045" CREATED="1769932800045" MODIFIED="1769932800045"/>
@@ -464,7 +464,7 @@
 </node>
 </node>
 <node TEXT="Structural Health Monitoring (SHM)" ID="ID_CMS_059" CREATED="1769932800059" MODIFIED="1769932800059">
-<node TEXT="W&#xf6;lfel Wind Systems" ID="ID_CMS_060" CREATED="1769932800060" MODIFIED="1769932800060">
+<node TEXT="Wölfel Wind Systems" ID="ID_CMS_060" CREATED="1769932800060" MODIFIED="1769932800060">
 <node TEXT="SHM.Tower / SHM.Foundation / SHM.Blade" ID="ID_CMS_061" CREATED="1769932800061" MODIFIED="1769932800061"/>
 <node TEXT="ISO 10816-21 and VDI 3834 compliance" ID="ID_CMS_062" CREATED="1769932800062" MODIFIED="1769932800062"/>
 </node>
@@ -658,7 +658,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Wind Turbines" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="top_or_left" ID="ID_1879732168" CREATED="1403339441747" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Wind Turbines" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_1879732168" CREATED="1403339441747" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#ff00ff" WIDTH="5"/>
 <node TEXT="Design Evolution" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1480711894" CREATED="1403339452276" MODIFIED="1769437809068" COLOR="#000000">
 <node TEXT="Danish concept" ID="ID_DES_001" CREATED="1403339452277" MODIFIED="1769437809068"/>
@@ -901,7 +901,7 @@
 <node TEXT="Statistical post-processing" ID="ID_WEATH_003" CREATED="1403508117774" MODIFIED="1769537468613"/>
 <node TEXT="Ensemble forecasting" ID="ID_WEATH_004" CREATED="1403508117775" MODIFIED="1769537468613"/>
 </node>
-<node TEXT="Economía y Financiación" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="bottom_or_right" ID="ID_ECON_001" CREATED="1403339003000" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Economía y Financiación" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="bottom_or_right" ID="ID_ECON_001" CREATED="1403339003000" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#cc6600" WIDTH="5"/>
 <node TEXT="Costes de Inversión (CAPEX)" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_CAPEX_001" CREATED="1403339003001" MODIFIED="1769437734457" COLOR="#000000">
 <node TEXT="Aerogeneradores" ID="ID_CAPEX_002" CREATED="1403339003002" MODIFIED="1403339003003"/>
