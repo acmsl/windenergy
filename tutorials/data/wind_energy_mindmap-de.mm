@@ -18,7 +18,7 @@
 </html>
 </richcontent>
 <hook NAME="MapStyle" zoom="0.56447387">
-    <properties show_tags="UNDER_NODES" fit_to_viewport="false" show_icons="BESIDE_NODES" show_note_icons="true" showTagCategories="false" show_icon_for_attributes="true"/>
+    <properties show_icon_for_attributes="true" show_tags="UNDER_NODES" show_note_icons="true" fit_to_viewport="false" show_icons="BESIDE_NODES" showTagCategories="false"/>
     <tags category_separator="::"/>
 
 <map_styles>
@@ -352,7 +352,7 @@
 <node TEXT="Feldsteuergeräte" ID="ID_SUB_002" CREATED="1403515864026" MODIFIED="1538150870050"/>
 </node>
 </node>
-<node TEXT="Windparks" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="top_or_left" ID="ID_158094941" CREATED="1403339203083" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Windparks" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_158094941" CREATED="1403339203083" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#0000ff" WIDTH="5"/>
 <node TEXT="Standortbewertung" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_436132783" CREATED="1403339289452" MODIFIED="1769536527161" COLOR="#000000">
 <node TEXT="Topographische Analyse" ID="ID_SITE_001" CREATED="1403339289453" MODIFIED="1769536527161"/>
@@ -389,7 +389,7 @@
 <node TEXT="Zustandsüberwachungssysteme (CMS)" ID="ID_PRED_001" CREATED="1403341267001" MODIFIED="1769932800000">
 <node TEXT="CMS-Gerätehersteller" ID="ID_CMS_001" CREATED="1769932800001" MODIFIED="1769932800001">
 <node TEXT="CMS Antriebsstrang-Vibration" ID="ID_CMS_002" CREATED="1769932800002" MODIFIED="1769932800002">
-<node TEXT="Br&#xfc;el &amp; Kj&#xe6;r Vibro (HBK)" ID="ID_CMS_003" CREATED="1769932800003" MODIFIED="1769932800003">
+<node TEXT="Brüel &amp; Kjær Vibro (HBK)" ID="ID_CMS_003" CREATED="1769932800003" MODIFIED="1769932800003">
 <node TEXT="Datenerfassungseinheit DDAU3" ID="ID_CMS_004" CREATED="1769932800004" MODIFIED="1769932800004"/>
 <node TEXT="Softwareplattform VibroSuite" ID="ID_CMS_005" CREATED="1769932800005" MODIFIED="1769932800005"/>
 <node TEXT="20.000+ Installationen an Windkraftanlagen" ID="ID_CMS_006" CREATED="1769932800006" MODIFIED="1769932800006"/>
@@ -439,7 +439,7 @@
 </node>
 </node>
 <node TEXT="Spezialisten für Rotorblattüberwachung" ID="ID_CMS_041" CREATED="1769932800041" MODIFIED="1769932800041">
-<node TEXT="Weidm&#xfc;ller" ID="ID_CMS_042" CREATED="1769932800042" MODIFIED="1769932800042">
+<node TEXT="Weidmüller" ID="ID_CMS_042" CREATED="1769932800042" MODIFIED="1769932800042">
 <node TEXT="BLADEcontrol (Beschleunigungssensoren in Rotorblättern)" ID="ID_CMS_043" CREATED="1769932800043" MODIFIED="1769932800043"/>
 <node TEXT="Eiserkennung" ID="ID_CMS_044" CREATED="1769932800044" MODIFIED="1769932800044"/>
 <node TEXT="5.900+ ausgerüstete Turbinen" ID="ID_CMS_045" CREATED="1769932800045" MODIFIED="1769932800045"/>
@@ -464,7 +464,7 @@
 </node>
 </node>
 <node TEXT="Strukturelle Gesundheitsüberwachung (SHM)" ID="ID_CMS_059" CREATED="1769932800059" MODIFIED="1769932800059">
-<node TEXT="W&#xf6;lfel Wind Systems" ID="ID_CMS_060" CREATED="1769932800060" MODIFIED="1769932800060">
+<node TEXT="Wölfel Wind Systems" ID="ID_CMS_060" CREATED="1769932800060" MODIFIED="1769932800060">
 <node TEXT="SHM.Tower / SHM.Foundation / SHM.Blade" ID="ID_CMS_061" CREATED="1769932800061" MODIFIED="1769932800061"/>
 <node TEXT="Konformität mit ISO 10816-21 und VDI 3834" ID="ID_CMS_062" CREATED="1769932800062" MODIFIED="1769932800062"/>
 </node>
@@ -559,7 +559,7 @@
 <node TEXT="Ersatzteilmanagement" ID="ID_MAINT_001" CREATED="1403341758197" MODIFIED="1403341766430"/>
 <node TEXT="Garantiemanagement" ID="ID_MAINT_002" CREATED="1403341758198" MODIFIED="1403341766430"/>
 </node>
-<node TEXT="Umspannwerk" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_SUBST_001" CREATED="1769892400000" MODIFIED="1769892400000" COLOR="#000000">
+<node TEXT="Umspannwerk" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" FOLDED="true" ID="ID_SUBST_001" CREATED="1769892400000" MODIFIED="1769892400000" COLOR="#000000">
 <node TEXT="Aufbau und Hauptkomponenten" ID="ID_SUBST_002" CREATED="1769892400001" MODIFIED="1769892400001">
 <node TEXT="Leistungstransformatoren" ID="ID_SUBST_003" CREATED="1769892400002" MODIFIED="1769892400002">
 <node TEXT="Aufwärtstransformator (MS/HS)" ID="ID_SUBST_004" CREATED="1769892400003" MODIFIED="1769892400003"/>
@@ -658,7 +658,7 @@
 </node>
 </node>
 </node>
-<node TEXT="Windkraftanlagen" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="top_or_left" ID="ID_1879732168" CREATED="1403339441747" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Windkraftanlagen" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="top_or_left" ID="ID_1879732168" CREATED="1403339441747" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#ff00ff" WIDTH="5"/>
 <node TEXT="Designentwicklung" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_1480711894" CREATED="1403339452276" MODIFIED="1769437809068" COLOR="#000000">
 <node TEXT="Dänisches Konzept" ID="ID_DES_001" CREATED="1403339452277" MODIFIED="1769437809068"/>
@@ -901,7 +901,7 @@
 <node TEXT="Statistische Nachbearbeitung" ID="ID_WEATH_003" CREATED="1403508117774" MODIFIED="1769537468613"/>
 <node TEXT="Ensemble-Vorhersage" ID="ID_WEATH_004" CREATED="1403508117775" MODIFIED="1769537468613"/>
 </node>
-<node TEXT="Wirtschaft und Finanzierung" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" POSITION="bottom_or_right" ID="ID_ECON_001" CREATED="1403339003000" MODIFIED="1769537533356" COLOR="#000000">
+<node TEXT="Wirtschaft und Finanzierung" LOCALIZED_STYLE_REF="AutomaticLayout.level,1" FOLDED="true" POSITION="bottom_or_right" ID="ID_ECON_001" CREATED="1403339003000" MODIFIED="1769537533356" COLOR="#000000">
 <edge COLOR="#cc6600" WIDTH="5"/>
 <node TEXT="Investitionskosten (CAPEX)" LOCALIZED_STYLE_REF="AutomaticLayout.level,2" ID="ID_CAPEX_001" CREATED="1403339003001" MODIFIED="1769437734457" COLOR="#000000">
 <node TEXT="Windkraftanlagen" ID="ID_CAPEX_002" CREATED="1403339003002" MODIFIED="1403339003003"/>
