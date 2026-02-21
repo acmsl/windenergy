@@ -122,32 +122,29 @@
       }
 
       .breadcrumb {
-        position: sticky;
-        top: 5rem;
-        background: var(--bg);
-        padding: 0.25rem 2rem;
-        font-size: 0.75rem;
-        color: #666;
+        flex-basis: 100%;
+        font-size: 0.72rem;
+        color: rgba(255,255,255,0.7);
         font-style: italic;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        z-index: 100;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        padding-top: 0.25rem;
         line-height: 1.2;
       }
 
       .bc-link {
-        color: var(--primary);
+        color: rgba(255,255,255,0.85);
         cursor: pointer;
         text-decoration: none;
         transition: color 0.2s;
       }
 
       .bc-link:hover {
-        color: #005580;
+        color: white;
         text-decoration: underline;
       }
 
       .bc-current {
-        color: var(--dark);
+        color: white;
         font-weight: 500;
       }
 
@@ -840,9 +837,8 @@
         <button class="home-btn" type="button" onclick="goHome()"><span data-i18n="home">Home</span></button>
         <a href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer" class="web-btn" data-i18n="header.website">Website &amp; Contact</a>
       </div>
+      <div id="breadcrumb" class="breadcrumb"></div>
     </header>
-
-    <div id="breadcrumb" class="breadcrumb"></div>
 
     <main>
       <!-- ==================== LANDING: 8 CARDS ==================== -->
