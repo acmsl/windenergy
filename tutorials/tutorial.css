@@ -408,6 +408,31 @@ body {
   color: white;
 }
 
+/* BREADCRUMB */
+.tut-breadcrumb {
+  background: var(--bg);
+  padding: 0.25rem 2rem;
+  font-size: 0.75rem;
+  color: #666;
+  font-style: italic;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.tut-breadcrumb a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.tut-breadcrumb a:hover {
+  color: #005580;
+  text-decoration: underline;
+}
+
+.tut-breadcrumb .bc-current {
+  color: var(--dark);
+  font-weight: 500;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .tut-header { padding: 0.8rem 1rem; }
