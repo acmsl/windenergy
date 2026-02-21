@@ -408,28 +408,27 @@ body {
   color: white;
 }
 
-/* BREADCRUMB */
+/* BREADCRUMB (inside sticky header) */
 .tut-breadcrumb {
-  background: var(--bg);
-  padding: 0.25rem 2rem;
-  font-size: 0.75rem;
-  color: #666;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.7);
   font-style: italic;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 0.25rem;
 }
 
 .tut-breadcrumb a {
-  color: var(--primary);
+  color: rgba(255,255,255,0.85);
   text-decoration: none;
 }
 
 .tut-breadcrumb a:hover {
-  color: #005580;
+  color: white;
   text-decoration: underline;
 }
 
 .tut-breadcrumb .bc-current {
-  color: var(--dark);
+  color: white;
   font-weight: 500;
 }
 
