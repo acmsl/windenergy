@@ -1,0 +1,127 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Observacion del comportamiento con vientos muy fuertes: varios casos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", viento, Max para arranque, Mensajes, Historial incidencia">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ObservacionProtocolosVientosFuer");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Observacion del comportamiento con vientos muy fuertes: varios casos</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; <a href="ComportamientoVientosFuertes.html">Comportamiento frente a vientos muy fuertes</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ComportamientoVientosFuertes.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ComportamientoVientosFuertes.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="InfluenciaMomentoInercia.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">En esta práctica debe observar los protocolos utilizados por el Controlador en relación con vientos altos.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Asegúrese que el aerogenerador está desconectado de la Red. Pulse "STOP" si es necesario. Asegúrese de que no existe ninguna incidencia pendiente, excepto "Manual STOP"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Ponga un viento alto, pero inferior a "</span><span class="rvts15">Max para arranque</span><span class="rvts11">" (18 m/s). Compruebe que el aerogenerador realiza la operación de conexión a la Red (cutin) de forma normal.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Desconecte el aerogenerador de la Red : pulse "STOP".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Ponga un viento superior a 18 m/s y desy compruebe que el aerogenerador realiza la operación de orientarse al viento, pero no completa la conexión a la Red. Puede observar que el Controlador está monitorizando continuamente el valor del viento: pulse en la pestaña "</span><span class="rvts15">Mensajes</span><span class="rvts11">" de sinóptico "Control Terminal".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Reduzca el viento a un poco por debajo de 18 m/s, por ejemplo 17.9 m/s. Compruebe que inmediatamente comienza el proceso de conexión a la Red (cutin).</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps5"><span class="rvts12">Protocolos para vientos muy altos.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Ponga el aerogenerador en conexión con la Red.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Vaya subiendo lentamente el viento con las flechas o teclas de paginación hasta 25 m/s. (Valor de "</span><span class="rvts15">Max para operación continua</span><span class="rvts11">".) Compruebe que el aerogenerador se mantiene en producción indefinidamente.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Aumente el viento por encima de 25 m/s. Observará que después de transcurrido un cierto tiempo el Controlador desconecta el generador de la Red (cutout) y genera una incidencia con el mensaje "</span><span class="rvts15">Wind &gt; WinMaxForOperation for more than 100 s</span><span class="rvts11">".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Si ahora disminuye lentamente el viento, compruebe que no ocurre nada hasta que el viento tenga un valor inferior a 18 m/s.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Observe que cuando el viento baja a menos de 18 m/s, la incidencia pasa automáticamente al "</span><span class="rvts15">Historial incidencias</span><span class="rvts11">", y el Controlador inicia automáticamente el proceso de conexión a la Red.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Vaya subiendo lentamente el viento con las flechas o teclas de paginación hasta un valor algo superior a 28 m/s, por ejemplo 28,1 m/s. (Valor de "</span><span class="rvts15">Max para operación temporal</span><span class="rvts11">".) Comprobará que el Controlador iniciará la desconexión de la Red (cutout) despues de un tiempo que es notablemente inferior al del punto 3.&nbsp;</span><br/><span class="rvts11">Aparecerán dos incidencias con las descripciones: "Wind &gt; WindMasForOperation for more than 100 s" y "Wind &gt; WindMaxForTemporalOperation for more than 5 s". Note que la segunda tiene un "Comienzo" ligeramente anterior.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Si ahora disminuye lentamente el viento, compruebe que no ocurre nada hasta que el viento tenga un valor inferior a 18 m/s.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">Observe que cuando el viento baja a menos de 18 m/s, las incidencias pasa automáticamente al "</span><span class="rvts15">Historial incidencias</span><span class="rvts11">", y el Controlador inicia automáticamente el proceso de conexión a la Red.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Aumente ahora el viento hasta llegar a 30 m/s (Valor de "</span><span class="rvts15">Max absoluto"</span><span class="rvts11">). Comprobará que se generará en un tiempo muy corto una incidencia con la descripción "Wind &gt; WindAbsolutMax for more than 1 s", seguida de otras dos similares a las del punto 6.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

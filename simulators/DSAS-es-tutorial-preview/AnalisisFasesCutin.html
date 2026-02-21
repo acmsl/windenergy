@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Analisis detallado de las fases de la conexi&oacute;n a la red (Cutin)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="cutin, Inductivo, PAveInd, RPM GENERATOR, m&aacute;quina de inducci&oacute;n, Capacitivo, PAveCap, potencia activa, PAveAct, Contactores de Bypass de los Tiristores, potencia reactiva, slip">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("AnalisisFasesCutin");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Analisis detallado de las fases de la conexi&oacute;n a la red (Cutin)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ClasesPracticas.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DesenrrolleCables.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="AnalisisCambiosGeneradores.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Esta práctica utiliza datos reales de un aerogenerador como el simulado, tomados con un muestreo de 1 muestra por segundo.</span></p>
+<p class="rvps4"><span class="rvts11">La Fig 1, mas abajo, muestra un zoom temporal correspondiente a la conexión del generador a la Red. La Fig 2 muestra un detalle ampliado con el intervalo inmediatamente antes y después de la conexión del generador a la Red.</span></p>
+<p class="rvps4"><span class="rvts11">El objetivo es que observe como es la evolución de variables clave. En particular observe el cambio brusco &nbsp;de la aceleración del tren de potencia en este tipo de aerogenerador, y de las principales variables eléctricas. &nbsp;</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem60.png"></p>
+<p class="rvps2"><span class="rvts11">Fig 1.</span></p>
+<p class="rvps4"><span class="rvts11">La zona en </span><span class="rvts57">azul</span><span class="rvts11"> muestra como el Controlador modifica el valor del pitch de forma que la aceleración del tren de potencia (señal "</span><span class="rvts15">RPM GENERATOR</span><span class="rvts11">") se mantiene constante, hasta que se llega a la conexión. La aceleración en esta zona es del orden de 23 rpms/segundo (= (1500 rpms &nbsp;- 800 rpms)/ 30 segundos). Cuando se pasa a producción esa aceleración es prácticamente 0 rpms/segundo: esto ocurre debido a que, en producción, la potencia extraída del viento es igual a l a potencia (eléctrica) entregada a la Red. Estos valores dan idea del esfuerzo mecánico al que están sometidos los componentes del tren de potencia, y la Torre, en el momento de conexión &nbsp;la Red.</span></p>
+<p class="rvps4"><span class="rvts11">Justamente cuando se produce la conexión del generador (primero de forma limitada por la conducción de los Tiristores y después por la activación de los </span><span class="rvts15">Contactores de Bypass de los Tiristores</span><span class="rvts11">) se produce un pico (importante) de consumo de potencia reactiva tipo "</span><span class="rvts15">Inductivo</span><span class="rvts11">" (señal "</span><span class="rvts15">PAveInd</span><span class="rvts11">"). Esta potencia corresponde a la corriente que circula por el estator del generador en los momentos iniciales, para constituir el flujo magnético necesario para que exista la "</span><span class="rvts15">máquina de inducción</span><span class="rvts11">".</span></p>
+<p class="rvps4"><span class="rvts11">Inmediatamente después se produce un pico de potencia reactiva de tipo "</span><span class="rvts15">Capacitivo</span><span class="rvts11">" (señal "</span><span class="rvts15">PAveCap</span><span class="rvts11">") característico del ajuste de deslizamiento (</span><span class="rvts15">slip</span><span class="rvts11">), desde el paso por sincronismo (slip = 0) al valor final, correspondiente a la potencia mecánica que fuerza el eje. Ver </span><a class="rvts47" href="IntoductiontotheInductionMachine.html">Introducción a las máquinas de inducción</a><span class="rvts11"> . Fíjese que el valor inicial de esta potencia es significativo respecto a la </span><span class="rvts16">potencia activa</span><span class="rvts11"> (señal "</span><span class="rvts15">PAveAct</span><span class="rvts11">") que finalmente se entrega a la Red.</span></p>
+<p class="rvps4"><span class="rvts11">La figura siguiente muestra las mismas señales pero con un zoom con mas resolución temporal, justo en el momento de la conexión.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem59.png"></p>
+<p class="rvps2"><span class="rvts11">Fig 2.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts27"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

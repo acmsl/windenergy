@@ -1,0 +1,131 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Connexion au r&eacute;seau &eacute;lectrique</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="connexion au r&eacute;seau, acc&eacute;l&eacute;ration pour atteindre la vitesse du synchronisme, op&eacute;ration dans production, soft-starter, squirrel cage, ">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Terminaldecontrle");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Connexion au r&eacute;seau &eacute;lectrique</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduction.html">Introduction</a> &rsaquo;&rsaquo; <a href="WhatisaWindTurbine.html">Description de l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="Operationalview.html">Sch&eacute;ma simplifi&eacute; d'une &eacute;olienne avec g&eacute;n&eacute;rateur a cage d'&eacute;cureuil</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Operationalview.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Contrleoprationneldelolienne.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Connexionaurseaulectrique.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Les processus de connexion et de déconnexion de l'éolienne du réseau électrique sont des points clés de son fonctionnement, et sont très influencés par le type de générateur électrique utilisé.</span></p>
+<p class="rvps4"><span class="rvts11">Dans le cas d'une éolienne avec une machine asynchrone avec cage d'écureuil, le contrôleur doit s'assurer que la connexion au réseau se produit lorsque la vitesse de rotation de l'arbre du générateur dépasse sa vitesse de synchronisation. Par conséquent, il y a les phases de:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">«accélération pour atteindre la vitesse du synchronisme»,&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">«connexion au réseau» et&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">«opération dans production».</span></p>
+<p class="rvps4"><span class="rvts11">Pour la phase de «connexion au réseau», dans ce cas particulier, on utilise un mécanisme aussi utilisé dans d'autres installations de production d'électricité, et connu sous le nom de «</span><span class="rvts14">soft-starter</span><span class="rvts11">».</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Detalle%20tiristores%20y%20bypass.png"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">L'objectif de ce mécanisme est de passer à la position de connexion directe du stator de la machine au réseau, en passant d'une phase dans laquelle la machine se comporte comme un moteur, à accélérer la chaîne de puissance au-dessus de la vitesse de synchronisme et passer en mode 'générateur'.</span></p>
+<p class="rvps4"><span class="rvts11">Les composants de ce mécanisme sont:&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">le bloc des thyristors (trois thyristors, un pour chaque phase),&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">les contacteurs de puissance qui court-circuitent l'anode et la cathode des thyristors, et&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">le générateur de signaux de contrôle pour les gates des thyristors.</span></p>
+<p class="rvps4"><span class="rvts11">Le générateur de signaux pour les gates doit être coordonné avec le mécanisme de contrôle général de l'éolienne. Voir une explication détaillée dans &nbsp;</span><a class="rvts15" href="Electricalconnectiontothegrid.html">Conexion au réseau électrique d'un générateur à rotor à cage d'écureuil</a><span class="rvts11"> .</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

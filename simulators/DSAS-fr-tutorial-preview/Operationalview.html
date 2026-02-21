@@ -1,0 +1,128 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Sch&eacute;ma simplifi&eacute; d'une &eacute;olienne avec g&eacute;n&eacute;rateur a cage d'&eacute;cureuil</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="SCADA, Contr&ocirc;leur, op&eacute;rationnel">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Operationalview");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Sch&eacute;ma simplifi&eacute; d'une &eacute;olienne avec g&eacute;n&eacute;rateur a cage d'&eacute;cureuil</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduction.html">Introduction</a> &rsaquo;&rsaquo; <a href="WhatisaWindTurbine.html">Description de l'&eacute;olienne</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="WhatisaWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="WindTurbineControlcriteria.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Contrleoprationneldelolienne.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">D'un point de vue </span><span class="rvts25">opérationnel</span><span class="rvts11">, une éolienne est une installation de production conçue pour produire de l'électricité à partir du vent de manière totalement autonome. Pour ce faire, l'éolienne dispose d'un Contrôleur dont la mission est d'orchestrer le contrôle de chacun des sous-systèmes qui le composent, afin d'obtenir l'objectif en maintenant une grande sécurité opérationnelle, aussi que pour le personnel impliqué dans sa maintenance et son exploitation.</span></p>
+<p class="rvps4"><span class="rvts11">De ce point de vue, nous pouvons distinguer les groupes suivants:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Les </span><span class="rvts25">systèmes mécaniques, hydrauliques, aérodynamiques et électriques</span><span class="rvts11"> qui composent l'éolienne.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Le </span><span class="rvts14">Contrôleur</span><span class="rvts11">, un sous-système électronique qui surveille les signaux provenant des capteurs des systèmes précédents, et met en œuvre un ensemble d'algorithmes qui contrôlent le fonctionnement complet et la sécurité de cette opération. Le Contrôleur envoie des informations sur son statut et celui des différents sous-systèmes de l'éolienne à:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts11">Le système de surveillance et de contrôle </span><span class="rvts25">à distance</span><span class="rvts11"> </span><span class="rvts14">SCADA</span><span class="rvts11"> (Supervisory Control And Data Acquisition) du parc où se situe l'éolienne.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts11">Le </span><span class="rvts14">Terminal de Contrôle</span><span class="rvts11"> de l'éolienne, connecté directement au Contrôleur.</span></p>
+<p class="rvps4"><span class="rvts11">La figure suivante montre les connexions conceptuelles entre les différents sous-systèmes d'une éolienne avec </span><span class="rvts25">générateur électrique de cage d'écureuil</span><span class="rvts11">.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Esquema%20general%20frances.png"></p>
+<p class="rvps4"><span class="rvts11">Figure 1 - Schéma général des connexions d'une éolienne avec générateur de cage d'écureuil.</span></p>
+<p class="rvps12"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

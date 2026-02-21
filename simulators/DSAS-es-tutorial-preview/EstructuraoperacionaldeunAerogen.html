@@ -1,0 +1,163 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Esquema funcional de una Aerogenerador con jaula de ardilla</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="pitch, veleta, emergencia, freno de mano">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("EstructuraoperacionaldeunAerogen");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Esquema funcional de una Aerogenerador con jaula de ardilla</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">&iquest;Qu&eacute; es un Aerogenerador?</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Queesunaerogenerador.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Sensoresdetemperatura.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Conexionredelectrica.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<h1 class="rvps9"><span class="rvts0"><span class="rvts48">Esquema de bloques funcional de un Aerogenerador con generador de jaula de ardilla, y con angulo de pala variable.</span></span></h1>
+<p class="rvps3"><img alt="" style="padding : 1px;" src="lib/Aerog%20active%20stall.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps8"><span class="rvts6">Las funciones principales del Controlador corresponden con el control de la </span><span class="rvts29">conexión (y desconexión) a la Red Eléctrica del generador</span><span class="rvts6"> eléctrico, y el </span><span class="rvts29">control del angulo de las palas: </span><span class="rvts6">con él se modifica</span><span class="rvts29"> la potencia obtenida del viento </span><span class="rvts6">(cuando está en </span><span class="rvts17">producción</span><span class="rvts6">) y el </span><span class="rvts29">freno del Tren de Potencia</span><span class="rvts6"> , cuando se está en la fase de </span><span class="rvts17">parada</span><span class="rvts6"> .</span></p>
+<h1 class="rvps9"><span class="rvts0"><span class="rvts48">Esquema funcional detallado</span></span></h1>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps3"><img alt="" style="padding : 1px;" src="lib/Esquema%20DSAS.png"></p>
+<p class="rvps2"><span class="rvts6">Esta figura muestra el esquema funcional de este tipo de aerogenerador.</span></p>
+<h1 class="rvps9"><span class="rvts0"><span class="rvts48">Funciones principales</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Control de la </span><span class="rvts67">conexión y desconexión del generador</span><span class="rvts66"> eléctrico a la Red Eléctrica</span><span class="rvts6">:&nbsp;</span></p>
+<p class="rvps8"><span class="rvts6">El Controlador monitoriza:</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">El viento (a través del anemómetro).</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Las revoluciones del eje del generador.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Los parámetros de la Red (tensiones y corrientes por fase).</span></p>
+<p class="rvps8"><span class="rvts6">y realiza el control a través de:</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Los tiristores.</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Los contactores de Bypass.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Control de la </span><span class="rvts67">potencia obtenida del viento</span><span class="rvts6">:</span></p>
+<p class="rvps8"><span class="rvts6">El Controlador monitoriza:</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">El viento (a través del anemómetro).</span></p>
+<p class="rvps8"><span class="rvts6">y realiza el control de la potencia obtenida del viento a través de:</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">El mecanismo de control del angulo de la pala (pitch)</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Control de las </span><span class="rvts67">conexiones del generador de dos velocidades</span></p>
+<p class="rvps8"><span class="rvts6">Cuando el generador tiene disponibles dos formas de conexión de su estator (lo que implica que puede funcionar en dos velocidades de sincronismo), el Controlador realiza las maniobras de cambio entre estas dos velocidades de forma automática. El algoritmo utilizado es el siguiente:</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Si está en producción a la velocidad alta del generador:</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Inicia el proceso de desconexión de la Red, modificando el angulo de la pala de forma que se reduce la potencia obtenida del viento.</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Cuando la potencia eléctrica producida es 0, desconecta el generador de la Red, abriendo los contactores de Bypass.</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Mantiene el angulo de pala, de forma que el Tren de Potencia va perdiendo velocidad de giro, hasta que llega a un valor ligeramente inferior a la velocidad de sincronismo baja.</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Cambia la conexión del bobinado del generador de forma que corresponde con la velocidad de sincronismo baja.</span></p>
+<h1 class="rvps9"><span class="rvts0"><span class="rvts48">Funciones auxiliares</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Control de la </span><span class="rvts67">seguridad de la operación</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps8"><span class="rvts6">El Controlador dispone de algoritmos de supervisión del estado del Aerogenerador, cuya misión es garantizar la seguridad de las personas, y del propio equipo.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts6">Para ello monitoriza:</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La velocidad del viento.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">El rango de velocidad del eje del generador.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La velocidad de giro de las palas.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">El estado sensor de vibraciones de la torre.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Sensores de temperatura de varios elementos: bobinado del estator del generador, de los rodamientos de eje del Tren de Potencia, de la multiplicadora, del medio ambiente.</span></p>
+<p class="rvps8"><span class="rvts6">y realiza la operación de desconexión de la Red (si estuviera conectado), y coloca el angulo de la pala "</span><span class="rvts17">en bandera</span><span class="rvts6">" (que significa con mínima resistencia al viento incidente)</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Control de la </span><span class="rvts67">orientación de la Góndola</span><span class="rvts6">.</span></p>
+<p class="rvps8"><span class="rvts6">El Controlador utiliza la señal de la </span><span class="rvts29">veleta</span><span class="rvts6"> para conocer el valor de su desorientación respecto de la dirección del viento.</span></p>
+<p class="rvps8"><span class="rvts6">Utiliza los grupos de motores (uno para cada sentido de giro: CW (según las manillas del reloj) o CCW (al contrario que las manillas del reloj), pera corregir la posible desorientación.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Monitorización y control del </span><span class="rvts67">freno de disco</span><span class="rvts6">.</span></p>
+<p class="rvps8"><span class="rvts6">El freno de disco se utiliza, fundamentalmente, para impedir el giro del Tren de Potencia, cuando hay que hacer operaciones de mantenimiento en las palas, etc. Funciona como el concepto de </span><span class="rvts17">freno de mano</span><span class="rvts6"> en un coche.</span></p>
+<p class="rvps8"><span class="rvts6">Los elementos del mecanismo de freno (zapata, disco, cilindro hidráulico, válvula) están dimensionados para otra función más exigente: actuar como freno de Tren de Potencia en </span><span class="rvts17">situaciones de emergencia</span><span class="rvts6">. Cuando el Controlador decide parar el Tren de Potencia utiliza el angulo de la pala , especificando un angulo de 90º. Si este procedimiento no responde adecuadamente (no lo suficientemente rápido), utiliza el freno de disco como último recurso. Este uso está considerado como </span><span class="rvts17">avería</span><span class="rvts6">, ya que, si el momento de su aplicación es con velocidad de giro de producción, toda la energía obtenida del viento &nbsp;ha de ser disipada en la zapata, con lo que se produce su deformación.</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Monitorización de las </span><span class="rvts67">vibraciones de la Torre</span></p>
+<p class="rvps8"><span class="rvts6">El Controlador reacciona a la actividad del </span><span class="rvts17">sensor de vibraciones</span><span class="rvts6"> localizado en la Torre, parando el Tren de Potencia, y colocando la pala "en bandera".</span></p>
+<p class="rvps8" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts66">Mantenimiento del </span><span class="rvts67">sistema hidráulico</span><span class="rvts6">.</span></p>
+<p class="rvps8"><span class="rvts6">El sistema hidráulico es utilizado por el mecanismo de freno del Tren de Potencia, pero además, según modelos, puede ser usado para fijar el giro de la Góndola, mediante zapatas colocadas en la base de la misma. En ciertos modelos, también ha sido usado para suministrar presión al mecanismo de cambio de angulo de las palas.</span></p>
+<p class="rvps8"><span class="rvts6">El Controlador recibe la señal de un </span><span class="rvts17">presostato</span><span class="rvts6"> que le permite conocer el nivel de presión en el circuito hidráulico. En función de las operaciones a realizar, pone en marcha y para la </span><span class="rvts17">bomba hidráulica</span><span class="rvts6"> para mantener dicho valor en un rango adecuado, o actúa sobre la </span><span class="rvts17">válvula de descarga</span><span class="rvts6">, para reducir dicha presión.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,137 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Gearbox &amp; Rotor</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="condition monitoring">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("GearboxRotor");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Gearbox &amp; Rotor</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description of the Simulator</a> &rsaquo;&rsaquo; <a href="Synoptics.html">Synoptics</a> &rsaquo;&rsaquo; <a href="DriveTrainsynoptic.html">Drive Train synoptic</a> &rsaquo;&rsaquo; <a href="Componentsdescriptions.html">Components descriptions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Componentsdescriptions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Hub.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Brakingsystem.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The Rotor is the piece that connects the Hub to the gearbox. Its most critical part is the bearing situated &nbsp;near the Hub, as this element must support the weight and the efforts of the Blades and the Hub (tons).</span></p>
+<p class="rvps4"><span class="rvts11">The controller monitors the temperature of this bearing.. In modern wind turbines this bearing is also monitored &nbsp;using "condition monitoring" systems. Those systems include accelerometers placed on the bearing so that they can measure its axial vibrations and displacements.</span></p>
+<p class="rvps4"><span class="rvts11">In the DriveTrain synoptic contains a widget associated with the temperature of the rotor's bearing. The trainee may change its value and observe the reaction of the Controller.</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp;The circular meters has adaptive representation. The purpose is to present the actual value of the Generator rpms in the appropriate context. So, during runup, going to cutin it presents the full range from 0 to Synchronous speed.</span><br/><span class="rvts11"><br/></span></p>
+<div class="rvps2">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/NewItem55.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/NewItem56.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/NewItem57.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/NewItem58.png"></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The yellow zone indicates (approx.) the controlled runup approaching cutin.</span></p>
+<p class="rvps4"><span class="rvts11">When then rpms enter the yellow zone, the start value of the representation changes, as well as the tics. See next figure.</span></p>
+<p class="rvps4"><span class="rvts11">Finally, while in production small variations of rpms means big changes of the generated power, so a finer degree of detail is needed. See next figure.Red zone indicated out of recommended rpms range.</span></p>
+<p class="rvps4"><span class="rvts11">In order to be able to observe the reaction of the Nacelle to the (hopefully infrequent) situation of the generator running at much higher speed that expected (HCU limit: High speed Centrifugal Unit fires), this circular meter jumps to a different view when approaching that value. See next figure.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

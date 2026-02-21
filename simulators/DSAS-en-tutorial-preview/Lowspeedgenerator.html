@@ -1,0 +1,686 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Low speed generator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Lowspeedgenerator");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Low speed generator</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="WhatisaWindTurbine.html">What is a Wind Turbine</a> &rsaquo;&rsaquo; <a href="StrucutureofaWindTurbine.html">Structure of a Wind Turbine</a> &rsaquo;&rsaquo; <a href="Generatorcharacteristics.html">Generator characteristics</a> &rsaquo;&rsaquo; <a href="IntoductiontotheInductionMachine.html">Introduction to the Induction Machine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="IntoductiontotheInductionMachine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Highspeedgenerator.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Introductiontothephysicalprincip.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps11">
+<table style="border-width: 0px; border-collapse: collapse;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps3"><span class="rvts48">rpm</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps3"><span class="rvts48">I (A)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps2"><span class="rvts47">P(KW)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps2"><span class="rvts47">Q(KVAr)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps2"><span class="rvts47">S(KVA)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps3"><span class="rvts48">PowerFactor</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps3"><span class="rvts48">Torque (Nm)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts50">1000,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts50">0,0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts51">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts51">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts51">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts50">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 14px;">
+   <p class="rvps10"><span class="rvts50">0</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1000,88</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">76,2</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts51">25</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts51">-88</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts51">91</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,274</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">238,5</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1001,70</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">86,1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">50</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-90</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">103</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,486</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">476,7</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1002,51</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">100,3</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">75</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-93</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">120</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,626</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">714,5</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1003,33</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">117,4</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">100</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-98</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">140</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,713</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">951,8</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1004,17</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">136,3</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">125</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-104</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">163</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,767</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1.188,80</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1005,01</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">156,6</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">150</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-112</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">187</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,801</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1.425,40</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1005,87</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">178,0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">175</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-121</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">213</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,823</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1.661,50</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1006,75</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">200,2</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">200</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-131</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">239</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,836</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1.897,20</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1007,66</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">223,2</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">225</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-143</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">267</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,843</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.132,40</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1008,60</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">247,0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">250</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-157</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">295</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,847</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.367,10</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1025,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">587,1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">494</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-499</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">702</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,704</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">4.600,70</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1050,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">810,1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">435</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-868</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">971</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,448</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">3.959,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1075,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">880,8</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">378</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1008</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1077</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,351</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">3.360,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1100,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">907,6</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">355</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1063</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1121</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,316</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">3.080,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1125,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">919,5</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">345</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1088</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1142</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,302</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.931,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1150,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">925,4</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">342</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1101</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1153</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,297</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.842,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1175,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">928,6</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">339</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1107</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1158</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,293</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.755,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1200,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">930,4</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">343</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1111</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1162</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,295</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.729,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1225,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">931,5</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">347</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1113</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1165</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,298</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.703,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1250,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">932,1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">352</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1114</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1168</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,301</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.690,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1275,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">932,4</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">358</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">-1114</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1170</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,306</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.678,00</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">1300,00</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">932,6</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">361</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1115</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts47">1172</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">0,308</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 0px; vertical-align: top; width: 86px; height: 19px;">
+   <p class="rvps10"><span class="rvts50">2.653,00</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem34.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem33.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem32.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem31.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/NewItem30.png"></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

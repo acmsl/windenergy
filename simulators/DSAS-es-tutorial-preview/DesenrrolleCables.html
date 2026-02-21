@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Desenrolle de cables de potencia</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="ControllerYawing.MaxCableTwist, ControllerYawing.MaxCableTwistBeforeCutin, , Cutin + Cutout + Produccion">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("DesenrrolleCables");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Desenrolle de cables de potencia</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; <a href="CambioDireccionViento.html">Efectos del cambio en la direccion del viento</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="CambioDireccionViento.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="OrientacionAutomatica.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="AnalisisFasesCutin.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">El objetivo de esta practica es comprobar el tratamiento del desenrolle de los cables de potencia. Lea en </span><a class="rvts47" href="Yawingofthenacelle.html">Algoritmos de control de la orientacion y de desenrolle de Cables de Potencia</a><span class="rvts11"> la fundamentación de los comportamientos esperables. &nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Los conceptos a comprobar son los siguientes:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Si la dirección del viento va cambiando</span><span class="rvts16"> mientras el generador está conectado a la Red</span><span class="rvts11"> (en producción), el Controlador monitoriza el número de vueltas de los cables de potencia: si llega al valor indicado por parámetro "</span><span class="rvts15">ControllerYawing.MaxCableTwist</span><span class="rvts11">" (por defecto, 2,5), el Controlador inicia un proceso de desenrolle, lo que implica primero desconectar el generador de la Red (cutout), y al final volver a conectarlo (cutin).</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Si el generador esta desconectado de la Red y se produce una condición de puesta en conexión con la Red (cutin), bien porque el viento ha subido hasta el nivel suficiente, o porque el operador ha dado la orden de "START", y el número de vueltas de los cables de potencia es superior al valor del parámetro "</span><span class="rvts15">ControllerYawing.MaxCableTwistBeforeCutin</span><span class="rvts11">" (por defecto, 1,5), entonces el Controlador inicia el proceso de desenrolle, y después sigue con el proceso de conexión (cutin).</span></p>
+<p class="rvps4"><span class="rvts11">Para el 1):</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Asegúrese de que el generador está conectado a la Red (en producción)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Vaya cambiando la dirección del viento en una misma dirección, hasta que se llegue al limite de 2,5 vueltas de los cables de potencia. Para cambiar la dirección del viento, en el sinóptico "SynopticWindNacelle", indicador "Direccion viento", haga click con el ratón sobre la parte del valor (fondo blanco), y utilice las teclas "Avance de Pagina", "Retroceso de Pagina", "Flecha arriba" y "Flecha abajo", de forma suave (una pulsación por segundo, por ejemplo) y observe como la orientación de la Góndola 'sigue' al nuevo valor de la dirección del viento.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Observe que cuando la nueva orientación haga que el número de vueltas de los cables de potencia supere los 2.4, el Controlador iniciará el proceso de desconexión del generador de la Red (cutout) y procederá a girar la Góndola en el sentido que haga disminuir las vueltas, hasta que este valor esté dentro de 0.5 vueltas.</span></p>
+<p class="rvps4"><span class="rvts11">Para el 2) :</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Asegúrese de que el generador está desconectado de la Red (parado). Pulse "STOP" si es necesario y espere.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Utilizando alguno de los botones de "Giro manual" en el sinóptico "Control Terminal" fuerce el giro, siempre en una misma dirección, hasta que el número de vueltas de los cables de potencia estén por encima de 1.5.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Asegúrese de que no existen incidecias abiertas, aparte de "Manual STOP". Haga click en la columna "Ok" de esta incidencia, y pulse "START".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Observe que la Góndola no busca la dirección de viento, sino que comienza el desenrolle de los cables. Cuando las vueltas están en el rango de 0.5 (en valor absoluto), inicia la operación de orientación y conexión del generador con la Red.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">En esta práctica puede utilizar dos registradores, uno con el panel "</span><span class="rvts15">Yawing</span><span class="rvts11">" y otro con el panel "</span><span class="rvts15">Cutin + Cutout + Produccion</span><span class="rvts11">" para observar la evolución de las señales pertinentes.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

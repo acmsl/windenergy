@@ -1,0 +1,899 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Description du Simulateur</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="configuration, parameter, synoptique, squirrel cage, Process, Function, LdP">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("DualSpeedActiveStallWTSimulator1");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Description du Simulateur</h1>
+				
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Bibliography.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="BasicemulatorsforaWindTurbineinW.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Le </span><span class="rvts14">'Simulateur d'eolienne a deux vitesses avec control par Activestall'</span><span class="rvts11"> est une application </span><span class="rvts25">LdP</span><span class="rvts11"> qui permet de reproduire le comportement d'une éolienne dotée du contrôle de les pales par la méthode Active Stall, et d'un générateur à induction avec rotor en court-circuit, et deux connexions possibles .</span></p>
+<p class="rvps4"><span class="rvts11">En tant qu'application LdP, il consiste en un ensemble de fichiers exécutables connectés entre eux via un fichier de configuration ("DSASv10.conf") dans lequel les tutoriels associés sont également spécifiés.</span></p>
+<p class="rvps4"><span class="rvts11">Comme expliqué dans le tutoriel </span><span class="rvts25">'Introduction au LdP'</span><span class="rvts11">, cette configuration consiste en un ensemble de "</span><span class="rvts27">Processes</span><span class="rvts11">", "</span><span class="rvts27">Synoptics</span><span class="rvts11">", "</span><span class="rvts27">Functions</span><span class="rvts11">", "</span><span class="rvts27">Parameters</span><span class="rvts11">" et "</span><span class="rvts27">Connections</span><span class="rvts11">".</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Un "</span><span class="rvts14">Process</span><span class="rvts11">", dans LdP, est un bloc constructive qui implémente une fonctionnalité donnée, mais qui n'a pas d'interface graphique. Les processus dans cette configuration sont les suivants:</span></p>
+<div class="rvps2">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><span class="rvts61">Process</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts61">Internal name</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts61">Description</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><span class="rvts6">NacelleEmulator</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts6">Nacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <br/>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><span class="rvts6">DriveTrainDynamics</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts6">Nacelle.DriveTrain</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Simulateur pour la chaîne de puissance</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><span class="rvts6">YawingNacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts6">Nacelle.Yawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Simulateur pour le mécanisme d'orientation de la Nacelle</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><span class="rvts6">BrakeHydraulicCircuit</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts6">Nacelle.Braking</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Simulateur pour le système de freinage, y compris le circuit hydraulique</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><span class="rvts6">YawingControl</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts6">Controller.Yawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Simulateur pour les fonctions de control de l'orientation de la Nacelle (le suivi de la direction du vent plus les câbles de puissance tourne la gestion)</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+   <p class="rvps2"><a name="ControllerEmulator"></a><span class="rvts6">ControllerEmulator</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 24%;">
+   <p class="rvps2"><span class="rvts6">Controller.Control</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Simulateur pour l'opération globale de l'éolienne plus les aspects de sécurité.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Un "Synoptic" dans LdP est un bloc de construction qui a une interface graphique, à travers laquelle l'utilisateur est informé des valeurs des signaux, et peut modifier certains d'entre eux. Il peut contenir aucun, un ou plusieurs processus. &nbsp;Les synoptiques de cette configuration sont:&nbsp;</span></p>
+<div class="rvps2">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts61">Synoptic</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 20%;">
+   <p class="rvps2"><span class="rvts61">Internal name</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+   <p class="rvps2"><span class="rvts61">Description</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ControllerEmulator</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 20%;">
+   <p class="rvps2"><span class="rvts6">Controller.Control</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+   <p class="rvps2"><span class="rvts6">Interface utilisateur pour le fonctionnement global de l'éolienne</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">IFDriveTrain</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 20%;">
+   <p class="rvps2"><span class="rvts6">SynopticDriveTrain</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+   <p class="rvps2"><span class="rvts6">Interface utilisateur avec une vue interne des composants de la Nacelle et une vue 3D de l'éolienne dans le parc éolien</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">IFWindNacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 20%;">
+   <p class="rvps2"><span class="rvts6">SynopticWindNacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+   <p class="rvps2"><span class="rvts6">Interface utilisateur multifonction avec:</span></p>
+   <p class="rvps2"><span class="rvts6">a) Réglage de la vitesse du vent et de la direction du vent.</span></p>
+   <p class="rvps2"><span class="rvts6">b) Présentation de l'orientation de la nacelle.</span></p>
+   <p class="rvps2"><span class="rvts6">c) Présentation du signal de la girouette simulée.</span></p>
+   <p class="rvps2"><span class="rvts6">d) Présentation des tours des câbles de puissance.</span></p>
+   <p class="rvps2"><span class="rvts6">e) Présentation de la section de la pale avec:</span></p>
+   <p class="rvps21" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La valeur de l'angle d'attaque requise par le contrôleur.</span></p>
+   <p class="rvps21" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La valeur de l'angle d'attaque réel dans le moyeu.</span></p>
+   <p class="rvps21" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La valeur effective de la vitesse du vent.</span></p>
+   <p class="rvps21" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Le vent équivalent dû à la rotation des pales.</span></p>
+   <p class="rvps21" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Le vent total composé sur le bord de la pale.</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">IFElectricPanel</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 20%;">
+   <p class="rvps2"><span class="rvts6">WTElectricPanel</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+   <p class="rvps2"><span class="rvts6">Interface utilisateur pour le réseau électrique et le cabinet électrique</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Une "</span><span class="rvts14">Fonction</span><span class="rvts11">" est un type particulier de "Process" qui fournit un seul signal de sortie parmi un certain nombre de signaux d'entrée, reliés par une fonction spécifiée explicitement. Il n'y a pas des fonctions utilisées dans cette configuration.</span></p>
+<p class="rvps4"><span class="rvts11">Un "</span><span class="rvts14">Paramètre</span><span class="rvts11">" est un signal de sortie qui peut être connecté à n'importe quel signal d'entrée de l'un des blocs de construction ("Synoptic" et "Processes"). Leurs valeurs peuvent être modifiées dans un synoptique spécifique ("Paramètres") accessible à tout moment (voir Paramètres). La liste des paramètres de ce simulateur est le suivant:</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps2">
+<table border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts61">ProcessID</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts61">Name</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts61">Type</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts61">Value</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts61">Max value</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts61">Min value</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts61">units</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts61">Description</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">CCWYawingSpeed</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">º /second</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vitesse du moteur dans le sens antihoraire en degrés / seconde</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">CWYawingSpeed</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">º /second</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vitesse du moteur dans le sens des aiguilles d'une montre en degrés / seconde</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">MaxCableTwist</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">2.5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">100</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">turns</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">nombre maximum de tours des câbles de puissance dans n'importe quelle direction</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Nacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">DriveTrainMomentOfInertia</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">3500000</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">6000000</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">1000000</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">kg * m2</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Moment d'inertie de l'ensemble du moyeu</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Nacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">GeneratorSpeedVCU</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">1803</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">2000</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">rpms</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">RPM du générateur qui définit le contact VCU - survitesse électrique</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Nacelle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">RotorSpeedforHCU</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">26.4</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">30</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">rpms</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">HCU - Contact centrifuge à grande vitesse</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">HydrPumpMaxRunTime</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">40</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">200</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">4</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">seconds</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Temps maximum pour atteindre la pression de fonctionnement</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">HydrPumpMinTimeBetweenStarts</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">20</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">100</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">2</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">seconds</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Temps minimum entre les démarrages successifs de la pompe hydraulique</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">LeakageBrakeHydrCircuit</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">0.01</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">bars / second</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Fuite générale du circuit hydraulique de freinage</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacelleBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">PumpCaudal</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">100</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">per cent of the oil tank</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Caudale de pompe. Le volume du réservoir est supposé être de 100 unités</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">NacellePitch</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">BladeSlewRate</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">100</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0.5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">degrees / second</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Contrôle de les pales: vitesse maximale de changement</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">TempMaxGenerator</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">150</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">180</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">-10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">degrees</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">La température maximale du générateur pour fonctionner</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">TempMaxGearBox</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">80</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">180</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">-10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">degrees</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">La température maximale du multiplicateur pour fonctionner</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">TempMaxRotorBearing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">80</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">180</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">-10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">degrees</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">La température maximale du rotor Rotor Bearing</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">TempMaxAmbient</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">50</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">180</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">-10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">degrees</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Max température ambiante pour fonctionner</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">WindMaxForOperation</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">25</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">35</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">3</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">m/s</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vent maximum pour un fonctionnement continu</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">WindMaxForTemporalOperation</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">28</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">35</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">3</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">m/s</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vent maximum pour fonctionner pendant 100 secondes</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">Controller</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">WindAbsolutMax</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">30</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">35</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">3</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">m/s</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vent pour fermeture immédiate</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">ControllerYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">WindMinForAutomaticYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">1.5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0.1</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">m/s</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vitesse du vent en dessous de laquelle l'éolienne ne tourne pas</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">ControllerYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">MaxCableTwistForReorientation</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">1.5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">1</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">turns</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Nombre de tours de câbles qui vont forcer la réorientation avant d'essayer la conexion.. Doit être plus petit que NacelleYawing.MaxCablesTurns</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">ControllerYawing</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">MaxYawingTime</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">120</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">1000</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">seconds</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Temps maximum pour orientation</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">ControllerCutin</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">MaxWindForCutin</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">A</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">18</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <p class="rvps2"><span class="rvts6">25</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <p class="rvps2"><span class="rvts6">5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <p class="rvps2"><span class="rvts6">m/s</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Vent au-dessus duquel l'opération Cutin ne démarre pas.</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 99px;">
+   <p class="rvps2"><span class="rvts6">WindFarm</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 110px;">
+   <p class="rvps2"><span class="rvts6">MainSwitch</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 32px;">
+   <p class="rvps2"><span class="rvts6">D</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 53px;">
+   <p class="rvps2"><span class="rvts6">-1</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 48px;">
+   <br/>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 59px;">
+   <br/>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 60px;">
+   <br/>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 172px;">
+   <p class="rvps2"><span class="rvts6">Interrupteur principal de WindFarm</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Une "</span><span class="rvts61">Connexion</span><span class="rvts6">" spécifie l'ensemble des signaux d'entrée qui sont connectés à un signal de sortie particulier.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

@@ -1,0 +1,118 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Introduction to Asynchronous Induction Machinres</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("IntroductiontoAsynchronousInduct");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Introduction to Asynchronous Induction Machinres</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PhysicalPrinciples.html">Physical Principles</a> &rsaquo;&rsaquo; <a href="Generator.html">Generator </a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Generator.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Generator.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Blades.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts18">Induction electric generators</span><span class="rvts6"> (actually induction electric </span><span class="rvts23">machines</span><span class="rvts6">, as they can be motors or generators) are characterized by a curve that shows the relationship between the mechanical torque on their rotating shaft and the rotational speed of this shaft. See the following figure.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Fig 1: Curve "Mechanical Torque on Shaft as a Function of Shaft Rotational Speed" of an asynchronous induction machine.</span></p>
+<p class="rvps2"><span class="rvts6">&nbsp;There is a characteristic point on this graph, defined by the </span><span class="rvts23">synchronous speed</span><span class="rvts6">. This speed corresponds to the rotational speed of the magnetic flux created in its air gap by the stator winding when connected to an electrical grid, and when there is neither mechanical load (nothing to slow it down) nor mechanical torque input (not connected to any motor) on its shaft.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">To understand the two operating modes, motor or generator, we must remember that this device transforms energy from one type to another (electrical energy into mechanical energy, or mechanical energy into electrical energy). Therefore, it "connects" two worlds: the rotating shaft, where the rotor winding is located, which must be mechanically connected to a device that can rotate and can behave as a mechanical load or a mechanical energy generator, the stator winding, which must be connected to a </span><span class="rvts23">source of electrical energy</span><span class="rvts6"> or an </span><span class="rvts23">electrical energy consumer</span><span class="rvts6">.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">The previous graph considers the rotational speed of the shaft but does not say anything about how the shaft reaches that speed. To understand the physical principles on which this machine is based, we can start by visualizing the following video</span></p>
+<p class="rvps2"><span class="rvts6"><iframe width="640" height="400" src="https://youtube.com/embed/3nvRhIbjhbo" frameborder="0" allowfullscreen="true" allow="accelerometer; autoplay; encrypted-media; fullscreen; gyroscope; picture-in-picture"></iframe></span></p>
+<p class="rvps2"><span class="rvts6">&nbsp;"Opposing Magnets on Shafts." The idea shown in it is that the operating principle of electromechanical machines is based on having two magnetic fields (equivalent to magnets) placed very close to each other so that they interact with each other. Each of these magnets is attached to two rigid cylinders that can rotate on independent but coaxial shafts (the directions of both shafts are the same). One of the shafts (the one on the left) has a device that allows controlling the friction of the left cylinder with its support (even stopping it), and therefore it is equivalent to a mechanical load. On the other shaft, we have a mechanism (crank) with which we can create a source of mechanical energy. The mission of the two magnets is to transmit the (mechanical) energy from the source on the right to the mechanical load on the left. What this video emphasizes is that the magnets are intermediary elements, meaning the energy transferred from one cylinder to the other neither comes from nor enters the magnets. In the case shown in the video, where the left cylinder is fixed, the independent variables are: the energy transmitted (the torque applied to the crank), the magnetic force of the magnets (their magnetic flux), and the distance between them (air gap). The dependent variable is the angle between the axes of the magnets. This angle is greater the more energy is applied to the crank and the friction on the left shaft, and it is inversely proportional to the flux of the magnets: with infinitely "powerful" magnets, this angle would always be 0. In the case that the left cylinder is not fixed, it will have a minimum friction torque, so if the energy provided by the right cylinder is less than this friction, we will be in the same situation described above. If it is greater, the whole system will rotate at a speed that depends on the excess energy and the inertia of the assembly. That is, the cylinders will rotate at different speeds, and there will be a slip of the rotational speed of the right magnet over the speed of the left one. This concept is crucial to understanding these machines. For this example to help us explain asynchronous machines, we need to know how to create the two magnets from the previous video. Magnetic field in the air gap generated by the stator In the following animated graph, the stator winding of a three-phase asynchronous machine is shown in a simplified manner, prepared to be connected to a three-phase alternating current electrical grid. Unlike a single-phase grid, in the three-phase grid, we have three synchronous generators (i.e., they operate at the same frequency), which have a phase separation of 120° electrical (right panel of the graph).</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

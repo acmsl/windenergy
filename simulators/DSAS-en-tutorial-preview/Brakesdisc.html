@@ -1,0 +1,122 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Brake's disc</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="brakes">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Brakesdisc");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Brake's disc</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description of the Simulator</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Emulated Wind Turbine</a> &rsaquo;&rsaquo; <a href="ProcessesinNacelleEmulator.html">Processes in NacelleEmulator</a> &rsaquo;&rsaquo; <a href="DriveTrain.html">Drive Train</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DriveTrain.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Gearbox.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Generator1.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The Wind Turbine method for stopping the DriveTrain, in normal operation, is controlling the Pitch. Setting this value far from 0º (like airplane's wings are landing) has the effect that the kinetic energy in the DriveTrain is used to impulse the air at the Blades, slowing their rotational speed. This method has no wear. &nbsp;Nevertheless, the Wind Turbine includes a mechanical disc brake that actually is used, typically, for two purposes:</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">To keep the DriveTrain fixed during maintenance operations.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">To act as a Security stop mechanism, before the other two extreme mechanisms (VCU and HCU) may enter in operation.</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The reason for this approach is that it would be very cumbersome install a disc brake that could dissipate (internally to the Nacelle) all the kinetic energy of the DriveTrain, especially on big Wind Turbines (above 1MW). So all the protocols used in the Controller to stop the Blades try to minimize the use of the disc brake.</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">In the Dual Speed Active Stall Wind Turbine Simulator we use several levels of Stop Sequences to mimic this behavior: levels 1 to 3 use the disc brake.</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The disc brake is normally set during &nbsp;the initial phase of the cutin operation (see or monitor the signal Nacelle.BrakeReleased). This is done as a precautionary step, so that the Controller can sense its operational status, &nbsp;before letting the Blades start turning.</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps2"><span class="rvts26"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

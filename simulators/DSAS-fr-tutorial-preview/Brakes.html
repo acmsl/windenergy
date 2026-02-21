@@ -1,0 +1,126 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Syst&egrave;me d'orientation (yaw)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="CW, CCW, M&acirc;t, l'angle de rotation maximum de la nacelle">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Brakes");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Syst&egrave;me d'orientation (yaw)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduction.html">Introduction</a> &rsaquo;&rsaquo; <a href="WhatisaWindTurbine.html">Description de l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="StrucutureofaWindTurbine.html">Description des composants d'une &eacute;olienne</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StrucutureofaWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Brakes1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Yawbrakes1.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Le système d'orientation implémente les fonctionnalités suivantes:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts14">Orientation de la nacelle vers la direction du vent</span><span class="rvts11">. Ceci est réalisé avec un certain nombre de moteurs (typiquement deux ensembles de moteurs tournant la Nacelle dans chaque sens, dans le sens des aiguilles d'une montre (CW) et dans le sens inverse des aiguilles d'une montre (CCW).</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts14">Garder la nacelle fermement attachée à la tour lorsque son orientation est correcte pour la direction du vent existante</span><span class="rvts11">. Ceci est réalisé avec des plaquettes de frein qui augmentent la friction avec le Mât.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts14">Détection et contrôle du nombre réel de tours des câbles de puissance</span><span class="rvts11">. Ces câbles ont deux</span><span class="rvts25"> connexions fixes</span><span class="rvts11">: une au générateur électrique, dans la Nacelle, et une autre dans le tableau électrique qui est dans la base du Mât. Mais la Nacelle peut se retourner au sommet du Mât: ce problème est résolu en utilisant la flexibilité des câbles, qui leur permettent de se tordre sur eux-mêmes. Voir les figures suivantes.</span><br/><img alt="" style="padding : 1px;" src="lib/Lapp_Wind_Portfolio.jpg"><br/><img alt="" style="padding : 1px;" src="lib/Cables%20esquema%20bajada.png"><span class="rvts11"> </span><img alt="" style="padding : 1px;" src="lib/Long-loops-of-Lapp-cable-in-a-nacelle.jpg"><br/><span class="rvts11">Logiquement, il existe une limite pour l'angle de rotation maximum de la Nacelle sur le Mât, qui est détectée par un interrupteur de fin de course.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

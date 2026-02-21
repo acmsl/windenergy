@@ -1,0 +1,132 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Fuite excessive</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("MonitoringtheBrakeshydrauliccirc");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Fuite excessive</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Exercises recommend&eacute;s</a> &rsaquo;&rsaquo; <a href="Influenceofthemomentofinertiaof1.html">Surveillance du circuit hydraulique</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Influenceofthemomentofinertiaof1.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Influenceofthemomentofinertiaof1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Excessiveleakage.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">A common problem in the hydraulic circuits is the loss of pressure due to leakage. There may be pressure leakage in the valves, or in the pump, or in the pipes, or in the tank.</span></p>
+<p class="rvps4"><span class="rvts11">One way to simulate this situation is to modify the value of the "</span><span class="rvts13">Parameter.NacelleBrake.LeakageBrakeHydrCircuit</span><span class="rvts11">". &nbsp;As a previous test, you may change its default value (0.01) to a higher value (ie, 0.5) and observe the evolution of several signals:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">The "Hydraulic pressure" widget you will observe that it descends much faster, and also that the "Pump" is active more often.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">If you select the "Synoptic"-&gt;"StripRecorders"-&gt;"</span><span class="rvts13">Hydraylic circuit: Panel to monitor watching operations in the hydraulic circuit of brakes</span><span class="rvts11">", you will observe a plot as in next figure.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Hydraulic%20panel%200-5%20leakage.jpg"></p>
+<p class="rvps4"><span class="rvts11">In the first recorder corresponding to "Nacelle.Braking.BrakeCircuitPressure", there are two lines, one at 100 value and another just below it: the distance between these two lines corresponds to the hysteresis value of the pressure switch.</span></p>
+<p class="rvps4"><span class="rvts11">You can observe that this increment in leakage forces a start of the Pump more often.</span></p>
+<p class="rvps4"><span class="rvts11">With leakage in the range of "2" the plot change as shown in next figure.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Hydraulic%20panel%202%20leakage.jpg"></p>
+<p class="rvps4"><span class="rvts11">In short time the "Opened incidences" tab will register the message 17 ("Pump starts too often").</span></p>
+<p class="rvps4"><span class="rvts11">If we "repair" the problem, restoring the leakage to a "normal" value (ie, 0.02) the evolution of these signal will change. See next figure.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Hydraulic%20panel%20recuperacion%20%20leakage.jpg"></p>
+<p class="rvps4"><span class="rvts11">As soon as the Controller can "measure" the time needed to start again the pump, the register in "Opened incidences" will be annotated with the "recovered" instant (see next figure).&nbsp;</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Recuperacion%20leakage%20opened%20incidences.jpg"></p>
+<p class="rvps4"><span class="rvts11">If you "acknowledge" the incidence the Controller will try to cutin again, automatically.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

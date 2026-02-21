@@ -1,0 +1,172 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Contr&ocirc;le de la force de portance -  d&eacute;crochage (Stalling)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="stalling, stall, , Active Pitch, Active Stall, Abs max, edge of the blade, chord, d&eacute;crochage">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Stalling");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Contr&ocirc;le de la force de portance -  d&eacute;crochage (Stalling)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduction.html">Introduction</a> &rsaquo;&rsaquo; <a href="WhatisaWindTurbine.html">Description de l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="PhysicsofaWindTurbine.html">Physique d'une &eacute;olienne &agrave; axe horizontal</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PhysicsofaWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Pourquoilespalestournent.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Composantsduneolienne.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts12">Contrôle de la force de portance - &nbsp;décrochage (</span><span class="rvts42">Stalling</span><span class="rvts12">)&nbsp;</span></p>
+<p class="rvps2" style="page-break-before: always;"><span class="rvts23"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Les deux images animées suivantes montrent l'influence de l'angle d'attaque des ailes d'un avion, &nbsp;pour son élévation ou sa chute, respectivement.</span></p>
+<div class="rvps4">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 408px;">
+   <p class="rvps9"><span class="rvts11">Dans ce cas, l'angle d'attaque petit crée une force qui tient l'avion (portance).</span></p>
+   <p class="rvps4"><span class="rvts11"><p><img alt="" id="AvionSubiendo" style="padding : 1px;" src="lib/AvionSubiendo.gif"/></p>
+<p>
+<button onclick="document.getElementById('AvionSubiendo').src='lib/Avionsubiendo.gif';">
+ Replay </button></span></p>
+   <p class="rvps4"><span class="rvts11"><br/></span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 361px;">
+   <p class="rvps11"><span class="rvts11">Dans ce cas, le grand angle d'attaque de la pale provoque une entrée en pertes, ce qui entraîne la perte de soutien de l'avion.</span></p>
+   <p class="rvps4"><span class="rvts6"><p> <img alt="" id="AvionBajando" style="padding : 1px;" src="lib/AvionDescendiendo.gif"/></p>
+<button onclick="document.getElementById('AvionBajando').src='lib/AvionDescendiendo.gif';">
+ Replay </button></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Dans les figures suivantes, des cas similaires sont présentés pour une pale d'éolienne.</span></p>
+<div class="rvps4">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20con%20pitch%20normal.png"></p>
+   <p class="rvps9"><span class="rvts11">Dans une éolienne, il existe un cas similaire où le contrôle</span><a name="ActivePitch"></a><span class="rvts11"> de la puissance obtenue du vent au moyen du contrôle de l'angle d'attaque ( méthode dite '</span><span class="rvts29">Active Pitch</span><span class="rvts11">'). Figure 1</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20con%20stalling.png"></p>
+   <p class="rvps9"><span class="rvts11">Le cas d'un angle d'attaque grand est utilisé pour freiner la chaîne de puissance. Figure 2</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20active%20stall.jpg"></p>
+   <p class="rvps9"><span class="rvts11">Cas du contrôle de puissance en utilisant la méthode de l'entrée contrôlée dans les pertes ('</span><span class="rvts29">Active Stall</span><a name="Active Stall"></a><span class="rvts11">'). Figure 3</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><span class="rvts11"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">La figure suivante montre comment les forces de levage et d'entraînement dépendent de l'angle d'attaque de la pale. tandis que l'angle est petit, la puissance obtenue du vent augmente à mesure que l'angle d'attaque augmente, jusqu'à la situation d'entrée en pertes (décrochage), lorsque la puissance obtenue diminue en augmentant l'angle d'attaque.&nbsp;</span></p>
+<p class="rvps4"><a name="lifting-dragging"></a><img alt="" style="padding : 1px;" src="lib/Lifting%20draggind%20frances.png"></p>
+<p class="rvps4"><span class="rvts11">Figure 4</span></p>
+<p class="rvps4"><span class="rvts11">Une autre caractéristique importante est que la force de traîne, qui doit être contrecarrée par la tour, est maintenue petite pour de faibles valeurs d'angle, mais elle augmente de façon significative lorsque cet angle est important, et la pale entre dans la zone de décrochage. Une conséquence importante: </span><span class="rvts37">l'entrée en décrochage de la pale signifie un effort horizontal plus important pour le mât</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps10"><span class="rvts41"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

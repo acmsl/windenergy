@@ -1,0 +1,134 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Observe the reaction to a Stop command</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="coupling, cutin, cutout, pitch, air brake">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ObservethereactiontoaStopcommand");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Observe the reaction to a Stop command</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Whileinproductionchangefromhight.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Understandwhythewindmakestheblad.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">A Wind Turbine is a production unit of electrical energy all by itself, and is designed in such a way that it does not depend on any external information in order to produce that energy, should the wind speed be enough, and if there is a suitable connection to the Grid system.</span></p>
+<p class="rvps4"><span class="rvts11">In that paradigm you can only:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11"> "ask it" to "start production" when suitable conditions are arrive. This is done with the "START" command.</span></p>
+<p class="rvps4"><span class="rvts11">or</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11"> to "order it" to "stop production". This is done with the "STOP" command</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The STOP command is obeyed immediately &nbsp;following a very precise procedure, designed to minimize the efforts on the structures and wearing in the moving parts.</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Although the Wind Turbine does have a braking mechanism that can be used to effectively reduce the turning speed of the Blades, that element is not used for normal stops of the machine. That would require big stopping pads with a very high heat dissipation capabilities. The use of the braking system is left for security purposes or as convenience tool to fixed the Blades during maintenance operations: similar to the purpose of a "parking brake" in a car.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Normal stops of the Wind Turbine is achieve using the "air brake". It Wind Turbines with Pitch control, that is ready done modifying this pitch angle, the bringing the biggest surface of the blade normal to the rotational movement. In Wind Turbines with fixed pitch, it is common that the Blade's tip (the upper part of the Blade) can be rotated to that angle.</span></p>
+<p class="rvps4"><span class="rvts11">Taking into account the huge influence of the Pitch angle (the angle the chord of the blade respect to the rotating plane) (see the SynopticWindNacelle synoptic, right diagram) on the effective "aerodynamic coefficient" (</span><a class="rvts41" href="Aerodynamiccoefficient.html">Cp</a><span class="rvts11">), this is definitively a very soft, clean and wear-less method to reduce the rotational speed of the DriveTrain.</span></p>
+<p class="rvps4"><span class="rvts11">If we consider the range of values of the aerodynamic coefficient (Cp), the factor that relates wind speed, DriveTrian speed and Pitch angle, and the characteristics of the To get acquainted of that influence you can check the values of the Cp (aerodynamic coefficient) as a function of the Pitch Angle and of the TipSpeedRatio that you can see </span><a class="rvts18" href="Aerodynamiccoefficient.html">here</a><span class="rvts11">. The maximum theoretical value for Cp is around 0,5 , meanwhile in can reach down to -60 with pitch angles of -90º. Out of this big difference you can understand that the stop phase can be down much faster than the cutin phase.</span></p>
+<p class="rvps4"><span class="rvts11">You can observe the reaction to the STOP command. You should have the simulator in a production state (see how </span><a class="rvts18" href="SettingtheconditionsforaWindTurb.html">here</a><span class="rvts11">), and then pressing the "STOP" (red) button in the "</span><span class="rvts16">Control Terminal</span><span class="rvts11">" synoptic.</span></p>
+<p class="rvps4"><span class="rvts11">You should see and evolution of the signals similar to the ones shown in next figures.</span></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps2"><span class="rvts13">Ramp up to cutin and STOP with 10 m/s wind.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/DSAS%20cutin%20a%2010%20ms%20y%20STOP.jpg"></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps2"><span class="rvts13">Ramp up and STOP with 6 m/s wind.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/DSAS%20cutin%20a%206%20ms%20y%20STOP.jpg"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Notice the difference in the evolution of the RPMs both in the ramp up and cutout (STOP) with two different wind speeds: one (10 m/s) generates a mechanical torque that is 8 times the other (6 m/s) (Torque is proportional to the cube of the wind speed, so double speed means eight times more torque).</span></p>
+<p class="rvps4"><span class="rvts11">The stopping phase is faster with higher wind.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,117 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Behavior facing very high wind speeds</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Behaviorfacingveryhighwindspeeds");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Behavior facing very high wind speeds</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Resettingtooperationalconditions.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Testingthebehaviortoveryhighwind.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">In </span><a class="rvts41" href="Windlimits.html">wind limits</a><span class="rvts11"> you may find a description of the wind speed values for which the Wind Turbine is operational.</span></p>
+<p class="rvps4"><span class="rvts11">Clearly when the wind speed is very high the Wind Turbine should be kept in the safest position (Blades to -90º, brakes on). &nbsp;The limit for that wind speed is reflected in the parameter WindAbsolutMax - typically 30 m/s.</span></p>
+<p class="rvps4"><span class="rvts11">For standard operation there is an upper limit (reflected in the parameter WindMaxForOperation -typically 25 m/s-).</span></p>
+<p class="rvps4"><span class="rvts11">There may be cases for wind conditions in which wind speed gets above </span><span class="rvts36">WindMaxForOperation</span><span class="rvts11"> but below </span><span class="rvts36">WindAbsolutMax</span><span class="rvts11">: this is a typical case for high </span><span class="rvts36">wind gusts</span><span class="rvts11">. Depending on the strength of the mechanical design of the Wind Turbine (Blades + pole), and if the Wind Turbine is in production, it is advisable not to stop the Wind Turbine (stop production) unless the time for that situation last longer than a given amount of time. In the simulator this value of wind is associated to the parameter </span><span class="rvts36">WindMaxForTemporalOperation</span><span class="rvts11"> -typically 28 m/s-, and the time to wait in this case is fixed to 100 seconds.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps2"><span class="rvts83"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

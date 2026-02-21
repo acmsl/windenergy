@@ -1,0 +1,115 @@
+﻿
+
+<html>
+	
+<head>
+	<title>View the evolution in the State Machines</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ViewtheevolutionintheStateMachin");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">View the evolution in the State Machines</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Understandwhythewindmakestheblad.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ToCutin.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The Controller emulator controls the behavior of the Wind Turbine with a set of algorithms coordinated by two "State Machines": this is a way of specifying the behavior that can be represented graphically (see </span><a class="rvts41" href="OperationStateMachine.html">Operation SM</a><span class="rvts11"> and </span><a class="rvts41" href="SecurityStateMachine.html">STOPSequencesSM</a><span class="rvts11"> ).</span></p>
+<p class="rvps4"><span class="rvts11">The reading of this diagram can be summarized as follows:</span></p>
+<p class="rvps4"><span class="rvts11">At any moment the state machine is in a one and only one state (Squares or circles). That state changes upon the reception of an event (directed lines joining two states) and after that the interpreter of the state machine execute the specified "action". The event name and the associated action is written near the middle of the event line.</span></p>
+<p class="rvps4"><span class="rvts11">Those diagrams are very good for understanding the logic of the algorithms. Nevertheless it is also very important to know (to see) how is the evolution of the state transitions for given operation. In order to have that representation, you can use any panel of the StripRecorders that present the moments when the events happen and how these events affect the changes in the state of the corresponding state machine.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Next two section show the evolution of the state machine for two typical examples: </span><a class="rvts41" href="ToCutin.html">Cutin</a><span class="rvts11"> and </span><a class="rvts41" href="ToCutout.html">Cutout</a><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

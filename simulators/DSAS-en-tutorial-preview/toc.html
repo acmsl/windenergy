@@ -1,0 +1,3247 @@
+﻿
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>Dual Speed Active Stall Wind Turbine Simulator - Table of Contents</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/dynatree/chm/ui.dynatree.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#tabs .ui-widget-header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="js/hndjsse.js"></script>
+	<script type="text/javascript">
+	
+		window.bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+	
+		$(document).ready(function()
+		{
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1
+			else if (sAnchorName == '_search') nSelectedTab = 2;			
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+			
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				// Expand all nodes if required
+				
+					$("#tab-toc").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+					
+				// Select the active help id
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+			
+			// Keywords
+			
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onClick: function(node, event){
+						HideKwPopup();
+						if (node.data && node.data.click)
+						{
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList))
+							{
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if(node.data.href && node.data.href != '#'){
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				// Expand all nodes if required
+				
+					$("#tab-keywords").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				
+			}
+			
+			// Load search data
+			(function() {
+				var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+				se.src = 'js/hndsd.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+			})();
+		});
+		
+		$('body').click(function() {
+			HideKwPopup();
+		});
+		
+		function SelectTocItem(sHelpId)
+		{
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				var aNode = $("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId);
+				if (aNode) {
+					aNode.activateSilently();  
+				}
+			}
+			else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+		
+		function HideKwPopup()
+		{
+			if($("#popupMenu")) $("#popupMenu").remove();
+		}
+		
+		function ShowKwPopup(oSender, aLinks)
+		{
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+			else if (aLinks.length == 1) return true
+			else
+			{
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+				{
+					oLink = document.createElement("A");
+					oLink.innerHTML = aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset(); 
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left+20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+		
+		function PerformSearch()
+		{
+			if (!window.bSearchDataLoaded) {
+				$("#search_results").html("Search engine data hasn't been fully loaded yet or an error occurred while loading it. This usually happens when documentation is browsed locally.");
+				return;
+			}
+			sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);			
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+			{
+				$("#search_results").html('No results found.');
+			}
+			else
+			{
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+				{
+					if (oSearchEngine.aResults[nCnt][0] < aTl.length)
+					{
+						oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+					}
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="tabs">
+		<ul>
+			
+				<li><a href="#tab-toc">Contents</a></li>
+			
+				<li><a href="#tab-keywords">Index</a></li>
+			
+				<li><a href="#tab-search">Search</a></li>
+			
+		</ul>
+		
+		<div id="tab-toc">
+			<ul id="toc" class="">
+
+				
+
+						<li class="folder" id="Introduction" data="">
+							<a
+							href="Introduction.html"
+							target="FrameMain">
+								Introduction
+							</a>
+
+				<ul>
+
+						<li class="" id="Noticeonthisversion" data="icon: '16.png'">
+							<a
+							href="Noticeonthisversion.html"
+							target="FrameMain">
+								Notice on this version
+							</a>
+
+				</li>
+
+						<li class="" id="Nuevotema" data="icon: '16.png'">
+							<a
+							href="Nuevotema.html"
+							target="FrameMain">
+								What can you learn with this Simulator?
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="WhatisaWindTurbine" data="">
+							<a
+							href="WhatisaWindTurbine.html"
+							target="FrameMain">
+								What is a Wind Turbine
+							</a>
+
+				<ul>
+
+						<li class="folder" id="StrucutureofaWindTurbine" data="icon: '16.png'">
+							<a
+							href="StrucutureofaWindTurbine.html"
+							target="FrameMain">
+								Structure of a Wind Turbine
+							</a>
+
+				<ul>
+
+						<li class="folder" id="StructureofaWindTurbine" data="">
+							<a
+							href="StructureofaWindTurbine.html"
+							target="FrameMain">
+								Blades
+							</a>
+
+				<ul>
+
+						<li class="" id="Blades1" data="icon: '16.png'">
+							<a
+							href="Blades1.html"
+							target="FrameMain">
+								How blades are manufactured
+							</a>
+
+				</li>
+
+						<li class="" id="Aerodynamiccoefficient" data="icon: '16.png'">
+							<a
+							href="Aerodynamiccoefficient.html"
+							target="FrameMain">
+								Aerodynamic coefficient for Active Stall
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Blades" data="">
+							<a
+							href="Blades.html"
+							target="FrameMain">
+								Pitch mechanism
+							</a>
+
+				<ul>
+
+						<li class="" id="Examples" data="icon: '16.png'">
+							<a
+							href="Examples.html"
+							target="FrameMain">
+								With hydraulic cylinders
+							</a>
+
+				</li>
+
+						<li class="" id="WithHydrauliccilinders" data="icon: '16.png'">
+							<a
+							href="WithHydrauliccilinders.html"
+							target="FrameMain">
+								With electric motors
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Pitchmechanism" data="">
+							<a
+							href="Pitchmechanism.html"
+							target="FrameMain">
+								Brakes
+							</a>
+
+				<ul>
+
+						<li class="" id="Brakes1" data="icon: '16.png'">
+							<a
+							href="Brakes1.html"
+							target="FrameMain">
+								Some industrial examples
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Brakes" data="">
+							<a
+							href="Brakes.html"
+							target="FrameMain">
+								Yaw system
+							</a>
+
+				<ul>
+
+						<li class="" id="Yawbrakes1" data="icon: '16.png'">
+							<a
+							href="Yawbrakes1.html"
+							target="FrameMain">
+								Yaw ring and motors
+							</a>
+
+				</li>
+
+						<li class="" id="Yawmechanism1" data="icon: '16.png'">
+							<a
+							href="Yawmechanism1.html"
+							target="FrameMain">
+								Yaw brakes
+							</a>
+
+				</li>
+
+						<li class="" id="Yawbrakes" data="icon: '16.png'">
+							<a
+							href="Yawbrakes.html"
+							target="FrameMain">
+								Additional animated views
+							</a>
+
+				</li>
+
+						<li class="" id="Additionalanimatedviews" data="icon: '16.png'">
+							<a
+							href="Additionalanimatedviews.html"
+							target="FrameMain">
+								Nacelle orientation measurements
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Yawmechanism" data="icon: '16.png'">
+							<a
+							href="Yawmechanism.html"
+							target="FrameMain">
+								Flexible joints
+							</a>
+
+				</li>
+
+						<li class="folder" id="Flexiblejoints" data="">
+							<a
+							href="Flexiblejoints.html"
+							target="FrameMain">
+								GearBoxes
+							</a>
+
+				<ul>
+
+						<li class="" id="Additionalinformationaboutactual" data="icon: '16.png'">
+							<a
+							href="Additionalinformationaboutactual.html"
+							target="FrameMain">
+								Some industrial examples
+							</a>
+
+				</li>
+
+						<li class="" id="GearBoxes1" data="icon: '16.png'">
+							<a
+							href="GearBoxes1.html"
+							target="FrameMain">
+								Additional information about actual machines
+							</a>
+
+				</li>
+
+						<li class="" id="Additionalanimatedviews1" data="icon: '16.png'">
+							<a
+							href="Additionalanimatedviews1.html"
+							target="FrameMain">
+								Inspection of Gearboxes
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Meterologicalsensors" data="">
+							<a
+							href="Meterologicalsensors.html"
+							target="FrameMain">
+								Meteorological sensors
+							</a>
+
+				<ul>
+
+						<li class="folder" id="Windspeedanemometer1" data="">
+							<a
+							href="Windspeedanemometer1.html"
+							target="FrameMain">
+								Wind speed: Anemometers
+							</a>
+
+				<ul>
+
+						<li class="" id="Windspeedanemometer" data="icon: '16.png'">
+							<a
+							href="Windspeedanemometer.html"
+							target="FrameMain">
+								Wind speed: anemometer
+							</a>
+
+				</li>
+
+						<li class="" id="Windspeedanemometer2" data="icon: '16.png'">
+							<a
+							href="Windspeedanemometer2.html"
+							target="FrameMain">
+								Ultrasonic sensors
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Winddirectionwindvane1" data="">
+							<a
+							href="Winddirectionwindvane1.html"
+							target="FrameMain">
+								Wind direction sensors
+							</a>
+
+				<ul>
+
+						<li class="" id="Winddirectionwindvane" data="icon: '16.png'">
+							<a
+							href="Winddirectionwindvane.html"
+							target="FrameMain">
+								Wind vane
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Winddirectionsensors" data="">
+							<a
+							href="Winddirectionsensors.html"
+							target="FrameMain">
+								Combined sensors
+							</a>
+
+				<ul>
+
+						<li class="" id="Ultrasonicsensors" data="icon: '16.png'">
+							<a
+							href="Ultrasonicsensors.html"
+							target="FrameMain">
+								Laser based sensors (Lidar)
+							</a>
+
+				</li>
+
+						<li class="" id="LaserbasedsensorsLidar" data="icon: '16.png'">
+							<a
+							href="LaserbasedsensorsLidar.html"
+							target="FrameMain">
+								Ultrasonic sensors
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="folder" id="Meteorologicalsensors1" data="">
+							<a
+							href="Meteorologicalsensors1.html"
+							target="FrameMain">
+								Auxiliary sensors
+							</a>
+
+				<ul>
+
+						<li class="folder" id="Meteorologicalsensors" data="">
+							<a
+							href="Meteorologicalsensors.html"
+							target="FrameMain">
+								Temperature sensors
+							</a>
+
+				<ul>
+
+						<li class="" id="Termperaturesensors" data="icon: '16.png'">
+							<a
+							href="Termperaturesensors.html"
+							target="FrameMain">
+								Pt100
+							</a>
+
+				</li>
+
+						<li class="" id="Ambienttemperature1" data="icon: '16.png'">
+							<a
+							href="Ambienttemperature1.html"
+							target="FrameMain">
+								Bimetal sensors
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Termperaturesensors1" data="">
+							<a
+							href="Termperaturesensors1.html"
+							target="FrameMain">
+								Angular encoders
+							</a>
+
+				<ul>
+
+						<li class="" id="Incrementalenconders" data="icon: '16.png'">
+							<a
+							href="Incrementalenconders.html"
+							target="FrameMain">
+								Absolute encoders
+							</a>
+
+				</li>
+
+						<li class="" id="Angularenconders" data="icon: '16.png'">
+							<a
+							href="Angularenconders.html"
+							target="FrameMain">
+								Incremental encoders
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Angularenconders1" data="icon: '16.png'">
+							<a
+							href="Angularenconders1.html"
+							target="FrameMain">
+								Limit switches
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Generatorcharacteristics" data="">
+							<a
+							href="Generatorcharacteristics.html"
+							target="FrameMain">
+								Generator characteristics
+							</a>
+
+				<ul>
+
+						<li class="folder" id="IntoductiontotheInductionMachine" data="icon: '16.png'">
+							<a
+							href="IntoductiontotheInductionMachine.html"
+							target="FrameMain">
+								Introduction to the Induction Machine
+							</a>
+
+				<ul>
+
+						<li class="" id="Highspeedgenerator" data="icon: '16.png'">
+							<a
+							href="Highspeedgenerator.html"
+							target="FrameMain">
+								High speed generator
+							</a>
+
+				</li>
+
+						<li class="" id="Lowspeedgenerator" data="icon: '16.png'">
+							<a
+							href="Lowspeedgenerator.html"
+							target="FrameMain">
+								Low speed generator
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Introductiontothephysicalprincip" data="icon: '16.png'">
+							<a
+							href="Introductiontothephysicalprincip.html"
+							target="FrameMain">
+								Introduction to the physical principles of the Induction Machines
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="" id="Operationalview" data="icon: '16.png'">
+							<a
+							href="Operationalview.html"
+							target="FrameMain">
+								Operational view
+							</a>
+
+				</li>
+
+						<li class="" id="Operationalview1" data="icon: '16.png'">
+							<a
+							href="Operationalview1.html"
+							target="FrameMain">
+								Connection with the Control Center SCADA
+							</a>
+
+				</li>
+
+						<li class="" id="Electricalconnectiontothegrid" data="icon: '16.png'">
+							<a
+							href="Electricalconnectiontothegrid.html"
+							target="FrameMain">
+								Electrical connection to the grid
+							</a>
+
+				</li>
+
+						<li class="" id="Powerversuswindofficialcurve" data="icon: '16.png'">
+							<a
+							href="Powerversuswindofficialcurve.html"
+							target="FrameMain">
+								Power versus wind official curve
+							</a>
+
+				</li>
+
+						<li class="" id="Windlimits" data="icon: '16.png'">
+							<a
+							href="Windlimits.html"
+							target="FrameMain">
+								Wind limits
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="PhysicsofaWindTurbine" data="">
+							<a
+							href="PhysicsofaWindTurbine.html"
+							target="FrameMain">
+								Physics of a Wind Turbine
+							</a>
+
+				<ul>
+
+						<li class="folder" id="Basicconcepts" data="">
+							<a
+							href="Basicconcepts.html"
+							target="FrameMain">
+								Basic concepts
+							</a>
+
+				<ul>
+
+						<li class="" id="WhytheHubturns" data="icon: '16.png'">
+							<a
+							href="WhytheHubturns.html"
+							target="FrameMain">
+								Why the Hub turns
+							</a>
+
+				</li>
+
+						<li class="" id="Stalling" data="icon: '16.png'">
+							<a
+							href="Stalling.html"
+							target="FrameMain">
+								Stalling
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="WindTurbineControlcriteria" data="">
+							<a
+							href="WindTurbineControlcriteria.html"
+							target="FrameMain">
+								Wind Turbine Control criteria
+							</a>
+
+				<ul>
+
+						<li class="" id="RequirementsimposedbytheDriveTra" data="icon: '16.png'">
+							<a
+							href="RequirementsimposedbytheDriveTra.html"
+							target="FrameMain">
+								Requirements imposed by the DriveTrain
+							</a>
+
+				</li>
+
+						<li class="" id="RequirementsimposedbytheElectric" data="icon: '16.png'">
+							<a
+							href="RequirementsimposedbytheElectric.html"
+							target="FrameMain">
+								Requirements imposed by the Electric Generator
+							</a>
+
+				</li>
+
+						<li class="" id="Productioncurve" data="icon: '16.png'">
+							<a
+							href="Productioncurve.html"
+							target="FrameMain">
+								Production curve
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Bibliography" data="icon: '16.png'">
+							<a
+							href="Bibliography.html"
+							target="FrameMain">
+								Bibliography
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="DualSpeedActiveStallWTSimulator1" data="">
+							<a
+							href="DualSpeedActiveStallWTSimulator1.html"
+							target="FrameMain">
+								Description of the Simulator
+							</a>
+
+				<ul>
+
+						<li class="" id="BasicemulatorsforaWindTurbineinW" data="icon: '16.png'">
+							<a
+							href="BasicemulatorsforaWindTurbineinW.html"
+							target="FrameMain">
+								Basic emulators for a Wind Turbine
+							</a>
+
+				</li>
+
+						<li class="folder" id="Synoptics" data="">
+							<a
+							href="Synoptics.html"
+							target="FrameMain">
+								Synoptics
+							</a>
+
+				<ul>
+
+						<li class="folder" id="CommonsynopticsoftheWorkBench" data="">
+							<a
+							href="CommonsynopticsoftheWorkBench.html"
+							target="FrameMain">
+								Common synoptics of the WorkBench
+							</a>
+
+				<ul>
+
+						<li class="" id="ControlsynopticExecuting" data="icon: '16.png'">
+							<a
+							href="ControlsynopticExecuting.html"
+							target="FrameMain">
+								Control synoptic (&quot;Executing&quot;)
+							</a>
+
+				</li>
+
+						<li class="" id="Parameterssynoptic" data="icon: '16.png'">
+							<a
+							href="Parameterssynoptic.html"
+							target="FrameMain">
+								Parameters synoptic
+							</a>
+
+				</li>
+
+						<li class="folder" id="SignalsConnectionseditorsynoptic" data="">
+							<a
+							href="SignalsConnectionseditorsynoptic.html"
+							target="FrameMain">
+								Signals &amp; Connections editor synoptic
+							</a>
+
+				<ul>
+
+						<li class="" id="Editingconnections" data="icon: '16.png'">
+							<a
+							href="Editingconnections.html"
+							target="FrameMain">
+								Editing connections
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="StripRecordersynoptic" data="">
+							<a
+							href="StripRecordersynoptic.html"
+							target="FrameMain">
+								StripRecorder synoptic
+							</a>
+
+				<ul>
+
+						<li class="" id="Activehardcopies" data="icon: '16.png'">
+							<a
+							href="Activehardcopies.html"
+							target="FrameMain">
+								Active hardcopies
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="folder" id="DriveTrainsynoptic" data="">
+							<a
+							href="DriveTrainsynoptic.html"
+							target="FrameMain">
+								Drive Train synoptic
+							</a>
+
+				<ul>
+
+						<li class="folder" id="Views" data="">
+							<a
+							href="Views.html"
+							target="FrameMain">
+								Views
+							</a>
+
+				<ul>
+
+						<li class="" id="Internalview" data="icon: '16.png'">
+							<a
+							href="Internalview.html"
+							target="FrameMain">
+								Internal view
+							</a>
+
+				</li>
+
+						<li class="" id="Farmview" data="icon: '16.png'">
+							<a
+							href="Farmview.html"
+							target="FrameMain">
+								Farm view
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Componentsdescriptions" data="">
+							<a
+							href="Componentsdescriptions.html"
+							target="FrameMain">
+								Components descriptions
+							</a>
+
+				<ul>
+
+						<li class="" id="Hub" data="icon: '16.png'">
+							<a
+							href="Hub.html"
+							target="FrameMain">
+								Hub
+							</a>
+
+				</li>
+
+						<li class="" id="GearboxRotor" data="icon: '16.png'">
+							<a
+							href="GearboxRotor.html"
+							target="FrameMain">
+								Gearbox &amp; Rotor
+							</a>
+
+				</li>
+
+						<li class="" id="Brakingsystem" data="icon: '16.png'">
+							<a
+							href="Brakingsystem.html"
+							target="FrameMain">
+								Braking system
+							</a>
+
+				</li>
+
+						<li class="" id="Coupling" data="icon: '16.png'">
+							<a
+							href="Coupling.html"
+							target="FrameMain">
+								Coupling
+							</a>
+
+				</li>
+
+						<li class="" id="Generator" data="icon: '16.png'">
+							<a
+							href="Generator.html"
+							target="FrameMain">
+								Generator
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="folder" id="WindandNacelleorientationsynopti" data="">
+							<a
+							href="WindandNacelleorientationsynopti.html"
+							target="FrameMain">
+								Wind and Nacelle orientation synoptic
+							</a>
+
+				<ul>
+
+						<li class="" id="Totalwindinproductionandgoingtos" data="icon: '16.png'">
+							<a
+							href="Totalwindinproductionandgoingtos.html"
+							target="FrameMain">
+								Total wind in production and going to stop
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="WTElectricalPanel" data="">
+							<a
+							href="WTElectricalPanel.html"
+							target="FrameMain">
+								WT ElectricalPanel
+							</a>
+
+				<ul>
+
+						<li class="" id="Schematic" data="icon: '16.png'">
+							<a
+							href="Schematic.html"
+							target="FrameMain">
+								Schematic
+							</a>
+
+				</li>
+
+						<li class="" id="Dangerousvoltagesinsidetheelectr" data="icon: '16.png'">
+							<a
+							href="Dangerousvoltagesinsidetheelectr.html"
+							target="FrameMain">
+								Dangerous voltages inside the electrical panel
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Controlterminal1" data="icon: '16.png'">
+							<a
+							href="Controlterminal1.html"
+							target="FrameMain">
+								Control terminal
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="EmulatedWindTurbine" data="">
+							<a
+							href="EmulatedWindTurbine.html"
+							target="FrameMain">
+								Emulated Wind Turbine
+							</a>
+
+				<ul>
+
+						<li class="folder" id="ProcessesinNacelleEmulator" data="">
+							<a
+							href="ProcessesinNacelleEmulator.html"
+							target="FrameMain">
+								Processes in NacelleEmulator
+							</a>
+
+				<ul>
+
+						<li class="folder" id="DriveTrain" data="">
+							<a
+							href="DriveTrain.html"
+							target="FrameMain">
+								Drive Train
+							</a>
+
+				<ul>
+
+						<li class="" id="Hub1" data="icon: '16.png'">
+							<a
+							href="Hub1.html"
+							target="FrameMain">
+								Hub
+							</a>
+
+				</li>
+
+						<li class="" id="Gearbox" data="icon: '16.png'">
+							<a
+							href="Gearbox.html"
+							target="FrameMain">
+								Gearbox
+							</a>
+
+				</li>
+
+						<li class="" id="Brakesdisc" data="icon: '16.png'">
+							<a
+							href="Brakesdisc.html"
+							target="FrameMain">
+								Brake's disc
+							</a>
+
+				</li>
+
+						<li class="" id="Generator1" data="icon: '16.png'">
+							<a
+							href="Generator1.html"
+							target="FrameMain">
+								Generator
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Yawingsubsystem" data="icon: '16.png'">
+							<a
+							href="Yawingsubsystem.html"
+							target="FrameMain">
+								Yawing subsystem
+							</a>
+
+				</li>
+
+						<li class="folder" id="BrakingSecurity" data="">
+							<a
+							href="BrakingSecurity.html"
+							target="FrameMain">
+								Braking &amp; Security
+							</a>
+
+				<ul>
+
+						<li class="" id="Safetystrategyforoverspeed" data="icon: '16.png'">
+							<a
+							href="Safetystrategyforoverspeed.html"
+							target="FrameMain">
+								Safety strategy for overspeed
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="folder" id="Controller" data="">
+							<a
+							href="Controller.html"
+							target="FrameMain">
+								Controller
+							</a>
+
+				<ul>
+
+						<li class="folder" id="Algorithms" data="">
+							<a
+							href="Algorithms.html"
+							target="FrameMain">
+								Algorithms
+							</a>
+
+				<ul>
+
+						<li class="" id="Pitchcontolalgorithm" data="icon: '16.png'">
+							<a
+							href="Pitchcontolalgorithm.html"
+							target="FrameMain">
+								Pitch control algorithm
+							</a>
+
+				</li>
+
+						<li class="" id="Controllingtheconnectiontothegri" data="icon: '16.png'">
+							<a
+							href="Controllingtheconnectiontothegri.html"
+							target="FrameMain">
+								Controlling the connection to the grid
+							</a>
+
+				</li>
+
+						<li class="folder" id="Yawingofthenacelle" data="">
+							<a
+							href="Yawingofthenacelle.html"
+							target="FrameMain">
+								Yawing of the nacelle and the Power Cables
+							</a>
+
+				<ul>
+
+						<li class="" id="Modes" data="icon: '16.png'">
+							<a
+							href="Modes.html"
+							target="FrameMain">
+								Modes
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="folder" id="Controlmodes" data="">
+							<a
+							href="Controlmodes.html"
+							target="FrameMain">
+								Control modes
+							</a>
+
+				<ul>
+
+						<li class="" id="Manual" data="icon: '16.png'">
+							<a
+							href="Manual.html"
+							target="FrameMain">
+								Manual
+							</a>
+
+				</li>
+
+						<li class="" id="Automatic" data="icon: '16.png'">
+							<a
+							href="Automatic.html"
+							target="FrameMain">
+								Automatic
+							</a>
+
+				</li>
+
+						<li class="" id="Remotecontrol" data="icon: '16.png'">
+							<a
+							href="Remotecontrol.html"
+							target="FrameMain">
+								Remote control
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="ControllersFunctionalstructure" data="">
+							<a
+							href="ControllersFunctionalstructure.html"
+							target="FrameMain">
+								Controller's Functional structure
+							</a>
+
+				<ul>
+
+						<li class="folder" id="StateEventsDiagramsoftheimplemen" data="">
+							<a
+							href="StateEventsDiagramsoftheimplemen.html"
+							target="FrameMain">
+								State/Events Diagrams of the implemented State Machine
+							</a>
+
+				<ul>
+
+						<li class="folder" id="OperationStateMachine" data="icon: '10.png'">
+							<a
+							href="OperationStateMachine.html"
+							target="FrameMain">
+								Operation State Machine
+							</a>
+
+				<ul>
+
+						<li class="" id="LegendforOperationStateMachinedi" data="icon: '16.png'">
+							<a
+							href="LegendforOperationStateMachinedi.html"
+							target="FrameMain">
+								Legend for Operation State Machine diagram
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="SecurityStateMachine" data="icon: '10.png'">
+							<a
+							href="SecurityStateMachine.html"
+							target="FrameMain">
+								Security State Machine
+							</a>
+
+				<ul>
+
+						<li class="" id="LegendoftheSecurityStateMachine" data="icon: '16.png'">
+							<a
+							href="LegendoftheSecurityStateMachine.html"
+							target="FrameMain">
+								Legend of the Security State Machine
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="RelationshipsamongtheStateMachin" data="icon: '10.png'">
+							<a
+							href="RelationshipsamongtheStateMachin.html"
+							target="FrameMain">
+								Relationships among the State Machines
+							</a>
+
+				</li>
+
+						<li class="" id="ExamplethechangesinStatesandEven" data="icon: '10.png'">
+							<a
+							href="ExamplethechangesinStatesandEven.html"
+							target="FrameMain">
+								Example the changes in States and Events for a typical cutin process
+							</a>
+
+				</li></ul></li></ul></li></ul></li>
+
+						<li class="" id="ControlTerminal" data="icon: '16.png'">
+							<a
+							href="ControlTerminal.html"
+							target="FrameMain">
+								Control Terminal
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="TheWorkBenchusedfortheWFS" data="">
+							<a
+							href="TheWorkBenchusedfortheWFS.html"
+							target="FrameMain">
+								The Simulator as a WorkBench
+							</a>
+
+				<ul>
+
+						<li class="" id="WorkBenchpresentationonlyandpres" data="icon: '16.png'">
+							<a
+							href="WorkBenchpresentationonlyandpres.html"
+							target="FrameMain">
+								WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;
+							</a>
+
+				</li>
+
+						<li class="" id="Electricschematicviewoftheconfig" data="icon: '16.png'">
+							<a
+							href="Electricschematicviewoftheconfig.html"
+							target="FrameMain">
+								Electric schematic view of the configuration file
+							</a>
+
+				</li>
+
+						<li class="folder" id="InternalSignals" data="">
+							<a
+							href="InternalSignals.html"
+							target="FrameMain">
+								Internal Signals
+							</a>
+
+				<ul>
+
+						<li class="" id="InputSignals" data="icon: '16.png'">
+							<a
+							href="InputSignals.html"
+							target="FrameMain">
+								Input Signals
+							</a>
+
+				</li>
+
+						<li class="" id="OutputSignals" data="icon: '16.png'">
+							<a
+							href="OutputSignals.html"
+							target="FrameMain">
+								Output Signals
+							</a>
+
+				</li>
+
+						<li class="folder" id="Viewtheactualconnectionsbetweent" data="">
+							<a
+							href="Viewtheactualconnectionsbetweent.html"
+							target="FrameMain">
+								View the actual connections between the components
+							</a>
+
+				<ul>
+
+						<li class="" id="Treeviewoftheconnections" data="icon: '16.png'">
+							<a
+							href="Treeviewoftheconnections.html"
+							target="FrameMain">
+								Tree view of the connections
+							</a>
+
+				</li></ul></li></ul></li></ul></li></ul></li>
+
+						<li class="folder" id="Teachingsessions" data="">
+							<a
+							href="Teachingsessions.html"
+							target="FrameMain">
+								Teaching sessions
+							</a>
+
+				<ul>
+
+						<li class="" id="SettingtheconditionsforaWindTurb" data="icon: '16.png'">
+							<a
+							href="SettingtheconditionsforaWindTurb.html"
+							target="FrameMain">
+								Setting the conditions for a Wind Turbine to start operation with low wind speed
+							</a>
+
+				</li>
+
+						<li class="" id="Whileinproductionchangefromlowwi" data="icon: '16.png'">
+							<a
+							href="Whileinproductionchangefromlowwi.html"
+							target="FrameMain">
+								While in production, change from low wind speed to high wind speed.
+							</a>
+
+				</li>
+
+						<li class="" id="Whileinproductionchangefromhight" data="icon: '16.png'">
+							<a
+							href="Whileinproductionchangefromhight.html"
+							target="FrameMain">
+								While in production, change from high to low wind speed
+							</a>
+
+				</li>
+
+						<li class="" id="ObservethereactiontoaStopcommand" data="icon: '16.png'">
+							<a
+							href="ObservethereactiontoaStopcommand.html"
+							target="FrameMain">
+								Observe the reaction to a Stop command
+							</a>
+
+				</li>
+
+						<li class="" id="Understandwhythewindmakestheblad" data="icon: '16.png'">
+							<a
+							href="Understandwhythewindmakestheblad.html"
+							target="FrameMain">
+								Understand why the wind makes the blades turn
+							</a>
+
+				</li>
+
+						<li class="folder" id="ViewtheevolutionintheStateMachin" data="">
+							<a
+							href="ViewtheevolutionintheStateMachin.html"
+							target="FrameMain">
+								View the evolution in the State Machines
+							</a>
+
+				<ul>
+
+						<li class="" id="ToCutin" data="icon: '16.png'">
+							<a
+							href="ToCutin.html"
+							target="FrameMain">
+								To Cutin
+							</a>
+
+				</li>
+
+						<li class="" id="ToCutout" data="icon: '16.png'">
+							<a
+							href="ToCutout.html"
+							target="FrameMain">
+								To Cutout
+							</a>
+
+				</li>
+
+						<li class="" id="Inproductionchangingfromsmallcon" data="icon: '16.png'">
+							<a
+							href="Inproductionchangingfromsmallcon.html"
+							target="FrameMain">
+								In production changing from small connection to large connection
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Changingthewinddirection" data="icon: '16.png'">
+							<a
+							href="Changingthewinddirection.html"
+							target="FrameMain">
+								Changing the wind direction
+							</a>
+
+				<ul>
+
+						<li class="" id="Automaticyawing" data="icon: '16.png'">
+							<a
+							href="Automaticyawing.html"
+							target="FrameMain">
+								Automatic yawing
+							</a>
+
+				</li>
+
+						<li class="" id="Manualyawing" data="icon: '16.png'">
+							<a
+							href="Manualyawing.html"
+							target="FrameMain">
+								Manual yawing
+							</a>
+
+				</li>
+
+						<li class="" id="Manualyawing1" data="icon: '16.png'">
+							<a
+							href="Manualyawing1.html"
+							target="FrameMain">
+								Untwisting the power cables
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Phasesforthecutinconnectiontothe" data="icon: '16.png'">
+							<a
+							href="Phasesforthecutinconnectiontothe.html"
+							target="FrameMain">
+								Phases for the cut-in (connection to the grid)
+							</a>
+
+				</li>
+
+						<li class="folder" id="Reactingtochangesofthewindspeed" data="">
+							<a
+							href="Reactingtochangesofthewindspeed.html"
+							target="FrameMain">
+								Reacting to changes of the wind speed
+							</a>
+
+				<ul>
+
+						<li class="" id="Droppingfromhightolowwindspeed" data="icon: '16.png'">
+							<a
+							href="Droppingfromhightolowwindspeed.html"
+							target="FrameMain">
+								Dropping from high to low wind speed
+							</a>
+
+				</li>
+
+						<li class="" id="Changingfromlowtohighwindspeed" data="icon: '16.png'">
+							<a
+							href="Changingfromlowtohighwindspeed.html"
+							target="FrameMain">
+								Changing from low to high wind speed
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="SeethereactiontoaGridfailureonap" data="">
+							<a
+							href="SeethereactiontoaGridfailureonap.html"
+							target="FrameMain">
+								See the reaction to a Grid failure on a phase
+							</a>
+
+				<ul>
+
+						<li class="" id="Resettingtooperationalconditions" data="icon: '16.png'">
+							<a
+							href="Resettingtooperationalconditions.html"
+							target="FrameMain">
+								Resetting to operational conditions
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Behaviorfacingveryhighwindspeeds" data="">
+							<a
+							href="Behaviorfacingveryhighwindspeeds.html"
+							target="FrameMain">
+								Behavior facing very high wind speeds
+							</a>
+
+				<ul>
+
+						<li class="" id="Testingthebehaviortoveryhighwind" data="icon: '16.png'">
+							<a
+							href="Testingthebehaviortoveryhighwind.html"
+							target="FrameMain">
+								Testing the behavior to very high winds
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Failuresonthehydraulicbrakingsys" data="">
+							<a
+							href="Failuresonthehydraulicbrakingsys.html"
+							target="FrameMain">
+								Failures on the hydraulic braking system
+							</a>
+
+				<ul>
+
+						<li class="" id="Observethereactiontoafaultyhydra" data="icon: '16.png'">
+							<a
+							href="Observethereactiontoafaultyhydra.html"
+							target="FrameMain">
+								Observe the reaction to a faulty hydraulic valve
+							</a>
+
+				</li>
+
+						<li class="" id="Setconditionssobrakeisneverrelea" data="icon: '16.png'">
+							<a
+							href="Setconditionssobrakeisneverrelea.html"
+							target="FrameMain">
+								Set conditions so brake is never released
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="Softconnectiontothegrid" data="">
+							<a
+							href="Softconnectiontothegrid.html"
+							target="FrameMain">
+								Soft connection to the grid
+							</a>
+
+				<ul>
+
+						<li class="" id="Illustrationofthesequence" data="icon: '16.png'">
+							<a
+							href="Illustrationofthesequence.html"
+							target="FrameMain">
+								Illustration of the sequence
+							</a>
+
+				</li></ul></li>
+
+						<li class="" id="Influenceofthemomentofinertiaoft" data="icon: '16.png'">
+							<a
+							href="Influenceofthemomentofinertiaoft.html"
+							target="FrameMain">
+								Influence of the moment of inertia of the drive train and hub
+							</a>
+
+				</li>
+
+						<li class="folder" id="Influenceofthemomentofinertiaof1" data="icon: '16.png'">
+							<a
+							href="Influenceofthemomentofinertiaof1.html"
+							target="FrameMain">
+								Monitoring the Brakes hydraulic circuit
+							</a>
+
+				<ul>
+
+						<li class="" id="MonitoringtheBrakeshydrauliccirc" data="icon: '16.png'">
+							<a
+							href="MonitoringtheBrakeshydrauliccirc.html"
+							target="FrameMain">
+								Excessive leakage
+							</a>
+
+				</li>
+
+						<li class="" id="Excessiveleakage" data="icon: '16.png'">
+							<a
+							href="Excessiveleakage.html"
+							target="FrameMain">
+								Pump malfunctioning
+							</a>
+
+				</li>
+
+						<li class="" id="Pumpmalfunctioning" data="icon: '16.png'">
+							<a
+							href="Pumpmalfunctioning.html"
+							target="FrameMain">
+								Broken valve
+							</a>
+
+				</li></ul></li></ul></li>
+				
+				</ul>
+		</div>
+		
+		
+		
+		<div id="tab-keywords">
+			<ul id="keywords">
+
+				
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Stalling\',\'Stalling.html\'],[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Stalling','Stalling.html'],['Wind limits','Windlimits.html']]"
+								>
+								Abs max
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Stalling\',\'Stalling.html\']]'">
+							<a
+								href="Stalling.html"
+								target="FrameMain"
+								onClick="[['Stalling','Stalling.html']]"
+								>
+								Active Pitch
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Stalling\',\'Stalling.html\'],[\'Aerodynamic coefficient for Active Stall\',\'Aerodynamiccoefficient.html\']]'">
+							<a
+								href="Stalling.html"
+								target="FrameMain"
+								onClick="[['Stalling','Stalling.html'],['Aerodynamic coefficient for Active Stall','Aerodynamiccoefficient.html']]"
+								>
+								Active Stall
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Basic concepts\',\'Basicconcepts.html\'],[\'Aerodynamic coefficient for Active Stall\',\'Aerodynamiccoefficient.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Basic concepts','Basicconcepts.html'],['Aerodynamic coefficient for Active Stall','Aerodynamiccoefficient.html']]"
+								>
+								aerodynamic coefficient
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'Observe the reaction to a Stop command\',\'ObservethereactiontoaStopcommand.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['Observe the reaction to a Stop command','ObservethereactiontoaStopcommand.html']]"
+								>
+								air brake
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Algorithms\',\'Algorithms.html\'],[\'Pitch control algorithm\',\'Pitchcontolalgorithm.html\']]'">
+							<a
+								href="Algorithms.html"
+								target="FrameMain"
+								onClick="[['Algorithms','Algorithms.html'],['Pitch control algorithm','Pitchcontolalgorithm.html']]"
+								>
+								algorithms
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'Wind speed: anemometer\',\'Windspeedanemometer.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\']]'">
+							<a
+								href="WhatisaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['What is a Wind Turbine','WhatisaWindTurbine.html'],['Wind speed: anemometer','Windspeedanemometer.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html']]"
+								>
+								Anemometer
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\'],[\'\',\'.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html'],['','.html']]"
+								>
+								asynchronous
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'\',\'.html\'],[\'Basic concepts\',\'Basicconcepts.html\'],[\'Production curve\',\'Productioncurve.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['','.html'],['Basic concepts','Basicconcepts.html'],['Production curve','Productioncurve.html']]"
+								>
+								blade
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'Brake\\\'s disc\',\'Brakesdisc.html\'],[\'Failures on the hydraulic braking system\',\'Failuresonthehydraulicbrakingsys.html\'],[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['Brake\'s disc','Brakesdisc.html'],['Failures on the hydraulic braking system','Failuresonthehydraulicbrakingsys.html'],['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								brakes
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Braking system\',\'Brakingsystem.html\'],[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'Failures on the hydraulic braking system\',\'Failuresonthehydraulicbrakingsys.html\'],[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="Brakingsystem.html"
+								target="FrameMain"
+								onClick="[['Braking system','Brakingsystem.html'],['What is a Wind Turbine','WhatisaWindTurbine.html'],['Failures on the hydraulic braking system','Failuresonthehydraulicbrakingsys.html'],['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								braking disc
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Dangerous voltages inside the electrical panel\',\'Dangerousvoltagesinsidetheelectr.html\'],[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Dangerousvoltagesinsidetheelectr.html"
+								target="FrameMain"
+								onClick="[['Dangerous voltages inside the electrical panel','Dangerousvoltagesinsidetheelectr.html'],['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								busbars
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Electricalconnectiontothegrid.html"
+								target="FrameMain"
+								onClick="[['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								Bypass
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Dangerous voltages inside the electrical panel\',\'Dangerousvoltagesinsidetheelectr.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\'],[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\']]'">
+							<a
+								href="Dangerousvoltagesinsidetheelectr.html"
+								target="FrameMain"
+								onClick="[['Dangerous voltages inside the electrical panel','Dangerousvoltagesinsidetheelectr.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Electrical connection to the grid','Electricalconnectiontothegrid.html'],['Controlling the connection to the grid','Controllingtheconnectiontothegri.html']]"
+								>
+								bypass contactors
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Modes\',\'Modes.html\']]'">
+							<a
+								href="Modes.html"
+								target="FrameMain"
+								onClick="[['Modes','Modes.html']]"
+								>
+								cables turns
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Basic concepts\',\'Basicconcepts.html\'],[\'Stalling\',\'Stalling.html\']]'">
+							<a
+								href="Basicconcepts.html"
+								target="FrameMain"
+								onClick="[['Basic concepts','Basicconcepts.html'],['Stalling','Stalling.html']]"
+								>
+								chord
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Synoptics\',\'Synoptics.html\']]'">
+							<a
+								href="Synoptics.html"
+								target="FrameMain"
+								onClick="[['Synoptics','Synoptics.html']]"
+								>
+								Common synoptics for LdP
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Gearbox &amp; Rotor\',\'GearboxRotor.html\']]'">
+							<a
+								href="GearboxRotor.html"
+								target="FrameMain"
+								onClick="[['Gearbox &amp; Rotor','GearboxRotor.html']]"
+								>
+								condition monitoring
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Description of the Simulator\',\'DualSpeedActiveStallWTSimulator1.html\'],[\'Synoptics\',\'Synoptics.html\']]'">
+							<a
+								href="DualSpeedActiveStallWTSimulator1.html"
+								target="FrameMain"
+								onClick="[['Description of the Simulator','DualSpeedActiveStallWTSimulator1.html'],['Synoptics','Synoptics.html']]"
+								>
+								configuration
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Editing connections\',\'Editingconnections.html\'],[\'View the actual connections between the components\',\'Viewtheactualconnectionsbetweent.html\']]'">
+							<a
+								href="Editingconnections.html"
+								target="FrameMain"
+								onClick="[['Editing connections','Editingconnections.html'],['View the actual connections between the components','Viewtheactualconnectionsbetweent.html']]"
+								>
+								connection
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Automatic\',\'Automatic.html\'],[\'Control Terminal\',\'ControlTerminal.html\']]'">
+							<a
+								href="Automatic.html"
+								target="FrameMain"
+								onClick="[['Automatic','Automatic.html'],['Control Terminal','ControlTerminal.html']]"
+								>
+								Control Terminal
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controller\\\'s Functional structure\',\'ControllersFunctionalstructure.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\'],[\'Control Terminal\',\'ControlTerminal.html\']]'">
+							<a
+								href="ControllersFunctionalstructure.html"
+								target="FrameMain"
+								onClick="[['Controller\'s Functional structure','ControllersFunctionalstructure.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html'],['Control Terminal','ControlTerminal.html']]"
+								>
+								Controller
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								Controller emulator
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'Observe the reaction to a Stop command\',\'ObservethereactiontoaStopcommand.html\']]'">
+							<a
+								href="WhatisaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['What is a Wind Turbine','WhatisaWindTurbine.html'],['Observe the reaction to a Stop command','ObservethereactiontoaStopcommand.html']]"
+								>
+								coupling
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\'],[\'Production curve\',\'Productioncurve.html\'],[\'\',\'.html\'],[\'To Cutin\',\'ToCutin.html\'],[\'Observe the reaction to a Stop command\',\'ObservethereactiontoaStopcommand.html\'],[\'Phases for the cut-in (connection to the grid)\',\'Phasesforthecutinconnectiontothe.html\'],[\'Yawing of the nacelle and the Power Cables\',\'Yawingofthenacelle.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html'],['Production curve','Productioncurve.html'],['','.html'],['To Cutin','ToCutin.html'],['Observe the reaction to a Stop command','ObservethereactiontoaStopcommand.html'],['Phases for the cut-in (connection to the grid)','Phasesforthecutinconnectiontothe.html'],['Yawing of the nacelle and the Power Cables','Yawingofthenacelle.html']]"
+								>
+								cutin
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\'],[\'Production curve\',\'Productioncurve.html\'],[\'Observe the reaction to a Stop command\',\'ObservethereactiontoaStopcommand.html\'],[\'To Cutout\',\'ToCutout.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html'],['Production curve','Productioncurve.html'],['Observe the reaction to a Stop command','ObservethereactiontoaStopcommand.html'],['To Cutout','ToCutout.html']]"
+								>
+								cutout
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\']]'">
+							<a
+								href="StrucutureofaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['Structure of a Wind Turbine','StrucutureofaWindTurbine.html']]"
+								>
+								disc brake
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Why the Hub turns\',\'WhytheHubturns.html\']]'">
+							<a
+								href="WhytheHubturns.html"
+								target="FrameMain"
+								onClick="[['Why the Hub turns','WhytheHubturns.html']]"
+								>
+								dragging
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'Basic concepts\',\'Basicconcepts.html\'],[\'Generator\',\'Generator.html\'],[\'Drive Train synoptic\',\'DriveTrainsynoptic.html\']]'">
+							<a
+								href="WhatisaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['What is a Wind Turbine','WhatisaWindTurbine.html'],['Basic concepts','Basicconcepts.html'],['Generator','Generator.html'],['Drive Train synoptic','DriveTrainsynoptic.html']]"
+								>
+								drive train
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Basic concepts\',\'Basicconcepts.html\']]'">
+							<a
+								href="Basicconcepts.html"
+								target="FrameMain"
+								onClick="[['Basic concepts','Basicconcepts.html']]"
+								>
+								DriveTrain
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Reacting to changes of the wind speed\',\'Reactingtochangesofthewindspeed.html\']]'">
+							<a
+								href="Reactingtochangesofthewindspeed.html"
+								target="FrameMain"
+								onClick="[['Reacting to changes of the wind speed','Reactingtochangesofthewindspeed.html']]"
+								>
+								dual speed
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Stalling\',\'Stalling.html\']]'">
+							<a
+								href="Stalling.html"
+								target="FrameMain"
+								onClick="[['Stalling','Stalling.html']]"
+								>
+								edge of the blade
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Editing connections\',\'Editingconnections.html\']]'">
+							<a
+								href="Editingconnections.html"
+								target="FrameMain"
+								onClick="[['Editing connections','Editingconnections.html']]"
+								>
+								editing
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\']]'">
+							<a
+								href="StrucutureofaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['Structure of a Wind Turbine','StrucutureofaWindTurbine.html']]"
+								>
+								electric diagram
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Dangerous voltages inside the electrical panel\',\'Dangerousvoltagesinsidetheelectr.html\']]'">
+							<a
+								href="Dangerousvoltagesinsidetheelectr.html"
+								target="FrameMain"
+								onClick="[['Dangerous voltages inside the electrical panel','Dangerousvoltagesinsidetheelectr.html']]"
+								>
+								electrical enclosure
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Basic concepts\',\'Basicconcepts.html\']]'">
+							<a
+								href="Basicconcepts.html"
+								target="FrameMain"
+								onClick="[['Basic concepts','Basicconcepts.html']]"
+								>
+								energy
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'Braking system\',\'Brakingsystem.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['Braking system','Brakingsystem.html']]"
+								>
+								fail-safe
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html']]"
+								>
+								forcing mode
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								framework
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Description of the Simulator\',\'DualSpeedActiveStallWTSimulator1.html\']]'">
+							<a
+								href="DualSpeedActiveStallWTSimulator1.html"
+								target="FrameMain"
+								onClick="[['Description of the Simulator','DualSpeedActiveStallWTSimulator1.html']]"
+								>
+								Function
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\'],[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'\',\'.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Gearbox\',\'Gearbox.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html'],['What is a Wind Turbine','WhatisaWindTurbine.html'],['','.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Gearbox','Gearbox.html']]"
+								>
+								gear box
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Gearbox\',\'Gearbox.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Gearbox','Gearbox.html']]"
+								>
+								gearbox
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\'],[\'Reacting to changes of the wind speed\',\'Reactingtochangesofthewindspeed.html\'],[\'Generator\',\'Generator.html\'],[\'Generator\',\'Generator1.html\']]'">
+							<a
+								href="StrucutureofaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['','.html'],['','.html'],['Electrical connection to the grid','Electricalconnectiontothegrid.html'],['Reacting to changes of the wind speed','Reactingtochangesofthewindspeed.html'],['Generator','Generator.html'],['Generator','Generator1.html']]"
+								>
+								generator
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Generator\',\'Generator.html\']]'">
+							<a
+								href="Generator.html"
+								target="FrameMain"
+								onClick="[['Generator','Generator.html']]"
+								>
+								generator rpms
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'Basic concepts\',\'Basicconcepts.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['Basic concepts','Basicconcepts.html']]"
+								>
+								grid
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								hard brake
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Setting the conditions for a Wind Turbine to start operation with low wind speed\',\'SettingtheconditionsforaWindTurb.html\'],[\'StripRecorder synoptic\',\'StripRecordersynoptic.html\']]'">
+							<a
+								href="SettingtheconditionsforaWindTurb.html"
+								target="FrameMain"
+								onClick="[['Setting the conditions for a Wind Turbine to start operation with low wind speed','SettingtheconditionsforaWindTurb.html'],['StripRecorder synoptic','StripRecordersynoptic.html']]"
+								>
+								hardcopy
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'Failures on the hydraulic braking system\',\'Failuresonthehydraulicbrakingsys.html\'],[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['Failures on the hydraulic braking system','Failuresonthehydraulicbrakingsys.html'],['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								HCU
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Testing the behavior to very high winds\',\'Testingthebehaviortoveryhighwind.html\']]'">
+							<a
+								href="Testingthebehaviortoveryhighwind.html"
+								target="FrameMain"
+								onClick="[['Testing the behavior to very high winds','Testingthebehaviortoveryhighwind.html']]"
+								>
+								high wind
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\'],[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'\',\'.html\'],[\'Hub\',\'Hub1.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html'],['What is a Wind Turbine','WhatisaWindTurbine.html'],['','.html'],['Hub','Hub1.html']]"
+								>
+								hub
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Failures on the hydraulic braking system\',\'Failuresonthehydraulicbrakingsys.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\']]'">
+							<a
+								href="Failuresonthehydraulicbrakingsys.html"
+								target="FrameMain"
+								onClick="[['Failures on the hydraulic braking system','Failuresonthehydraulicbrakingsys.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html']]"
+								>
+								hydraulic circuit
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Braking system\',\'Brakingsystem.html\'],[\'Reacting to changes of the wind speed\',\'Reactingtochangesofthewindspeed.html\']]'">
+							<a
+								href="Brakingsystem.html"
+								target="FrameMain"
+								onClick="[['Braking system','Brakingsystem.html'],['Reacting to changes of the wind speed','Reactingtochangesofthewindspeed.html']]"
+								>
+								hysteresis
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Introduction to the Induction Machine\',\'IntoductiontotheInductionMachine.html\']]'">
+							<a
+								href="IntoductiontotheInductionMachine.html"
+								target="FrameMain"
+								onClick="[['Introduction to the Induction Machine','IntoductiontotheInductionMachine.html']]"
+								>
+								Induction Machine
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Input Signals\',\'InputSignals.html\'],[\'View the actual connections between the components\',\'Viewtheactualconnectionsbetweent.html\']]'">
+							<a
+								href="InputSignals.html"
+								target="FrameMain"
+								onClick="[['Input Signals','InputSignals.html'],['View the actual connections between the components','Viewtheactualconnectionsbetweent.html']]"
+								>
+								Input
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What can you learn with this Simulator?\',\'Nuevotema.html\']]'">
+							<a
+								href="Nuevotema.html"
+								target="FrameMain"
+								onClick="[['What can you learn with this Simulator?','Nuevotema.html']]"
+								>
+								Introduction to LdP
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Aerodynamic coefficient for Active Stall\',\'Aerodynamiccoefficient.html\']]'">
+							<a
+								href="Aerodynamiccoefficient.html"
+								target="FrameMain"
+								onClick="[['Aerodynamic coefficient for Active Stall','Aerodynamiccoefficient.html']]"
+								>
+								Lambda
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Algorithms\',\'Algorithms.html\']]'">
+							<a
+								href="Algorithms.html"
+								target="FrameMain"
+								onClick="[['Algorithms','Algorithms.html']]"
+								>
+								laminar flow
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Reacting to changes of the wind speed\',\'Reactingtochangesofthewindspeed.html\']]'">
+							<a
+								href="Reactingtochangesofthewindspeed.html"
+								target="FrameMain"
+								onClick="[['Reacting to changes of the wind speed','Reactingtochangesofthewindspeed.html']]"
+								>
+								large
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Common synoptics of the WorkBench\',\'CommonsynopticsoftheWorkBench.html\']]'">
+							<a
+								href="CommonsynopticsoftheWorkBench.html"
+								target="FrameMain"
+								onClick="[['Common synoptics of the WorkBench','CommonsynopticsoftheWorkBench.html']]"
+								>
+								LdP
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Observe the reaction to a faulty hydraulic valve\',\'Observethereactiontoafaultyhydra.html\']]'">
+							<a
+								href="Observethereactiontoafaultyhydra.html"
+								target="FrameMain"
+								onClick="[['Observe the reaction to a faulty hydraulic valve','Observethereactiontoafaultyhydra.html']]"
+								>
+								leakage
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Control synoptic (&quot;Executing&quot;)\',\'ControlsynopticExecuting.html\']]'">
+							<a
+								href="ControlsynopticExecuting.html"
+								target="FrameMain"
+								onClick="[['Control synoptic (&quot;Executing&quot;)','ControlsynopticExecuting.html']]"
+								>
+								License ID
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Why the Hub turns\',\'WhytheHubturns.html\']]'">
+							<a
+								href="WhytheHubturns.html"
+								target="FrameMain"
+								onClick="[['Why the Hub turns','WhytheHubturns.html']]"
+								>
+								lift
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Why the Hub turns\',\'WhytheHubturns.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Why the Hub turns','WhytheHubturns.html']]"
+								>
+								lifting force
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Dangerous voltages inside the electrical panel\',\'Dangerousvoltagesinsidetheelectr.html\'],[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Dangerousvoltagesinsidetheelectr.html"
+								target="FrameMain"
+								onClick="[['Dangerous voltages inside the electrical panel','Dangerousvoltagesinsidetheelectr.html'],['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								main switch
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Wind limits','Windlimits.html']]"
+								>
+								Max for operation
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Wind limits','Windlimits.html']]"
+								>
+								Max to depart
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Yawing of the nacelle and the Power Cables\',\'Yawingofthenacelle.html\']]'">
+							<a
+								href="Yawingofthenacelle.html"
+								target="FrameMain"
+								onClick="[['Yawing of the nacelle and the Power Cables','Yawingofthenacelle.html']]"
+								>
+								MaxCableTwist
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Wind limits','Windlimits.html']]"
+								>
+								Min for Cutin
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href="Windlimits.html"
+								target="FrameMain"
+								onClick="[['Wind limits','Windlimits.html']]"
+								>
+								min for yawing
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Electricalconnectiontothegrid.html"
+								target="FrameMain"
+								onClick="[['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								motoring
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								nacelle
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								Nacelle emulator
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\']]'">
+							<a
+								href="WindandNacelleorientationsynopti.html"
+								target="FrameMain"
+								onClick="[['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html']]"
+								>
+								nacelle orientation
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind Turbine Control criteria\',\'WindTurbineControlcriteria.html\'],[\'Production curve\',\'Productioncurve.html\']]'">
+							<a
+								href="WindTurbineControlcriteria.html"
+								target="FrameMain"
+								onClick="[['Wind Turbine Control criteria','WindTurbineControlcriteria.html'],['Production curve','Productioncurve.html']]"
+								>
+								Nominal Power
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind Turbine Control criteria\',\'WindTurbineControlcriteria.html\'],[\'Production curve\',\'Productioncurve.html\']]'">
+							<a
+								href="WindTurbineControlcriteria.html"
+								target="FrameMain"
+								onClick="[['Wind Turbine Control criteria','WindTurbineControlcriteria.html'],['Production curve','Productioncurve.html']]"
+								>
+								Nominal Wind
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'State/Events Diagrams of the implemented State Machine\',\'StateEventsDiagramsoftheimplemen.html\'],[\'Operation State Machine\',\'OperationStateMachine.html\']]'">
+							<a
+								href="StateEventsDiagramsoftheimplemen.html"
+								target="FrameMain"
+								onClick="[['State/Events Diagrams of the implemented State Machine','StateEventsDiagramsoftheimplemen.html'],['Operation State Machine','OperationStateMachine.html']]"
+								>
+								operational
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Basic emulators for a Wind Turbine\',\'BasicemulatorsforaWindTurbineinW.html\']]'">
+							<a
+								href="BasicemulatorsforaWindTurbineinW.html"
+								target="FrameMain"
+								onClick="[['Basic emulators for a Wind Turbine','BasicemulatorsforaWindTurbineinW.html']]"
+								>
+								operational blocks
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\']]'">
+							<a
+								href="StrucutureofaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['Structure of a Wind Turbine','StrucutureofaWindTurbine.html']]"
+								>
+								operator terminal
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Output Signals\',\'OutputSignals.html\'],[\'View the actual connections between the components\',\'Viewtheactualconnectionsbetweent.html\']]'">
+							<a
+								href="OutputSignals.html"
+								target="FrameMain"
+								onClick="[['Output Signals','OutputSignals.html'],['View the actual connections between the components','Viewtheactualconnectionsbetweent.html']]"
+								>
+								output
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html']]"
+								>
+								overspeed
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Description of the Simulator\',\'DualSpeedActiveStallWTSimulator1.html\']]'">
+							<a
+								href="DualSpeedActiveStallWTSimulator1.html"
+								target="FrameMain"
+								onClick="[['Description of the Simulator','DualSpeedActiveStallWTSimulator1.html']]"
+								>
+								parameter
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Yawing of the nacelle and the Power Cables\',\'Yawingofthenacelle.html\']]'">
+							<a
+								href="Yawingofthenacelle.html"
+								target="FrameMain"
+								onClick="[['Yawing of the nacelle and the Power Cables','Yawingofthenacelle.html']]"
+								>
+								Parameter.ControllerYawing.MaxCableTwistBeforeCutin
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Electricalconnectiontothegrid.html"
+								target="FrameMain"
+								onClick="[['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								PCC
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'\',\'.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Stalling\',\'Stalling.html\'],[\'Observe the reaction to a Stop command\',\'ObservethereactiontoaStopcommand.html\'],[\'Pitch control algorithm\',\'Pitchcontolalgorithm.html\'],[\'Hub\',\'Hub1.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['','.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Stalling','Stalling.html'],['Observe the reaction to a Stop command','ObservethereactiontoaStopcommand.html'],['Pitch control algorithm','Pitchcontolalgorithm.html'],['Hub','Hub1.html']]"
+								>
+								pitch
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Electricalconnectiontothegrid.html"
+								target="FrameMain"
+								onClick="[['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								Point of Common Connection
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\']]'">
+							<a
+								href="WhatisaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['What is a Wind Turbine','WhatisaWindTurbine.html']]"
+								>
+								pole
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Modes\',\'Modes.html\']]'">
+							<a
+								href="Modes.html"
+								target="FrameMain"
+								onClick="[['Modes','Modes.html']]"
+								>
+								power cables
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Production curve\',\'Productioncurve.html\'],[\'Power versus wind official curve\',\'Powerversuswindofficialcurve.html\']]'">
+							<a
+								href="Productioncurve.html"
+								target="FrameMain"
+								onClick="[['Production curve','Productioncurve.html'],['Power versus wind official curve','Powerversuswindofficialcurve.html']]"
+								>
+								power curve
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Reacting to changes of the wind speed\',\'Reactingtochangesofthewindspeed.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Reacting to changes of the wind speed','Reactingtochangesofthewindspeed.html']]"
+								>
+								power factor
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html']]"
+								>
+								power train
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								presentation only
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html']]"
+								>
+								presentation only
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								presentation-and-modification
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								presentation-only
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Braking system\',\'Brakingsystem.html\']]'">
+							<a
+								href="Brakingsystem.html"
+								target="FrameMain"
+								onClick="[['Braking system','Brakingsystem.html']]"
+								>
+								pressure
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Description of the Simulator\',\'DualSpeedActiveStallWTSimulator1.html\']]'">
+							<a
+								href="DualSpeedActiveStallWTSimulator1.html"
+								target="FrameMain"
+								onClick="[['Description of the Simulator','DualSpeedActiveStallWTSimulator1.html']]"
+								>
+								Process
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html']]"
+								>
+								production
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Observe the reaction to a faulty hydraulic valve\',\'Observethereactiontoafaultyhydra.html\'],[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="Observethereactiontoafaultyhydra.html"
+								target="FrameMain"
+								onClick="[['Observe the reaction to a faulty hydraulic valve','Observethereactiontoafaultyhydra.html'],['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								pump
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="BrakingSecurity.html"
+								target="FrameMain"
+								onClick="[['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								pump caudal
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Setting the conditions for a Wind Turbine to start operation with low wind speed\',\'SettingtheconditionsforaWindTurb.html\'],[\'\',\'.html\'],[\'StripRecorder synoptic\',\'StripRecordersynoptic.html\']]'">
+							<a
+								href="SettingtheconditionsforaWindTurb.html"
+								target="FrameMain"
+								onClick="[['Setting the conditions for a Wind Turbine to start operation with low wind speed','SettingtheconditionsforaWindTurb.html'],['','.html'],['StripRecorder synoptic','StripRecordersynoptic.html']]"
+								>
+								recorder
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Active hardcopies\',\'Activehardcopies.html\']]'">
+							<a
+								href="Activehardcopies.html"
+								target="FrameMain"
+								onClick="[['Active hardcopies','Activehardcopies.html']]"
+								>
+								Reference time
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'\',\'.html\']]'">
+							<a
+								href="WindandNacelleorientationsynopti.html"
+								target="FrameMain"
+								onClick="[['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['','.html']]"
+								>
+								rotational wind
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html']]"
+								>
+								rotor
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\']]'">
+							<a
+								href="WhatisaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['What is a Wind Turbine','WhatisaWindTurbine.html']]"
+								>
+								rotor's bearing
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Setting the conditions for a Wind Turbine to start operation with low wind speed\',\'SettingtheconditionsforaWindTurb.html\']]'">
+							<a
+								href="SettingtheconditionsforaWindTurb.html"
+								target="FrameMain"
+								onClick="[['Setting the conditions for a Wind Turbine to start operation with low wind speed','SettingtheconditionsforaWindTurb.html']]"
+								>
+								sampling rate
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'\',\'.html\'],[\'Remote control\',\'Remotecontrol.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['','.html'],['','.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['','.html'],['Remote control','Remotecontrol.html']]"
+								>
+								SCADA
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'State/Events Diagrams of the implemented State Machine\',\'StateEventsDiagramsoftheimplemen.html\'],[\'Security State Machine\',\'SecurityStateMachine.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['State/Events Diagrams of the implemented State Machine','StateEventsDiagramsoftheimplemen.html'],['Security State Machine','SecurityStateMachine.html']]"
+								>
+								security
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Introduction to the Induction Machine\',\'IntoductiontotheInductionMachine.html\']]'">
+							<a
+								href="IntoductiontotheInductionMachine.html"
+								target="FrameMain"
+								onClick="[['Introduction to the Induction Machine','IntoductiontotheInductionMachine.html']]"
+								>
+								short-circuited rotor
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Editing connections\',\'Editingconnections.html\'],[\'View the actual connections between the components\',\'Viewtheactualconnectionsbetweent.html\'],[\'WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;\',\'WorkBenchpresentationonlyandpres.html\'],[\'StripRecorder synoptic\',\'StripRecordersynoptic.html\']]'">
+							<a
+								href="Editingconnections.html"
+								target="FrameMain"
+								onClick="[['Editing connections','Editingconnections.html'],['View the actual connections between the components','Viewtheactualconnectionsbetweent.html'],['WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;','WorkBenchpresentationonlyandpres.html'],['StripRecorder synoptic','StripRecordersynoptic.html']]"
+								>
+								signal
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Reacting to changes of the wind speed\',\'Reactingtochangesofthewindspeed.html\']]'">
+							<a
+								href="Reactingtochangesofthewindspeed.html"
+								target="FrameMain"
+								onClick="[['Reacting to changes of the wind speed','Reactingtochangesofthewindspeed.html']]"
+								>
+								small
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'While in production, change from high to low wind speed\',\'Whileinproductionchangefromhight.html\']]'">
+							<a
+								href="Whileinproductionchangefromhight.html"
+								target="FrameMain"
+								onClick="[['While in production, change from high to low wind speed','Whileinproductionchangefromhight.html']]"
+								>
+								Small Connection
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\']]'">
+							<a
+								href="Electricalconnectiontothegrid.html"
+								target="FrameMain"
+								onClick="[['Electrical connection to the grid','Electricalconnectiontothegrid.html']]"
+								>
+								soft connection
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html']]"
+								>
+								soft-starter
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Description of the Simulator\',\'DualSpeedActiveStallWTSimulator1.html\'],[\'Introduction to the Induction Machine\',\'IntoductiontotheInductionMachine.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Description of the Simulator','DualSpeedActiveStallWTSimulator1.html'],['Introduction to the Induction Machine','IntoductiontotheInductionMachine.html']]"
+								>
+								squirrel cage
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Power versus wind official curve\',\'Powerversuswindofficialcurve.html\'],[\'Production curve\',\'Productioncurve.html\'],[\'\',\'.html\'],[\'Stalling\',\'Stalling.html\']]'">
+							<a
+								href="Powerversuswindofficialcurve.html"
+								target="FrameMain"
+								onClick="[['Power versus wind official curve','Powerversuswindofficialcurve.html'],['Production curve','Productioncurve.html'],['','.html'],['Stalling','Stalling.html']]"
+								>
+								stall
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Stalling\',\'Stalling.html\'],[\'\',\'.html\']]'">
+							<a
+								href="Stalling.html"
+								target="FrameMain"
+								onClick="[['Stalling','Stalling.html'],['','.html']]"
+								>
+								stalling
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Automatic\',\'Automatic.html\']]'">
+							<a
+								href="Automatic.html"
+								target="FrameMain"
+								onClick="[['Automatic','Automatic.html']]"
+								>
+								START
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'To Cutin\',\'ToCutin.html\'],[\'Operation State Machine\',\'OperationStateMachine.html\'],[\'Security State Machine\',\'SecurityStateMachine.html\']]'">
+							<a
+								href="ToCutin.html"
+								target="FrameMain"
+								onClick="[['To Cutin','ToCutin.html'],['Operation State Machine','OperationStateMachine.html'],['Security State Machine','SecurityStateMachine.html']]"
+								>
+								state machine
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'State/Events Diagrams of the implemented State Machine\',\'StateEventsDiagramsoftheimplemen.html\']]'">
+							<a
+								href="StateEventsDiagramsoftheimplemen.html"
+								target="FrameMain"
+								onClick="[['State/Events Diagrams of the implemented State Machine','StateEventsDiagramsoftheimplemen.html']]"
+								>
+								state machine
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Automatic\',\'Automatic.html\']]'">
+							<a
+								href="Automatic.html"
+								target="FrameMain"
+								onClick="[['Automatic','Automatic.html']]"
+								>
+								STOP
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Setting the conditions for a Wind Turbine to start operation with low wind speed\',\'SettingtheconditionsforaWindTurb.html\'],[\'StripRecorder synoptic\',\'StripRecordersynoptic.html\']]'">
+							<a
+								href="SettingtheconditionsforaWindTurb.html"
+								target="FrameMain"
+								onClick="[['Setting the conditions for a Wind Turbine to start operation with low wind speed','SettingtheconditionsforaWindTurb.html'],['StripRecorder synoptic','StripRecordersynoptic.html']]"
+								>
+								striprecorder
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Introduction to the Induction Machine\',\'IntoductiontotheInductionMachine.html\']]'">
+							<a
+								href="IntoductiontotheInductionMachine.html"
+								target="FrameMain"
+								onClick="[['Introduction to the Induction Machine','IntoductiontotheInductionMachine.html']]"
+								>
+								synchronous speed
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Soft connection to the grid\',\'Softconnectiontothegrid.html\']]'">
+							<a
+								href="Softconnectiontothegrid.html"
+								target="FrameMain"
+								onClick="[['Soft connection to the grid','Softconnectiontothegrid.html']]"
+								>
+								syncrhonous
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Description of the Simulator\',\'DualSpeedActiveStallWTSimulator1.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Description of the Simulator','DualSpeedActiveStallWTSimulator1.html']]"
+								>
+								synoptic
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What can you learn with this Simulator?\',\'Nuevotema.html\']]'">
+							<a
+								href="Nuevotema.html"
+								target="FrameMain"
+								onClick="[['What can you learn with this Simulator?','Nuevotema.html']]"
+								>
+								Test Bench
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Dangerous voltages inside the electrical panel\',\'Dangerousvoltagesinsidetheelectr.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Electrical connection to the grid\',\'Electricalconnectiontothegrid.html\'],[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\']]'">
+							<a
+								href="Dangerousvoltagesinsidetheelectr.html"
+								target="FrameMain"
+								onClick="[['Dangerous voltages inside the electrical panel','Dangerousvoltagesinsidetheelectr.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Electrical connection to the grid','Electricalconnectiontothegrid.html'],['Controlling the connection to the grid','Controllingtheconnectiontothegri.html']]"
+								>
+								thyristors
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Active hardcopies\',\'Activehardcopies.html\']]'">
+							<a
+								href="Activehardcopies.html"
+								target="FrameMain"
+								onClick="[['Active hardcopies','Activehardcopies.html']]"
+								>
+								time cursor
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\']]'">
+							<a
+								href="WindandNacelleorientationsynopti.html"
+								target="FrameMain"
+								onClick="[['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html']]"
+								>
+								total wind vector
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Aerodynamic coefficient for Active Stall\',\'Aerodynamiccoefficient.html\']]'">
+							<a
+								href="Aerodynamiccoefficient.html"
+								target="FrameMain"
+								onClick="[['Aerodynamic coefficient for Active Stall','Aerodynamiccoefficient.html']]"
+								>
+								TRS
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Controlling the connection to the grid\',\'Controllingtheconnectiontothegri.html\'],[\'\',\'.html\']]'">
+							<a
+								href="Controllingtheconnectiontothegri.html"
+								target="FrameMain"
+								onClick="[['Controlling the connection to the grid','Controllingtheconnectiontothegri.html'],['','.html']]"
+								>
+								variable pitch
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Safety strategy for overspeed\',\'Safetystrategyforoverspeed.html\'],[\'Failures on the hydraulic braking system\',\'Failuresonthehydraulicbrakingsys.html\'],[\'Braking &amp; Security\',\'BrakingSecurity.html\']]'">
+							<a
+								href="Safetystrategyforoverspeed.html"
+								target="FrameMain"
+								onClick="[['Safety strategy for overspeed','Safetystrategyforoverspeed.html'],['Failures on the hydraulic braking system','Failuresonthehydraulicbrakingsys.html'],['Braking &amp; Security','BrakingSecurity.html']]"
+								>
+								VCU
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\'],[\'WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;\',\'WorkBenchpresentationonlyandpres.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html'],['WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;','WorkBenchpresentationonlyandpres.html']]"
+								>
+								widget
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'Basic concepts\',\'Basicconcepts.html\'],[\'Testing the behavior to very high winds\',\'Testingthebehaviortoveryhighwind.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['Basic concepts','Basicconcepts.html'],['Testing the behavior to very high winds','Testingthebehaviortoveryhighwind.html']]"
+								>
+								wind
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\']]'">
+							<a
+								href="WindandNacelleorientationsynopti.html"
+								target="FrameMain"
+								onClick="[['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html']]"
+								>
+								wind direction
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['','.html'],['','.html'],['','.html'],['','.html'],['','.html']]"
+								>
+								wind farm
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href="WindandNacelleorientationsynopti.html"
+								target="FrameMain"
+								onClick="[['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['Wind limits','Windlimits.html']]"
+								>
+								wind speed
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind limits\',\'Windlimits.html\']]'">
+							<a
+								href="Windlimits.html"
+								target="FrameMain"
+								onClick="[['Wind limits','Windlimits.html']]"
+								>
+								wind temp max
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'\',\'.html\']]'">
+							<a
+								href=".html"
+								target="FrameMain"
+								onClick="[['','.html'],['What is a Wind Turbine','WhatisaWindTurbine.html'],['','.html']]"
+								>
+								wind turbine
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind vane\',\'Winddirectionwindvane.html\']]'">
+							<a
+								href="Winddirectionwindvane.html"
+								target="FrameMain"
+								onClick="[['Wind vane','Winddirectionwindvane.html']]"
+								>
+								wind vane
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Wind vane\',\'Winddirectionwindvane.html\']]'">
+							<a
+								href="WindandNacelleorientationsynopti.html"
+								target="FrameMain"
+								onClick="[['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['What is a Wind Turbine','WhatisaWindTurbine.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Wind vane','Winddirectionwindvane.html']]"
+								>
+								Windvane
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html']]"
+								>
+								wired building blocks
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'The Simulator as a WorkBench\',\'TheWorkBenchusedfortheWFS.html\'],[\'WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;\',\'WorkBenchpresentationonlyandpres.html\']]'">
+							<a
+								href="TheWorkBenchusedfortheWFS.html"
+								target="FrameMain"
+								onClick="[['The Simulator as a WorkBench','TheWorkBenchusedfortheWFS.html'],['WorkBench &quot;presentation only&quot; and &quot;presentation and modification&quot;','WorkBenchpresentationonlyandpres.html']]"
+								>
+								workbench
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Introduction to the Induction Machine\',\'IntoductiontotheInductionMachine.html\']]'">
+							<a
+								href="IntoductiontotheInductionMachine.html"
+								target="FrameMain"
+								onClick="[['Introduction to the Induction Machine','IntoductiontotheInductionMachine.html']]"
+								>
+								wound-rotor
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'See the reaction to a Grid failure on a phase\',\'SeethereactiontoaGridfailureonap.html\']]'">
+							<a
+								href="SeethereactiontoaGridfailureonap.html"
+								target="FrameMain"
+								onClick="[['See the reaction to a Grid failure on a phase','SeethereactiontoaGridfailureonap.html']]"
+								>
+								WTElectricalPanel
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'What is a Wind Turbine\',\'WhatisaWindTurbine.html\'],[\'Wind and Nacelle orientation synoptic\',\'WindandNacelleorientationsynopti.html\'],[\'Structure of a Wind Turbine\',\'StrucutureofaWindTurbine.html\'],[\'Changing the wind direction\',\'Changingthewinddirection.html\'],[\'Automatic yawing\',\'Automaticyawing.html\'],[\'Manual yawing\',\'Manualyawing.html\'],[\'Yawing subsystem\',\'Yawingsubsystem.html\'],[\'Yawing of the nacelle and the Power Cables\',\'Yawingofthenacelle.html\'],[\'Modes\',\'Modes.html\']]'">
+							<a
+								href="WhatisaWindTurbine.html"
+								target="FrameMain"
+								onClick="[['What is a Wind Turbine','WhatisaWindTurbine.html'],['Wind and Nacelle orientation synoptic','WindandNacelleorientationsynopti.html'],['Structure of a Wind Turbine','StrucutureofaWindTurbine.html'],['Changing the wind direction','Changingthewinddirection.html'],['Automatic yawing','Automaticyawing.html'],['Manual yawing','Manualyawing.html'],['Yawing subsystem','Yawingsubsystem.html'],['Yawing of the nacelle and the Power Cables','Yawingofthenacelle.html'],['Modes','Modes.html']]"
+								>
+								yawing
+							</a>
+
+				</li>
+				
+			</ul>
+		</div>
+		
+		
+		
+		<div id="tab-search">
+			<form onsubmit="PerformSearch(); return false;">
+				<label for="search_value">Search:</label>
+				<input id="search_value" name="search_value"></input>
+				<input type="submit" value="Search"/>
+			</form>
+			<div id="search_results"></div>
+		</div>
+		
+		
+		
+	</div>
+    
+</body>
+
+</html>
+

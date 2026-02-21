@@ -1,0 +1,769 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Control Terminal</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ControlTerminal");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Control Terminal</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureofaHorizontalAxisWindTu.html">Structure of a Horizontal Axis Wind Turbine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StructureofaHorizontalAxisWindTu.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="WeatherSensors.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="FunctionalSchematicofaWindTurbin.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Control Terminal</span></p>
+<p class="rvps4"><span class="rvts11">What is the Control Terminal?</span></p>
+<p class="rvps4"><span class="rvts6">Remember: a wind turbine is designed to be a </span><span class="rvts11">fully autonomous electrical power plant</span><span class="rvts6">. It runs itself, makes its own decisions, and handles problems without human intervention - most of the time.</span></p>
+<p class="rvps4"><span class="rvts6">But sometimes humans need to interact with it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Maintenance and repairs</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Troubleshooting problems</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Adjusting parameters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Commissioning and setup</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Training and diagnostics</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">That's where the </span><span class="rvts11">Control Terminal</span><span class="rvts6"> comes in. Think of it as the wind turbine's "dashboard" - the interface between humans and the machine.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">What Makes Wind Turbines Special?</span></p>
+<p class="rvps4"><span class="rvts6">Before we dive into the Control Terminal, let's appreciate what the Controller has to deal with:</span></p>
+<p class="rvps4"><span class="rvts11">External challenges:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Hurricane-force winds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lightning strikes (turbines are tall targets!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Extreme temperatures (from -40°C to +50°C)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Ice accumulation on blades</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Grid faults and power outages</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Internal challenges:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Hydraulic leaks</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Sensor failures or miscalibration</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bearing wear</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Excessive vibrations</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Component overheating</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Control system glitches</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Controller's job:</span></p>
+<p class="rvps4"><span class="rvts6">Detect all these issues in real-time and respond appropriately:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Continue operating if safe</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Adjust operations if conditions are marginal</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shut down safely if conditions are dangerous</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Log everything for later analysis</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Alert operators when human intervention is needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The Control Terminal is how humans monitor this autonomous operation and intervene when necessary.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Types of Control Terminals</span></p>
+<p class="rvps4"><span class="rvts11">Integrated Panel-Mount Terminal</span></p>
+<p class="rvps4"><span class="rvts6">Some turbines have the Control Terminal built into the electrical cabinet:</span></p>
+<p class="rvps4"><span class="rvts6">[Figure: Panel-mounted control terminal in electrical cabinet]</span></p>
+<p class="rvps4"><span class="rvts11">Features:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Fixed installation at tower base</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Touchscreen or buttons + display</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Direct wired connection to Controller</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Always available</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Protected from weather</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Always there when you arrive</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ No setup required</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Can't be lost or forgotten</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Direct, reliable connection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Can only use it at tower base</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Limited screen size (space constraints)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Shared among all technicians</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Portable Handheld Terminal</span></p>
+<p class="rvps4"><span class="rvts6">Many manufacturers provide portable terminals:</span></p>
+<p class="rvps4"><span class="rvts6">[Figure: Portable control terminal]</span></p>
+<p class="rvps4"><span class="rvts11">Features:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Rugged handheld device (like a tough laptop or tablet)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Connects to Controller via cable or wireless</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Technician carries it</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can be used anywhere in tower/nacelle</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Take it where you need it</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Larger screen possible</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Multiple technicians can have their own</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Can store personal settings</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Can be forgotten/lost</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Battery needs charging</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Can be damaged</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Connection can be unreliable (especially wireless)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Modern Trend: Laptop/Tablet with Software</span></p>
+<p class="rvps4"><span class="rvts6">Increasingly, manufacturers provide:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Software application for Windows/Linux laptop</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Or app for rugged tablet</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Connects via Ethernet or WiFi</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Same functionality as dedicated terminal</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why this is becoming standard:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Technicians already carry laptops</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Software can be updated easily</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Better graphics and interface possible</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can save logs and reports directly</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Lower cost (no custom hardware)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">What Can You Do with the Control Terminal?</span></p>
+<p class="rvps4"><span class="rvts11">1. Monitor Real-Time Status</span></p>
+<p class="rvps4"><span class="rvts6">The terminal shows current operating conditions:</span></p>
+<p class="rvps4"><span class="rvts11">Wind conditions:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current wind speed (from anemometer)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind direction (actual compass direction)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Effective wind speed (accounting for nacelle misalignment)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Nacelle orientation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Mechanical status:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade rotational speed (RPM)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator rotational speed (RPM)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade pitch angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">DriveTrain acceleration</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Current Cp (power coefficient - how efficiently extracting wind energy)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Electrical output:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Active power generated (kW)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reactive power (kVAr)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power factor (cos φ)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Voltage and current per phase</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Total energy produced (kWh累積)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">System health:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Temperatures (generator, gearbox, bearings, ambient)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hydraulic brake pressure</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Grid connection status</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Which generator connection mode (4-pole or 6-pole)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Thyristor status</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bypass contactor status</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw motor status (CW/CCW)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Brake status</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Safety status:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Overspeed detection status (HCU/VCU)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Tower vibration sensor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Grid phase status (all three phases present?)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">2. View and Acknowledge Alarms/Incidents</span></p>
+<p class="rvps4"><span class="rvts6">This is one of the most important functions.</span></p>
+<p class="rvps4"><span class="rvts11">How the incident system works:</span></p>
+<p class="rvps4"><span class="rvts6">When something abnormal happens, the Controller creates an </span><span class="rvts11">incident record</span><span class="rvts6">:</span></p>
+<p class="rvps4"><span class="rvts11">Incident information includes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Description:</span><span class="rvts6"> What happened ("Grid Phase 1 Lost")</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Start time:</span><span class="rvts6"> Exactly when it began (YYYY-MM-DD HH:MM:SS.mmm)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Recovery time:</span><span class="rvts6"> When condition returned to normal (if it has)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Severity:</span><span class="rvts6"> How serious (information, warning, alarm, critical)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Action taken:</span><span class="rvts6"> What the Controller did (continued, reduced power, stopped)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Incident lifecycle:</span></p>
+<p class="rvps4"><span class="rvts15">Active incidents:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Shown in "Open Incidents" list</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Highlighted in red or yellow depending on severity</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Some require acknowledgment, others are automatic</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Recovered incidents:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Condition has returned to normal</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">"Recovery time" field is filled in</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">May still require operator acknowledgment</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Acknowledged incidents:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Operator has reviewed and understood</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Clicks "OK" checkbox for the incident</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Moves to "Incident History"</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Example scenario - Grid fault:</span></p>
+<p class="rvps4"><span class="rvts6">Let's walk through what you'd see:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Fault occurs</span><span class="rvts6"> (2025-10-11 14:23:47.234):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Grid Phase 1 voltage drops to zero</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Controller detects this within 100ms</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Incident created</span><span class="rvts6"> (2025-10-11 14:23:47.334):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Description: "Grid Phase 1 Voltage Lost"</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Start time: 14:23:47.234</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Recovery time: [empty]</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Appears in "Open Incidents" list</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Controller responds</span><span class="rvts6">:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Waits 2 seconds (might be momentary fault)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Still missing? Initiates cutout sequence</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Reduces power to zero</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Opens bypass contactors</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Another incident created: "Cutout Due to Grid Fault"</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Grid recovers</span><span class="rvts6"> (2025-10-11 14:24:15.123):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Phase 1 voltage returns to normal</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Recovery time updated: 14:24:15.123</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Incident still in "Open Incidents" (needs acknowledgment)</span></li>
+ </ul>
+ <li class="rvps6 noindent"><span class="rvts11">Technician arrives</span><span class="rvts6">, sees in Control Terminal:</span></li>
+</ol>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2089.svg"></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2088.svg"></p>
+<p class="rvps17"><span class="rvts24">&nbsp; &nbsp;OPEN INCIDENTS:</span></p>
+<p class="rvps18"><span class="rvts24">&nbsp; &nbsp;[ ] Grid Phase 1 Voltage Lost</span></p>
+<p class="rvps18"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp;Start: 2025-10-11 14:23:47.234</span></p>
+<p class="rvps18"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp;Recovered: 2025-10-11 14:24:15.123</span></p>
+<p class="rvps18"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp;</span></p>
+<p class="rvps18"><span class="rvts24">&nbsp; &nbsp;[ ] Cutout Due to Grid Fault</span></p>
+<p class="rvps18"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp;Start: 2025-10-11 14:23:49.445</span></p>
+<p class="rvps19"><span class="rvts24">&nbsp; &nbsp; &nbsp; &nbsp;Recovered: 2025-10-11 14:24:20.567</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li value="6" class="rvps5 noindent"><span class="rvts11">Technician acknowledges</span><span class="rvts6">:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Checks both checkboxes in "OK" column</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Incidents move to "Incident History"</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Turbine can now restart (if conditions allow)</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">Why this system is important:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Forces human review of significant events</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Prevents automatic restart after serious faults</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Creates audit trail</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Helps identify recurring problems</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Legal/insurance documentation</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">3. Send Commands</span></p>
+<p class="rvps4"><span class="rvts6">The Control Terminal is how operators tell the turbine what to do:</span></p>
+<p class="rvps4"><span class="rvts11">START Command</span></p>
+<p class="rvps4"><span class="rvts6">Tells the Controller to begin the cutin (startup) sequence.</span></p>
+<p class="rvps4"><span class="rvts11">What happens when you press START:</span></p>
+<p class="rvps4"><span class="rvts6">The Controller doesn't just blindly start up. It goes through a checklist:</span></p>
+<p class="rvps4"><span class="rvts15">Pre-start checks:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Are all open incidents acknowledged?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is "Manual STOP" cleared (operator ready)?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is wind speed in acceptable range?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is grid voltage present and stable?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Are all critical temperatures in normal range?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is hydraulic pressure adequate?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Are brakes functioning?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Any safety interlocks active?</span></li>
+</ol>
+<p class="rvps4"><span class="rvts15">If ANY check fails:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Display error message explaining why</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Log the rejected start attempt</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wait for conditions to improve</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">If ALL checks pass:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Begin cutin sequence (we'll see this in detail later)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">May include cable untwisting first if needed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Then nacelle orientation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Then the actual power-up sequence</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">STOP Command</span></p>
+<p class="rvps4"><span class="rvts6">Tells the Controller to shut down (cutout).</span></p>
+<p class="rvps4"><span class="rvts11">Types of STOP:</span></p>
+<p class="rvps4"><span class="rvts15">Normal STOP (what you do with the button):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controlled, gradual shutdown</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces power smoothly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Disconnects at zero or low power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade pitch to feather position</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Apply brakes gently</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Takes 30-90 seconds typically</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Emergency STOP (if something goes wrong):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Much faster</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">May use emergency brake (not ideal)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Prioritizes safety over gentleness</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can stress components but necessary</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The "Manual STOP" incident:</span></p>
+<p class="rvps4"><span class="rvts6">When you press STOP:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Creates incident: "Manual STOP"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Remains in "Open Incidents"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Must be acknowledged (OK checkbox) before START will work</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This prevents accidental or premature restart</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Manual Yaw Control</span></p>
+<p class="rvps4"><span class="rvts6">When turbine is stopped, you can manually control nacelle orientation:</span></p>
+<p class="rvps4"><span class="rvts11">The yaw buttons:</span></p>
+<p class="rvps4"><span class="rvts6">In normal operation (turbine running):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Yaw Left" and "Yaw Right" buttons are </span><span class="rvts11">grayed out</span><span class="rvts6"> (inactive)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Automatic yaw control is in charge</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">When stopped:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Buttons become </span><span class="rvts11">active</span><span class="rvts6"> (you can click them)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Press and hold "Yaw Left" → nacelle rotates counterclockwise</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Press and hold "Yaw Right" → nacelle rotates clockwise</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Release button → rotation stops</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Safety limits still apply:</span></p>
+<p class="rvps4"><span class="rvts6">Even in manual mode:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can't exceed max cable twist (±2.5 turns)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If approaching limit, that direction becomes disabled</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Grid must be available (yaw motors need power!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">When you'd use manual yaw:</span></p>
+<p class="rvps4"><span class="rvts15">Initial positioning:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">After maintenance, setting starting orientation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Positioning for blade work (park blades vertically)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Troubleshooting:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Testing yaw motors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Checking for mechanical binding</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Verifying position sensors</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Not for normal operation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Automatic yaw control is always better</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Manual should only be used when necessary</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">4. View Operating Parameters</span></p>
+<p class="rvps4"><span class="rvts6">The Control Terminal displays key operating parameters:</span></p>
+<p class="rvps4"><span class="rvts11">DriveTrain parameters:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Moment of Inertia:</span><span class="rvts6"> How much rotational "mass" the system has</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Affects acceleration/deceleration rates</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Displayed in kg·m²</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Typically 3,500,000 kg·m² for this simulator</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Air Density:</span><span class="rvts6"> Current atmospheric density</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Affects power extraction (denser air = more power)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Varies with temperature, pressure, humidity, altitude</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Typically displayed in kg/m³</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Standard: 1.225 kg/m³ at sea level, 15°C</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Cp (Power Coefficient):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">How efficiently the blades are extracting power from wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Theoretical maximum: 0.59 (Betz limit)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Practical maximum: 0.45-0.50 for modern blades</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Real-time value shown</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Varies with wind speed, RPM, and pitch angle</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Generator Connection Mode:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Large Generator" (4-pole, 1500 RPM synchronous speed)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">"Small Generator" (6-pole, 1000 RPM synchronous speed)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Control System Status:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Which state machines are in which states</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Recent events</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Active control algorithms</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">5. Access Detailed Information</span></p>
+<p class="rvps4"><span class="rvts6">Beyond the main screen, the Control Terminal provides access to:</span></p>
+<p class="rvps4"><span class="rvts11">System Logs:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Complete history of all events</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can filter by date, type, severity</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Export to file for analysis</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Sensor Raw Data:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Every sensor value</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Update rates</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Health status of sensors</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calibration information</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Internal Signals:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controller calculations</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Intermediate values</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Algorithm states</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Not normally visible in actual turbines!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Performance Statistics:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Energy production summaries</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Availability percentage</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Downtime analysis</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Fault frequency statistics</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">6. Change Operating Parameters</span></p>
+<p class="rvps4"><span class="rvts11">Access Levels:</span></p>
+<p class="rvps4"><span class="rvts6">Not everyone can change everything! The Control Terminal has multiple access levels:</span></p>
+<p class="rvps4"><span class="rvts11">Level 1 - Operator (basic):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can view status</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can START/STOP</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can acknowledge incidents</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can use manual yaw</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Cannot</span><span class="rvts6"> change parameters</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Level 2 - Technician:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Everything in Level 1, plus:</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can change some operational parameters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can run diagnostic tests</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can access detailed logs</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Cannot</span><span class="rvts6"> change safety-critical parameters</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Level 3 - Engineer:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Everything in Level 2, plus:</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can change safety parameters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can modify control algorithms</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can update firmware</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can disable safety interlocks (temporarily, for testing)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Level 4 - Manufacturer:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Full access to everything</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can change factory settings</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can recalibrate sensors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Usually password-protected</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Often requires manufacturer's remote authorization</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Example - changing a parameter:</span></p>
+<p class="rvps4"><span class="rvts6">Let's say a technician wants to change the maximum cable twist before automatic untwisting:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Log in</span><span class="rvts6"> with technician credentials</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Navigate</span><span class="rvts6"> to Parameters menu</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Find</span><span class="rvts6"> "ControllerYawing.MaxCableTwist"</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Current value:</span><span class="rvts6"> 2.5 turns</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Click</span><span class="rvts6"> to edit</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Enter</span><span class="rvts6"> new value: 2.0 turns</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Confirm</span><span class="rvts6"> (are you sure?)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Log</span><span class="rvts6"> the change (who, when, old value, new value)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Apply</span><span class="rvts6"> - takes effect immediately</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Safety mechanisms:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can only change within allowed range (min/max)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Some changes require turbine to be stopped</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Critical changes may require manufacturer authorization code</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">All changes are logged (audit trail)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Usually can revert to factory defaults</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">What You See on the Control Terminal Screen</span></p>
+<p class="rvps4"><span class="rvts6">Let's describe the typical layout (based on the simulator):</span></p>
+<p class="rvps4"><span class="rvts11">Top Section - Status Summary:</span></p>
+<p class="rvps4"><span class="rvts6">Quick overview of key information:</span></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2087.svg"></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2086.svg"></p>
+<p class="rvps17"><span class="rvts24">Wind: 8.2 m/s &nbsp; &nbsp;Direction: 247° &nbsp; &nbsp;Effective Wind: 8.1 m/s</span></p>
+<p class="rvps18"><span class="rvts24">Nacelle Orientation: 245° &nbsp; &nbsp;Cable Twist: +1.2 turns</span></p>
+<p class="rvps18"><span class="rvts24"><br/></span></p>
+<p class="rvps18"><span class="rvts24">Blade Speed: 18.3 RPM &nbsp; &nbsp;Generator Speed: 1,456 RPM</span></p>
+<p class="rvps18"><span class="rvts24">Blade Pitch: 2.4° &nbsp; &nbsp;Power: 847 kW &nbsp; &nbsp;Power Factor: 0.89</span></p>
+<p class="rvps18"><span class="rvts24"><br/></span></p>
+<p class="rvps19"><span class="rvts24">Generator: Large (4-pole) &nbsp; &nbsp;Grid: Connected</span></p>
+<p class="rvps4"><span class="rvts11">Middle Section - Detailed Status:</span></p>
+<p class="rvps4"><span class="rvts6">More comprehensive information:</span></p>
+<p class="rvps4"><span class="rvts11">Current Operation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">State Machine status (both Operation and Security)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Latest events received</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Active control algorithms</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Temperatures:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 87°C (normal &lt;150°C)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gearbox: 68°C (normal &lt;80°C)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor Bearing: 52°C (normal &lt;80°C)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ambient: 22°C</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">System Status Indicators:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Thyristors: Active / Inactive</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bypass: Connected / Open</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Brake: Released / Applied</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw Left motor: Off</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw Right motor: Off</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hydraulic Pump: Running / Stopped</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Grid Phases: F1 ✓ F2 ✓ F3 ✓</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Overspeed Detection: HCU ✓ VCU ✓</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Vibrations: Normal</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Bottom Section - Incidents and Messages</span></p>
+<p class="rvps4"><span class="rvts11">Tabs:</span></p>
+<p class="rvps4"><span class="rvts15">Open Incidents:</span><span class="rvts6"> Shows current problems requiring attention:</span></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2085.svg"></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2084.svg"></p>
+<p class="rvps17"><span class="rvts24">| OK | Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Start Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Recovered Time &nbsp; &nbsp; &nbsp;|</span></p>
+<p class="rvps18"><span class="rvts24">|----|--------------------------------|---------------------|---------------------|</span></p>
+<p class="rvps19"><span class="rvts24">| [ ]| Manual STOP &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| 2025-10-11 09:15:23 | - &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; |</span></p>
+<p class="rvps4"><span class="rvts15">Incident History:</span><span class="rvts6"> Shows resolved incidents:</span></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2083.svg"></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2082.svg"></p>
+<p class="rvps17"><span class="rvts24">| Description &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Start Time &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| Recovered Time &nbsp; &nbsp; &nbsp;| Acknowledged |</span></p>
+<p class="rvps18"><span class="rvts24">|--------------------------|---------------------|---------------------|--------------|</span></p>
+<p class="rvps18"><span class="rvts24">| Grid Phase Lost &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;| 2025-10-10 14:23:47 | 2025-10-10 14:24:15 | 14:25:30 &nbsp; &nbsp;|</span></p>
+<p class="rvps18"><span class="rvts24">| Cutout Due to Grid Fault | 2025-10-10 14:23:49 | 2025-10-10 14:24:20 | 14:25:30 &nbsp; &nbsp;|</span></p>
+<p class="rvps19"><span class="rvts24">| Wind &gt; Max for Operation | 2025-10-09 18:45:12 | 2025-10-09 19:23:45 | 19:30:15 &nbsp; &nbsp;|</span></p>
+<p class="rvps4"><span class="rvts15">Messages/Events:</span><span class="rvts6"> Real-time stream of what's happening:</span></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2081.svg"></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2080.svg"></p>
+<p class="rvps17"><span class="rvts24">2025-10-11 10:23:45.234 - Yaw Left Motor Activated</span></p>
+<p class="rvps18"><span class="rvts24">2025-10-11 10:23:52.567 - Yaw Left Motor Stopped</span></p>
+<p class="rvps18"><span class="rvts24">2025-10-11 10:23:53.123 - Nacelle Aligned (error: 1.2°)</span></p>
+<p class="rvps18"><span class="rvts24">2025-10-11 10:24:15.456 - Brake Pressure: 75 bar</span></p>
+<p class="rvps19"><span class="rvts24">2025-10-11 10:24:16.789 - Brake Released Sensor: Active</span></p>
+<p class="rvps4"><span class="rvts6">This continuous log helps you understand exactly what the Controller is doing and why.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">State Machine Status Display</span></p>
+<p class="rvps4"><span class="rvts6">This is a particularly important and interesting part of the display:</span></p>
+<p class="rvps4"><span class="rvts11">Operation State Machine:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current State: "SGG" (Stable production, Large Generator)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Last Event: "EBypassL" (Bypass connected, Large generator)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Security State Machine:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current State: "SS0BypassOn" (Normal operation, bypass on)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Last Event: "EBypassOn" (Bypass was connected)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">For those learning how the Controller works, this is invaluable! You can see exactly:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Where the Controller is in its decision tree</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What event caused it to get there</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">What transitions are possible from current state</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">We'll explore these state machines in detail in the Practical Labs section.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">In Practice - A Day with the Control Terminal</span></p>
+<p class="rvps4"><span class="rvts11">Morning arrival at the wind farm:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Check on each turbine:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Drive to tower base</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Connect Control Terminal (or view panel terminal)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Quick status check:</span></li>
+  <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: square;">
+   <li class="rvps14 noindent"><span class="rvts6">Any open incidents? → Investigate</span></li>
+   <li class="rvps14 noindent"><span class="rvts6">Production OK? → Note power output</span></li>
+   <li class="rvps14 noindent"><span class="rvts6">Any unusual temperatures? → Monitor</span></li>
+  </ul>
+  <li class="rvps12 noindent"><span class="rvts6">Takes 2-3 minutes per turbine</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Found a problem - one turbine stopped:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Open Incidents shows: "Generator Temperature &gt; 140°C"</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Recovered: Yes (temperature now 95°C)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">What happened?</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Check Incident History</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">See related event 2 hours ago: "Cooling Fan Failed"</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Ah! Fan failed, generator got hot, shutdown occurred</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Fan has since restarted (automatically retried)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Temperature came down</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Decision time:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Acknowledge the incidents</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Press START</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Monitor for 30 minutes to ensure stable</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">If temperature stays normal → OK</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">If rises again → Fan needs replacement, take turbine offline</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">During scheduled maintenance:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Taking turbine offline for blade inspection:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Press STOP on Control Terminal</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Wait for complete shutdown</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Verify: Blade Pitch = 90° (feathered)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Verify: Brake = Applied</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Verify: Generator Speed = 0 RPM</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Position blades for inspection:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Use Manual Yaw to orient nacelle</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Need blade #1 pointing straight up</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Watch 3D view or reference marks</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Lock yaw brake when positioned</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Perform inspection</span><span class="rvts6"> (blade team does their work)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Restart after maintenance:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Clear "Manual STOP" incident</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Press START</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Monitor startup sequence</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Verify normal operation</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Document maintenance in log</span></li>
+ </ul>
+</ol>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Why the Control Terminal Matters</span></p>
+<p class="rvps4"><span class="rvts6">The Control Terminal is your window into the turbine's "mind":</span></p>
+<p class="rvps4"><span class="rvts11">For Operations:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Know what every turbine is doing</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Catch problems early</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Make informed decisions about production</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">For Maintenance:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Diagnose faults quickly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Monitor repairs in real-time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Verify fixes worked</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">For Optimization:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Analyze performance data</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Adjust parameters for site conditions</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Maximize energy production</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">For Safety:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Ensure all safety systems working</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Review incident patterns</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Prevent dangerous situations</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">For Learning:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">See exactly how the turbine operates</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Understand control algorithms</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Train new technicians</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">In the simulator, the Control Terminal is even more powerful because you can:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">See internal signals not available in real turbines</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Force failure conditions safely</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Experiment with parameters</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Learn without consequences!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts16"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

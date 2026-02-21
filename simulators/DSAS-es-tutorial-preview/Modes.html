@@ -1,0 +1,135 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Modos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="vueltas de los cables, , operaci&oacute;n de orientaci&oacute;n">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Modes");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Modos</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Simulador de Aerogenerador con Active Stall y Dos Velocidades</a> &rsaquo;&rsaquo; <a href="Simulacion.html">Alcance de la Simulaci&oacute;n</a> &rsaquo;&rsaquo; <a href="Controller.html">Controlador</a> &rsaquo;&rsaquo; <a href="Algorithms.html">Algoritmos utilizados</a> &rsaquo;&rsaquo; <a href="Yawingofthenacelle.html">Algoritmos de control de la orientacion y de desenrolle de Cables de Potencia</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Yawingofthenacelle.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Yawingofthenacelle.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Controlmodes.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">El Controlador permite dos modos de funcionamiento en relación con las funcionalidades de orientación de la Góndola:</span></p>
+<p class="rvps4"><span class="rvts11">a) Manual.</span></p>
+<p class="rvps4"><span class="rvts11">b) Automático.</span></p>
+<p class="rvps4"><span class="rvts11">En modo "Manual", el operador puede utilizar los botones del "Control Terminal" o Terminal de Control, asociados a "Giro manual". Ver siguiente figura.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/ControlTerminal-espanol-en-produccion.jpg"></p>
+<p class="rvps4"><span class="rvts11">Fig 1</span></p>
+<p class="rvps4"><span class="rvts11">En producción estos dos botones están "no activos", como se muestra en en la Fig 1, arriba.</span></p>
+<p class="rvps4"><span class="rvts11">Para que pasen a "activos" es necesario desconectar el aerogenerador de la Red, Botón "STOP".</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/ControlTerminal-espanol-parado.jpg"></p>
+<p class="rvps4"><span class="rvts11">Fig 2</span></p>
+<p class="rvps4"><span class="rvts11">En modo de orientación "Manual", el proceso de control en el Controlador sigue monitorizando el valor del numero de vueltas de los cables de potencia, y no permite que se supere el máximo, en cualquiera de las dos direcciones.</span></p>
+<p class="rvps4"><span class="rvts11">En modo "Automático" el Controlador toma decisiones sobre el desenrrolle de cables con varios criterios.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">In Automatic mode the behavior of the yawing system takes into consideration the state the WindTurbine. The main target is to keep the WindTurbine in production as long as possible and also to reduce the consumption of power (the yawing motors consume power that is borrowed from the produced power - if in production - or taken &nbsp;from the Grid if the generator is disconnected).</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">If the wind speed is below a limit (parameter) then it is not wise to spend energy putting the WindTurbine facing the wind. A typical value for this limit is 2.3 m/s. Above this limit, the criteria is: it makes sense first orient the Nacelle as, most probably, the wind will grow enough for trying a cutin process in short time.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">If the decision is for "orienting" the Nacelle then the next criteria relates to the cables' turns. If at the beginning of the orienting process these turns are bigger than a certain limit (another parameter), then, before starting orientation, makes sense untwist the cables. Once untwisted the orientation process continues. A typical value for this limit is related to the maximum number of turns the cables support. If this number is, say, 3.5 turns, then a good limit for untwist before orienting, and before trying to cutin, is around half, say, 2.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Of course the Controller, in Automatic mode, monitors continuously the maximum limit of turns for the cables but do not act unless the limit switch is activated. If that happens the WindTurbine will stop immediately, registering an "incidence" that generate a STOP Sequence of level 5. This level of STOP is the softest, meaning that the Controller will change the Pitch to get a negative value of power (therefore the DriveTrain will start slowing down), till the Generator speed will reach the synchronous value, moment at which the Bypass contactor will be opened with minimum stress (ie, zero or minimum current passing through it, minimizing the arcs inside it), and the DriveTrain will continue slowing down, till its speed reaches an idle value. At that moment, if wind speed is valid for cutin, the automatic untwisting of the cables will take place as explained above.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

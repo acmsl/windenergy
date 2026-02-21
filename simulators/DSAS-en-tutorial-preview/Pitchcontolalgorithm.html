@@ -1,0 +1,114 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Pitch control algorithm</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="pitch, algorithms">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Pitchcontolalgorithm");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Pitch control algorithm</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description of the Simulator</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Emulated Wind Turbine</a> &rsaquo;&rsaquo; <a href="Controller.html">Controller</a> &rsaquo;&rsaquo; <a href="Algorithms.html">Algorithms</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Algorithms.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Algorithms.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Controllingtheconnectiontothegri.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The pitch of the Blades is controlled via a hydraulic or electrical actuator located in the Nacelle. This actuator receives a command signal from the Controller. This actuator replicates the commanded value to the three Blades. There are procedures to counteract the possible differences among the three Blades. Those procedures involve mechanical and electronic adjustments. The service personnel can set the Wind Turbine to specific states where those adjustments can be ready made.</span></p>
+<p class="rvps4"><span class="rvts11">The policies that the Controller uses for setting the value of the pitch depends on the state and situations. Conceptually, as explained in </span><a class="rvts41" href="PhysicsofaWindTurbine.html">Physics of a Wind Turbine</a><span class="rvts11">, the pitch controls the forces that permits the acceleration or deceleration of the rotation of the Hub with the Blades.</span></p>
+<p class="rvps4"><span class="rvts11">Acceleration occurs when the Wind Turbine tries to reach the connection with the Grid (cutin). The conditions are to arrive to that situation in the fastest way but taking into consideration two aspects: a) the stress supported by the whole DriveTrain and, specially, the Blades, and b) that the acceleration should not overcome a limit fixed by the generator imantation process.</span></p>
+<p class="rvps4"><span class="rvts11">Deceleration occurs when the Controller wants to stop the whole DriveTrain. There is a lot of kinetic energy stored in the DriveTrain when the generator is disconnected from the Grid (cutout). This energy is passed back to the air forcing the Blades to an angle that oppose its turning around the Hub shaft. In order to understand how this happen you have to look at the </span><a class="rvts41" href="Aerodynamiccoefficient.html">Cp</a><span class="rvts11"> (aerodynamic coefficient) of the blade, a value to which the torque produced by the wind is proportional.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

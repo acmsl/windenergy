@@ -1,0 +1,137 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Introduction</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Introduction");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Introduction</h1>
+				
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="TutorialOrganization.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Two-Speed Active Stall Wind Turbine Simulator</span></p>
+<p class="rvps4"><span class="rvts11">Introduction</span></p>
+<p class="rvps4"><span class="rvts6">This tutorial introduces the "Two-Speed Active Stall Wind Turbine Simulator," part of ACM SL's Real-Time Wind Turbine Simulator series.</span></p>
+<p class="rvps4"><span class="rvts11">What does this simulator model?</span></p>
+<p class="rvps4"><span class="rvts6">The simulator recreates wind turbines that use:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Squirrel cage generators</span><span class="rvts6"> - a simple, robust type of electric generator, with the stator connected directly to the power grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Active Stall control</span><span class="rvts6"> - a method that controls power output by adjusting blade angles to intentionally reduce their aerodynamic efficiency</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Two-speed operation</span><span class="rvts6"> - as a method to adapt to an expanded range of wind speeds using two rotational speeds, using a generator with two stator windings, or two generators</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How does it work?</span></p>
+<p class="rvps4"><span class="rvts6">The Simulator runs on ACM SL's LdP platform using the "DSASr12.conf" configuration file. Think of LdP as the operating system that brings all the components together.</span></p>
+<p class="rvps4"><span class="rvts11">What can you do with it?</span></p>
+<p class="rvps4"><span class="rvts6">You can:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Send the same commands used on real wind turbines and watch how the system responds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Observe the behavior of each of the subsystems in real-time, and their interrelations</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">View detailed information from each subsystem (blades, generator, brakes, etc.)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Change parameters and signal values in real-time through visual displays called "synoptics"</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Use it as a </span><span class="rvts11">Test Bench</span><span class="rvts6"> to experiment safely without risking real equipment</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The simulator recreates realistic operating conditions you'd find in an actual wind farm. This means you can safely explore scenarios like:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Extreme wind conditions</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator overheating</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Mechanical failures in the blade pitch system</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Failures in the hydraulic system</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">...</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What type of turbine is simulated?</span></p>
+<p class="rvps4"><span class="rvts6">The wind turbine is:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">HAWT</span><span class="rvts6"> (Horizontal Axis Wind Turbine) - the blades spin around a horizontal shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Upwind-oriented</span><span class="rvts6"> - the blades face into the wind</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Three-bladed</span><span class="rvts6"> - the most common commercial design</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What will you learn?</span></p>
+<p class="rvps4"><span class="rvts6">This tutorial explains the physics and engineering principles behind wind turbines that control power using the "stalling" technique—a clever way to limit power output in high winds by reducing blade efficiency.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

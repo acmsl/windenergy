@@ -1,0 +1,125 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Du Moyeu</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", ">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Hub1");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Du Moyeu</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description du Simulateur</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Simulateurs de sous-syst&egrave;mes dans l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="ProcessesinNacelleEmulator.html">Simulateus des sous-syst&egrave;mes physiques</a> &rsaquo;&rsaquo; <a href="DriveTrain.html">Simulateur de la Cha&icirc;ne de puissance m&eacute;canique</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DriveTrain.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DriveTrain.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Gearbox.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Le Hub est l'élément de l'éolienne où les pales sont attachées, et qui contient le mécanisme régissant le pas à chaque pale.</span></p>
+<p class="rvps4"><span class="rvts11">Les mécanismes de Pitch peuvent être communs à toutes les pales, ou peuvent en avoir un, indépendant, pour chacun d'eux. Voir </span><a class="rvts15" href="Blades.html">mécanisme de pitch.</a></p>
+<p class="rvps4"><span class="rvts11">Une caractéristique clé de ces mécanismes est la vitesse maximale de changement de l'angle de pas. Le NacelleEmulator émule cette fonctionnalité à l'aide du paramètre BladeSlewRate. En conséquence, même si le contrôleur commande un changement très rapide de cet angle, la valeur que l'émulateur affichera réellement sera affectée par cette limite. Voir la figure ci-dessous.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem65.png"></p>
+<p class="rvps4"><span class="rvts11">En modifiant ce paramètre, il est possible de simuler des défauts dans le mécanisme de hauteur ou dans sa connexion avec le contrôleur. Par exemple, si la valeur de ce paramètre est 0, alors l'angle de pas des pales ne changera pas lorsque le contrôleur essaiera de le changer, générant ainsi l'incidence correspondante.</span></p>
+<p class="rvps4"><span class="rvts11">Le régler à une valeur faible peut simuler un problème tel un frottement excessif dans la partie mécanique du mécanisme.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">&nbsp;</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Observacion del efecto de una bomba con funcionamiento no correcto</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ObservacionBombaConFallo");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Observacion del efecto de una bomba con funcionamiento no correcto</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; <a href="ObservacionCircuitoHidraulico.html">Monitorizacion del circuito hidr&aacute;ulico de Frenos</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ObservacionCircuitoHidraulico.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ObservacionPerdidasCircuitoHidra.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ObservacionValvualConFallo.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">En esta práctica se trata de ver como es el protocolo implementada por el Controlador para detectar que la bomba tiene algún problema. La bomba puede tener varios problemas:</span></p>
+<p class="rvps4"><span class="rvts11">a) puede tener 'perdidas de presión' cuando no está activada. Este caso se presenta en la clase </span><a class="rvts47" href="ObservacionPerdidasCircuitoHidra.html">Observacion de un fallo excesivo de perdida de presion en el circuito</a><span class="rvts11"> .</span></p>
+<p class="rvps4"><span class="rvts11">b) puede que haya perdido capacidad de impulso, o sea que el caudal no sea el debido cuando está activada.</span></p>
+<p class="rvps4"><span class="rvts11">c) también pueden existir problemas eléctricos, por ejemplo un fusible de protección.</span></p>
+<p class="rvps4"><span class="rvts11">d) etc.</span></p>
+<p class="rvps4"><span class="rvts11">En el aerogenerador en el que está basado este simulador, el mecanismo de detección de comportamiento normal de la bomba y sus accesorios se detecta por el tiempo que tarda en elevar la presión del circuito hidráulico por encima de la zona verde correspondiente al presostato. Este método no discierne entre todos las posibles causas sin embargo, es un procedimiento muy fiable y que no usa sensores que haya que calibrar.</span></p>
+<p class="rvps4"><span class="rvts11">En este simulador, todos estos problemas se emulan utilizando el parámetro "</span><span class="rvts13">NacelleBrake.PumpCaudal"</span><span class="rvts94">.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; </span><img alt="" style="padding : 1px;" src="lib/parametro-pump-caudal-a-05.jpg"></p>
+<p class="rvps4"><span class="rvts11">Fig 1.</span></p>
+<p class="rvps4"><span class="rvts11">Debe asegurarse de que el aerogenerador está en producción (conectado a la Red) y observar el indicador de "</span><span class="rvts15">Pres. circ. frenos</span><span class="rvts11">" en el sinóptico "</span><span class="rvts15">SynopticDriveTrain</span><span class="rvts11">". Así mismo asegúrese que tiene un registrador con el panel "</span><span class="rvts15">Circuito hidraulico de frenos</span><span class="rvts11">".</span></p>
+<p class="rvps4"><span class="rvts11">Para crear la situación de fallo podemos decrementar el valor por defecto (5 en un máximo de 100) a un valor 50 veces inferior (0,1). Para cambiar el valor siga las instrucciones descritas en </span><a class="rvts47" href="Cambiodelasconexionesdelaconfigu.html">Cambio del valor de un parametro</a><span class="rvts11"> &nbsp;.</span></p>
+<p class="rvps4"><span class="rvts11">Verá que el Controlador emite un incidencia con descripción "</span><span class="rvts15">Pumping time too long</span><span class="rvts11">" (</span><span class="rvts15">mucho tiempo bombeando</span><span class="rvts11">), y desconecta el generador de la Red. Esto ocurre al cabo de bastante tiempo, ya que es necesario que la presión del circuito hidráulico caiga por debajo del valor inferior de la zona verde, de forma que el Controlador active la bomba.</span></p>
+<p class="rvps4"><span class="rvts11">En el registrador verá una evolución de las señales similar a la de la figura siguiente.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/registrador-circuitohidraulico-bomba-sincauda.jpg"></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

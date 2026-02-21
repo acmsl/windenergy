@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Dropping from high to low wind speed</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Droppingfromhightolowwindspeed");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Dropping from high to low wind speed</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; <a href="Reactingtochangesofthewindspeed.html">Reacting to changes of the wind speed</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Reactingtochangesofthewindspeed.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Reactingtochangesofthewindspeed.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Changingfromlowtohighwindspeed.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">1- Follow the first 6 steps of the instructions in the section "Setting the conditions for a Wind Turbine to start operation".</span></p>
+<p class="rvps4"><span class="rvts11">In the last step, set a wind of 7 m/s in order to start a cutin in Large mode.</span></p>
+<p class="rvps16"><span class="rvts11">HINT: as we will use specific values of wind, you should guide the wind direction with the Nacelle to get a perfect matching between the effective wind and the value introduced in the wind widget.</span></p>
+<p class="rvps16"><span class="rvts11">HINT: with the PgUp/PgDwn keys change the wind speed in 1 m/s steps and ArrowUp/ArrowDwn in 0.1 m/s</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">2- After cutin with a wind of 7 m/s with the default parameters the "RPMs Gen" should be around 1502 rpms.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">3- Go to the Synoptic SynopticWindNacelle at click with the mouse in the "Wind speed" widget to change the wind speed value to 6.4 m/s using the "ArrowDwn". You will see taht the "RPMs Gen" slow down a little, as well as the Gen Power, and nothing &nbsp;more happens. Now change the wind speed to &nbsp;6.0 m/s and see that after a few seconds the Controller sequences a change to Small as you can see in the strip recorder.</span></p>
+<p class="rvps4"><span class="rvts11">You should get a striprecorder view similar to the one shown in next figure, where you can verify that the Controller :&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1. Reduces the Pitch during a short time so the Production practically drops to zero, at which moment (no current through the Bypass) it sets the Bypass &nbsp;to Off. The contactors for Large and Small can be changed now because the Generator is disconnected from the Grid.</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2. Sets Pitch will pass to -15º , to slow down the rotor looking to arrive to 1000 rpms.</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3. It lets the rpms to drop below the target (1.000 rpms) , till approx.. 950 rpms.</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4. At that moment sets the Pitch to a high value (around 0º) so the rotor speed will grow again, approaching 1.000 rpms from below.</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;5. Near 1000 rpms the Thyristors will start conducting again to achieve a </span><a class="rvts41" href="Softconnectiontothegrid.html">soft Grid coupling</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;6. After 3 seconds (approx.) the Bypass will be set On again, so the Wind Turbine will be again in production, with a "RPMs Gen" about 1005,8 rpms.&nbsp;</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/NewItem150.png"><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
