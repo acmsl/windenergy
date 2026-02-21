@@ -74,7 +74,7 @@ body {
   flex-wrap: wrap;
 }
 
-.tut-header nav a {
+.tut-header-row nav a {
   color: white;
   text-decoration: none;
   padding: 0.25rem 0.65rem;
@@ -84,11 +84,11 @@ body {
   transition: background 0.2s;
 }
 
-.tut-header nav a:hover {
+.tut-header-row nav a:hover {
   background: rgba(255,255,255,0.25);
 }
 
-.tut-header nav a.active {
+.tut-header-row nav a.active {
   background: rgba(255,255,255,0.3);
   font-weight: 600;
 }
