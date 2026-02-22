@@ -1,0 +1,161 @@
+        #topic_content {
+            /* Unificado en base.css */
+        }
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Por qué giran las palas de un aerogenerador?</title>
+    <meta name="description" content="Explicación didáctica sobre el principio aerodinámico que hace girar las palas de un aerogenerador">
+    <meta name="keywords" content="aerogenerador, palas, sustentación, energía eólica, principio aerodinámico">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+        
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("WhythebladesinaWindTurbineturn");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">¿Por qué giran las palas de un aerogenerador?</h1>
+        </div>
+        
+        <div id="topic_header_nav">
+            <a href="Introduction.html"><img src="img/arrow_left.png" alt="Anterior"/></a>
+            <a href="ComparisonofcutinindifferentWind.html"><img src="img/arrow_right.png" alt="Siguiente"/></a>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objetivo de aprendizaje</h3>
+            <p>Al finalizar esta sección, comprenderás el principio físico fundamental que permite la conversión de la energía cinética del viento en energía mecánica rotacional en un aerogenerador.</p>
+        </div>
+
+        <h2>Introducción: El papel de las palas en el aerogenerador</h2>
+        
+        <p>Las palas son los elementos clave donde se produce la <span class="key-concept">conversión de energía</span> en un aerogenerador. Específicamente, las palas transforman parte de la <span class="key-concept">energía cinética del viento</span> en <span class="key-concept">energía cinética rotacional</span> del tren de potencia (drivetrain) del aerogenerador.</p>
+
+        <h2>¿Cómo se produce esta conversión?</h2>
+        
+        <p>Esta conversión energética ocurre gracias a las <span class="key-concept">fuerzas aerodinámicas</span> que se generan cuando el viento atraviesa las palas. Estas fuerzas provocan el movimiento rotacional del rotor.</p>
+
+        <div class="didactic-box">
+            <h3>💭 Concepto erróneo común</h3>
+            <p>A primera vista, podría parecer que las fuerzas del viento simplemente "empujan" las palas de forma perpendicular al plano de rotación, como si el viento golpeara contra una pared vertical que gira.</p>
+            <p><strong>Sin embargo, esta explicación es incorrecta.</strong> El principio real de funcionamiento es mucho más sofisticado y eficiente.</p>
+        </div>
+
+        <h2>El principio aerodinámico real: Sustentación</h2>
+        
+        <p>El verdadero motivo por el que giran las palas <strong>no es intuitivo</strong>, pero es fundamental comprenderlo para entender el funcionamiento de un aerogenerador.</p>
+
+        <div class="important-note">
+            <h3>⚡ Principio clave</h3>
+            <p>Las palas de un aerogenerador funcionan siguiendo un principio similar al que permite que los <strong>aviones se sustenten en el aire durante el vuelo</strong>.</p>
+            <p>Este principio se basa en la generación de <span class="key-concept">fuerzas de sustentación</span> producidas por el perfil aerodinámico de las palas.</p>
+        </div>
+
+        <h2>Profundiza en el concepto</h2>
+        
+        <p>Para comprender en detalle este fascinante principio físico, te recomendamos revisar la explicación completa en el tutorial:</p>
+        
+        <div class="didactic-box">
+            <p>📚 <a class="rvts12" href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C5768797468654875627475726E732E68746D6C65"><strong>"¿Por qué giran las palas?"</strong></a> - Tutorial completo</p>
+            <p>En este tutorial encontrarás:</p>
+            <ul>
+                <li>Explicación detallada del perfil aerodinámico de las palas</li>
+                <li>Comparación con el ala de un avión</li>
+                <li>Diagramas de fuerzas y vectores de velocidad</li>
+                <li>Conceptos de sustentación y resistencia aerodinámica</li>
+            </ul>
+        </div>
+
+        <h2>Resumen de conceptos clave</h2>
+        
+        <div class="didactic-box">
+            <h3>📝 Puntos importantes para recordar:</h3>
+            <ol>
+                <li>Las palas convierten energía cinética del viento en energía rotacional</li>
+                <li>Esta conversión se produce mediante fuerzas aerodinámicas</li>
+                <li>El principio NO es simplemente "empuje" del viento</li>
+                <li>El principio real es similar a la sustentación de un avión</li>
+                <li>El perfil aerodinámico de las palas es esencial para este funcionamiento</li>
+            </ol>
+        </div>
+
+        <h2>Actividades sugeridas</h2>
+        
+        <div class="learning-objective">
+            <h3>🔬 Para consolidar tu aprendizaje:</h3>
+            <ol>
+                <li>Revisa el tutorial completo sobre el principio de sustentación</li>
+                <li>Compara el perfil de una pala de aerogenerador con el ala de un avión</li>
+                <li>Identifica las principales fuerzas que actúan sobre una pala en rotación</li>
+                <li>Reflexiona sobre por qué este principio es más eficiente que el simple "empuje"</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción - Experimentos con Aerogeneradores</title>
+    <meta name="description" content="Introducción a los experimentos virtuales con aerogeneradores">
+    <meta name="keywords" content="aerogeneradores, simulación, experimentos virtuales, energía eólica">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+        #topic_header_content {
+			padding-left: 40px;    /* NUEVO - para alinear con el contenido */
+		}
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+			padding-left: 40px;    /* NUEVO - separación del splitter */
+			padding-right: 30px;
+        }
+        
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .welcome-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .objectives-list {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        
+        .objectives-list li {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("Introduction");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Introducción a los Experimentos con Aerogeneradores</h1>
+        </div>
+        
+        <div id="topic_header_nav">
+            <a href="WhythebladesinaWindTurbineturn.html"><img src="img/arrow_right.png" alt="Siguiente"/></a>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div id="topic_content">
+        <div class="welcome-box">
+            <h2 class="welcome-title">🌬️ Bienvenido al Laboratorio Virtual de Aerogeneradores</h2>
+            <p class="welcome-highlight">Este manual te guiará a través de una serie de experimentos prácticos diseñados para comprender el funcionamiento de diferentes tecnologías de aerogeneradores mediante simulación virtual.</p>
+        </div>
+
+        <h2>¿Qué encontrarás en este manual?</h2>
+        
+        <p>Este documento contiene la descripción detallada de <span class="key-concept">experimentos prácticos</span> que puedes realizar utilizando la suite de simuladores <span class="key-concept">Wind Farm Simulator</span>. Estos simuladores funcionan como <span class="key-concept">bancos de trabajo virtuales (Virtual Work Benches)</span> que te permiten experimentar con diferentes tipos de aerogeneradores sin necesidad de equipamiento físico.</p>
+
+        <div class="simulator-info">
+            <h3>💻 Sobre Wind Farm Simulator</h3>
+            <p><strong>Wind Farm Simulator</strong> es una suite de simuladores educativos que reproduce el comportamiento de diferentes familias de aerogeneradores en condiciones realistas. Te permite:</p>
+            <ul>
+                <li>Observar el comportamiento de los sistemas en tiempo real</li>
+                <li>Modificar parámetros operativos y de configuración</li>
+                <li>Realizar mediciones y comparaciones</li>
+                <li>Experimentar con diferentes condiciones de viento</li>
+                <li>Analizar el rendimiento de distintas tecnologías</li>
+            </ul>
+        </div>
+
+        <h2>Estructura del manual</h2>
+        
+        <p>Cada experimento en este manual incluye:</p>
+        
+        <div class="objectives-list">
+            <h3>📋 Componentes de cada experimento:</h3>
+            <ul>
+                <li><strong>Objetivos de aprendizaje:</strong> Qué aprenderás al completar el experimento</li>
+                <li><strong>Fundamentos teóricos:</strong> Conceptos necesarios para comprender el experimento</li>
+                <li><strong>Procedimiento paso a paso:</strong> Instrucciones detalladas para realizar el experimento</li>
+                <li><strong>Tutoriales asociados:</strong> Enlaces a material complementario en profundidad</li>
+                <li><strong>Actividades de análisis:</strong> Tareas para consolidar el aprendizaje</li>
+            </ul>
+        </div>
+
+        <h2>Metodología de aprendizaje</h2>
+        
+        <p>Este manual está diseñado siguiendo una metodología de <span class="key-concept">aprendizaje activo</span>. No te limites a leer: el objetivo es que <strong>experimentes, observes, analices y compares</strong> los resultados obtenidos.</p>
+
+        <div class="simulator-info">
+            <h3>🎯 Enfoque pedagógico</h3>
+            <p>Los experimentos están organizados para que desarrolles una comprensión progresiva:</p>
+            <ol>
+                <li><strong>Comprensión de principios básicos:</strong> Cómo y por qué funcionan los aerogeneradores</li>
+                <li><strong>Análisis comparativo:</strong> Diferencias entre distintas tecnologías</li>
+                <li><strong>Operación y control:</strong> Sistemas de orientación, pitch y regulación</li>
+                <li><strong>Respuesta dinámica:</strong> Comportamiento ante cambios en las condiciones de viento</li>
+                <li><strong>Aspectos económicos:</strong> Costes operativos y eficiencia energética</li>
+            </ol>
+        </div>
+
+        <h2>Cómo utilizar este manual</h2>
+        
+        <div class="objectives-list">
+            <h3>📖 Recomendaciones para aprovechar al máximo:</h3>
+            <ul>
+                <li><strong>Sigue el orden propuesto:</strong> Los experimentos están secuenciados didácticamente</li>
+                <li><strong>Lee los tutoriales:</strong> Antes de cada experimento, revisa los tutoriales indicados</li>
+                <li><strong>Toma notas:</strong> Registra tus observaciones y resultados</li>
+                <li><strong>Experimenta libremente:</strong> Una vez completado un experimento, modifica parámetros y observa los efectos</li>
+                <li><strong>Compara tecnologías:</strong> Muchos experimentos te pedirán comparar diferentes tipos de aerogeneradores</li>
+            </ul>
+        </div>
+
+        <h2>Familias de aerogeneradores que estudiarás</h2>
+        
+        <p>A lo largo de los experimentos trabajarás con tres familias principales de aerogeneradores:</p>
+        
+        <div class="simulator-info">
+            <h3>⚡ Tecnologías de aerogeneradores:</h3>
+            <ol>
+                <li><strong>DSAS (Direct Stall Active Stall):</strong> Generador de jaula de ardilla conectado directamente a red, con control por pérdida aerodinámica activa</li>
+                <li><strong>RRC (Rotor Resistance Control):</strong> Generador de rotor bobinado con control por resistencia del rotor</li>
+                <li><strong>DFIG (Doubly Fed Induction Generator):</strong> Generador de inducción doblemente alimentado con convertidores back-to-back</li>
+            </ol>
+        </div>
+
+        <h2>Prerrequisitos</h2>
+        
+        <p>Para aprovechar estos experimentos, es recomendable que tengas conocimientos básicos de:</p>
+        <ul>
+            <li>Física (mecánica, electricidad)</li>
+            <li>Máquinas eléctricas rotativas</li>
+            <li>Conceptos básicos de energía eólica</li>
+        </ul>
+
+        <div class="welcome-box">
+            <h3 class="welcome-title">🚀 ¡Comencemos!</h3>
+            <p class="welcome-highlight">Estás a punto de iniciar un viaje fascinante por el mundo de la tecnología eólica. Cada experimento te acercará más a comprender cómo funcionan estas impresionantes máquinas que están transformando nuestro sistema energético.</p>
+            <p class="welcome-highlight"><strong>Haz clic en "Siguiente" para comenzar con el primer experimento.</strong></p>
+        </div>
+    </div>
+    
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>
