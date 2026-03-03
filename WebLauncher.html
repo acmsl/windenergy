@@ -890,7 +890,7 @@
       <!-- OPCIÓN 7: Tutoriales -->
       <section id="opcTutorials" data-breadcrumb="opcTutorials">
         <div class="section-header">
-          <h2 data-i18n="tutorials.directaccess.title">Direct access to the Tutorials</h2>
+          <h2 data-i18n="tutorials.directaccess.title">Direct access to the Tutorials and Practical Classes</h2>
           <p data-i18n="tutorials.directaccess.p">The Tutorials are a key component of the product line of ACM SL. They normally are associated to the Real-Time Simulators and Applications, and can be access from whitin them: here you can access them directly.</p>
         </div>
 
@@ -905,15 +905,25 @@
             </div>
           </div>
 
-          <!-- DSAS WT -->
-          <div class="sub-card" >
-            <h3 data-i18n="tutorials.dsaswt.h3">Tutorial of the "Real-Time Dual Speed Active Stall WT Simulator"</h3>
+          <!-- DSAS WT Tutorial -->
+          <div class="sub-card" id="tutorialDSAS">
+            <h3 data-i18n="tutorials.dsaswt.h3">Tutorial of the "Real-Time Two-Speed Active Stall WT Simulator"</h3>
             <p data-i18n="tutorials.dsaswt.p1">In this tutorial you will find the description of:</p>
             <p data-i18n="tutorials.dsaswt.p2">* the most common subsystems in a modern WT</p>
             <p data-i18n="tutorials.dsaswt.p3">* the description of its working conditions</p>
             <p data-i18n="tutorials.dsaswt.p4">* the basis of the asynchronous induction generator</p>
             <div class="btn-row">
-              <button id="btnTutorialDSAS" class="btn btn-primary" type="button" data-i18n="tutorials.dsaswt.button">📖 Open the "Real-Time Dual Speed Active-Stall WT Simulator" Tutorial</button>
+              <button id="btnTutorialDSAS" class="btn btn-primary" type="button" data-i18n="tutorials.dsaswt.button">📖 Open the "Real-Time Two-Speed Active Stall WT Simulator" Tutorial</button>
+            </div>
+          </div>
+
+          <!-- DSAS Exercises -->
+          <div class="sub-card" id="tutorialDSASEx">
+            <h3 data-i18n="tutorials.dsasex.h3">Practical Classes with the 'Real-Time Two-Speed Active Stall WT Simulator'</h3>
+            <p data-i18n="tutorials.dsasex.p1">These practical classes provide guided exercises with the simulator, analysing the wind turbine behaviour in its main operating conditions:</p>
+            <p data-i18n="tutorials.dsasex.p2">* Cut-in with low wind, generator speed changes (small/large generator), wind direction effects, controller state machine monitoring, hydraulic brake circuit monitoring, grid fault scenarios and strong wind behaviour.</p>
+            <div class="btn-row">
+              <button id="btnExercisesDSAS" class="btn btn-primary" type="button" data-i18n="tutorials.dsasex.button">📖 Open the Practical Classes of the 'Real-Time Two-Speed Active Stall WT Simulator'</button>
             </div>
           </div>
 
@@ -1037,7 +1047,7 @@
             <h3 data-i18n="simulator.wfscada.h3">ACMSL "Wind Farm Control Center/SCADA" Simulator</h3>
             <p data-i18n="simulator.wfscada.p">This simulator, together with its Tutorial, enables users to understand the Wind Farm components, their operational roles, and the way they interact with one another and with the Electric Grid.</p>
             <div class="btn-row">
-              <button class="btn btn-primary" type="button" onclick="runAldp('WFSSCADAr12.conf','English')">▶ Run the "Wind Farm Control Center/SCADA" Simulator</button>
+              <button class="btn btn-primary" type="button" onclick="runAldp('WFSSCADAr12.conf', t('languagename'))">▶ Run the "Wind Farm Control Center/SCADA" Simulator</button>
             </div>
           </div>
 
@@ -1195,6 +1205,8 @@
       "mindmap.windenergy.path": "Tutorials/WindEnergyMindMap.html",
       "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
       "tutorial.dsas.path": "Tutorials/DSAS.html",
+      "tutorial.dsaswt.path": "simulators/en/DSASTutorial/toc.html",
+      "tutorial.dsasexercises.path": "simulators/en/DSASExcersises/toc.html",
       "tutorial.rrc.path": "Tutorials/RRC.html",
       "tutorial.dfig.path": "Tutorials/DFIG.html",
       "languagename": "English",
@@ -1241,9 +1253,11 @@
       "mindmap.windenergy.path": "Tutoriales/MapaMentalEnergiaEolica.html",
       "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
       "tutorial.dsas.path": "Tutoriales/DSAS.html",
+      "tutorial.dsaswt.path": "simulators/es/DSASTutorial/toc.html",
+      "tutorial.dsasexercises.path": "simulators/es/DSASExcersises/toc.html",
       "tutorial.rrc.path": "Tutoriales/RRC.html",
       "tutorial.dfig.path": "Tutoriales/DFIG.html",
-      "languagename": "Español",
+      "languagename": "Spanish",
       "simuladorDFIG.50hz": "dfigr12_50hz.conf",
       "simuladorDFIG.60hz": "dfigr12_60hz.conf",
       "dfig.modal.question": "¿Qué versión desea ejecutar?",
@@ -1465,6 +1479,8 @@ function setActionButton(btnId, fn, i18nPathKeys) {
       runAldp(t(i18nPathKeys[0]), t(i18nPathKeys[1]));
     } else if (fn === 'runAfile') {
       runAfile(t(i18nPathKeys));
+    } else if (fn === 'runAwebpage') {
+      runAwebpage(t(i18nPathKeys));
     }
 
 }
@@ -1490,12 +1506,13 @@ document.addEventListener('DOMContentLoaded', function() {
   setActionButton('btnMindMap', 'runAfile', t('mindmap.windenergy.path'));
 
   setActionButton('btnTutorialWFSCADA', 'runAviewer', t('tutorial.wfscada.path'));
-  setActionButton('btnTutorialDSAS', 'runAviewer', t('tutorial.dsaswt.path'));
+  setActionButton('btnTutorialDSAS', 'runAwebpage', t('tutorial.dsaswt.path'));
+  setActionButton('btnExercisesDSAS', 'runAwebpage', t('tutorial.dsasexercises.path'));
   setActionButton('btnTutorialRRC', 'runAviewer', t('tutorial.rrcwt.path'));
   setActionButton('btnTutorialDFIG', 'runAviewer', t('tutorial.dfigwt.path'));
 
-    setActionButton('btnSimuladorDSAS', 'runAldp', ['simuladorDSAS.configuracion', 'languagename']);
-    setActionButton('btnSimuladorRRC', 'runAldp', ['simuladorRRC.configuracion', 'languagename']);
+    setActionButton('btnSimuladorDSAS', 'runAldp', ['dsasr12.conf', 'languagename']);
+    setActionButton('btnSimuladorRRC', 'runAldp', ['rrcr12.conf', 'languagename']);
   // Modal personalizado para DFIG
   function ensureDFIGModal() {
     if (document.getElementById('modalDFIG')) return;
@@ -1732,6 +1749,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const comandoHex = _toHex(param1);
         const comando = "acmsl://viewertutorial%20-n%20-h" + comandoHex;
         window.location.href = comando;
+      }
+
+      function runAwebpage(url) {
+        window.location.href = url;
       }
 
       function runAfile(param1) {
