@@ -1047,7 +1047,7 @@
             <h3 data-i18n="simulator.wfscada.h3">ACMSL "Wind Farm Control Center/SCADA" Simulator</h3>
             <p data-i18n="simulator.wfscada.p">This simulator, together with its Tutorial, enables users to understand the Wind Farm components, their operational roles, and the way they interact with one another and with the Electric Grid.</p>
             <div class="btn-row">
-              <button class="btn btn-primary" type="button" onclick="runAldp('WFSSCADAr12.conf', t('languagename'))">▶ Run the "Wind Farm Control Center/SCADA" Simulator</button>
+              <button class="btn btn-primary" type="button" onclick="runAldp('WFSSCADAr12.conf', t('languagename'))" data-i18n="simulator.wfscada.button">▶ Run the "Wind Farm Control Center/SCADA" Simulator</button>
             </div>
           </div>
 
@@ -1114,7 +1114,8 @@
           <p data-i18n="nrel.access.p1">NREL published in March 2008 this reference paper: <strong>"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation, and Initial Test - Part I: Control Design, Implementation, and Initial Tests"</strong>.</p>
           <p data-i18n="nrel.access.p2">It contains the description of algorithms required for designing Drive Trains that extract the maximum power from the existing wind.</p>
           <div class="btn-row">
-            <button class="btn btn-primary" type="button" onclick="runAfile('https://docs.nrel.gov/docs/fy08osti/42437.pdf')">📖 Acces to the paper</button>
+            <button class="btn btn-primary" type="button" 
+              onclick="window.open('https://docs.nrel.gov/docs/fy08osti/42437.pdf', '_blank')" data-i18n="nrel.access.button">📖 Acces to the paper</button>
           </div>
         </div>
 
@@ -1124,7 +1125,7 @@
           <p data-i18n="opcurve.p2">This applications permits the evaluation of algorithms that must be implemented to achieve it.</p>
           <p data-i18n="opcurve.p3">It is an engineering tool designed to analyze and define the operating conditions of a wind turbine DriveTrain based on blade type, blade length, and its coupling with the electrical generator, including synchronous speed and the selected gearbox ratio.</p>
           <div class="btn-row">
-            <button class="btn btn-primary" type="button" onclick="runAopercurv('English')">▶ Execute 'Operational Curve of Variable Speed Wind Turbines'</button>
+            <button class="btn btn-primary" type="button" onclick="runAopercurv('English')" data-i18n="opcurve.button">▶ Execute 'Operational Curve of Variable Speed Wind Turbines'</button>
           </div>
         </div>
       </section>
@@ -1141,7 +1142,7 @@
           <p data-i18n="dfigb2b.p1">This program computes all the magnetic and electric variable on the Asynchronous Induction Machine used of the Doubly Fed Induction Generator family of Wind Turbine, and also the demand placed on the Back-to-&gt;Back converter. Ideal for post-morten analysis of these converters.</p>
           <p data-i18n="dfigb2b.p2">This <a href="https://youtu.be/AfkW0Qvy8AI" target="_blank" rel="noopener noreferrer">video</a> contains a brief explanation.</p>
           <div class="btn-row">
-            <button class="btn btn-primary" type="button" onclick="runAdfig('DFIGB2B','DFIGB2B_ABB_1500KW_50Hz.conf')">▶ Run DFIGB2B</button>
+            <button class="btn btn-primary" type="button" onclick="runAdfig('DFIGB2B','DFIGB2B_ABB_1500KW_50Hz.conf')" data-i18n="dfigb2b.button">▶ Run DFIGB2B</button>
           </div>
         </div>
       </section>
@@ -1736,12 +1737,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       function runAopercurv(param1) {
-        const comando = "acmsl://operationalcurvevswt%20-v%20-name%20" + param1;
+        //const comando = "acmsl://operationalcurvevswt%20-v%20-name%20" + param1;
+        const comando = "acmsl://operationalcurvevswt?-v&name=" + param1;
         window.location.href = comando;
       }
 
       function runAdfig(nombreDeLaInstancia, fichConfiguracion) {
-        const comando = "acmsl://dfigb2b%20-v%20-name%20" + nombreDeLaInstancia + "%20-conf%20" + fichConfiguracion;
+        const comando = "acmsl://dfigb2b?conf=" + fichConfiguracion + "&instancia=" + nombreDeLaInstancia;
+        alert ("Executing command:\n" + comando);
         window.location.href = comando;
       }
 
