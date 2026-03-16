@@ -1,0 +1,115 @@
+﻿
+
+<html>
+	
+<head>
+	<title>En el proceso de desconexion (Cutout)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="cutout, estados, eventos, parada normal">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("MEstadoCutout");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">En el proceso de desconexion (Cutout)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; <a href="MaquinasDeEstado.html">Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="MaquinasDeEstado.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="MEstadoCutin.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="MEstadoCambio1000a1500.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">En esta práctica se trata de explorar la evolución de los </span><span class="rvts16">estados</span><span class="rvts11"> y </span><span class="rvts16">eventos</span><span class="rvts11"> que se producen durante un </span><span class="rvts15">parada normal</span><span class="rvts11"> (</span><span class="rvts15">cutout</span><span class="rvts11">).</span></p>
+<p class="rvps4"><span class="rvts11">Repita el experimento de la práctica </span><a class="rvts47" href="Cutout.html">Observacion de la reaccion al comando "STOP"</a><span class="rvts11"> . Asegúrese de que tiene abierto un registrador con el panel "RPMs + Pitch + Maquinas de Estados", con "Segundos por pixel xx" en 200 ms. &nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Haga un seguimiento en los gráficos de las máquinas de estados que tiene en </span><a class="rvts47" href="StateEventsDiagramsoftheimplemen.html">Máquinas de Estado de control internas</a><span class="rvts11"> . &nbsp;</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/DSAS%20cutout%20a%206%20y%20evolucion%20maquinas%20estado.jpg"></p>
+<p class="rvps2"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

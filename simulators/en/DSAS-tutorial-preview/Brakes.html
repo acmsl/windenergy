@@ -1,0 +1,120 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Yaw system</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Brakes");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Yaw system</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="WhatisaWindTurbine.html">What is a Wind Turbine</a> &rsaquo;&rsaquo; <a href="StrucutureofaWindTurbine.html">Structure of a Wind Turbine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StrucutureofaWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Brakes1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Yawbrakes1.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The Yaw system implements the following functionalities:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Orienting the Nacelle to the wind direction</span><span class="rvts11">. These is achieved with a number of motors (typically two sets of motor rotating the Nacelle in each direction, clockwise (CW) and counterclockwise (CCW).</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Keeping the Nacelle firmly attached to the Tower when its orientation is ok for the existing wind direction</span><span class="rvts11">. This is achieved with some pads that increments the friction with the Tower.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Detecting and controlling the actual number of turns of the power cables</span><span class="rvts11">. These cables fall from the Nacelle freely, so they solve the problem of connecting the Grid (at the bottom of the Tower) to a eventually turning provider: the Generator that may change position due to Nacelle orientation.&nbsp;</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Cables%20esquema%20bajada.png"></p>
+<p class="rvps4"><span class="rvts11">As the cables may twist along its longitudinal axis, they solve that problem. But there is a limit to that twist: this limit is detected typically with a </span><a class="rvts18" href="Angularenconders1.html">limit switch</a><span class="rvts11"> fixed to the Tower, and with its actuator tip attached to the power cables envelop. &nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Next figure provides a solution for Yaw system in a given Wind Turbine.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Yawsystem.png"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

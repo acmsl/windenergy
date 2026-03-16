@@ -1,0 +1,126 @@
+﻿
+
+<html>
+	
+<head>
+	<title>El Simulador como Banco de Trabajo de Laboratorio</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Controlador, framework, , banco de trabajo, , , , indicador gr&aacute;fico, bloques cableados, Nacelle emulator, enulador del controlador, modo comando, Procesos">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("TheWorkBenchusedfortheWFS");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">El Simulador como Banco de Trabajo de Laboratorio</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Simulador de Aerogenerador con Active Stall y Dos Velocidades</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="SimDSAS.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="BasicemulatorsforaWindTurbineinW.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Electricschematicviewoftheconfig.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps5"><span class="rvts6">Un simulador corresponde con la ejecución de una determinada configuración en la plataforma LdP ( </span><span class="rvts101">©</span><span class="rvts6">ACM).</span></p>
+<p class="rvps5"><span class="rvts6">Cada configuración puede especificar un numero de:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Procesos</span><span class="rvts6">:&nbsp;</span><br/><span class="rvts6">Por ejemplo, en este simulador, un proceso es la monitorización y control de la orientación de la Góndola respecto de la dirección del viento. Otro es el control del numero de vueltas de los cables de potencia. Otro es el control del Pitch, etc.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Sinópticos</span><span class="rvts6">:</span><br/><span class="rvts6">Estos constituyen la interfaz gráfica del simulador. Pueden contener Procesos. Presentan indicadores gráficos, que pueden ser también de control, para presentar los valores de determinadas variables, o cambiar sus valores.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Parámetros</span><span class="rvts6">:</span><br/><span class="rvts6">Cada uno de los procesos definidos pueden tener un determinado número de parámetros. Los Parámetros en LdP &nbsp;permiten al usuario acceder a su visualización y modificación, así como su registro. (Ver el tutorial "</span><span class="rvts17">Introduccion a LdP</span><span class="rvts6">".)</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Conexiones</span><span class="rvts6"> entre los elementos anteriores.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Striprecorders</span><span class="rvts6">:</span><br/><span class="rvts6">Estos son conjuntos de registradores gráficos de la evolución de un conjunto seleccionado de variables, diseñados específicamente para un simulador.</span></p>
+<p class="rvps5"><span class="rvts6">(Vea una descripción detallada en el tutorial "</span><span class="rvts19">Intoducción a LdP</span><span class="rvts6">").</span></p>
+<p class="rvps5"><span class="rvts6">Estos procesos se comportan como </span><span class="rvts17">replicas virtuales de elementos físicos reales en armarios eléctricos</span><span class="rvts6">, de forma que pueden ser interconectados entre sí: con bornas de salida conectados con bornas de entrada.</span></p>
+<p class="rvps5"><span class="rvts6">Estas conexiones, así como el valor de los parámetros, pueden ser modificadas en tiempo real; es decir, eliminadas o creadas incluso cuando la simulación se está "ejecutando". Estos conceptos corresponden con los de cambiar las conexiones en un armario eléctrico o determinados parámetros de elementos en dichos armarios, mientras se está ejecutando la simulación. De esta forma los simuladores sobre LdP se comportan como "</span><span class="rvts19">Bancos de Trabajo de Laboratorio</span><span class="rvts6">" muy flexibles.</span></p>
+<p class="rvps5"><span class="rvts6">La siguiente figura muestra un ejemplo de estas posibles conexiones en este simulador.</span></p>
+<p class="rvps5"><img alt="" style="padding : 1px;" src="lib/Ejemplo%20conectividad%20en%20LdP%20espaol.png"></p>
+<p class="rvps5"><span class="rvts6">En esta figura se muestran dos bloques que agrupan a los procesos que se detallan. Ambos conjuntos de procesos deben estar conectados entre sí adecuadamente. Una de las señales, en este caso las revoluciones del Generador eléctrico, proceden de uno de los procesos en el grupo de la Góndola y debe estar conectado a uno o más procesos en el Controlador. En el caso de la figura esta señal "se hace pasar" por el conjunto de indicadores : texto, slider y reloj, donde se muestra el valor actual, antes de llegar a conectarse al Controlador.</span></p>
+<p class="rvps5"><span class="rvts6">Como alguno de estos indicadores gráficos, por ejemplo, la caja de texto o el slider, pueden "ponerse" en </span><span class="rvts17">modo comando </span><span class="rvts6">(pulsando la tecla "F6"), esta disposición permite simular (</span><span class="rvts17">sin hacer ningún cambio en la configuración del simulador</span><span class="rvts6">) &nbsp;una avería que podría ser equivalente de una rotura del sensor de revoluciones del eje del Generador. Para una descripción completa de las funcionalidades de los indicadores gráficos en los Sinópticos en LdP, ver el tema "</span><span class="rvts29">El LdP como banco de trabajo</span><span class="rvts6">" en el Tutorial "</span><span class="rvts17">Introducción a LdP</span><span class="rvts6">".</span></p>
+<p class="rvps5"><span class="rvts11"><br/></span></p>
+<p class="rvps5"><span class="rvts18"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

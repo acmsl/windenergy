@@ -1,0 +1,126 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>R&eacute;initialisation aux conditions op&eacute;rationnelles</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Resettingtooperationalconditions");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">R&eacute;initialisation aux conditions op&eacute;rationnelles</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Exercises recommend&eacute;s</a> &rsaquo;&rsaquo; <a href="SeethereactiontoaGridfailureonap.html">Voir la r&eacute;action &agrave; une d&eacute;faillance de une phase du r&eacute;seau &eacute;lectrique</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="SeethereactiontoaGridfailureonap.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="SeethereactiontoaGridfailureonap.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Behaviorfacingveryhighwindspeeds.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Check again the failing phase check-box restoring it to its normal state. Verify that all the phases and the Main Switch are in operational state, give some time to the ControllerEmulator to identify this situation. The ControllerEmulator will record the instants in which those (good) conditions are meet and write them to the Incidences logger.&nbsp;</span><br/><img alt="" style="padding : 1px;" src="lib/NewItem27.png"></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">This type of Incidence must be acknowledge. Therefore you must go to the "Opened Incidences" tab of the "Control Terminal" and check each of them, by a double-click in the corresponding "</span><span class="rvts14">Ack</span><span class="rvts11">" check-box. Once recognized by the Operator, these incidence goes to the Historical record. Look at &nbsp;de history of incidences in the corresponding tab of the Control Terminal.</span><br/><img alt="" style="padding : 1px;" src="lib/NewItem26.png"></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">The Operator may recognize these incidences before their faulty condition is not removed. In this case, when this condition is removed and return to a adequate value, it goes directly to the Historical record.</span><br/><span class="rvts84"></span><br/><span class="rvts84">Same incidence but in Production&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Press START, if the Wind Turbine was in STOP state, change the wind to a value valid for start production, 6 m/s for instance, and wait until de Wind Turbine start a normal cutin, yawing facing wind, RPMs growing up, and so on.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Once in production state, turn off the main switch in the Electrical Panel and see how the controller stops the Wind Turbine using the brake (stop type 3). This STOP sequence does not use the air brake as starting phase trying to reduce the amount of kinetic energy in the DriveTrain, but uses directly the hard braking system (caliper against the braking disc).</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Experiment with different ways to simulate a Grid failure with the Wind Turbine in the &nbsp;STOP state &nbsp;and in production (START), and take a look at the two incidence tabs in the Control Terminal, dates: "</span><span class="rvts25">Start</span><span class="rvts11">" , "</span><span class="rvts25">Ackd</span><span class="rvts11">" and "</span><span class="rvts25">End</span><span class="rvts11">".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Open in a StripRecorder with a pane with the RPMs, and perhaps the Controller State Machines. Observe the differences in the RPMs slow down graphics between a "Manual STOP" and a stop due to Grid failure. Do this test with low wind (5.0 m/s) and sampling rate of 0,2s.</span></p>
+<p class="rvps2"><span class="rvts83">&nbsp;</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

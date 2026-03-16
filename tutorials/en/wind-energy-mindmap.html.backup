@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wind Energy Knowledge Map - ACMSL</title>
+  <link rel="stylesheet" href="../tutorial.css">
+</head>
+<body>
+
+<div class="tut-toolbar">
+  <div class="tut-toolbar-actions">
+    <a href="../../index.html?lang=en" title="Home">&#127968; Home</a>
+    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
+  </div>
+  <div class="tut-lang-selector">
+    <a href="../en/wind-energy-mindmap.html" class="active">EN</a>
+    <a href="../es/mapa-mental.html">ES</a>
+    <a href="../fr/carte-mentale.html">FR</a>
+    <a href="../it/mappa-conoscenza-eolica.html">IT</a>
+    <a href="../de/windenergie-wissenskarte.html">DE</a>
+    <a href="../pt/mapa-conhecimento-eolico.html">PT</a>
+  </div>
+</div>
+
+<header class="tut-header">
+  <div class="tut-header-left">
+    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+  </div>
+  <nav>
+    <a href="introduction.html">Introduction</a>
+    <a href="industrial-wind-turbines.html">Wind Turbines</a>
+    <a href="wind-turbine-families.html">Families</a>
+    <a href="operational-wind-ranges.html">Wind Ranges</a>
+    <a href="simulators-and-tutorials.html">Simulators</a>
+    <a href="wind-energy-mindmap.html" class="active">Knowledge Map</a>
+  </nav>
+</header>
+
+<section class="tut-hero">
+  <h1>Wind Energy Knowledge Map</h1>
+  <p>A comprehensive structural view of wind energy technology</p>
+</section>
+
+<main class="tut-content">
+
+  <h2>Mapping the entire discipline</h2>
+  <p>
+    ACMSL has created a <strong>comprehensive mind map</strong> covering all industrial aspects of wind energy.
+    This knowledge map serves as both a learning guide and a reference tool, organizing the vast body of
+    knowledge required by wind energy professionals into a clear, navigable structure.
+  </p>
+  <p>
+    The mind map is bilingual (Spanish/English) and contains hundreds of interconnected topics, from
+    fundamental physics to project finance, from meteorology to safety regulations. It represents years of
+    accumulated expertise distilled into a single, structured document.
+  </p>
+
+  <figure class="tut-figure">
+    <img src="../../img/mindmaprecortado.png" alt="Wind Energy Knowledge Map overview">
+    <figcaption>Overview of the ACMSL Wind Energy Knowledge Map &mdash; 11 main branches covering all industrial aspects</figcaption>
+  </figure>
+
+  <h2>The 11 branches of knowledge</h2>
+
+  <div class="tut-card">
+    <h4>1. Fundamentals &amp; Context</h4>
+    <p>
+      The historical evolution of wind energy, current market status worldwide, the environmental context
+      driving the energy transition, and the regulatory frameworks that shape the industry. Essential
+      background for understanding why the sector operates the way it does.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>2. Wind Resource</h4>
+    <p>
+      Wind resource assessment methodology, meteorological fundamentals, wind measurement techniques
+      (anemometry, LiDAR, SODAR), wind data analysis, Weibull distributions, micrositing optimization,
+      and wake effects. The foundation of every wind energy project.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>3. Physical Principles</h4>
+    <p>
+      Aerodynamics of wind turbine blades (BEM theory, lift and drag, tip-speed ratio), electrical
+      machine principles (induction and synchronous generators), and power electronics (converters,
+      inverters, PWM modulation). The physics that makes wind energy conversion possible.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>4. Power Generation &amp; Distribution</h4>
+    <p>
+      Electrical grid characteristics, grid connection requirements, grid codes and compliance,
+      energy storage technologies, power quality standards, and reactive power management. How wind
+      energy integrates with the electrical system.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>5. Instrumentation &amp; Control</h4>
+    <p>
+      Industrial sensors and transducers, communication protocols (Modbus, OPC, IEC 61400-25),
+      control algorithms (PID, state machines, MPPT), SCADA systems, and condition monitoring.
+      The nervous system of modern wind turbines.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>6. Wind Farms</h4>
+    <p>
+      Site evaluation and selection, project management and development, construction and commissioning,
+      production estimation and optimization, operation and maintenance strategies, electrical
+      substations, and balance of plant. The complete lifecycle of a wind farm project.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>7. Wind Turbines</h4>
+    <p>
+      Design principles and IEC classification, the 5 generator families, major components (tower,
+      blades, nacelle, hub, gearbox, generator, converter, foundation), advanced control strategies,
+      and current manufacturer landscape. Deep technical knowledge of the machines themselves.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>8. Weather Forecasting</h4>
+    <p>
+      Numerical Weather Prediction (NWP) models, mesoscale modeling, ensemble forecasting techniques,
+      statistical downscaling, and forecast verification. Critical for grid integration and energy
+      trading.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>9. Economics &amp; Finance</h4>
+    <p>
+      CAPEX and OPEX breakdown, Levelized Cost of Energy (LCOE) calculation, financial viability
+      analysis, business models (PPA, merchant, feed-in tariffs), project financing structures,
+      and investment risk assessment. The business case for wind energy.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>10. Environmental &amp; Social Aspects</h4>
+    <p>
+      Fauna impact assessment (birds, bats), noise emissions and propagation models, visual impact
+      evaluation, Environmental Impact Assessment (EIA) procedures, social acceptance, and community
+      benefit schemes. Responsible development of wind energy.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>11. Safety &amp; Health</h4>
+    <p>
+      Safety norms and regulations, GWO (Global Wind Organisation) certification programs, Personal
+      Protective Equipment (PPE) requirements, emergency procedures, risk assessment methodologies,
+      and specific hazards of wind turbine work (heights, electrical, confined spaces, rescue).
+      Keeping people safe in a demanding industrial environment.
+    </p>
+  </div>
+
+  <h2>About the knowledge map</h2>
+  <p>
+    The wind energy knowledge map was created using <strong>Freeplane</strong>, a free and open-source
+    mind mapping application. The mind map format allows for hierarchical organization of topics with
+    unlimited depth, making it ideal for representing the complex, interconnected nature of wind energy
+    technology.
+  </p>
+  <p>
+    The map is continuously updated as the technology evolves, with new topics added to reflect the
+    latest developments in offshore wind, grid-forming inverters, hydrogen production from wind,
+    and other emerging areas.
+  </p>
+
+  <div class="tut-card">
+    <h4>A living document</h4>
+    <p>
+      The knowledge map is not a static reference &mdash; it is a living document that grows with the
+      industry. Each branch contains dozens of sub-topics organized in a logical hierarchy, with
+      cross-references between related areas. Whether you are a newcomer seeking an overview or an
+      experienced professional looking for a specific technical detail, the knowledge map provides
+      a structured path to the information you need.
+    </p>
+  </div>
+
+  <div class="tut-cta">
+    <h3>Try our real-time simulators</h3>
+    <p>Free 2-day evaluation &mdash; combine the knowledge map with hands-on simulation</p>
+    <a href="../../index.html?section=downloads&lang=en">Download simulators</a>
+  </div>
+
+  <div class="tut-nav">
+    <a href="simulators-and-tutorials.html">&larr; Previous: Simulators &amp; Tutorials</a>
+    <span></span>
+  </div>
+
+</main>
+
+<footer class="tut-footer">
+  &copy; 2026 <a href="https://www.acm-sl.com">Automated Computing Machinery SL (ACMSL)</a>. All rights reserved.
+</footer>
+
+</body>
+</html>

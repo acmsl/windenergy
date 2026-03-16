@@ -1,0 +1,647 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Generator </title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Generator");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Generator </h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PhysicalPrinciples.html">Physical Principles</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PhysicalPrinciples.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="PhysicalPrinciples.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="IntroductiontoAsynchronousInduct.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Operating Principle of a Wind Turbine with Squirrel Cage Generator Directly Connected to the Grid</span></p>
+<p class="rvps4"><span class="rvts6">The wind turbine simulated here uses a specific type of generator that determines much about how the whole system operates:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Generator type:</span><span class="rvts6"> Induction generator with short-circuited rotor (squirrel cage)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Connection:</span><span class="rvts6"> Stator directly connected to the Grid</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">No power electronics</span><span class="rvts6"> between generator and grid (simple, robust)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This combination creates both advantages and constraints. Let's understand both.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">The Generator's Characteristic Curve</span></p>
+<p class="rvps4"><span class="rvts6">The key to understanding this turbine is this graph:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 1: Torque vs. Speed characteristic of an asynchronous induction machine]</span></p>
+<p class="rvps4"><span class="rvts11">What this graph shows:</span></p>
+<p class="rvps4"><span class="rvts15">Horizontal axis:</span><span class="rvts6"> Rotational speed (RPM) </span><span class="rvts15">Vertical axis:</span><span class="rvts6"> Mechanical torque (Newton-meters)</span></p>
+<p class="rvps4"><span class="rvts11">The critical point: Synchronous Speed</span></p>
+<p class="rvps4"><span class="rvts6">There's a special speed marked on the graph called </span><span class="rvts11">synchronous speed</span><span class="rvts6">.</span></p>
+<p class="rvps4"><span class="rvts15">What is synchronous speed?</span></p>
+<p class="rvps4"><span class="rvts6">When the generator's stator is connected to the Grid (let's say 50 Hz):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">The Grid creates a rotating magnetic field in the stator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">This field rotates at a specific speed: the synchronous speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Formula: </span><span class="rvts11">Sync Speed = (Grid Frequency × 60) / Pole Pairs</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">For our turbine:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">4-pole (2 pole pairs):</span><span class="rvts6"> Sync = (50 Hz × 60) / 2 = </span><span class="rvts11">1,500 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">6-pole (3 pole pairs):</span><span class="rvts6"> Sync = (50 Hz × 60) / 3 = </span><span class="rvts11">1,000 RPM</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Two Operating Modes:</span></p>
+<p class="rvps4"><span class="rvts6">Look at the graph - the behavior is completely different on each side of synchronous speed:</span></p>
+<p class="rvps4"><span class="rvts11">Left side (below sync speed) - MOTOR mode:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Shaft speed &lt; synchronous speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Machine </span><span class="rvts11">consumes</span><span class="rvts6"> electrical power from grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Converts it to mechanical power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Torque is positive (driving the shaft)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Acts like an electric motor</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Right side (above sync speed) - GENERATOR mode:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Shaft speed &gt; synchronous speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Machine </span><span class="rvts11">produces</span><span class="rvts6"> electrical power to grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Converts mechanical power (from wind) to electricity</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Torque is negative (resisting the shaft rotation)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Acts like a generator</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The transition:</span></p>
+<p class="rvps4"><span class="rvts6">At exactly synchronous speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">No power conversion happening</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Just spinning "empty"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Neither motor nor generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Like neutral gear in a car</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">How This Affects Wind Turbine Operation</span></p>
+<p class="rvps4"><span class="rvts6">This characteristic creates important consequences:</span></p>
+<p class="rvps4"><span class="rvts11">1. Must reach sync speed before connecting</span></p>
+<p class="rvps4"><span class="rvts6">You cannot connect the generator to the grid until the shaft is rotating near synchronous speed:</span></p>
+<p class="rvps4"><span class="rvts15">Why?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If connected while stationary or slow → acts as motor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Would draw massive current from grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Would try to accelerate to sync speed as a motor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wrong direction of power flow!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind spins the blades → spins the shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">When shaft reaches ~1490 RPM (for 1500 sync):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Close enough to sync speed</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Ready to connect as generator</span></li>
+ </ul>
+ <li class="rvps6 noindent"><span class="rvts6">Use soft-starter (thyristors) for gentle connection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Operating speed is nearly constant</span></p>
+<p class="rvps4"><span class="rvts6">Once connected as a generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Must stay above synchronous speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But only slightly above!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Typical: 1,500 - 1,520 RPM (for 1500 sync)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Very narrow operating range!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Why so narrow?</span></p>
+<p class="rvps4"><span class="rvts6">Look at the curve near sync speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Small change in speed → big change in torque</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Steep slope = sensitive response</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This is actually good for stable operation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. "Slip" determines power output</span></p>
+<p class="rvps4"><span class="rvts11">Slip</span><span class="rvts6"> is the difference between actual speed and sync speed:</span></p>
+<p class="rvps4"><span class="rvts11">Formula:</span><span class="rvts6"> Slip (s) = (Actual Speed - Sync Speed) / Sync Speed</span></p>
+<p class="rvps4"><span class="rvts6">Or: Slip (s) = (Actual Speed / Sync Speed) - 1</span></p>
+<p class="rvps4"><span class="rvts11">Example:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Sync speed: 1,500 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Actual speed: 1,510 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Slip: (1,510 - 1,500) / 1,500 = </span><span class="rvts11">+0.0067</span><span class="rvts6"> or </span><span class="rvts11">+0.67%</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The relationship:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Larger slip → more power generated</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">More power → more load on shaft → shaft tries to slow down</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind torque balances electrical torque</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Equilibrium reached at specific slip</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">At rated power (1,300 kW):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Typical slip: </span><span class="rvts11">0.5% to 1.5%</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Speed: 1,507 - 1,520 RPM (for 1500 sync)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This is why these turbines are called </span><span class="rvts11">"fixed speed"</span><span class="rvts6"> - the operating speed barely changes!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">The Connection Challenge</span></p>
+<p class="rvps4"><span class="rvts6">Connecting this generator to the grid is delicate. Let's understand why:</span></p>
+<p class="rvps4"><span class="rvts11">The Problem:</span></p>
+<p class="rvps4"><span class="rvts6">Before connection:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator stator disconnected</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No magnetic field in air gap</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shaft spinning from wind (say 1,490 RPM)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No electrical power being generated</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">After connection:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator stator connected to grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Grid creates magnetic field immediately</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shaft must be at right speed and phase</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power starts flowing</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">If we connect wrong:</span></p>
+<p class="rvps4"><span class="rvts15">Too slow (way below sync):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Acts as motor initially</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Draws huge current from grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Creates shock torque on drivetrain</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Could damage gearbox or coupling</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Wrong phase:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Even at right speed, phases might not align</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Creates transient current surge</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Mechanical shock to drivetrain</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Bad for equipment</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Solution: Soft-Starter</span></p>
+<p class="rvps4"><span class="rvts6">This is why we use the thyristor soft-starter! (covered in detail in </span><a class="rvts16" href="Two-SpeedActiveStallWindTurbineS.html">Soft Starter section</a><span class="rvts6">)</span></p>
+<p class="rvps4"><span class="rvts15">The process:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Get shaft speed close to sync (1,490 - 1,495 RPM)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Start thyristors firing at small angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Small current flows → small magnetic field</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gentle torque applied to shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gradually increase firing angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shaft accelerates smoothly to just above sync</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Phases align naturally</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Full conduction reached → connected!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Switch to bypass contactors</span></li>
+</ol>
+<p class="rvps4"><span class="rvts6">All in 3-5 seconds, smoothly and safely.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Why This Generator Type?</span></p>
+<p class="rvps4"><span class="rvts6">Given all these complications, why use it?</span></p>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<p class="rvps4"><span class="rvts6">✓ </span><span class="rvts11">Extremely robust</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Squirrel cage rotor: no brushes, no slip rings</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No electrical connections to rotor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Very few things to fail</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can last 20+ years with minimal maintenance</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">✓ </span><span class="rvts11">Simple</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Direct grid connection</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No power electronics needed (except soft-starter)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lower cost</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Proven technology</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">✓ </span><span class="rvts11">Reliable</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Fewer components = fewer failures</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Well-understood maintenance</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Parts readily available</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">✓ </span><span class="rvts11">Grid support</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Provides "inertia" to grid (mechanical mass)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Helps stabilize grid frequency</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Unlike power-electronic systems</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<p class="rvps4"><span class="rvts6">✗ </span><span class="rvts11">Fixed speed operation</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can't optimize for varying wind speeds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Less efficient at winds below rated</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">That's why we have two-speed capability!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">✗ </span><span class="rvts11">Reactive power consumption</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Needs reactive power from grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Requires power factor correction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Capacitor banks often needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">✗ </span><span class="rvts11">Complex connection procedure</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Soft-starter required</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Careful speed matching needed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can't just flip a switch</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">✗ </span><span class="rvts11">Limited controllability</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can't control power electronically</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Must use blade pitch for power control</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Slower response to changes</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Trade-off:</span></p>
+<p class="rvps4"><span class="rvts6">This technology dominated wind energy from 1980s - early 2000s because:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Advantages outweighed disadvantages</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cost-effective for the time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Reliable in harsh environments</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Modern turbines use:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Variable-speed generators</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Full power converters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Better efficiency at all wind speeds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But more complex and expensive</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">For learning fundamentals, this fixed-speed type is perfect - simpler to understand!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Introduction to Induction Machines</span></p>
+<p class="rvps4"><span class="rvts6">Let's dive deeper into how these generators actually work.</span></p>
+<p class="rvps4"><span class="rvts11">The Solar System Analogy</span></p>
+<p class="rvps4"><span class="rvts6">Before we get technical, imagine this:</span></p>
+<p class="rvps4"><a class="rvts16" href="https://youtu.be/pvqHvcnltEk">Reference to video: "Magnets on opposing shafts"</a></p>
+<p class="rvps4"><span class="rvts11">The setup:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Two coaxial shafts (same centerline)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Each shaft has a magnet</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shafts can rotate independently</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Magnets face each other with small gap</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What happens:</span></p>
+<p class="rvps4"><span class="rvts15">If left shaft is locked (can't rotate):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Turn right shaft with the crank</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Its magnet rotates</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Left shaft's magnet tries to follow (magnetic attraction)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But it's locked, so it just creates torque</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">The angle between magnets indicates the torque</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">If left shaft has friction (like brake):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Turn right shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Left shaft rotates too, but slower than right</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">There's "slip" between the two</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Angle between magnets depends on friction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">More friction → larger angle → more torque</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">If left shaft is free (no load):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Turn right shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Left shaft tries to keep up</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Eventually both spin at same speed (synchronized!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No angle between them (perfectly aligned)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No torque transmitted (no friction to overcome)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">This is exactly how an induction machine works!</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Right shaft = stator (creates rotating magnetic field)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Left shaft = rotor (tries to follow that field)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Friction/load = electrical load on generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Angle between magnets = "slip"</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Creating the Rotating Magnetic Field (Stator)</span></p>
+<p class="rvps4"><span class="rvts6">How do we create that "rotating magnet" in the stator?</span></p>
+<p class="rvps4"><span class="rvts11">The Magic of Three-Phase Power</span></p>
+<p class="rvps4"><span class="rvts6">The stator has three sets of coils, connected to the three-phase grid:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig. 2: Animation showing three-phase stator winding and rotating field]</span></p>
+<p class="rvps4"><span class="rvts11">What's happening:</span></p>
+<p class="rvps4"><span class="rvts15">The three phases:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Phase 1 (Red): Sin wave at 0°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Phase 2 (Green): Sin wave at 120°</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Phase 3 (Blue): Sin wave at 240°</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">All at same frequency (50 Hz), but shifted in time</span></p>
+<p class="rvps4"><span class="rvts15">The stator coils:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Red coils: Connected to Phase 1</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Green coils: Connected to Phase 2</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blue coils: Connected to Phase 3</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Arranged around the stator circle</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">The resulting magnetic field:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Each coil creates magnetic field proportional to its current</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Three fields (red, green, blue) sum together</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Result: One magnetic field that ROTATES!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotates at synchronous speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Smooth, continuous rotation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No moving parts in stator!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why this is brilliant:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Electrical rotation (no mechanical rotation needed)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Very smooth field</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Easy to control (just connect to grid)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This is one "magnet" from our earlier analogy</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Creating the Second Magnetic Field (Rotor)</span></p>
+<p class="rvps4"><span class="rvts6">Now we need the second "magnet" - in the rotor.</span></p>
+<p class="rvps4"><span class="rvts11">Squirrel Cage Construction:</span></p>
+<p class="rvps4"><span class="rvts6">[Images showing squirrel cage rotor construction]</span></p>
+<p class="rvps4"><span class="rvts11">What it looks like:</span></p>
+<p class="rvps4"><span class="rvts6">The rotor is wonderfully simple:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Bars:</span><span class="rvts6"> Copper or aluminum bars running lengthwise</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">End rings:</span><span class="rvts6"> Short-circuit all bars together at both ends</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">No insulation:</span><span class="rvts6"> Bars are electrically connected</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Laminated core:</span><span class="rvts6"> Iron laminations for magnetic path</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why "squirrel cage"?</span></p>
+<p class="rvps4"><span class="rvts6">If you look at just the bars and end rings (without the iron):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Looks like an exercise wheel for a pet hamster/squirrel</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bars = the rungs</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">End rings = the circular parts</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Hence the name!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How it works - The magic of induction:</span></p>
+<p class="rvps4"><span class="rvts6">Remember Faraday's Law of Induction? </span><span class="rvts15">"A changing magnetic field induces voltage in a conductor"</span></p>
+<p class="rvps4"><span class="rvts6">Here's what happens:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Stator creates rotating magnetic field</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Spinning at sync speed (1,500 RPM)</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Rotor is spinning slower</span><span class="rvts6"> (say 1,490 RPM)</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">There's 10 RPM difference (slip)</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">From rotor's perspective:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">The stator field is "sweeping past" at 10 RPM</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">This is a CHANGING magnetic field</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Induces voltage in the rotor bars</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Rotor bars are short-circuited:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Induced voltage → current flows</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Current flows through the bars and end rings</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Current creates magnetic field:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Current in rotor bars creates second magnetic field</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">This is our second "magnet"!</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Two fields interact:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Stator field (rotating at 1,500 RPM)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Rotor field (rotating at 1,490 RPM in space, but fixed to rotor)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">They attract each other</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Creates torque!</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">The beauty:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">No electrical connections to rotor needed!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No brushes or slip rings</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No switching or commutation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Everything happens through electromagnetic induction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Incredibly reliable</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Motor vs. Generator Mode</span></p>
+<p class="rvps4"><span class="rvts6">Let's understand both modes:</span></p>
+<p class="rvps4"><span class="rvts11">Motor Mode (Below Sync Speed):</span></p>
+<p class="rvps4"><span class="rvts15">Example: Rotor at 1,400 RPM, sync at 1,500 RPM</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Stator field rotating at 1,500 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor rotating at 1,400 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Relative motion: 100 RPM (stator faster)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Large slip = large induced current</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Strong rotor magnetic field created</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Fields interact → torque</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Torque accelerates rotor toward sync speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Electrical power from grid → mechanical power</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">At Synchronous Speed:</span></p>
+<p class="rvps4"><span class="rvts15">Rotor at exactly 1,500 RPM</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Stator field: 1,500 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor: 1,500 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Relative motion: 0 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No changing magnetic field</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No induced current</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No rotor magnetic field</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No torque</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Just spinning freely (like coasting)</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Generator Mode (Above Sync Speed):</span></p>
+<p class="rvps4"><span class="rvts15">Example: Rotor at 1,510 RPM, sync at 1,500 RPM</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Stator field rotating at 1,500 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor rotating at 1,510 RPM (pushed by wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Relative motion: 10 RPM (rotor faster)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Small slip = induced current (but reversed direction!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor magnetic field created (opposite polarity)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Fields interact → torque opposing rotation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Mechanical power from wind → electrical power to grid</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">The direction of energy flow:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Below sync: Grid → Generator → Mechanical shaft (motor)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Above sync: Mechanical shaft → Generator → Grid (generator)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The slip determines power:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Small slip (1,502 RPM): Small power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Medium slip (1,510 RPM): Medium power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Large slip (1,520 RPM): Large power</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Too large slip (&gt;1,530 RPM): Might damage generator!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The nearly-linear region:</span></p>
+<p class="rvps4"><span class="rvts6">Near synchronous speed, there's a nearly-linear relationship:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Torque ≈ k × Slip</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Where k is a constant</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This makes control relatively simple:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">More wind → more torque → slight speed increase → more slip → more power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Less wind → less torque → slight speed decrease → less slip → less power</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">System self-regulates to some degree!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Practical Operating Point</span></p>
+<p class="rvps4"><span class="rvts6">Let's look at real numbers for our turbine:</span></p>
+<p class="rvps4"><span class="rvts11">Large Generator (4-pole, 1500 RPM sync):</span></p>
+<p class="rvps4"><span class="rvts6">At rated power (1,300 kW):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Synchronous speed: 1,500 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Actual operating speed: ~1,510 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Slip: (1,510 - 1,500) / 1,500 = </span><span class="rvts11">0.67%</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Very close to sync!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">At partial power (500 kW):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Actual speed: ~1,503 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Slip: </span><span class="rvts11">0.2%</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Even closer!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Small Generator (6-pole, 1000 RPM sync):</span></p>
+<p class="rvps4"><span class="rvts6">At rated power (350 kW):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Synchronous speed: 1,000 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Actual operating speed: ~1,008 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Slip: </span><span class="rvts11">0.8%</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Key insight:</span></p>
+<p class="rvps4"><span class="rvts6">The operating speed range is tiny:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">1,500 - 1,520 RPM for Large Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Only 20 RPM variation across entire power range!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">That's why it's called "fixed speed"</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Blade speed consequence:</span></p>
+<p class="rvps4"><span class="rvts6">Generator speed × Gearbox ratio = Blade speed</span></p>
+<p class="rvps4"><span class="rvts6">For Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps6 noindent"><span class="rvts6">1,510 RPM ÷ 77.73 = </span><span class="rvts11">19.4 RPM</span><span class="rvts6"> (blades)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">For Small Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps6 noindent"><span class="rvts6">1,008 RPM ÷ 77.73 = </span><span class="rvts11">13.0 RPM</span><span class="rvts6"> (blades)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The blades are essentially fixed-speed too!</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Large: 19-20 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Small: 13-13.5 RPM</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This is the fundamental limitation we work around with:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Two-speed operation (better wind range)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Blade pitch control (adjust power extraction)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Comparison: Squirrel Cage vs. Wound Rotor</span></p>
+<p class="rvps4"><span class="rvts6">For completeness, let's see the two types:</span></p>
+<p class="rvps4"><span class="rvts11">Squirrel Cage (What we have):</span></p>
+<p class="rvps4"><span class="rvts6">[Images of squirrel cage rotor construction]</span></p>
+<p class="rvps4"><span class="rvts11">Construction:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Copper/aluminum bars</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Short-circuited by end rings</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Simple, robust</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No electrical connections</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Characteristics:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Fixed characteristics (can't adjust)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Low maintenance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Very reliable</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Lower cost</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Wound Rotor (Alternative design):</span></p>
+<p class="rvps4"><span class="rvts6">[Images of wound rotor with slip rings]</span></p>
+<p class="rvps4"><span class="rvts11">Construction:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Actual wire windings on rotor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Three-phase winding</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Connected via </span><span class="rvts11">slip rings</span><span class="rvts6"> (rotating contacts)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Brushes</span><span class="rvts6"> transfer power to/from rotor</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Characteristics:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can access rotor circuit</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can add external resistance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can control slip characteristics</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Used in some wind turbines (different type)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why we use squirrel cage here:</span></p>
+<p class="rvps4"><span class="rvts6">For the turbine we're simulating:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Simplicity preferred</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Reliability critical</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Lower maintenance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Proven technology</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Accept fixed-speed limitation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Work around it with two-speed and pitch control</span><span class="rvts6"></span></li>
+</ul>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

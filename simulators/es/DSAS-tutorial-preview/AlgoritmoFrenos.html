@@ -1,0 +1,128 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Algoritmo de control de frenos y se&ntilde;ales</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="parada, cutout, reposo, cutin, TSR, Freno liberado, Circuito hidraulico de frenos, Fail/Safe">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("AlgoritmoFrenos");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Algoritmo de control de frenos y se&ntilde;ales</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Simulador de Aerogenerador con Active Stall y Dos Velocidades</a> &rsaquo;&rsaquo; <a href="Sinopticos.html">Sin&oacute;pticos usados en este simulador</a> &rsaquo;&rsaquo; <a href="SinopticoTrenPotencia.html">Sin&oacute;ptico del Tren de Potencia (SynopticDriveTrain)</a> &rsaquo;&rsaquo; <a href="IndicadoresGondola.html">Indicadores comunes</a> &rsaquo;&rsaquo; <a href="IndicadoresSistemaFreno.html">Sistema de frenos</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="IndicadoresSistemaFreno.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="IndicadoresSistemaFreno.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Algoritmodecontroldefrenosyseale.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">El algoritmo de control que se usa en el sistema de frenos obedece a las siguientes ideas:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts16">Principio de diseño "Fail/Safe"</span><span class="rvts11">: este principio establece que un dispositivo que control una parte importante de un sistema debe estar diseñado de forma tal que, si falla, deja al sistema en una posición "segura".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts16">Permitir una parada rápida del Tren de Potencia</span><span class="rvts11">. Esta necesidad viene del uso secundario del mecanismo de frenos como "alternativa de seguridad", en caso de que el Tren de Potencia no pueda ser frenado por medios aerodinámicos.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts16">Minimización del numero de sensores y actuadores</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts107">Este mecanismo de freno del tren de potencia NO es el mecanismo utilizado para operaciones de </span><span class="rvts106">parada</span><span class="rvts107"> (</span><span class="rvts106">cutout</span><span class="rvts11">): estas operaciones se realizan utilizando métodos aerodinámicos, es decir, utilizando las palas, cambiando su angulo de ataque, o, en algunos modelos antiguos que no tenían mecanismo de cambio de pitch, mediante un cambio en la forma. Ver siguiente figura.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Blade-tip-brakr-foto.jpg"></p>
+<p class="rvps4"><span class="rvts11">Sin embargo, en condiciones excepcionales, por ejemplo, cuando falla el mecanismo de pitch, o se han sobrepasado determinadas rpms en el tren de potencia, o se necesita una parada muy rápida, el Controlador utiliza, también, el freno hidráulico.</span></p>
+<p class="rvps4"><span class="rvts11">En el diseño elegido la posición de "</span><span class="rvts15">reposo</span><span class="rvts11">" es con la zapata apretada contra el disco de freno por el muelle del cilindro. Esto sigue el principio de funcionamiento 'Fail/Save' (si algo va mal, el mecanismo queda en una posición </span><span class="rvts15">segura</span><span class="rvts11">), en este caso la posición segura es parada del tren de potencia.</span></p>
+<p class="rvps4"><span class="rvts11">Cuando el aerogenerador está en producción, la zapata está alejada del disco, con lo que no interfiere en el movimiento del tren de potencia. Para que esto ocurra es necesario contrarrestar la presión del muelle en el cilindro que fuerza la zapata. Esto se consigue aumentando la presión hidráulica que se aplica a la base del muelle. El aumento de esta presión se consigue: poniendo la válvula en posición 'cerrada' y la bomba en marcha.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Zapata-separada-bomba-valvula-cerrada.jpg"></p>
+<p class="rvps4"><span class="rvts11">Cuando se quiere frenar (zapata contra el disco) basta con reducir la presión hidráulica en la base del muelle. Esto se consigue abriendo la válvula. Habitualmente hay mas de una válvula, con diferentes caudales, de forma que se puede graduar (hasta cierto punto) la velocidad de la bajada de presión, y por tanto de la frenada.</span></p>
+<p class="rvps4"><span class="rvts11">Por último, en el diseño de este circuito, se utilizan un mínimo de elementos: una bomba, un calderín para el liquido, la(s) válvulas, el presostato (no indicado) y el sensor de separación de la zapata (no indicado).</span></p>
+<p class="rvps4"><span class="rvts11">El </span><span class="rvts15">estado</span><span class="rvts11"> de la zapata de freno no es medido mediante ningún sensor, sino que es </span><span class="rvts15">deducido</span><span class="rvts11"> por el Controlador durante la fase de arranque (</span><span class="rvts15">cutin</span><span class="rvts11">). El procedimiento consiste en aplicar un par mecánico importante al tren de potencia, mientras se mantiene el freno hidráulico activo (zapata contra el disco). Este par mecánico se consigue orientando la Góndola al viento y poniendo un valor de pitch que garantiza el máximo aprovechamiento del viento con valores de giro bajos (es decir, con </span><span class="rvts15">TSR</span><span class="rvts11"> prácticamente 0). En esas circunstancias se monitoriza la velocidad de giro del tren de potencia: si no es 0 (parado) es debido a algún problema relativo a la zapata, o al muelle del cilindro; en estas circunstancias se aborta la operación de cutin.</span></p>
+<p class="rvps4"><span class="rvts11">La bomba es usada para mantener la presión en la base del muelle a un valor que garantiza que, en producción, la zapata no roza el disco de freno. Para ello no se mide esta presión, sino que se utiliza un dispositivo más robusto, un presostato, calibrado alrededor de la presión deseada. De esta forma el Controlador solo recibe una señal digital (la salida del presostato) y tiene que controlar dos señales también digitales: el control de la bomba y el control de la(s) válvula(s). Existe también un contacto fin de carrera que se activa cuando la zapata esta ya separada del disco de freno. Esta señal corresponde a la señal asociada al botón 'Freno liberado'. El valor de la presión a la que, típicamente, se activa esta señal corresponde con la </span><span class="rvts16">marca </span><span class="rvts108">'amarilla'</span><span class="rvts11"> en el indicador circular de la presión del circuito hidráulico.</span></p>
+<p class="rvps4"><span class="rvts11">La evolución de las señales relacionadas con este circuito hidráulico se puede observar usando uno de los "Paneles de registradores predefinidos" (pulsando en el sinóptico de control de ejecución: </span><span class="rvts15">'Sinopticos'</span><span class="rvts11"> --&gt; </span><span class="rvts15">'Registradores'</span><span class="rvts11"> se presenta un formulario de registrador, y en </span><span class="rvts15">'Paneles definidos'</span><span class="rvts11"> &nbsp;seleccione </span><span class="rvts15">'Circuito hidraulico de frenos'</span><span class="rvts11">). Puede observar la variación de diversas señales del circuito hidráulico durante diferentes situaciones de funcionamiento y parada.</span></p>
+<p class="rvps4"><span class="rvts11">Los conceptos básicos de control están basados en la histéresis del presostato, cuya salida es utilizada por el Controlador para poner en marcha la bomba cuando su valor es 'Off', es decir, la presión está por debajo del limite inferior de calibración del presostato. Y parar la bomba cuando la presión supera el límite superior del presostato. Se asume que las válvulas están cerradas. La siguiente figura ejemplifica este método de control.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/CicloControlBombaconHisteresis.png"></p>
+<p class="rvps4"><span class="rvts27"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cost of power cable untwisting</title>
+    <meta name="description" content="Experiment to calculate the economic cost of cable untwisting operations">
+    <meta name="keywords" content="untwisting, cables, yaw, cost, lost production, wind turbine">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 15px;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .calculation-box {
+            background-color: #f9f9f9;
+            border: 2px solid #666;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .data-table {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #999;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("CostofPowerCablesuntwisting");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Cost of power cable untwisting</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="ObservationoftheNacelleYawoperat.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+            <a href="Responsetowindgusts.html"><img src="img/arrow_right.png" alt="Next"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Learning objectives</h3>
+            <p>Upon completing this experiment you will be able to:</p>
+            <ul>
+                <li>Understand why cable untwisting has a significant economic cost</li>
+                <li>Calculate the total time of a complete untwisting operation</li>
+                <li>Estimate the production losses associated with this process</li>
+                <li>Analyse the cost components: lost production vs motor consumption</li>
+                <li>Evaluate strategies to minimise the economic impact of untwisting</li>
+            </ul>
+        </div>
+
+        <h2>Introduction: Why is there a cost?</h2>
+
+        <div class="didactic-box">
+            <h3>💰 The economic problem of untwisting</h3>
+            <p>As we saw in the previous experiment, the power cables progressively twist as the nacelle rotates following changes in wind direction. When the twist limit is reached, the wind turbine must execute an <span class="key-concept">untwisting operation</span>.</p>
+
+            <p>This operation has several cost components:</p>
+            <ul>
+                <li><strong>Grid disconnection (cut-out):</strong> During this phase no electricity is generated</li>
+                <li><strong>Untwisting rotation:</strong> The nacelle must rotate several full turns, a process that takes time</li>
+                <li><strong>Grid reconnection (cut-in):</strong> Requires additional time until stable production is reached</li>
+                <li><strong>Yaw motor consumption:</strong> These motors consume energy during the process</li>
+            </ul>
+
+            <p>The <strong>objective of this experiment</strong> is to quantify these costs in economic terms.</p>
+        </div>
+
+        <h2>Problem statement</h2>
+
+        <div class="important-note">
+            <h3>📋 Analysis scenario</h3>
+            <p>We will consider the following realistic scenario:</p>
+
+            <h4>Initial conditions:</h4>
+            <ul>
+                <li>The wind turbine is in <strong>Production</strong> mode (generating electricity)</li>
+                <li>The power cables have reached the <strong>twist limit</strong> in one direction</li>
+                <li>Configured limit: <strong>2.5 full turns</strong> (900 degrees)</li>
+                <li>A complete untwisting operation must be executed</li>
+            </ul>
+
+            <h4>System parameters:</h4>
+            <ul>
+                <li>Wind speed: <strong>Above rated wind speed</strong> (good production conditions)</li>
+                <li>Wind turbine Rated Power: <strong>1,500 kW</strong></li>
+                <li>Yaw motor consumption: <strong>5 kW</strong></li>
+                <li>Electricity selling price: <strong>€0.10/kWh</strong></li>
+                <li>Yaw motor speed: <strong>0.5 °/s</strong></li>
+            </ul>
+        </div>
+
+        <h2>Experiment methodology</h2>
+
+        <p>The experiment requires you to determine three critical times and then calculate the associated costs:</p>
+
+        <div class="procedure-box">
+            <h3>📝 Task 1: Observe the disconnection time (cut-out)</h3>
+
+            <p>When the wind turbine decides to initiate untwisting, it must first safely disconnect from the electrical grid.</p>
+
+            <h4>Procedure:</h4>
+            <ol>
+                <li>Configure the simulator with the specified conditions</li>
+                <li>Activate the cut-out process (disconnection)</li>
+                <li>Use the graphic recorders (StripRecorders) to measure time</li>
+                <li>Record the <strong>time from the start of cut-out until the generated power reaches 0 kW</strong></li>
+            </ol>
+
+            <div class="data-table">
+                <h4>Data to record:</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Disconnection time (t_cutout)</td>
+                        <td>_______ seconds</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Task 2: Calculate the untwisting time</h3>
+
+            <p>Once disconnected, the nacelle must rotate to untwist the cables.</p>
+
+            <h4>Theoretical calculation:</h4>
+            <div class="calculation-box">
+                <p><strong>Total angle to cover:</strong></p>
+                <p>If the limit is 2.5 turns in one direction, we must rotate 2.5 turns in the opposite direction</p>
+                <p>Angle = 2.5 turns × 360°/turn = 900 degrees</p>
+
+                <p><strong>Motor speed:</strong> 0.5 °/s</p>
+
+                <p><strong>Untwisting time:</strong></p>
+                <p>t_untwisting = Total angle / Speed</p>
+                <p>t_untwisting = 900° / 0.5 °/s = <strong>1,800 seconds</strong> = <strong>30 minutes</strong></p>
+            </div>
+
+            <h4>Experimental verification (optional):</h4>
+            <p>You can observe this process in the simulator if you modify the yaw speed parameters:</p>
+            <ul>
+                <li>Locate the parameters <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C5370616E6973685C44534153575453696D756C61746F725C446573656E72726F6C6C654361626C65732E68746D6C65/">'NacelleYawing.CWYawingSpeed'</a>
+                    and <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C5370616E6973685C44534153575453696D756C61746F725C446573656E72726F6C6C654361626C65732E68746D6C65/">'NacelleYawing.CCWYawingSpeed'</a></li>
+                <li>Set them to 0.5 °/s</li>
+                <li>Observe the actual time the complete process takes</li>
+            </ul>
+
+            <div class="data-table">
+                <h4>Data to record:</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Calculated value</th>
+                        <th>Observed value (optional)</th>
+                    </tr>
+                    <tr>
+                        <td>Untwisting time (t_untwist)</td>
+                        <td>1,800 s (30 min)</td>
+                        <td>_______ seconds</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Task 3: Observe the reconnection time (cut-in)</h3>
+
+            <p>After completing the untwisting, the wind turbine must reconnect to the grid and reach stable production.</p>
+
+            <h4>Procedure:</h4>
+            <ol>
+                <li>Once the untwisting is complete, initiate the cut-in process</li>
+                <li>Use the StripRecorders to measure time</li>
+                <li>Record the <strong>time from the start of cut-in until stable production at Rated Power is reached</strong></li>
+            </ol>
+
+            <p>💡 <strong>Note:</strong> You can use data from the experiment <a href="ComparisonofcutinindifferentWind.html">"Comparison of cut-in in different wind turbine families"</a> if you already took measurements with wind above rated speed.</p>
+
+            <div class="data-table">
+                <h4>Data to record:</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Reconnection time (t_cutin)</td>
+                        <td>_______ seconds</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Cost calculation</h2>
+
+        <div class="important-note">
+            <h3>💶 Economic analysis</h3>
+
+            <p>Once all times are obtained, we can calculate the total cost of the untwisting operation.</p>
+
+            <h4>Total operation time:</h4>
+            <div class="calculation-box">
+                <p>T_total = t_cutout + t_untwist + t_cutin</p>
+                <p>T_total = _____ s + 1,800 s + _____ s = _____ seconds</p>
+                <p>T_total in hours = _____ s / 3,600 s/h = _____ hours</p>
+            </div>
+
+            <h4>Cost components:</h4>
+
+            <h5>1. Lost production (revenue not obtained):</h5>
+            <div class="calculation-box">
+                <p><strong>During cut-out, untwisting and cut-in:</strong></p>
+                <p>Energy that would have been generated = Rated Power × Total time</p>
+                <p>E_lost = 1,500 kW × _____ h = _____ kWh</p>
+                <p></p>
+                <p>Lost revenue = E_lost × Price</p>
+                <p>Cost_lost_production = _____ kWh × €0.10/kWh = <strong>_____ €</strong></p>
+            </div>
+
+            <h5>2. Yaw motor consumption (direct cost):</h5>
+            <div class="calculation-box">
+                <p><strong>Only during untwisting:</strong></p>
+                <p>Energy consumed = Motor power × Untwisting time</p>
+                <p>E_consumed = 5 kW × (1,800 s / 3,600 s/h) = 5 kW × 0.5 h = 2.5 kWh</p>
+                <p></p>
+                <p>Consumption cost = E_consumed × Price</p>
+                <p>Cost_motors = 2.5 kWh × €0.10/kWh = <strong>€0.25</strong></p>
+            </div>
+
+            <h5>3. Total cost:</h5>
+            <div class="calculation-box">
+                <p>Total_cost = Cost_lost_production + Cost_motors</p>
+                <p>Total_cost = _____ € + €0.25 = <strong>_____ €</strong></p>
+            </div>
+        </div>
+
+        <h2>Calculation template</h2>
+
+        <div class="data-table">
+            <h3>📊 Results summary</h3>
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #4caf50; color: white;">MEASURED DATA</th>
+                </tr>
+                <tr>
+                    <td>Cut-out time (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Untwisting time (s)</td>
+                    <td>1,800</td>
+                </tr>
+                <tr>
+                    <td>Cut-in time (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #2196f3; color: white;">CALCULATED TIMES</th>
+                </tr>
+                <tr>
+                    <td>Total operation time (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Total operation time (h)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #ff9800; color: white;">COSTS</th>
+                </tr>
+                <tr>
+                    <td>Lost energy (kWh)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Lost revenue (€)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Motor consumption (kWh)</td>
+                    <td>2.5</td>
+                </tr>
+                <tr>
+                    <td>Motor consumption cost (€)</td>
+                    <td>0.25</td>
+                </tr>
+                <tr style="font-weight: bold; background-color: #ffeb3b;">
+                    <td>TOTAL COST (€)</td>
+                    <td>_______</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Analysis and reflection</h2>
+
+        <div class="learning-objective">
+            <h3>🤔 Analysis questions</h3>
+            <ol>
+                <li><strong>Dominant cost component:</strong>
+                    <ul>
+                        <li>What is the main cost component: lost production or motor consumption?</li>
+                        <li>In what proportion does each contribute to the total cost?</li>
+                    </ul>
+                </li>
+                <li><strong>Impact of wind speed:</strong>
+                    <ul>
+                        <li>How would the cost change if the untwisting occurred with wind below rated speed?</li>
+                        <li>Would it be more economical to wait for low wind conditions to untwist?</li>
+                    </ul>
+                </li>
+                <li><strong>Untwisting frequency:</strong>
+                    <ul>
+                        <li>If the wind pattern causes one untwisting per week, what would the annual cost be?</li>
+                        <li>What percentage of annual production would this represent?</li>
+                    </ul>
+                </li>
+                <li><strong>Optimisation:</strong>
+                    <ul>
+                        <li>What strategies could reduce this cost?</li>
+                        <li>Would it be worth increasing the permitted turn limit? What risks would this involve?</li>
+                        <li>Would faster yaw motors be beneficial? What considerations would need to be made?</li>
+                    </ul>
+                </li>
+                <li><strong>Comparison between technologies:</strong>
+                    <ul>
+                        <li>Is this cost the same for all types of wind turbines (DSAS, RRC, DFIG)?</li>
+                        <li>What differences might exist in cut-out and cut-in times between technologies?</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h2>Practical considerations</h2>
+
+        <div class="didactic-box">
+            <h3>🔧 Operational aspects in real wind farms</h3>
+            <ul>
+                <li><strong>Smart planning:</strong> Modern SCADA systems can schedule untwisting during low-production periods (e.g., low night-time winds)</li>
+                <li><strong>Weather forecasting:</strong> Forecasts are used to avoid untwisting just before periods of optimal winds</li>
+                <li><strong>Continuous monitoring:</strong> Early warning systems when approaching the twist limit</li>
+                <li><strong>Preventive strategies:</strong> Some controllers try to balance rotations in both directions to minimise accumulation</li>
+                <li><strong>Adaptive limits:</strong> In some designs, the turn limit can be adjusted according to operational conditions</li>
+            </ul>
+        </div>
+
+        <h2>Conclusions</h2>
+
+        <div class="important-note">
+            <h3>📌 Key points</h3>
+            <ul>
+                <li>Cable untwisting has a <strong>significant economic cost</strong>, mainly due to lost production</li>
+                <li>The cost is much higher when it occurs during optimal wind conditions</li>
+                <li>The <strong>untwisting time component</strong> is the longest part of the whole process</li>
+                <li>Yaw motor consumption is relatively small compared to lost production</li>
+                <li>A good <strong>management strategy</strong> can significantly minimise these costs</li>
+                <li>This is an example of how seemingly simple operational decisions have a <strong>direct economic impact</strong> on a wind farm</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

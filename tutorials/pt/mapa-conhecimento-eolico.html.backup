@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Conhecimento em Energia E&oacute;lica - ACMSL</title>
+  <link rel="stylesheet" href="../tutorial.css">
+</head>
+<body>
+
+<div class="tut-toolbar">
+  <div class="tut-toolbar-actions">
+    <a href="../../index.html?lang=pt" title="In&iacute;cio">&#127968; In&iacute;cio</a>
+    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
+  </div>
+  <div class="tut-lang-selector">
+    <a href="../en/wind-energy-mindmap.html">EN</a>
+    <a href="../es/mapa-mental.html">ES</a>
+    <a href="../fr/carte-mentale.html">FR</a>
+    <a href="../it/mappa-conoscenza-eolica.html">IT</a>
+    <a href="../de/windenergie-wissenskarte.html">DE</a>
+    <a href="../pt/mapa-conhecimento-eolico.html" class="active">PT</a>
+  </div>
+</div>
+
+<header class="tut-header">
+  <div class="tut-header-left">
+    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+  </div>
+  <nav>
+    <a href="../en/introduction.html">Introdu&ccedil;&atilde;o</a>
+    <a href="turbinas-eolicas-industriais.html">Turbinas e&oacute;licas</a>
+    <a href="familias-turbinas-eolicas.html">Fam&iacute;lias</a>
+    <a href="faixas-operacionais-vento.html">Faixas de vento</a>
+    <a href="../en/simulators-and-tutorials.html">Simuladores</a>
+    <a href="mapa-conhecimento-eolico.html" class="active">Mapa de conhecimento</a>
+  </nav>
+</header>
+
+<section class="tut-hero">
+  <h1>Mapa de Conhecimento em Energia E&oacute;lica</h1>
+  <p>Uma vis&atilde;o estrutural completa da tecnologia e&oacute;lica</p>
+</section>
+
+<main class="tut-content">
+
+  <h2>Mapeando toda a disciplina</h2>
+  <p>
+    A ACMSL criou um <strong>mapa mental abrangente</strong> que cobre todos os aspectos industriais
+    da energia e&oacute;lica. Este mapa de conhecimento serve tanto como guia de aprendizagem quanto como
+    ferramenta de refer&ecirc;ncia, organizando o vasto conjunto de conhecimentos exigidos pelos
+    profissionais de energia e&oacute;lica numa estrutura clara e naveg&aacute;vel.
+  </p>
+  <p>
+    O mapa mental &eacute; bil&iacute;ngue (espanhol/ingl&ecirc;s) e cont&eacute;m centenas de t&oacute;picos
+    interligados, desde f&iacute;sica fundamental at&eacute; finan&ccedil;as de projeto, da meteorologia
+    &agrave;s normas de seguran&ccedil;a.
+  </p>
+
+  <figure class="tut-figure">
+    <img src="../../img/mindmaprecortado.png" alt="Vis&atilde;o geral do Mapa de Conhecimento em Energia E&oacute;lica">
+    <figcaption>Vis&atilde;o geral do Mapa de Conhecimento ACMSL &mdash; 11 ramos principais cobrindo todos os aspectos industriais</figcaption>
+  </figure>
+
+  <h2>Os 11 ramos do conhecimento</h2>
+
+  <div class="tut-card">
+    <h4>1. Fundamentos e Contexto</h4>
+    <p>
+      A evolu&ccedil;&atilde;o hist&oacute;rica da energia e&oacute;lica, o estado atual do mercado mundial,
+      o contexto ambiental que impulsiona a transi&ccedil;&atilde;o energ&eacute;tica e os quadros
+      regulat&oacute;rios que moldam a ind&uacute;stria.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>2. Recurso E&oacute;lico</h4>
+    <p>
+      Metodologia de avalia&ccedil;&atilde;o do recurso e&oacute;lico, fundamentos meteorol&oacute;gicos,
+      t&eacute;cnicas de medi&ccedil;&atilde;o do vento (anemometria, LiDAR, SODAR), an&aacute;lise de
+      dados do vento, distribui&ccedil;&otilde;es de Weibull, otimiza&ccedil;&atilde;o de micrositing
+      e efeitos de esteira.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>3. Princ&iacute;pios F&iacute;sicos</h4>
+    <p>
+      Aerodin&acirc;mica das p&aacute;s das turbinas e&oacute;licas (teoria BEM, sustenta&ccedil;&atilde;o
+      e arrasto, raz&atilde;o de velocidade de ponta), princ&iacute;pios de m&aacute;quinas el&eacute;tricas
+      (geradores de indu&ccedil;&atilde;o e s&iacute;ncronos) e eletr&ocirc;nica de pot&ecirc;ncia
+      (conversores, inversores, modula&ccedil;&atilde;o PWM).
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>4. Produ&ccedil;&atilde;o e Distribui&ccedil;&atilde;o de Energia El&eacute;trica</h4>
+    <p>
+      Caracter&iacute;sticas da rede el&eacute;trica, requisitos de conex&atilde;o &agrave; rede,
+      c&oacute;digos de rede e conformidade, tecnologias de armazenamento de energia, padr&otilde;es de
+      qualidade de energia e gest&atilde;o de pot&ecirc;ncia reativa.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>5. Instrumenta&ccedil;&atilde;o e Controle</h4>
+    <p>
+      Sensores e transdutores industriais, protocolos de comunica&ccedil;&atilde;o (Modbus, OPC,
+      IEC 61400-25), algoritmos de controle (PID, m&aacute;quinas de estado, MPPT), sistemas SCADA
+      e monitoramento de condi&ccedil;&otilde;es.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>6. Parques E&oacute;licos</h4>
+    <p>
+      Avalia&ccedil;&atilde;o e sele&ccedil;&atilde;o de sites, gest&atilde;o e desenvolvimento de
+      projetos, constru&ccedil;&atilde;o e comissionamento, estima&ccedil;&atilde;o e otimiza&ccedil;&atilde;o
+      da produ&ccedil;&atilde;o, estrat&eacute;gias de opera&ccedil;&atilde;o e manuten&ccedil;&atilde;o,
+      subesta&ccedil;&otilde;es el&eacute;tricas e infraestrutura do parque.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>7. Turbinas E&oacute;licas</h4>
+    <p>
+      Princ&iacute;pios de design e classifica&ccedil;&atilde;o IEC, as 5 fam&iacute;lias de geradores,
+      componentes principais (torre, p&aacute;s, nacele, cubo, multiplicador, gerador, conversor,
+      funda&ccedil;&atilde;o), estrat&eacute;gias de controle avan&ccedil;adas e panorama atual dos fabricantes.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>8. Previs&atilde;o Meteorol&oacute;gica</h4>
+    <p>
+      Modelos de Previs&atilde;o Num&eacute;rica do Tempo (NWP), modela&ccedil;&atilde;o de mesoescala,
+      t&eacute;cnicas de previs&atilde;o de conjunto, downscaling estat&iacute;stico e verifica&ccedil;&atilde;o
+      de previs&otilde;es. Fundamental para a integra&ccedil;&atilde;o na rede e o com&eacute;rcio de energia.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>9. Economia e Finan&ccedil;as</h4>
+    <p>
+      An&aacute;lise de CAPEX e OPEX, c&aacute;lculo do Custo Nivelado de Energia (LCOE), an&aacute;lise
+      de viabilidade financeira, modelos de neg&oacute;cio (PPA, merchant, tarifas incentivadas),
+      estruturas de financiamento de projetos e avalia&ccedil;&atilde;o de risco de investimento.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>10. Aspectos Ambientais e Sociais</h4>
+    <p>
+      Avalia&ccedil;&atilde;o de impacto na fauna (aves, morcegos), emiss&otilde;es sonoras e modelos
+      de propaga&ccedil;&atilde;o, avalia&ccedil;&atilde;o de impacto visual, procedimentos de
+      Avalia&ccedil;&atilde;o de Impacto Ambiental (AIA), aceita&ccedil;&atilde;o social e programas
+      de benef&iacute;cio comunit&aacute;rio.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>11. Seguran&ccedil;a e Sa&uacute;de</h4>
+    <p>
+      Normas e regulamentos de seguran&ccedil;a, programas de certifica&ccedil;&atilde;o GWO
+      (Global Wind Organisation), requisitos de Equipamentos de Prote&ccedil;&atilde;o Individual (EPI),
+      procedimentos de emerg&ecirc;ncia, metodologias de avalia&ccedil;&atilde;o de risco e perigos
+      espec&iacute;ficos do trabalho em turbinas e&oacute;licas.
+    </p>
+  </div>
+
+  <h2>Sobre o mapa mental</h2>
+  <p>
+    O mapa de conhecimento em energia e&oacute;lica foi criado com <strong>Freeplane</strong>, uma
+    aplica&ccedil;&atilde;o gratuita e de c&oacute;digo aberto para mapeamento mental. O formato de
+    mapa mental permite uma organiza&ccedil;&atilde;o hier&aacute;rquica de t&oacute;picos com
+    profundidade ilimitada.
+  </p>
+
+  <div class="tut-card">
+    <h4>Um documento vivo</h4>
+    <p>
+      O mapa de conhecimento n&atilde;o &eacute; uma refer&ecirc;ncia est&aacute;tica &mdash; &eacute;
+      um documento vivo que cresce com a ind&uacute;stria. Cada ramo cont&eacute;m dezenas de
+      subt&oacute;picos organizados numa hierarquia l&oacute;gica, com refer&ecirc;ncias cruzadas
+      entre &aacute;reas relacionadas.
+    </p>
+  </div>
+
+  <div class="tut-cta">
+    <h3>Experimente os nossos simuladores em tempo real</h3>
+    <p>Avalia&ccedil;&atilde;o gratuita de 2 dias &mdash; combine o mapa de conhecimento com simula&ccedil;&atilde;o pr&aacute;tica</p>
+    <a href="../../index.html?section=downloads&lang=pt">Baixar simuladores</a>
+  </div>
+
+  <div class="tut-nav">
+    <a href="../en/simulators-and-tutorials.html">&larr; Anterior: Simuladores e Tutoriais</a>
+    <span></span>
+  </div>
+
+</main>
+
+<footer class="tut-footer">
+  &copy; 2026 <a href="https://www.acm-sl.com">Automated Computing Machinery SL (ACMSL)</a>. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

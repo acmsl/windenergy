@@ -1,0 +1,133 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Generator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="drive train, generator, generator rpms">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Generator");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Generator</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description of the Simulator</a> &rsaquo;&rsaquo; <a href="Synoptics.html">Synoptics</a> &rsaquo;&rsaquo; <a href="DriveTrainsynoptic.html">Drive Train synoptic</a> &rsaquo;&rsaquo; <a href="Componentsdescriptions.html">Components descriptions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Componentsdescriptions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Coupling.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="WindandNacelleorientationsynopti.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The Generator has the following associated elements in this synoptic.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">The image of the Generator itself.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Two widgets that present the Generator's rpms at every instant. One linear widget and a circular widget.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps2">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/NewItem102.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/NewItem103.png"></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11">This circular widget has marked different areas that give a hint of the situation for the Generator.</span></p>
+<p class="rvps4"><span class="rvts11">The </span><span class="rvts73">yellow</span><span class="rvts11"> areas indicates that the Wind Turbine is a region of controlled rpms while going to Cutin. The main purpose of this controlled areas is to achieve an "soft start": the acceleration of the DriveTrain when the thyristors start conduction is below a given limit. Remember that during the thyristors conduction phase, there is a little motoring time, consuming some active power (little) but a sizeable reactive power. This is the moment for the winding of the Generator to create the magnetic field needed to generate power: i.e. to create the equivalent to a permanent magnet).</span></p>
+<p class="rvps4"><span class="rvts11">The </span><span class="rvts74">green</span><span class="rvts11"> areas are production areas. They correspond to working limits recommended by the Generator manufacturer. See "</span><a class="rvts41" href="Generatorcharacteristics.html">Generator's characteristics</a><span class="rvts11">" to see the values and graphs for the simulated generator in the &nbsp;Simulator.</span></p>
+<p class="rvps4"><span class="rvts11">The </span><span class="rvts75">red</span><span class="rvts76"> </span><span class="rvts11">areas correspond to dangerous situations.</span></p>
+<p class="rvps4"><span class="rvts11">These areas, as well as the maximum and minimum values, change dynamically to adapt to each situation. This is because in the asynchronous generators the rpms regimen for motoring (consuming) and generating (delivery) is very narrow: if synchronous speed is 1500 rpms, 1499 implies consuming (motoring), and 1501 implies generation.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Also marked in the watch are the rpms limits for the two security limits (VCU and HCU). VCU is related to a device in the Generator's shaft, HCU is the absolute limit detected in the Blades. They act in order: if rpms surpasses the VCU limit some specific action is taken (braking with the disc). If that fails and the DriveTrain continues increasing its rpms and surpasses the HCU limit a very hard mechanical device in the Hub act to completely stop the Wind Turbine. In these cases, being far away from the Wind Turbine is very much recommended.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

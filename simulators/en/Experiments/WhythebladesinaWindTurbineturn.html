@@ -1,0 +1,161 @@
+        #topic_content {
+            /* Unified in base.css */
+        }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why do the blades of a wind turbine turn?</title>
+    <meta name="description" content="Educational explanation of the aerodynamic principle that makes wind turbine blades rotate">
+    <meta name="keywords" content="wind turbine, blades, lift, wind energy, aerodynamic principle">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("WhythebladesinaWindTurbineturn");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Why do the blades of a wind turbine turn?</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="Introduction.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+            <a href="ComparisonofcutinindifferentWind.html"><img src="img/arrow_right.png" alt="Next"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Learning objective</h3>
+            <p>After completing this section, you will understand the fundamental physical principle that enables the conversion of the kinetic energy of wind into rotational mechanical energy in a wind turbine.</p>
+        </div>
+
+        <h2>Introduction: The role of the blades in a wind turbine</h2>
+
+        <p>The blades are the key elements where <span class="key-concept">energy conversion</span> takes place in a wind turbine. Specifically, the blades transform part of the <span class="key-concept">kinetic energy of the wind</span> into <span class="key-concept">rotational kinetic energy</span> of the wind turbine's drivetrain.</p>
+
+        <h2>How does this conversion take place?</h2>
+
+        <p>This energy conversion occurs thanks to the <span class="key-concept">aerodynamic forces</span> generated when the wind passes through the blades. These forces cause the rotational motion of the rotor.</p>
+
+        <div class="didactic-box">
+            <h3>💭 Common misconception</h3>
+            <p>At first glance, it might seem that wind forces simply "push" the blades perpendicularly to the plane of rotation, as if the wind were striking a vertical rotating wall.</p>
+            <p><strong>However, this explanation is incorrect.</strong> The actual operating principle is far more sophisticated and efficient.</p>
+        </div>
+
+        <h2>The real aerodynamic principle: Lift</h2>
+
+        <p>The real reason why the blades turn is <strong>not intuitive</strong>, but it is fundamental to understand in order to grasp how a wind turbine works.</p>
+
+        <div class="important-note">
+            <h3>⚡ Key principle</h3>
+            <p>Wind turbine blades operate on a principle similar to that which allows <strong>aircraft to stay airborne during flight</strong>.</p>
+            <p>This principle is based on the generation of <span class="key-concept">lift forces</span> produced by the aerodynamic profile of the blades.</p>
+        </div>
+
+        <h2>Delve deeper into the concept</h2>
+
+        <p>To understand this fascinating physical principle in detail, we recommend reviewing the full explanation in the tutorial:</p>
+
+        <div class="didactic-box">
+            <p>📚 <a class="rvts12" href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C5768797468654875627475726E732E68746D6C65"><strong>"Why do the blades turn?"</strong></a> - Full tutorial</p>
+            <p>In this tutorial you will find:</p>
+            <ul>
+                <li>Detailed explanation of the aerodynamic profile of the blades</li>
+                <li>Comparison with an aircraft wing</li>
+                <li>Force diagrams and velocity vectors</li>
+                <li>Concepts of lift and aerodynamic drag</li>
+            </ul>
+        </div>
+
+        <h2>Summary of key concepts</h2>
+
+        <div class="didactic-box">
+            <h3>📝 Important points to remember:</h3>
+            <ol>
+                <li>The blades convert wind kinetic energy into rotational energy</li>
+                <li>This conversion is produced by aerodynamic forces</li>
+                <li>The principle is NOT simply the wind "pushing" the blades</li>
+                <li>The actual principle is similar to the lift that keeps an aircraft airborne</li>
+                <li>The aerodynamic profile of the blades is essential for this operation</li>
+            </ol>
+        </div>
+
+        <h2>Suggested activities</h2>
+
+        <div class="learning-objective">
+            <h3>🔬 To consolidate your learning:</h3>
+            <ol>
+                <li>Review the full tutorial on the lift principle</li>
+                <li>Compare the profile of a wind turbine blade with an aircraft wing</li>
+                <li>Identify the main forces acting on a rotating blade</li>
+                <li>Reflect on why this principle is more efficient than simple "pushing"</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

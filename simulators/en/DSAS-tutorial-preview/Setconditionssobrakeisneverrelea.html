@@ -1,0 +1,129 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Set conditions so brake is never released</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Setconditionssobrakeisneverrelea");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Set conditions so brake is never released</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; <a href="Failuresonthehydraulicbrakingsys.html">Failures on the hydraulic braking system</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Failuresonthehydraulicbrakingsys.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Observethereactiontoafaultyhydra.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Softconnectiontothegrid.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">This experiment is to explore the reaction of the Controller to a problem in the pump of the hydraulic circuit of the Brake.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Star anew the simulator.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">In the "Electrical Panel" set the "MainSwitch" to "On".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Press "Run" in "Executing"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Change the "PumpCaudal" to 0:</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">"Executig.."--&gt;"Synoptics"--&gt;"Parameters"-&gt;"Analog Parameters"--&gt;"NacelleBrake"."PumpCaudal": Set the value to 0</span><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/NewItem8.png"><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Look to the hydraulic circuit in the "SynopticDriveTrain" synoptic with "Internal view".&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Check the "Manual STOP" in "Opened incidences" in "Control Terminal"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">PressIn the "Control Terminal" press "START". Notice that as soon as the pitch raises the nominal position (0º to &nbsp;-5º) , the Controller start the pump, but the pressure does not goes up reaching the pressure switch. After the "HydrPumpMaxRunTime" the controller issues a "Pumping time too long" incidence and the Wind Turbine can not start operation.</span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20pumping%20to%20long.jpg"><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">In the "Control Terminal" the Operator can acknowledge the incidence, but to reset the condition, the Controller needs a signal that indicates pressure in the circuit. To do so, follow these steps:</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Go to the "Synoptic DriveTrain"</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Change to &nbsp;manual control of the Pump using the following procedure:</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Set the mouse over the "Press switch" widget</span></p>
+<p class="rvps13" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">press "F6" in the keyboard; the border line change to green indicating that this widget is no longer attached to the signal coming from the Controller.&nbsp;</span><br/><span class="rvts11">Now you can set manually the "Press Switch" to on.&nbsp;</span><br/><span class="rvts11">To return to normal state simply press again "F6", restoring the connection of the widget with the control coming from the Controller, and the Wind Turbine is ready to start.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Repeat this scenario with other ways to impede the pump to fill the hydraulic circuit:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Changing parameters, for instance setting a "LeakageBrakeHydrCircuit" greater than the "PumpCaudal", or setting a "HydrPumpMaxRunTime" so small that the "PumpCaudal" can not fill the circuit in this time.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Putting signals in manual in the "Synoptic DriveTrain", for instance forcing the on state on &nbsp;any of the brakes.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts83"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,574 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respuesta a ráfagas de viento</title>
+    <meta name="description" content="Análisis del comportamiento de diferentes familias de aerogeneradores ante ráfagas de viento">
+    <meta name="keywords" content="ráfagas, wind gusts, pitch, turbulencia, momento inercia, flicker, DSAS, RRC, DFIG">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+        
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        #topic_content {
+            /* Unificado en base.css */
+        }
+        
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+        
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+        
+        h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 15px;
+        }
+        
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+        
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+        }
+        
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+        }
+        
+        .technology-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+        }
+        
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+        }
+        
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .technology-name {
+            font-weight: bold;
+            color: #4caf50;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            display: block;
+        }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("Responsetowindgusts");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Respuesta a ráfagas de viento</h1>
+        </div>
+        
+        <div id="topic_header_nav">
+            <a href="CostofPowerCablesuntwisting.html"><img src="img/arrow_left.png" alt="Anterior"/></a>
+            <a href="DifferencesintheElectricGenerato.html"><img src="img/arrow_right.png" alt="Siguiente"/></a>
+        </div>
+        
+        <div class="clear"></div>
+    </div>
+    
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objetivos de aprendizaje</h3>
+            <p>Al completar este experimento serás capaz de:</p>
+            <ul>
+                <li>Comprender la naturaleza de las ráfagas de viento y su modelización</li>
+                <li>Identificar los desafíos que representan las ráfagas para el funcionamiento de un aerogenerador</li>
+                <li>Analizar las diferentes estrategias de respuesta según la tecnología del aerogenerador</li>
+                <li>Evaluar el papel del momento de inercia del rotor como almacenamiento de <h2>Introducción: El viento como fenómeno complejo</h2>
+    
+    <div class="didactic-box">
+        <h3>🌪️ Características del viento real</h3>
+        <p>El viento es un <span class="key-concept">fenómeno atmosférico complejo</span> y difícil de modelar con precisión. En la práctica, para el diseño y análisis de aerogeneradores, se consideran tres parámetros fundamentales:</p>
+        <ul>
+            <li><strong>Dirección:</strong> Hacia dónde sopla el viento (ej: Norte, Suroeste, etc.)</li>
+            <li><strong>Velocidad media:</strong> La velocidad promediada en un periodo de tiempo (típicamente 10 minutos)</li>
+            <li><strong>Turbulencia:</strong> Las variaciones rápidas e irregulares de velocidad y dirección superpuestas a la velocidad media</li>
+        </ul>
+        
+        <p>Desde la perspectiva del dimensionamiento estructural y operativo de los aerogeneradores, estas características se simplifican en dos categorías principales:</p>
+        <ul>
+            <li><span class="key-concept">Viento medio:</span> Condiciones relativamente estables</li>
+            <li><span class="key-concept">Ráfagas de viento:</span> Cambios bruscos y significativos de velocidad</li>
+        </ul>
+    </div>
+
+    <h2>Caracterización de las ráfagas de viento</h2>
+    
+    <p>Las <span class="key-concept">ráfagas de viento</span> se caracterizan por varios parámetros:</p>
+
+    <div class="didactic-box">
+        <h3>📊 Parámetros de una ráfaga</h3>
+        <ul>
+            <li><strong>Velocidad máxima:</strong> El pico de velocidad alcanzado durante la ráfaga</li>
+            <li><strong>Velocidad mínima:</strong> El valle de velocidad (puede ser inferior a la velocidad media previa)</li>
+            <li><strong>Amplitud:</strong> La diferencia entre velocidad máxima y mínima</li>
+            <li><strong>Tasa máxima de cambio:</strong> La rapidez con que cambia la velocidad del viento (m/s²)</li>
+            <li><strong>Duración:</strong> El tiempo que dura la ráfaga</li>
+        </ul>
+    </div>
+
+    <h3>Modelo estándar de ráfaga para comparaciones</h3>
+    
+    <p>Para comparar el comportamiento de diferentes aerogeneradores, se utiliza un modelo de ráfaga estandarizado que permite realizar ensayos reproducibles:</p>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img alt="Modelo de ráfaga de viento para DFIG" src="lib/DFIG%20WindGust%20Def%20120x4.jpg">
+        <p style="font-style: italic; font-size: 14px;">Figura 1: Modelo típico de ráfaga de viento utilizado para ensayos comparativos</p>
+    </div>
+
+    <p>Este modelo representa una ráfaga idealizada con forma de rampa, caracterizada por:</p>
+    <ul>
+        <li>Una velocidad inicial estable</li>
+        <li>Un incremento lineal de velocidad (rampa ascendente)</li>
+        <li>Un periodo de velocidad máxima sostenida</li>
+        <li>Un descenso lineal de velocidad (rampa descendente)</li>
+        <li>Retorno a condiciones estables</li>
+    </ul>
+
+    <h2>El desafío de las ráfagas</h2>
+    
+    <div class="important-note">
+        <h3>⚠️ Problemáticas asociadas a las ráfagas</h3>
+        <p>Las ráfagas de viento plantean dos problemas principales que el aerogenerador debe resolver:</p>
+        
+        <h4>1. Estabilidad del tren de potencia (Drive Train)</h4>
+        <ul>
+            <li>Los cambios bruscos de velocidad del viento generan <strong>cargas dinámicas</strong> sobre todo el sistema mecánico</li>
+            <li>Pueden provocar <strong>oscilaciones torsionales</strong> en el eje principal</li>
+            <li>Aceleran el <strong>desgaste de componentes</strong> (rodamientos, engranajes)</li>
+            <li>En casos extremos, pueden causar <strong>daños estructurales</strong></li>
+        </ul>
+        
+        <h4>2. Calidad de la potencia entregada a la red</h4>
+        <ul>
+            <li>Las variaciones de velocidad del rotor se traducen en <strong>fluctuaciones de potencia</strong></li>
+            <li>Estas fluctuaciones pueden causar <strong>variaciones de tensión</strong> en la red eléctrica</li>
+            <li>Problema del <span class="key-concept">"flicker"</span>: variaciones perceptibles en la intensidad luminosa de las lámparas conectadas a la red</li>
+            <li>Impacto en la <strong>calidad del servicio eléctrico</strong> para otros consumidores</li>
+        </ul>
+    </div>
+
+    <h2>Estrategias generales de respuesta</h2>
+    
+    <div class="didactic-box">
+        <h3>🛠️ Mecanismos de compensación</h3>
+        <p>En general, la compensación de cambios en la velocidad del viento se realiza mediante el <span class="key-concept">ajuste del ángulo de pitch de las palas</span>. Sin embargo, cuando se trata de ráfagas:</p>
+        
+        <div class="important-note">
+            <p><strong>Limitación fundamental:</strong> El mecanismo de pitch puede <strong>no ser suficientemente rápido</strong> para compensar los cambios bruscos de velocidad característicos de las ráfagas.</p>
+        </div>
+        
+        <p>Por esta razón, diferentes familias de aerogeneradores han desarrollado <strong>mecanismos adicionales</strong> para gestionar las ráfagas, especialmente enfocados en:</p>
+        <ul>
+            <li>Mantener la estabilidad del tren de potencia</li>
+            <li>Garantizar la calidad de la potencia entregada a la red</li>
+        </ul>
+    </div>
+
+    <h2>Respuesta según la familia de aerogenerador</h2>
+    
+    <p>A continuación se describe cómo cada tecnología aborda el problema de las ráfagas:</p>
+
+    <div class="technology-box">
+        <h3>⚙️ Aerogeneradores de primera generación: Pitch fijo y pérdida aerodinámica</h3>
+        <p class="technology-name">Tecnología: Generador de jaula de ardilla + Pitch fijo + Stall pasivo</p>
+        
+        <h4>Características:</h4>
+        <ul>
+            <li>Palas con ángulo de pitch <strong>fijo</strong> (no ajustable)</li>
+            <li>Generador de <strong>jaula de ardilla</strong> conectado directamente a la red</li>
+            <li>Control pasivo por <strong>pérdida aerodinámica (stall)</strong></li>
+        </ul>
+        
+        <h4>Mecanismo de respuesta a ráfagas:</h4>
+        <p>La estabilidad del tren de potencia se logra mediante el <strong>diseño aerodinámico de las palas</strong>:</p>
+        <ul>
+            <li>Cuando la velocidad del viento supera la velocidad nominal, las palas entran en <strong>pérdida aerodinámica (stall)</strong></li>
+            <li>En stall, el flujo de aire se desprende de la superficie de la pala</li>
+            <li>Esto provoca una <strong>reducción automática</strong> de la potencia captada del viento</li>
+            <li>Actúa como un "limitador natural" de potencia</li>
+        </ul>
+        
+        <!--p>📚 Ver curva característica en: <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDSASWTSimulator%5CPowerversuswindofficialcurve.htmle'">'Fixed-Pitch Power vs Wind Speed'</a></p-->
+        <p>📚 Ver curva característica en: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C506F77657276657273757377696E646F6666696369616C63757276652E68746D6C65/">'Fixed-Pitch Power vs Wind Speed'</a></p>
+       
+        <h4>Control de velocidad de rotación:</h4>
+        <p>Las rpm del tren de potencia son controladas por las características del <strong>generador de jaula de ardilla</strong> conectado directamente a la red:</p>
+        <ul>
+            <li>La velocidad de rotación se mantiene muy cercana a la <strong>velocidad síncrona</strong> del generador</li>
+            <li>Variación típica: no más del 1% de la velocidad síncrona</li>
+            <!--li>📚 Más información: <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDSASWTSimulator%5CIntoductiontotheInductionMachine.htmle'">Introducción a máquinas de inducción</a> 
+                y <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDSASWTSimulator%5CGeneratorcharacteristics.htmle'">Características del generador</a></li-->
+            <li>📚 Más información: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C496E746F64756374696F6E746F746865496E64756374696F6E4D616368696E652E68746D6C65/">Introducción a máquinas de inducción</a> y 
+                <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C47656E657261746F726368617261637465726973746963732E68746D6C65/">Características del generador</a></li>
+
+        </ul>
+        
+        <div class="important-note">
+            <h4>⚠️ Limitaciones de esta tecnología:</h4>
+            <ul>
+                <li><strong>Potencia entregada variable:</strong> Por encima de velocidad nominal, la potencia <strong>disminuye</strong> en lugar de mantenerse constante</li>
+                <li><strong>Cargas sobre la torre:</strong> El fenómeno de stall incrementa las <strong>fuerzas horizontales</strong> que debe soportar la torre</li>
+                <li><strong>Eficiencia reducida:</strong> En condiciones de viento alto, no se aprovecha todo el potencial energético</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Aerogeneradores con control activo de pitch</h3>
+        <p class="technology-name">Tecnología: Generador de jaula de ardilla + Pitch variable activo</p>
+        
+        <h4>Características:</h4>
+        <ul>
+            <li>Palas con ángulo de pitch <strong>variable y controlado activamente</strong></li>
+            <li>Generador de <strong>jaula de ardilla</strong> conectado directamente a la red</li>
+            <li>Sistema hidráulico o eléctrico para ajustar el pitch</li>
+        </ul>
+        
+        <h4>Mecanismo de respuesta a ráfagas:</h4>
+        <p>Por encima de la velocidad nominal del viento:</p>
+        <ul>
+            <li>El sistema de control <strong>ajusta el ángulo de pitch</strong> de las palas</li>
+            <li>Las palas se orientan progresivamente <strong>"hacia banderas" (feathering)</strong></li>
+            <li>Esto permite que el <strong>exceso de viento pase a través</strong> sin ser capturado</li>
+            <li>Mantiene la <strong>potencia constante</strong> en el valor nominal</li>
+        </ul>
+        
+        <!--p>📚 Ver curva característica en: <a href="shellcommand%20%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDSASWTSimulator%5CPowerversuswindofficialcurve.htmle'">'Variable Pitch fixed-speed Power vs Wind Speed'</a></p-->
+        <p>📚 Ver curva característica en: <a href="acmsl://viewertutorial%20-n%20-h
+433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C506F77657276657273757377696E646F6666696369616C63757276652E68746D6C65/">'Variable Pitch fixed-speed Power vs Wind Speed'</a></p>
+        
+        <h4>Control de velocidad de rotación:</h4>
+        <p>Similar a la generación anterior:</p>
+        <ul>
+            <li>Generador de jaula de ardilla conectado directamente a la red</li>
+            <li>Velocidad de rotación mantenida muy cercana a la velocidad síncrona</li>
+        </ul>
+        
+        <div class="didactic-box">
+            <h4>✅ Ventajas sobre la generación anterior:</h4>
+            <ul>
+                <li><strong>Potencia constante:</strong> Mantiene potencia nominal por encima de velocidad nominal de viento</li>
+                <li><strong>Menores cargas en torre:</strong> El feathering reduce fuerzas horizontales comparado con el stall</li>
+                <li><strong>Mayor eficiencia:</strong> Mejor aprovechamiento del viento en todo el rango operativo</li>
+                <li><strong>Control de parada:</strong> Puede detener el rotor de forma controlada girando las palas 90°</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Aerogeneradores con control por resistencia del rotor</h3>
+        <p class="technology-name">Tecnología: RRC (Rotor Resistance Control) - Generador de rotor bobinado + Pitch variable</p>
+        
+        <h4>Características:</h4>
+        <ul>
+            <li>Palas con pitch variable hacia banderas (feathering)</li>
+            <li><strong>Generador de rotor bobinado</strong> (no jaula de ardilla)</li>
+            <li>Dispositivo electrónico que permite insertar <strong>resistencia variable</strong> en el circuito del rotor</li>
+            <li><span class="key-concept">Momento de inercia elevado</span> del rotor y tren de potencia</li>
+        </ul>
+        
+        <h4>Mecanismo de respuesta a ráfagas:</h4>
+        <p>Esta tecnología introduce un concepto innovador: <strong>usar el tren de potencia como almacenamiento de energía</strong>:</p>
+        
+        <ol>
+            <li><strong>Durante una ráfaga ascendente:</strong>
+                <ul>
+                    <li>El sistema de pitch no puede responder lo suficientemente rápido</li>
+                    <li>Se captura <strong>más potencia</strong> del viento de la que se puede entregar a la red</li>
+                    <li>El exceso de energía se usa para <strong>acelerar el rotor</strong></li>
+                    <li>El rotor actúa como un <strong>volante de inercia</strong> almacenando energía cinética</li>
+                    <li>Esto requiere que el generador pueda operar a <strong>velocidades variables</strong></li>
+                </ul>
+            </li>
+            <li><strong>Durante una ráfaga descendente:</strong>
+                <ul>
+                    <li>El viento aporta menos energía de la necesaria</li>
+                    <li>El rotor <strong>se desacelera</strong>, liberando energía cinética almacenada</li>
+                    <li>Esto ayuda a <strong>mantener la potencia entregada</strong> más constante</li>
+                </ul>
+            </li>
+        </ol>
+        
+        <div class="important-note">
+            <h4>🔑 Concepto clave: El rotor como volante de inercia</h4>
+            <p>El <span class="key-concept">momento de inercia</span> del rotor es suficientemente alto para que actúe como un <strong>almacenamiento de energía a corto plazo</strong>.</p>
+            <p>La energía cinética almacenada en un rotor giratorio es:</p>
+            <p style="text-align: center; font-family: monospace; font-size: 18px;">E = ½ × I × ω²</p>
+            <p>Donde:</p>
+            <ul>
+                <li>E = Energía cinética (J)</li>
+                <li>I = Momento de inercia (kg·m²)</li>
+                <li>ω = Velocidad angular (rad/s)</li>
+            </ul>
+            <p>Un cambio en ω permite absorber o liberar energía sin cambios bruscos en la potencia entregada.</p>
+        </div>
+        
+        <h4>Solución tecnológica: Generador de rotor bobinado</h4>
+        <p>Para que el rotor pueda cambiar su velocidad de rotación manteniendo la conexión a red:</p>
+        <ul>
+            <li>Se utiliza un <strong>generador de rotor bobinado</strong> (wound rotor)</li>
+            <li>No se puede usar un generador de jaula de ardilla (velocidad casi fija)</li>
+            <li>Se incorpora un <strong>dispositivo electrónico</strong> que permite insertar resistencia variable en el circuito del rotor</li>
+            <li>Esto permite controlar el <strong>deslizamiento</strong> del generador</li>
+            <!--li>📚 Explicación detallada: <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CRRCWTSimulator%5CBasicconceptsinRotorResistanceCo.htmle'">'Basic concepts in Rotor Resistance Controlled Wind Turbines'</a></li-->
+            <li>📚 Explicación detallada: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C4261736963636F6E6365707473696E526F746F72526573697374616E6365436F2E68746D6C65/">'Basic concepts in Rotor Resistance Controlled Wind Turbines'</a></li>
+        
+        </ul>
+        
+        <h4>Experimentos prácticos:</h4>
+        <p>Para explorar el comportamiento de estos aerogeneradores ante ráfagas:</p>
+        <ul>
+            <!--li><a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CRRCWTSimulator%5CWindgustswithlowwind.htmle'">'Wind gusts with low wind'</a> - Ráfagas con viento bajo</li -->
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C57696E646775737473776974686C6F7777696E642E68746D6C65/">'Wind gusts with low wind'</a> - Ráfagas con viento bajo</li>
+            
+            <!--li><a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CRRCWTSimulator%5CWindgustswithhighwind.htmle'">'Wind gusts with high wind'</a> - Ráfagas con viento alto</li-->
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C57696E646775737473776974686869676877696E642E68746D6C65/">'Wind gusts with high wind'</a> - Ráfagas con viento alto</li>
+        
+        </ul>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Aerogeneradores con generador doblemente alimentado (DFIG)</h3>
+        <p class="technology-name">Tecnología: DFIG (Doubly Fed Induction Generator) - Pitch variable + Velocidad variable</p>
+        
+        <h4>Características:</h4>
+        <ul>
+            <li>Palas con pitch variable hacia banderas</li>
+            <li><strong>Generador de inducción doblemente alimentado (DFIG)</strong></li>
+            <li><strong>Convertidores back-to-back</strong> en el circuito del rotor</li>
+            <li>Rango de velocidades operativas muy amplio</li>
+            <li>Sistema de control sofisticado</li>
+        </ul>
+        
+        <h4>Mecanismo de respuesta a ráfagas:</h4>
+        <p>Similar al RRC, utiliza la <strong>aceleración y desaceleración del rotor</strong> para absorber/liberar energía y compensar las diferencias entre la potencia captada del viento y la potencia entregada a la red.</p>
+        
+        <div class="didactic-box">
+            <h4>✅ Ventajas sobre RRC:</h4>
+            <ul>
+                <li><strong>Rango operativo mucho más amplio:</strong> Puede operar eficientemente en un rango de velocidades de viento muy superior</li>
+                <li><strong>Control más sofisticado:</strong> Los convertidores electrónicos permiten un control preciso y rápido</li>
+                <li><strong>Mayor eficiencia:</strong> Optimiza la velocidad de rotación para cada velocidad de viento</li>
+                <li><strong>Mejor calidad de potencia:</strong> Control independiente de potencia activa y reactiva</li>
+            </ul>
+            <!--p>📚 Ver comportamiento detallado: <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDFIGWTSimulator%5CDFIGWTBehavior.htmle'">DFIG WT Behavior</a></p-->
+            <p>📚 Ver comportamiento detallado: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544265686176696F722E68746D6C65/">DFIG WT Behavior</a></p>
+           
+            <!--p>📚 Sobre los convertidores: <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDFIGWTSimulator%5CDFIGWTBackToBackConverters.htmle'">Back-to-Back converters</a></p-->
+            <p>📚 Sobre los convertidores: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544261636B546F4261636B436F6E766572746572732E68746D6C65/">Back-to-Back converters</a></p>
+ 
+        </div>
+        
+        <h4>Experimentos prácticos:</h4>
+        <p>Para explorar el comportamiento de DFIG ante ráfagas:</p>
+        <ul>
+            <!--li><a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDFIGWTSimulator%5CTCWindGustsLowWinds.htmle'">'Wind gusts in low wind speeds'</a> - Ráfagas con viento bajo</li-->
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E6447757374734C6F7757696E64732E68746D6C65/">'Wind gusts in low wind speeds'</a> - Ráfagas con viento bajo</li>
+            <!--li><a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E644775737473696E4869676857696E64732E68746D6C65/">'Wind gusts in high wind speeds'</a> - Ráfagas con viento alto</li-->
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E644775737473496E4869676857696E64732E68746D6C65/">'Wind gusts in high wind speeds'</a> - Ráfagas con viento alto</li>
+        
+        </ul>
+    </div>
+
+    <h2>Cuadro comparativo de estrategias</h2>
+    
+    <div class="didactic-box">
+        <h3>📊 Comparación de respuestas a ráfagas</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+            <tr style="background-color: #333; color: white;">
+                <th style="padding: 12px; border: 1px solid #999;">Tecnología</th>
+                <th style="padding: 12px; border: 1px solid #999;">Control de Potencia</th>
+                <th style="padding: 12px; border: 1px solid #999;">Control de Velocidad</th>
+                <th style="padding: 12px; border: 1px solid #999;">Respuesta a Ráfagas</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>Pitch Fijo + Stall</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Pérdida aerodinámica pasiva</td>
+                <td style="padding: 10px; border: 1px solid #999;">Velocidad fija (~1% variación)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Diseño aerodinámico de palas</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>Pitch Variable + Fixed Speed</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Control activo de pitch (feathering)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Velocidad fija (~1% variación)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Ajuste de pitch (limitado por velocidad del actuador)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>RRC</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Resistencia rotor</td>
+                <td style="padding: 10px; border: 1px solid #999;">Velocidad limitadamente variable</td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Inercia del rotor como almacenamiento</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>DFIG</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Convertidores</td>
+                <td style="padding: 10px; border: 1px solid #999;">Velocidad ampliamente variable</td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Inercia del rotor + Control electrónico sofisticado</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Actividades experimentales propuestas</h2>
+    
+    <div class="learning-objective">
+        <h3>🔬 Experimentos recomendados</h3>
+        <p>Para cada familia de aerogeneradores, realiza los siguientes ensayos:</p>
+        <ol>
+            <li><strong>Configurar ráfaga estándar:</strong>
+                <ul>
+                    <li>Utiliza el modelo de ráfaga mostrado en la Figura 1</li>
+                    <li>Ajusta los parámetros según las especificaciones de cada simulador</li>
+                </ul>
+            </li>
+            <li><strong>Monitorizar variables clave:</strong>
+                <ul>
+                    <li>Velocidad del viento (entrada)</li>
+                    <li>Velocidad de rotación del rotor (rpm)</li>
+                    <li>Ángulo de pitch de las palas</li>
+                    <li>Potencia generada</li>
+                    <li>Par en el eje principal</li>
+                </ul>
+            </li>
+            <li><strong>Observar y registrar:</strong>
+                <ul>
+                    <li>Tiempo de respuesta del sistema de pitch</li>
+                    <li>Variación de velocidad de rotación</li>
+                    <li>Fluctuaciones en la potencia entregada</li>
+                    <li>Picos de par mecánico</li>
+                </ul>
+            </li>
+            <li><strong>Ensayos con ráfagas en diferentes condiciones:</strong>
+                <ul>
+                    <li>Ráfagas con viento medio bajo (por debajo de velocidad nominal)</li>
+                    <li>Ráfagas con viento medio alto (por encima de velocidad nominal)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Análisis comparativo</h2>
+    
+    <div class="learning-objective">
+        <h3>📝 Preguntas de análisis</h3>
+        <ol>
+            <li><strong>Sobre la estabilidad del tren de potencia:</strong>
+                <ul>
+                    <li>¿Qué tecnología muestra las menores variaciones de velocidad de rotación?</li>
+                    <li>¿Qué tecnología presenta los picos de par mecánico más suaves?</li>
+                    <li>¿Cómo afecta el momento de inercia del rotor a la respuesta?</li>
+                </ul>
+            </li>
+            <li><strong>Sobre la calidad de potencia:</strong>
+                <ul>
+                    <li>¿Qué tecnología mantiene la potencia más constante durante una ráfaga?</li>
+                    <li>¿En qué casos se observarían problemas de flicker?</li>
+                    <li>¿Cómo mejora la calidad de potencia del DFIG respecto al RRC?</li>
+                </ul>
+            </li>
+            <li><strong>Sobre los mecanismos de control:</strong>
+                <ul>
+                    <li>¿Es el pitch suficiente para compensar ráfagas rápidas?</li>
+                    <li>¿Qué papel juega la velocidad variable en la respuesta?</li>
+                    <li>¿Por qué la combinación de pitch + velocidad variable es superior?</li>
+                </ul>
+            </li>
+            <li><strong>Sobre compromisos de diseño:</strong>
+                <ul>
+                    <li>¿Qué ventajas justifican la mayor complejidad del DFIG?</li>
+                    <li>¿En qué escenarios sería aceptable usar tecnologías más simples?</li>
+                    <li>¿Cómo influye la regulación eléctrica en la elección de tecnología?</li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+	<h2>Conceptos clave</h2>
+    
+    <div class="didactic-box">
+        <h3>📌 Resumen de conceptos fundamentales</h3>
+        <ul>
+            <li>Las ráfagas de viento son cambios bruscos de velocidad que desafían el control del aerogenerador</li>
+            <li>El sistema de pitch por sí solo puede ser insuficiente para compensar ráfagas rápidas</li>
+            <li>El <strong>momento de inercia del rotor</strong> puede usarse como almacenamiento de energía a corto plazo</li>
+            <li>La capacidad de <strong>velocidad variable</strong> es clave para aprovechar la inercia del rotor</li>
+            <li>Cada tecnología representa un compromiso entre <strong>complejidad, coste y rendimiento</strong></li>
+            <li>La evolución tecnológica busca mejorar tanto la <strong>estabilidad mecánica</strong> como la <strong>calidad de potencia</strong></li>
+        </ul>
+    </div>
+</div>
+
+<div id="topic_footer">
+    <div id="topic_footer_content">
+        Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,877 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Functional Schematic of a Wind Turbine with Squirrel Cage Generator</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("FunctionalSchematicofaWindTurbin");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Functional Schematic of a Wind Turbine with Squirrel Cage Generator</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureofaHorizontalAxisWindTu.html">Structure of a Horizontal Axis Wind Turbine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StructureofaHorizontalAxisWindTu.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ControlTerminal.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="GridElectricalConnection.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Functional Schematic of a Wind Turbine with Squirrel Cage Generator</span></p>
+<p class="rvps4"><span class="rvts6">Now that we've looked at all the individual components, let's see how they work together as a complete system. Think of this as putting all the puzzle pieces together.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Block Diagram - Functional Overview</span></p>
+<p class="rvps4"><span class="rvts11">Main Controller Functions</span></p>
+<p class="rvps4"><span class="rvts6">The Controller has two primary responsibilities in a squirrel cage generator wind turbine:</span></p>
+<p class="rvps4"><span class="rvts11">1. Generator Connection/Disconnection Control</span></p>
+<p class="rvps4"><span class="rvts6">Managing when and how the generator connects to the electrical grid.</span></p>
+<p class="rvps4"><span class="rvts11">What the Controller monitors:</span></p>
+<p class="rvps4"><span class="rvts15">Wind conditions:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind speed (from anemometer)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is it in the acceptable range for operation?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Too low? Can't generate enough power</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Too high? Dangerous, must shut down</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Mechanical conditions:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator shaft speed (RPM)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is it approaching synchronous speed?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ready for grid connection?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Electrical grid conditions:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Voltage on all three phases</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Are voltages within acceptable range?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Are all three phases present?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Is frequency stable (50 Hz or 60 Hz)?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What the Controller controls:</span></p>
+<p class="rvps4"><span class="rvts15">Thyristors:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Soft-start devices for gentle grid connection</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller fires them at precise moments</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gradually increases conduction angle</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Creates smooth acceleration to synchronous speed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Bypass Contactors:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Short-circuit the thyristors once at full speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces losses (thyristors have voltage drop)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller opens them for disconnection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why this is complex:</span></p>
+<p class="rvps4"><span class="rvts6">Remember from the </span><a class="rvts16" href="Two-SpeedActiveStallWindTurbineS.html">Soft Starter</a><span class="rvts6"> section:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator must be rotating near synchronous speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Frequency must match grid frequency</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Phase angle must align</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">All this must happen smoothly to avoid:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Mechanical shock to drivetrain</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Electrical surge to grid</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Equipment damage</span></li>
+ </ul>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">2. Power Control from Wind</span></p>
+<p class="rvps4"><span class="rvts6">Managing how much power is extracted from the wind.</span></p>
+<p class="rvps4"><span class="rvts11">What the Controller monitors:</span></p>
+<p class="rvps4"><span class="rvts15">Just the wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current wind speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">That's actually all it needs for this function!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What the Controller controls:</span></p>
+<p class="rvps4"><span class="rvts15">Blade pitch angle:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">This is the magic lever for power control</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Changes how efficiently blades extract energy</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Remember the Cp (power coefficient) concept?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How pitch controls power:</span></p>
+<p class="rvps4"><span class="rvts6">Let's understand this clearly:</span></p>
+<p class="rvps4"><span class="rvts15">At low wind (below rated):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Want to capture maximum possible power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch angle: ~0° (optimal Cp)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Extract as much as we can get</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">At rated wind (around 11-14 m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Reaching generator's maximum power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch starts to increase slightly</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Beginning to "spill" excess wind</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Above rated wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Way more power available than generator can handle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch angle increases more (5°, 10°, 15°...)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Deliberately reducing Cp</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Limiting power to protect equipment</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">In extreme wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch to 90° (feathered position)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp becomes negative (blades act as brake)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Stops the turbine aerodynamically</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The beauty of this:</span></p>
+<p class="rvps4"><span class="rvts6">One simple mechanism (blade pitch) handles:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Power optimization (low wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Power limiting (high wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Aerodynamic braking (stopping)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Emergency shutdown (extreme conditions)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">3. Two-Speed Generator Connection Control</span></p>
+<p class="rvps4"><span class="rvts6">This is a special feature of the turbine we're simulating!</span></p>
+<p class="rvps4"><span class="rvts11">The challenge:</span></p>
+<p class="rvps4"><span class="rvts6">Remember the TSR (Tip Speed Ratio) concept?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">For maximum efficiency, blade speed should match wind speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But generator forces blade speed to be nearly constant</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Single-speed operation is inefficient at low winds</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The solution:</span></p>
+<p class="rvps4"><span class="rvts6">Use two different generator configurations:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Small Generator</span><span class="rvts6"> (6-pole, 1000 RPM sync speed)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Large Generator</span><span class="rvts6"> (4-pole, 1500 RPM sync speed)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">When the Controller uses each:</span></p>
+<p class="rvps4"><span class="rvts15">Low to moderate wind (3.5 - 6.5 m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Use Small Generator (6-pole)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~13 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Better TSR match for low wind</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">More efficient energy capture</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Moderate to high wind (6.5 - 25 m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Use Large Generator (4-pole)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~19 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Optimal for rated power production</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This is where most energy is generated</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The switching algorithm:</span></p>
+<p class="rvps4"><span class="rvts6">This is clever - let's walk through it:</span></p>
+<p class="rvps4"><span class="rvts11">Switching from Small to Large (wind increasing):</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Detect:</span><span class="rvts6"> Wind speed crosses 6.6 m/s threshold</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Wait:</span><span class="rvts6"> Confirm wind stays above threshold (avoid nuisance switching)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Disconnect:</span><span class="rvts6"> Reduce power to zero using pitch control</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Open contactors:</span><span class="rvts6"> Disconnect Small Generator from grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Maintain pitch:</span><span class="rvts6"> Keep extracting just enough power to slow down gently</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Monitor speed:</span><span class="rvts6"> Wait for RPM to drop below ~1450 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Switch contactors:</span><span class="rvts6"> Change from 6-pole to 4-pole connection</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Cutin sequence:</span><span class="rvts6"> Start normal grid connection process for Large Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Connect:</span><span class="rvts6"> When speed reaches ~1490 RPM, fire thyristors</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Complete:</span><span class="rvts6"> Full connection, back in production</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Total time:</span><span class="rvts6"> Typically 20-30 seconds!</span></p>
+<p class="rvps4"><span class="rvts11">Switching from Large to Small (wind decreasing):</span></p>
+<p class="rvps4"><span class="rvts6">Similar process, but in reverse:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind drops below 6.2 m/s (note: hysteresis - different threshold!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cutout from Large Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Let speed drop below ~950 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Switch to 6-pole configuration</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cutin on Small Generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Back in production</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Why hysteresis (different up/down thresholds)?</span></p>
+<p class="rvps4"><span class="rvts6">Without it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind fluctuates around 6.5 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Switches Large → Small → Large → Small</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Constant switching!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lost production time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wear on contactors</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">With hysteresis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Switch to Large at 6.6 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Switch to Small at 6.2 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">0.4 m/s "dead band"</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Much more stable operation</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Detailed Functional Diagram</span></p>
+<p class="rvps4"><span class="rvts6">The following figure shows a more detailed functional schematic:</span></p>
+<p class="rvps4"><span class="rvts6">[Detailed functional diagram would be here]</span></p>
+<p class="rvps4"><span class="rvts6">Let's walk through the signal flow and understand how everything connects:</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Left Side - Wind and Mechanical Systems</span></p>
+<p class="rvps4"><span class="rvts11">Wind Measurement:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Anemometer</span><span class="rvts6"> → measures wind speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Signal goes to </span><span class="rvts11">Controller</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller uses this for nearly every decision!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Nacelle Orientation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Wind Vane</span><span class="rvts6"> → measures misalignment</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Signal goes to </span><span class="rvts11">Controller.Yawing</span><span class="rvts6"> (yaw control subsystem)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller decides: need to yaw?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Commands </span><span class="rvts11">Yaw Motors</span><span class="rvts6"> (CW or CCW)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Motors rotate nacelle</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Process repeats (closed-loop control)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">DriveTrain:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Blades</span><span class="rvts6"> capture wind energy</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Transfer torque through </span><span class="rvts11">Hub</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Through </span><span class="rvts11">Rotor Shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Through </span><span class="rvts11">Gearbox</span><span class="rvts6"> (speed multiplication)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Through </span><span class="rvts11">Flexible Coupling</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">To </span><span class="rvts11">Generator</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Speed Monitoring:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Generator Speed Sensor</span><span class="rvts6"> → measures high-speed shaft RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Critical for:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Knowing when to connect to grid (near synchronous speed)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Overspeed protection</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">State machine decisions</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Pitch Control:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Controller</span><span class="rvts6"> calculates desired pitch</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Sends command to </span><span class="rvts11">Pitch Hydraulic System</span><span class="rvts6"> (or electric motors)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">System adjusts </span><span class="rvts11">Blade Pitch</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Changes power extraction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Closed-loop: wind changes → pitch adjusts → power changes</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Right Side - Electrical Systems</span></p>
+<p class="rvps4"><span class="rvts11">Generator to Grid Path:</span></p>
+<p class="rvps4"><span class="rvts6">Let's follow the power from generator to grid:</span></p>
+<p class="rvps4"><span class="rvts11">Generator output</span><span class="rvts6"> (three-phase AC, 690V) ↓ </span><span class="rvts11">Power Cables</span><span class="rvts6"> (up through nacelle, down through tower) ↓ </span><span class="rvts11">Electrical Panel</span><span class="rvts6"> at tower base:</span></p>
+<p class="rvps4"><span class="rvts15">Inside the panel:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Busbars</span><span class="rvts6"> (connection bars)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Current Transformers</span><span class="rvts6"> (measure current in each phase)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Fuses</span><span class="rvts6"> (overcurrent protection)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Thyristors</span><span class="rvts6"> (soft-start devices)</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">With </span><span class="rvts11">Bypass Contactors</span><span class="rvts6"> in parallel</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">More </span><span class="rvts11">Busbars</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Generator Connection Contactors</span><span class="rvts6">:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts11">Small Generator Contactor</span><span class="rvts6"> (6-pole configuration)</span></li>
+  <li class="rvps12 noindent"><span class="rvts11">Large Generator Contactor</span><span class="rvts6"> (4-pole configuration)</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Only one can be closed at a time!</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts6">↓ </span><span class="rvts11">Step-up Transformer</span><span class="rvts6"> (690V → 15kV or 22kV) ↓ </span><span class="rvts11">Grid Connection</span><span class="rvts6"> (to wind farm substation)</span></p>
+<p class="rvps4"><span class="rvts11">Controller Monitoring Points:</span></p>
+<p class="rvps4"><span class="rvts6">The Controller watches:</span></p>
+<p class="rvps4"><span class="rvts15">Voltage measurements:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">On each phase (Phase 1, 2, 3)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Checks for:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Proper voltage level (~690V)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">All phases present</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Balanced (no severe asymmetry)</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts15">Current measurements:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Through current transformers</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Calculates:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Active power (kW)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Reactive power (kVAr)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Power factor</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Per-phase current balance</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts15">Contactor status:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Each contactor reports: Open or Closed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller knows exact electrical configuration</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Detects failures (contactor welded closed, won't open, etc.)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Thyristor temperature:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Bimetallic sensors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If any thyristor overheats → emergency shutdown</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Prevents semiconductor failure</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Controller Outputs - What It Commands</span></p>
+<p class="rvps4"><span class="rvts6">Let's see what the Controller actually controls:</span></p>
+<p class="rvps4"><span class="rvts11">1. Thyristor Gate Signals</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Not just "on/off" - precise timing!</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">6 separate signals</span><span class="rvts6"> (one per thyristor)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Firing angle determines conduction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Creates soft-start effect</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Bypass Contactors</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Command:</span><span class="rvts6"> Close or Open</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">When to close:</span><span class="rvts6"> After thyristors at full conduction</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">When to open:</span><span class="rvts6"> During cutout (disconnection)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Generator Connection Contactors</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Small Generator Contactor:</span><span class="rvts6"> Close for 6-pole operation</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Large Generator Contactor:</span><span class="rvts6"> Close for 4-pole operation</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Interlocked:</span><span class="rvts6"> Can never both be closed simultaneously!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">4. Blade Pitch Command</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Target angle:</span><span class="rvts6"> 0° to 90°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Continuously adjusted based on:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Wind speed</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Current power output</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Operating state (startup, production, shutdown)</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">5. Yaw Motors</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">CW Motor:</span><span class="rvts6"> Activate for clockwise rotation</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">CCW Motor:</span><span class="rvts6"> Activate for counterclockwise rotation</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Never both simultaneously!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">6. Hydraulic Pump</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">On/Off command</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Maintains brake system pressure</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller logic:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Pressure low? → Start pump</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Pressure high? → Stop pump</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">7. Brake Valves</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Normal Brake Valve:</span><span class="rvts6"> Gradual pressure release</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Hard Brake Valve:</span><span class="rvts6"> Rapid pressure release (emergency)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controls how fast brake applies</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Auxiliary Functions</span></p>
+<p class="rvps4"><span class="rvts6">Beyond the main control loops, the Controller manages:</span></p>
+<p class="rvps4"><span class="rvts11">Safety Monitoring:</span></p>
+<p class="rvps4"><span class="rvts15">Overspeed protection:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">VCU (Velocity Centrifugal Unit):</span><span class="rvts6"> On generator shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Mechanical device trips at ~1803 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Signals Controller: EMERGENCY STOP!</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">HCU (High-speed Centrifugal Unit):</span><span class="rvts6"> On rotor shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Mechanical backup if VCU fails</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Trips at ~26 RPM blade speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Last-resort protection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Temperature monitoring:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator windings</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gearbox oil</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor bearing</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Ambient temperature</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Any exceed limits? → Shutdown</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Vibration monitoring:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Tower vibration sensor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Excessive shaking? → Something's wrong!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Could indicate:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Blade damage</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Bearing failure</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Foundation problem</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Emergency shutdown needed</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts15">Grid monitoring:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Voltage on each phase</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Phase loss? → Disconnect immediately</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Under/over voltage? → Disconnect</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Frequency deviation? → Disconnect</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Hydraulic System Management:</span></p>
+<p class="rvps4"><span class="rvts6">Remember the brake hydraulic system?</span></p>
+<p class="rvps4"><span class="rvts6">The Controller manages it continuously:</span></p>
+<p class="rvps4"><span class="rvts15">Pressure monitoring:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Pressostat</span><span class="rvts6"> (pressure switch) tells Controller:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Above upper threshold? → Stop pump</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Below lower threshold? → Start pump</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts15">Pump control logic:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Maintains pressure in "green zone"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Limits pump start frequency (avoid overheating)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Tracks pump run time (maintenance scheduling)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Brake release verification:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Brake Released Sensor</span><span class="rvts6"> (limit switch)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Confirms brake pads actually separated from disc</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If sensor says "not released" but should be:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Problem! Hydraulic issue or sensor failure</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Abort startup sequence</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Nacelle Orientation Management:</span></p>
+<p class="rvps4"><span class="rvts15">Orientation tracking:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controller maintains nacelle position in memory</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Starting reference point established during installation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Every yaw movement updates position</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculates cable twist count from position</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Wind tracking:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Continuously compares:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Wind direction (from vane)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Nacelle orientation (from internal tracking)</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">Misalignment exceeds threshold?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">→ Activate yaw motors to correct</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Cable twist management:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Monitors cumulative twist</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Approaching limit (±2.5 turns)?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">→ Initiate untwisting procedure</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">→ Temporarily disconnect from grid if needed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">→ Yaw in direction to reduce twist</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">→ Reconnect when twist reduced</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Information Flow Summary</span></p>
+<p class="rvps4"><span class="rvts6">Let's trace a complete control loop example:</span></p>
+<p class="rvps4"><span class="rvts11">Example: Wind Speed Increases</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Wind speed rises</span><span class="rvts6"> from 10 m/s to 12 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Anemometer detects</span><span class="rvts6"> change</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Sends signal to Controller</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Update rate: ~1 sample per second</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Controller calculates</span><span class="rvts6"> implications:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">More power available from wind</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Currently producing 850 kW</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">At 12 m/s, could produce 1200 kW</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">But generator rated for upto 1300 kW</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Still OK to capture more power</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Controller maintains</span><span class="rvts6"> blade pitch:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Keep pitch near 0° (maximum Cp)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Let power increase naturally</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Generator speed increases</span><span class="rvts6"> slightly:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">More torque from wind</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Speed rises from 1508 to 1512 RPM</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Still safe (well below overspeed limit)</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Power output rises</span><span class="rvts6"> to 1150 kW:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Controller monitors through current sensors</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Calculates real-time power</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Still below 1300 kW limit</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Wind continues rising</span><span class="rvts6"> to 14 m/s:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Now approaching generator limit!</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Available power: ~1500 kW</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Generator limit: 1300 kW</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Must limit power extraction</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Controller increases pitch</span><span class="rvts6"> to 3°:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Reduces Cp from 0.48 to 0.42</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Power extraction reduced</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Power output stabilizes at 1290 kW</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Wind rises further</span><span class="rvts6"> to 16 m/s:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Controller increases pitch to 6°</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Cp drops to 0.35</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Power held at 1300 kW</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Process continues</span><span class="rvts6"> as wind changes:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Controller continuously adjusts pitch</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Maintains power at or below rating</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Protects generator from overload</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">All of this happens automatically, continuously, without human intervention!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">State-Based Control</span></p>
+<p class="rvps4"><span class="rvts6">The Controller doesn't just respond to individual signals - it operates using </span><span class="rvts11">State Machines</span><span class="rvts6">.</span></p>
+<p class="rvps4"><span class="rvts6">Think of state machines as:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">A flowchart of possible situations</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rules for moving between situations</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Actions to take in each situation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Two main state machines:</span></p>
+<p class="rvps4"><span class="rvts11">1. Operation State Machine</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Handles normal operation sequences:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Startup (cutin)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Production</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Shutdown (cutout)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Generator switching</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Cable untwisting</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Security State Machine</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Handles safety and fault conditions:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Normal operation monitoring</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Fault detection</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Emergency shutdown sequences</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Recovery procedures</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Why use state machines?</span></p>
+<p class="rvps4"><span class="rvts15">Without state machines (just reacting to sensors):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Complex logic becomes spaghetti code</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hard to predict behavior</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Difficult to debug</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Easy to miss edge cases</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">With state machines:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Clear definition of every possible situation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Explicit rules for transitions</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Easy to visualize (can draw diagrams!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Predictable, testable behavior</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Example states:</span></p>
+<p class="rvps4"><span class="rvts15">Operation State Machine might include:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">STOP</span><span class="rvts6"> - Not running, waiting for START command</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Testing Wind</span><span class="rvts6"> - Checking if wind is suitable</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Preparing for Cutin</span><span class="rvts6"> - Pre-startup checks</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Waiting for Brake Release</span><span class="rvts6"> - Hydraulic system releasing brake</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Accelerating</span><span class="rvts6"> - Blade pitch controlling acceleration</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Thyristors Firing</span><span class="rvts6"> - Soft-start in progress</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Production Small</span><span class="rvts6"> - Generating power with 6-pole configuration</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Production Large</span><span class="rvts6"> - Generating power with 4-pole configuration</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Switching Generators</span><span class="rvts6"> - Changing from Small to Large (or vice versa)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Shutting Down</span><span class="rvts6"> - Controlled cutout sequence</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Untwisting Cables</span><span class="rvts6"> - Reducing cable twist count</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Security State Machine might include:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Normal Operation</span><span class="rvts6"> - All systems healthy</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Warning Level</span><span class="rvts6"> - Minor issue detected, monitoring</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Alarm Level</span><span class="rvts6"> - Significant issue, taking protective action</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Emergency Shutdown</span><span class="rvts6"> - Serious fault, stopping immediately</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Waiting for Recovery</span><span class="rvts6"> - Fault cleared, waiting before restart</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Awaiting Acknowledgment</span><span class="rvts6"> - Need operator to review fault</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">We'll explore these state machines in much more detail in the </span><span class="rvts11">Practical Labs</span><span class="rvts6"> section, where you'll see them in action!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Integration - Everything Working Together</span></p>
+<p class="rvps4"><span class="rvts6">The beauty of this system is how all the subsystems coordinate:</span></p>
+<p class="rvps4"><span class="rvts11">Example Scenario: Morning Startup</span></p>
+<p class="rvps4"><span class="rvts6">Let's walk through a complete startup sequence and see all the systems working together:</span></p>
+<p class="rvps4"><span class="rvts11">6:00 AM - Night shift ending</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Turbine has been stopped (wind was too low overnight)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade pitch: 90° (feathered)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Brakes: Applied</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: Disconnected from grid</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Nacelle: Oriented approximately into last known wind direction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">6:15 AM - Wind picks up</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind speed rises to 4.2 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Still below "Min for Cutin" (3.5 m/s threshold)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But above "Min for Yawing" (1.5 m/s)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Controller thinks:</span><span class="rvts6"> "Wind is strengthening. Let's prepare by orienting."</span></p>
+<p class="rvps4"><span class="rvts11">6:16 AM - Automatic yaw to wind</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controller checks cable twist: +0.8 turns (OK, within limits)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Checks wind vane: nacelle is 35° off</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Activates CCW yaw motors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle rotates slowly (0.5°/second)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">70 seconds later: nacelle aligned (error &lt; 5°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stops yaw motors</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Applies yaw brake</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">6:30 AM - Wind continues rising</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind speed now 3.8 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Crosses "Min for Cutin" threshold (3.5 m/s)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Stays above for 30 seconds (avoiding false starts)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Controller thinks:</span><span class="rvts6"> "Wind is sufficient and stable. Ready to start!"</span></p>
+<p class="rvps4"><span class="rvts11">Operation State Machine</span><span class="rvts6"> enters "Testing Wind" state</span></p>
+<p class="rvps4"><span class="rvts11">6:31 AM - Pre-start checks</span></p>
+<p class="rvps4"><span class="rvts6">Controller runs through checklist:</span></p>
+<p class="rvps4"><span class="rvts6">✓ Wind speed in range? Yes (3.8 m/s) ✓ Grid voltage present? Yes (all three phases, 690V) ✓ No critical alarms? Yes (all clear) ✓ Hydraulic pressure adequate? Yes (85 bar, green zone) ✓ Generator temperature OK? Yes (ambient temperature) ✓ Cable twist acceptable? Yes (+0.8 turns, below 1.5 limit for cutin) ✓ All safety interlocks clear? Yes</span></p>
+<p class="rvps4"><span class="rvts11">Decision:</span><span class="rvts6"> Proceed with cutin!</span></p>
+<p class="rvps4"><span class="rvts11">State:</span><span class="rvts6"> → "Preparing for Cutin Small" (wind is 3.8 m/s, use 6-pole)</span></p>
+<p class="rvps4"><span class="rvts11">6:31:15 - Brake system test</span></p>
+<p class="rvps4"><span class="rvts6">Before releasing brakes, verify they work:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Close brake valve (should already be closed)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Command pitch to -5° (negative = into wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wait 5 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check RPM: should still be 0 (brake holding)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">RPM = 0? ✓ Brake system OK!</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">State:</span><span class="rvts6"> → "Waiting for Brake Release"</span></p>
+<p class="rvps4"><span class="rvts11">6:31:25 - Release brakes</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Start hydraulic pump</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Monitor pressure rising</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pressure reaches upper threshold (95 bar)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stop pump</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Monitor "Brake Released" sensor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Sensor activates? ✓ Brake is released!</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">State:</span><span class="rvts6"> → "Accelerating to Sync Speed Small"</span></p>
+<p class="rvps4"><span class="rvts11">6:31:40 - Acceleration phase</span></p>
+<p class="rvps4"><span class="rvts6">Now the blades start turning:</span></p>
+<p class="rvps4"><span class="rvts15">Time 0:00 (6:31:40):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade pitch: -5° (capturing wind aggressively)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor RPM: 2 RPM (just starting)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Generator RPM: 155 RPM (2 × gear ratio of 77.73)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Time 0:10:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch: -3° (Controller moderating acceleration)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor: 5 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 388 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Acceleration rate: ~23 RPM/second on generator</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Time 0:30:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch: 0° (optimal Cp)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor: 10 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 777 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Getting closer!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Time 1:00:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch: +2° (fine-tuning acceleration)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotor: 12.5 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 971 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Approaching synchronous speed (1000 RPM)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Time 1:20:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Rotor: 12.8 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 995 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Just below sync!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Controller thinks:</span><span class="rvts6"> "Close enough! Time to connect!"</span></p>
+<p class="rvps4"><span class="rvts11">State:</span><span class="rvts6"> → "Thyristors Firing Small"</span></p>
+<p class="rvps4"><span class="rvts11">6:33:00 - Soft-start sequence begins</span></p>
+<p class="rvps4"><span class="rvts15">Second 0:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 995 RPM (just below 1000 sync)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Fire thyristors: 30° conduction angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Small current starts flowing</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Generator sees weak magnetic field from grid</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Second 1:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase to 60° conduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 998 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Torque from grid accelerating it</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Second 2:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase to 90° conduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 1000 RPM (synchronous!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Phase locking with grid</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Second 3:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase to 120° conduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 1001 RPM (slight slip)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power starting to flow TO grid</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Second 4:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase to 150° conduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 1003 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power output: 50 kW</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Second 5:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Full conduction (180°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: 1005 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output: 120 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Soft-start complete!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">State:</span><span class="rvts6"> → "Production Small"</span></p>
+<p class="rvps4"><span class="rvts11">6:33:05 - Close bypass contactors</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Thyristors at full conduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Close bypass contactors (short-circuit thyristors)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Current shifts from thyristors to contactors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Turn off thyristor gate signals</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Reduces losses (contactors have lower resistance)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">6:33:10 - Normal production begins!</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind: 3.8 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade RPM: 13.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator RPM: 1010</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output: 145 kW</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power factor: 0.83</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: Small (6-pole)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Status: Producing!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">All of this in about 2 minutes!</span></p>
+<p class="rvps4"><span class="rvts6">And it all happened automatically:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">No human intervention</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller managed every step</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">All subsystems coordinated perfectly</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Safe, smooth startup</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">What We've Learned</span></p>
+<p class="rvps4"><span class="rvts6">This functional schematic shows us:</span></p>
+<p class="rvps4"><span class="rvts11">1. Integration complexity:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Dozens of sensors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Multiple control loops</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Coordinated subsystems</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">All working simultaneously</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Controller sophistication:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Not just simple if-then logic</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">State-based control for sequencing</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Closed-loop feedback control for precision</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Safety monitoring at all times</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Autonomous operation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">No human in the loop needed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Handles normal operations independently</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Responds to faults automatically</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Only needs humans for maintenance and emergencies</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">4. Why simulation is valuable:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Too complex to learn from manuals alone</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Too expensive to experiment on real turbines</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Too dangerous to cause faults intentionally</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Simulator lets you see inside safely!</span><span class="rvts6"></span></li>
+</ul>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

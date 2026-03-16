@@ -1,0 +1,129 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Terminal de Contr&ocirc;le</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", Controller">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ControlTerminal");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Terminal de Contr&ocirc;le</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description du Simulateur</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Simulateurs de sous-syst&egrave;mes dans l'&eacute;olienne</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EmulatedWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ExamplethechangesinStatesandEven.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="TheWorkBenchusedfortheWFS.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Chaque fabricant d'éoliennes fournit un dispositif appelé «terminal de contrôle» que l'opérateur doit utiliser pour accéder au contrôleur de l'éolienne.</span></p>
+<p class="rvps4"><span class="rvts11">Il y en a plusieurs types, des terminaux robustes à usage spécial avec seulement l'affichage de base et les fonctions de clavier aux applications fonctionnant sur des PC robustes.</span></p>
+<p class="rvps7"><span class="rvts12">Functions</span></p>
+<p class="rvps4"><span class="rvts11">Le Terminal de Contrôle est l'outil de base utilisé par les Opérateurs pour:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Connaître la situation exacte de l'éolienne.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Accès aux variables internes de l'éolienne, y compris celles qui ne sont pas accessibles par d'autres moyens, comme la connexion SCADA.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Accès aux données historiques (production, énergie, incidences, etc.)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Accès aux paramètres utilisés pour affiner le comportement de l'éolienne sur un site spécifique.</span></p>
+<p class="rvps4"><span class="rvts11">Le terminal de contrôle est également utilisé par l'application interne dans le contrôleur de l'éolienne pour forcer la reconnaissance de certains types d'incidences. De cette façon, le contrôleur peut tenir un journal de tous les incidents qui se produisent à l'éolienne, quand ils ont été signalés et quand ils ont été reconnus par l'operateur.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/TerminalKKElectronics.jpg"></p>
+<p class="rvps4"><span class="rvts11">Comme le nombre d'options accessibles via ce terminal est important, ces options ont été regroupées sous la forme d'un arbre. Cette disposition des options de visualisation et de commande n'est pas très didactique; par conséquent, dans ce simulateur, on utilise un synoptique spécial &nbsp;où les valeurs des variables les plus significatives et didactiques sont présentées directament, ainsi que les fonctions de contrôle les plus utilisées sont facilement accessibles et didactiques.</span></p>
+<p class="rvps4"><span class="rvts11">Voir aussi </span><a class="rvts15" href="Controlterminal1.html">Synoptique 'Terminal de Contrôle'.</a></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Terminal%20de%20control%20en%20produccion%20frances.png"><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

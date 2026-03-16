@@ -1,0 +1,116 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Principio de funcionamiento de un aerogenerador con generador de jaula de ardilla directamente conectado a la Red</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="jaula de ardilla, Soft starter, soft conection">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Porqugiranlaspalas1");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Principio de funcionamiento de un aerogenerador con generador de jaula de ardilla directamente conectado a la Red</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Principios f&iacute;sicos</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PrincipiosFisicosAerogeneradores.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="PrincipiosFisicosAerogeneradores.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PFAPorquegiranlaspalas.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps5"><span class="rvts6">El aerogenerador objeto de este simulador utiliza un </span><span class="rvts70">generador eléctrico de inducción con el rotor cortocircuitado</span><span class="rvts6"> (también conocido como rotor en</span><span class="rvts17"> jaula de ardilla</span><span class="rvts6">), con el </span><span class="rvts29">estator directamente conectado a la Red</span><span class="rvts6">.</span></p>
+<p class="rvps5"><span class="rvts6">Este tipo de generador, con esta conexión, determina la forma en que el aerogenerador funciona y también su forma de operar. En el gráfico de la figura 1 se muestra la característica de esta </span><span class="rvts17">máquina</span><span class="rvts6"> de inducción, que puede comportarse como </span><span class="rvts17">motor</span><span class="rvts6">, si se hace funcionar su eje a una velocidad inferior a la de sincronismo, o como </span><span class="rvts17">generador</span><span class="rvts6">, si está por encima.</span></p>
+<p class="rvps14"><img alt="" style="padding : 1px;" src="lib/MaquinaInduccionParvsRPMs2Puntos.jpg"><span class="rvts6"> Fig 1</span></p>
+<p class="rvps5"><span class="rvts6">Por tanto, su utilización como generador implica que una fuente de</span><span class="rvts17"> par mecánico externo</span><span class="rvts6"> mueve el eje y lo mantiene por encima de la velocidad de sincronismo. Tiene una explicación más detallada en </span><a class="rvts18" href="IntoductiontotheInductionMachine.html">Introducción a las máquinas de inducción</a><span class="rvts6"> . La fuente externa del par mecánico es, en este caso, el viento incidente en las palas, que las hace girar. Ver más detalles en </span><a class="rvts18" href="PFAPorquegiranlaspalas.html">¿Por qué giran las palas?</a><span class="rvts6"> .</span></p>
+<p class="rvps5"><span class="rvts6">Este tipo de máquina y su forma de conexión a la Red, también condiciona la forma de </span><span class="rvts29">'operar'</span><span class="rvts6"> el aerogenerador. Por operar entendemos ahora cómo y cuando se realiza la conexión del estator con la Red. Es necesario que el estator se mantenga </span><span class="rvts17">desconectado</span><span class="rvts6"> de la Red hasta que la velocidad del eje del rotor se encuentre inmediatamente por encima de la velocidad de sincronismo, ya que de otra forma, se comportaría como motor. Lo anterior implica que la conexión del estator con la Red es una operación delicada en la que el generador es mantenido sin carga eléctrica hasta que la frecuencia de la tensión que genera, y su fase, coincidan con las de la Red. Esta situación se da en otras instalaciones de generación eléctrica y se solventa con un dispositivo específico. Ver </span><a class="rvts18" href="Softstarter.html">Soft starter (conexion suave) a la Red</a><span class="rvts6"> .</span></p>
+<p class="rvps5"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

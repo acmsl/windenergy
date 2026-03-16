@@ -1,0 +1,356 @@
+﻿/* ========== Text Styles ========== */
+hr { color: #000000}
+body, table, span.rvts0 /* Normal text */
+{
+ font-size: 10pt;
+ font-family: 'Arial', 'Helvetica', sans-serif;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.rvts1 /* Heading */
+{
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts2 /* Subheading */
+{
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts3 /* Keywords */
+{
+ font-style: italic;
+ color: #800000;
+}
+a.rvts4, span.rvts4 /* Jump 1 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+a.rvts5, span.rvts5 /* Jump 2 */
+{
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts6
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+}
+span.rvts7
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+ color: #0000ff;
+}
+span.rvts8
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+ color: #000080;
+}
+span.rvts9
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-style: italic;
+ color: #800000;
+}
+a.rvts10, span.rvts10
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ color: #008000;
+ text-decoration: underline;
+}
+span.rvts11
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+}
+span.rvts12 /* Font Style */
+{
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #c0c0c0;
+}
+a.rvts13, span.rvts13 /* Font Style */
+{
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-style: italic;
+ color: #6666ff;
+ text-decoration: underline;
+}
+a.rvts14, span.rvts14
+{
+ font-size: 12pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ font-weight: bold;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts15
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-style: italic;
+}
+a.rvts16, span.rvts16
+{
+ font-size: 12pt;
+ font-family: 'Tahoma', 'Geneva', sans-serif;
+ color: #0000ff;
+ text-decoration: underline;
+}
+span.rvts17
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-style: italic;
+ font-weight: bold;
+}
+span.rvts18
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+}
+span.rvts19
+{
+ font-size: 16pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+}
+span.rvts20
+{
+ font-size: 14pt;
+ font-family: 'Segoe UI';
+ font-style: italic;
+ font-weight: bold;
+}
+span.rvts21
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+}
+span.rvts22
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ text-decoration: underline;
+}
+span.rvts23
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-style: italic;
+}
+span.rvts24
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+ color: #abb2bf;
+}
+span.rvts25
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts26
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+ color: #000000;
+}
+span.rvts27
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-style: italic;
+}
+span.rvts28
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts29
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts30
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ color: #000000;
+}
+span.rvts31
+{
+ font-size: 12pt;
+ font-family: 'Segoe UI';
+ font-weight: bold;
+ color: #000000;
+}
+span.rvts32
+{
+ font-size: 12pt;
+ font-family: 'Courier New', 'Courier', monospace;
+}
+/* ========== Para Styles ========== */
+p,ul,ol /* Paragraph Style */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 0px 0px 0px 0px;
+}
+.rvps1 /* Centered */
+{
+ text-align: center;
+}
+.rvps2
+{
+ line-height: 1.80;
+ margin: 0px 0px 6px 0px;
+}
+.rvps3
+{
+ text-align: center;
+ line-height: 1.80;
+ margin: 0px 0px 6px 0px;
+}
+.rvps4
+{
+ line-height: 1.80;
+ margin: 0px 0px 8px 0px;
+}
+.rvps5
+{
+ line-height: 1.80;
+ margin: 0px 0px 6px 40px;
+}
+.rvps6
+{
+ line-height: 1.80;
+ margin: 0px 0px 8px 40px;
+}
+.rvps7 /* Paragraph Style */
+{
+ text-align: center;
+ border-color: #c0c0c0;
+ border-style: solid;
+ border-width: 1px;
+ border-right: none;
+ border-left: none;
+ padding: 2px 0px 2px 0px;
+ margin: 7px 0px 7px 0px;
+}
+.rvps8
+{
+ line-height: 1.80;
+ margin: 0px 8px 6px 8px;
+}
+.rvps9
+{
+ line-height: 1.80;
+ margin: 0px 0px 8px 24px;
+}
+.rvps10
+{
+ text-align: left;
+ text-indent: 0px;
+ line-height: 1.80;
+ break-after: avoid;
+ padding: 0px 0px 0px 0px;
+ margin: 16px 0px 4px 0px;
+}
+.rvps11
+{
+ text-align: left;
+ text-indent: 0px;
+ line-height: 1.80;
+ break-after: avoid;
+ padding: 0px 0px 0px 0px;
+ margin: 16px 0px 4px 0px;
+}
+.rvps12
+{
+ line-height: 1.80;
+ margin: 0px 0px 6px 80px;
+}
+.rvps13
+{
+ line-height: 1.80;
+ margin: 0px 0px 8px 80px;
+}
+.rvps14
+{
+ line-height: 1.80;
+ margin: 0px 0px 6px 120px;
+}
+.rvps15
+{
+ line-height: 1.80;
+ margin: 0px 0px 8px 120px;
+}
+.rvps16
+{
+ text-indent: 48px;
+ line-height: 1.80;
+ margin: 0px 0px 6px 0px;
+}
+.rvps17
+{
+ line-height: 1.50;
+ white-space: nowrap;
+ margin: 24px 16px 6px 16px;
+}
+.rvps18
+{
+ line-height: 1.50;
+ white-space: nowrap;
+ margin: 0px 16px 6px 16px;
+}
+.rvps19
+{
+ line-height: 1.50;
+ white-space: nowrap;
+ margin: 0px 16px 24px 16px;
+}
+.rvps20
+{
+ line-height: 1.80;
+ margin: 0px 0px 6px 0px;
+}
+.rvps21
+{
+ line-height: 1.80;
+ margin: 16px 0px 16px 80px;
+}
+.rvps22
+{
+ line-height: 1.80;
+ white-space: nowrap;
+ margin: 0px 0px 6px 0px;
+}
+/* ========== Lists ========== */
+.list0 {text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;}
+.list1 {text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;}
+.list2 {text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;}
+.list3 {text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: square;}
+.list4 {text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;}
+.list5 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: circle;}
+.list6 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: square;}
+.list7 {text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside; list-style-type: disc;}
+li.noindent { margin-left: 0; padding-left: 0; }

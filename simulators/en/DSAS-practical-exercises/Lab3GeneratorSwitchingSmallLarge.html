@@ -1,0 +1,1688 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Lab 3: Generator Switching (Small ↔ Large)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Lab3GeneratorSwitchingSmallLarge");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Lab 3: Generator Switching (Small ↔ Large)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PracticalLabs.html">Practical Labs</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PracticalLabs.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Lab2NormalShutdown.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Lab4CableUntwistingProcedure.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Practical Lab 3: Generator Switching (Small ↔ Large)</span></p>
+<p class="rvps4"><span class="rvts11">Objective:</span></p>
+<p class="rvps4"><span class="rvts6">Understand how the turbine switches between the two generator configurations to optimize performance across different wind speeds. You'll learn:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">When and why the Controller switches generators</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">The complete switching sequence step-by-step</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Differences between switching up (Small → Large) and down (Large → Small)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">How hysteresis prevents constant switching</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What happens to power output during switching</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Timing and production loss during the transition</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Background - Why Two Speeds?</span></p>
+<p class="rvps4"><span class="rvts6">Before we begin, let's review why this turbine has two-speed capability:</span></p>
+<p class="rvps4"><span class="rvts11">The TSR Problem:</span></p>
+<p class="rvps4"><span class="rvts6">Remember TSR (Tip Speed Ratio) = (Blade Tip Speed) / (Wind Speed)</span></p>
+<p class="rvps4"><span class="rvts11">Optimal TSR:</span><span class="rvts6"> ~7.5 for maximum efficiency (Cp ≈ 0.48)</span></p>
+<p class="rvps4"><span class="rvts11">With only one speed:</span></p>
+<p class="rvps4"><span class="rvts6">At rated wind (11 m/s) with Large Generator (19.4 RPM blades):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps6 noindent"><span class="rvts6">TSR = (2π × 40 × 19.4/60) / 11 = </span><span class="rvts11">7.4</span><span class="rvts6"> ✓ Perfect!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">But at low wind (5 m/s) with Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2π × 40 × 19.4/60) / 5 = </span><span class="rvts11">16.2</span><span class="rvts6"> ✗ Way too high!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cp drops to ~0.25 (very inefficient)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The two-speed solution:</span></p>
+<p class="rvps4"><span class="rvts6">At low wind (5 m/s) with Small Generator (13.0 RPM blades):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2π × 40 × 13.0/60) / 5 = </span><span class="rvts11">10.9</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Still not optimal, but much better!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cp ≈ 0.35 (40% improvement over Large Generator)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Summary:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Small Generator (6-pole, 1000 RPM sync):</span><span class="rvts6"> Better for winds 3.5 - 6.5 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Large Generator (4-pole, 1500 RPM sync):</span><span class="rvts6"> Better for winds 6.5 - 25 m/s</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Switching threshold:</span><span class="rvts6"> Around 6.5 m/s (with hysteresis)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Preparation</span></p>
+<p class="rvps4"><span class="rvts11">1. Starting State - Small Generator Production</span></p>
+<p class="rvps4"><span class="rvts6">We'll start by switching UP (Small → Large), so we need the turbine running on Small Generator:</span></p>
+<p class="rvps4"><span class="rvts11">Setup:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Set wind speed: 5.5 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Start the turbine (if not already running)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wait for complete startup sequence</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Verify turbine in production with Small Generator</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Verify state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">State: "Production Small" (or similar)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator configuration: Small (6-pole)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~13 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator speed: ~1007-1010 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output: ~300-350 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Bypass contactors: Closed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Observation Setup</span></p>
+<p class="rvps4"><span class="rvts6">Make sure you can clearly see:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind speed indicator (you'll be changing it)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Current generator configuration (Small or Large)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">State Machine display</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output graph (to see the dip during switching)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed and generator speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Incident log</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Prepare Recording</span></p>
+<p class="rvps4"><span class="rvts6">You'll want to note:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">When switching is triggered</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Duration of each phase</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power loss during switching</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Total switching time</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Procedure Part A: Switching UP (Small → Large)</span></p>
+<p class="rvps4"><span class="rvts6">This happens when wind increases above the threshold.</span></p>
+<p class="rvps4"><span class="rvts11">Phase 1: Trigger the Switch</span></p>
+<p class="rvps4"><span class="rvts11">Step 1.1 - Increase Wind Speed</span></p>
+<p class="rvps4"><span class="rvts6">Gradually increase wind speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current: 5.5 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Slowly increase to: 6.7 m/s</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Take about 10-20 seconds to increase (gradual)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why gradual?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">More realistic (wind doesn't jump instantly)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lets you observe Controller's response</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">See the threshold behavior clearly</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 1.2 - Observe Threshold Detection</span></p>
+<p class="rvps4"><span class="rvts11">The switching threshold: 6.6 m/s</span><span class="rvts6"> (from Small to Large)</span></p>
+<p class="rvps4"><span class="rvts6">Watch what happens as wind crosses 6.6 m/s:</span></p>
+<p class="rvps4"><span class="rvts11">At 6.5 m/s:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Still on Small Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power increasing (more wind available)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No switching initiated yet</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">At 6.6 m/s:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Threshold crossed!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But Controller doesn't switch immediately...</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 1.3 - Hysteresis Timer</span></p>
+<p class="rvps4"><span class="rvts6">The Controller waits to confirm wind is stable:</span></p>
+<p class="rvps4"><span class="rvts11">Why wait?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind might fluctuate right around 6.6 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Don't want to switch constantly (oscillation)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Confirm wind is staying above threshold</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Typical wait time: 15-30 seconds</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What you see:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind stable at 6.7 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Still producing on Small Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power still flowing normally</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller counting down internally (you might not see this)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">After wait period expires:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controller decides: "Wind is stable above threshold"</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Decision: Switch to Large Generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Switching sequence begins!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record the time:</span><span class="rvts6"> When did switching sequence start?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 2: Cutout from Small Generator</span></p>
+<p class="rvps4"><span class="rvts6">The switching process is essentially:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Controlled shutdown (cutout) from Small Generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controlled startup (cutin) on Large Generator</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Step 2.1 - Power Reduction</span></p>
+<p class="rvps4"><span class="rvts6">Same as normal cutout (Lab 2):</span></p>
+<p class="rvps4"><span class="rvts11">Pitch increases:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">From ~0° (optimal for current wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">To ~40-50° (reducing power extraction)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Takes 20-30 seconds</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Power decreases:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">From ~400 kW (at 6.7 m/s with Small)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gradually to ~5 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Smooth reduction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Generator speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Decreases from ~1012 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Approaches 1000 RPM (sync speed for Small Generator)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ready for disconnection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">State Machine:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">State changes to: "Switching to Large Generator" (or similar)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Indicates this is a planned transition, not a fault</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 2.2 - Electrical Disconnection</span></p>
+<p class="rvps4"><span class="rvts6">When power near zero:</span></p>
+<p class="rvps4"><span class="rvts11">Sequence:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Open bypass contactors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Ensure thyristors off</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Open Small Generator Contactor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Generator electrically isolated</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Status:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Small Generator Contactor: Open"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">"Bypass Contactors: Open"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power: 0 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Generator freewheeling at ~995 RPM</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Note the difference:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">In normal cutout: we'd apply brake now</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">In switching: we keep spinning!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Need that rotational energy for next phase</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 2.3 - Speed Transition</span></p>
+<p class="rvps4"><span class="rvts6">Now the interesting part - changing rotational speed!</span></p>
+<p class="rvps4"><span class="rvts11">Current state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blades spinning at ~12.8 RPM (from Small Generator operation)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator at ~995 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Need to reach ~1490 RPM for Large Generator connection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How to accelerate?</span></p>
+<p class="rvps4"><span class="rvts11">Use blade pitch control:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Reduce pitch from ~45° back toward 0°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blades start extracting power again</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind torque accelerates the drivetrain</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But no electrical connection yet (freewheeling acceleration)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Pitch strategy:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Time</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Pitch</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Blade RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Generator RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Note</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">45°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">12.8</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">995</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Just disconnected from Small</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">13.5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1050</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Starting to accelerate</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">10</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">15.0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1165</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Accelerating faster</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">15</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-2°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">17.0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1320</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">More aggressive</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+1°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">18.5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1435</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Approaching target</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">25</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+3°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">19.2</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1490</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Ready for Large Generator!</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">What's happening:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Aggressive pitch (toward negative) captures wind energy</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Accelerates the entire drivetrain</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">As speed increases, pitch adjusted to control acceleration</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Prevents overshooting 1500 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Smooth approach to Large Generator sync speed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record time:</span><span class="rvts6"> How long did speed transition take?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 3: Cutin on Large Generator</span></p>
+<p class="rvps4"><span class="rvts6">Now we connect to the grid as Large Generator.</span></p>
+<p class="rvps4"><span class="rvts11">Step 3.1 - Approach Sync Speed</span></p>
+<p class="rvps4"><span class="rvts6">Target: ~1490-1495 RPM (just below 1500 sync for Large)</span></p>
+<p class="rvps4"><span class="rvts11">When reached:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~19.2 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator speed: ~1492 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch: ~+2° (controlling approach)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ready for soft-start sequence</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.2 - Soft-Start Sequence</span></p>
+<p class="rvps4"><span class="rvts6">Same as normal cutin (Lab 1), but on Large Generator:</span></p>
+<p class="rvps4"><span class="rvts11">Thyristor firing:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Time (sec)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Firing Angle</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Generator RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Current</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Power</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">30°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1492</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">60 A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">60°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1496</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">200 A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">10 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">2</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">90°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1500</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">350 A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">50 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">3</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">120°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1504</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">500 A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">120 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">4</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">150°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1507</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">650 A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">250 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">180°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1510</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">750 A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">400 kW</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Observations:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Smooth acceleration to above sync</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Current builds gradually</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output increases</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Phase lock achieved automatically</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.3 - Full Connection</span></p>
+<p class="rvps4"><span class="rvts11">Thyristors at full conduction:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Firing angle: 180° (fully on)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power flowing normally</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator speed: ~1510 RPM (0.67% slip)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power output: ~400 kW (at 6.7 m/s)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Close bypass contactors:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Short-circuit thyristors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduce electrical losses</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Normal production configuration</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.4 - Switching Complete</span></p>
+<p class="rvps4"><span class="rvts11">Final state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">State: "Production Large"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: Large (4-pole configuration)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~19.4 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator speed: ~1510 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output: ~400 kW</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Large Generator Contactor: Closed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Bypass contactors: Closed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Success!</span><span class="rvts6"> Switched from Small to Large Generator!</span></p>
+<p class="rvps4"><span class="rvts11">Record time:</span><span class="rvts6"> Total switching duration (from start to full production)?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Analysis of Upward Switch</span></p>
+<p class="rvps4"><span class="rvts11">Total Time Breakdown:</span></p>
+<p class="rvps4"><span class="rvts6">Typical timing for Small → Large switch:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Hysteresis wait: 15-30 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power reduction (Small): 25-35 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Speed transition: 20-30 seconds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Soft-start (Large): 5-7 seconds</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Total: ~70-100 seconds</span><span class="rvts6"> (including hysteresis)</span></p>
+<p class="rvps4"><span class="rvts11">Production Loss:</span></p>
+<p class="rvps4"><span class="rvts6">During switching:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Zero power for ~30-40 seconds (disconnection + transition)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Some power before (reduction phase)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Some power after (building back up)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Energy lost:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Assuming could have produced 400 kW continuously</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lost production time: ~1 minute</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Energy lost: ~7 kWh</span><span class="rvts6"> (400 kW × 1 min/60)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Is it worth it?</span></p>
+<p class="rvps4"><span class="rvts6">After switching at 6.7 m/s:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Small Generator:</span><span class="rvts6"> ~400 kW (TSR = 6.8, Cp ≈ 0.42)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Large Generator:</span><span class="rvts6"> ~480 kW (TSR = 10.1, Cp ≈ 0.48)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Gain: 80 kW</span><span class="rvts6"> (20% more power!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Payback time:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Lost 7 kWh during switching</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gaining 80 kW continuously</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Payback: 7 kWh / 80 kW = </span><span class="rvts11">~5 minutes</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">After just 5 minutes, the energy gain exceeds the switching loss!</span></p>
+<p class="rvps4"><span class="rvts6">If wind stays at 6.7+ m/s for hours, the benefit is huge.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Procedure Part B: Switching DOWN (Large → Small)</span></p>
+<p class="rvps4"><span class="rvts6">Now let's see the reverse: switching from Large to Small when wind decreases.</span></p>
+<p class="rvps4"><span class="rvts11">Phase 1: Setup - Large Generator Production</span></p>
+<p class="rvps4"><span class="rvts11">Current state from Part A:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind: 6.7 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: Large (4-pole)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power: ~480 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Production: Normal</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Phase 2: Trigger Downward Switch</span></p>
+<p class="rvps4"><span class="rvts11">Step 2.1 - Decrease Wind Speed</span></p>
+<p class="rvps4"><span class="rvts6">Gradually decrease wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">From: 6.7 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">To: 6.0 m/s</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Take 15-20 seconds (gradual)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Watch for threshold:</span></p>
+<p class="rvps4"><span class="rvts11">The downward switching threshold: 6.2 m/s</span></p>
+<p class="rvps4"><span class="rvts6">Notice: Different from upward threshold (6.6 m/s)!</span></p>
+<p class="rvps4"><span class="rvts11">This is hysteresis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Switch up at: 6.6 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Switch down at: 6.2 m/s</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Dead band: 0.4 m/s</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why different thresholds?</span></p>
+<p class="rvps4"><span class="rvts6">Without hysteresis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind fluctuates around 6.4 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Crosses 6.4 m/s up and down constantly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Would switch constantly: Small → Large → Small → Large...</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lost production time</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wear on contactors</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Very inefficient!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">With hysteresis (dead band):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind at 6.4 m/s → stays on current generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Must change significantly to trigger switch</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Much more stable operation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Worth the slight sub-optimal performance in dead band</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 2.2 - Cross Threshold</span></p>
+<p class="rvps4"><span class="rvts11">At 6.3 m/s:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Still on Large Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power decreasing (less wind)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No switching yet</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">At 6.2 m/s:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Threshold crossed!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller starts hysteresis timer</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Waits to confirm wind staying below 6.2</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">After wait period (~15-30 sec):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind confirmed stable at 6.0 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Decision: Switch to Small Generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Switching sequence begins</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record time:</span><span class="rvts6"> When did downward switch start?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 3: Cutout from Large Generator</span></p>
+<p class="rvps4"><span class="rvts11">Step 3.1 - Power Reduction</span></p>
+<p class="rvps4"><span class="rvts6">Same process as upward switch:</span></p>
+<p class="rvps4"><span class="rvts11">Pitch increases:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">From ~+2° (optimal for 6.0 m/s)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">To ~45° (nearly feathered)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power reduces to near zero</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Takes 25-30 seconds</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Generator speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Decreases from ~1507 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Approaches 1500 RPM (Large Generator sync)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.2 - Electrical Disconnection</span></p>
+<p class="rvps4"><span class="rvts6">When power near zero:</span></p>
+<p class="rvps4"><span class="rvts11">Sequence:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Open bypass contactors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Thyristors off</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Open Large Generator Contactor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Generator isolated</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Status:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Large Generator Contactor: Open"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator freewheeling at ~1495 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Blades at ~19.2 RPM</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 4: Speed Transition (Deceleration)</span></p>
+<p class="rvps4"><span class="rvts6">Now the opposite of before - we need to SLOW DOWN!</span></p>
+<p class="rvps4"><span class="rvts11">Current state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blades: ~19.2 RPM (from Large Generator)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: ~1495 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Need: ~995 RPM (for Small Generator connection)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Must decelerate: ~500 RPM</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How to decelerate?</span></p>
+<p class="rvps4"><span class="rvts11">Two methods possible:</span></p>
+<p class="rvps4"><span class="rvts11">Method 1: Passive aerodynamic braking</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Keep pitch at high angle (45°+)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp negative (blades act as brake)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Slowly coast down</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Takes a long time (~60 seconds)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Method 2: Active pitch control (used by most turbines)</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase pitch to 70-90° (very high)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Strong aerodynamic braking</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Faster deceleration</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">More controlled</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Our turbine likely uses Method 2:</span></p>
+<p class="rvps4"><span class="rvts11">Pitch strategy:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Time</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Pitch</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Blade RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Generator RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Note</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">45°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">19.2</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1495</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Just disconnected</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">75°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">17.5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1360</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Strong braking</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">10</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">85°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">15.0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1165</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Decelerating</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">15</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">88°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">13.5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1050</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Getting close</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">70°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">13.0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1010</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Fine control</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">25</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">50°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">12.8</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">995</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Ready for Small!</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">What's happening:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Very high pitch (85-90°) creates strong aerodynamic braking</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotation slows relatively quickly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">As approaches target speed, pitch reduced slightly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Allows fine control of approach</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Prevents undershooting (don't want to stop completely!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record time:</span><span class="rvts6"> Deceleration duration?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 5: Cutin on Small Generator</span></p>
+<p class="rvps4"><span class="rvts11">Step 5.1 - Approach Small Generator Sync Speed</span></p>
+<p class="rvps4"><span class="rvts6">Target: ~995 RPM (just below 1000 sync for Small)</span></p>
+<p class="rvps4"><span class="rvts11">When reached:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~12.8 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator speed: ~995 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch: adjusted for controlled approach</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ready for connection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 5.2 - Soft-Start on Small Generator</span></p>
+<p class="rvps4"><span class="rvts6">Same thyristor firing sequence, but for Small Generator:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Time (sec)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Firing Angle</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Generator RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Power</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">30°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">995</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">60°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">998</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">2</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">90°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1000</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">3</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">120°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1003</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">60 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">4</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">150°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1006</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">120 kW</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">180°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1008</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">180 kW</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Step 5.3 - Full Connection</span></p>
+<p class="rvps4"><span class="rvts11">Complete sequence:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Thyristors at full conduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Close bypass contactors</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Normal production restored</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Final state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">State: "Production Small"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: Small (6-pole)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: ~13.0 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator speed: ~1008 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power: ~180 kW (at 6.0 m/s wind)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Small Generator Contactor: Closed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Switching complete!</span><span class="rvts6"> Back on Small Generator.</span></p>
+<p class="rvps4"><span class="rvts11">Record time:</span><span class="rvts6"> Total downward switching duration?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Analysis of Downward Switch</span></p>
+<p class="rvps4"><span class="rvts11">Total Time:</span></p>
+<p class="rvps4"><span class="rvts6">Similar to upward switch:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Hysteresis wait: 15-30 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power reduction (Large): 25-35 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Speed transition (deceleration): 20-30 seconds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Soft-start (Small): 5-7 seconds</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Total: ~70-100 seconds</span></p>
+<p class="rvps4"><span class="rvts11">Production Loss:</span></p>
+<p class="rvps4"><span class="rvts6">Similar energy loss: ~7-8 kWh during switching</span></p>
+<p class="rvps4"><span class="rvts11">Was it worth switching down?</span></p>
+<p class="rvps4"><span class="rvts6">At 6.0 m/s:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Large Generator:</span><span class="rvts6"> ~200 kW (TSR = 11.3, Cp ≈ 0.32)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Small Generator:</span><span class="rvts6"> ~240 kW (TSR = 7.6, Cp ≈ 0.42)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Gain: 40 kW</span><span class="rvts6"> (20% more power)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Payback:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Lost 7 kWh during switching</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gaining 40 kW continuously</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Payback: 7 kWh / 40 kW = </span><span class="rvts11">~10 minutes</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Still worth it if wind stays at 6.0 m/s for a while!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Comparison: Upward vs. Downward Switching</span></p>
+<p class="rvps4"><span class="rvts11">Similarities:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Both follow: cutout → speed change → cutin</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Similar total duration (~70-100 sec)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Similar energy loss (~7 kWh)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Both use hysteresis timer</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Differences:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Aspect</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Upward (Small→Large)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Downward (Large→Small)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Wind threshold</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">6.6 m/s</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">6.2 m/s</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Speed transition</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Acceleration</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Deceleration</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Pitch during transition</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Toward 0° (capture energy)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Toward 90° (brake)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Transition duration</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20-30 sec</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20-30 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Final blade speed</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">19.4 RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">13.0 RPM</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Final generator speed</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1510 RPM</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1008 RPM</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">The asymmetry in thresholds:</span></p>
+<p class="rvps4"><span class="rvts6">This is intentional design:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Creates 0.4 m/s dead band</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Prevents oscillation around one threshold</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stable operation in variable wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Small efficiency penalty in dead band</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But much better than constant switching!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Observations and Questions</span></p>
+<p class="rvps4"><span class="rvts11">Things to Notice:</span></p>
+<p class="rvps4"><span class="rvts11">1. The hysteresis behavior:</span></p>
+<p class="rvps4"><span class="rvts6">Try this experiment:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Start on Small Generator at 6.4 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind is in "dead band" (6.2 - 6.6)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What happens? → Stays on Small</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Now start on Large Generator at 6.4 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What happens? → Stays on Large</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Same wind, different generator depending on history!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Production during switching:</span></p>
+<p class="rvps4"><span class="rvts6">Look at power output graph during switch:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Smooth decrease to zero</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Zero for 30-40 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Smooth increase back up</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Creates a distinct "U" shape in the graph</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Pitch behavior variation:</span></p>
+<p class="rvps4"><span class="rvts6">During acceleration (up-switch):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch goes negative briefly (aggressive capture)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Then positive to control approach</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">During deceleration (down-switch):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch goes very high (strong braking)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Then reduces to control approach</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">4. Contactors never both closed:</span></p>
+<p class="rvps4"><span class="rvts6">Critical safety interlock:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Small Generator Contactor closes/opens</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Large Generator Contactor opens/closes</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Never both closed simultaneously!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Would short-circuit generator windings → catastrophic!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Questions to Explore:</span></p>
+<p class="rvps4"><span class="rvts11">Q1:</span><span class="rvts6"> What happens if wind changes during switching?</span></p>
+<p class="rvps4"><span class="rvts11">Try it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Start upward switch (6.7 m/s)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">During speed transition, drop wind to 5.0 m/s</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does Controller abort the switch?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does it continue anyway?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">What's the logic?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Q2:</span><span class="rvts6"> Can you force switching at "wrong" wind speeds?</span></p>
+<p class="rvps4"><span class="rvts11">Try it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Run on Small at 8 m/s (above optimal)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Press STOP</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Acknowledge incident</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Press START</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does it start on Small or Large?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Why?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Q3:</span><span class="rvts6"> How many times will it switch in fluctuating wind?</span></p>
+<p class="rvps4"><span class="rvts11">Try it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Set wind to 6.4 m/s (in dead band)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Start on Small Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Slowly vary wind: 6.3 → 6.5 → 6.3 → 6.5... (oscillating)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does it switch?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Now try: 6.0 → 6.8 → 6.0 → 6.8... (outside dead band)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">How many switches occur?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Q4:</span><span class="rvts6"> What's the impact on annual energy production?</span></p>
+<p class="rvps4"><span class="rvts11">Think about it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">How often does wind change enough to trigger switching?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Average switching time: ~1.5 minutes</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Average energy lost per switch: ~7 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If switches 10 times per day:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Daily loss: 70 kWh</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Annual loss: 25,550 kWh</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">Compare to annual production: ~3,000,000 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Switching loss: &lt;1% of annual production</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy gain from two-speed: ~5-10% of annual production</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Net benefit: still positive!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Experiments to Try</span></p>
+<p class="rvps4"><span class="rvts11">Experiment 1: Find the Exact Thresholds</span></p>
+<p class="rvps4"><span class="rvts11">Upward threshold:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Run on Small Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Increase wind slowly: 6.0 → 6.1 → 6.2...</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">At what exact speed does switch trigger?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Is it exactly 6.6 m/s or slightly different?</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Downward threshold:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Run on Large Generator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Decrease wind slowly: 6.8 → 6.7 → 6.6...</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">At what exact speed does switch trigger?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Confirm the 6.2 m/s threshold</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Dead band width:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps6 noindent"><span class="rvts6">Calculate: 6.6 - 6.2 = 0.4 m/s (expected)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Experiment 2: Compare TSR and Cp</span></p>
+<p class="rvps4"><span class="rvts6">At various wind speeds, compare performance on each generator:</span></p>
+<p class="rvps4"><span class="rvts11">At 5.0 m/s:</span></p>
+<p class="rvps4"><span class="rvts6">Small Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade RPM: 13.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2π × 40 × 13/60) / 5 = </span><span class="rvts11">10.9</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp ≈ 0.35 (from Cp surface)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power ≈ 240 kW</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Large Generator (if you could use it):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade RPM: 19.4</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2π × 40 × 19.4/60) / 5 = </span><span class="rvts11">16.2</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp ≈ 0.25</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power ≈ 170 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Small is 40% better!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">At 10.0 m/s:</span></p>
+<p class="rvps4"><span class="rvts6">Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade RPM: 19.4</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2π × 40 × 19.4/60) / 10 = </span><span class="rvts11">8.1</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp ≈ 0.47</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power ≈ 1,100 kW</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Small Generator (if you could use it):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade RPM: 13.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2π × 40 × 13/60) / 10 = </span><span class="rvts11">5.4</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp ≈ 0.40</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power ≈ 940 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Large is 17% better!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This confirms the switching strategy is correct!</span></p>
+<p class="rvps4"><span class="rvts11">Experiment 3: Measure Switching Energy Loss</span></p>
+<p class="rvps4"><span class="rvts11">Detailed measurement:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Note power output before switching: P_before</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Press timer start when switching begins</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Integrate power during entire switching sequence</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Note power output after switching: P_after</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculate energy lost</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Formula:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If could have continued at P_before</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Duration: t_switch seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy that WOULD have been produced: E_potential = P_before × t_switch</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy ACTUALLY produced: E_actual (integrate power curve)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Energy lost: E_lost = E_potential - E_actual</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical result:</span><span class="rvts6"> ~6-8 kWh per switch</span></p>
+<p class="rvps4"><span class="rvts11">Experiment 4: Wind Fluctuation Stress Test</span></p>
+<p class="rvps4"><span class="rvts6">See how the turbine handles very unstable wind:</span></p>
+<p class="rvps4"><span class="rvts11">Setup:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Start at 5.0 m/s (Small Generator)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Create this wind pattern:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">5.0 → 7.0 (switch to Large expected)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">7.0 → 5.5 (switch back to Small expected)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">5.5 → 7.5 (switch to Large again)</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">7.5 → 5.0 (switch back to Small)</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Observations:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">How many switches actually occur?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does hysteresis prevent some switches?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What's the total production loss from all switching?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Is this realistic wind behavior?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">In real life:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind rarely fluctuates this severely</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hysteresis provides good stability</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Switching is infrequent (few times per day typically)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Common Issues and Troubleshooting</span></p>
+<p class="rvps4"><span class="rvts11">Issue 1: "Stuck in Switching State"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Switching sequence started</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But hasn't completed after several minutes</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">State: "Switching to [Large/Small]"</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Not producing power</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can't reach target speed (wind changed)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch system not responding</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Speed sensor fault</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Check current generator speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is it accelerating/decelerating toward target?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check pitch angle - is it responding to commands?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Check wind speed - did it change significantly?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If wind changed: may eventually reach target anyway</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If pitch stuck: controller may abort and shutdown</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If stuck completely: may need emergency stop</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Issue 2: "Wrong Generator Selected on Startup"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind is 7 m/s (expect Large Generator)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But starts on Small Generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Or vice versa</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind speed sensor reading incorrect</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Recent history affecting decision</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Control logic issue</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Check actual vs. displayed wind speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What was wind speed when START was pressed?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller decides at START time, not current time</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Usually self-corrects (will switch to proper generator)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If sensor fault: needs maintenance</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If consistent wrong choice: controller configuration issue</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Issue 3: "Excessive Switching Frequency"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Turbine switching every few minutes</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Constantly switching back and forth</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Lost production time significant</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Hysteresis not working correctly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Dead band too narrow</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind genuinely extremely variable</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Sensor noise creating false threshold crossings</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Monitor actual wind speed carefully</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Is it truly fluctuating across thresholds?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Plot wind speed vs. time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Check switching log - what triggers are recorded?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If real wind fluctuation: normal (unfortunate) behavior</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If sensor noise: filter or replace sensor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If hysteresis fault: controller parameter adjustment needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Issue 4: "Switch Aborted - Timeout"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Switching started</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Timeout error after 90-120 seconds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Returns to previous generator (or shuts down)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Couldn't reach target speed in time</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind changed during switching</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Mechanical problem preventing speed change</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Check wind speed during switching attempt</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Did wind drop/increase significantly?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check if speed was changing at all</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Review incident log for details</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If wind changed: normal, will retry when wind stable</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If mechanical: needs investigation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller protects itself by aborting incomplete switch</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Advanced Topic: Is Two-Speed Still Optimal?</span></p>
+<p class="rvps4"><span class="rvts11">Historical context:</span></p>
+<p class="rvps4"><span class="rvts6">This technology was popular in 1990s-2000s because:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Better than single-speed (5-10% more energy)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Much simpler than variable-speed with converters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Power electronics were expensive and unreliable then</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Good compromise for the technology of the time</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Modern alternative: Variable-Speed</span></p>
+<p class="rvps4"><span class="rvts6">Today's large turbines use:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Full power converter (generator → AC → DC → AC → grid)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can vary generator speed continuously</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Always maintain optimal TSR</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No switching discontinuity</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">10-15% more energy than fixed-speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But complex and expensive</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Trade-off comparison:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Feature</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Two-Speed Fixed</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Variable-Speed</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Annual energy capture</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Good (+5-10% vs single)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Excellent (+10-15% vs single)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Complexity</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Medium</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">High</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Cost</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Medium</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">High</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Reliability</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">High</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Medium (electronics can fail)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Maintenance</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Low</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Medium</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Grid support</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Good (inertia)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Requires special control</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Why study two-speed?</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Many still operating</span><span class="rvts6"> worldwide (20,000+ turbines)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Interesting control</span><span class="rvts6"> problem (state machines, switching logic)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Good learning</span><span class="rvts6"> platform (clear cause-effect)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Historical significance</span><span class="rvts6"> (important evolution step)</span></li>
+</ol>
+<p class="rvps4"><span class="rvts6">Understanding two-speed helps you understand:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Why variable-speed is better (but at what cost?)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Trade-offs in wind turbine design</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Evolution of wind technology</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Control system complexity</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Wrap-Up - Lab 3</span></p>
+<p class="rvps4"><span class="rvts11">What You've Learned:</span></p>
+<p class="rvps4"><span class="rvts6">✓ Complete switching sequence (both directions) ✓ Why two speeds are better than one ✓ Threshold values and hysteresis behavior ✓ Timing and production loss during switching ✓ TSR optimization across wind range ✓ Trade-offs between generator configurations</span></p>
+<p class="rvps4"><span class="rvts11">Key Insights:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Switching is infrequent but valuable</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hysteresis prevents oscillation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy loss during switching is small</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy gain from optimization is large</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Net benefit justifies complexity</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Timing Summary:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Phase</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Duration</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Hysteresis wait</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">15-30 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Power reduction</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">25-35 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Speed transition</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">20-30 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Soft-start</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">5-7 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts31">Total</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts31">~70-100 sec</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Energy Analysis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Energy lost per switch: ~7 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Switches per day: ~2-5 (typical)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Daily switching loss: ~14-35 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Annual switching loss: ~5,000-13,000 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Annual production: ~3,000,000 kWh</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Switching overhead: &lt;0.5% of production</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Performance Gain:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Single-speed annual production: ~2,850,000 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Two-speed annual production: ~3,000,000 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Gain: ~150,000 kWh (+5%)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Well worth the switching overhead!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Skills Developed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Understanding TSR optimization</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Recognizing switching triggers</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Monitoring multi-phase transitions</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Analyzing hysteresis behavior</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Comparing generator performance</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculating energy trade-offs</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Next Steps:</span></p>
+<p class="rvps4"><span class="rvts6">You now understand the three main operating modes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cutin (startup)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cutout (shutdown)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Switching (optimization)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Next labs will cover:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Lab 4:</span><span class="rvts6"> Cable Untwisting Procedure</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Lab 5:</span><span class="rvts6"> Emergency Stops and Fault Responses</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Lab 6:</span><span class="rvts6"> Power Control Through Pitch</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">End of Lab 3</span></p>
+<p class="rvps4"><span class="rvts6">Excellent work! You now understand how the turbine optimizes performance across different wind speeds.</span></p>
+<p class="rvps4"><span class="rvts6">Ready to continue with Lab 4 (Cable Untwisting)?</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Testing the behavior to very high winds</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="high wind, wind">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Testingthebehaviortoveryhighwind");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Testing the behavior to very high winds</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; <a href="Behaviorfacingveryhighwindspeeds.html">Behavior facing very high wind speeds</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Behaviorfacingveryhighwindspeeds.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Behaviorfacingveryhighwindspeeds.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Failuresonthehydraulicbrakingsys.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Start the application.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Go the the "WTElectricalPanel" and set the "Main Switch" to the On position.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Go to the "Executing" form and press "Run". In "Synoptic control" &nbsp;un-check the "WTElectricalPanel", is not necessary in this lesson. Rearrange the synoptics in the screen.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Go to the "Control Terminal" recognize any pending incidences and press the "START" button.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">In the "SynopticWindNacelle", using PgUp set a wind speed of 15 m/s, in order to start de operation in Large.</span><br/><span class="rvts11">NB. As in other sessions we will use specific values of wind, you should guide the wind direction with the Nacelle to get a perfect matching between the effective wind and the value introduced in the wind widget.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Connected in large with a wind of 15 m/s with the default parameters the "RPMs Gen" should be around &nbsp;1509,5 rpms and producing near the nominal power of 1300kW.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Using the PgUp key set the wind at 26 m/s, that is above WindMaxForOperation [25m/s] but not over &nbsp;WindMaxForTemporalOperation [28m/s].</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">Wait 20 seconds and the incidence "Wind &gt; WindMaxForOperation for more than 100 s" will appear in the "Control Terminal" "Open Incidences" tab.</span><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20ControlTerminal%20viento%20mas%20de%2025%20por%201%20m.jpg"></p>
+<p class="rvps4"><span class="rvts11"></span><br/><span class="rvts11">Note: remember that some time delays have been scaled to make the simulator more usable.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Set the wind at 24 m/s, and observe that the incidence passes to the historic record without Operator &nbsp;acknowledgment. This kind of wind incidences doesn't need acknowledgment by the user: they disappear as soon as the cause disappear.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">10.</span><span class="rvts11">Set the wind at 20 m/s, below MaxWindForCutin [21 m/s], and the Wind Turbine will start a cut-in sequence.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">11.</span><span class="rvts11">Repeat the test with winds above &nbsp;WindMaxForTemporalOperation [28m/s] and WindAbsolutMax [30m/s]. You will get the incidences:&nbsp;</span><br/><span class="rvts11">"Wind &gt; WindMaxForTemporalOperation for more than 5 s"&nbsp;</span><br/><span class="rvts11">"Wind &gt; WindAbsolutMax for more that 1 s"</span><br/><span class="rvts11">respectively. The last one is practically instantaneous (1 s.) &nbsp;</span><br/><span class="rvts11">&nbsp;</span><img alt="" style="padding : 1px;" src="lib/DSAS%20viento%20por%20encima%20de%2030.jpg"><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">12.</span><span class="rvts11">Finally, set the wind down to 15 m / s and verify that all issues go to the historical record, and the turbine starts up again at its rated power.</span></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps2"><span class="rvts83">&nbsp;</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

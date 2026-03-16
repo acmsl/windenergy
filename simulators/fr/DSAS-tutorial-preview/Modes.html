@@ -1,0 +1,134 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Modes</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", , orientation">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Modes");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Modes</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description du Simulateur</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Simulateurs de sous-syst&egrave;mes dans l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="Controller.html">Simulateurs des syst&egrave;mes de contr&ocirc;le</a> &rsaquo;&rsaquo; <a href="Algorithms.html">Algorithmes</a> &rsaquo;&rsaquo; <a href="Yawingofthenacelle.html">De l'orientation de la nacelle et des c&acirc;bles de puissance</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Yawingofthenacelle.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Yawingofthenacelle.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Controlmodes.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps23"><span class="rvts30">Two modes, depending on the global state of the Wind Turbine:&nbsp;</span></p>
+<p class="rvps23"><span class="rvts30">a) Manual and&nbsp;</span></p>
+<p class="rvps23"><span class="rvts30">b) Automatic.</span></p>
+<p class="rvps23"><span class="rvts30"><br/></span></p>
+<p class="rvps23"><span class="rvts30">In Manual mode, the Operator, using the Control Terminal, can activate the yawing motors, turning the Nacelle at will. The only limit is the maximum number of turns of the </span><a class="rvts52" href="Yawingofthenacelle.html">power cables</a><span class="rvts30">.</span></p>
+<p class="rvps23"><img alt="" style="padding : 1px;" src="lib/StartStopManualYawing.png"></p>
+<p class="rvps23"><span class="rvts30"><br/></span></p>
+<p class="rvps23"><span class="rvts30">In Automatic mode the behavior of the yawing system takes into consideration the state the Wind Turbine. The main target is to keep the Wind Turbine in production as long as possible and also to reduce the consumption of power (the yawing motors consume power that is borrowed from the produced power - if in production - or taken &nbsp;from the Grid if the generator is disconnected).</span></p>
+<p class="rvps23"><span class="rvts30"><br/></span></p>
+<p class="rvps23"><span class="rvts30">If the wind speed is below a limit (parameter) then it is not wise to spend energy putting the Wind Turbine facing the wind. A typical value for this limit is 2.3 m/s. Above this limit, the criteria is: it makes sense first orient the Nacelle as, most probably, the wind will grow enough for trying a cutin process in short time.</span></p>
+<p class="rvps23"><span class="rvts30"><br/></span></p>
+<p class="rvps23"><span class="rvts30">If the decision is for "orienting" the Nacelle then the next criteria relates to the cables' turns. If at the beginning of the orienting process these turns are bigger than a certain limit (another parameter), then, before starting orientation, makes sense untwist the cables. Once untwisted the orientation process continues. A typical value for this limit is related to the maximum number of turns the cables support. If this number is, say, 3.5 turns, then a good limit for untwist before orienting, and before trying to cutin, is around half, say, 2.</span></p>
+<p class="rvps23"><span class="rvts30"><br/></span></p>
+<p class="rvps23"><span class="rvts30">Of course the Controller, in Automatic mode, monitors continuously the maximum limit of turns for the cables but do not act unless the limit switch is activated. If that happens the Wind Turbine will stop immediately, registering an "incidence" that generate a STOP Sequence of level 5. This level of STOP is the softest, meaning that the Controller will change the Pitch to get a negative value of power (therefore the DriveTrain will start slowing down), till the Generator speed will reach the synchronous value, moment at which the Bypass contactor will be opened with minimum stress (ie, zero or minimum current passing through it, minimizing the arcs inside it), and the DriveTrain will continue slowing down, till its speed reaches an idle value. At that moment, if wind speed is valid for cutin, the automatic untwisting of the cables will take place as explained above.</span></p>
+<p class="rvps23"><span class="rvts30"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

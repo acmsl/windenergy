@@ -1,0 +1,132 @@
+﻿
+
+<html>
+	
+<head>
+	<title>See the reaction to a Grid failure on a phase</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="WTElectricalPanel">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("SeethereactiontoaGridfailureonap");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">See the reaction to a Grid failure on a phase</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Changingfromlowtohighwindspeed.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Resettingtooperationalconditions.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">In order to operate the Wind Turbine needs the presence of a reliable electric Grid.</span></p>
+<p class="rvps4"><span class="rvts11">A real Controller verifies &nbsp;that the RMS voltages in each phase are within the &nbsp;predefined range and that the phase angles &nbsp;between the three power lines are the correct ones, in sign and in value.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">The Controller supply does not depend directly on the Grid (ie. the Main Switch of the Wind Turbine may be off and the Controller may be working) through a UPS. &nbsp;</span></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The Controller checks that the voltages in each of the phases are Ok, detecting both the presence or not of voltages and the under-voltage in some of them. If there is a lack of voltage on some of the phases or some of them are rated voltage them the Controller report an incidence that is registered as well as start a STOP sequence.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">With the </span><span class="rvts36">WTElectricalPanel</span><span class="rvts11"> synoptic you can simulate the presence of voltages in the Grid acting on the "Main switch", visible in both of the "Electrical Panel view" (internal and normal). You can also simulate the loss of voltage in a particular phase using the check-boxes labeled "Simulate phase fault".</span></p>
+<p class="rvps4"><span class="rvts11">As typical starting procedure exercises the following steps:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Start the application and rearrange the synoptics so you see the &nbsp;WTElectricalPanel, "Control Terminal" and "WindNancelle" synoptics.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Go the the "WTElectricalPanel" and set the "Main Switch" to the On position.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Go to the "Executing" form and press "Run".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">The Control Terminal, &nbsp;in the "Opened Incidences" tab, shows that the Wind Turbine is in the first state: Manual STOP</span><br/><img alt="" style="padding : 1px;" src="lib/NewItem129.png"></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Grid failure before start. We can simulate a phase failure in the Electrical Panel turning off the main switch or clicking in the "simulate phase fault" check-boxes in the upper part of the synoptic.</span></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Try un-checking one phase. In a few seconds the "Under-voltage" and "Grid phase failure" incidences will appear in the Control Terminal</span><br/><img alt="" style="padding : 1px;" src="lib/NewItem128.png"></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Check the internal view of the Electric Panel, observe that the busbar associated with the failing phase now is in a Grey color indicating that there is not voltage in it.</span><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/NewItem127.png"></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">Check in the Control Terminal that two incidences appeared, indicating that the Controller Emulator has detected this event. You can see the </span><span class="rvts16">Id</span><span class="rvts11">, the incidence identifier, also called "</span><span class="rvts16">error code</span><span class="rvts11">" in other systems, and the date of start of the incidence, with millisecond resolution. &nbsp;</span><br/><img alt="" style="padding : 1px;" src="lib/NewItem126.png"><span class="rvts11">&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">The Grid failures have assigned one small time delay to prevent a stop due to a short time failure in the Grid typically due to a switching procedure in the distribution network, see the "</span><span class="rvts18">Voltage-Ride-Through</span><span class="rvts11">" and Grid codes explanation&nbsp;</span></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps2"><span class="rvts83"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

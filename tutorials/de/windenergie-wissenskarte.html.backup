@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wissenskarte Windenergie - ACMSL</title>
+  <link rel="stylesheet" href="../tutorial.css">
+</head>
+<body>
+
+<div class="tut-toolbar">
+  <div class="tut-toolbar-actions">
+    <a href="../../index.html?lang=de" title="Startseite">&#127968; Startseite</a>
+    <a href="https://www.acm-sl.com" target="_blank" rel="noopener">&#127760; acm-sl.com</a>
+  </div>
+  <div class="tut-lang-selector">
+    <a href="../en/wind-energy-mindmap.html">EN</a>
+    <a href="../es/mapa-mental.html">ES</a>
+    <a href="../fr/carte-mentale.html">FR</a>
+    <a href="../it/mappa-conoscenza-eolica.html">IT</a>
+    <a href="../de/windenergie-wissenskarte.html" class="active">DE</a>
+    <a href="../pt/mapa-conhecimento-eolico.html">PT</a>
+  </div>
+</div>
+
+<header class="tut-header">
+  <div class="tut-header-left">
+    <img src="../../img/ACM_LOGO.png" alt="ACMSL" class="logo">
+    <a href="https://www.acm-sl.com" class="brand">ACMSL</a>
+  </div>
+  <nav>
+    <a href="../en/introduction.html">Einf&uuml;hrung</a>
+    <a href="industrielle-windturbinen.html">Windturbinen</a>
+    <a href="windturbinen-familien.html">Familien</a>
+    <a href="betriebliche-windgeschwindigkeiten.html">Windgeschw.</a>
+    <a href="../en/simulators-and-tutorials.html">Simulatoren</a>
+    <a href="windenergie-wissenskarte.html" class="active">Wissenskarte</a>
+  </nav>
+</header>
+
+<section class="tut-hero">
+  <h1>Wissenskarte Windenergie</h1>
+  <p>Ein umfassender struktureller &Uuml;berblick &uuml;ber die Windenergietechnologie</p>
+</section>
+
+<main class="tut-content">
+
+  <h2>Die gesamte Disziplin abbilden</h2>
+  <p>
+    ACMSL hat eine <strong>umfassende Mindmap</strong> erstellt, die alle industriellen Aspekte der
+    Windenergie abdeckt. Diese Wissenskarte dient sowohl als Lernleitfaden als auch als Nachschlagewerk
+    und organisiert das umfangreiche Wissen, das von Windenergieexperten ben&ouml;tigt wird, in einer
+    klaren, navigierbaren Struktur.
+  </p>
+  <p>
+    Die Mindmap ist zweisprachig (Spanisch/Englisch) und enth&auml;lt Hunderte von miteinander verbundenen
+    Themen, von der Grundlagenphysik bis zur Projektfinanzierung, von der Meteorologie bis zu
+    Sicherheitsvorschriften.
+  </p>
+
+  <figure class="tut-figure">
+    <img src="../../img/mindmaprecortado.png" alt="&Uuml;bersicht der Wissenskarte Windenergie">
+    <figcaption>&Uuml;bersicht der ACMSL Wissenskarte Windenergie &mdash; 11 Hauptzweige, die alle industriellen Aspekte abdecken</figcaption>
+  </figure>
+
+  <h2>Die 11 Wissenszweige</h2>
+
+  <div class="tut-card">
+    <h4>1. Grundlagen und Kontext</h4>
+    <p>
+      Die historische Entwicklung der Windenergie, der aktuelle Marktstatus weltweit, der Umweltkontext,
+      der die Energiewende antreibt, und die regulatorischen Rahmenbedingungen, die die Branche pr&auml;gen.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>2. Windressource</h4>
+    <p>
+      Methodik der Windressourcenbewertung, meteorologische Grundlagen, Windmesstechniken (Anemometrie,
+      LiDAR, SODAR), Winddatenanalyse, Weibull-Verteilungen, Micrositing-Optimierung und Nachlaufeffekte.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>3. Physikalische Grundlagen</h4>
+    <p>
+      Aerodynamik der Windturbinenbl&auml;tter (BEM-Theorie, Auftrieb und Widerstand, Schnelllaufzahl),
+      Prinzipien elektrischer Maschinen (Induktions- und Synchrongeneratoren) und Leistungselektronik
+      (Umrichter, Wechselrichter, PWM-Modulation).
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>4. Stromerzeugung und -verteilung</h4>
+    <p>
+      Eigenschaften des Stromnetzes, Netzanschlussanforderungen, Netzcodes und Konformit&auml;t,
+      Energiespeichertechnologien, Stromqualit&auml;tsstandards und Blindleistungsmanagement.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>5. Instrumentierung und Steuerung</h4>
+    <p>
+      Industrielle Sensoren und Wandler, Kommunikationsprotokolle (Modbus, OPC, IEC 61400-25),
+      Regelungsalgorithmen (PID, Zustandsautomaten, MPPT), SCADA-Systeme und Zustandsüberwachung.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>6. Windparks</h4>
+    <p>
+      Standortbewertung und -auswahl, Projektmanagement und -entwicklung, Bau und Inbetriebnahme,
+      Produktionssch&auml;tzung und -optimierung, Betriebs- und Wartungsstrategien, elektrische
+      Umspannwerke und Balance of Plant.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>7. Windkraftanlagen</h4>
+    <p>
+      Konstruktionsprinzipien und IEC-Klassifikation, die 5 Generatorfamilien, Hauptkomponenten (Turm,
+      Rotorbl&auml;tter, Gondel, Nabe, Getriebe, Generator, Umrichter, Fundament), fortgeschrittene
+      Regelungsstrategien und aktuelle Herstellerlandschaft.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>8. Wettervorhersage</h4>
+    <p>
+      Numerische Wettervorhersage (NWP), Mesoskalenmodellierung, Ensemble-Prognosetechniken,
+      statistisches Downscaling und Prognoseverifikation. Entscheidend f&uuml;r die Netzintegration
+      und den Energiehandel.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>9. Wirtschaft und Finanzen</h4>
+    <p>
+      CAPEX- und OPEX-Aufschl&uuml;sselung, Berechnung der Stromgestehungskosten (LCOE),
+      Wirtschaftlichkeitsanalyse, Gesch&auml;ftsmodelle (PPA, Merchant, Einspeiseverg&uuml;tungen),
+      Projektfinanzierungsstrukturen und Investitionsrisikobewertung.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>10. Umwelt- und Sozialaspekte</h4>
+    <p>
+      Bewertung der Auswirkungen auf die Fauna (V&ouml;gel, Flederm&auml;use), Schallemmissionen und
+      Ausbreitungsmodelle, Bewertung der visuellen Auswirkungen, Umweltvertr&auml;glichkeitspr&uuml;fung
+      (UVP), soziale Akzeptanz und B&uuml;rgerbeteiligungsprogramme.
+    </p>
+  </div>
+
+  <div class="tut-card">
+    <h4>11. Sicherheit und Gesundheit</h4>
+    <p>
+      Sicherheitsnormen und -vorschriften, GWO-Zertifizierungsprogramme (Global Wind Organisation),
+      Anforderungen an pers&ouml;nliche Schutzausr&uuml;stung (PSA), Notfallverfahren,
+      Risikobewertungsmethoden und spezifische Gefahren bei der Arbeit an Windkraftanlagen.
+    </p>
+  </div>
+
+  <h2>&Uuml;ber die Wissenskarte</h2>
+  <p>
+    Die Wissenskarte Windenergie wurde mit <strong>Freeplane</strong> erstellt, einer kostenlosen
+    Open-Source-Anwendung f&uuml;r Mindmapping. Das Mindmap-Format erm&ouml;glicht eine hierarchische
+    Organisation von Themen mit unbegrenzter Tiefe und eignet sich ideal zur Darstellung der komplexen,
+    vernetzten Natur der Windenergietechnologie.
+  </p>
+  <p>
+    Die Karte wird kontinuierlich aktualisiert, wenn sich die Technologie weiterentwickelt, mit neuen
+    Themen zu Offshore-Wind, netzbildenden Wechselrichtern, Wasserstoffproduktion aus Wind und anderen
+    aufkommenden Bereichen.
+  </p>
+
+  <div class="tut-card">
+    <h4>Ein lebendiges Dokument</h4>
+    <p>
+      Die Wissenskarte ist kein statisches Nachschlagewerk &mdash; sie ist ein lebendiges Dokument,
+      das mit der Branche w&auml;chst. Jeder Zweig enth&auml;lt Dutzende von Unterthemen, die in einer
+      logischen Hierarchie organisiert sind, mit Querverweisen zwischen verwandten Bereichen.
+    </p>
+  </div>
+
+  <div class="tut-cta">
+    <h3>Testen Sie unsere Echtzeit-Simulatoren</h3>
+    <p>Kostenlose 2-Tage-Evaluierung &mdash; kombinieren Sie die Wissenskarte mit praktischer Simulation</p>
+    <a href="../../index.html?section=downloads&lang=de">Simulatoren herunterladen</a>
+  </div>
+
+  <div class="tut-nav">
+    <a href="../en/simulators-and-tutorials.html">&larr; Zur&uuml;ck: Simulatoren &amp; Tutorials</a>
+    <span></span>
+  </div>
+
+</main>
+
+<footer class="tut-footer">
+  &copy; 2026 <a href="https://www.acm-sl.com">Automated Computing Machinery SL (ACMSL)</a>. Alle Rechte vorbehalten.
+</footer>
+
+</body>
+</html>

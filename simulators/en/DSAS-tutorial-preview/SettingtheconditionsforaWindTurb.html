@@ -1,0 +1,154 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Setting the conditions for a Wind Turbine to start operation with low wind speed</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="hardcopy, recorder, sampling rate, striprecorder">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("SettingtheconditionsforaWindTurb");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Setting the conditions for a Wind Turbine to start operation with low wind speed</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Teaching sessions</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Whileinproductionchangefromlowwi.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Start the simulator: "Executing"--&gt;"Run".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Observe that the Pitch is at -90º a little after receiving the command from Controller.</span><img alt="" style="padding : 1px;" src="lib/DSAS%20Pitch%20a%20-90.jpg"></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/DSAS%20windnacelle%20-90.jpg"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Go to the "Control Terminal" and check in the middle tab ("Opened incidences") that there is no one pending. If you get a "Manual STOP", just acknowledge it (double click in the "Ack" column) and then press the "START" button). If it is the first time, the configuration does not set automatically the "Main Contactor" to On ("Electrical Panel"--&gt;"Electrical Panel"--&gt;</span><img alt="" style="padding : 1px;" src="lib/DSAS%20MainContactor.jpg"><span class="rvts11">. Click on the handle to set it "On". You should see the following list of incidencies:</span><img alt="" style="padding : 1px;" src="lib/DSAS%20ControlTeminal%20falto%20tension.jpg"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps12"><span class="rvts11">After you set the MainContactor to "On" this listing will change to </span><img alt="" style="padding : 1px;" src="lib/DSAS%20ControlTeminal%20tension%20recuperada.jpg"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps12"><span class="rvts11">A voltage loss is an incidence that must be recognized by the Operator. So you must go to the Wind Turbine, plug your Control Terminal, look for this problem and "acknowledge" each one of these incidences. You will see that they dissapears from "Opened incidences" and appears in "Historic incidencies", as shown in next figure.</span></p>
+<p class="rvps12"><img alt="" style="padding : 1px;" src="lib/DSAS%20Control%20Terminal%20Historic%20incidencies.jpg"><span class="rvts11">&nbsp;</span></p>
+<p class="rvps12"><span class="rvts11">You should have the following listing:</span></p>
+<p class="rvps12"><img alt="" style="padding : 1px;" src="lib/DSAS%20Control%20Temrinal%20Manual%20Stop.jpg"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps12"><span class="rvts11">Check the "Ack" check-box and press "START"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Go to the SynopticWindNacelle synoptic &nbsp;and set a wind speed to any value below 6.2 m/s. We want the Wind Turbine to do a cutin with an small wind.</span></p>
+<p class="rvps2"><span class="rvts77"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Play with the wind direction (note: do not try to change it very rapidly the direction of the wind, do it with the Arrow Keys "Up" and "Down"). Check that, after some time, the Controller issues the appropriate commands so the Nacelle is oriented in the same direction as the wind. You will see "Yaw CCW" and "Yaw CW" highlighted while the corresponding motion is active.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Check the "Effective wind" in the "Control Terminal " synoptic. This is due to misalignment between the wind direction and the Nacelle orientation. The "Effective wind" value will approach the "wind speed" you set up in SynopticWindNacelle synoptic as the angular difference diminishes.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Check that the orientation of the Nacelle does not reach the exact value of the wind direction.That's is on purpose. See explanation in </span><span class="rvts78">Yawing.</span><br/><span class="rvts11">Check that the "Windvane" widget presents a signal that changes from a continuous value (staying high or low) to an oscillating signal. There is some randomness in duty cycle of that signal, mimicking the real wind vane signal.</span><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/WindVane%20orientada.png"></p>
+<p class="rvps2"><span class="rvts77"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">If a "StripRecorder" with Panel definition "Cutin+Cutout+Production" is not present, go to the "Executing .." synoptic --&gt;"Synoptics"--&gt;"StripRecorder"; then, when the StripRecorder appears press "Predefined panels" and choose "Cutin+Cutout+Production". This panel presents 6 recorders, with the following variables on them:</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Controller.Control.PitchOut and </span><span class="rvts79">Nacelle.DriveTrain.PitchNacelleOut</span><span class="rvts11">. With this recorder you can appreciate the difference between the value of the Pitch Set Point sent by the Controller and the real Pitch in the Nacelle.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Nacelle.DriveTrain.GeneratedPowerOut. The power delivered to the Grid.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Nacelle.DriveTrain.ThyristorsIn , </span><span class="rvts80">Nacelle.Braking.BrakeReleasedOut</span><span class="rvts11"> and </span><span class="rvts81">Nacelle.DriveTrain.ByPassIn</span><span class="rvts11"> : these are digital (boolean) signals. In this recorder you may see the relationship between these key signals, very important in the cutin process. They are a little bit displaced, so that when more than one signal have the same value they still can be seen.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts81">Nacelle.DriveTrain.GeneratorRPMsOut</span><span class="rvts11"> : the speed of the Generator shaft.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts79">SynopticWindNacelle.WindDirectionOut</span><span class="rvts11"> , </span><span class="rvts80">SynopticWindNacelle.NacelleOrientationOut</span><span class="rvts11"> : this recorder visualize the evolution of these signal related to the yawing algorithm.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts79">SynopticWindNacelle.WindSpeedOut</span><span class="rvts11"> : this recorder visualize the evolution you impressed in the wind speed.</span></p>
+<p class="rvps13"><span class="rvts11"></span><br/><span class="rvts11">You can change the "sampling rate". Any value between "0,2s" (five samples per second) &nbsp;to "1s" (one sample per second) is ok for this case.</span><br/><span class="rvts11">At any moment you can press the "Hardcopy" menu option that will bring an independent form that contains a "frozen" view of the recorders at the time of pressing it. It that form you get a time cursor that gives you the instants when events happened, and also you can measure time distances using the pop-up menu that is shown pressing the right button on the mouse.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Go to the "Control Terminal" and press the green "START" button. You can observe how is the evolution of the different signals in several synoptics:</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Blades rpms in the SynopticDriveTrain, the Control Terminal and the StripRecorder</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">The Generator's rpms in the Control Terminal and StripRecorder</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Nacelle orientation in the SynopticWindNacelle and Control Terminal</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Pressure in the hydraulic brake circuit in the SynopticDriveTrain</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Blades pitch in SynopticDriveTrain (both "Internal View" and "Farm View"), in the Control Terminal and in the SynopticWindNacelle.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Actual wind of the Blades in the SynopticWindNacelle</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Status of the Bypass in the "Electrical Panel", both in the "external" and "internal" views.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">10.</span><span class="rvts11">You can observe that the sequence is:</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Setting the Generator to "Small Connection" (6 poles).</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Setting the brake (for checking its operational state)</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Brake release.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Ramp up of the rpms.</span></p>
+<p class="rvps12" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Controlled ramp up in the RPMs to keep acceleration within limits.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Approach to synchronous speed (should be 1000 rpms), connection of the Thyristors, some reactive consumption.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Connection of the Bypass , removal of Thyristors, enter production stage.</span><br/><span class="rvts11">Meanwhile the pressure of the brake hydraulic circuit will move according to some preset pressure losses, and the Nacelle following any changes in the wind direction.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

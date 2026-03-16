@@ -1,0 +1,122 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Electrical connection to the grid</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="busbars, bypass contactors, generator, main switch, thyristors, PCC, Point of Common Connection, Bypass, soft connection, motoring">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Electricalconnectiontothegrid");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Electrical connection to the grid</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="WhatisaWindTurbine.html">What is a Wind Turbine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="WhatisaWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Operationalview1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Powerversuswindofficialcurve.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Next figure we present &nbsp;a simplified schematic of electric connection of the Wind Turbine to the Grid, corresponding this Simulator for "</span><span class="rvts36">Dual Speed Active Stall Wind Turbine</span><span class="rvts11">".&nbsp;</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/NewItem155.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The Generator voltage is typically 690 V. The power cables from the Generator arrives to the Electrical Panel, where they, eventually, get connected to the Grid through contactors, fuses and busbars. There are Wind Farms in which the connection of each Wind Turbine to the &nbsp;</span><span class="rvts15">Point of Common Connection</span><span class="rvts11"> (PCC) of the Wind Farm is done at this 690 V level (considered low voltage). In other cases (more &nbsp;common) this connection is done at Medium Voltage level (above 10 KV, typically 15 KV): in that case there is a step up transformer that can be located in several places: either at the Nacelle, near the Generator, or in the basement of the Tower (near the Electrical Panel) or housed outside, very near the Tower.</span></p>
+<p class="rvps4"><span class="rvts11">In the above schematic, notice that the Generator is connected to the downward cables through one of two contactors, labeled "Large" and "Small": that corresponds to two possible ways of connecting the stator winding, resulting in either a 4 magnetic poles (Large) or 6 magnetic poles (Small). Other models of similar Wind Turbines has two independent Generators instead.</span></p>
+<p class="rvps4"><span class="rvts11">These two connecting ways have their own electrical and mechanical characteristics: in the Large connection the Generator may produce the Nominal Power (1.300 KW in the simulated machine), while in the Small connection it can only delivers 250 KW. But the main reason for dual speed capability is </span><span class="rvts36">better performance of the DriveTrain at wind speeds below Nominal Wind</span><span class="rvts11">. With 4 poles the synchronous speed (assuming Grid at 50Hz) is 1500 rpms, while with 6 poles this speed is 1000 rpms. As the GearBox ratio is fixed (around 1:77) , when the Generator is connected with Large the Blades rpms are around 19.5 (= 1500/77) , while in the Small connected Blades turn at approx 13 (=1000/77). The aerodynamic performance of the Blades for low wind speeds is better with this lower value of rpms. So the main purpose of having these two ways of connection is to have a very reliable and high performant way of adapting the Wind Turbine to different wind speeds.</span></p>
+<p class="rvps4"><span class="rvts11">The figure above shows the components of the Grid connection: the Grid arrives to the generator through the "Main Switch" located in the Power Distribution Panel, situated at the bottom of the tower.</span></p>
+<p class="rvps4"><span class="rvts11">While in production, the switch labeled "</span><span class="rvts16">Bypass</span><span class="rvts11">" is closed, effectively bypassing the set of thyristors on each phase. The thyristors are used in the process of start production (cutin), using a process known as </span><a class="rvts52" href="Controllingtheconnectiontothegri.html">soft connection</a><span class="rvts11"> , and also used in other electrical installations in the industry.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">This soft connection process solves the following problem: when the Controller decides to start the "cutin" process (start production), the DriveTrain rpms are 0, so the Generator rpms are also 0: logically the Generator stator is </span><span class="rvts36">not</span><span class="rvts11"> connected to the Grid. The Controller first set the Blades pitch to an adequate value, so there is some mechanical torque forcing the DriveTrain, and eventually the brake is &nbsp;released, moment at which Generator rpms start growing. When these rpms approach the synchronous speed of the Generator to the Grid, arrives the time to try to connect the Generator stator to the Grid: but that should happen only when the rpms are at synchronous speed. In that situation we have a </span><span class="rvts36">heavily inertial system</span><span class="rvts11"> (the DriveTrain) with an energy input (from the wind) controlled only &nbsp;through an slow mechanism (the Blades pitch), obviously very inadequate to fine tune the rpms of the Generator to its synchronous speed. Just a little before arriving to synchronous speed, the Controller uses the </span><span class="rvts36">soft connection</span><span class="rvts11"> procedure to, first, </span><span class="rvts36">motoring</span><span class="rvts11"> the DriveTrain from the Grid during a very short period (typically below 2 seconds) and also to magnetize the air gap of the Generator. This action has the effect of forcing the Generator rpms to move to its synchronous speed and to adapt immediately to production rpms, just a little above that speed.</span></p>
+<p class="rvps4"><span class="rvts11">The generator's rotor acceleration is really powered by the wind, so during the process of going to production (</span><span class="rvts17">cutin</span><span class="rvts11">), the Controller takes great care to control that acceleration, basically using the Blades pitch control, so that the generator's rotor speed arrives gently to the synchronous speed. While still below synchronous speed, the Controller drives the gates of the Thyristors to allow a progressive conduction through them, that is the generator is behaving as a &nbsp;</span><span class="rvts15">motor, ie consuming power from the Grid. </span><span class="rvts11">This operation takes the effect of forcing the generator's rotor to approach gently the frequency and phase of the Grid. When that is achieved the Bypass switches are closed.</span></p>
+<p class="rvps4"><span class="rvts11">The electrical circuit for the connection to the Grid is completed with current transformers for the three lines. The output of these transformers goes to the Controller, that use them to implement different policies and security issues.</span></p>
+<p class="rvps14"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

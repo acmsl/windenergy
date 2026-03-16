@@ -1,0 +1,128 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Yawing of the nacelle and the Power Cables</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="yawing, Parameter.ControllerYawing.MaxCableTwistBeforeCutin, MaxCableTwist, cutin">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Yawingofthenacelle");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Yawing of the nacelle and the Power Cables</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description of the Simulator</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Emulated Wind Turbine</a> &rsaquo;&rsaquo; <a href="Controller.html">Controller</a> &rsaquo;&rsaquo; <a href="Algorithms.html">Algorithms</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Algorithms.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Controllingtheconnectiontothegri.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Modes.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts54">The Yawing system's objective is to keep the Nacelle facing to the wind, so the &nbsp;Blades' rotate &nbsp;plane is perpendicular to the direction of the wind. (See </span><a class="rvts41" href="Yawingsubsystem.html">Yawing subsystem</a><span class="rvts54"> ).</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts54">In the Wind Turbine we are simulating, &nbsp;this is achieved by means of two independent motors with gears, each one turns &nbsp;the Nacelle in one direction only. Next figures show details of several implementations of this concept.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts54">As the Nacelle rotates on its vertical axis, so does the power cables of the Generator, that drops from the Nacelle to the base of the Tower, coiling on themselves. Next figures show a schematic view and some examples.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Cables%20esquema%20bajada.png"><img alt="" style="padding : 1px;" src="lib/Long-loops-of-Lapp-cable-in-a-nacelle.jpg"></p>
+<p class="rvps4"><span class="rvts54"><br/></span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Lapp_Wind_Portfolio.jpg"></p>
+<p class="rvps4"><span class="rvts54"><br/></span></p>
+<p class="rvps4"><span class="rvts54">These cables can withstand a maximum number of turns, so the Nacelle rotation also has this limit. There is switch that is activated when the cables torsion is higher that a given limit. When this switch is activated, the Controller removes the power of the yawing motors, starts a shutdown in case the Wind Turbine is in production, and annotates an Incidence that must be acknowledge by the Operator. I.e., this is considered an important issue and the Operator is required to visit the Wind Turbine and investigate what happened. After the Operator acknowledges this type of Incidence then Wind Turbine is ready to start again the cutin process.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts54">The number of turns of the cables at which this switch becomes activated, in this Simulator, is controlled by the "</span><span class="rvts15">Parameter.NacelleYawing.MaxCableTwist</span><span class="rvts54">", that is set to 3.5 turns.</span></p>
+<p class="rvps4"><span class="rvts54">Beside this hardware protection, the Controller includes a Yawing Control Algorithm that tries to keep the number of turns of cables always within reasonable limits.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts54">The implemented concepts takes into account the fact that to unroll the cables the Wind Turbine must be disconnected from the Grid, as it will cross orientation angle regions in which the wind will hit down side. Therefore untwisting cables is a process in which there is a potential loss of production. The typical approach in many Wind Turbines (and the one used in this Simulator) use two parameters: "</span><span class="rvts15">Parameter.ControllerYawing.MaxCableTwist</span><span class="rvts54">" and "</span><span class="rvts15">Parameter.ControllerYawing.MaxCableTwistBeforeCutin</span><span class="rvts54">". Their values are 2.5 and 1.5 turns.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts54">While in production, the Controller monitors if the number of turns of cables is higher than &nbsp;"</span><span class="rvts15">Parameter.ControllerYawing.MaxCableTwist</span><span class="rvts54">": when that happens the Controller shutdown the Wind Turbine and starts rotating the Nacelle so that the number of turns of the cables is reduced to 0. Immediately after finishing this rotation, the Controller starts a new cutin process so the Wind Turbine returns to production, automatically.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts54">If the Wind Turbine is stopped and the environmental conditions (wind, temperatures, etc) are ok for going to production (Cutin), and the Controller receives the order for START (either through the Control Terminal by the Operator, or from the SCADA system), then the Controller first checks that the number of turns of the cables is smaller than "</span><span class="rvts15">Parameter.ControllerYawing.MaxCableTwistBeforeCutin</span><span class="rvts54">": if it is higher then the Controller first starts the untwisting process before continuing the cutin process.</span></p>
+<p class="rvps4"><span class="rvts54">Next figure shows all these cases.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Grafico%20numero%20vueltas%20cables.png"></p>
+<p class="rvps4"><span class="rvts54"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

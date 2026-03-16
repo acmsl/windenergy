@@ -1,0 +1,418 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>L&eacute;gende de la machine d'&eacute;tat de S&eacute;curit&eacute;</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("LegendoftheSecurityStateMachine");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">L&eacute;gende de la machine d'&eacute;tat de S&eacute;curit&eacute;</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description du Simulateur</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Simulateurs de sous-syst&egrave;mes dans l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="Controller.html">Simulateurs des syst&egrave;mes de contr&ocirc;le</a> &rsaquo;&rsaquo; <a href="ControllersFunctionalstructure.html">Diagramme d'&eacute;tat du Contr&ocirc;leur</a> &rsaquo;&rsaquo; <a href="StateEventsDiagramsoftheimplemen.html">Diagrammes &eacute;tat / &eacute;v&eacute;nements des machines &agrave; &eacute;tats impl&eacute;ment&eacute;es</a> &rsaquo;&rsaquo; <a href="SecurityStateMachine.html">Machine d'&eacute;tat de S&eacute;curit&eacute;</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="SecurityStateMachine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="SecurityStateMachine.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="RelationshipsamongtheStateMachin.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts14">Etats:</span></p>
+<div class="rvps2">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts61">Nom</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps4"><span class="rvts11">Indicateur associé</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SS0BypassOn</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">1</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SS0BypassOff</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">2</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SSWRpms0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">3</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SSW4Idle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">4</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%; height: 14px;">
+   <p class="rvps2"><span class="rvts6">SSWToutHBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%; height: 14px;">
+   <p class="rvps2"><span class="rvts6">5</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SSWToutSBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">6</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SSW4RBelowSynch</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">7</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SSDecideBelowSynch</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">8</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 18%;">
+   <p class="rvps2"><span class="rvts6">SSDecideAfterIdle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">9</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts61"><br/></span></p>
+<p class="rvps4"><span class="rvts14">Événements</span><span class="rvts11">:</span></p>
+<p class="rvps2"><span class="rvts61"><br/></span></p>
+<div class="rvps2">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts61">Name</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts61">Description</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts61">Associated value</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESS1</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Séquence d'arrêt 1</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">1</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESS2</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Séquence d'arrêt 2</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">2</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESS3</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Séquence d'arrêt 3</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">3</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%; height: 17px;">
+   <p class="rvps2"><span class="rvts6">ESS4</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%; height: 17px;">
+   <p class="rvps2"><span class="rvts6">Séquence d'arrêt 4</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%; height: 17px;">
+   <p class="rvps2"><span class="rvts6">4</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESS5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Séquence d'arrêt 5</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">5</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESRpms0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Les rpms du moyeu a 0</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">6</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESSBTout</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Minuterie SoftBrake Time Out</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">7</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESHBTout</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Minuterie HardBrake Time Out</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">8</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESRBelowSynch</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Les rpms du générateur sont passés en dessous de la valeur de synchronisation</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">9</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ESRIdle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Les rpms du générateur sont passés en dessous de la valeur pour repos ('Idle')&nbsp;</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">10</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">EBypassOn</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Bypass connecté</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">11</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">EBypassOff</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Bypass déconnecté</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">12</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ENoIncidencesPending</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Aucun incident en attente</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">13</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ED2Idle</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Aller à l'état inactif</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">14</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ED2SBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Arrêter par un frein doux</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">15</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ED2HBrake</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Arrêter par un frein dur</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">16</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ED2SS0BpOff</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Bypass qui se déclenche</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">17</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+   <p class="rvps2"><span class="rvts6">ED2SS0UntwistCables</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 41%;">
+   <p class="rvps2"><span class="rvts6">Deroulant les câbles</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 30%;">
+   <p class="rvps2"><span class="rvts6">18</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

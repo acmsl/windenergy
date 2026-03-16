@@ -1,0 +1,1349 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Lab 4: Cable Untwisting Procedure</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Lab4CableUntwistingProcedure");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Lab 4: Cable Untwisting Procedure</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PracticalLabs.html">Practical Labs</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PracticalLabs.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Lab3GeneratorSwitchingSmallLarge.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Lab5EmergencyStopsandFaultRespon.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Practical Lab 4: Cable Untwisting Procedure</span></p>
+<p class="rvps4"><span class="rvts11">Objective:</span></p>
+<p class="rvps4"><span class="rvts6">Understand how the turbine manages power cable twist to prevent damage. You'll learn:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">How cable twist accumulates during normal operation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">When and why the Controller initiates cable untwisting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">The complete untwisting sequence step-by-step</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">How the Controller tracks cable twist count</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">The relationship between nacelle rotation and cable twist</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Production loss during untwisting and optimization strategies</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Background - The Cable Twist Problem</span></p>
+<p class="rvps4"><span class="rvts6">Before we begin, let's understand why this is necessary:</span></p>
+<p class="rvps4"><span class="rvts11">The Setup:</span></p>
+<p class="rvps4"><span class="rvts6">Power cables run from the generator (in the nacelle) down to the tower base:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator is in the </span><span class="rvts11">nacelle</span><span class="rvts6"> (rotates to follow wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Grid connection is at </span><span class="rvts11">tower base</span><span class="rvts6"> (doesn't rotate)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cables must bridge this rotating-to-stationary transition</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Solution:</span></p>
+<p class="rvps4"><span class="rvts6">For the first 5-10 meters, cables hang freely:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Forms a "twist zone"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Allows nacelle to rotate</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cables twist as nacelle turns</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Problem:</span></p>
+<p class="rvps4"><span class="rvts6">Cables have limited twist capacity:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Too much twist → insulation damage</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cable strands can break</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Eventually: cable failure → very expensive!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Limit:</span></p>
+<p class="rvps4"><span class="rvts6">Typical maximum: </span><span class="rvts11">±2.5 turns</span><span class="rvts6"> (rotations) in either direction</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Total range: 5 complete rotations</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Beyond this → damage risk increases rapidly</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why Not More?</span></p>
+<p class="rvps4"><span class="rvts6">Could use slip rings (rotating electrical contacts):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ High electrical losses</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Maintenance intensive (brush wear)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Expensive</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Less reliable over 20-year turbine life</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">So the cable twist method is actually better, despite requiring periodic untwisting!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">How Twist is Tracked</span></p>
+<p class="rvps4"><span class="rvts11">No Direct Sensor!</span></p>
+<p class="rvps4"><span class="rvts6">Surprisingly, there's usually no sensor directly counting cable rotations. Instead:</span></p>
+<p class="rvps4"><span class="rvts11">Method: Position Tracking</span></p>
+<p class="rvps4"><span class="rvts6">The Controller:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Knows the nacelle's starting position (reference point set during installation)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Tracks every yaw movement</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculates cumulative rotation from start</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Example:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Starting position: 0° (facing North)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind from East → nacelle yaws to 90°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist count: +0.25 turns (90°/360° = 0.25)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind shifts to South → nacelle yaws to 180°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist count: +0.5 turns (180°/360° = 0.5)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind shifts to West → nacelle yaws to 270°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist count: +0.75 turns (270°/360° = 0.75)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind returns to North → nacelle yaws back to 0° (via 270° → 360° → 0°)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Twist count: +1.0 turn (completed one full rotation)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Positive vs. Negative:</span></p>
+<p class="rvps4"><span class="rvts6">By convention:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Clockwise rotation</span><span class="rvts6"> (viewed from above): </span><span class="rvts11">Positive</span><span class="rvts6"> twist</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Counter-clockwise rotation</span><span class="rvts6">: </span><span class="rvts11">Negative</span><span class="rvts6"> twist</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Backup: Limit Switch</span></p>
+<p class="rvps4"><span class="rvts6">Many turbines also have a physical limit switch:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Mechanical switch at tower base</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Activates at maximum twist (±2.5 turns)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Safety backup if position tracking fails</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Creates immediate shutdown if triggered</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">When Untwisting Occurs</span></p>
+<p class="rvps4"><span class="rvts11">Threshold for Automatic Untwisting:</span></p>
+<p class="rvps4"><span class="rvts6">The Controller initiates untwisting when twist reaches:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Typically: </span><span class="rvts11">±2.0 turns</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Leaves 0.5 turn margin before limit (±2.5)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why not wait until ±2.5?</span></p>
+<p class="rvps4"><span class="rvts6">Safety margin:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind might change during untwisting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Could add more twist before procedure starts</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Better to be conservative</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical Scenarios:</span></p>
+<p class="rvps4"><span class="rvts11">Scenario 1: Prevailing Wind Direction (Gradual)</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind predominantly from one direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle slowly accumulates twist in one direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Takes days or weeks to reach threshold</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Predictable, planned untwisting</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Scenario 2: Shifting Wind (Variable)</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind direction changes frequently</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist accumulates and reduces</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Less predictable</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Might go weeks without needing untwisting</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Or might need it daily in very variable wind</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Scenario 3: Full Rotation Wind Pattern</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind makes complete circle (rare but happens)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Low pressure system rotating around site</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Adds +1.0 turn each full rotation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">2-3 rotations → untwisting needed</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Preparation</span></p>
+<p class="rvps4"><span class="rvts11">1. Create Cable Twist</span></p>
+<p class="rvps4"><span class="rvts6">We need to accumulate cable twist to trigger the procedure.</span></p>
+<p class="rvps4"><span class="rvts11">Method A: Manual Yaw (Turbine Stopped)</span></p>
+<p class="rvps4"><span class="rvts6">If turbine is stopped:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Verify turbine in STOP state</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Use manual yaw controls:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Press and hold "Yaw Right" button</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Let nacelle rotate 1.5 full rotations (540°)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Release button</span></li>
+ </ul>
+ <li class="rvps6 noindent"><span class="rvts6">Check cable twist indicator: Should show ~+1.5 turns</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Repeat if needed to reach +2.0 turns</span></p>
+<p class="rvps4"><span class="rvts11">Method B: Simulate Wind Shifts (Turbine Running)</span></p>
+<p class="rvps4"><span class="rvts6">If turbine is running:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Note current nacelle position (e.g., 90°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Change wind direction to +270° from current (e.g., to 360°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wait for nacelle to orient (~60 seconds)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist increased by +0.75 turns</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Repeat to accumulate twist</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Keep changing wind direction in same rotational sense until twist reaches +2.0 turns</span></p>
+<p class="rvps4"><span class="rvts11">Method C: Direct Parameter Manipulation (If Simulator Allows)</span></p>
+<p class="rvps4"><span class="rvts6">Some simulators let you directly set cable twist:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Access parameter menu</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Find "Cable Twist Count"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Set to +2.0 turns</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Much faster!</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">2. Verify Setup</span></p>
+<p class="rvps4"><span class="rvts6">Before triggering untwisting:</span></p>
+<p class="rvps4"><span class="rvts11">Check current state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cable twist: +2.0 turns (or close)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Turbine: Either STOP or Production (procedure works from both)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wind: Any speed (won't affect untwisting much)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Observation points ready:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cable twist indicator</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle position/orientation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">State Machine display</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw motor indicators</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power output (if in production)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Understand What Will Happen</span></p>
+<p class="rvps4"><span class="rvts6">The Controller will:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Detect twist threshold exceeded</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If in production: initiate cutout</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotate nacelle in opposite direction (CCW for positive twist)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduce twist to near zero (~±0.5 turns)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If conditions allow: restart production</span></li>
+</ol>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Procedure - Cable Untwisting Sequence</span></p>
+<p class="rvps4"><span class="rvts11">Phase 1: Twist Threshold Detection</span></p>
+<p class="rvps4"><span class="rvts11">Step 1.1 - Trigger Point</span></p>
+<p class="rvps4"><span class="rvts6">When cable twist reaches threshold:</span></p>
+<p class="rvps4"><span class="rvts11">What happens:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controller continuously monitors twist count</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">At +2.0 turns (or -2.0 for negative twist):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts11">Threshold exceeded!</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Untwisting procedure must be initiated</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">If turbine in production:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cannot untwist while generating power</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Must stop first</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller decides: "Need to untwist, must stop"</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">If turbine already stopped:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can proceed directly to untwisting</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Simpler case</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 1.2 - Incident Created</span></p>
+<p class="rvps4"><span class="rvts6">A new incident appears:</span></p>
+<p class="rvps4"><span class="rvts11">Incident:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Description: "Cable Twist Limit Approaching - Untwisting Required"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Or: "Automatic Cutout for Cable Untwisting"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Start time: Current time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Severity: Warning or Informational (not critical)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">State Machine:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If in production: State changes to "Cutout for Untwisting"</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If already stopped: State changes to "Cable Untwisting"</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record the time:</span><span class="rvts6"> When did untwisting procedure begin?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 2: Cutout (If Necessary)</span></p>
+<p class="rvps4"><span class="rvts11">This phase only occurs if turbine was producing power.</span></p>
+<p class="rvps4"><span class="rvts11">Step 2.1 - Normal Shutdown Sequence</span></p>
+<p class="rvps4"><span class="rvts6">Same as Lab 2 (Normal Shutdown):</span></p>
+<p class="rvps4"><span class="rvts11">Power reduction:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch increases from ~0° to ~45°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power drops from current level to near zero</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Takes 25-35 seconds</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Electrical disconnection:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Open bypass contactors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Open generator contactor (whichever was active)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power: 0 kW</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Mechanical stopping:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch continues to 90° (feathered)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Aerodynamic braking</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Mechanical brake applied at low speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Complete stop</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Total cutout time: ~60 seconds</span><span class="rvts6"> (if was in production)</span></p>
+<p class="rvps4"><span class="rvts11">Step 2.2 - Verify Stopped</span></p>
+<p class="rvps4"><span class="rvts6">Controller checks:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Rotor speed: 0 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Generator speed: 0 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Power: 0 kW</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Brake: Applied</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Safe to perform nacelle rotation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">If turbine was already stopped, skip to Phase 3 immediately.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 3: Nacelle Rotation (Untwisting)</span></p>
+<p class="rvps4"><span class="rvts6">Now the actual untwisting happens!</span></p>
+<p class="rvps4"><span class="rvts11">Step 3.1 - Calculate Untwisting Direction</span></p>
+<p class="rvps4"><span class="rvts6">Controller logic:</span></p>
+<p class="rvps4"><span class="rvts11">Current twist: +2.0 turns</span><span class="rvts6"> (example - positive twist)</span></p>
+<p class="rvps4"><span class="rvts11">To reduce twist:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Must rotate in </span><span class="rvts11">opposite</span><span class="rvts6"> direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Positive twist → rotate Counter-Clockwise (CCW)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Negative twist → rotate Clockwise (CW)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Decision: Activate CCW yaw motor</span></p>
+<p class="rvps4"><span class="rvts11">How much rotation needed?</span></p>
+<p class="rvps4"><span class="rvts11">Target: Return to ~±0.5 turns</span><span class="rvts6"> (not exactly zero)</span></p>
+<p class="rvps4"><span class="rvts6">Why not exactly zero?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind will change during/after untwisting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Might as well leave in neutral position</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">±0.5 provides buffer in both directions</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Calculation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current: +2.0 turns</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Target: +0.5 turns</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Rotation needed: -1.5 turns</span><span class="rvts6"> (CCW)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">In degrees: -1.5 × 360° = </span><span class="rvts11">-540°</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.2 - Begin Rotation</span></p>
+<p class="rvps4"><span class="rvts11">What happens:</span></p>
+<p class="rvps4"><span class="rvts11">Yaw motor activation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Controller commands: "CCW Motor ON"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Motor starts</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle begins rotating counter-clockwise</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Speed: ~0.5°/second (standard yaw rate)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Watch for:</span></p>
+<p class="rvps4"><span class="rvts11">Yaw Motor Indicator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Yaw Left Motor: Active" (CCW direction)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Confirms motor running</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Nacelle Position:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Changes continuously</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Decreasing (if rotating CCW)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Example: 270° → 260° → 250° → ...</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Cable Twist Count:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Decreases!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">+2.0 → +1.9 → +1.8 → +1.7 → ...</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This is what we want!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.3 - Monitor Progress</span></p>
+<p class="rvps4"><span class="rvts11">Rotation timing:</span></p>
+<p class="rvps4"><span class="rvts6">Total rotation needed: 540° (1.5 turns) Yaw speed: 0.5°/second </span><span class="rvts11">Time required: 540° / 0.5°/sec = 1,080 seconds = 18 minutes!</span></p>
+<p class="rvps4"><span class="rvts6">Yes, this takes a while! Let's see the progression:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Time (min)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Nacelle Δ</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Twist Count</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Note</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+2.0</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Start untwisting</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">3</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-90°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+1.75</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Quarter turn</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">6</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-180°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+1.50</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Half turn</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">9</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-270°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+1.25</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Three-quarter turn</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">12</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-360°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+1.00</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">One full turn</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">15</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-450°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+0.75</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Getting close</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">18</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">-540°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">+0.50</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Target reached!</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">During this time:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Turbine not producing (stopped)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Just rotating slowly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No safety issues (designed for this)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Normal operation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 3.4 - Reach Target</span></p>
+<p class="rvps4"><span class="rvts6">When twist count reaches +0.5 turns:</span></p>
+<p class="rvps4"><span class="rvts11">Controller logic:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Detects: Twist = +0.5 (target achieved)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Command: "CCW Motor OFF"</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw motor stops</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw brake applies</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Nacelle locked in new position</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Final state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cable twist: +0.5 turns (safe range)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle: rotated 540° CCW from starting position</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ready for next phase</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record the time:</span><span class="rvts6"> How long did rotation take?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 4: Re-orient to Wind (If Necessary)</span></p>
+<p class="rvps4"><span class="rvts11">Step 4.1 - Check Wind Alignment</span></p>
+<p class="rvps4"><span class="rvts6">After untwisting, nacelle might not be aligned with wind:</span></p>
+<p class="rvps4"><span class="rvts11">Example scenario:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind from: 180° (South)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Before untwisting: Nacelle was at 180° (aligned)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">After 540° CCW rotation: Nacelle at 180° - 540° = -360° = 0° (North)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Misalignment: 180°!</span><span class="rvts6"> (facing opposite direction)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Controller checks:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current wind direction: 180°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Current nacelle orientation: 0°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Misalignment: 180°</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Action needed: Re-orient to wind</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 4.2 - Orient to Wind</span></p>
+<p class="rvps4"><span class="rvts6">Standard yaw control activates:</span></p>
+<p class="rvps4"><span class="rvts11">Decision:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Need to rotate from 0° to 180°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shortest path: +180° (CW rotation)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Or could go -180° (CCW) - same distance</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Controller typically chooses to avoid adding twist in same direction:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Just untwisted CCW</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Now rotate CW (balances out)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Helps keep twist near zero</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Yaw sequence:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Activate CW motor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rotate 180° (6 minutes at 0.5°/sec)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stop when aligned</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Lock yaw brake</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Final alignment:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle: 180° (aligned with wind from South)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cable twist: Still ~+0.5 (rotation canceled out previous untwisting rotation)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Wait - didn't we just add twist back?</span></p>
+<p class="rvps4"><span class="rvts6">Actually, no! Here's why:</span></p>
+<p class="rvps4"><span class="rvts11">The Math:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Started at: Nacelle 180°, Twist +2.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">After untwisting: Nacelle 0° (via CCW), Twist +0.5</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">After re-align: Nacelle 180° (via CW), Twist +0.5 (still!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why?</span></p>
+<p class="rvps4"><span class="rvts6">The key is: </span><span class="rvts11">Twist is measured from ORIGINAL REFERENCE POSITION, not current position!</span></p>
+<p class="rvps4"><span class="rvts6">Think of it this way:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Reference position set during installation: Nacelle 0°, Twist defined as 0.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If nacelle rotates to 180° and stays there: Twist +0.5 (half turn from reference)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If nacelle rotates 720° total (two full turns) to reach 0°: Twist +2.0 (two full turns from reference)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">During untwisting:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">We rotated nacelle to reduce cumulative rotation from reference</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Re-orienting to wind doesn't change that cumulative count significantly (depends on where wind is)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record the time:</span><span class="rvts6"> How long for re-orientation?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Phase 5: Resume Production (If Conditions Allow)</span></p>
+<p class="rvps4"><span class="rvts11">Step 5.1 - Check Restart Conditions</span></p>
+<p class="rvps4"><span class="rvts6">Controller evaluates if it can restart:</span></p>
+<p class="rvps4"><span class="rvts11">Conditions to check:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Cable twist: +0.5 (well within limits)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Wind speed: In range (3.5 - 25 m/s)?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Nacelle aligned: Misalignment &lt; 5°?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Grid: Available?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ No other faults?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">If ALL conditions met:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Automatic restart sequence begins!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Same as Lab 1 (Normal Startup)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">If ANY condition not met:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Remains stopped</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Waits for conditions to improve</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Example: If wind too low, waits for wind to increase</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Step 5.2 - Automatic Restart</span></p>
+<p class="rvps4"><span class="rvts6">If conditions allow:</span></p>
+<p class="rvps4"><span class="rvts11">Normal cutin sequence:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Brake release</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Acceleration to sync speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Soft-start (thyristor firing)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Full connection</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Back in production!</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Total restart time: ~90-120 seconds</span></p>
+<p class="rvps4"><span class="rvts11">Step 5.3 - Production Restored</span></p>
+<p class="rvps4"><span class="rvts11">Final state:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">State: "Production [Small/Large]" (depending on wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cable twist: +0.5 turns</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power: Normal for current wind</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Untwisting complete!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Incident updated:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Cable Twist Untwisting" → Recovered time: Current time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">May require acknowledgment (depends on configuration)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Record the time:</span><span class="rvts6"> Total time from start of untwisting to production?</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Analysis - Understanding Cable Untwisting</span></p>
+<p class="rvps4"><span class="rvts11">Total Time Breakdown:</span></p>
+<p class="rvps4"><span class="rvts6">Assuming started from production:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Phase</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Duration</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Cumulative</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Cutout (if producing)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">60 sec</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0-60 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Untwisting rotation</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">18 min</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">1-19 min</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Re-orient to wind</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0-6 min</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">19-25 min</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Restart (if conditions OK)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">2 min</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">21-27 min</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts31">Total</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts31">~20-27 minutes</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <br/>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Significant production loss!</span></p>
+<p class="rvps4"><span class="rvts11">Energy Lost:</span></p>
+<p class="rvps4"><span class="rvts6">Assuming could have produced at average 500 kW:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Downtime: 25 minutes</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Energy lost: 500 kW × (25/60) hr = </span><span class="rvts11">~208 kWh</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">That's substantial!</span></p>
+<p class="rvps4"><span class="rvts11">Frequency:</span></p>
+<p class="rvps4"><span class="rvts6">How often does untwisting occur?</span></p>
+<p class="rvps4"><span class="rvts11">Depends on site wind patterns:</span></p>
+<p class="rvps4"><span class="rvts11">Steady prevailing wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind mostly from one direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle accumulates twist slowly in one direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Example: +0.1 turns per day</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reaches +2.0 in: 20 days</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Untwisting needed: Every 2-3 weeks</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Variable multi-directional wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind shifts frequently</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle yaws back and forth</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist accumulates and reduces</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Net accumulation: slower</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Untwisting needed: Every 4-8 weeks</span><span class="rvts6"> (or longer)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Rotating wind pattern (low pressure systems):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind makes complete circles</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Adds +1.0 turn each complete rotation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If 2-3 low pressure systems per week</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Untwisting needed: Weekly</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Annual Impact:</span></p>
+<p class="rvps4"><span class="rvts11">Conservative scenario:</span><span class="rvts6"> Untwist every 3 weeks</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwists per year: ~17</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy lost per untwist: ~208 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Annual energy lost: ~3,500 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Compare to annual production: ~3,000,000 kWh</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Impact: ~0.12%</span><span class="rvts6"> (minimal!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Worst case scenario:</span><span class="rvts6"> Untwist weekly</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwists per year: ~52</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Annual energy lost: ~10,800 kWh</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Impact: ~0.36%</span><span class="rvts6"> (still small)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The benefit of cable method still outweighs the loss:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Slip rings would have continuous electrical losses</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Estimated: 0.5-1% of production constantly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Plus maintenance costs and reliability issues</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cable method is still better overall!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Observations and Questions</span></p>
+<p class="rvps4"><span class="rvts11">Things to Notice:</span></p>
+<p class="rvps4"><span class="rvts11">1. Slow rotation speed:</span></p>
+<p class="rvps4"><span class="rvts6">Untwisting at 0.5°/sec seems very slow (18 minutes for 1.5 turns!)</span></p>
+<p class="rvps4"><span class="rvts11">Why so slow?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Reduces gyroscopic forces (blades stopped, but gearbox has inertia)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Minimizes cable stress during untwisting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Safer, gentler on equipment</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Not urgent (no safety issue)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Asymmetric behavior:</span></p>
+<p class="rvps4"><span class="rvts11">Positive twist (+2.0):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwist by rotating CCW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Reduces twist to +0.5</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Negative twist (-2.0):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwist by rotating CW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Reduces twist to -0.5</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why not return to exactly 0.0?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Provides buffer in both directions</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Next wind shift might add twist in either direction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">±0.5 is safe, neutral starting point</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Production interruption unavoidable:</span></p>
+<p class="rvps4"><span class="rvts6">Cannot untwist while producing:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Yawing changes nacelle orientation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Would change wind alignment</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power output would fluctuate wildly</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Better to stop, untwist, restart cleanly</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">4. Automatic restart (usually):</span></p>
+<p class="rvps4"><span class="rvts6">After untwisting, typically restarts automatically:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Unless wind out of range</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Unless other faults present</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Minimizes human intervention</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Good automation design!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Questions to Explore:</span></p>
+<p class="rvps4"><span class="rvts11">Q1:</span><span class="rvts6"> What happens if wind changes direction during untwisting?</span></p>
+<p class="rvps4"><span class="rvts11">Try it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Start untwisting with wind from 180°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">During the 18-minute rotation, change wind to 90°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does Controller abort untwisting?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does it continue anyway?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">What happens after untwisting completes?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Q2:</span><span class="rvts6"> Can you manually stop during untwisting?</span></p>
+<p class="rvps4"><span class="rvts11">Try it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Start untwisting procedure</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Press STOP button during rotation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does it stop immediately?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does twist count freeze?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can you resume untwisting?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Q3:</span><span class="rvts6"> What if limit switch triggers?</span></p>
+<p class="rvps4"><span class="rvts11">Try it (if simulator allows):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Accumulate twist to +2.5 turns (limit!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does limit switch activate?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What incident is created?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can turbine still operate?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Is untwisting different?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Q4:</span><span class="rvts6"> Optimize untwisting strategy?</span></p>
+<p class="rvps4"><span class="rvts11">Think about it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current strategy: Wait until ±2.0, then untwist</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Alternative: Untwist during every shutdown for other reasons</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Example: If wind drops and turbine stops anyway</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Check twist count</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">If &gt; ±1.0 turn, opportunistically untwist while stopped</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Wouldn't create additional downtime!</span></li>
+ </ul>
+ <li class="rvps6 noindent"><span class="rvts6">Why might turbines not do this?</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Experiments to Try</span></p>
+<p class="rvps4"><span class="rvts11">Experiment 1: Measure Actual Untwisting Time</span></p>
+<p class="rvps4"><span class="rvts6">For different amounts of twist:</span></p>
+<p class="rvps4"><span class="rvts11">Small untwisting (+1.0 → +0.5):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Accumulate +1.0 turn twist</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Trigger untwisting (might need to adjust threshold)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure rotation time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculate: 0.5 turns × 360°/turn ÷ 0.5°/sec = ?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Medium untwisting (+1.5 → +0.5):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Accumulate +1.5 turns</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculate: 1.0 turns × 360°/turn ÷ 0.5°/sec = 12 minutes</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Large untwisting (+2.5 → +0.5):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">At limit!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculate: 2.0 turns × 360°/turn ÷ 0.5°/sec = 24 minutes!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Experiment 2: Track Twist Accumulation Pattern</span></p>
+<p class="rvps4"><span class="rvts6">Monitor twist over time with realistic wind:</span></p>
+<p class="rvps4"><span class="rvts11">Setup:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Reset twist to 0.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Run turbine with variable wind direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Use realistic wind pattern (e.g., slowly rotating over 24 hours)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Record twist every hour</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">Example wind pattern:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Hour 1: Wind from 0° (North)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hour 2: Wind from 15° (NNE)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hour 3: Wind from 30° (NNE)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">... (slow rotation)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Hour 24: Wind from 345° (NNW)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Observation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">How much twist accumulated?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Linear with time?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does it oscillate?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">When would untwisting be needed?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Experiment 3: Compare Twist Tracking Methods</span></p>
+<p class="rvps4"><span class="rvts11">If simulator has both position tracking AND limit switch:</span></p>
+<p class="rvps4"><span class="rvts11">Test 1: Normal operation</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Both should agree</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Verify they show same twist count</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Test 2: Simulate sensor failure</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Manually edit position tracking (if possible)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Make it report incorrect twist</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Does limit switch catch the error?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">What happens when they disagree?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Experiment 3: Reset position tracking</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Reset twist count to 0.0</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But nacelle actually at 360° (1 turn)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What does limit switch say?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can turbine operate safely?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">How is discrepancy detected/resolved?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Experiment 4: Optimize for Site Wind Patterns</span></p>
+<p class="rvps4"><span class="rvts11">Site A: Steady North wind</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind almost always from 330° - 030° (North sector)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle stays in narrow range</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist accumulates slowly</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Might never need untwisting!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Site B: Rotating low-pressure systems</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind rotates CW due to weather systems</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Makes complete circles every few days</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rapid twist accumulation</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Frequent untwisting needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Optimization ideas:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can reference position be changed?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Set reference to predominant wind direction?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Would reduce average twist accumulation?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Example: If wind mostly from North, set reference at North (0°)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Experiment 5: Production Loss Analysis</span></p>
+<p class="rvps4"><span class="rvts11">Comprehensive measurement:</span></p>
+<p class="rvps4"><span class="rvts11">Before untwisting:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Note current production: P_avg</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Note time: T_start</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">During untwisting:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Record every minute:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">State</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Power output (should be 0 for most of it)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Twist count</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Nacelle position</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">After untwisting:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Note time when production resumed: T_end</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculate downtime: ΔT = T_end - T_start</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Energy calculations:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Energy that WOULD have been produced: E_potential = P_avg × ΔT</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy ACTUALLY produced: E_actual (integrate power over time)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Energy lost: E_lost = E_potential - E_actual</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical result:</span><span class="rvts6"> ~200-250 kWh per untwisting</span></p>
+<p class="rvps4"><span class="rvts11">Annual extrapolation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Estimate untwisting frequency for your site</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Calculate annual energy loss</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Compare to total annual production</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Is it significant?</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Advanced Topic: Alternative Twist Management Strategies</span></p>
+<p class="rvps4"><span class="rvts11">Current Strategy: Reactive Untwisting</span></p>
+<p class="rvps4"><span class="rvts6">Wait until threshold (±2.0) → Stop → Untwist → Restart</span></p>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Simple logic</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Proven reliable</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Maximizes production time</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Creates dedicated downtime</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Not optimal for energy production</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Alternative 1: Opportunistic Untwisting</span></p>
+<p class="rvps4"><span class="rvts11">Idea:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Every time turbine stops for any reason (low wind, etc.)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check twist count</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If &gt; ±1.0 turn, untwist while already stopped</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No additional downtime!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Logic:</span></p>
+<p class="rvps22"><span class="rvts32">IF (turbine stopped) AND (twist &gt; +1.0 OR twist &lt; -1.0) THEN</span></p>
+<p class="rvps22"><span class="rvts32">&nbsp; Perform untwisting</span></p>
+<p class="rvps22"><span class="rvts32">&nbsp; Return twist to ±0.5</span></p>
+<p class="rvps22"><span class="rvts32">END IF</span></p>
+<p class="rvps4"><span class="rvts11">Benefits:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Reduces need for dedicated untwisting stops</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lower annual energy loss</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Keeps twist closer to zero on average</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Challenges:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">More complex control logic</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Might untwist unnecessarily (if would have restarted soon)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Need to balance: time stopped vs. twist level</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Alternative 2: Predictive Untwisting</span></p>
+<p class="rvps4"><span class="rvts11">Idea:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Analyze wind forecast</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Predict when low-wind period coming</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Perform untwisting during predicted low-wind</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Minimize high-wind downtime</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Logic:</span></p>
+<p class="rvps22"><span class="rvts32">IF (forecast shows low wind in next 6 hours) AND (twist &gt; ±1.5) THEN</span></p>
+<p class="rvps22"><span class="rvts32">&nbsp; Schedule untwisting for predicted low-wind period</span></p>
+<p class="rvps22"><span class="rvts32">END IF</span></p>
+<p class="rvps4"><span class="rvts11">Benefits:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Optimizes timing for minimum production loss</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Very sophisticated</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Challenges:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Requires accurate wind forecasting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Complex scheduling logic</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Forecast might be wrong</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Alternative 3: Continuous Bias Correction</span></p>
+<p class="rvps4"><span class="rvts11">Idea:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Identify prevailing wind direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Apply small continuous CCW/CW bias during normal yawing</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gradually work twist back toward zero</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Never need dedicated untwisting!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind shifts from 180° to 185°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Normal yaw: turn 5° CW</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Biased yaw: turn 6° CW (overshoot slightly)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Accumulates twist in beneficial direction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Over many yaw movements, corrects twist</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Benefits:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">No dedicated downtime</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Completely transparent to production</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Challenges:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Very complex control logic</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Requires careful tuning</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Slightly sub-optimal wind alignment at times</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Not widely used (too complex for benefit)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why Current Strategy Dominates:</span></p>
+<p class="rvps4"><span class="rvts6">Despite alternatives, most turbines use reactive untwisting:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Simple, robust logic</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Proven over decades</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Energy loss is small (&lt;0.5% annual)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ No forecasting required</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Easy to understand and maintain</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The small efficiency gain from alternatives doesn't justify the complexity!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Common Issues and Troubleshooting</span></p>
+<p class="rvps4"><span class="rvts11">Issue 1: "Untwisting Triggered Too Frequently"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwisting procedure every few days</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Excessive production loss</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cable twist seems to accumulate very quickly</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Site has very variable wind direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Low-pressure systems causing rotation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist tracking error (accumulating incorrectly)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Threshold set too conservatively (too low)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Monitor nacelle position over several days</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Plot: Nacelle orientation vs. time</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Calculate: actual twist accumulation rate</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Check: Is tracking correct?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If site wind truly variable: normal, unavoidable</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If tracking error: recalibrate position sensor</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If threshold too low: adjust parameter (increase to ±2.2 or ±2.3)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Issue 2: "Untwisting Doesn't Complete"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwisting starts</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Nacelle rotates for a while</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stops before reaching target</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Twist count still high</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Yaw motor fault (stopped working)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Position sensor fault (can't detect progress)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Timeout limit reached</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Manual stop during procedure</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Check yaw motor status (still running?)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check nacelle position (still changing?)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check for faults in incident log</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Review what happened when rotation stopped</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If motor fault: needs maintenance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If sensor fault: needs calibration/replacement</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If timeout: may need multiple untwisting cycles</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">If manual stop: resume untwisting manually</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Issue 3: "Position Tracking Lost"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Twist count shows unusual value (e.g., +15.7 turns - impossible!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Or shows 0.0 when should be higher</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Limit switch disagrees with position tracking</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller confused about twist state</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Power loss during operation (lost reference)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Position sensor failed/disconnected</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Software glitch</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Manual tampering with parameters</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Compare: Position tracking vs. limit switch</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check: Recent power outages or resets?</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Verify: Position sensor functioning?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">May need to manually set twist count</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Requires physical inspection (where is nacelle actually?)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reset reference position carefully</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">In extreme case: rotate to limit switch, set to ±2.5</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Issue 4: "Cannot Restart After Untwisting"</span></p>
+<p class="rvps4"><span class="rvts11">Symptom:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Untwisting completed successfully</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Twist now at +0.5 (good!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But turbine won't restart</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Stays stopped even with good wind</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Possible causes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Unacknowledged incident from untwisting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind changed to out-of-range during procedure</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Other fault occurred during untwisting</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Manual STOP still active</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Diagnosis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Check "Open Incidents" - anything needs acknowledging?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check wind speed - in range (3.5-25 m/s)?</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Check all other system status</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Try manual START command</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Acknowledge any incidents</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Verify wind in range</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Clear any faults</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Manual START if auto-restart failed</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Wrap-Up - Lab 4</span></p>
+<p class="rvps4"><span class="rvts11">What You've Learned:</span></p>
+<p class="rvps4"><span class="rvts6">✓ Why cable twist management is necessary ✓ How twist accumulates during operation ✓ How Controller tracks twist (position-based) ✓ When untwisting is triggered (±2.0 turns threshold) ✓ Complete untwisting sequence ✓ Timing and production loss ✓ Automatic vs. manual untwisting</span></p>
+<p class="rvps4"><span class="rvts11">Key Insights:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cable twist is real constraint (±2.5 turn limit)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Tracking is indirect (position, not direct measurement)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Untwisting is slow (18 minutes for 1.5 turns)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Production loss is small (~0.2-0.5% annual)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Alternative (slip rings) would be worse</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Current strategy is simple and effective</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Timing Summary:</span></p>
+<div class="rvps2">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Phase</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts29">Duration</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Cutout (if producing)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">60 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Untwisting rotation</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">18 min (1.5 turns)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Re-orient to wind</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">0-6 min</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">Restart</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts30">90 sec</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts31">Total</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts31">~20-27 minutes</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Energy Analysis:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Energy lost per untwisting: ~200-250 kWh</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Frequency: Every 2-8 weeks (site-dependent)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Annual impact: ~0.1-0.5% of production</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Small price for reliable electrical connection</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Skills Developed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Understanding cable twist constraints</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Monitoring twist accumulation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Recognizing untwisting triggers</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Following complex multi-phase procedures</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Analyzing site-specific patterns</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Optimizing operational strategies</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Real-World Relevance:</span></p>
+<p class="rvps4"><span class="rvts6">This is real operational procedure in thousands of turbines worldwide:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Fixed-cable design very common (1990s-2010s turbines)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Operators must understand untwisting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Part of routine maintenance planning</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Affects site energy production calculations</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Next Steps:</span></p>
+<p class="rvps4"><span class="rvts6">You've now mastered normal operations:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Startup (Lab 1)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Shutdown (Lab 2)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator switching (Lab 3)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cable untwisting (Lab 4)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Next labs cover abnormal conditions:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Lab 5:</span><span class="rvts6"> Emergency Stops and Fault Responses</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Lab 6:</span><span class="rvts6"> Power Control Through Pitch</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">End of Lab 4</span></p>
+<p class="rvps4"><span class="rvts6">Excellent work! You now understand all major operational procedures for this wind turbine.</span></p>
+<p class="rvps4"><span class="rvts6">Ready to continue with Lab 5 (Emergency Stops and Fault Responses)?</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

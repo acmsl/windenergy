@@ -1,0 +1,619 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Gearbox</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Gearbox");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Gearbox</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureofaHorizontalAxisWindTu.html">Structure of a Horizontal Axis Wind Turbine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StructureofaHorizontalAxisWindTu.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="FlexibleShaftCoupling.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="WeatherSensors.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Gearbox (Multiplicadora)</span></p>
+<p class="rvps4"><span class="rvts11">Why Do We Need a Gearbox?</span></p>
+<p class="rvps4"><span class="rvts6">Here's the fundamental problem wind turbines face:</span></p>
+<p class="rvps4"><span class="rvts11">The blades want to spin slowly:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed working range (depends on Blade's length): 6-20 rpm (rotations per minute)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Why? Aerodynamic efficiency and mechanical stress limits</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Long blades moving too fast create excessive forces</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Tip speeds are already near 200 mph at these "slow" speeds!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The generator wants to spin fast:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Typical generator speed: 1,000-1,500 rpm</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Why? Electrical generators are most efficient at higher speeds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Size and weight decrease dramatically at higher speeds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cost goes down significantly</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The mismatch:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blades: ~15 rpm</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generator: ~1,500 rpm</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Ratio needed: 100:1</span><span class="rvts6"> (the generator needs to spin 100 times faster!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">That's where the gearbox comes in - it's essentially a mechanical speed multiplier.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">How Does It Work?</span></p>
+<p class="rvps4"><span class="rvts6">Think of a bicycle's gear system, but in reverse:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Bicycle: pedal fast (high speed), wheel turns slower (high torque) for climbing</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wind turbine: blades turn slow (high torque), generator spins fast (lower torque)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The basic principle:</span></p>
+<p class="rvps4"><span class="rvts6">Energy is conserved (ignoring losses):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Power = Torque × Speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If you increase speed, torque decreases proportionally</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Input: high torque, low speed (from blades)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Output: lower torque, high speed (to generator)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Example numbers:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Input: 500,000 Nm torque at 15 rpm</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gear ratio: 100:1</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Output: 5,000 Nm torque at 1,500 rpm</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Same power, just transformed!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Inside the Gearbox - The Anatomy</span></p>
+<p class="rvps4"><span class="rvts6">Let's look at what's actually inside. The following figure shows a cross-section of a typical three-stage gearbox:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 1: Gearbox cross-section]</span></p>
+<p class="rvps4"><span class="rvts11">The Three Stages:</span></p>
+<p class="rvps4"><span class="rvts6">Most wind turbine gearboxes use a </span><span class="rvts11">three-stage design</span><span class="rvts6">:</span></p>
+<p class="rvps4"><span class="rvts11">Stage 1: Planetary Stage (the clever part)</span></p>
+<p class="rvps4"><span class="rvts6">This first stage does most of the heavy lifting:</span></p>
+<p class="rvps4"><span class="rvts15">Components:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Planet carrier</span><span class="rvts6"> (green in the diagram) - connects to the input shaft from the blades</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Planet gears</span><span class="rvts6"> (red) - typically 3-5 gears that orbit around</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Ring gear</span><span class="rvts6"> (outer ring) - fixed to the gearbox housing (doesn't rotate!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Sun gear</span><span class="rvts6"> (center) - this one spins and drives the next stage</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">How it works:</span></p>
+<p class="rvps4"><span class="rvts6">Imagine the solar system:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">The planet carrier is like your hand spinning the planets around</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Planets roll around the inside of the ring gear (which is stationary)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">As planets orbit AND rotate, they drive the sun gear in the center</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">The sun gear spins much faster than the planet carrier</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Typical ratio:</span><span class="rvts6"> 1:5 to 1:8</span></p>
+<p class="rvps4"><span class="rvts11">Why use a planetary stage?</span></p>
+<p class="rvps4"><span class="rvts15">Power distribution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Instead of one gear pair handling all the torque</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">3-5 planet gears share the load</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Each carries only a fraction of total torque</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Smaller, lighter gears possible</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Compact design:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">All planets orbit around the same center</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Very compact for the power transmitted</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Much smaller than equivalent parallel shaft design</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The following figure shows a simplified view with 4 planets:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 2: Simplified planetary stage - Courtesy of AeroTorque Inc.]</span></p>
+<p class="rvps4"><span class="rvts6">In this diagram, power enters from the right (from the blades).</span></p>
+<p class="rvps4"><span class="rvts11">Stage 2: Intermediate Stage (parallel shaft)</span></p>
+<p class="rvps4"><span class="rvts6">After the planetary stage, we still need more speed increase:</span></p>
+<p class="rvps4"><span class="rvts15">Components:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Input gear</span><span class="rvts6"> - connected to the sun gear from Stage 1</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Output pinion</span><span class="rvts6"> - smaller gear that spins faster</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Bearings</span><span class="rvts6"> (dark blue sections) - support the rotating shafts</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">How it works:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Straightforward gear pair</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Large gear drives small gear</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Small gear spins faster</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Typical ratio:</span><span class="rvts6"> 1:4 to 1:6</span></p>
+<p class="rvps4"><span class="rvts11">Stage 3: High-Speed Stage (parallel shaft)</span></p>
+<p class="rvps4"><span class="rvts6">The final speed multiplication:</span></p>
+<p class="rvps4"><span class="rvts15">Components:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Input gear</span><span class="rvts6"> - from Stage 2</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">High-speed pinion</span><span class="rvts6"> - drives the generator</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Bearings</span><span class="rvts6"> - support and align the output shaft</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Typical ratio:</span><span class="rvts6"> 1:3 to 1:5</span></p>
+<p class="rvps4"><span class="rvts11">Total Gearbox Ratio:</span></p>
+<p class="rvps4"><span class="rvts6">The stages multiply together:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Stage 1: 1:6</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stage 2: 1:5</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stage 3: 1:4</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Total: 1:120</span><span class="rvts6"> (6 × 5 × 4 = 120)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Typical wind turbine gearbox ratios range from </span><span class="rvts11">1:50 to 1:120</span><span class="rvts6"> depending on turbine size and design.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Another View - Understanding the Layout</span></p>
+<p class="rvps4"><span class="rvts6">Here's another helpful diagram showing the internal layout:</span></p>
+<p class="rvps4"><span class="rvts6">[Diagram showing lateral view and cross-section at plane "AA"]</span></p>
+<p class="rvps4"><span class="rvts11">Following the power path:</span></p>
+<p class="rvps4"><span class="rvts15">Input (left side):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Rotor shaft</span><span class="rvts6"> - power enters here from the hub</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Connects to the </span><span class="rvts11">planet carrier</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Drives the planetary stage</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Through the stages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Planetary stage multiplies speed (1st multiplication)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Drives </span><span class="rvts11">middle shaft</span><span class="rvts6"> (2nd stage input)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Middle shaft drives high-speed stage</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Final output to </span><span class="rvts11">high-speed shaft</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Output (right side):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">High-speed shaft</span><span class="rvts6"> connects to generator through flexible coupling</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Spinning 50-120 times faster than input!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Why the Planetary Design is Brilliant</span></p>
+<p class="rvps4"><span class="rvts6">Let's appreciate the engineering here:</span></p>
+<p class="rvps4"><span class="rvts11">Load sharing:</span></p>
+<p class="rvps4"><span class="rvts6">Without planetary stage:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Single gear pair handling 500,000 Nm</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gears would be HUGE</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Very heavy</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Expensive to manufacture</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Large bearings needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">With 4-planet planetary stage:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Each planet carries ~125,000 Nm</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Much smaller gears</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lighter overall assembly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lower manufacturing cost</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">More reliable (load distributed)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Compact packaging:</span></p>
+<p class="rvps4"><span class="rvts6">For the same power capacity:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Planetary stage: diameter ≈ 2 meters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Equivalent parallel shaft: diameter ≈ 4 meters</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Critical in space-limited nacelle!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Better efficiency:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Multiple contact points</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">More gradual load application</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Less sliding friction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Typical efficiency: 96-98% per stage</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Industrial Examples</span></p>
+<p class="rvps4"><span class="rvts6">Here's an example gearbox from a turbine up to 4 MW:</span></p>
+<p class="rvps4"><a class="rvts16" href="https://www.youtube.com/watch?v=TuPy-gFrWkw">Reference video</a></p>
+<p class="rvps4"><span class="rvts11">Impressive scale:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Weight: 15-20 tons</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Oil capacity: 400-800 liters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Input torque: up to 4,000,000 Nm</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Service life target: 20+ years</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cost: $200,000-500,000 USD</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Design Details</span></p>
+<p class="rvps4"><span class="rvts11">Planetary Stage Design Concepts</span></p>
+<p class="rvps4"><span class="rvts6">The planetary stage is an engineering marvel. Let's look at the design considerations:</span></p>
+<p class="rvps4"><span class="rvts11">Planet count:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">3 planets: minimum, lighter, less expensive</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">4 planets: better load balance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">5 planets: smoothest operation, highest capacity</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Trade-off: complexity vs. capacity</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Planet bearing design:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Must handle radial loads (from gear mesh)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Must handle orbital motion</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Typically roller bearings</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Life-limited component (10-15 year replacement typical)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Sun gear support:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">"Floating" sun gear design common</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Allows automatic load equalization</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Reduces sensitivity to manufacturing tolerances</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Ring gear:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Bolted to gearbox housing</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Sometimes shrink-fitted for strength</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Must be extremely rigid (prevents deformation)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">[Design diagram of planetary stage]</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Herringbone Gears (Double Helical)</span></p>
+<p class="rvps4"><span class="rvts6">Many modern wind turbine gearboxes use </span><span class="rvts11">herringbone gears</span><span class="rvts6"> - a special tooth design:</span></p>
+<p class="rvps4"><span class="rvts11">What are they?</span></p>
+<p class="rvps4"><span class="rvts6">Picture a gear where:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Teeth are cut at an angle (like helical gears)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But in a V-pattern (two opposing angles meeting in the middle)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Looks like a herringbone fabric pattern (hence the name)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why use them?</span></p>
+<p class="rvps4"><span class="rvts11">1. Zero axial thrust:</span></p>
+<p class="rvps4"><span class="rvts15">Problem with standard helical gears:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Angled teeth create sideways force</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Tries to push the gear along its shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bearings must resist this force</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Direction reverses if gear spins opposite direction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Herringbone solution:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Each half of the V pushes in opposite direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Forces cancel out perfectly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No net axial force!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bearings only handle radial loads</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Simpler, more reliable bearing design</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Smoother power transmission:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">More teeth in contact simultaneously than straight-cut gears</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gradual engagement and disengagement</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces vibration and noise</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">More pleasant to work near</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Less stress on gear teeth</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Higher load capacity:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Greater contact area than straight-cut gears</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can transmit more torque for same size</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Or same torque with smaller gears</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Critical for compact nacelle design</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">4. Manufacturing challenges:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">More complex to cut than standard gears</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Requires specialized machinery</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">More expensive to produce</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But benefits outweigh costs in wind turbines</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The V-shape is clearly visible in gearbox photos - a distinctive feature of quality wind turbine gearboxes!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Gearbox Lubrication System</span></p>
+<p class="rvps4"><span class="rvts6">The gearbox transmits all the mechanical power the wind turbine produces, so all its elements (gears, bearings, contact surfaces) experience enormous mechanical stresses. Proper lubrication is absolutely critical.</span></p>
+<p class="rvps4"><span class="rvts11">What Does the Oil Do?</span></p>
+<p class="rvps4"><span class="rvts15">The lubricating oil prevents metal-to-metal contact on all rotating and sliding surfaces.</span><span class="rvts6"> Think of it as creating a microscopic cushion between parts that are trying to touch.</span></p>
+<p class="rvps4"><span class="rvts11">Without proper lubrication:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Metal surfaces grind together</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Generates extreme heat</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rapid wear and failure</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Gearbox destroyed in hours!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">With proper lubrication:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Oil film separates surfaces (even under extreme pressure)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces friction dramatically</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Dissipates heat</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can last 20+ years</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Oil Contamination - The Enemy</span></p>
+<p class="rvps4"><span class="rvts6">A critical job of the lubrication system is </span><span class="rvts11">keeping the oil clean</span><span class="rvts6">.</span></p>
+<p class="rvps4"><span class="rvts11">Sources of contamination:</span></p>
+<p class="rvps4"><span class="rvts15">Internal wear particles:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Microscopic metal particles from normal wear</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Larger particles from abnormal wear or damage</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Coating material from gears</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Bearing cage fragments</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">External contamination:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Dust or dirt (if seals leak)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Water (condensation or seal failure)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wrong oil type added during service</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why contamination is dangerous:</span></p>
+<p class="rvps4"><span class="rvts6">Even tiny particles can:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Get caught between gear teeth</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Create localized metal-to-metal contact</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Start wear cascade (wear creates more particles)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Eventually leads to catastrophic failure</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The filtration system:</span></p>
+<p class="rvps4"><span class="rvts6">Modern gearboxes include:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Primary filters</span><span class="rvts6"> - remove large particles (&gt;25 microns)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Secondary filters</span><span class="rvts6"> - catch smaller particles (&gt;10 microns)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Magnetic plugs</span><span class="rvts6"> - capture ferrous (iron) particles</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Bypass valves</span><span class="rvts6"> - ensure flow even if filter clogs</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Temperature control:</span></p>
+<p class="rvps4"><span class="rvts6">The lubrication system also includes </span><span class="rvts11">heat exchangers</span><span class="rvts6"> (oil coolers):</span></p>
+<p class="rvps4"><span class="rvts15">Why cooling is needed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Friction generates heat (even with good lubrication)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">High-speed gears and bearings run hot</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Oil breaks down if too hot (&gt;90°C typically)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Oxidized oil loses lubrication properties</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Cooling methods:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Air-cooled heat exchanger (most common)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Liquid-cooled (in very large turbines)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Fan-forced airflow over cooling fins</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Thermostat controls cooling based on temperature</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical oil specifications:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Type: Synthetic gear oil (PAO or PAG based)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Viscosity: ISO VG 320 or VG 460</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Volume: 400-800 liters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Change interval: 3-5 years (or based on oil analysis)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cost: $10-20/liter ($4,000-16,000 per change!)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Gearbox Inspection and Monitoring</span></p>
+<p class="rvps4"><span class="rvts6">Repairing or replacing a gearbox is a major maintenance operation with significant costs:</span></p>
+<p class="rvps4"><span class="rvts11">Direct costs:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Gearbox repair: $100,000-300,000</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">New gearbox: $200,000-500,000</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Labor: $50,000-100,000</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Indirect costs:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Crane rental: $10,000-50,000/day</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Spare parts logistics</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lost production during downtime (weeks!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can total $500,000-1,000,000 or more!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Predictive Maintenance - Being Proactive</span></p>
+<p class="rvps4"><span class="rvts6">Modern turbines include </span><span class="rvts11">Condition Monitoring Systems (CMS)</span><span class="rvts6"> that watch the gearbox health continuously:</span></p>
+<p class="rvps4"><span class="rvts11">What they monitor:</span></p>
+<p class="rvps4"><span class="rvts11">1. Oil temperature:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Normal range: 50-80°C</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Gradual increase: possible cooling system issue</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Sudden increase: possible gear damage</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Oil contamination:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Particle counters in oil stream</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure particles by size</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Trend analysis shows developing problems</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Sharp increase = immediate investigation needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Vibration analysis (most important!):</span></p>
+<p class="rvps4"><span class="rvts6">This is fascinating technology:</span></p>
+<p class="rvps4"><span class="rvts15">How it works:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Accelerometers mounted on gearbox housing</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure vibrations in three axes</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Sample rate: thousands of times per second</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">FFT analysis (Fast Fourier Transform) identifies frequencies</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">What it detects:</span></p>
+<p class="rvps4"><span class="rvts6">Each component has a characteristic vibration "signature":</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Each bearing has specific frequencies based on its dimensions</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Each gear has frequencies based on tooth count and speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Normal operation: small, consistent vibrations at these frequencies</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Abnormal patterns indicate:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Gear tooth damage:</span><span class="rvts6"> Increase at gear mesh frequency</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Bearing outer race damage:</span><span class="rvts6"> Specific frequency spike</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Bearing inner race damage:</span><span class="rvts6"> Different frequency spike</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Misalignment:</span><span class="rvts6"> Vibration at 2× or 3× rotation frequency</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Looseness:</span><span class="rvts6"> Random, broad-spectrum vibration increase</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The power of CMS:</span></p>
+<p class="rvps4"><span class="rvts6">Instead of waiting for catastrophic failure:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">CMS detects problems months in advance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Allows scheduled maintenance during low wind season</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Parts ordered ahead of time</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Repair planned and budgeted</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Minimal production loss</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Example:</span></p>
+<p class="rvps4"><span class="rvts15">Without CMS:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Bearing fails unexpectedly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Immediate shutdown</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Emergency crane rental (expensive, slow)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Rush order parts (premium cost)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">4-6 weeks downtime</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lost production: $200,000+</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Total cost: $800,000</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">With CMS:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Bearing wear detected 3 months early</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Maintenance scheduled for summer (low wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Parts ordered normally</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Crane scheduled in advance</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Repair done in 1 week</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lost production: $30,000</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Total cost: $250,000</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Savings: $550,000!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Inspecting Inside the Gearbox</span></p>
+<p class="rvps4"><span class="rvts6">Before CMS technology, or when CMS indicates a problem, physical inspection is needed.</span></p>
+<p class="rvps4"><span class="rvts11">Borescope Inspection:</span></p>
+<p class="rvps4"><span class="rvts6">Modern maintenance uses </span><span class="rvts11">videoscopes</span><span class="rvts6"> - sophisticated fiber optic cameras:</span></p>
+<p class="rvps4"><span class="rvts15">How it works:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Flexible fiber optic cable (2-6mm diameter)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Built-in LED lighting</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">HD camera at tip</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Inserted through inspection ports in gearbox housing</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">What inspectors look for:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Gear tooth pitting or spalling</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bearing cage damage</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Unusual wear patterns</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Contamination buildup</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cracks or fractures</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">No gearbox disassembly needed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Quick (2-4 hours)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Inexpensive (~$5,000)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can be done without crane</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Turbine back in service same day</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Video example:</span></p>
+<p class="rvps4"><a class="rvts16" href="https://youtu.be/0-Klrj9CKKw">Videoscope inspection video</a></p>
+<p class="rvps4"><span class="rvts6">Shows actual internal inspection of gearbox teeth and bearings using borescope technology.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Gearbox Replacement</span></p>
+<p class="rvps4"><span class="rvts6">When a gearbox must be replaced, it's a major operation:</span></p>
+<p class="rvps4"><a class="rvts16" href="https://onedrive.live.com/?photosData=/share/C2E09B22B54300C1!746595?ithint=video&e=rKDWir&migratedtospo=true&redeem=aHR0cHM6Ly8xZHJ2Lm1zL3YvcyFBc0VBUTdVaW0tRENyY2hqcHdGbnVPc1dfTmxLcGc_ZT1yS0RXaXI&view=8">Video: Gearbox replacement process</a></p>
+<p class="rvps4"><span class="rvts11">The process:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Preparation (1-2 days):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Shutdown and lockout</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Drain all fluids</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Disconnect couplings</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Remove nacelle covers</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Crane setup (1 day):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Large crane positioned</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Rigging prepared</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Safety zone established</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Removal (1 day):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Unbolt gearbox from bedplate</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Carefully lift through nacelle opening</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Lower to ground</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Transport to workshop or disposal</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Installation (2 days):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Lift new/rebuilt gearbox</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Precision alignment critical!</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Bolt to bedplate</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Connect all couplings</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Fill with oil</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Commissioning (1-2 days):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Run-in procedure (gradual loading)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Vibration analysis</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Temperature checks</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Final alignment verification</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">Total downtime: 7-10 days</span><span class="rvts6"> plus weather delays</span></p>
+<p class="rvps4"><span class="rvts6">This is why predictive maintenance and CMS systems are so valuable - avoiding unplanned gearbox replacement is worth hundreds of thousands of dollars!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps8"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

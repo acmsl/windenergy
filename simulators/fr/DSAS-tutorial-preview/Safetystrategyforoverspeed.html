@@ -1,0 +1,128 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Strat&eacute;gie de s&eacute;curit&eacute; pour la survitesse</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", , fail-safe, , HCU, survitesse, VCU, S&eacute;curit&eacute;">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Safetystrategyforoverspeed");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Strat&eacute;gie de s&eacute;curit&eacute; pour la survitesse</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description du Simulateur</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Simulateurs de sous-syst&egrave;mes dans l'&eacute;olienne</a> &rsaquo;&rsaquo; <a href="ProcessesinNacelleEmulator.html">Simulateus des sous-syst&egrave;mes physiques</a> &rsaquo;&rsaquo; <a href="BrakingSecurity.html">Simulateur du syst&egrave;me de freinage et &eacute;l&eacute;ments de s&eacute;curit&eacute;</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="BrakingSecurity.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="BrakingSecurity.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Controller.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">L'un des problèmes de sécurité critiques dans une éolienne est la prévention de la survitesse des lames.</span></p>
+<p class="rvps4"><span class="rvts11">Typiquement, ceci est réalisé de manière progressive, en utilisant les techniques et composants suivants:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Réduction de l'énergie absorbée du vent et réduction de l'énergie cinétique du moyeu, modifiant l'angle d'inclinaison des pales, connu sous le nom "freinage aerodynamic".</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts23">Réduction de l'énergie cinétique du moyeu en utilisant le frein à disque .</span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps4"><span class="rvts11">In the particular case of the DualSpeedActiveStallWT variable pitch wind turbine, the soft braking is done setting the pitch angle at low values (around -90 degrees). With this value, the Blades are taking no energy from the wind and, and the same time, place the highest surface against the rotational movement of the Blades, effectively loosing kinetic energy.</span></p>
+<p class="rvps4"><span class="rvts11">The braking system based on the caliper uses a high pressure to force its position against the disc. That pressure is obtained from a strong spring. The design philosophy is fail-safe, meaning that if there is no power supply (no connection to the Grid), the full force of the spring is applied to the caliper. To relieve that pressure (i.e., to permit the Blades to turn) the spring force must be counteracted: that is achieved using a hydraulic closed circuit, where enough pressure is provided with a pump. To arrive to enough pressure that pump must be on for some amount of time. The maximum pressure in the hydraulic circuit is detected by a pressure switch: the output of that switch is used by the Controller to stop the pump.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">To keep the Wind Turbine in production, the pressure in the hydraulic circuit must be kept above certain limit in order to keep the spring pressed. All the hydraulic circuits have some level of leakage so, eventually, the pressure may be reduced by that leakage. To counteract for this, the Controller monitors the output of the pressure switch, turning on the pump whenever that pressure goes below the hysteresis level of the pressure switch due to losses in the hydraulic circuit. If the pump is started too often that may be caused by a leakage value above normal.</span></p>
+<p class="rvps4"><span class="rvts11">As the caliper wears out and ultimately must be replaced, </span><span class="rvts57">a common criterion for stopping</span><span class="rvts11"> the rotor is to use as much as possible the air brake. Also the timing for applying the caliper friction influences its behavior: if full pressure is applied suddenly to the caliper, it has to dissipate the DriveTrain kinetic energy at a higher power rate than if that happens more slowly. That situation should be avoided as it may the life expectation of the caliper . That criteria influences the strategy for the over-speed prevention: ultimately, if over-speed occurs, the only choice is to apply suddenly all the dissipation capabilities of the caliper. That happens when a centrifugal detector (HCU) located in high speed shaft of the gear box an arm swings out and knocks a fuse out of place. This cuts off the power supply to the hydraulic system which, in turn, pitches the Blades in stop position (- 95° (minus 95°) and applies the disc brake (hard braking -stop type1). That happens when the speed of this shaft is around 2050 rpms. Typically, in production time, that speed is 1500 rpms or 1000 rpms.</span></p>
+<p class="rvps4"><span class="rvts11">If an error situation occurs where the speed of the generator exceeds Nacelle.GeneratorSpeedVCU (1803 rpms) , which is detected by a centrifugal sensor in the generator shaft. If the Controller receives the contact of this sensor it starts a specific STOP Sequence (stop type 3) that implies to put the Blades.</span></p>
+<p class="rvps4"><span class="rvts11">The electrical centrifugal release contact units (VCU) are another safety feature to prevent over speed. One electrical centrifugal release contact unit is placed in each blade (3 PCS total. In case of an over speed situation at least one of the contacts will be activated when the rotor speed is &gt; 25 RPM. By that the Blades will be pitched to stop position and the disc brake will be applied (stop type 1).</span></p>
+<p class="rvps4"><span class="rvts11">In order to prevent that a loss of power may trigger an stop type 1 (similar to HCU trigger), the Wind Turbine incorporates a UPS with enough power capability to sustain operation for a soft brake.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

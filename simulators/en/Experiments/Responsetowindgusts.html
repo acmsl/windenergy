@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response to wind gusts</title>
+    <meta name="description" content="Analysis of the behaviour of different wind turbine families under wind gusts">
+    <meta name="keywords" content="wind gusts, pitch, turbulence, moment of inertia, flicker, DSAS, RRC, DFIG">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 15px;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .technology-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .technology-name {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            display: block;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("Responsetowindgusts");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Response to wind gusts</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="CostofPowerCablesuntwisting.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+            <a href="DifferencesintheElectricGenerato.html"><img src="img/arrow_right.png" alt="Next"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Learning objectives</h3>
+            <p>Upon completing this experiment you will be able to:</p>
+            <ul>
+                <li>Understand the nature of wind gusts and their modelling</li>
+                <li>Identify the challenges that gusts present for wind turbine operation</li>
+                <li>Analyse the different response strategies according to wind turbine technology</li>
+                <li>Evaluate the role of rotor moment of inertia as short-term energy storage</li>
+                <li>Compare how each technology mitigates the effects of gusts on power quality</li>
+            </ul>
+        </div>
+
+        <h2>Introduction: Wind as a complex phenomenon</h2>
+
+    <div class="didactic-box">
+        <h3>🌪️ Characteristics of real wind</h3>
+        <p>Wind is a <span class="key-concept">complex atmospheric phenomenon</span> that is difficult to model precisely. In practice, for wind turbine design and analysis, three fundamental parameters are considered:</p>
+        <ul>
+            <li><strong>Direction:</strong> Where the wind is blowing towards (e.g., North, South-West, etc.)</li>
+            <li><strong>Mean speed:</strong> The speed averaged over a period of time (typically 10 minutes)</li>
+            <li><strong>Turbulence:</strong> Rapid, irregular variations in speed and direction superimposed on the mean speed</li>
+        </ul>
+
+        <p>From the perspective of structural and operational sizing of wind turbines, these characteristics are simplified into two main categories:</p>
+        <ul>
+            <li><span class="key-concept">Mean wind:</span> Relatively stable conditions</li>
+            <li><span class="key-concept">Wind gusts:</span> Sudden and significant changes in speed</li>
+        </ul>
+    </div>
+
+    <h2>Characterisation of wind gusts</h2>
+
+    <p><span class="key-concept">Wind gusts</span> are characterised by several parameters:</p>
+
+    <div class="didactic-box">
+        <h3>📊 Gust parameters</h3>
+        <ul>
+            <li><strong>Maximum speed:</strong> The peak speed reached during the gust</li>
+            <li><strong>Minimum speed:</strong> The speed trough (may be below the preceding mean speed)</li>
+            <li><strong>Amplitude:</strong> The difference between maximum and minimum speed</li>
+            <li><strong>Maximum rate of change:</strong> How quickly wind speed changes (m/s²)</li>
+            <li><strong>Duration:</strong> How long the gust lasts</li>
+        </ul>
+    </div>
+
+    <h3>Standard gust model for comparisons</h3>
+
+    <p>To compare the behaviour of different wind turbines, a standardised gust model is used that enables reproducible tests:</p>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img alt="Wind gust model for DFIG" src="lib/DFIG%20WindGust%20Def%20120x4.jpg">
+        <p style="font-style: italic; font-size: 14px;">Figure 1: Typical wind gust model used for comparative tests</p>
+    </div>
+
+    <p>This model represents an idealised ramp-shaped gust, characterised by:</p>
+    <ul>
+        <li>A stable initial speed</li>
+        <li>A linear speed increase (ascending ramp)</li>
+        <li>A sustained maximum speed period</li>
+        <li>A linear speed decrease (descending ramp)</li>
+        <li>Return to stable conditions</li>
+    </ul>
+
+    <h2>The challenge of wind gusts</h2>
+
+    <div class="important-note">
+        <h3>⚠️ Issues associated with gusts</h3>
+        <p>Wind gusts pose two main problems that the wind turbine must solve:</p>
+
+        <h4>1. Drive Train stability</h4>
+        <ul>
+            <li>Sudden changes in wind speed generate <strong>dynamic loads</strong> on the entire mechanical system</li>
+            <li>They can cause <strong>torsional oscillations</strong> in the main shaft</li>
+            <li>They accelerate <strong>component wear</strong> (bearings, gears)</li>
+            <li>In extreme cases, they can cause <strong>structural damage</strong></li>
+        </ul>
+
+        <h4>2. Quality of power delivered to the grid</h4>
+        <ul>
+            <li>Variations in rotor speed translate into <strong>power fluctuations</strong></li>
+            <li>These fluctuations can cause <strong>voltage variations</strong> in the electrical grid</li>
+            <li>The <span class="key-concept">"flicker"</span> problem: perceptible variations in the luminous intensity of lamps connected to the grid</li>
+            <li>Impact on the <strong>quality of electrical service</strong> for other consumers</li>
+        </ul>
+    </div>
+
+    <h2>General response strategies</h2>
+
+    <div class="didactic-box">
+        <h3>🛠️ Compensation mechanisms</h3>
+        <p>In general, compensation for changes in wind speed is achieved through <span class="key-concept">adjustment of blade pitch angle</span>. However, when dealing with gusts:</p>
+
+        <div class="important-note">
+            <p><strong>Fundamental limitation:</strong> The pitch mechanism may <strong>not be fast enough</strong> to compensate for the sudden speed changes characteristic of gusts.</p>
+        </div>
+
+        <p>For this reason, different wind turbine families have developed <strong>additional mechanisms</strong> to manage gusts, especially focused on:</p>
+        <ul>
+            <li>Maintaining drive train stability</li>
+            <li>Ensuring the quality of power delivered to the grid</li>
+        </ul>
+    </div>
+
+    <h2>Response according to wind turbine family</h2>
+
+    <p>Below is a description of how each technology addresses the problem of gusts:</p>
+
+    <div class="technology-box">
+        <h3>⚙️ First-generation wind turbines: Fixed pitch and aerodynamic stall</h3>
+        <p class="technology-name">Technology: Squirrel cage generator + Fixed pitch + Passive stall</p>
+
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Blades with <strong>fixed</strong> pitch angle (not adjustable)</li>
+            <li><strong>Squirrel cage</strong> generator directly connected to the grid</li>
+            <li>Passive control by <strong>aerodynamic stall</strong></li>
+        </ul>
+
+        <h4>Gust response mechanism:</h4>
+        <p>Drive train stability is achieved through the <strong>aerodynamic design of the blades</strong>:</p>
+        <ul>
+            <li>When wind speed exceeds rated speed, the blades enter <strong>aerodynamic stall</strong></li>
+            <li>In stall, the airflow separates from the blade surface</li>
+            <li>This causes an <strong>automatic reduction</strong> in the power captured from the wind</li>
+            <li>It acts as a "natural power limiter"</li>
+        </ul>
+
+        <p>📚 See characteristic curve at: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C506F77657276657273757377696E646F6666696369616C63757276652E68746D6C65/">'Fixed-Pitch Power vs Wind Speed'</a></p>
+
+        <h4>Rotation speed control:</h4>
+        <p>The rpm of the drive train are controlled by the characteristics of the <strong>squirrel cage generator</strong> directly connected to the grid:</p>
+        <ul>
+            <li>The rotation speed is maintained very close to the generator's <strong>synchronous speed</strong></li>
+            <li>Typical variation: no more than 1% of synchronous speed</li>
+            <li>📚 More information: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C496E746F64756374696F6E746F746865496E64756374696F6E4D616368696E652E68746D6C65/">Introduction to induction machines</a> and
+                <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C47656E657261746F726368617261637465726973746963732E68746D6C65/">Generator characteristics</a></li>
+        </ul>
+
+        <div class="important-note">
+            <h4>⚠️ Limitations of this technology:</h4>
+            <ul>
+                <li><strong>Variable delivered power:</strong> Above rated speed, power <strong>decreases</strong> rather than remaining constant</li>
+                <li><strong>Tower loads:</strong> The stall phenomenon increases the <strong>horizontal forces</strong> that the tower must withstand</li>
+                <li><strong>Reduced efficiency:</strong> Under high wind conditions, not all the energy potential is exploited</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Wind turbines with active pitch control</h3>
+        <p class="technology-name">Technology: Squirrel cage generator + Active variable pitch</p>
+
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Blades with <strong>variable and actively controlled</strong> pitch angle</li>
+            <li><strong>Squirrel cage</strong> generator directly connected to the grid</li>
+            <li>Hydraulic or electric system to adjust pitch</li>
+        </ul>
+
+        <h4>Gust response mechanism:</h4>
+        <p>Above rated wind speed:</p>
+        <ul>
+            <li>The control system <strong>adjusts blade pitch angle</strong></li>
+            <li>Blades are progressively oriented <strong>towards feathering</strong></li>
+            <li>This allows the <strong>excess wind to pass through</strong> without being captured</li>
+            <li>Maintains <strong>constant power</strong> at the rated value</li>
+        </ul>
+
+        <p>📚 See characteristic curve at: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C506F77657276657273757377696E646F6666696369616C63757276652E68746D6C65/">'Variable Pitch fixed-speed Power vs Wind Speed'</a></p>
+
+        <h4>Rotation speed control:</h4>
+        <p>Similar to the previous generation:</p>
+        <ul>
+            <li>Squirrel cage generator directly connected to the grid</li>
+            <li>Rotation speed maintained very close to synchronous speed</li>
+        </ul>
+
+        <div class="didactic-box">
+            <h4>✅ Advantages over the previous generation:</h4>
+            <ul>
+                <li><strong>Constant power:</strong> Maintains rated power above rated wind speed</li>
+                <li><strong>Lower tower loads:</strong> Feathering reduces horizontal forces compared to stall</li>
+                <li><strong>Higher efficiency:</strong> Better wind utilisation across the full operating range</li>
+                <li><strong>Controlled shutdown:</strong> Can stop the rotor in a controlled manner by turning blades 90°</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Wind turbines with rotor resistance control</h3>
+        <p class="technology-name">Technology: RRC (Rotor Resistance Control) - Wound rotor generator + Variable pitch</p>
+
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Blades with variable pitch towards feathering</li>
+            <li><strong>Wound rotor generator</strong> (not squirrel cage)</li>
+            <li>Electronic device that allows insertion of <strong>variable resistance</strong> into the rotor circuit</li>
+            <li><span class="key-concept">High moment of inertia</span> of rotor and drive train</li>
+        </ul>
+
+        <h4>Gust response mechanism:</h4>
+        <p>This technology introduces an innovative concept: <strong>using the drive train as energy storage</strong>:</p>
+
+        <ol>
+            <li><strong>During an ascending gust:</strong>
+                <ul>
+                    <li>The pitch system cannot respond quickly enough</li>
+                    <li><strong>More power</strong> is captured from the wind than can be delivered to the grid</li>
+                    <li>The excess energy is used to <strong>accelerate the rotor</strong></li>
+                    <li>The rotor acts as a <strong>flywheel</strong> storing kinetic energy</li>
+                    <li>This requires the generator to operate at <strong>variable speeds</strong></li>
+                </ul>
+            </li>
+            <li><strong>During a descending gust:</strong>
+                <ul>
+                    <li>The wind provides less energy than needed</li>
+                    <li>The rotor <strong>decelerates</strong>, releasing stored kinetic energy</li>
+                    <li>This helps to <strong>keep delivered power</strong> more constant</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="important-note">
+            <h4>🔑 Key concept: The rotor as a flywheel</h4>
+            <p>The <span class="key-concept">moment of inertia</span> of the rotor is sufficiently high for it to act as <strong>short-term energy storage</strong>.</p>
+            <p>The kinetic energy stored in a rotating rotor is:</p>
+            <p style="text-align: center; font-family: monospace; font-size: 18px;">E = ½ × I × ω²</p>
+            <p>Where:</p>
+            <ul>
+                <li>E = Kinetic energy (J)</li>
+                <li>I = Moment of inertia (kg·m²)</li>
+                <li>ω = Angular velocity (rad/s)</li>
+            </ul>
+            <p>A change in ω allows energy to be absorbed or released without sudden changes in delivered power.</p>
+        </div>
+
+        <h4>Technological solution: Wound rotor generator</h4>
+        <p>For the rotor to change its rotation speed while maintaining grid connection:</p>
+        <ul>
+            <li>A <strong>wound rotor generator</strong> is used</li>
+            <li>A squirrel cage generator cannot be used (almost fixed speed)</li>
+            <li>An <strong>electronic device</strong> is incorporated that allows insertion of variable resistance into the rotor circuit</li>
+            <li>This allows control of the generator's <strong>slip</strong></li>
+            <li>📚 Detailed explanation: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C4261736963636F6E6365707473696E526F746F72526573697374616E6365436F2E68746D6C65/">'Basic concepts in Rotor Resistance Controlled Wind Turbines'</a></li>
+        </ul>
+
+        <h4>Practical experiments:</h4>
+        <p>To explore the behaviour of these wind turbines under gusts:</p>
+        <ul>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C57696E646775737473776974686C6F7777696E642E68746D6C65/">'Wind gusts with low wind'</a> - Gusts with low wind</li>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C57696E646775737473776974686869676877696E642E68746D6C65/">'Wind gusts with high wind'</a> - Gusts with high wind</li>
+        </ul>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Wind turbines with doubly fed generator (DFIG)</h3>
+        <p class="technology-name">Technology: DFIG (Doubly Fed Induction Generator) - Variable pitch + Variable speed</p>
+
+        <h4>Characteristics:</h4>
+        <ul>
+            <li>Blades with variable pitch towards feathering</li>
+            <li><strong>Doubly fed induction generator (DFIG)</strong></li>
+            <li><strong>Back-to-back converters</strong> in the rotor circuit</li>
+            <li>Very wide operating speed range</li>
+            <li>Sophisticated control system</li>
+        </ul>
+
+        <h4>Gust response mechanism:</h4>
+        <p>Similar to RRC, it uses <strong>rotor acceleration and deceleration</strong> to absorb/release energy and compensate for differences between the power captured from the wind and the power delivered to the grid.</p>
+
+        <div class="didactic-box">
+            <h4>✅ Advantages over RRC:</h4>
+            <ul>
+                <li><strong>Much wider operating range:</strong> Can operate efficiently over a much wider wind speed range</li>
+                <li><strong>More sophisticated control:</strong> Electronic converters allow precise and fast control</li>
+                <li><strong>Higher efficiency:</strong> Optimises rotation speed for each wind speed</li>
+                <li><strong>Better power quality:</strong> Independent control of active and reactive power</li>
+            </ul>
+            <p>📚 See detailed behaviour: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544265686176696F722E68746D6C65/">DFIG WT Behavior</a></p>
+            <p>📚 About the converters: <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544261636B546F4261636B436F6E766572746572732E68746D6C65/">Back-to-Back converters</a></p>
+        </div>
+
+        <h4>Practical experiments:</h4>
+        <p>To explore DFIG behaviour under gusts:</p>
+        <ul>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E6447757374734C6F7757696E64732E68746D6C65/">'Wind gusts in low wind speeds'</a> - Gusts with low wind</li>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E644775737473496E4869676857696E64732E68746D6C65/">'Wind gusts in high wind speeds'</a> - Gusts with high wind</li>
+        </ul>
+    </div>
+
+    <h2>Comparative table of strategies</h2>
+
+    <div class="didactic-box">
+        <h3>📊 Comparison of gust responses</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+            <tr style="background-color: #333; color: white;">
+                <th style="padding: 12px; border: 1px solid #999;">Technology</th>
+                <th style="padding: 12px; border: 1px solid #999;">Power Control</th>
+                <th style="padding: 12px; border: 1px solid #999;">Speed Control</th>
+                <th style="padding: 12px; border: 1px solid #999;">Gust Response</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>Fixed Pitch + Stall</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Passive aerodynamic stall</td>
+                <td style="padding: 10px; border: 1px solid #999;">Fixed speed (~1% variation)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Aerodynamic blade design</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>Variable Pitch + Fixed Speed</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Active pitch control (feathering)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Fixed speed (~1% variation)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch adjustment (limited by actuator speed)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>RRC</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Rotor resistance</td>
+                <td style="padding: 10px; border: 1px solid #999;">Limited variable speed</td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Rotor inertia as storage</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>DFIG</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Converters</td>
+                <td style="padding: 10px; border: 1px solid #999;">Widely variable speed</td>
+                <td style="padding: 10px; border: 1px solid #999;">Pitch + Rotor inertia + Sophisticated electronic control</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Proposed experimental activities</h2>
+
+    <div class="learning-objective">
+        <h3>🔬 Recommended experiments</h3>
+        <p>For each wind turbine family, carry out the following tests:</p>
+        <ol>
+            <li><strong>Configure standard gust:</strong>
+                <ul>
+                    <li>Use the gust model shown in Figure 1</li>
+                    <li>Adjust parameters according to each simulator's specifications</li>
+                </ul>
+            </li>
+            <li><strong>Monitor key variables:</strong>
+                <ul>
+                    <li>Wind speed (input)</li>
+                    <li>Rotor rotation speed (rpm)</li>
+                    <li>Blade pitch angle</li>
+                    <li>Generated power</li>
+                    <li>Torque on the main shaft</li>
+                </ul>
+            </li>
+            <li><strong>Observe and record:</strong>
+                <ul>
+                    <li>Pitch system response time</li>
+                    <li>Variation in rotation speed</li>
+                    <li>Fluctuations in delivered power</li>
+                    <li>Peaks of mechanical torque</li>
+                </ul>
+            </li>
+            <li><strong>Tests with gusts under different conditions:</strong>
+                <ul>
+                    <li>Gusts with low mean wind (below rated speed)</li>
+                    <li>Gusts with high mean wind (above rated speed)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Comparative analysis</h2>
+
+    <div class="learning-objective">
+        <h3>📝 Analysis questions</h3>
+        <ol>
+            <li><strong>On drive train stability:</strong>
+                <ul>
+                    <li>Which technology shows the smallest variations in rotation speed?</li>
+                    <li>Which technology shows the smoothest mechanical torque peaks?</li>
+                    <li>How does the rotor moment of inertia affect the response?</li>
+                </ul>
+            </li>
+            <li><strong>On power quality:</strong>
+                <ul>
+                    <li>Which technology keeps power most constant during a gust?</li>
+                    <li>In which cases would flicker problems be observed?</li>
+                    <li>How does the DFIG improve power quality compared to RRC?</li>
+                </ul>
+            </li>
+            <li><strong>On control mechanisms:</strong>
+                <ul>
+                    <li>Is pitch sufficient to compensate for fast gusts?</li>
+                    <li>What role does variable speed play in the response?</li>
+                    <li>Why is the combination of pitch + variable speed superior?</li>
+                </ul>
+            </li>
+            <li><strong>On design trade-offs:</strong>
+                <ul>
+                    <li>What advantages justify the greater complexity of the DFIG?</li>
+                    <li>In what scenarios would it be acceptable to use simpler technologies?</li>
+                    <li>How does electrical regulation influence technology choice?</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Key concepts</h2>
+
+    <div class="didactic-box">
+        <h3>📌 Summary of fundamental concepts</h3>
+        <ul>
+            <li>Wind gusts are sudden speed changes that challenge wind turbine control</li>
+            <li>The pitch system alone may be insufficient to compensate for fast gusts</li>
+            <li>The <strong>rotor moment of inertia</strong> can be used as short-term energy storage</li>
+            <li>The ability for <strong>variable speed</strong> is key to exploiting rotor inertia</li>
+            <li>Each technology represents a trade-off between <strong>complexity, cost and performance</strong></li>
+            <li>Technological evolution seeks to improve both <strong>mechanical stability</strong> and <strong>power quality</strong></li>
+        </ul>
+    </div>
+</div>
+
+<div id="topic_footer">
+    <div id="topic_footer_content">
+        Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

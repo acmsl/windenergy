@@ -1,0 +1,847 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Wind Power Extraction Concepts</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("WindPowerExtractionConcepts");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Wind Power Extraction Concepts</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PhysicalPrinciples.html">Physical Principles</a> &rsaquo;&rsaquo; <a href="Blades.html">Blades</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Blades.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Blades.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PracticalLabs.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts6">Perfect! Here's the "Wind Power Extraction Concepts" section:</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Wind Power Extraction Concepts</span></p>
+<p class="rvps4"><span class="rvts6">Now that we understand </span><span class="rvts15">why</span><span class="rvts6"> blades rotate, let's explore </span><span class="rvts15">how much</span><span class="rvts6"> power they can extract and what factors control it.</span></p>
+<p class="rvps4"><span class="rvts6">This section introduces some of the most important concepts in wind energy: the power coefficient (Cp), tip speed ratio (TSR), and the theoretical limits of wind energy extraction.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">The Fundamental Power Equation</span></p>
+<p class="rvps4"><span class="rvts6">Everything starts with this equation (referenced in the </span><a class="rvts16" href="Two-SpeedActiveStallWindTurbineS.html">Bibliography</a><span class="rvts6">):</span></p>
+<p class="rvps4"><span class="rvts11">P_extracted = 0.5 × ρ × A × V³ × Cp(V, Ω, Pitch)</span></p>
+<p class="rvps4"><span class="rvts6">Let's break down each term:</span></p>
+<p class="rvps4"><span class="rvts11">0.5:</span><span class="rvts6"> Just a constant from the kinetic energy equation</span></p>
+<p class="rvps4"><span class="rvts11">ρ (rho):</span><span class="rvts6"> Air density</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Units: kg/m³</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Standard value: 1.225 kg/m³ (at sea level, 15°C)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Varies with:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Altitude (lower at high altitude)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Temperature (lower when hot)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Humidity (slightly lower when humid)</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Pressure (weather systems)</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">A:</span><span class="rvts6"> Swept area of the blades</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">A = π × R²</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">R = blade radius (meters)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This is why blade length matters so much!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">V³:</span><span class="rvts6"> Wind speed cubed!</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">This is the most important term</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Wind speed has HUGE effect</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Double the wind → 8× the power!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Example:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">5 m/s wind: baseline</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">10 m/s wind (2×): 8× more power!</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">15 m/s wind (3×): 27× more power!</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Cp:</span><span class="rvts6"> The power coefficient (or aerodynamic coefficient)</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">This is the mysterious and fascinating one</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Let's explore it in detail...</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">The Power Coefficient (Cp) - The Heart of the Matter</span></p>
+<p class="rvps4"><span class="rvts11">What is Cp?</span></p>
+<p class="rvps4"><span class="rvts6">Cp is the fraction of available wind power that the blades actually extract:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Cp = 1.0 (100%):</span><span class="rvts6"> Perfect extraction - get all the wind's energy</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Cp = 0.5 (50%):</span><span class="rvts6"> Get half the wind's energy</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Cp = 0 (0%):</span><span class="rvts6"> Get nothing (blade at 90°, feathered)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Cp &lt; 0 (negative):</span><span class="rvts6"> Blade acting as brake, putting energy INTO wind!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">But Cp isn't constant!</span></p>
+<p class="rvps4"><span class="rvts6">It depends on three things:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Wind speed (V)</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Blade rotational speed (Ω)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Blade pitch angle</span></li>
+</ol>
+<p class="rvps4"><span class="rvts6">This makes it a complex, 3-dimensional function: </span><span class="rvts11">Cp = f(V, Ω, Pitch)</span></p>
+<p class="rvps4"><span class="rvts6">Very difficult to visualize and understand!</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Simplifying with TSR (Tip Speed Ratio)</span></p>
+<p class="rvps4"><span class="rvts6">Here's where engineers made a brilliant simplification.</span></p>
+<p class="rvps4"><span class="rvts11">The Problem:</span></p>
+<p class="rvps4"><span class="rvts6">Cp depends on both wind speed AND rotational speed separately. That's two variables!</span></p>
+<p class="rvps4"><span class="rvts11">The Insight:</span></p>
+<p class="rvps4"><span class="rvts6">What really matters is the </span><span class="rvts15">ratio</span><span class="rvts6"> between:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">How fast the blade tip is moving (linear speed)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">How fast the wind is moving</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Definition of TSR:</span></p>
+<p class="rvps4"><span class="rvts11">TSR = (Blade Tip Speed) / (Wind Speed)</span></p>
+<p class="rvps4"><span class="rvts6">More precisely:</span></p>
+<p class="rvps4"><span class="rvts11">TSR = (2 × π × R × Ω) / V</span></p>
+<p class="rvps4"><span class="rvts6">Where:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">R = blade radius (meters)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Ω = rotational speed (revolutions per second, NOT RPM!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">V = wind speed (m/s)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Converting from RPM to rev/sec:</span><span class="rvts6"> </span><span class="rvts11">Ω = RPM / 60</span></p>
+<p class="rvps4"><span class="rvts6">So the full formula becomes:</span></p>
+<p class="rvps4"><span class="rvts11">TSR = (2 × π × R × RPM/60) / V</span></p>
+<p class="rvps4"><span class="rvts11">Example Calculation:</span></p>
+<p class="rvps4"><span class="rvts6">Our turbine with Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade radius: 40 meters</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: 19.4 RPM</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Wind speed: 11 m/s</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">TSR = (2 × π × 40 × 19.4/60) / 11</span><span class="rvts6"> </span><span class="rvts11">TSR = (2 × 3.14159 × 40 × 0.323) / 11</span><span class="rvts6"> </span><span class="rvts11">TSR = 81.15 / 11</span><span class="rvts6"> </span><span class="rvts11">TSR = 7.4</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Why TSR Matters</span></p>
+<p class="rvps4"><span class="rvts6">TSR tells us the relationship between blade motion and wind:</span></p>
+<p class="rvps4"><span class="rvts11">Low TSR (1-3):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blades rotating slowly relative to wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Like a paddle wheel</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lots of drag</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Inefficient</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Used in old farm windmills (pumping water)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Optimal TSR (6-9):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Sweet spot for modern turbines</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blade tip moving 6-9× faster than wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Maximum efficiency</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Our turbine operates here!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">High TSR (10+):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blades spinning very fast</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Tip approaching supersonic speeds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Noise problems</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Structural stress</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Decreasing efficiency</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The New Simplified Equation:</span></p>
+<p class="rvps4"><span class="rvts6">Now Cp can be expressed as: </span><span class="rvts11">Cp = f(TSR, Pitch)</span></p>
+<p class="rvps4"><span class="rvts6">Just two variables instead of three! Much easier to visualize and optimize.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">The Cp Surface - 3D Visualization</span></p>
+<p class="rvps4"><span class="rvts6">Now we can plot Cp as a function of TSR and Pitch angle:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 1: 3D surface plot of Cp(TSR, Pitch)]</span></p>
+<p class="rvps4"><span class="rvts11">What this shows:</span></p>
+<p class="rvps4"><span class="rvts15">The axes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">X-axis: TSR (0 to 12)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Y-axis: Pitch angle (-10° to +90°)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Z-axis: Cp (-0.5 to +0.5)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">The surface:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Complex curved shape</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">One prominent peak</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Steep drop-offs in some directions</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Negative values at high pitch angles</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Key observations:</span></p>
+<p class="rvps4"><span class="rvts11">1. There's a maximum Cp:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Peak value: ~0.48 in this design</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Occurs at: TSR ≈ 7-8, Pitch ≈ 0°</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This is the "sweet spot"!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Cp is very sensitive to pitch:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">At optimal TSR (7-8):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Pitch = 0°: Cp ≈ 0.48</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Pitch = 10°: Cp ≈ 0.35</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Pitch = 20°: Cp ≈ 0.15</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Pitch = 90°: Cp ≈ -0.1 (negative!)</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Cp is sensitive to TSR:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">At optimal pitch (0°):</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">TSR = 4: Cp ≈ 0.40</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">TSR = 7: Cp ≈ 0.48</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">TSR = 10: Cp ≈ 0.42</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">TSR = 12: Cp ≈ 0.30</span></li>
+ </ul>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Different Views of the Cp Surface</span></p>
+<p class="rvps4"><span class="rvts6">Let's look at it from different angles:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 2: Side view showing Cp vs TSR with Pitch as parameter]</span></p>
+<p class="rvps4"><span class="rvts6">This view shows:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Multiple curves, each for different pitch angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">The 0° pitch curve (top) shows the peak clearly</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">As pitch increases, curves drop lower</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Negative pitch also reduces Cp</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">[Fig 3: Another 3D perspective]</span></p>
+<p class="rvps4"><span class="rvts6">This angle shows:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">The steep "cliff" as pitch increases beyond 10°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">The gentler slope in the TSR direction</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">The negative Cp region (below the surface)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">[Fig 4: Top view with contour lines (like a topographic map)]</span></p>
+<p class="rvps4"><span class="rvts11">This is very useful!</span></p>
+<p class="rvps4"><span class="rvts6">The contour lines (iso-Cp lines) show:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Where Cp is constant</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">The peak is the small red area (highest Cp)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Green area: good Cp (&gt;0.40)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Blue area: moderate Cp (0.20-0.40)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Purple area: low Cp (&lt;0.20)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Finding the optimal operating point:</span></p>
+<p class="rvps4"><span class="rvts6">From these views, we can clearly see:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Optimal TSR: ~7.5</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Optimal Pitch: 0° to 2°</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">Maximum Cp: ~0.48</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This means: the blades can extract </span><span class="rvts11">up to 48%</span><span class="rvts6"> of the wind's kinetic energy under perfect conditions.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">The Betz Limit - Theoretical Maximum</span></p>
+<p class="rvps4"><span class="rvts6">Wait - why only 48%? Why not 100%?</span></p>
+<p class="rvps4"><span class="rvts11">Albert Betz (1919) proved:</span></p>
+<p class="rvps4"><span class="rvts6">No wind turbine can ever extract more than </span><span class="rvts11">59.3%</span><span class="rvts6"> of wind's kinetic energy, no matter how perfectly designed!</span></p>
+<p class="rvps4"><span class="rvts11">Why this limit exists - The Logic:</span></p>
+<p class="rvps4"><span class="rvts6">Think about it:</span></p>
+<p class="rvps4"><span class="rvts15">If we extracted 100% of wind's energy:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind would stop completely at the blades</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Air would pile up (nowhere to go!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Would block more air from arriving</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Turbine would stop working</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">If we extracted 0%:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind passes through unchanged</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">No energy captured</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Useless!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">The optimum is somewhere between:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Extract enough energy to be useful</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But let enough air through to avoid blocking</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Betz proved mathematically: optimum is </span><span class="rvts11">59.3%</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Betz Limit Formula:</span></p>
+<p class="rvps4"><span class="rvts11">Cp_max = 16/27 = 0.593</span></p>
+<p class="rvps4"><span class="rvts11">Real turbines achieve:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Old designs: Cp ≈ 0.30-0.40</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Modern turbines: Cp ≈ 0.45-0.50</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Best research designs: Cp ≈ 0.52</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Theoretical limit: Cp = 0.593</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why we don't reach 59.3%:</span></p>
+<p class="rvps4"><span class="rvts6">Real-world losses:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Blade drag (not all force is useful)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Tip losses (air spills around blade tips)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Root losses (near hub is inefficient)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Non-optimal twist (compromise design)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Surface roughness (bugs, dirt, ice)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Wake rotation (wind spins after passing)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Our turbine at </span><span class="rvts11">Cp = 0.48</span><span class="rvts6"> is actually excellent!</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">48% / 59.3% = </span><span class="rvts11">81% of theoretical maximum</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Very good for a real-world machine</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Operating Implications for Fixed-Speed Turbines</span></p>
+<p class="rvps4"><span class="rvts6">Now let's see how this affects our turbine.</span></p>
+<p class="rvps4"><span class="rvts11">The Challenge:</span></p>
+<p class="rvps4"><span class="rvts6">Remember, our generator forces nearly constant blade speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Large Generator: 19-20 RPM (1,500 RPM sync)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Small Generator: 13-13.5 RPM (1,000 RPM sync)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What happens as wind changes?</span></p>
+<p class="rvps4"><span class="rvts11">At low wind (5 m/s) with Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: 19.4 RPM (fixed by generator)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2 × π × 40 × 19.4/60) / 5 = </span><span class="rvts11">16.2</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Way too high! (optimal is ~7.5)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Looking at Cp surface: Cp ≈ 0.25</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Very inefficient!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">At rated wind (11 m/s) with Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: 19.4 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2 × π × 40 × 19.4/60) / 11 = </span><span class="rvts11">7.4</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Perfect! (optimal is ~7.5)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp ≈ 0.48</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Maximum efficiency!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">At high wind (16 m/s) with Large Generator:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: 19.4 RPM (still fixed!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2 × π × 40 × 19.4/60) / 16 = </span><span class="rvts11">5.1</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Below optimal</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But we use pitch control to reduce Cp anyway</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">To limit power to rated value</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Problem is clear:</span></p>
+<p class="rvps4"><span class="rvts6">Fixed speed means:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Only optimal at ONE wind speed (rated wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Inefficient at lower winds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Have to deliberately be inefficient at higher winds</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Two-Speed Solution:</span></p>
+<p class="rvps4"><span class="rvts6">This is why we have two generator speeds!</span></p>
+<p class="rvps4"><span class="rvts11">With Small Generator at low wind (5 m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade speed: 13.0 RPM</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">TSR = (2 × π × 40 × 13.0/60) / 5 = </span><span class="rvts11">10.9</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Still not optimal, but better than 16.2!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp ≈ 0.35 (vs. 0.25 with Large Generator)</span></li>
+ <li class="rvps6 noindent"><span class="rvts11">40% more power captured!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Switching strategy:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind 3.5 - 6.5 m/s: Use Small Generator (6-pole, 1000 RPM sync)</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">TSR closer to optimal</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Better efficiency at low winds</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">Wind 6.5 - 25 m/s: Use Large Generator (4-pole, 1500 RPM sync)</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">TSR optimal near rated wind</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Maximum power capability</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">The result:</span></p>
+<p class="rvps4"><span class="rvts6">This two-speed approach significantly improves energy capture over a single-speed design, even though it's not as good as true variable-speed turbines.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Variable Speed vs. Fixed Speed</span></p>
+<p class="rvps4"><span class="rvts6">Let's compare the approaches:</span></p>
+<p class="rvps4"><span class="rvts11">Variable-Speed Turbines:</span></p>
+<p class="rvps4"><span class="rvts15">How they work:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator not directly connected to grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power electronics (full converter) between generator and grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can control generator speed freely</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Adjust speed to maintain optimal TSR as wind changes</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Always at optimal Cp (except above rated wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ 10-15% more energy capture annually</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Reduced mechanical stress (can absorb gusts)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Better power quality</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Expensive power electronics</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ More complex control</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Electronics can fail</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Harmonic distortion issues</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Fixed-Speed Turbines (like ours):</span></p>
+<p class="rvps4"><span class="rvts15">How they work:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Generator directly connected to grid</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Speed determined by grid frequency and pole count</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Simple, robust</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Simple, proven technology</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Robust (fewer things to fail)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Lower cost</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Provides grid support (inertia)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Only optimal at one wind speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ 10-15% less energy capture</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Higher mechanical stress</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Needs two speeds for decent performance</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Two-Speed Fixed (like ours):</span></p>
+<p class="rvps4"><span class="rvts6">Middle ground:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Most of fixed-speed advantages</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Captures 5-7% more energy than single-speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Still simpler than variable-speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Good compromise for 1980s-2000s technology</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Modern trend:</span></p>
+<p class="rvps4"><span class="rvts6">Almost all new large turbines (&gt;2 MW) are variable-speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Power electronics costs decreased</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reliability improved</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Energy gains justify complexity</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Grid codes often require it</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">But fixed-speed turbines still operate worldwide:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Proven reliability (20+ year track record)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Easy maintenance</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Good learning platform!</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Power Control Methods</span></p>
+<p class="rvps4"><span class="rvts6">Now let's see how we control the extracted power:</span></p>
+<p class="rvps4"><span class="rvts11">The Fundamental Challenge:</span></p>
+<p class="rvps4"><span class="rvts6">Available power from wind: </span><span class="rvts11">P_available = 0.5 × ρ × A × V³ × Cp_max</span></p>
+<p class="rvps4"><span class="rvts6">At rated wind (11 m/s): </span><span class="rvts11">P_available = 0.5 × 1.225 × 5,027 × 11³ × 0.48 ≈ 1,800 kW</span></p>
+<p class="rvps4"><span class="rvts6">But generator rated for only: </span><span class="rvts11">1,300 kW</span></p>
+<p class="rvps4"><span class="rvts6">Above rated wind, available power &gt;&gt; rated power:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">At 15 m/s: ~3,900 kW available!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Must limit to 1,300 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">How?</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Method 1: Active Pitch Control ("Feathering" or "To-the-Feathers")</span></p>
+<p class="rvps4"><span class="rvts15">Principle:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase pitch angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Turns blade edge-more toward wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces angle of attack</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces Cp</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Limits power extraction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Control strategy:</span></p>
+<p class="rvps4"><span class="rvts6">Below rated wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch = 0° (optimal Cp)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Capture all available power</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">At rated wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch = 0° to 2°</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Just reaching rated power</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Above rated wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch = 3° to 20° (depending on wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Deliberately reduce Cp</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Maintain constant power output</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">[Fig 1: Pitch vs Wind speed for active pitch control]</span></p>
+<p class="rvps4"><span class="rvts15">Characteristics:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Smooth power control</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Large pitch range needed (0° to 90°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Relatively slow response</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Most common method worldwide</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Method 2: Passive Stall</span></p>
+<p class="rvps4"><span class="rvts15">Principle:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade designed to stall naturally above rated wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Stall = airflow separates from blade surface</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Lift decreases sharply</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Drag increases</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power limited automatically</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">How it works:</span></p>
+<p class="rvps4"><span class="rvts6">Below rated wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blade angle of attack optimal</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Smooth airflow</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Good Cp</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Above rated wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Higher wind → higher angle of attack</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Angle exceeds stall threshold (~12-15°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Airflow becomes turbulent</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cp drops sharply</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power limited</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">[Fig 3: Power curve for passive stall turbines]</span></p>
+<p class="rvps4"><span class="rvts15">Characteristics:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Simple (no pitch control needed!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Self-limiting (passive safety)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Can't optimize for varying conditions</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">High loads on tower (large drag forces)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Less controllable</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Mostly obsolete now</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Method 3: Active Stall (Our Turbine!)</span></p>
+<p class="rvps4"><span class="rvts15">Principle:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Use pitch control to INDUCE stall</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">But pitch in opposite direction from feathering</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pitch INTO the wind (negative pitch)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Forces early stall</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Why this works:</span></p>
+<p class="rvps4"><span class="rvts6">Stall occurs when angle of attack too large:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Can happen from wind increase (passive stall)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Can happen from pitching into wind (active stall)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Active stall advantage:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Smaller pitch range needed (0° to -10°)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Faster pitch response (smaller angles to move)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Still gives good control</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Lower pitch mechanism loads</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Control strategy:</span></p>
+<p class="rvps4"><span class="rvts6">Below rated wind (0 to 11 m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch = 0° (optimal Cp ≈ 0.48)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Maximize energy capture</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">At rated wind (11 m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch = 0°</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Reaching rated power</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Above rated wind (11+ m/s):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pitch = -2° to -10° (negative = into wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Induces stall earlier than natural</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces Cp</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Limits power</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">[Fig 4: Pitch vs Wind for active stall]</span></p>
+<p class="rvps4"><span class="rvts6">Notice the negative pitch values!</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 5: Power curve for active stall turbines]</span></p>
+<p class="rvps4"><span class="rvts15">Advantages of Active Stall:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Smaller pitch actuators (less travel needed)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Faster response (quicker to change small angles)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Lower loads on pitch mechanism</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Good control authority</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Higher tower loads than feathering (more drag)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ More complex controller logic</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Less common (harder to find experienced technicians)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">This is why our simulator uses Active Stall!</span></p>
+<p class="rvps4"><span class="rvts6">It's an interesting technology that was popular in the 1990s-2000s, especially for fixed-speed turbines.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Comparing the Three Methods</span></p>
+<p class="rvps4"><span class="rvts11">Summary table:</span></p>
+<div class="rvps20">
+<table style="border-width: 0px; border-spacing: 2px;">
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts25">Feature</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts25">Passive Stall</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts25">Active Stall</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps3"><span class="rvts25">Active Pitch</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Pitch control</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">No</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Yes (small range)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Yes (large range)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Pitch range</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">N/A</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">0° to -10°</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">0° to 90°</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Power control</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Aerodynamic only</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Pitch + Aerodynamic</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Pitch only</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Response speed</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Slow</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Medium</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Fast</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Tower loads</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">High (drag)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">High (drag)</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Lower (less drag)</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Mechanism complexity</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">None</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Medium</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">High</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: middle;">
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Modern use</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Obsolete</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Rare</span></p>
+  </td>
+  <td style="padding: 1px;">
+   <p class="rvps2"><span class="rvts26">Standard</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">Evolution over time:</span></p>
+<p class="rvps4"><span class="rvts6">1980s: Passive stall dominant (simplicity) 1990s: Active stall introduced (better control) 2000s: Active pitch dominates (best performance) 2010s+: Variable-speed + active pitch (current standard)</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Practical Operating Point Analysis</span></p>
+<p class="rvps4"><span class="rvts6">Let's see how all this plays out in practice:</span></p>
+<p class="rvps4"><span class="rvts11">Design Point Selection:</span></p>
+<p class="rvps4"><span class="rvts6">For our 1.3 MW turbine with 40m blades:</span></p>
+<p class="rvps4"><span class="rvts11">Rated wind chosen: 11 m/s</span></p>
+<p class="rvps4"><span class="rvts6">Why 11 m/s?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Site wind statistics (Weibull distribution)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">This is where most energy production occurs</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Not the most common wind speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">But the speed with most power!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Optimal TSR: 7.5</span></p>
+<p class="rvps4"><span class="rvts6">This determines blade speed at rated wind: </span><span class="rvts11">Blade RPM = (TSR × V × 60) / (2 × π × R)</span><span class="rvts6"> </span><span class="rvts11">= (7.5 × 11 × 60) / (2 × 3.14159 × 40)</span><span class="rvts6"> </span><span class="rvts11">= 4,950 / 251.3</span><span class="rvts6"> </span><span class="rvts11">= 19.7 RPM</span></p>
+<p class="rvps4"><span class="rvts6">Perfect! Close to what Large Generator gives (19.4 RPM at 1,510 RPM generator).</span></p>
+<p class="rvps4"><span class="rvts11">Power at rated:</span></p>
+<p class="rvps4"><span class="rvts11">P = 0.5 × ρ × A × V³ × Cp</span><span class="rvts6"> </span><span class="rvts11">= 0.5 × 1.225 × 5,027 × 11³ × 0.48</span><span class="rvts6"> </span><span class="rvts11">= 0.6125 × 5,027 × 1,331 × 0.48</span><span class="rvts6"> </span><span class="rvts11">≈ 1,960 kW</span></p>
+<p class="rvps4"><span class="rvts6">Wait - that's more than 1,300 kW rated!</span></p>
+<p class="rvps4"><span class="rvts6">That's OK - we use pitch control:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Set pitch to +3° instead of 0°</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduces Cp from 0.48 to about 0.35</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">P ≈ 1,960 × (0.35/0.48) ≈ 1,430 kW</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Close to rated!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The generator and power electronics limit it to exactly 1,300 kW.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Annual Energy Production</span></p>
+<p class="rvps4"><span class="rvts6">How does Cp affect annual energy?</span></p>
+<p class="rvps4"><span class="rvts11">Simplistic calculation:</span></p>
+<p class="rvps4"><span class="rvts6">If Cp_avg = 0.40 (accounting for all losses and off-optimal operation):</span></p>
+<p class="rvps4"><span class="rvts11">Annual Energy = 0.5 × ρ × A × Cp_avg × ∫(V³ × hours) over year</span></p>
+<p class="rvps4"><span class="rvts6">For a good site (8 m/s average wind): </span><span class="rvts11">≈ 3,000 - 3,500 MWh per year</span></p>
+<p class="rvps4"><span class="rvts11">Capacity factor:</span></p>
+<p class="rvps4"><span class="rvts11">CF = Actual Energy / (Rated Power × 8,760 hours)</span><span class="rvts6"> </span><span class="rvts11">= 3,250 MWh / (1,300 kW × 8,760 hours)</span><span class="rvts6"> </span><span class="rvts11">= 3,250,000 kWh / 11,388,000 kWh</span><span class="rvts6"> </span><span class="rvts11">= 28.5%</span></p>
+<p class="rvps4"><span class="rvts6">Typical for good onshore sites!</span></p>
+<p class="rvps4"><span class="rvts11">Offshore sites</span><span class="rvts6"> (higher, steadier winds):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Capacity factors: 35-50%</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Much better economics</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Key Takeaways - Wind Power Extraction</span></p>
+<p class="rvps4"><span class="rvts6">Let's summarize what we've learned:</span></p>
+<p class="rvps4"><span class="rvts11">The Power Equation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Power ∝ Area (blade length²)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power ∝ Wind speed³ (huge effect!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Power ∝ Cp (efficiency)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Power Coefficient (Cp):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Fraction of wind energy actually extracted</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Depends on TSR and Pitch</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Maximum theoretical: 59.3% (Betz limit)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Real maximum: 45-50% (our turbine: 48%)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Tip Speed Ratio (TSR):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Ratio of blade tip speed to wind speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Optimal: 6-9 for modern turbines (ours: 7.5)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Fixed-speed turbines only optimal at one wind</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Two speeds help (but variable speed is better)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Power Control:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Active Pitch (feathering): most common</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Active Stall (our turbine): small pitch angles</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Passive Stall: obsolete</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Fixed vs. Variable Speed:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Fixed: simple, robust, less energy</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Variable: complex, best energy capture</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Two-speed fixed: good compromise</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The Design Trade-offs:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Bigger blades = more energy (but more cost)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Higher TSR = more efficient (but noise, stress)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Better Cp = more energy (but diminishing returns)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">All of these principles guide turbine design and operation!</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

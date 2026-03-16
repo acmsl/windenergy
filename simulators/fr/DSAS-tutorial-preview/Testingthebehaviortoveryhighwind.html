@@ -1,0 +1,128 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Observation de la r&eacute;action &agrave; des vents tr&egrave;s forts</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", ">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Testingthebehaviortoveryhighwind");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Observation de la r&eacute;action &agrave; des vents tr&egrave;s forts</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Exercises recommend&eacute;s</a> &rsaquo;&rsaquo; <a href="Behaviorfacingveryhighwindspeeds.html">Comportement avec des vitesses de vent tr&egrave;s &eacute;lev&eacute;es</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Behaviorfacingveryhighwindspeeds.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Behaviorfacingveryhighwindspeeds.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Failuresonthehydraulicbrakingsys.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Exécuter l'opération de connexion au réseau électrique (cutin), comme dans </span><a class="rvts15" href="SettingtheconditionsforaWindTurb.html">Définir les conditions de démarrage d'une éolienne avec une faible vitesse du vent</a><span class="rvts11">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Augmenter doucement la valeur du vent jusqu'à atteindre 15 m/s. Vérifier que les valeurs de fonctionnement pour 15 m / s sont 1509.5 rpm (générateur) et que la puissance active générée sera proche de la puissance nominale (1300 kW)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Augmenter le vent accéléré jusqu'à 26 m/s, c'est-à-dire au-dessus de </span><span class="rvts25">WindMaxForOperation</span><span class="rvts11"> [25m / s] mais pas au-dessus de </span><span class="rvts25">WindMaxForTemporalOperation</span><span class="rvts11"> [28m / s].</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Attendez 20 secondes et l'incidence "Vent&gt; </span><span class="rvts25">WindMaxForOperation</span><span class="rvts11"> for more than 100 s" apparaîtra dans l'onglet "</span><span class="rvts25">Incidences ouverts</span><span class="rvts11">" du "Treminal de contrôle".</span><span class="rvts25"> Dans le simulateur, il utilise des temps plus courts (20 secondes au lieu de 100 secondes) pour faciliter son utilisation</span><span class="rvts11">. Voir figure suivante.</span><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20viento%2026%20ms.png"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts14">Récupération en cas de courtes rafales</span><span class="rvts11">:</span><br/><span class="rvts11">Réglez le vent à 24 m/s, et observez que l'incidence passe à l'état </span><span class="rvts25">historique</span><span class="rvts11">, sans intervention de l'opérateur. Voir la figure suivante.</span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20recuperacion%20a%2024%20ms.png"></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Répétez l'exercice précédent mais avec des vitesses de vent: une au-dessus de </span><span class="rvts25">WindMaxForTemporalOperation</span><span class="rvts11"> [28 m/s] et une autre avec une valeur égale ou supérieure à </span><span class="rvts25">WindAbsolutMax</span><span class="rvts11"> [30 m/s]. Vous obtiendrez les incidences:&nbsp;</span><br/><span class="rvts11">"Wind &gt; WindMaxForTemporalOperation for more than 5 s"&nbsp;</span><br/><span class="rvts11">"Wind &gt; WindAbsolutMax for more that 1 s"</span><br/><span class="rvts11">respectivement. Le dernier est pratiquement instantané (1 s.) &nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">"Wind &gt; WindMaxForTemporalOperation for more than 5 s"&nbsp;</span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20superior%20a%2028%20ms.png"><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20viento%20de%2030%20ms.png"><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">Finally, set the wind down to 15 m / s and verify that all issues go to the historical record, and the turbine starts up again at its rated power.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20recuperacion%20de%20produccon%20desde.png"></p>
+<p class="rvps2"><span class="rvts83"><br/></span></p>
+<p class="rvps2"><span class="rvts83">&nbsp;</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

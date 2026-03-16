@@ -1,0 +1,166 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Stalling</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="stalling, stall, pitch, Active Pitch, Active Stall, Abs max, edge of the blade, chord">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Stalling");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Stalling</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PhysicsofaWindTurbine.html">Physics of a Wind Turbine</a> &rsaquo;&rsaquo; <a href="Basicconcepts.html">Basic concepts</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Basicconcepts.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="WhytheHubturns.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="WindTurbineControlcriteria.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts13">Stalling</span></p>
+<p class="rvps2" style="break-before: always;"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Besides the basic theory explained in </span><a class="rvts41" href="WhytheHubturns.html">"Why the Hub turns?"</a><span class="rvts11"> there is a phenomenon that is used in some Wind Turbines: </span><span class="rvts14">stalling</span><span class="rvts11">. It happens when the angle of wind incident in the edge of the blade and its chord is above a given value.</span></p>
+<p class="rvps4"><span class="rvts11">All the modern Wind Turbines have a mechanism to change this angle, the Pitch, in order to control the kinetic energy taken from the wind, in a way very similar to the control of flaps and position of wings in airplanes when approaching the runway.&nbsp;</span></p>
+<div class="rvps4">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps4"><span class="rvts11">&nbsp;The pitch angle is adequate to create a lifting force.</span></p>
+   <p class="rvps4"><span class="rvts6"><br/></span></p>
+   <p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Avion%20subiendo.gif"></p>
+   <p class="rvps4"><span class="rvts11"><br/></span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps4"><span class="rvts11">The pitch is very high and the lifting effect disappears.</span></p>
+   <p class="rvps4"><span class="rvts6"><br/></span></p>
+   <p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Avion%20Descendiendo.gif"></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20con%20pitch%20normal.png"></p>
+   <p class="rvps4"><span class="rvts11">Normal pitch in Wind Turbine controlled by "Active Pitch" for winds above nominal.</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20con%20stalling.png"></p>
+   <p class="rvps4"><span class="rvts11">Pitch that forces stalling in the "Active Pitch" approach.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20active%20stall.jpg"></p>
+   <p class="rvps4"><span class="rvts11">Solution of pitch, </span><span class="rvts14">using specific blades designs</span><span class="rvts11">, that can enter the stalling state with smaller angles. Case of the "</span><span class="rvts14">Active Stall</span><span class="rvts11">" method of control.</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><span class="rvts11"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Next figure shows how the lifting and dragging forces depend on the Pitch angle. We have to remember that the dragging force is counteracted by the Tower, therefore from this figure it is clear that when the Blades enter the stalling region, the bending force on the Tower starts growing fast with the Pitch angle. This stalling characteristic is the base for the control (passive control) of the power in "fixed pitch" Wind Turbines.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Curvas%20de%20lifting%20y%20dragging.jpg"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">This curve depends on the wind: i.e, given a fix Pitch, there is wind speed above which the stalling effect appears.</span></p>
+<p class="rvps4"><span class="rvts11">Next figure shows the Power versus Wind characteristics of a typical "Fixed Pitch" Wind Turbine.&nbsp;</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/FixexPitch%20Power%20vs%20Wind.png"></p>
+<p class="rvps4"><span class="rvts11">The "Dual Speed Active Stall Wind Turbine Simulator" is based in the "Active Stall" control method. The benefit of this method is that it lower the requirement on the Pitch mechanism.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Comparing next two figures, we can see the big difference in the operational ranges of the Pitch for the cases of Active Stall and Active Pitch</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Target%20Pitch%20for%20Active%20Stall.jpg"></p>
+<p class="rvps2"><span class="rvts26"><br/></span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Power%20and%20Pitch%20versus%20Wind.jpg"></p>
+<p class="rvps4"><span class="rvts11">While in the Active Stall case, the maximum variation is less than 5º, that happens in the 12 to 15 m/s range, for the Active Pitch case the change from 11 to 16.5 m/s is around 21º (green curve). Furthermore, in the Active Stall control method, for winds above nominal the Pitch remains practically constant.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">On the other hand Wind Turbines that use the "Active Pitch" method are designed for remaining in the non stalling region, therefore &nbsp;reducing the bending force on the Tower compared to the Active Stall method. In contrast, with Active Pitch requires a Pitch change mechanism with a more extended range, and consequently also faster rate, i.e more powerful.</span></p>
+<p class="rvps10"><span class="rvts61"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

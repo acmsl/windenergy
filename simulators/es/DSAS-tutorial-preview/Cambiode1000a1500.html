@@ -1,0 +1,121 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Estando en producci&oacute;n, modificacion del viento para cambiar la conexion del Generador de Peque&ntilde;o a Grande</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Generador Grande, cambio de la conexi&oacute;n del generador, Generador Peque&ntilde;o, Esquema electrico, Armario el&eacute;ctrico, conexi&oacute;n a la Red, cutin, modo de conexi&oacute;n">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Cambiode1000a1500");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Estando en producci&oacute;n, modificacion del viento para cambiar la conexion del Generador de Peque&ntilde;o a Grande</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ClasesPracticas.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="CutinVientoBajo.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Cambiode1500a1000.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">El objetivo de esta práctica es familiarizar al alumno con el concepto de cambio de "modo de conexión" del generador eléctrico a la Red, y las razones por las que esa funcionalidad es necesaria.</span></p>
+<p class="rvps4"><span class="rvts11">En esta clase asumimos que el aerogenerador está conectado a la Red (produciendo), con un viento que fuerza el uso de la conexión de 6 polos del generador (Generador pequeño). Ver </span><a class="rvts47" href="CutinVientoBajo.html">Poner las condiciones para que se produzca la entrada en Producción con viento bajo</a><span class="rvts11"> .</span></p>
+<p class="rvps4"><span class="rvts11">En este experimento subiremos el viento de forma que se produzca un cambio en la conexión del generador, a 4 polos (Generador grande): este viento debe ser superior al "</span><span class="rvts15">Min para Gen Grande</span><span class="rvts11">". Ver </span><a class="rvts47" href="DatosTecnicosValoresVientos.html">Valores funcionales de viento</a><span class="rvts11"> &nbsp;. El viento mínimo para que se produzca esta transición es de 6,6 m/s. Modifique el viento hasta, por ejemplo, 12 m/s usando las teclas de "Avance de pagina" (ver paso 7 en </span><a class="rvts47" href="CutinVientoBajo.html">Poner las condiciones para que se produzca la entrada en Producción con viento bajo</a><span class="rvts11"> ).</span></p>
+<p class="rvps4"><span class="rvts11">En un registrador con el panel "Cutin + Cutout + Produccion" podrá observar la siguiente evolución de señales.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Pasode-6-a-12-ms.jpg"></p>
+<p class="rvps4"><span class="rvts11">Puede comprobar que conforme aumenta el viento aumenta la potencia generada: esto ocurre hasta que el viento supera (durante un cierto tiempo al menos) la velocidad de 6,6 m/s. Cuando se supera este valor, el Controlador inicia una operación de </span><span class="rvts15">cambio de la conexión del generador</span><span class="rvts11">, que pasará de conexión con 6 polos (</span><span class="rvts15">Generador pequeño</span><span class="rvts11">) a 4 polos (</span><span class="rvts15">Generador grande</span><span class="rvts11">).&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Para poder hacerlo tiene que desconectar el generador de la Red: para ello cambia el pitch de las palas de forma que baja la potencia generada y desactiva el Contactor Bypass de los Tiristores. En ese momento la velocidad de giro del eje del generador ha caído por debajo de la velocidad de sincronismo de "Generador pequeño", que son 1.000 rpms. En esta situación, generador desconectado, es cuando se hace el cambio de modo de conexión del generador. Esto se hace con los contactores que se reflejan en la pestaña "Esquema electrico" del sinóptico "Armario eléctrico". Ver figura siguiente.</span><img alt="" style="padding : 1px;" src="lib/EsquemaElectrico-ArmarioElectrico.jpg"></p>
+<p class="rvps4"><span class="rvts11">En ese momento, el Controlador comienza una operación de conexión a la Red (cutin): controla el pitch de forma que se extae par mecánico del viento, que acelera el tren de potencia; cuando la velocidad de giro del generador se aproxima a la velocidad de sincronismo (ahora 1.500 rpms) se produce la apertura de conducción progresiva de los Tiristores (ver </span><a class="rvts47" href="Softstarter.html">Soft starter (conexion suave) a la Red</a><span class="rvts11"> &nbsp;), que culmina con la activación de los Contactores Bypass de los Tiristores.</span></p>
+<p class="rvps4"><span class="rvts11">Una característica notable del aerogenerador simulado es que es capaz de realizar esta operación en un tiempo muy corto, del orden de 25 segundos. Esto es importante por la pérdida de producción que conlleva.</span></p>
+<p class="rvps2"><span class="rvts116"><br/></span></p>
+<p class="rvps2"><span class="rvts116"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

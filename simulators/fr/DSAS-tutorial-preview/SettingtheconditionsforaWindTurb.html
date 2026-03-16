@@ -1,0 +1,202 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>D&eacute;finir les conditions de d&eacute;marrage d'une &eacute;olienne avec une faible vitesse du vent</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="hardcopy, enregistreur, taux d'&eacute;chantillonnage, striprecorder, cutin">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("SettingtheconditionsforaWindTurb");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">D&eacute;finir les conditions de d&eacute;marrage d'une &eacute;olienne avec une faible vitesse du vent</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Teachingsessions.html">Exercises recommend&eacute;s</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Teachingsessions.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="SettingtheconditionsforaWindTur1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Whileinproductionchangefromlowwi.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Démarrer la simulation: Synoptique"</span><span class="rvts25">Exécution</span><span class="rvts11"> ..." -&gt; "</span><span class="rvts25">Courir</span><span class="rvts11">"..</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Observez que le pitch passe à la position 'syop (-90º)</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/SAS%20frances%203D%20en%20bandera.png"></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20windnacelle%20en%20bandera.png"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Dans le «</span><span class="rvts25">Terminal de contrôle</span><span class="rvts11">», vous verrez apparaître les «incidents ouverts» suivants:</span><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20mensajes%20iniciales.png"><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Cela se produit parce que le simulateur suppose que, au début, l'interrupteur principal est 'OFF'. Voir </span><span class="rvts25">'Cabinet du générateur électrique'</span><br/><span class="rvts11"></span><br/><img alt="" style="padding : 1px;" src="lib/DSAS%20MainContactor.jpg"><span class="rvts11"> &nbsp;</span><span class="rvts80">→</span><span class="rvts11"> </span><img alt="" style="padding : 1px;" src="lib/Interruptor%20cerrado.png"></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Cliquez sur la poignée pour l'activer. Vous devriez voir la liste suivante d'incidences:</span><br/><span class="rvts11">&nbsp;</span><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20despues%20de%20poner%20en%20On.png"></p>
+<p class="rvps25"><span class="rvts11">Une perte de tension dans la réséau eléctrique &nbsp;est un type d'incidence qui</span><span class="rvts26"> doit être reconnu par l'opérateur</span><span class="rvts11">. Elle doit se rendre à l'éolienne, connecter le terminal de contrôle au contrôleur d'éolienne, rechercher ce problème et «reconnaître» chacun de ces incidences. &nbsp;Vous verrez qu'ils disparaissent de "</span><span class="rvts25">Incidences ouvertes</span><span class="rvts11">" et apparaissent dans "</span><span class="rvts25">Incidences historiques</span><span class="rvts11">", comme le montre la figure suivante.</span></p>
+<p class="rvps25"><span class="rvts11">&nbsp;</span><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20-%20incidencias%20historicas.png"></p>
+<p class="rvps25"><span class="rvts11">La liste des incidences ouverts devient comme indiqué dans la figure suivante.</span></p>
+<p class="rvps25"><img alt="" style="padding : 1px;" src="lib/DSAS%20frances%20en%20manual%20stop.png"></p>
+<p class="rvps25"><span class="rvts11"><br/></span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Cochez la case "Ok" et puis cliquez sur le bouton "</span><span class="rvts31">START</span><span class="rvts11">"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">A ce moment, l'éolienne est dans des conditions internes prêtes à commencer le processus de connexion au réseau électrique (cutin) et commencer la production, à condition que les conditions environnementales minimales sont remplies: c'est, chaque fois que le vent dépasse le "vent minimum por commencer". Voir "</span><span class="rvts61">Min for cutin</span><span class="rvts6">" dans </span><a class="rvts81" href="Windlimits.html">Valeurs significatives des vents</a><span class="rvts6"> &nbsp;</span><span class="rvts11"> . Modifiez cette valeur à 6,2 m/s dans </span><span class="rvts25">SynopticWindNacelle</span><span class="rvts11">.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">Vous pouvez modifier la direction du vent dans </span><span class="rvts25">SynopticWindNacelle</span><span class="rvts11">: à l'aide de la souris, cliquez sur </span><span class="rvts25">'Direction',</span><span class="rvts11"> et modifiez la valeur à l'aide des touches fléchées ou des touches de page "avant" et "arrière". &nbsp;Vérifier que, après un certain temps, le contrôleur émet les commandes appropriées afin que la nacelle soit orientée dans la même direction que le vent. Vous verrez les indicateurs "</span><span class="rvts25">À gauche</span><span class="rvts11">" et "</span><span class="rvts25">À droite</span><span class="rvts11">" allumés, alors que le mouvement correspondant est actif.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Vérifiez le "</span><span class="rvts25">Vent efficace</span><span class="rvts11">" dans le synoptique "</span><span class="rvts25">Terminal de contrôle</span><span class="rvts11">". Cette valeur ne coïncide pas avec le vent existant sur l'éolienne lorsque la nacelle est désorientée par rapport à la direction du vent. Le "</span><span class="rvts25">Vent efficace</span><span class="rvts11">" est égal au vent réel multiplié par le cosinus de l'angle de «désorientation». Le tableau suivant montre le pourcentage de perte pour différentes valeurs de désorientation.</span></p>
+<div class="rvps4">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 176px;">
+   <p class="rvps2"><span class="rvts61">Angle de désorientation</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 195px;">
+   <p class="rvps2"><span class="rvts61">Pertes</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 176px;">
+   <p class="rvps2"><span class="rvts6">1º</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 195px;">
+   <p class="rvps2"><span class="rvts6">0,01%</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 176px;">
+   <p class="rvps2"><span class="rvts6">5º</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 195px;">
+   <p class="rvps2"><span class="rvts6">0,4%</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 176px;">
+   <p class="rvps2"><span class="rvts6">10º</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 195px;">
+   <p class="rvps2"><span class="rvts6">1,5%</span></p>
+  </td>
+ </tr>
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 176px;">
+   <p class="rvps2"><span class="rvts6">30º</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 195px;">
+   <p class="rvps2"><span class="rvts6">13,4%</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">10.</span><span class="rvts11">Vérifier que l'orientation de la nacelle n'atteint pas la valeur exacte de la direction du vent. C'est à dessein. Voir l'explication dans </span><a class="rvts15" href="Yawingofthenacelle.html">De l'orientation de la nacelle et des câbles de puissance</a><span class="rvts11"> &nbsp;.</span><br/><span class="rvts11">Vérifiez que le signal de la girouette a trois zones de fonctionnement: soit toujours à '0', soit à '1', ou oscillant entre ces deux valeurs, selon l'orientation de la nacelle par rapport à la direction du vent. Lorsque ces deux angles sont proches, ce signal passe de 0 à 1 ou de 1 à 0, dans un instant du cycle qui n'est pas figé: ceci est dû au caractère aléatoire de l'oscillation de la girouette, voir </span><a class="rvts15" href="Winddirectionwindvane.html">Girouette</a><span class="rvts11"> &nbsp;. Lorsque la transition se produit approximativement au centre, on considère que la nacelle est alignée avec le vent.</span><br/><img alt="" style="padding : 1px;" src="lib/veleta%20al%2050%20por%20ciento.png"></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">11.</span><span class="rvts11">Initialement, vous devriez trouver un "</span><span class="rvts25">Enregistreur a bande</span><span class="rvts11">" avec la définition de panneau "</span><span class="rvts25">Pitch, Puissance, Frein, RPM, Vent</span><span class="rvts11">" situé dans la partie inférieure gauche de l'écran. Si vous l'avez supprimé, vous pouvez le recréer en vous rendant au synoptique "</span><span class="rvts25">Executing</span><span class="rvts11"> .." -&gt; "</span><span class="rvts25">Synoptic</span><span class="rvts11">" -&gt; "</span><span class="rvts25">StripRecorder</span><span class="rvts11">"; lorsque le "</span><span class="rvts25">Enregistreur a bande</span><span class="rvts11">" apparaît, cliquez sur "</span><span class="rvts25">Panneaux prédéfinis</span><span class="rvts11">" et choisissez "</span><span class="rvts25">Pitch, Puissance, Frein, RPM, Vent</span><span class="rvts11">". Ce panneau présente 6 enregistreurs, avec les variables suivantes sur eux:</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Controller.Control.PitchOut et </span><span class="rvts77">Nacelle.DriveTrain.PitchNacelleOut</span><span class="rvts11">. Avec cet enregistreur, vous pouvez apprécier la différence entre la valeur du point de consigne de pitch, envoyé par le contrôleur et le vrai pas dans la nacelle.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Nacelle.DriveTrain.GeneratedPowerOut. La puissance livrée à la réséau.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Nacelle.DriveTrain.ThyristorsIn , </span><span class="rvts78">Nacelle.Braking.BrakeReleasedOut</span><span class="rvts11"> et </span><span class="rvts79">Nacelle.DriveTrain.ByPassIn</span><span class="rvts11"> : ce sont des signaux numériques (booléens). Dans cet enregistreur, vous pouvez voir la relation entre ces signaux clés, très important dans le processus de connexion a la réséau (</span><span class="rvts25">cutin</span><span class="rvts11">). Ils sont un peu déplacés verticalment, de sorte que lorsque plus d'un signal ont la même valeur, ils peuvent encore être vus.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts79">Nacelle.DriveTrain.GeneratorRPMsOut</span><span class="rvts11"> :la vitesse de l'arbre du générateur.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts77">SynopticWindNacelle.WindDirectionOut</span><span class="rvts11"> , </span><span class="rvts78">SynopticWindNacelle.NacelleOrientationOut</span><span class="rvts11"> : cet enregistreur visualise l'évolution de ces signaux liés à l'algorithme de orientation.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts77">SynopticWindNacelle.WindSpeedOut</span><span class="rvts11"> : cet enregistreur visualise l'évolution que vous avez imprimée dans la vitesse du vent, et le vent efficace.</span></p>
+<p class="rvps26"><span class="rvts11"></span><br/><span class="rvts11">Vous pouvez changer le "taux d'échantillonnage" (</span><span class="rvts25">Temps par pixel</span><span class="rvts11">). Toute valeur entre "0,2s" (cinq échantillons par seconde) et "1s" (un échantillon par seconde) est acceptable pour ce cas.</span><br/><span class="rvts11">À tout moment, vous pouvez appuyer sur l'option de menu «Copie» qui va apporter un </span><span class="rvts25">formulaire</span><span class="rvts11"> indépendant qui contient une vue «figée» des enregistreurs au moment de l'appuyer. C'est ce formulaire que vous obtenez un curseur de temps qui vous donne les instants lorsque les événements se sont produits, et vous pouvez également mesurer les distances temporelles en utilisant le menu contextuel qui s'affiche en appuyant sur le bouton droit de la souris.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">12.</span><span class="rvts11">Dans le synoptique "Control Terminal" et appuyez sur le bouton vert "START". Vous pouvez observer comment est l'évolution des différents signaux dans plusieurs synoptiques:</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">La </span><span class="rvts25">vitesse de rotation des pales</span><span class="rvts11"> dans le </span><span class="rvts25">SynopticDriveTrain</span><span class="rvts11">, le</span><span class="rvts25"> Terminal de Contrôle</span><span class="rvts11"> et le </span><span class="rvts25">Enregistreur</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">La </span><span class="rvts25">vitesse de rotation de l'axe du générateur</span><span class="rvts11"> dans le Terminal de Contrôle et le </span><span class="rvts25">Enregistreur</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts25">L'orientation de la nacelle</span><span class="rvts11"> dans le </span><span class="rvts25">Synopti</span><span class="rvts11">Pressure in the hydraulic brake circuit in the SynopticDriveTrain</span><span class="rvts25">cWindNacelle</span><span class="rvts11"> et le </span><span class="rvts25">Terminal de Contrôle</span><span class="rvts11">.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts25">La pression dans le circuit de freinage hydraulique</span><span class="rvts11"> dans le </span><span class="rvts25">SynopticDriveTrain</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Le</span><span class="rvts25"> pitch des pales</span><span class="rvts11"> dans </span><span class="rvts25">SynopticDriveTrain</span><span class="rvts11"> (dans la "Vue interne" et aussi dans la "Vue exterieur 3D"), dans le </span><span class="rvts25">Terminal de Contrôle</span><span class="rvts11"> et dans le </span><span class="rvts25">SynopticWindNacelle</span><span class="rvts11">..</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Le </span><span class="rvts25">vent réel dans les pales</span><span class="rvts11"> dans le </span><span class="rvts25">SynopticWindNacelle</span><span class="rvts11">.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts25">L'état du bypass des thyristors</span><span class="rvts11"> dans le synoptique "</span><span class="rvts25">Cabinet du générateur</span><span class="rvts11">".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">13.</span><span class="rvts11">Vous pouvez observer que la séquence est:</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Réglage de la connexion du générateur à "Baisse vitesse" (3 paires de pôles).</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Réglez le frein sur «On» (pour vérifier son état opérationnel)</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Relâchement des freins après avoir vérifié qu'ils fonctionnent.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Rampe des rpms à l'accélération maximale possible.</span></p>
+<p class="rvps25" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Rampe contrôlée dans les RPM pour maintenir l'accélération dans les limites, après une certaine valeur de RPM.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">En approchant la vitesse synchrone (devrait être 1000 tours par minute), les thyristors sont tirés.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Après quelques secondes, le </span><span class="rvts25">commutateur de dérivation</span><span class="rvts11"> des Thyristors (</span><span class="rvts29">Bypass</span><span class="rvts11">) est connecté, les thyristors arrêtent la conduction et l'éolienne entre en </span><span class="rvts14">phase de production</span><span class="rvts11">, et et générera en quelques secondes la puissance correspondant au vent existant.</span><br/><span class="rvts11">Parallèlement aux étapes précédentes, le contrôleur maintient la pression du circuit hydraulique dans les limites de son pressostat (pilotage de la pompe), et maintient la nacelle orientée vers le vent.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

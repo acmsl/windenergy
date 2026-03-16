@@ -1,0 +1,805 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Weather Sensors</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "TSAS.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("WeatherSensors");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Weather Sensors</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureofaHorizontalAxisWindTu.html">Structure of a Horizontal Axis Wind Turbine</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StructureofaHorizontalAxisWindTu.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Gearbox.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ControlTerminal.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Weather Sensors</span></p>
+<p class="rvps4"><span class="rvts11">Why Weather Sensors Matter</span></p>
+<p class="rvps4"><span class="rvts6">A wind turbine's entire purpose is to capture wind energy - so knowing exactly what the wind is doing is absolutely critical. The Controller makes dozens of decisions every minute based on weather data:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">When to start up (cutin)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">When to shut down (cutout)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">How to orient the nacelle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">What blade pitch angle to use</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Whether conditions are safe</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Let's look at the sensors that provide this vital information.</span></p>
+<p class="rvps4"><span class="rvts11">Wind Sensors</span></p>
+<p class="rvps4"><span class="rvts11">Anemometers - Measuring Wind Speed</span></p>
+<p class="rvps4"><span class="rvts6">An anemometer measures how fast the wind is blowing. There are several types, each with advantages and disadvantages:</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">1. Cup Anemometer (The Classic)</span></p>
+<p class="rvps4"><span class="rvts6">This is the type you probably picture when you think "anemometer":</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 1: Cup anemometer diagram]</span></p>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts15">The design:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Three or four cup-shaped "scoops" mounted on arms</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Arms attach to a vertical shaft</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind pushes the cups, making them spin</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Faster wind = faster spinning</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">The measurement:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">A rotary encoder attached to the shaft generates electrical pulses</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Number of pulses per rotation is known (typically 30-60)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Electronics count pulses per second</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">More pulses per second = higher wind speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Formula converts pulse frequency to wind speed (m/s or mph)</span></li>
+ <li class="rvps4 noindent"><span class="rvts11">Advantages:</span></li>
+</ul>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Simple, robust design</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Been around for 150+ years (proven technology)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Omnidirectional (works regardless of nacelle orientation)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Relatively inexpensive ($500-2,000)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Easy to maintain</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Moving parts wear out (bearings)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Can freeze in ice/snow</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Birds sometimes perch on it (affects readings!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Slightly non-linear response (see calibration curve below)</span></li>
+ <li class="rvps4 noindent"><span class="rvts11">Calibration curve:</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">The relationship between wind speed and pulse frequency is mostly linear, but not perfectly:</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 2: Calibration curve showing wind speed vs. output frequency]</span></p>
+<p class="rvps4"><span class="rvts6">Notice the slight curve - at very low speeds, friction affects accuracy. Modern controllers compensate for this using the calibration data.</span></p>
+<p class="rvps4"><span class="rvts11">Typical specifications:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Range: 0-60 m/s (0-134 mph)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Accuracy: ±0.3 m/s or ±2% (whichever is greater)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Starting threshold: ~0.5 m/s (below this, friction prevents rotation)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Response time: ~1 second</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Lifespan: 5-10 years (bearing-dependent)</span></li>
+ <li class="rvps4 noindent"><span class="rvts11">2. Ultrasonic Anemometer</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Modern turbines increasingly use ultrasonic anemometers - no moving parts!</span></p>
+<p class="rvps4"><span class="rvts6">[Diagram of ultrasonic anemometer]</span></p>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts15">The clever physics:</span></p>
+<p class="rvps4"><span class="rvts6">Imagine two people throwing a ball back and forth:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">In still air: ball takes same time in both directions</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">With wind: ball travels faster downwind, slower upwind</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">By measuring the time difference, you can calculate wind speed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">Ultrasonic anemometers do exactly this, but with sound waves:</span></p>
+<p class="rvps4"><span class="rvts15">The setup:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Pairs of ultrasonic transducers (both transmitter and receiver)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Typically 2-3 pairs at different angles</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Each pair separated by known distance (10-20 cm)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">The measurement:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Transducer A sends ultrasonic pulse to Transducer B</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure time for pulse to travel (affected by wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Transducer B sends pulse back to Transducer A</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure return time (affected by wind in opposite direction)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Calculate wind speed from time difference</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Repeat thousands of times per second</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Use multiple pairs to determine both speed AND direction</span></li>
+ <li class="rvps4 noindent"><span class="rvts11">The math (simplified):</span></li>
+</ol>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">If wind is blowing from A to B:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Time A→B is shorter (sound travels faster with wind)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Time B→A is longer (sound travels slower against wind)</span></li>
+ </ul>
+ <li class="rvps6 noindent"><span class="rvts6">Wind speed is proportional to the time difference</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ No moving parts (nothing to wear out!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Works in ice and snow</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Measures wind speed AND direction simultaneously</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Very fast response time (&lt;0.1 second)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Accurate even in turbulent wind</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Long lifespan (15-20 years)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Low maintenance</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ More expensive ($3,000-8,000)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Can be affected by rain/snow droplets (though modern ones compensate)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Requires electronics (can fail, though rarely)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why they're becoming standard:</span></p>
+<p class="rvps4"><span class="rvts6">The reliability and accuracy advantages outweigh the higher initial cost. Many new turbines use ultrasonic anemometers exclusively.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">3. Acoustic Resonance Anemometer</span></p>
+<p class="rvps4"><span class="rvts6">This is a specialized ultrasonic type that's particularly clever:</span></p>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts15">Standing wave principle:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Creates a chamber with ultrasonic standing waves</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Standing waves have fixed patterns in still air</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind deforms these wave patterns</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measures the phase shift of the standing waves</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Phase shift is proportional to wind speed and direction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Think of it like:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Blowing across the top of a bottle changes the sound pitch</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">This uses the same physics but measures it precisely</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Extremely robust and reliable</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Very accurate</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ No moving parts</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Works in harsh conditions</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Expensive ($5,000-10,000)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Complex electronics</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical use:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">High-value turbines where maximum reliability needed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Offshore installations (harsh conditions, difficult access)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Met masts (meteorological measurement towers)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">4. LIDAR (Light Detection and Ranging)</span></p>
+<p class="rvps4"><span class="rvts6">This is cutting-edge technology - using lasers to measure wind!</span></p>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts15">The Doppler effect:</span></p>
+<p class="rvps4"><span class="rvts6">You know how a car's engine sound changes as it passes you? That's the Doppler effect - frequency changes when source is moving.</span></p>
+<p class="rvps4"><span class="rvts6">LIDAR uses this principle:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Emit laser pulse forward from the turbine</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Laser hits particles in the air (dust, water droplets, aerosols)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Particles moving with the wind reflect the laser back</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reflected laser has frequency shift (Doppler effect)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Frequency shift reveals wind speed</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Laser can be aimed at different distances (100-500m ahead)</span></li>
+</ol>
+<p class="rvps4"><span class="rvts11">The game-changing feature:</span></p>
+<p class="rvps4"><span class="rvts6">LIDAR can measure wind </span><span class="rvts11">before it reaches the turbine</span><span class="rvts6">!</span></p>
+<p class="rvps4"><span class="rvts15">Why this is amazing:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Traditional anemometer: measures wind AT the turbine</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">LIDAR: measures wind 200 meters AHEAD of the turbine</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Controller can see what's coming!</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Can adjust blade pitch proactively instead of reactively</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Smoother power output</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Less mechanical stress</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Measures wind ahead of turbine (predictive control possible)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Can measure at multiple heights simultaneously</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Very high precision</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ 3D wind profile (speed at different heights)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ No moving parts</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Very expensive ($50,000-150,000)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Complex technology</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Requires clear air (fog/heavy rain affects it)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ High power consumption</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Current use:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Research turbines</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">High-end installations</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Wind farm met masts (measuring site wind resources)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Increasingly common in offshore wind (where access is expensive)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Future potential:</span></p>
+<p class="rvps4"><span class="rvts6">As costs decrease, LIDAR could become standard. The ability to "see" wind coming enables:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Feed-forward control (not just feedback)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Individual blade pitch adjustment anticipating turbulence</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduced fatigue loads (gentler on components)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Potentially 5-10% more energy capture</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">5. SODAR (Sonic Detection and Ranging)</span></p>
+<p class="rvps4"><span class="rvts6">Similar concept to LIDAR, but uses sound instead of light:</span></p>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Emits focused ultrasonic pulses upward and forward</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Pulses reflect off air density variations and moving particles</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Analyzes returned signal using Doppler effect</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Calculates wind speed at various heights</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Less expensive than LIDAR ($20,000-50,000)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Works in fog/rain (unlike LIDAR)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Can measure up to 200m height</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Good for wind resource assessment</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Less precise than LIDAR</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Affected by ambient noise</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Larger equipment</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical use:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind farm site assessment (before turbines installed)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Meteorological research</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Less common on turbines themselves</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Wind Direction Measurement - The Wind Vane</span></p>
+<p class="rvps4"><span class="rvts6">While the anemometer tells us wind speed, we also need to know wind direction.</span></p>
+<p class="rvps4"><span class="rvts11">Types of Wind Vanes</span></p>
+<p class="rvps4"><span class="rvts6">There are several designs, each with different output methods:</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Analog Output Vane</span></p>
+<p class="rvps4"><span class="rvts15">Design:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Traditional weather vane shape (arrow)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Mounted on rotating shaft</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Potentiometer attached to shaft measures rotation angle</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Output:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Analog voltage (typically 0-10V)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Voltage proportional to direction angle</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">0V = North (or reference direction)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">10V = full rotation (360°)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller reads voltage, calculates angle</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Simple</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Continuous output</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Easy to interpret</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Potentiometer wears over time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Mechanical connection can fail</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Digital Encoder Vane</span></p>
+<p class="rvps4"><span class="rvts15">Design:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind vane connected to optical or magnetic encoder</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Encoder directly outputs angle in digital format</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Output:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Digital data stream (RS-485, CAN bus, etc.)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Precise angle reading (0.1° resolution typical)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Includes quality/health data</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Very accurate</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Digital = no conversion errors</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Can include diagnostics</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ More expensive</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Requires compatible electronics</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Duty Cycle Vane (Clever Simple Design)</span></p>
+<p class="rvps4"><span class="rvts6">This is particularly interesting - let's look at it in detail:</span></p>
+<p class="rvps4"><span class="rvts6">[Video demonstration showing duty cycle vane operation]</span></p>
+<p class="rvps4"><span class="rvts11">The mechanical design:</span></p>
+<p class="rvps4"><span class="rvts15">Components:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Wind vane (the arrow part that points into wind)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Vane oscillates in the wind (like a weather vane that vibrates)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Attached to the vane: a semi-circular disc (approximately 180° - 5° = 175°)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Fixed to the base (nacelle): an optical sensor (LED + photodetector)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts6">The vane naturally oscillates back and forth in the wind (like a pendulum, but excited by wind instead of gravity):</span></p>
+<p class="rvps4"><span class="rvts15">When perfectly aligned with wind:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Vane oscillates equally on both sides of center</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Disc blocks LED light 50% of the time</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Photodetector output: 50% duty cycle</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">When nacelle is misaligned:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Vane points toward actual wind direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Vane oscillates around this new center position</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If nacelle is 20° off to the right:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Disc blocks light MORE than 50% of the time</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Maybe 70% duty cycle</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">If nacelle is 20° off to the left:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Disc blocks light LESS than 50% of the time</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Maybe 30% duty cycle</span></li>
+ </ul>
+</ul>
+<p class="rvps4"><span class="rvts11">Interpreting the signal:</span></p>
+<p class="rvps4"><span class="rvts6">The Controller sees a square wave (on/off pulses):</span></p>
+<p class="rvps4"><span class="rvts6">[Oscilloscope trace showing duty cycle signal]</span></p>
+<p class="rvps4"><span class="rvts11">Four signal patterns:</span></p>
+<p class="rvps4"><span class="rvts6">The following diagram shows four situations:</span></p>
+<p class="rvps4"><span class="rvts6">[Diagram showing semicircle positions and resulting signals]</span></p>
+<p class="rvps4"><span class="rvts15">Situation 1 (far left):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Semicircle never blocks the light sensor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Output: Always ON (100% duty cycle)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Meaning: Nacelle is severely misaligned (&gt;90° off)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Situation 2:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Semicircle blocks sensor only briefly during oscillation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Output: Mostly ON (e.g., 80% duty cycle)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Meaning: Nacelle is moderately off (perhaps 30-40°)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Situation 3:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Semicircle blocks sensor most of the time during oscillation</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Output: Mostly OFF (e.g., 20% duty cycle)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Meaning: Nacelle is moderately off in opposite direction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Situation 4 (far right):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Semicircle always blocks the light sensor</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Output: Always OFF (0% duty cycle)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Meaning: Nacelle is severely misaligned in opposite direction</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The critical 50% point:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">When duty cycle = exactly 50%</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">The nacelle is perfectly aligned with wind direction!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Measuring misalignment:</span></p>
+<p class="rvps4"><span class="rvts6">The "misalignment" of the Nacelle relative to wind is given by the difference between:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">The average angle around which the vane oscillates (actual wind direction)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">The nacelle's orientation (horizontal reference in the diagram)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Controller signal processing:</span></p>
+<p class="rvps4"><span class="rvts6">The Controller's electronics must:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts11">Detect which of the three patterns:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Always ON → severe misalignment one way</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Always OFF → severe misalignment other way</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Oscillating → within useful measurement range</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">If oscillating, measure duty cycle:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Time the ON periods</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Time the total cycle period</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Calculate: Duty Cycle = (ON time / Total period) × 100%</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts11">Convert duty cycle to angle:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">50% = perfectly aligned (0° error)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Above 50% = misaligned one direction</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Below 50% = misaligned opposite direction</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Calibration curve converts duty cycle to degrees</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">Advantages of duty cycle vane:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Very simple mechanical design</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Robust (few parts to fail)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Self-averaging (oscillation smooths out turbulence)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Inexpensive</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Easy to replace</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Only measures relative misalignment (not absolute direction)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Requires signal processing electronics</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Less precise than encoder types</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Can't distinguish 180° ambiguity (needs initialization)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts6">This design was very common in older turbines and is still used in some models today due to its simplicity and reliability.</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Temperature Sensors</span></p>
+<p class="rvps4"><span class="rvts6">Wind turbines monitor temperatures throughout the system. Different sensors are used depending on the requirement:</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Simple Bimetallic Sensors (On/Off Type)</span></p>
+<p class="rvps4"><span class="rvts11">Where used:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Thyristor/power electronics cooling</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Yaw motor temperatures</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Hydraulic pump motors</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Any component where "too hot" is the only concern</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How they work:</span></p>
+<p class="rvps4"><span class="rvts15">The bimetallic principle:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Two different metals bonded together</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Metals expand at different rates when heated</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bonded strip bends when temperature changes</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">At calibration temperature, strip bends enough to open/close a switch</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Circuit behavior:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Below threshold temperature: circuit CLOSED (normal)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Above threshold temperature: circuit OPEN (alarm!)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Controller sees simple on/off signal</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Example circuit:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Multiple sensors in series</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">All must be CLOSED for "OK" signal</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Any ONE opens → Controller sees alarm</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Advantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✓ Extremely simple</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Very reliable</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ No external power needed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✓ Inexpensive ($5-20 each)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✓ Self-resetting (cools down, contact closes again)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Disadvantages:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ No actual temperature reading (just "too hot" or "OK")</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Can't trend data</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ Limited to one threshold</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ Doesn't tell you HOW hot</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Typical thresholds:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Power electronics: 70-80°C</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Motor windings: 120-140°C</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Hydraulic oil: 80-90°C</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Precision PT100/PT1000 Sensors</span></p>
+<p class="rvps4"><span class="rvts6">For critical components needing accurate monitoring:</span></p>
+<p class="rvps4"><span class="rvts11">Where used:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts11">Generator windings</span><span class="rvts6"> - most critical!</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Gearbox oil</span><span class="rvts6"> - temperature affects lubrication</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Rotor bearing</span><span class="rvts6"> - early warning of problems</span></li>
+ <li class="rvps5 noindent"><span class="rvts11">Ambient air</span><span class="rvts6"> - affects cooling capacity</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Any component where trending and precise monitoring needed</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What are PT100/PT1000 sensors?</span></p>
+<p class="rvps4"><span class="rvts15">The "PT" part:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">PT = Platinum</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Platinum's electrical resistance changes predictably with temperature</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Very stable, repeatable relationship</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Industry standard for precision temperature measurement</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">The number:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">PT100: 100 ohms at 0°C</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">PT1000: 1000 ohms at 0°C</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">PT1000 gives better resolution (10× more resistance change)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The physics:</span></p>
+<p class="rvps4"><span class="rvts6">Platinum resistance increases with temperature:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Temperature Coefficient: 0.385 ohms/°C (for PT100)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">At 0°C: 100.00 ohms</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">At 100°C: 138.50 ohms (100 + 100 × 0.385)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Relationship is nearly linear (slight curve at extremes)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The measurement challenge:</span></p>
+<p class="rvps4"><span class="rvts15">Problem 1: Cable resistance</span></p>
+<p class="rvps4"><span class="rvts6">The sensor is often far from the Controller:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">PT100 sensor: 100 ohms</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Cable to sensor: maybe 5 ohms (each wire!)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Total measured: 110 ohms</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Huge error! (looks like +26°C error!)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Problem 2: Measurement current heating</span></p>
+<p class="rvps4"><span class="rvts6">To measure resistance, you must pass current through it:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Current creates I²R heating</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Heats the sensor itself</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Falsifies the reading!</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Must use very low current (typically &lt;1 mA)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Solutions - 3-Wire and 4-Wire Measurement</span></p>
+<p class="rvps4"><span class="rvts6">These are standard industrial techniques. Let's understand them:</span></p>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">3-Wire Method (Most Common in Wind Turbines)</span></p>
+<p class="rvps4"><span class="rvts6">[Fig 1: 3-wire PT100 circuit diagram]</span></p>
+<p class="rvps4"><span class="rvts11">The setup:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Three wires connect sensor to measurement device</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">R₁, R₂, R₃ = resistance of the three wires</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">R_PT = the PT100 sensor we want to measure</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">L1, L2, L3 = connection terminals at the Controller</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts6">By design, the three wires are identical (same length, same gauge):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps6 noindent"><span class="rvts6">R₁ ≈ R₂ ≈ R₃</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The clever trick:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Measure resistance between L3 and L2:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Reading₁ = R₃ + R_PT + R₂</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">Measure resistance between L2 and L1:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Reading₂ = R₂ + R₁</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">Calculate the actual sensor resistance:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">R_PT = Reading₁ - Reading₂</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">R_PT = (R₃ + R_PT + R₂) - (R₂ + R₁)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Since R₃ ≈ R₁, they cancel out!</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Result: R_PT (cable resistance eliminated!)</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">Accuracy:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Excellent if the three wires are truly identical</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Small differences in R₁, R₂, R₃ create small errors</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Typical accuracy: ±0.1°C to ±0.5°C</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Good enough for most wind turbine applications</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">4-Wire Method (Highest Precision)</span></p>
+<p class="rvps4"><span class="rvts6">[Fig: 4-wire PT100 circuit]</span></p>
+<p class="rvps4"><span class="rvts11">The setup:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Four wires connect sensor to measurement device</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Two wires carry measurement current (I)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Two wires measure voltage (V)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">How it works:</span></p>
+<p class="rvps4"><span class="rvts15">The brilliance:</span></p>
+<p class="rvps4"><span class="rvts6">The voltage measurement device has VERY high impedance (&gt;1 MΩ):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Essentially zero current flows through voltage sense wires (L2 and L3)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Therefore, essentially zero voltage drop across R₂ and R₃</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measured voltage = voltage directly across R_PT</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">No cable resistance error at all!</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">The process:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside;">
+ <li class="rvps5 noindent"><span class="rvts6">Pass known current through L1 → R_PT → L4</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Some voltage dropped across R₁ (don't care)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Some voltage dropped across R_PT (this is what we want!)</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">Some voltage dropped across R₄ (don't care)</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">High-impedance voltmeter measures L2 to L3</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">Reads voltage across R_PT only</span></li>
+  <li class="rvps12 noindent"><span class="rvts6">No current through R₂ and R₃ = no error!</span></li>
+ </ul>
+ <li class="rvps5 noindent"><span class="rvts6">Calculate resistance:</span></li>
+ <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: circle;">
+  <li class="rvps12 noindent"><span class="rvts6">R_PT = V / I (Ohm's law)</span></li>
+  <li class="rvps13 noindent"><span class="rvts6">Convert resistance to temperature using calibration table</span></li>
+ </ul>
+</ol>
+<p class="rvps4"><span class="rvts11">Accuracy:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Excellent: ±0.01°C to ±0.1°C</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Limited by sensor quality, not cable</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Used in laboratory and critical applications</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why not always use 4-wire?</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">✗ Requires 4 conductors (more expensive cable)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">✗ More complex wiring</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">✗ For wind turbines, 3-wire is usually accurate enough</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Minimizing Self-Heating Error</span></p>
+<p class="rvps4"><span class="rvts6">Both 3-wire and 4-wire methods help with cable resistance, but we still have the self-heating issue.</span></p>
+<p class="rvps4"><span class="rvts11">Techniques used:</span></p>
+<p class="rvps4"><span class="rvts11">1. Low measurement current:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Typical: 0.5 to 1.0 mA</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Power dissipated: I² × R = (0.001)² × 100 = 0.0001 W</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Tiny heating effect</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Trade-off: lower current = smaller voltage signal = more noise susceptible</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">2. Pulsed measurement:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Some systems don't measure continuously</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Send brief current pulse (10-100 ms)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure voltage during pulse</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Turn off current between measurements</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Sensor cools between pulses</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Virtually eliminates self-heating error</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">3. Current reversal:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Measure with current in one direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Measure with current in opposite direction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Average the two readings</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Cancels some error sources (thermoelectric effects)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">PT100 Installation Best Practices</span></p>
+<p class="rvps4"><span class="rvts6">For reliable measurements:</span></p>
+<p class="rvps4"><span class="rvts11">Sensor placement:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Direct contact with surface being measured</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Thermal paste/compound improves contact</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Secure mounting (vibration can cause intermittent contact)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Shield from air currents if measuring surface temperature</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Cable routing:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Keep cables away from high-current power cables</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Electrical noise can affect readings</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Use shielded cable in electrically noisy environments</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Proper grounding of shield</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Calibration:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">New sensors: typically ±0.3°C accuracy (Class B)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">High-grade sensors: ±0.1°C (Class A)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Periodic calibration verification recommended</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Check against known reference (ice bath = 0°C, boiling water = 100°C)</span></li>
+</ul>
+<hr style="height : 0px; background-color : transparent; border-width : 1px; border-style : inset; border-color : #000000;">
+<p class="rvps4"><span class="rvts11">Temperature Monitoring in Practice</span></p>
+<p class="rvps4"><span class="rvts11">Generator Temperature Monitoring:</span></p>
+<p class="rvps4"><span class="rvts6">Typically uses 3-6 PT100 sensors:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">One per phase winding (3 sensors)</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Bearing temperatures (2-3 sensors)</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Ambient air in generator (1 sensor)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">What the Controller does:</span></p>
+<p class="rvps4"><span class="rvts15">Normal operation:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Samples every 1-10 seconds</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Compares to thresholds</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Trends over time (looking for unusual rise rates)</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Warning level (e.g., 120°C):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Increase cooling fan speed</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Reduce power output slightly</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Alert maintenance system</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Alarm level (e.g., 140°C):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Immediate power reduction</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">If doesn't decrease: initiate cutout</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Record event for investigation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts15">Critical level (e.g., 155°C):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Emergency shutdown</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Major alarm</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Require manual reset after investigation</span></li>
+</ul>
+<p class="rvps4"><span class="rvts11">Why this matters:</span></p>
+<p class="rvps4"><span class="rvts6">Generator rewind (if windings damaged by overheating):</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 40px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps5 noindent"><span class="rvts6">Cost: $50,000-200,000</span></li>
+ <li class="rvps5 noindent"><span class="rvts6">Downtime: 4-8 weeks</span></li>
+ <li class="rvps6 noindent"><span class="rvts6">Much better to catch overheating early!</span></li>
+</ul>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps8"><img alt="" style="width : 20px; height : 20px;" src="lib/Nuevo%20tem%2046.svg"><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;Dates&gt; by &lt;Authors&gt;. All Rights Reserved.
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

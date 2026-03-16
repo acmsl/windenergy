@@ -1,0 +1,192 @@
+﻿
+
+<html>
+<!-- saved from url=(0016)about:internet -->
+
+<!-- saved from url=(0016)about:internet -->
+
+	
+<head>
+	<title>Syst&egrave;me de freinage</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", hysteresis, pressure, fail-safe">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Introduction.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Brakingsystem");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Syst&egrave;me de freinage</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description du Simulateur</a> &rsaquo;&rsaquo; <a href="Synoptics.html">Synoptiques</a> &rsaquo;&rsaquo; <a href="DriveTrainsynoptic.html">Synoptique de la Nacelle (SynopticDriveTrain)</a> &rsaquo;&rsaquo; <a href="DelaVuedinstrumentation.html">Shemas de connexion des signaux</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DelaVuedinstrumentation.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="GearboxRotor.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="WindandNacelleorientationsynopti.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Schéma de connexion des simulateurs d'éléments, de contrôle et de widgets graphiques utilisés dans le </span><span class="rvts14">circuit de freinage</span><span class="rvts11">.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Esquema%20Circuito%20Frenos%20frances.png"></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">La boîte intitulée «</span><span class="rvts14">Controller.Control</span><span class="rvts11">» contient les </span><span class="rvts25">algorithmes de contrôle</span><span class="rvts11"> utilisés pour le système de freinage. Celui intitulé «</span><span class="rvts14">Nacelle.Braking</span><span class="rvts11">» contient les </span><span class="rvts25">simulateurs des éléments physiques</span><span class="rvts11"> qui composent le système de freinage, y compris le système hydraulique, et ses interconnexions. Celui intitulé «</span><span class="rvts25">SynopticDriveTrain</span><span class="rvts11">» montre les widgets graphiques utilisés par les signaux de surveillance (qui arrivent au contrôleur) et ceux de performance (qui viennent du contrôleur).</span></p>
+<p class="rvps4"><span class="rvts11">Les widgets graphiques 'Frein relâché', 'Pressotat', 'Frein de disque' et 'Pompe' peuvent être utilisés pour </span><span class="rvts14">simuler les fautes</span><span class="rvts11"> suivantes:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Avec le widget intitulé «</span><span class="rvts25">Pompe</span><span class="rvts11">», en l'activant, et en changeant sa valeur manuellement.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Pompe non fonctionnelle.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Câble de connexion à la pompe cassée.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">Panne de l'alimentation de la pompe.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Avec le widget intitulé «</span><span class="rvts25">Pressostat</span><span class="rvts11">», en l'activant, et en changeant sa valeur manuellement.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">Interrupteur de pression (pressotat) brisé.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Câble de connexion au pressostat cassé.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Avec le widget intitulé «</span><span class="rvts25">Frein relâché</span><span class="rvts11">», en l'activant, et en changeant sa valeur manuellement.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">Le détecteur de "Frein relâché" est cassé.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span><span class="rvts11">Le câble du détecteur "Frein relâché" est cassé.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Avec le widget intitulé «</span><span class="rvts25">Frein de disque</span><span class="rvts11">», en l'activant, et en changeant sa valeur manuellement.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">La vanne pour activer le frein ne fonctionne pas.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Le câble de la vanne pour activer le frein est cassé.</span></p>
+<p class="rvps4"><span class="rvts11">An example is shown in the next figure. Notice the disc brake and the hydraulic actuated brake (red).</span></p>
+<div class="rvps2">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 33%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/FotodiscoFreno.jpg"></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 39%;">
+   <p class="rvps3"><img width="260" height="260" alt="" style="padding : 1px;" src="lib/SinopticoFreno.png"></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts69"><br/></span></p>
+<p class="rvps4"><span class="rvts11">The disc brake stops the DriveTrain dissipating energy by friction, like in similar brakes in cars. Its capacity is limited, so it is used mainly as "</span><span class="rvts14">parking brake</span><span class="rvts11">" That happens when the caliper attached to the head of a hydraulic piston touch the disc.</span></p>
+<p class="rvps4"><span class="rvts11">This part of the synoptic presents the main components of the hydraulic circuit that forces the pads attached to the piston and the caliper against the dissipating disc.</span></p>
+<p class="rvps4"><span class="rvts11">The DriveTrain synoptic contains a schematic view of the whole braking system, where the position of the braking disc and the pads are positioned in such a way that the actual operations can be appreciated with detail.</span></p>
+<div class="rvps2">
+<table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+ <tr valign="top">
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6"><br/></span></p>
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Brakes%20hydraulic%20circuit.png"></p>
+   <p class="rvps2"><span class="rvts6"><br/></span></p>
+   <p class="rvps3"><a name="Brakes hydraulic circuit schematic"></a><span class="rvts6">Brakes hydraulic circuit schematic</span></p>
+  </td>
+  <td style="border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps3"><img alt="" style="padding : 1px;" src="lib/Brakes%20hydraulic%20circuit%20synoptic.png"><span class="rvts6">&nbsp;</span></p>
+   <p class="rvps3"><a name="Brakes hydraulic circuit synoptic"></a><span class="rvts6">Brakes hydraulic circuit synoptic</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps4"><span class="rvts11">It consists of an hydraulic circuit comprised of a reservoir for the oil, a pump, a spring loaded cylinder and a valve. When the valve is closed and the pump starts moving, the pressure in the cylinder starts growing, so its shaft move the attached caliper away from the braking disc, thus releasing the brake and the whole DriveTrain as consequence.</span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps4"><span class="rvts11">This design follows the "fail-safe" principle: if everything fails the system is kept in a safe situation: the braking disc is blocked.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps4"><span class="rvts11">To liberate the brake disc the conditions are:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">The oil level in the tank must be high enough.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">The valve must be closed.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">The pump should be working for some time, so that the pressure in the spring cylinder is higher than a given value, signaled in yellow in the circular widget for pressure. For security reasons, while in production, the pressure in the hydraulic circuit is kept above this "brake liberation limit".</span></p>
+<p class="rvps4"><span class="rvts11">This subsystem is </span><span class="rvts13">not</span><span class="rvts11"> autonomous, it is controlled directly by the WindTurbine's Controller. This is because the braking system is part of the Security mechanism of the whole Wind Turbine. This braking system is used in extreme situations to prevent the rotation speed of the Blades to run away, so it must be always under the supervision and control of this Controller. It is also used during the maintenance works of the Wind Turbine, in order to fix the position of the whole DriveTrain, much like the parking brake in a car.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">In order to keep the brake disc away from the caliper the WindTurbine's Controller receive only a digital signal from the whole hydraulic system: the output signal of a pressure switch that monitors the value of the oil pressure in it. This approach minimizes the instrumentation required and therefore increase the reliability of the whole system.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">The algorithm used to keep this pressure under control involves the concepts of nominal pressure and hysteresis of the pressure switch. When the pressure switch output is "On" the Controller assumes the hydraulic pressure is high enough to keep the brake disc away from the caliper and it stops the pump. When this output is "Off" the Controller assumes the pressure is not enough and turns "On" the pump. There is a difference between the pressure values for the two states of the pressure switch, a characteristic named "hysteresis" and that implies that when the output signal is "Off" (pressure below nominal) and is moving upwards, the pressure switch needs a pressure a little bit higher to change its output to "On" than the pressure at which it turns its output to "Off" when initially is "On".</span></p>
+<p class="rvps4"><span class="rvts11">Using these characteristics the Controller commands the powering of the pump in the hydraulic circuit and produce generate</span></p>
+<p class="rvps4"><span class="rvts11">The hysteresis value and the actual leakage in the hydraulic circuit define the period of the pumping on/off cycle and its duty cycle</span></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Ciclo%20de%20la%20bomba%20de%20frenos.png"></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps4"><span class="rvts11">When the pump is running and the valve is closed, then the pressure grows at rapid pace. When the pump is turned off and the with &nbsp;valve still closed, then the pressure declines at a slower pace. Each of these speeds has its associated parameter: with them we can simulate real problems, such as pump with low pumping capacity, problems excessive pressure leakage in the total circuit, etc.</span></p>
+<p class="rvps4"><span class="rvts11">When the Controller decide to use the brake for an emergency stop, then it opens the valve, so the pressure drops below the yellow mark in the widget and the brake is on.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem157.png"></p>
+<p class="rvps2"><span class="rvts23"><br/></span></p>
+<p class="rvps2"><span class="rvts23"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2018&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+

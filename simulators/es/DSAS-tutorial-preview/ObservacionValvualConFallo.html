@@ -1,0 +1,119 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Observacion del efecto de una valvula de descarga que no funciona</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 7.5.0.435">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Freno suave, ">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ObservacionValvualConFallo");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Observacion del efecto de una valvula de descarga que no funciona</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Clases pr&aacute;cticas</a> &rsaquo;&rsaquo; <a href="ObservacionCircuitoHidraulico.html">Monitorizacion del circuito hidr&aacute;ulico de Frenos</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ObservacionCircuitoHidraulico.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ObservacionBombaConFallo.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Monitorizaciondelcircuitohidruli.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">En esta práctica el objetivo es observar el protocolo utilizado por el Controlador cuando se produce un fallo de una válvula del circuito de frenos.</span></p>
+<p class="rvps4"><span class="rvts11">En este caso utilizaremos una de las funcionalidades características de los indicadores gráficos del framework LdP en el que está desarrollado este simulador. Simularemos un control manual directamente de una de las válvulas de freno.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/SynopticDriveTrain%20espaol.png"></p>
+<p class="rvps4"><span class="rvts11">Para ello pondremos el aerogenerador en producción (ver por ejemplo la práctica </span><a class="rvts47" href="CutinVientoBajo.html">Poner las condiciones para que se produzca la entrada en Producción con viento bajo</a><span class="rvts11"> &nbsp;).</span></p>
+<p class="rvps4"><span class="rvts11">A continuación 'seleccionaremos' el indicador de </span><span class="rvts15">'Freno suave'</span><span class="rvts11"> en el sinóptico "</span><span class="rvts15">SynopticDriveTrain</span><span class="rvts11">", haciendo click sobre el mismo. (No debe ocurrir nada, ya que el modo de este indicador, por defecto, es </span><span class="rvts15">'solo presentación'</span><span class="rvts11">: su borde es verde).</span></p>
+<p class="rvps4"><span class="rvts11">Pulsamos la tecla 'F6', por lo que su borde cambiará a rojo, indicando que ahora se comporta como un botón con el que podemos controlar la señal asociada, que el mando de la válvula de 'Freno normal'.</span></p>
+<p class="rvps4"><span class="rvts11">Ahora hacemos click con el ratón en este botó, con lo que la señal asociada pasará a activa y se indicará en el botón, que cambiará el color de fondo a amarillo. El tren de potencia parará de forma inmediata, y el Controlador creará una incidencia con descripción "</span><span class="rvts15">Bypass or Thyristors on and brake not released</span><span class="rvts11">". Esta incidencia indica que, durante la evolución de la frenada (absolutamente imprevista), ha habido un intervalo de tiempo (algunos milisegundos) en los que los Contactores de Bypass de los Tiristores estaban conectados y el freno estaba activado. Una situación peligrosa para los elementos eléctricos.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

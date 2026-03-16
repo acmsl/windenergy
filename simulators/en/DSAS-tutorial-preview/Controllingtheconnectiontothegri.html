@@ -1,0 +1,128 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Controlling the connection to the grid</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="asynchronous, cutin, cutout, gear box, hub, power train, variable pitch, grid, thyristors, bypass contactors, soft-starter">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Controllingtheconnectiontothegri");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Controlling the connection to the grid</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DualSpeedActiveStallWTSimulator1.html">Description of the Simulator</a> &rsaquo;&rsaquo; <a href="EmulatedWindTurbine.html">Emulated Wind Turbine</a> &rsaquo;&rsaquo; <a href="Controller.html">Controller</a> &rsaquo;&rsaquo; <a href="Algorithms.html">Algorithms</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Algorithms.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Pitchcontolalgorithm.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Yawingofthenacelle.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">All electric power suppliers that can be connected to a Grid must has a behavior that should make minimum disturbance when connecting to and/or disconnecting from it.</span></p>
+<p class="rvps4"><span class="rvts11">The problem to solve is this: we have an electrical generator which starts the process disconnected and ends connected to the Grid. At the end , the rpms on the generator will be a little above its synchronous speed (i.e, 1.05). Before connection, the generator may be stopped.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Different Wind Turbines has different solutions for this problem: for example the "Doubly Fed Induction Generator" Wind Turbines use their highly flexible and controllable Power Electronics Converters to provide very smooth &nbsp;connections and disconnections.</span></p>
+<p class="rvps4"><span class="rvts11">Wind Turbines that have squirrel cage induction generators directly connected to the Grid, like the one used in the simulated Wind Turbine, use a "soft-starter" device. The procedure implemented by this hardware is based on the following ideas:</span></p>
+<p class="rvps4"><span class="rvts11">&nbsp;</span><img alt="" style="padding : 1px;" src="lib/SoftStarter.gif"></p>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">First accelerate the Generator shaft so its rpms reach near, but below, synchronous speed .</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Use a Thyristor as intermediate controlled switch between the Generator and the Grid.</span></p>
+<p class="rvps4"><span class="rvts11">The soft connection of a squirrel cage generator directly connected to the Grid is done using Thyristors, following the sequence:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">The Thyristor controller continuously monitors the Generator's rpms as soon as it approaches the synchronous speed.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">The Controller of the DriveTrain controls its acceleration so it does not overcome a given limit. that does not get When the rpms reach that speed the start the conduction of the thyristors during a small part of the cycle.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">At that moment the DriveTrain (wind forcing the Hub + gearbox + generator turning) now has a little new mechanical load coming from the current (small) flowing through the generator. This current is the magnetizing current needed to create the magnetic field inside the generator that will act as link between the mechanical power from the DriveTrain to Grid. Therefore the DriveTrain slows down a little bit.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">In the following seconds (3 to 5) the gate control of the thyristors advance the moment of firing, so the their conduction angle increases. In that phase the generator is forced to adapt its speed to the Grid frequency: this is because the Grid is (except in island operation) much more powerful that the wind + DriveTrain.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">Finally the situation evolves so that the rotor of the generator is not only rotating with the same (corresponding) frequency as the Grid, but also in phase with it.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">After that happens the voltage drop in the thyristors is very low (some volts at most) so the switches that bypass them can be close with no harm. The thyristors are no longer fired and the generator is directly connected to the Grid.</span></p>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2022&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
