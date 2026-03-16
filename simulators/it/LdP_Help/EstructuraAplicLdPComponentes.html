@@ -1,0 +1,118 @@
+<html>
+<head>
+<title>Componenti di base</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPComponentes&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Componenti di base</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">Struttura delle applicazioni LdP</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Concetti di base</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdPConceptosBasic.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraAplicLdPConceptosBasic.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPControlSimulac.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps5 ldp-align-with-table"><span class="rvts16">Un'applicazione LdP (Simulatore) è definita da una descrizione in un file di configurazione, in cui:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•Ogni componente utilizzato nel Simulatore è dichiarato.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">• Le connessioni tra i segnali di uscita e di ingresso di ciascuno dei componenti sono dichiarate.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•Gli elementi ausiliari sono definiti: valori dei parametri, aiuto, definizione delle configurazioni dei recorder grafici, ecc.</span></p>
+<p class="rvps5"><span class="rvts16">I "componenti" di una configurazione LdP possono essere dei seguenti tipi:</span></p>
+<div class="rvps2"><table border="1" class="ldp-component-table" style="border-color: #000000; border-style: solid; border-spacing: 2px;" width="100%">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Processi</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Questo elemento non può contenere nessuno, uno, o più "</span><span class="rvts19">Processo</span><span class="rvts16">" elementi di tipo. Ciascuno di questi si riferisce ad una DLL sviluppata specificamente per simulare un aspetto particolare o un sottosistema.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Sinottica</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Questo elemento può contenere uno o più elementi di tipo "sinottico". Questi elementi si riferiscono alle DLL sviluppate specificamente utilizzando indicatori grafici. Essi costituiscono l'interfaccia utente.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Collegamenti</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Questo elemento contiene "</span><span class="rvts19">Connessione interna</span><span class="rvts16">" elementi di tipo. Questi elementi contengono un " segnale di uscita" e uno o più " segnali di ingresso".</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Parametri</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Questo elemento non contiene nessuno, uno o più elementi tipo "Parametro". Ognuno di loro ha un " segnale di uscita" associato con un nome associato a un processo o Synoptic. C'è una base Synoptic ("Parametri") che consente di accedere a questi "Parametri" e cambiare il valore associato. Di solito viene utilizzato per definire parametri di algoritmi implementati nei diversi elementi "Process" e "Synoptic".</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Registratori di strisce</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">(</span><span class="rvts19">Registratori</span><span class="rvts16">) Questo elemento contiene un insieme di "</span><span class="rvts19">Pannello</span><span class="rvts16">" elementi di tipo, ognuno dei quali definisce il contenuto e il formato di "</span><span class="rvts19">Registratori</span><span class="rvts16">," attraverso il quale si definisce l'insieme dei segnali presentati e la forma di rappresentazione.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Funzioni</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Elemento contenente nessuno, uno o più "</span><span class="rvts19">Funzione</span><span class="rvts16">" elementi di tipo. Ciascuno di questi elementi implementa un "</span><span class="rvts19">formula</span><span class="rvts16">": ogni formula ha un segnale di uscita associato e un insieme di segnali di input corrispondenti alle variabili che utilizza.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps7"><span class="rvts6"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

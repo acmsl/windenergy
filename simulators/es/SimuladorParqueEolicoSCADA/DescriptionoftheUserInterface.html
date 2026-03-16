@@ -1,0 +1,119 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Sinoptico principal</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="simulator, SCADA, consigna, cables de potencia, PCC, Point of Common Connection, Potencia activa, densidad del aire, anemometro, aerogenerador, velocidad viento, parque eolico, direccion viento, sinoptico, Supervisory Control And Data Adquisition, temperatura, humidity, presion, 3DView, dispatching, frecuencia de muestreo">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("DescriptionoftheUserInterface");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Sinoptico principal</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureoftheWindFarmSimulator.html">Descripci&oacute;n del Simulador de Parque Eolico</a> &rsaquo;&rsaquo; <a href="Description.html">Componentes del Simulador</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Description.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Grficosdeevolucindeseales.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="IconicviewoftheWTsPCCandpowercab.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">El sinóptico principal de este simulador tiene las siguientes partes:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Esquema de la </span><span class="rvts30">conectividad de los aerogeneradores con la Subestación con indicación del estado de cada aerogenerador y su potencia actual generada. </span><span class="rvts16">(Parte superior).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El simulador de la </span><span class="rvts30">estación meteorológica</span><span class="rvts16">. (Situado en la parte inferior izquierda).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El simulador de la </span><span class="rvts30">Demanda de producción</span><span class="rvts16">. (Situado en la parte inferior derecha).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El simulador de la interfaz de visualización de </span><span class="rvts30">estado y control de los aerogeneradores</span><span class="rvts16">. (En la parte central).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Indicación de </span><span class="rvts30">potencia total que se está produciendo en el parque</span><span class="rvts16">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">La interfaz para </span><span class="rvts30">cambio de estado y eficiencia de los aerogeneradores</span><span class="rvts16">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El acceso a la </span><span class="rvts30">visualización 3D</span><span class="rvts16">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El control de funcionamiento de los </span><span class="rvts30">algoritmos de control automático</span><span class="rvts16"> de puesta en marcha/paro de los aerogeneradores.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

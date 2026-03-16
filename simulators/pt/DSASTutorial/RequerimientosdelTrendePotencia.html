@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Sobre o vento</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Weibull, horas por año, viento nominal" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;RequerimientosdelTrendePotencia&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Sobre o vento</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Princípios físicos</a>
+					›› <a href="WindTurbineControlcriteria.html">Critérios de concepção e controlo da turbina eólica</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="WindTurbineControlcriteria.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="WindTurbineControlcriteria.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="RequirementsimposedbytheDriveTra.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Definição de vento</span></span></h1>
+<p class="rvps4"><span class="rvts6">O regime de vento de um local é descrito como uma função estatística chamada "</span><span class="rvts29">Weibull</span><span class="rvts6">." A figura seguinte mostra no eixo y a percentagem de tempo (em</span><span class="rvts17">horas por ano</span><span class="rvts6">) que o vento está na faixa indicada no eixo x.</span></p>
+<p class="rvps15"><img alt="" src="lib/Distribucion%20Weibull%20castellano.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">No local correspondente à distribuição na figura acima, a velocidade do vento mais provável é entre 4 e 6 m/s.</span></p>
+<p class="rvps4"><span class="rvts6">A</span><span class="rvts29">Weibull</span><span class="rvts6">a distribuição tem dois parâmetros característicos: o "</span><span class="rvts17">vento médio</span><span class="rvts6">" e o "</span><span class="rvts17">vento mais elevado esperado</span><span class="rvts6">." </span></p>
+<p class="rvps4"><span class="rvts6">No entanto, como estamos interessados na potência que pode ser extraída do vento, é mais interessante considerar a distribuição da potência associada ao vento, para o qual devemos aplicar a fórmula descrita em</span><a class="rvts18" href="Porqugiranlaspalas.html">Conceitos sobre energia eólica extraível</a><span class="rvts6">.</span></p>
+<p class="rvps15"><span class="rvts29">WindPower = K * AirDensity * BladeSweptArea * Vento</span><span class="rvts77">3 </span><span class="rvts28">  </span></p>
+<p class="rvps4"><span class="rvts6">Onde</span><span class="rvts17">K</span><span class="rvts6">é uma constante. Se aplicarmos esta fórmula ao gráfico anterior para obter a distribuição de energia em função do vento, temos a seguinte figura. O eixo x continua a referir-se à velocidade do vento (m/s) e ao eixo y à potência.</span></p>
+<p class="rvps15"><img alt="" src="lib/Distribucion%20Potencia%20Viento.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">Podemos ver que, neste caso particular, embora a velocidade do vento que tem mais horas por ano é entre 4 e 6 m/s, há um</span><span class="rvts37">maior velocidade de produção</span><span class="rvts6">, cerca de 10 m/s, então este valor torna-se o "</span><span class="rvts29">Nominal</span><span class="rvts6">Vento."</span></p>
+<p class="rvps2"><span class="rvts6">A segunda condição define as características do gerador elétrico a ser usado na turbina eólica, e todos os eletrônicos de potência associados (se houver). Este valor é o "poder nominal".</span></p>
+<p class="rvps2"><span class="rvts6">O comprimento das lâminas deve ser tal que na velocidade nominal do vento temos a Potência nominal. Esta condição tem uma consequência importante: para ventos superiores ao vento nominal, a potência que pode ser extraída do vento é maior do que a potência nominal do gerador elétrico. Este aspecto muito importante é apresentado no seguinte parágrafo:</span> <a class="rvts18" href="RequirementsimposedbytheDriveTra.html">Requisitos do Comboio de Energia.</a><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

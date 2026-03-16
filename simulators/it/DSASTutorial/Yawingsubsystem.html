@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Sistema di orientamento</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="operación de orientación, Yawing, CW, CCW, orientación, máximo de vueltas, veleta, dirección del viento, orientación de la góndola" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Yawingsubsystem&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Sistema di orientamento</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito di simulazione</a>
+					›› <a href="ProcessesinNacelleEmulator.html">Processi corrispondenti agli elementi Nacelle</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ProcessesinNacelleEmulator.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="GeneradorParametros.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstrategiasSeguridadSobrevelocid.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Segnali generati</span></span></h1>
+<p class="rvps2"><span class="rvts6">Nel processo "Nacelle", vengono creati i seguenti segnali, corrispondenti agli elementi della nacelle che sono legati all'orientamento della turbina eolica_</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Simulazione dei due blocchi motore che permettono in senso orario (</span><span class="rvts29">CW</span><span class="rvts6">) e in senso antiorario (</span><span class="rvts29">CCW</span><span class="rvts6">- rotazione.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Simulazione del numero di giri</span><span class="rvts29">cavi di alimentazione</span><span class="rvts6">che corrono dalla nacelle alla base della torre.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Simulazione dell'interruttore limite che rileva quando</span><span class="rvts29">massimo</span><span class="rvts6">numero</span><span class="rvts29">di giri</span><span class="rvts6">è stato raggiunto.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Generazione del vento</span><span class="rvts29">Vane</span><span class="rvts6">segnale, utilizzando il</span><span class="rvts29">direzione del vento</span><span class="rvts6">valori (ingresso al sistema) e</span><span class="rvts29">orientamento della nacelle</span><span class="rvts6">.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Algoritmi utilizzati</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Per generare</span><span class="rvts59">il segnale di orientamento nacelle</span><span class="rvts6">, sono presi in considerazione i seguenti elementi:</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Lo stato dei segnali di ingresso che governano lo stato dei motori yaw:</span><span class="rvts17">SynopticWindNacelle.YawCCWOut</span><span class="rvts6">e</span><span class="rvts17">SynopticWindNacelle.YawCWOut</span><span class="rvts6">). Questi sono normalmente segnali che provengono dal Controller (</span><span class="rvts17">Controller.Yawing.YCCWOut</span><span class="rvts6">e</span><span class="rvts17">Controller.Yawing.YCWOut</span><span class="rvts6">, rispettivamente).</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">I valori di velocità dello yaw di ciascuno dei motori che entrano attraverso i segnali</span><span class="rvts17">'Nacelle.Yawing.CWYawingSpeed '</span><span class="rvts6">e</span><span class="rvts17">'Nacelle.Yawing.CCWYawingSpeed '</span><span class="rvts6">segnali e sono normalmente collegati ai parametri "</span><span class="rvts17">Parameter.NacelleYawing.CCWYawingSpeed</span><span class="rvts6">"</span><span class="rvts17">"Parametro.NacelleYawing.CWYawingSpeed</span><span class="rvts6">. In una vera e propria turbina eolica, questi valori sono nell'ordine di</span><span class="rvts29">0,5 gradi al secondo</span><span class="rvts6">. I valori consigliati, per migliorare l'esperienza di simulazione, sono nell'ordine</span><span class="rvts29">10 gradi al secondo</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">L'algoritmo utilizzato integra il tempo in cui entrambi i segnali sono attivi per calcolare la posizione corrente dell'orientamento nacelle.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Per generare</span><span class="rvts59">il numero di giri dei cavi di alimentazione</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">OBase</span><span class="rvts6">sull'orientamento della nacelle, contando il numero di volte che attraversa la direzione nord.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Per generare</span><span class="rvts59">il segnale digitale che indica che il numero massimo di giri dei cavi di alimentazione è stato raggiunto</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o #</span><span class="rvts6">confrontando il numero di giri dei cavi di alimentazione con il valore del "</span><span class="rvts17">Parameter.NacelleYawing.MaxCableTwist</span><span class="rvts6">" parametro.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Per generare</span><span class="rvts59">il segnale del vento</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">Utilizzando l'orientamento della nacelle e la direzione del vento.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/Yawsystem.png" style="padding : 1px;"/></p>
+<p class="rvps2"><img alt="" src="lib/YawinMotor%20y%20rueda%20dentada%20desde%20la%20torre.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/YawingMotor%20sobre%20rueda%20dentada.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps20"><span class="rvts31"><br/></span></p>
+<p class="rvps20"><span class="rvts31"><br/></span></p>
+<p class="rvps20"><span class="rvts31"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Introduction</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="datalogging">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Introduccion&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Introduction</h1>
+				
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Sobreestaversion.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps4"><span class="rvts15"><br/></span></p>
+<p class="rvps4"><span class="rvts15">Introduction</span></p>
+<p class="rvps2" style="page-break-before: always;"><span class="rvts6"><br/></span></p>
+<p class="rvps5"><span class="rvts17">LdP</span><span class="rvts16"> is a real-time simulator development and execution environment developed by Automated Computing Machinery S.L. (</span><a class="rvts18" href="www.acm-sl.com">www.acm-sl.com</a><span class="rvts16">) (hereinafter referred to as ACM SL).</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Its main features are:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">It is a Windows desktop application.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•It</span><span class="rvts16"> </span><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">is</span><span class="rvts16"> based on the extensive use of Windows ActiveX components and DLLs. These components can be developed in various programming environments (MS Visual Studio VC++, Visual Basic, Delphi, etc.).</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Each Simulator is described in a configuration file.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">The connections of the components in the configuration file can be edited at any time, even while the simulation is running. The connections mimic the concept of connection between electrical or electronic components: the outputs of some can be connected to the inputs of others. Both output and input connections are called &quot;signals&quot; in LdP. Signal names have a three-field nomenclature: &quot;</span><span class="rvts19">ComponentName</span><span class="rvts16">&quot;.&quot;</span><span class="rvts19">ProcessWithinComponent</span><span class="rvts16">&quot;.&quot;</span><span class="rvts19">ProperName</span><span class="rvts16">.&quot; For example: &quot;</span><span class="rvts19">Controller.Control.PitchOut</span><span class="rvts16">&quot; refers to an output named &quot;PitchOut&quot; from the &quot;Control&quot; process of the &quot;Controller&quot; component, as declared in the configuration file.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">The basic functionalities available for each Simulator without additional programming are:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts16">oReal-time recording of changes in each of the signals (</span><span class="rvts19">datalogging</span><span class="rvts16">) in standardized database files.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">Availability of recording forms (</span><span class="rvts19">Recorders</span><span class="rvts16"> or </span><span class="rvts19">StripRecorders</span><span class="rvts16">) through which signal evolutions are displayed in real time.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">Connections and parameters can be changed during the execution of the simulation, without the need to restart it.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

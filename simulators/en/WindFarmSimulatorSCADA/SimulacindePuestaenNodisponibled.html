@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Visualization of the temporary evolution of signals in SCADA</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("SimulacindePuestaenNodisponibled");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Visualization of the temporary evolution of signals in SCADA</h1>
+<div id="topic_breadcrumb">
+<a href="Teachingsessions.html">Practical classes</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="Teachingsessions.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="SimulationthataWTisOutofOrder.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Datalogging1.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts16">Read the indications at</span><a class="rvts31" href="PowerpergroupTotalproducedPowera.html">Signal evolution charts.</a></p>
+<p class="rvps4"><span class="rvts16">Repeat previous practical classes while having open a "</span><span class="rvts44">Registrar</span><span class="rvts16">"to present the panel"</span><span class="rvts44">Wind, Total Power, Power by Group</span><span class="rvts16">".</span></p>
+<p class="rvps4"><span class="rvts16">You will get a representation like the figure below.</span></p>
+<p class="rvps4"><img alt="" src="lib/Registrador%20SCADA.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts16">The first recorder indicates the evolution of wind speed.</span></p>
+<p class="rvps4"><span class="rvts16">The second has three powers:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">The demand, in blue.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">The total power blank.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">The maximum available power, in green.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Each of the following registrators presents the production of each of the wind turbines by "Group" (A, F, E). It can be seen that all wind turbines produce a similar power, but not the same. It can also be seen when wind turbines come in and out of production.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,285 @@
+
+
+<html>
+	
+<head>
+	<title>Behavior in very strong winds</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Max para arranque, Max para operaci&oacute;n continua, Max para operaci&oacute;n temporal, Max absoluto, Controller.WindAbsolutMax, ControllerCutin.MaxWindForCutin, Controller.WindMaxForOperation">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+        /* === Estilo Experimentos === */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #topic_header_content {
+            padding-left: 40px;
+        }
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+            padding-left: 40px;
+            padding-right: 30px;
+        }
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        /* Cajas informativas estilo Experimentos */
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .important-note ol, .important-note ul {
+            padding-left: 1.5em;
+        }
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        /* Sobreescribir rvts para fuentes mas grandes */
+        span.rvts6, span.rvts11 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        span.rvts12 {
+            font-size: 24px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+            color: #365f91 !important;
+        }
+        span.rvts13 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts15 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts16 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts17 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-style: italic !important;
+        }
+        span.rvts19 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts118, span.rvts119 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        a.rvts14, span.rvts14, a.rvts18, span.rvts18,
+        a.rvts48, span.rvts48 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+            color: #0066cc !important;
+        }
+        #topic_header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border-bottom: none !important;
+        }
+        #topic_header h1, #topic_header_text {
+            color: #ffffff !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-size: 28px !important;
+        }
+        #topic_header a img {
+            filter: brightness(0) invert(1);
+        }
+        #topic_breadcrumb, #topic_breadcrumb a {
+            color: #e0d0ff !important;
+        }
+        #topic_footer {
+            background: #f8f8f8 !important;
+            border-top: 2px solid #667eea !important;
+        }
+        #topic_footer_content {
+            color: #666 !important;
+            font-size: 14px !important;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASExercises.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ComportamientoVientosFuertes&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+<!-- CHATGPT_PAGEINTRO_START -->
+<div class="learning-objective">
+    <h3>🎯 Behavior in strong winds</h3>
+    <p><strong><em>Objective:</em></strong> Relate gusts/high winds to protection and control strategies.</p>
+    <p><strong><em>What to observe:</em></strong> Wind speed, alarms/protections, and status changes.</p>
+    <p><strong><em>What to note:</em></strong> Gust events, action taken, approximate thresholds, and final status.</p>
+    <p>💡 Distinguish between limitation (reduction) and shutdown (cut-out).</p>
+</div>
+<!-- CHATGPT_PAGEINTRO_END -->
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Behavior in very strong winds</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Practical classes</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ClasesPracticas.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="FalloFaseRed.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ObservacionProtocolosVientosFuer.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">This practical exercise involves experimenting with behavior in response to wind values, in accordance with the description of winds in </span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?DatosTecnicosValoresVientos.html" target="_blank">Functional wind values</a><span class="rvts11">. </span></p>
+<p class="rvps4"><span class="rvts11">In the practice </span><a class="rvts48" href="DesenrrolleCables.html">Power cable unwinding, </a><span class="rvts11">the influence of the wind values &quot;</span><span class="rvts15">Min for orientation</span><span class="rvts11">&quot; and &quot;</span><span class="rvts15">Min for start-up</span><span class="rvts11">&quot; is observed. In this practice, we propose observing the influence of the wind values &quot;</span><span class="rvts15">Max for start-up</span><span class="rvts11">,&quot; &quot;</span><span class="rvts15">Max for continuous operation</span><span class="rvts11">,&quot; &quot;</span><span class="rvts15">Max for temporary operation</span><span class="rvts11">,&quot; and &quot;</span><span class="rvts15">Absolute max</span><span class="rvts11">,&quot; which are described in </span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?DatosTecnicosValoresVientos.html" target="_blank">Functional wind values</a><span class="rvts11">. </span></p>
+<p class="rvps4"><span class="rvts11">The concepts to be explored are as follows:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">When the wind exceeds a certain limit, the wind turbine must disconnect from the grid and position its blades so as to minimize the effect of the wind. This must occur in any situation: that is, if it is in production, it must disconnect; if it is disconnected, it will not attempt to connect. This is the concept of &quot;</span><span class="rvts15">Absolute Max.&quot;</span><br/><span class="rvts11">This value is controlled in this simulator by the parameter &quot;</span><span class="rvts15">Controller.WindAbsolutMax</span><span class="rvts11">,&quot; with a default value of </span><span class="rvts16">30 m/s</span><span class="rvts11">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">When the wind turbine is disconnected from the grid and the wind exceeds a certain value, it is understood that it is not worth starting a connection operation (cutin) because it is estimated that it may have to be stopped due to high winds shortly. This is the concept of &quot;</span><span class="rvts15">Max for start-up</span><span class="rvts11">,&quot; which is associated with the parameter &quot;</span><span class="rvts15">ControllerCutin.MaxWindForCutin</span><span class="rvts11">.&quot; The default value is </span><span class="rvts16">18 m/s</span><span class="rvts11">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">When the wind turbine is in production, there is a wind limit at which production is maintained, even if it is much higher than the nominal wind speed. This is the concept of &quot;</span><span class="rvts15">Max for continuous operation</span><span class="rvts11">,&quot; which is associated with the parameter &quot;</span><span class="rvts15">Controller.WindMaxForOperation</span><span class="rvts11">,&quot; which has a default value of </span><span class="rvts16">25 m/s</span><span class="rvts11">.</span><br/><span class="rvts11">When the wind exceeds this value, the wind turbine does not immediately initiate a disconnection operation but waits for a certain time, which depends on the known wind behavior at the location of the wind turbine.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">When the wind turbine is in production and the wind has exceeded &quot;</span><span class="rvts15">Max for continuous operation</span><span class="rvts11">&quot; but has not reached &quot;</span><span class="rvts15">Absolute max</span><span class="rvts11">,&quot; another parameter is used, &quot;Controller.WinMaxForTemporalOperation,&quot; which has a shorter waiting time than in the case of &quot;</span><span class="rvts15">Max for continuous operation</span><span class="rvts11">&quot; before starting the disconnection operation.</span><br/><span class="rvts11">The default value for this parameter is </span><span class="rvts16">28 m/s.</span></p>
+<p class="rvps4"><span class="rvts11">The ideas behind these parameters refer to maximizing production when the wind is high, minimizing the risks and stresses to which the wind turbine is subjected.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+
+
+
+
+

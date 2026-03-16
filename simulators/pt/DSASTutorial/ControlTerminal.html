@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Terminal de Controle do Operador</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Control Terminal, Controlador, control de acceso" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ControlTerminal&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Terminal de Controle do Operador</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Simulación.html">Âmbito da Simulação</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Simulación.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="ExamplethechangesinStatesandEven.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="ClasesPracticas.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Cada fabricante de turbinas eólicas fornece um dispositivo conhecido como "Control Terminal" ou "Control Terminal" destinado a servir como a principal ferramenta para o operador realizar operações relacionadas à manutenção e ajuste da turbina eólica.</span></p>
+<p class="rvps4"><span class="rvts11">Estes são geralmente dispositivos portáteis capazes de operar em ambientes severos (</span><span class="rvts15">robusto</span><span class="rvts11">) em termos de temperatura, humidade, etc.</span></p>
+<p class="rvps4"><span class="rvts11">Eles se conectam ao controlador de turbinas eólicas através de uma porta de comunicações específica, geralmente portas com protocolo RS-485 ou similar.</span></p>
+<p class="rvps4"><span class="rvts11">Eles têm uma tela, geralmente pequena, e um teclado.</span></p>
+<p class="rvps11"><span class="rvts12">Funções</span></p>
+<p class="rvps4"><span class="rvts11">Com o Terminal de Controle, o Operador pode realizar as seguintes operações:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Saiba exatamente o status da turbina eólica, acessando todas as variáveis internas. Muitas dessas variáveis só são acessíveis através do Terminal de Controle e não, por exemplo, através da conexão com o sistema SCADA do parque eólico.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Acesse dados históricos de incidentes.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Alterar parâmetros que influenciam o comportamento global da turbina eólica. Para isso, o controlador tem multi-nível "</span><span class="rvts15">controlo de acesso</span><span class="rvts11">" mecanismos que permitem diferentes operações de mudança dependendo do perfil do operador.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

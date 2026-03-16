@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Circuitos de média de sensores Pt100</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Sensoresdetemperatura&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Circuitos de média de sensores Pt100</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">O que é uma turbina eólica?</a>
+					›› <a href="EstructuraAerogenerador.html">Estrutura de uma turbina eólica de eixo horizontal</a>
+					›› <a href="Sensorestemperatura.html">Sensores de temperatura</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Sensorestemperatura.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Sensorestemperatura.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Nuevotema4.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">Os sensores de temperatura Pt100 são dispositivos que contêm uma resistência à platina, que entra em contato com o elemento cuja temperatura deve ser medida. É um tipo muito confiável de sensor que é amplamente utilizado na indústria devido à estabilidade da relação entre resistência e temperatura. A curva de resistência em função da temperatura também é bastante linear na faixa de uso.</span></p>
+<p class="rvps11"><span class="rvts6">Existem vários valores: o tipo Pt100 tem uma resistência de 100 ohms a 0°C e um coeficiente de proporcionalidade de 0,385 ohms/°C. Em outras palavras, o valor de resistência quando o sensor é colocado em um objeto a 100° C é 138,5 ohms (= 100 ohms + 100°C * 0,385).</span></p>
+<p class="rvps11"><span class="rvts6">A medição dessa resistência apresenta dois problemas: um derivado do baixo valor das variações com temperatura combinada com a influência da resistência dos fios que ligam o sensor ao dispositivo que realiza a medição. A solução é utilizar um circuito de medição como o mostrado na figura 1: R1, R2 e R3 correspondem às resistências dos fios que ligam o R</span><span class="rvts58">PT </span><span class="rvts6">sensor para o dispositivo de medição (localizado nos terminais L1, L2 e L3).</span></p>
+<p class="rvps11"><span class="rvts6">.</span><img alt="" src="lib/Sensor_Pt100.png" style="width : 425px; height : 284px; padding : 1px;"/></p>
+<p class="rvps11"><img alt="" src="lib/Circuito%20Pt100%203%20hilos.jpg" style="padding : 1px;"/><span class="rvts6">Fig. 1</span></p>
+<p class="rvps11"><span class="rvts6">Por desenho, os valores de R1, R2 e R3 são muito semelhantes. Se forem medidas as resistências entre os terminais L3 e L2 e, em seguida, entre os terminais L2 e L1, a resistência de R</span><span class="rvts58">PT</span><span class="rvts6">é a diferença entre os dois.</span></p>
+<p class="rvps11"><span class="rvts6">Um conceito semelhante é usado com o método de 4 fios.</span></p>
+<p class="rvps11"><img alt="" src="lib/Circuito%20Pt100%204%20hilos.jpg" style="padding : 1px;"/></p>
+<p class="rvps11"><span class="rvts6">A idéia baseia-se no fato de que qualquer instrumento de medição de tensão tem uma alta impedância (maior que 1 M ohms) e, portanto, se uma corrente conhecida é injetada entre terminais L1 e L4, apenas uma parte negligenciável fluirá através de L3 e L2, de modo que a tensão medida no voltímetro (DVM) será a mesma que na R</span><span class="rvts58">PT </span><span class="rvts6">terminals.</span></p>
+<p class="rvps11"><span class="rvts6">O outro problema decorre do fato de que a corrente injetada no R</span><span class="rvts58">PT</span><span class="rvts6">para levar a medição aquece o R</span><span class="rvts58">PT</span><span class="rvts6">, distorcendo assim a medida. Este erro depende não só da corrente, mas também das características térmicas do R</span><span class="rvts58">PT</span><span class="rvts6">e o ponto em que a medição é feita.</span></p>
+<p class="rvps11"><span class="rvts6">Para resolver este problema, alguns sistemas usam um mecanismo de pulso de corrente curta para fazer a medição.</span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

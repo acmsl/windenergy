@@ -1,0 +1,185 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Logic for detecting problems in contactors</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Normally Closed, Normalmente Cerrado, Normalmente Abierto">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Detalledelcircuitodeconexin&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Problem detection logic in contactors</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">What is a wind turbine?</a>
+					›› <a href="Conexionredelectrica.html">Connection to the electrical grid</a>
+					›› <a href="ConexinalaRedElctrica.html">Details of the connection circuit</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ConexinalaRedElctrica.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ConexinalaRedElctrica.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Nuevotema.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps11"><span class="rvts6">The logic for detecting the position of a contactor using two wires is to use an XOR function.</span></p>
+<p class="rvps13"><img alt="" style="padding : 1px;" src="lib/Funcion%20XOR.png"></p>
+<p class="rvps13"><span class="rvts6">Fig. 1</span></p>
+<p class="rvps11"><span class="rvts6">It starts with two contacts that are mechanically connected to the main contactors, which are represented in Fig. 1 by the two contacts connected to the &quot;NC&quot; (</span><span class="rvts17">Normally Closed</span><span class="rvts6">) and &quot;NO&quot; (</span><span class="rvts17">Normally Open</span><span class="rvts6">) inputs, respectively.</span></p>
+<p class="rvps11"><span class="rvts6">The &quot;</span><span class="rvts17">Status</span><span class="rvts6">&quot; signal that reaches the Controller corresponding to </span><span class="rvts17">the status</span><span class="rvts6"> of the contactor is associated, in the diagram in Fig. 1, with the &quot;NC&quot; input. There is another signal that also reaches the Controller (OK/Fault) that &quot;</span><span class="rvts17">validates</span><span class="rvts6">&quot; the &quot;Status&quot; signal. This signal corresponds to the </span><span class="rvts29">XOR </span><span class="rvts6">logic function, applied to both signals coming from the Contactor.</span></p>
+<p class="rvps11"><span class="rvts6">The mechanical and electrical design of the NC and NO contacts is such that both signals must have </span><span class="rvts17">opposite values during normal operation</span><span class="rvts6">. The logic table for the XOR function is as follows:</span></p>
+<div class="rvps13">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px; margin: 0px auto;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+   <p class="rvps9"><span class="rvts11">NC</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+   <p class="rvps9"><span class="rvts11">NO</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+   <p class="rvps9"><span class="rvts11">OK/Failure</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+   <p class="rvps9"><span class="rvts11">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+   <p class="rvps9"><span class="rvts11">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+   <p class="rvps9"><span class="rvts11">0</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+   <p class="rvps9"><span class="rvts11">1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+   <p class="rvps9"><span class="rvts11">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+   <p class="rvps9"><span class="rvts11">1</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+   <p class="rvps9"><span class="rvts11">0</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+   <p class="rvps9"><span class="rvts11">1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+   <p class="rvps9"><span class="rvts11">1</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+   <p class="rvps9"><span class="rvts11">1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+   <p class="rvps9"><span class="rvts11">1</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+   <p class="rvps9"><span class="rvts11">0</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps11"><span class="rvts6">The value of the OK/Failure signal, taking into account failure situations, is as follows: </span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">If +Vcc has no voltage, both NC and NO will have 0 volts </span><span class="rvts67">→</span><span class="rvts6"> </span><span class="rvts17">Status</span><span class="rvts6"> = False and </span><span class="rvts17">OK/Fail</span><span class="rvts6"> = False</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">If the wires connecting the contacts in the Contactor and the Controller are both broken, both NC and NO will have 0 volts </span><span class="rvts67">→</span><span class="rvts6"> Status = False   and OK/Failure = False</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">If only one of the two wires connecting the contacts in the Contactor and the Controller is broken, then </span><span class="rvts17">when there is a change in the value of the one that is not broken</span><span class="rvts6">, both NC and NO will have the same value and therefore </span><span class="rvts67">→</span><span class="rvts6"> </span><span class="rvts17">OK/Failure</span><span class="rvts6"> = False</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,158 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Componentes b&aacute;sicos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "LdP_Help.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("EstructuraAplicLdPComponentes");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Componentes b&aacute;sicos</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="EstructuraAplicLdP.html">Estructura de las aplicaciones LdP</a> &rsaquo;&rsaquo; <a href="EstructuraAplicLdPConceptosBasic.html">Conceptos b&aacute;sicos</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAplicLdPConceptosBasic.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPConceptosBasic.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPControlSimulac.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps5"><span class="rvts16">Una aplicación LdP (Simulador) viene definida por una descripción en un fichero de configuración, en el cual:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Se declaran cada uno de los componentes que se utilizan en el Simulador.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Se declaran las conexiones entre las señaels de salida y entrada de cada uno de los componentes.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Se definen elementos auxiliares: valores de parámetros, de ayuda, definición de configuraciones de Registradores gráficos, etc.</span></p>
+<p class="rvps5"><span class="rvts16">Los "componentes" de una configuración en LdP pueden ser los siguientes tipos:</span></p>
+<div class="rvps2"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Processes</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Este elemento puede contener ninguno, uno o más elementos tipo "</span><span class="rvts19">Process</span><span class="rvts16">" (Proceso). Cada uno de estos hace referencia a una DLL desarrollado específicamente para simular determinado aspecto o subsistema.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Synoptics</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Este elemento puede contener uno o más elementos tipo "Synoptic" (Sinóptico). Estos elementos hacen referencia a DLLs desarrolladas específicamente usando indicadores gráficos. Constituyen la interfaz de usuario.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Connections</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Este elemento contiene elementos tipo “</span><span class="rvts19">InternalConnection</span><span class="rvts16">”. Estos elementos contienen una "señal de salida" y una o varias "señal de entrada".</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Parameters</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Este elemento contiene ninguno, uno o más elementos tipo "Parameter". Cada uno de ellos tiene asociada una "señal de salida" con un nombre asociado a un Process o Synoptic. Existe un Synoptic de base ("Parameters") que permite acceder a estos "Parameter" y cambiar el valor asociado. Habitualmente se utiliza para definir parámetros de algoritmos implementados en los diferentes "Process" y "Synoptic"</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">StripRecorders</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">(</span><span class="rvts19">Registradores</span><span class="rvts16">) Este elemento contiene un conjunto de elementos tipo "</span><span class="rvts19">Panel</span><span class="rvts16">", cada uno de los cuales define el contenido y formato de "</span><span class="rvts19">Recorder</span><span class="rvts16">"s (</span><span class="rvts19">Registro</span><span class="rvts16">), a través de los que se definen el conjunto de señales que se presentan y la forma de la representación.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Functions</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Elemento que contiene ninguno, uno o más elementos tipo "</span><span class="rvts19">Function</span><span class="rvts16">". Cada uno de estos elementos implementa una "</span><span class="rvts19">formula</span><span class="rvts16">": &nbsp;cada formula tiene asociada una señal de salida y un conjunto de señales de entrada correspondientes a las variables que utiliza.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps7"><span class="rvts6"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

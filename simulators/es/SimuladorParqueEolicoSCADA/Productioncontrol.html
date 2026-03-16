@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Control de la Producci&oacute;n</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="produccion, velocidad viento, Potencia activa, datalogging, datalogger, energy, DFIG, Full Converter, Rotor Resistance Controlled, Control automatico, columna 'Uso', Automatic Dispatching, modo manual, mecanismo automatizado de control, consigna, demanda, prevision del viento">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Productioncontrol");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Control de la Producci&oacute;n</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="OperationsinaWindFarm.html">Operaciones en un Parque E&oacute;lico</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="OperationsinaWindFarm.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="OperationsinaWindFarm.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ControldelaProduccin.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">De acuerdo con lo descrito en </span><a class="rvts31" href="IntegrationofaWindFarmintheGrid.html">Integración de un Parque Eólico en la Red Eléctrica</a><span class="rvts16"> y en </span><a class="rvts31" href="TheControlRoom.html">La Sala de Control - SCADA</a><span class="rvts16"> , la funcionalidad básica del Parque es entregar en todo momento la potencia demandada, que le llega como consigna, la cual depende básicamente &nbsp;de la previsión del viento y condiciones atmosféricas. Y esto debe hacerse respetando las necesidades impuestas por el mantenimiento de los aerogeneradores y demás equipos del parque en su optimo estado.</span></p>
+<p class="rvps2"><span class="rvts16">El operador del parque debe velar porque esta condición se cumpla. Para ello dispone del control de la puesta en marcha o pasada a paro de cada uno de los aerogeneradores.</span></p>
+<p class="rvps2"><span class="rvts16">Por ello en la sala de control de un Parque eólico se dispone de un representación gráfica como la que se muestra en la figura siguienta:</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem94.png"></p>
+<p class="rvps2"><span class="rvts32">Leyenda</span><span class="rvts16">:&nbsp;</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">(m/s) velocidad del viento en metros por segundo.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Wind Forecast</span><span class="rvts16"> (m/s): evolución de la previsión de la velocidad del viento.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">MeanWind</span><span class="rvts16"> (m/s) : velocidad promedio del viento que ha existido.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">ExternalSetPoint</span><span class="rvts16"> (MW): valor de la consigna de potencia a generar, en megawatios.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">PowertOutput</span><span class="rvts16"> (MW): valor real de la potencia producida, en megawatios.</span></p>
+<p class="rvps2"><span class="rvts16">La figura anterior muestra el gráfico con la evolución del viento medio y de la potencia generada a fecha 15:57:00, junto con la previsión de viento y la generación esperada la fecha 16:02:00.</span></p>
+<p class="rvps2"><span class="rvts16">El control de la potencia generada en cada momento se realiza desde el SCADA con un procedimiento que depende del tipo de aerogeneradores en el Parque: si son generadores de jaula de ardilla conectados directamente a la red, el único método de control de potencia es parar o arrancar aerogeneradores. Es el caso de la figura anterior. Como resultado, la potencia promedio generada sigue con bastante resolución la evolución de la consigna, pero con divergencias. Estas divergencias deben estar dentro de la tolerancia de la consigna. Si los generadores permiten consigna de la potencia activa, como es el caso de los aerogeneradores con control por resistencia de rotor, o los doblemente alimentados, este control de potencia tiene mucha mejor resolución (sigue más fielmente la consigna).</span></p>
+<p class="rvps2"><span class="rvts16">La puesta en marcha o parada de los aerogeneradores, y/o el cambio de las consignas a cada aerogenerador (según sea el caso) puede hacerse de "modo manual" o mediante un "mecanismo automatizado de control" (ver </span><a class="rvts31" href="AutomaticDispatching.html">Gestión automática</a><span class="rvts16"> )&nbsp;</span></p>
+<p class="rvps2"><span class="rvts16">En el modo manual, el usuario puede "parar" y "arrancar" cada aerogenerador, desde el SCADA, usando una funcionalidad similar la descrita en "</span><a class="rvts31" href="SCADAview.html">Acción posible</a><span class="rvts16">".&nbsp;</span></p>
+<p class="rvps2"><span class="rvts16">Los criterios para la Gestión automática tienen en cuenta consideraciones relativas al envejecimiento de los aerogeneradores, estado de las palas, de las multiplicadores, del generador, del mantenimiento planificado, etc. En general, el operador dispone también de procedimientos de uso fácil para evitar la aplicación de estos criterios a determinados aerogeneradores, en determinadas situaciones: esta funcionalidad se muestra en la columna "Use" en </span><a class="rvts31" href="SCADAview.html">Vista de la aplicación SCADA</a><span class="rvts16">.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

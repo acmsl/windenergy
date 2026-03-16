@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Esempio di cambiamenti di stato e eventi in M.E. durante un'operazione di connessione (cutin)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="conexión a la Red, cutin" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ExamplethechangesinStatesandEven&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Esempio di cambiamenti di stato e eventi nel M.E. durante un'operazione di connessione (cutin)</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito della simulazione</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="ControllersFunctionalstructure.html">Struttura funzionale del regolatore</a>
+					›› <a href="StateEventsDiagramsoftheimplemen.html">Macchine per il controllo interno</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="StateEventsDiagramsoftheimplemen.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="RelationshipsamongtheStateMachin.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="ControlTerminal.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Questo simulatore ha un segnale definito "Panel" (vedi</span><a class="rvts48" href="PanelCircuitohidrulicodefrenos.html">Pannello 'RPMs + Pitch + macchine di stato '</a><span class="rvts11">) che permette l'evoluzione di due variabili chiave (la velocità dell'albero del generatore e l'angolo di lancio) da osservare, insieme agli eventi e ai cambiamenti di stato delle due macchine statali.</span></p>
+<p class="rvps4"><span class="rvts11">La figura seguente mostra l'evoluzione di questi segnali durante un'operazione di connessione a rete (cutin).</span></p>
+<div class="rvps2">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="101%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 17%;">
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11">Le cifre mostrano l'evoluzione dei segnali rilevanti (Controller. Pitch, Nacelle. Pitch, GeneratedPower, Thyristor, Bypass, Brake, GeneratorRPMs, Wind), gli eventi generati (STOPSeqEvent, OperationEvent) e gli Stati (STOPSeqState, OperationState) per una corsa composta da passare alla modalità automatica (START) con vento basso (5,2 m/s), facendo il cutin a quella velocità del vento, cambiando il vento a circa 9.0 m/mo</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 81%;">
+<p class="rvps2"><img alt="" src="lib/DSAS%20Evolucion%20de%20estados%20en%20cutin%20a%206%20ms.jpg" style="padding : 1px;"/></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"> </span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

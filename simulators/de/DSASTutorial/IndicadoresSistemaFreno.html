@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Bremssystem</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="disco del freno, , , fail-safe, zapata, actuador hidráulico, Fail/Safe, bomba, válvula, presostato, histéresis, Circuito hidráulico de frenos, válvulas de freno, Pres. circ. frenos, Freno liberado" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;IndicadoresSistemaFreno&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Bremssystem</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Windkraftanlage Simulator mit Active Stall und zwei Geschwindigkeiten</a>
+					›› <a href="Sinopticos.html">Synoptics verwendet in diesem Simulator</a>
+					›› <a href="SinopticoTrenPotencia.html">Power Train Synoptic (SynopticDriveTrain)</a>
+					›› <a href="IndicadoresGondola.html">Gemeinsame Indikatoren</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="IndicadoresGondola.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="ControldePitch.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="AlgoritmoFrenos.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<div class="rvps20">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+<p class="rvps20"><span class="rvts6"><br/></span></p>
+<p class="rvps20"><img alt="" src="lib/Brakes%20hydraulic%20circuit.png" style="padding : 1px;"/></p>
+<p class="rvps20"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6">Hydraulischer Bremskreis</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+<p class="rvps21"><span class="rvts6"> </span><a name="Indicadores sistema de frenos"></a><img alt="" src="lib/Circuito%20de%20frenos%20indicadores%20espaol.png" style="padding : 1px;"/></p>
+<p class="rvps24"><span class="rvts6">Graphische Indikatoren im Zusammenhang mit dem Bremskreis. Sie befinden sich in "Präsentation nur" Modus, können aber in "Befehl" Modus (F6) geschaltet werden. Beschreibung ihrer Verbindung in</span><a class="rvts18" href="Algoritmodecontroldefrenosyseale.html">Anzeigeverbindungen</a></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps20"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Der Hydraulikkreislauf ist durch eine bestimmte aktive Grafik dargestellt, die Folgendes umfasst:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die</span><span class="rvts19">Schuh</span><span class="rvts6">die gegen die Bremsscheibe drückt.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die</span><span class="rvts19">Hydraulikantrieb</span><span class="rvts6">mit einer Feder zur Durchführung des "Fail/Safe"-Betriebs</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">A </span><span class="rvts19">Tankbehälter</span><span class="rvts29">mit dem Öl</span><span class="rvts6">im Hydraulikkreislauf eingesetzt.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">A </span><span class="rvts19">Hydraulikpumpe</span><span class="rvts6">die Druck in der Schaltung hält.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">A </span><span class="rvts19">Bremsventil</span><span class="rvts6">, die dazu dient, den Druck in der Schaltung schnell zu reduzieren, so dass die Aktuatorfeder den Schuh gegen die Bremsscheibe drückt und damit immobilisiert.</span></p>
+<p class="rvps2"><span class="rvts6">Es gibt eine Reihe von grafischen Indikatoren, die die Signale dieser Schaltung anzeigen. Diese Indikatoren können auf "</span><span class="rvts17">Befehl</span><span class="rvts6">" Modus (zugänglich mit der "F6" Taste) um Fehler zu simulieren.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts29">•Pump-Status</span><span class="rvts6">: kommt aus</span><span class="rvts29">die</span><span class="rvts6">Controller. Wenn der Befehlsmodus eingestellt wird, steuert er den Start/Stopp der Pumpe direkt an.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die</span><span class="rvts29">Zustand der beiden Bremsventile</span><span class="rvts6">(das weiche Bremsventil ist im obigen Diagramm nicht dargestellt). Diese Signale stammen vom Controller.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die</span><span class="rvts29">Status der</span><span class="rvts6">der Hydraulikkreislauf</span><span class="rvts29">Druck</span><span class="rvts6"> </span><span class="rvts29">Schalter</span><span class="rvts6">. Diese Vorrichtung hat Hysterese (unterschiedliche Grenzen, je nachdem, ob der Druck ansteigt oder abfällt): Diese beiden Grenzen definieren die Grünzone am unteren Takt. Dieses Signal wird dem Controller zugeführt.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die "</span><span class="rvts29">Bremskreisdruck</span><span class="rvts6">" Schieber gibt den Druck in Prozent des Nennwertes an.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die</span><span class="rvts29">Status der Grenze</span><span class="rvts6"> </span><span class="rvts29">Schalter</span><span class="rvts6">dass der Abstand zwischen Bremsbelag und Bremsscheibe ausreichend ist, um die Bremse nicht zu beaufschlagen. Dies ist durch die "</span><span class="rvts29">Bremse freigegeben</span><span class="rvts6">" Knopf. Es ist ein Eingangssignal für den Controller.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps20"><span class="rvts112"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps20"><span class="rvts112"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

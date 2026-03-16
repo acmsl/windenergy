@@ -1,0 +1,178 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Por entrada en p&eacute;rdidas (Stalling)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="stalling, stall, pitch, Active Pitch, Active Stall, Abs max, , , Entrada en p&eacute;rdidas, aerogeneradores de pala fija, controlabilidad, lifting, sustentaci&oacute;n, dragging, flujo laminar">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Stalling");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Por entrada en p&eacute;rdidas (Stalling)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Principios f&iacute;sicos</a> &rsaquo;&rsaquo; <a href="Porqugiranlaspalas.html">Conceptos sobre la potencia extraible del viento</a> &rsaquo;&rsaquo; <a href="Coeficienteaerodinmico2.html">Control de la potencia recogida del viento</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Coeficienteaerodinmico2.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Coeficienteaerodinmico.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="WindTurbineControlcriteria.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts38">Existe un efecto conocido como "</span><span class="rvts87">entrada en pérdidas</span><span class="rvts38">" o "</span><span class="rvts87">stalling</span><span class="rvts38">" que produce un descenso de la fuerza de sustentación (</span><span class="rvts37">lifting</span><span class="rvts38">) que hace girar las palas (ver </span><a class="rvts18" href="PFAPorquegiranlaspalas.html">¿Por qué giran las palas?</a><span class="rvts38">) Este efecto es el que se presenta cuando un avión aumenta el angulo de ataque de sus alas por encima de un determinado valor, como se muestra en los gráfico siguiente.</span></p>
+<div class="rvps4">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps4"><img alt="" style="padding : 1px;" src="lib/AvionSubiendo.gif"></p>
+   <p class="rvps4"><span class="rvts6">&nbsp;En este caso el angulo de las alas hace que exista una fuerza ascendente sobre las mismas. El </span><span class="rvts88">vector en rojo</span><span class="rvts6"> indica la diferencia entre esta fuerte ascensional y el peso del avión.</span></p>
+   <p class="rvps4"><span class="rvts11">
+
+<button onclick="document.getElementById('AvionSubiendo').src='lib/AvionSubiendo.gif';">Refrescar</button></span></p>
+   <p class="rvps4"><span class="rvts11"><br/></span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps4"><img alt="" style="padding : 1px;" src="lib/AvionDescendiendo.gif"></p>
+   <p class="rvps4"><span class="rvts6"><br/></span></p>
+   <p class="rvps2"><span class="rvts6">Cuando el angulo es demasiado grande, la fuerza ascencional es inferior al peso del avión, debido a la entrada en pérdidas del ala</span><span class="rvts11">.</span></p>
+   <p class="rvps4"><span class="rvts11"><p> <img alt="" id="AvionBajando" style="padding : 1px;" src="lib/AvionDescendiendo.gif"/></p>
+<button onclick="document.getElementById('AvionBajando').src='lib/AvionDescendiendo.gif';">Refrescar</button></span></p>
+   <p class="rvps4"><span class="rvts11"><br/></span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20con%20pitch%20normal.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><span class="rvts6"><br/></span></p>
+   <p class="rvps4"><span class="rvts6">Cuando el angulo es pequeño no se rompe el flujo laminar alrededor del ala o de la pala.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20con%20stalling.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps4"><span class="rvts6">Cuando el angulo supera un cierto valor, el flujo laminar desaparece de las zonas finales de la pala, y aparecen </span><span class="rvts19">turbulencias</span><span class="rvts6">, con lo que se reduce la superficie que contribuye a la sustentación, y por tanto la fuerza que "tira" hacia arriba de la pala (</span><span class="rvts29">lifting</span><span class="rvts6">), respecto del caso anterior.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Pala%20en%20tunel%20active%20stall.jpg"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps2"><span class="rvts6">Es posible también </span><span class="rvts53">inducir la creación de turbulencias</span><span class="rvts6"> cambiando el sentido del angulo de ataque. Esta técnica se usa en la solución de control llamada "</span><span class="rvts28">Active Stall</span><span class="rvts6">". La ventaja aquí consiste en que es necesario un angulo mucho más pequeño que en el caso anterior para entrar en pérdidas.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts11">Fig 1</span></p>
+<p class="rvps4"><span class="rvts11">En la siguiente figura se muestran las curvas correspondientes a la evolución de las fuerza de empuje vertical (</span><span class="rvts15">lifting</span><span class="rvts11">) y en el sentido del viento (</span><span class="rvts15">dragging</span><span class="rvts11">) en función del Pitch. Ver en </span><a class="rvts14" href="PFAPorquegiranlaspalas.html">¿Por qué giran las palas?</a><span class="rvts11"> la relación de estas fuerzas con las que determinan las fuerzas de giro de las palas y de empuje sobre la Torre.</span></p>
+<p class="rvps4"><span class="rvts11">Se puede ver que al entrar en pérdidas cambia el comportamiento, de forma que un aumento de viento corresponde un decrecimiento de la fuerza de "</span><span class="rvts13">lifting</span><span class="rvts11">" y por tanto de la potencia que se obtiene del viento para hacer girar el Hub. También se puede apreciar en la curva roja que cuando se entra en pérdidas aumenta la fuerza que actúa sobre la Torre. Es decir, </span><span class="rvts61">entrada en pérdidas implica cargas adicionales en la Torre</span><span class="rvts11">.</span></p>
+<p class="rvps4"><a name="CurvaLiftingDragging"></a><img alt="" style="padding : 1px;" src="lib/Grafico%20evolucion%20lifting%20y%20dragging%20por%20entr.png"></p>
+<p class="rvps4"><span class="rvts11">Fig 2.</span></p>
+<p class="rvps4"><span class="rvts11">La siguiente figura muestra la curva de potencia obtenida del viento para &nbsp;</span><span class="rvts61">aerogeneradores de pala fija</span><span class="rvts11">, en la que se ve el efecto de la entrada en pérdidas sobre la potencia. En estos casos, la pala está diseñada de forma que el nivel del viento al que se produce la entrada en pérdidas es algo mayor que el Viento Nominal. Esta</span><span class="rvts13"> respuesta pasiva</span><span class="rvts11"> ayuda a la </span><span class="rvts13">controlabilidad</span><span class="rvts11"> del aerogenerador: es decir, contribuye a que no se &nbsp;embale cuando aumenta mucho el viento.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Curva%20potencia%20pala%20fija.png"></p>
+<p class="rvps4"><span class="rvts11">Fig 3.</span></p>
+<p class="rvps4"><span class="rvts11">La siguiente figura muestra el resultado del uso de la entrada en pérdidas con la técnica de control "</span><span class="rvts61">Active Stall</span><span class="rvts11">", en la que se utiliza el Pitch para "forzar" la entrada en pérdidas con viento inferior al propio de la pala. En esta figura se pueden apreciar dos zonas:&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">a) en la zona de viento por debajo del viento nominal (alrededor de 12 m/s en el gráfico) el Pitch se mantiene en 0º, lo que corresponde con un Cp máximo (ver </span><a class="rvts86" href="Conceptossobrelapotencia.html">Coeficiente aerodinámico</a><span class="rvts11">);&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">b) por encima del viento nominal, cuando necesitamos reducir la potencia obtenida del viento, la pala se pone un pequeño angulo</span><span class="rvts13"> contra el viento</span><span class="rvts11"> (signo negativo de Pitch). El valor absoluto de ese angulo va disminuyendo conforme aumenta el viento, lo cual refleja el mismo fenómeno de entrada en pérdidas que se aprecia en las palas con ángulo fijo.</span></p>
+<p class="rvps4"><a name="PitchvsVientoActiveStall"></a><img alt="" style="padding : 1px;" src="lib/Pitch%20vs%20Viento%20en%20Active%20Stall.png"></p>
+<p class="rvps4"><span class="rvts11">Fig 4.</span></p>
+<p class="rvps4"><span class="rvts11">Aplicando este control del pitch, la curva característica de Potencia vs Viento en un aerogenerador controlado por </span><span class="rvts15">Active Stall</span><span class="rvts11"> se muestra en la siguiente figura.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/CurvaPotenciaPalaVariable.png"></p>
+<p class="rvps2"><span class="rvts11">Fig 5.</span></p>
+<p class="rvps2"><span class="rvts11">Como se puede comprobar comparando las figuras 3 y 5, la producción con vientos superiores al Viento Nominal mejora notablemente en para el caso de aerogeneradores con angulo de pitch variable y método "</span><span class="rvts15">Active Stall"</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts85"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

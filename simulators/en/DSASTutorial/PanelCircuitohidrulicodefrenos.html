@@ -1,0 +1,127 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Panel &#x27;RPMs + Pitch + State Machines&#x27;</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="velocidad de giro del eje del generador el&eacute;ctrico, Generador, pitch, m&aacute;quina de estado de Seguridad, seguridad, valor actual del estado, Operaci&oacute;n, m&aacute;quina de estado de Operaci&oacute;n, protocolos de actuaci&oacute;n, Controlador">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;PanelCircuitohidrulicodefrenos&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Panel &#x27;RPMs + Pitch + Status Machines&#x27;</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Wind Turbine Simulator with Active Stall and Two Speeds</a>
+					›› <a href="Sinopticos.html">Synoptics used in this simulator</a>
+					›› <a href="Comopresentarenprimerplanoundete.html">How to display a Logger and select a predefined Panel in it.</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Comopresentarenprimerplanoundete.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="PanelYawing.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PanelRPMsPitchMaquinasdeEstado.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts11">The following figure shows the panel called &#x27;RPMs + Pitch + State Machines&#x27;, which contains 6 channels.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/RegistradorRPMsMaqEstado.jpg"></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">The first &#x27;channel&#x27; shows a single signal with the </span><span class="rvts16">rotational speed of the electric generator shaft </span><span class="rvts11">(in RPMs).</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts11">The second &#x27;channel&#x27; presents two signals:</span></p>
+<p class="rvps22" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Signal generated in the Controller and used as </span><span class="rvts15">the setpoint value </span><span class="rvts11">for the blade </span><span class="rvts16">pitch</span><span class="rvts11">.</span></p>
+<p class="rvps22" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts11">Signal from the hub simulator, with the actual pitch value of the blades.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts11">The third &#x27;channel&#x27; presents a signal that corresponds to the </span><span class="rvts16">last event</span><span class="rvts11"> received by the </span><span class="rvts16">safety state machine </span><span class="rvts11">implemented in the Controller. See </span><a class="rvts48" href="SecurityStateMachine.html">Safety State Machine</a><span class="rvts11">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4. </span><span class="rvts11">The fourth &#x27;channel&#x27; presents a signal that corresponds to the </span><span class="rvts16">current value of </span><span class="rvts11">the Security state machine.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5. </span><span class="rvts11">The fifth &#x27;channel&#x27; displays a signal corresponding to the </span><span class="rvts16">last event</span><span class="rvts11"> received by the </span><span class="rvts16">Operation state machine </span><span class="rvts11">implemented in the Controller. See </span><a class="rvts48" href="OperationStateMachine.html">Operation State Machine.</a></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6. </span><span class="rvts11">The sixth &#x27;channel&#x27; displays a signal corresponding to the </span><span class="rvts16">current value of </span><span class="rvts11">the Operation state machine.</span></p>
+<p class="rvps4"><span class="rvts11">This panel is very useful for following the </span><span class="rvts16">action protocols </span><span class="rvts11">implemented in the Controller to respond to different circumstances and operations, in relation to key mechanical variables.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

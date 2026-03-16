@@ -1,0 +1,108 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Registro de datos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Datalogging1");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Registro de datos</h1>
+				
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="SimulacindePuestaenNodisponibled.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts16">Este simulador, al ser una aplicación LdP, va guardando en memoria la evolución de las diferentes señales que se intercambian entre sus sub-sistemas.</span></p>
+<p class="rvps4"><span class="rvts16">Al salir de ella se pregunta si se desea guardar estas evoluciones en disco. Ver figura.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Pregunta%20para%20salvar%20las%20senales.png"></p>
+<p class="rvps4"><span class="rvts16">Si la respuesta es "Aceptar", se crea un fichero de base de datos en el directorio "c:\WFS_Datalog\Simulador de Parque Eolico\aa-nn-dd-hh-mm-ss.sqlite" donde "aa-mm-dd-hh-mm-ss" corresponde a la fecha en la que se comenzó la sesión.</span></p>
+<p class="rvps4"><span class="rvts16">"aa" es el año, pe, "16" para "2016"; "nn", es el mes, "dd", es el dia; "hh", es la hora; "mm", es el minuto: y "ss" es el segundo, del comienzo.</span></p>
+<p class="rvps4"><span class="rvts16">Esta base de datos es explorable con varias herramientas de uso gratuito. P.e. la siguiente siguiente figura muestra el contenido de la descripción de un ejemplo abierto con la aplicación "DB Browser for SQLite".</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/SCADA%20tablas.png"></p>
+<p class="rvps4"><span class="rvts41">Algunas de estas herramientas disponen de funcionalidades para generar gráficos. Por ejemplo, la siguiente figura muestra la evolución de la potencia producida por uno de los aerogeneradores en una sesión de simulación.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/SCADA%20visualizacion%20evolucion%20tabla%20bbdd.png"></p>
+<p class="rvps4"><span class="rvts16">Estos datos son exportables en varios formatos (CSV, Excel, etc.) Para una descripción completa ver el epígrafe "</span><span class="rvts44">Registro de valores de las Señales (datalogging)</span><span class="rvts16">" en el tutorial "</span><span class="rvts44">Introduccion a LdP</span><span class="rvts16">".</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

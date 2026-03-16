@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Control of the Active Power delivered</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="consigna de producción" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("IntegracionconlaRedElectrica");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Control of the Active Power delivered</h1>
+<div id="topic_breadcrumb">
+<a href="Introduccion.html">Introduction</a> ›› <a href="WhatisaWindFarm.html">What is a wind farm?</a> ›› <a href="StrucutureandFunctionalitiesofaW.html">Structure and Functions of a wind farm</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="StrucutureandFunctionalitiesofaW.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Controlofthegeneratedpower.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Gridcodes.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">There are parks that have wind turbines that allow</span><span class="rvts32">control the power delivered to the Network</span><span class="rvts16">, regardless of the existing wind speed (i.e., they have control elements such that the power delivered is less than the power it could give at that time). With this type of wind turbines, the total power delivered to the Network can be controlled by making a distribution of production between the different wind turbines, for each change in the</span><span class="rvts30">production</span><span class="rvts16">. This is the case with the DFIGs-type wind turbines and those controlled by Rotor Resistance.</span></p>
+<p class="rvps2"><span class="rvts16">Other types of wind turbines, such as fixed-speed shovel or those that operate by control by "Active Stall," do not have that capacity: in this case the monitoring of the power delivery to the Network is done by disconnecting some of the wind turbines.</span></p>
+<p class="rvps2"><span class="rvts16">The park can implement several criteria to adapt to the change of power delivery. The following figures show some:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">For</span><span class="rvts32">upper limit</span><span class="rvts16">.</span></p>
+<p class="rvps2"><img alt="" src="lib/LimitacionPotenciaParquePorMaximo.jpg" style="padding : 1px;"/></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">For</span><span class="rvts32">gradient limitation</span><span class="rvts16">: the change of the slogan is followed, but without sudden transitions.</span></p>
+<p class="rvps2"><img alt="" src="lib/LimitacionPotenciaParquePorGradiente.jpg" style="padding : 1px;"/></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">With</span><span class="rvts32">continuous monitoring</span><span class="rvts16">but with a reserve margin:</span></p>
+<p class="rvps2"><img alt="" src="lib/LimitacionPotenciaParqueConReserva.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts16">The park may also be forced to participate in maintaining the frequency of the Network, an important part of the stability of the network: in this case the power control system delivered is more sophisticated and has to obey the parameters of the Network, governed for a curve similar to the following:</span></p>
+<p class="rvps2"><img alt="" src="lib/LimitacionPotenciaParqueConParticipacionEnCon.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts16"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

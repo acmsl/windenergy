@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Funktionsdiagramm der Windenergieanlage mit Eichhörnchenkäfig</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="pitch, veleta, emergencia, freno de mano" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraoperacionaldeunAerogen&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Funktionsdiagramm einer Windenergieanlage mit Eichhörnchenkäfig</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Was ist eine Windenergieanlage?</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Queesunaerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Nuevotema4.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Conexionredelectrica.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Funktionsblockdiagramm einer Windenergieanlage mit einem Eichhörnchenkäfiggenerator und variablem Schaufelwinkel.</span></span></h1>
+<p class="rvps2"><img alt="" src="lib/Aerog%20active%20stall.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Die Hauptfunktionen des Reglers entsprechen der Steuerung der</span><span class="rvts29">Verbindung (und Abschaltung) der</span><span class="rvts6">elektrische Energie</span><span class="rvts29">Generator zum Stromnetz</span><span class="rvts6">und</span><span class="rvts29">Steuerung des Blattwinkels:</span><span class="rvts6">dies ändert</span><span class="rvts29">die Leistung aus dem Wind</span><span class="rvts6">(wenn in</span><span class="rvts17">Produktion</span><span class="rvts6">) und</span><span class="rvts29">bremst den Zug</span><span class="rvts6">in der</span><span class="rvts17">Abschaltung</span><span class="rvts6">phase.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Detailliertes Funktionsdiagramm</span></span></h1>
+<p class="rvps2"><img alt="" src="lib/Esquema%20DSAS.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6">Diese Figur zeigt das Funktionsdiagramm dieser Windenergieanlage.</span></p>
+<p class="rvps2"><span class="rvts6">Hauptfunktionen</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Kontrolle der</span><span class="rvts60">Verbindung und Abschaltung der</span><span class="rvts59">elektrische Energie</span><span class="rvts60">Generator</span><span class="rvts59">zum elektrischen Netz</span><span class="rvts6">: </span></p>
+<p class="rvps2"><span class="rvts6">Der Controller überwacht:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Der Wind (über das Anemometer).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Die Umdrehungen der Generatorwelle.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oGrid-Parameter (Spannungen und Ströme pro Phase).</span></p>
+<p class="rvps2"><span class="rvts6">und führt die Steuerung über:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oThyrist</span><span class="rvts6">ors.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oBypass-Kontakte.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Kontrolle der</span><span class="rvts60">Leistung aus dem Wind</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">Der Controller überwacht:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Der Wind (über das Anemometer).</span></p>
+<p class="rvps2"><span class="rvts6">und steuert die aus dem Wind gewonnene Kraft durch:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Die Klingenwinkelsteuerung (Pitch)</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Kontrolle der</span><span class="rvts60">Zweiganggeneratoranschlüsse</span></p>
+<p class="rvps2"><span class="rvts6">Wenn der Generator zwei Statoranschlussmöglichkeiten zur Verfügung hat (d.h. er kann mit zwei Synchrondrehzahlen arbeiten), schaltet der Regler automatisch zwischen diesen beiden Drehzahlen. Der verwendete Algorithmus ist wie folgt:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Wenn es mit hoher Generatordrehzahl erzeugt wird:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Er leitet den Prozess des Abschaltens vom Netz ein, ändert den Klingenwinkel, so dass die vom Wind gewonnene Leistung reduziert wird.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Wenn die erzeugte elektrische Leistung 0 ist, trennt sie den Generator vom Netz ab und öffnet die Bypass-Kontaktoren.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Bewahrt den Klingenwinkel, so dass der Kraftzug die Drehzahl verliert, bis er einen Wert geringfügig unterhalb der niedrigen Synchrondrehzahl erreicht.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Er ändert die Verbindung der Generatorwicklung, so dass sie der niedrigen Synchrondrehzahl entspricht.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Hilfsfunktionen</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts60">• Sicherheit am Arbeitsplatz</span><span class="rvts59">Steuerung</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">Der Controller verfügt über Algorithmen zur Überwachung des Status der Windenergieanlage, deren Aufgabe es ist, die Sicherheit von Menschen und der Ausrüstung selbst zu gewährleisten.</span></p>
+<p class="rvps2"><span class="rvts6">Um dies zu tun, überwacht es:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">o Windgeschwindigkeit.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Der Drehzahlbereich der Generatorwelle.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Die Drehzahl der Schaufeln.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Der Schwingungssensorzustand des Turms.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oTemperatursensoren für verschiedene Elemente: Generator-Statorwicklung, Triebwerkswellenlager, Getriebe, Umgebung.</span></p>
+<p class="rvps2"><span class="rvts6">und trennt das Netz (sofern angeschlossen) und setzt den Klingenwinkel</span><span class="rvts17">to </span><span class="rvts6">"</span><span class="rvts17">Flagge</span><span class="rvts6">" (mit minimalem Widerstand gegen einfallenden Wind).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Kontrolle der</span><span class="rvts60">nacelle Orientierung</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Der Controller nutzt den Wind</span><span class="rvts29">Vane</span><span class="rvts6">Signal zur Bestimmung des Wertes seiner Auslenkung gegenüber der Windrichtung.</span></p>
+<p class="rvps2"><span class="rvts6">Es verwendet die Motorgruppen (eine für jede Drehrichtung: CW (im Uhrzeigersinn) oder CCW (im Gegenuhrzeigersinn)), um jede mögliche Auslenkung zu korrigieren.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Überwachung und Kontrolle</span><span class="rvts60">die Scheibenbremse</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Die Scheibenbremse wird hauptsächlich verwendet, um zu verhindern, dass sich der Kraftstrang dreht, wenn Wartungsarbeiten an den Schaufeln, etc. durchgeführt werden müssen. Es funktioniert wie ein</span><span class="rvts17">Handbremse</span><span class="rvts6">in einem Auto.</span></p>
+<p class="rvps2"><span class="rvts6">Die Komponenten des Bremsmechanismus (Scheibe, Scheibe, Hydraulikzylinder, Ventil) sind für eine weitere anspruchsvollere Funktion ausgelegt: als Kraftzugbremse einzuwirken</span><span class="rvts17">Notfallsituationen</span><span class="rvts6">. Wenn der Controller entscheidet, den Power Train zu stoppen, verwendet er den Klingenwinkel und gibt einen Winkel von 90o an. Wenn dieser Vorgang nicht ausreichend reagiert (nicht schnell genug), wird die Scheibenbremse als letztes Resort verwendet. Diese Verwendung gilt</span><span class="rvts17">ein Ausfall</span><span class="rvts6">weil, wenn es mit Produktionsgeschwindigkeit angewendet wird, alle vom Wind gewonnene Energie im Bremsschuh abgeführt werden muss, wodurch es sich verformt.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Überwachung</span><span class="rvts60">Turmschwingungen</span></p>
+<p class="rvps2"><span class="rvts6">Der Regler reagiert auf die Aktivität von</span><span class="rvts17">der Schwingungssensor</span><span class="rvts6">im Turm gelegen, den Kraftzug stoppen und die Klinge in eine "Flagge" Position setzen.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts60">•Hydrauliksystem</span><span class="rvts59">Wartung</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Das hydraulische System wird von der Power Train Bremse verwendet, aber je nach Modell kann es auch verwendet werden, um die Rotation der Nacelle zu fixieren, durch Schuhe an der Basis platziert. In bestimmten Modellen wurde auch zur Druckversorgung des Schaufelwinkelwechselmechanismus verwendet.</span></p>
+<p class="rvps2"><span class="rvts6">Der Regler erhält ein Signal von einem</span><span class="rvts17">Druckschalter</span><span class="rvts6">die es ermöglicht, den Druckpegel im Hydraulikkreislauf zu kennen. Je nach den durchzuführenden Operationen beginnt und stoppt die</span><span class="rvts17">Hydraulikpumpe</span><span class="rvts6">diesen Wert innerhalb eines geeigneten Bereiches aufrechtzuerhalten oder</span><span class="rvts17">Entlastungsventil</span><span class="rvts6">um diesen Druck zu reduzieren.</span></p>
+<p class="rvps6"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

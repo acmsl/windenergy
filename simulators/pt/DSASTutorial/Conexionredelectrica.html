@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Ligação à Grelha de Energia</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="barras de conexión, contactor bypass, , , tiristores, PCC, Point of Common Connection, Bypass, conexión suave, , Góndola, Velocidad_de_sincronismo, Generador Grande, Generador Pequeño, Punto de Conexión Común, SofStarter, soft conection, Punto de Conexión Común, jaula de ardilla, Media Tensión" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Conexionredelectrica&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Ligação à grelha eléctrica</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">O que é uma turbina de vento?</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Queesunaerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraoperacionaldeunAerogen.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="ConexinalaRedElctrica.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">A conexão com a rede elétrica é onde a energia elétrica produzida pela turbina eólica é evacuada. Na realidade, essa conexão é feita em duas seções, uma conectando a turbina eólica à subestação elétrica do parque eólico onde a turbina eólica está localizada, e a outra conectando a subestação à própria rede elétrica.</span></p>
+<p class="rvps2"><span class="rvts6">Ambas as secções têm tensões operacionais específicas. A conexão da turbina eólica com a subestação é geralmente feita através de um transformador, localizado no sopé da turbina eólica ou dentro dela, cujo enrolamento secundário está em uma tensão na faixa de tensão média (mais de 1.000 V), tipicamente entre 15 kV e 22 kV. O primário é tipicamente 690 V, que é a tensão do gerador elétrico usado.</span></p>
+<p class="rvps2"><span class="rvts6">O gerador elétrico usado na turbina eólica em que este simulador é baseado é um chamado "</span><span class="rvts29">gaiola de esquilo</span><span class="rvts6">" ou "</span><span class="rvts17">Rotor de curto-circuito</span><span class="rvts6">" gerador (ver</span><a class="rvts14" href="Introductiontothephysicalprincip.html">detalhes</a><span class="rvts6">). A energia elétrica gerada é a saída através da conexão do estator.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Ligação do gerador de turbinas eólicas ao transformador</span></span></h1>
+<p class="rvps2"><span class="rvts6">A conexão é feita através de cabos de energia que descem da nacele para o gabinete elétrico localizado no fundo da torre.</span></p>
+<p class="rvps3"><img alt="" src="lib/Lapp_Wind_Portfolio.jpg" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Modos de funcionamento do gerador</span></span></h1>
+<p class="rvps2"><span class="rvts6">No modelo utilizado neste simulador, que permite operar a duas velocidades, isto é conseguido usando duas formas diferentes de ligar os enrolamentos do estator. Estes são projetados de modo que uma conexão estator gera 4 pólos magnéticos (2 pares de pólos) e o outro gera 6 pólos (3 pares de pólos). Isso significa que a velocidade síncrona em um caso será 1500 rpm (para uma rede de 50 Hz) e no outro caso 1000 rpm.</span></p>
+<p class="rvps3"><span class="rvts61">Synchronism_speed</span><span class="rvts13">= (50 Hz * 60 segundos / Pars_of_Poles)</span></p>
+<p class="rvps2"><span class="rvts6">Como a turbina eólica atinge sua maior potência em 1500 rpm, esta conexão é geralmente chamada de "</span><span class="rvts17">Gerador Grande</span><span class="rvts6">", enquanto a ligação de 1000 rpm é chamada "</span><span class="rvts17">Gerador Pequeno</span><span class="rvts6">."</span></p>
+<p class="rvps2"><span class="rvts6">Em alguns modelos mais antigos, a mesma funcionalidade foi obtida usando dois geradores independentes conectados a uma caixa de velocidades com dois eixos de alta velocidade, cada um com uma relação diferente para o eixo de baixa velocidade.</span></p>
+<p class="rvps2"><span class="rvts6">No caso de uma grade de 60 Hz, as velocidades de um gerador semelhante seriam 1800 rpm e 1200 rpm, respectivamente.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Detalhes do Painel Elétrico</span></span></h1>
+<p class="rvps2"><span class="rvts6">A ligação dos cabos que descem do gerador elétrico aos cabos que saem</span><span class="rvts29">o Painel Elétrico</span><span class="rvts6">e ligar a turbina eólica ao Parque Eólico</span><span class="rvts59">Ponto de Ligação Comum</span><span class="rvts6">(conhecido como</span><span class="rvts29">PCC</span><span class="rvts6">) é feito através dos barramentos de painel, os fusíveis de proteção, e o contator principal da turbina eólica.</span></p>
+<p class="rvps2"><span class="rvts6">A</span><span class="rvts17">barra de ônibus</span><span class="rvts6">do painel estão equipados com instrumentos para medir as tensões nas fases e as correntes em cada fase: a medição da corrente por fase é realizada através de</span><span class="rvts63">Transformadores de medição de corrente</span><span class="rvts6">inserido nas barras. A produção destes</span><span class="rvts17">Transformadores de medição de corrente</span><span class="rvts6">é padronizado em 1 Amp ou 5 Amps escala completa: portanto, sua relação primária/secundário (por exemplo, 1000/5) deve ser conhecida, que é um parâmetro que deve ser inserido no Controlador para realizar os cálculos corretos. Com estes transformadores, os instrumentos de medição de parâmetros eléctricos</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps3"><img alt="" src="lib/Esquema%20electrico%20conexion%20generador.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6">Os cabos de alimentação são conectados através de um circuito composto por 3 grupos de contrafase</span> <span class="rvts61">tiristors</span> <span class="rvts6">que têm um contator em paralelo, conhecido como</span><span class="rvts61">um bypass</span><span class="rvts6">. Este grupo de componentes, juntamente com uma lógica de controle que gera os sinais de gatilho do tiristor (que gera os sinais que vão para as portas do tiristor), são usados para alcançar um</span> <span class="rvts17">suave</span><span class="rvts61">ligação</span><span class="rvts6">. Este mecanismo de ligação é conhecido como</span><a class="rvts62" href="Softstarter.html">SofStarter</a><span class="rvts6">.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

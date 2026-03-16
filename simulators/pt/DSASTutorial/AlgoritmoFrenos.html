@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Algoritmo de viagem e de controle do sinal</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="parada, cutout, reposo, cutin, TSR, Freno liberado, Circuito hidráulico de frenos, Fail/Safe" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;AlgoritmoFrenos&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Algoritmo de travagem e de controlo do sinal</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Sinopticos.html">Sinópticos utilizados neste simulador</a>
+					›› <a href="SinopticoTrenPotencia.html">Sinóptico do Comboio de Energia (SynopticDriveTrain)</a>
+					›› <a href="IndicadoresGondola.html">Indicadores comuns</a>
+					›› <a href="IndicadoresSistemaFreno.html">Sistema de travagem</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="IndicadoresSistemaFreno.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="IndicadoresSistemaFreno.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Algoritmodecontroldefrenosyseale.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">O algoritmo de controlo utilizado no sistema de travagem baseia-se nas seguintes ideias:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts29">Princípio do projecto de falha/segurança</span><span class="rvts6">: este princípio estabelece que um dispositivo que controla uma parte importante de um sistema deve ser projetado de tal forma que, se falhar, ele deixa o sistema em uma posição "seguro".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts29">Activar o desligamento rápido do comboio de potência</span><span class="rvts6">. Este requisito decorre da utilização secundária do mecanismo de travagem como "alternativa de segurança" no caso de o comboio de potência não poder ser desacelerado por meios aerodinâmicos.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts29">Minimização do número de sensores e atuadores</span><span class="rvts6">.</span></p>
+<p class="rvps4"><span class="rvts59">Este mecanismo de travagem do comboio de potência NÃO é o mecanismo utilizado para</span><span class="rvts63">desligamento</span><span class="rvts59">operações (</span><span class="rvts63">recorte</span><span class="rvts6">): estas operações são realizadas usando métodos aerodinâmicos, isto é, usando as lâminas, mudando seu ângulo de ataque, ou, em alguns modelos mais antigos que não tinham um mecanismo de mudança de passo, mudando a forma. Veja a figura a seguir.</span></p>
+<p class="rvps4"><img alt="" src="lib/Blade-tip-brakr-foto.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">No entanto, em condições excepcionais, por exemplo, quando o mecanismo de passo falha, ou alguns RPMs foram ultrapassados no trem de potência, ou uma parada muito rápida é necessária, o controlador também usa o freio hidráulico.</span></p>
+<p class="rvps4"><span class="rvts6">No design escolhido, o "</span><span class="rvts17">descanso</span><span class="rvts6">" posição é com o sapato pressionado contra o disco de freio pela mola do cilindro. Isto segue o princípio de funcionamento 'Falha/Salvar' (se algo der errado, o mecanismo permanece em um</span><span class="rvts17">seguro</span><span class="rvts6">posição), neste caso, a posição segura é o desligamento do comboio de energia.</span></p>
+<p class="rvps4"><span class="rvts6">Quando a turbina eólica está em produção, o sapato do freio está longe do disco, por isso não interfere com o movimento do trem de potência. Para que isso aconteça, é necessário neutralizar a pressão da mola no cilindro que força o sapato do freio. Isto é conseguido aumentando a pressão hidráulica aplicada à base da mola. Este aumento de pressão é alcançado através da regulação da válvula para a posição "fechada" e do arranque da bomba.</span></p>
+<p class="rvps4"><img alt="" src="lib/Zapata-separada-bomba-valvula-cerrada.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">Quando você quiser frear (sapato contra o disco), simplesmente reduzir a pressão hidráulica na base da mola. Isto é conseguido abrindo a válvula. Geralmente há mais de uma válvula, com diferentes vazões, de modo que a velocidade da queda de pressão, e portanto a frenagem, pode ser ajustada (em certa medida).</span></p>
+<p class="rvps4"><span class="rvts6">Finalmente, na concepção deste circuito, são utilizados um mínimo de elementos: uma bomba, um reservatório para o líquido, a(s) válvula(s), o interruptor de pressão (não mostrado) e o sensor de separação de sapatos (não mostrado).</span></p>
+<p class="rvps4"><span class="rvts6">A</span><span class="rvts17">condição</span><span class="rvts6">do sapato do travão não é medido por nenhum sensor, mas é</span><span class="rvts17">deduzido</span><span class="rvts6">pelo controlador durante a fase de arranque (</span><span class="rvts17">cutina</span><span class="rvts6">). O procedimento consiste em aplicar um binário mecânico significativo ao comboio de potência, mantendo o travão hidráulico activo (seca contra o disco). Este torque mecânico é alcançado orientando a nacele para o vento e definindo um valor de pitch que garante a utilização máxima do vento com baixos valores de rotação (ou seja, com</span><span class="rvts17">TSR</span><span class="rvts6"> practically 0). In these circumstances, the rotation speed of the power train is monitored: if it is not 0 (stopped), it is due to a problem with the shoe or the cylinder spring; in these circumstances, the cutin operation is aborted.</span></p>
+<p class="rvps4"><span class="rvts6">A bomba é usada para manter a pressão na base da mola a um valor que garante que, na produção, o sapato não esfregue contra o disco de freio. Para isso, esta pressão não é medida, mas sim um dispositivo mais robusto, um interruptor de pressão, calibrado à pressão desejada. Desta forma, o controlador recebe apenas um sinal digital (a saída do interruptor de pressão) e tem que controlar dois outros sinais digitais: o controle da bomba e o(s) controle(s) da válvula. Há também um interruptor de limite que é ativado quando o sapato do freio já está separado do disco do freio. Este sinal corresponde ao sinal associado ao botão 'Brake liberado'. O valor de pressão em que este sinal é tipicamente activado corresponde ao</span><span class="rvts60">Amarelo '</span><span class="rvts29">marcar</span><span class="rvts6">no indicador de pressão do circuito hidráulico circular.</span></p>
+<p class="rvps4"><span class="rvts6">A evolução dos sinais relacionados a este circuito hidráulico pode ser observada usando um dos "Painéis de gravador predefinidos" (clicando no sinóptico de controle de execução:</span><span class="rvts17">«Synoptics '</span><span class="rvts6"> --&gt; </span><span class="rvts17">Gravadores '</span><span class="rvts6">um formulário de gravador é exibido, e em</span><span class="rvts17">«Painéis definidos '</span><span class="rvts6">selecionar</span><span class="rvts17">« Circuito de travão hidráulico '</span><span class="rvts6">). Você pode observar a variação de vários sinais do circuito hidráulico durante diferentes situações de operação e paragem.</span></p>
+<p class="rvps4"><span class="rvts6">Os conceitos básicos de controle são baseados na histerese do interruptor de pressão, cuja saída é usada pelo controlador para iniciar a bomba quando seu valor é 'Off', ou seja, a pressão está abaixo do limite de calibração inferior do interruptor de pressão. E parar a bomba quando a pressão exceder o limite superior do interruptor de pressão. Presume-se que as válvulas estão fechadas. A figura seguinte ilustra este método de controlo.</span></p>
+<p class="rvps4"><img alt="" src="lib/CicloControlBombaconHisteresis.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

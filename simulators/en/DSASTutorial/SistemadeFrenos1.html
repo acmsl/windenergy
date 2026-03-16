@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Orientation mechanism (yaw)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", CW, CCW, orientaci&oacute;n de la g&oacute;ndola, zapatas, motores de giro">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;SistemadeFrenos1&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Orientation mechanism (yaw)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">What is a wind turbine?</a>
+					›› <a href="EstructuraAerogenerador.html">Structure of a horizontal axis wind turbine</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAerogenerador.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="SistemadeFrenos.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Mecanismodeorientacinyaw.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Rexroth%20-%20Tren%20de%20potencia%20rotulado%20-%20espaol.png"></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Functions and components of the brake mechanism</span></span></h1>
+<p class="rvps2"><span class="rvts6">The mechanism for orienting the nacelle toward the wind (</span><span class="rvts19">upwind</span><span class="rvts6">) has the following functions:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts19">Orientation of the nacelle</span><span class="rvts6">.</span><br/><span class="rvts6">To do this, it has two sets of</span> <span class="rvts29">rotation motors</span><span class="rvts6">, one for each direction, which are connected to a ring gear attached to the top of the tower. These motors are controlled from the controller, which implements the appropriate algorithms. The directions of rotation are referred to as </span><span class="rvts19">CW</span><span class="rvts6"> (</span><span class="rvts17">clockwise</span><span class="rvts6">) and </span><span class="rvts19">CCW</span><span class="rvts6"> (</span><span class="rvts17">counterclockwise</span><span class="rvts6">).</span><br/><span class="rvts6">In maintaining this orientation, the following must be taken into account:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The orientation of the nacelle must be such that the wind direction is perpendicular to the plane of rotation of the blades </span><span class="rvts17">most of the time, with minimal error.</span><span class="rvts6"> </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The energy required to rotate the nacelle and the blades attached to it.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The existing wind: if it is too low, it may not be important to ensure that the nacelle is oriented. These algorithms have to do with:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Maintaining the orientation of the nacelle so that the wind direction is perpendicular to the plane of rotation of the blades most of the time.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oPreventing</span> <span class="rvts6">existing disorientation, as well as</span><br/><span class="rvts6">  </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts19">Maintaining the nacelle in a fixed orientation</span><span class="rvts6">.</span><br/><span class="rvts6">This is achieved with</span> <span class="rvts29">brake pads</span> <span class="rvts6">that secure the nacelle to the tower. These brakes are </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts19">oDetecting and controlling the number of turns of the power cables </span><span class="rvts6">that run down to the base of the tower from the generator. These cables fall freely for a few meters until they are finally fixed to the wall of the tower. The (limited) flexibility of these cables is used to solve the problem of the (power) connection between a fixed part (the electrical cabinet at the base of the tower) and a moving part (the generator, which rotates with the nacelle).</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

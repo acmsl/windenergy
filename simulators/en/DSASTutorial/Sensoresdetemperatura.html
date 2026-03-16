@@ -1,0 +1,126 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Pt100 sensor averaging circuits</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Sensoresdetemperatura&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Pt100 sensor averaging circuits</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">What is a wind turbine?</a>
+					›› <a href="EstructuraAerogenerador.html">Structure of a horizontal axis wind turbine</a>
+					›› <a href="Sensorestemperatura.html">Temperature sensors</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Sensorestemperatura.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Sensorestemperatura.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Nuevotema4.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps11"><span class="rvts6">Pt100 temperature sensors are devices that contain a platinum resistor, which comes into contact with the element whose temperature is to be measured. It is a very reliable type of sensor that is widely used in industry due to the stability of the relationship between resistance and temperature. The resistance curve as a function of temperature is also fairly linear in the range of use.</span></p>
+<p class="rvps11"><span class="rvts6">There are several values: the Pt100 type has a resistance of 100 ohms at 0°C and a proportionality coefficient of 0.385 Ohms/°C. In other words, the resistance value when the sensor is placed on an object at 100°C is 138.5 ohms (= 100 ohms + 100°C * 0.385). </span></p>
+<p class="rvps11"><span class="rvts6">Measuring this resistance presents two problems: one derived from the low value of the variations with temperature combined with the influence of the resistance of the wires connecting the sensor to the device performing the measurement. The solution is to use a measurement circuit such as the one shown in Fig. 1: R1, R2, and R3 correspond to the resistances of the wires connecting the R</span><span class="rvts58">PT </span><span class="rvts6">sensor to the measuring device (located at terminals L1, L2, and L3).</span></p>
+<p class="rvps11"><span class="rvts6">.</span><img alt="" style="width : 425px; height : 284px; padding : 1px;" src="lib/Sensor_Pt100.png"></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/Circuito%20Pt100%203%20hilos.jpg"><span class="rvts6"> Fig. 1</span></p>
+<p class="rvps11"><span class="rvts6">By design, the values of R1, R2, and R3 are very similar. If the resistances between terminals L3 and L2 are measured, and then between terminals L2 and L1, the resistance of R</span><span class="rvts58">PT</span><span class="rvts6"> is the difference between the two.</span></p>
+<p class="rvps11"><span class="rvts6">A similar concept is used with the 4-wire method.</span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/Circuito%20Pt100%204%20hilos.jpg"></p>
+<p class="rvps11"><span class="rvts6">The idea is based on the fact that any voltage measuring instrument has a high impedance (greater than 1 M ohms) and therefore, if a known current is injected between terminals L1 and L4, only a negligible part will flow through L3 and L2, so that the voltage measured on the voltmeter (DVM) will be the same as that at the R</span><span class="rvts58">PT </span><span class="rvts6">terminals.</span></p>
+<p class="rvps11"><span class="rvts6">The other problem stems from the fact that injecting current into the R</span><span class="rvts58">PT</span><span class="rvts6"> to take the measurement heats up the R</span><span class="rvts58">PT</span><span class="rvts6">, thereby distorting the measurement. This error depends not only on the current, but also on the thermal characteristics of the R</span><span class="rvts58">PT</span><span class="rvts6"> and the point where the measurement is taken.</span></p>
+<p class="rvps11"><span class="rvts6">To solve this problem, some systems use a short current pulse mechanism to take the measurement.</span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

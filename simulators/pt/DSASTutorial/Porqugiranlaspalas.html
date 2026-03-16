@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Conceitos relativos à energia eólica extraível</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Cp, viento, pitch, Betz, Tip Speed Ratio, TSR" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Porqugiranlaspalas&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Conceitos sobre energia eólica extraível</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Princípios físicos</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="PrincipiosFisicosAerogeneradores.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="PFAPorquegiranlaspalas.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Conceptossobrelapotencia.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><a class="rvts18" href="PFAPorquegiranlaspalas.html">"Porque é que as lâminas giram?"</a><span class="rvts6">apresenta os conceitos básicos que explicam por que a força do vento perpendicular ao plano de rotação das lâminas as faz girar. Uma consequência é que esta força de rotação depende da forma das lâminas e também do seu ângulo em relação ao plano de rotação: quanto maior o ângulo (</span><span class="rvts29">pitch</span><span class="rvts6">) (ou seja, quanto menos área superficial da lâmina "faces" o vento), menos força haverá.</span></p>
+<p class="rvps2"><span class="rvts6">A fórmula que nos dá o poder extraível do vento é a seguinte (ver referências no</span><a class="rvts18" href="Bibliography.html">Bibliografia</a><span class="rvts6">):</span></p>
+<p class="rvps16"><span class="rvts29">PowerExtraído DeWind</span><span class="rvts6"> =</span><br/><span class="rvts6">0.5 * </span><span class="rvts29">AirDensity</span><span class="rvts6"> * </span><span class="rvts29">BladeSweptArea</span><span class="rvts6"> * </span><span class="rvts29">Vento</span><span class="rvts77">3</span> <span class="rvts6">* </span><span class="rvts29">Cp</span><span class="rvts6">(</span><span class="rvts17">Vento, BladeRotation Velocidade, Pitch</span><span class="rvts6">)</span></p>
+<p class="rvps2"><span class="rvts6">Onde</span><span class="rvts29">Área Varrida da Lâmina</span><span class="rvts6"> is </span><span class="rvts67">π</span><span class="rvts6"> * </span><span class="rvts29">Lâmina</span><span class="rvts77">Radi</span><span class="rvts29">us</span><span class="rvts77">²</span><span class="rvts6">, </span><span class="rvts17">Raio de lâmina</span><span class="rvts6">é a distância da ponta da lâmina para o centro do cubo, e Pitch é o ângulo de ataque da lâmina em relação ao plano de rotação das lâminas.</span></p>
+<p class="rvps2"><span class="rvts6">A</span><span class="rvts17">influência de Pitch é através da</span><a class="rvts78" href="Conceptossobrelapotencia.html">coeficiente aerodinâmico</a><span class="rvts6">(</span><span class="rvts29">Cp</span><span class="rvts6">), que é uma função complexa cujo valor máximo teórico é 0,59 (lei de Betz) e que depende de:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">o vento,</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">a velocidade de rotação das lâminas, e</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts6">•Pitch.</span></p>
+<p class="rvps2"><span class="rvts6">Também pode ser visto que a influência do vento vem através do termo</span><span class="rvts29">Vento</span><span class="rvts77">3,</span><span class="rvts6">e também através</span><span class="rvts29">Cp</span><span class="rvts6">. </span></p>
+<p class="rvps2"><span class="rvts6">A forma da função Cp depende da geometria das lâminas, e, dada uma determinada geometria, o valor depende de três variáveis:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">Velocidade do vento.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">A velocidade de rotação das lâminas.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">O ângulo de ataque (Pitch) das lâminas.</span></p>
+<p class="rvps2"><span class="rvts6">Felizmente, estas três variáveis podem ser reduzidas para duas usando um dispositivo matemático que relaciona velocidade do vento com velocidade de rotação da lâmina. Esta variável é conhecida como</span><span class="rvts19">TSR</span><span class="rvts6"> (</span><span class="rvts19">Razão de Velocidade da Dica</span><span class="rvts6">: a relação entre a velocidade linear da ponta da lâmina e a velocidade do vento).</span></p>
+<p class="rvps2"><span class="rvts6">A definição desta variável auxiliar é a seguinte:</span></p>
+<p class="rvps3"><span class="rvts29">TSR = 2 *</span><span class="rvts67">π</span><span class="rvts29">* BladeRadius * (BladeRotation Velocidade rpms</span><a name="TSR definition formula"></a><span class="rvts29">)/60) / Velocidade do vento</span><a name="TSR definition formula"></a><span class="rvts29">   </span></p>
+<p class="rvps2"><span class="rvts6">Usando esta variável TSR, a função Cp depende de apenas duas variáveis: TSR e Pitch:</span><span class="rvts29">Cp (TSR, Pitch)</span></p>
+<p class="rvps2"><span class="rvts6">O seguinte</span><a class="rvts18" href="Conceptossobrelapotencia.html">secções</a><span class="rvts6">apresentar dados significativos sobre esta função.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

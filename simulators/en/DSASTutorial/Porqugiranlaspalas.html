@@ -1,0 +1,130 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Concepts regarding extractable wind power</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Cp, viento, pitch, Betz, Tip Speed Ratio, TSR">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Porqugiranlaspalas&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Concepts about extractable wind power</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Physical principles</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PrincipiosFisicosAerogeneradores.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="PFAPorquegiranlaspalas.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Conceptossobrelapotencia.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><a class="rvts18" href="PFAPorquegiranlaspalas.html">&quot;Why do the blades turn?&quot;</a><span class="rvts6"> presents the basic concepts that explain why the force of the wind perpendicular to the plane of rotation of the blades causes them to turn. One consequence is that this rotational force depends on the shape of the blades and also on their angle relative to the plane of rotation: the greater the angle (</span><span class="rvts29">pitch</span><span class="rvts6">) (i.e., the less surface area of the blade &quot;faces&quot; the wind), the less force there will be. </span></p>
+<p class="rvps2"><span class="rvts6">The formula that gives us the extractable power from the wind is as follows (see references in the </span><a class="rvts18" href="Bibliography.html">Bibliography</a><span class="rvts6">):</span></p>
+<p class="rvps16"><span class="rvts29">PowerExtractedFromWind</span><span class="rvts6"> =</span><br/><span class="rvts6">0.5 * </span><span class="rvts29">AirDensity</span><span class="rvts6"> * </span><span class="rvts29">BladeSweptArea</span><span class="rvts6"> * </span><span class="rvts29">Wind</span><span class="rvts77">3</span> <span class="rvts6">* </span><span class="rvts29">Cp</span><span class="rvts6">(</span><span class="rvts17">Wind, BladeRotationSpeed, Pitch</span><span class="rvts6">)</span></p>
+<p class="rvps2"><span class="rvts6">Where </span><span class="rvts29">Blade Swept Area</span><span class="rvts6"> is </span><span class="rvts67">π</span><span class="rvts6"> * </span><span class="rvts29">Blade </span><span class="rvts77">Radi</span><span class="rvts29">us</span><span class="rvts77">²</span><span class="rvts6">, </span><span class="rvts17">Blade Radius</span><span class="rvts6"> is the distance from the tip of the blade to the center of the hub, and Pitch is the angle of attack of the blade relative to the plane of rotation of the blades. </span></p>
+<p class="rvps2"><span class="rvts6">The</span><span class="rvts17"> influence of Pitch is through the </span><a class="rvts78" href="Conceptossobrelapotencia.html">aerodynamic coefficient </a><span class="rvts6">(</span><span class="rvts29">Cp</span><span class="rvts6">), which is a complex function whose theoretical maximum value is 0.59 (Betz&#x27;s law) and which depends on:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">the wind, </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">the rotational speed of the blades, and </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts6">•Pitch. </span></p>
+<p class="rvps2"><span class="rvts6">It can also be seen that the influence of wind comes through the term </span><span class="rvts29">Wind</span><span class="rvts77">3,</span><span class="rvts6"> and also through </span><span class="rvts29">Cp</span><span class="rvts6">. </span></p>
+<p class="rvps2"><span class="rvts6">The shape of the Cp function depends on the geometry of the blades, and, given a certain geometry, the value depends on three variables:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">Wind speed.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">The rotational speed of the blades.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">The angle of attack (Pitch) of the blades. </span></p>
+<p class="rvps2"><span class="rvts6">Fortunately, these three variables can be reduced to two by using a mathematical device that relates wind speed to blade rotation speed. This variable is known as </span><span class="rvts19">TSR</span><span class="rvts6"> (</span><span class="rvts19">Tip Speed Ratio</span><span class="rvts6">: the ratio between the linear speed of the blade tip and the wind speed).</span></p>
+<p class="rvps2"><span class="rvts6">The definition of this auxiliary variable is as follows:</span></p>
+<p class="rvps3"><span class="rvts29">TSR = 2 * </span><span class="rvts67">π</span><span class="rvts29"> * BladeRadius * (BladeRotationSpeed rpms</span><a name="TSR definition formula"></a><span class="rvts29">)/60) / WindSpeed</span><a name="TSR definition formula"></a><span class="rvts29">   </span></p>
+<p class="rvps2"><span class="rvts6">Using this TSR variable, the Cp function depends on only two variables: TSR and Pitch:  </span><span class="rvts29">Cp (TSR, Pitch)</span></p>
+<p class="rvps2"><span class="rvts6">The following </span><a class="rvts18" href="Conceptossobrelapotencia.html">sections</a><span class="rvts6"> present significant data on this function.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

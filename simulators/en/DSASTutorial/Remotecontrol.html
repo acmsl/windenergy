@@ -1,0 +1,123 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Remote control from SCADA</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="SCADA, Petici&oacute;n de datos, desconexi&oacute;n de la Red, cutout, conexi&oacute;n a la Red, cutin, consigna de Potencia Activa, consigna de Potencia Reactiva">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Remotecontrol&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Remote control from SCADA</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Wind Turbine Simulator with Active Stall and Two Speeds</a>
+					›› <a href="Simulación.html">Scope of Simulation</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="Controlmodes.html">Operating Modes</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Controlmodes.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Automatic.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ControllersFunctionalstructure.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">In Automatic mode, the Controller waits for commands sent to it via the data line, which is normally connected to the Wind Farm Control Center where the wind turbine is located.</span></p>
+<p class="rvps4"><span class="rvts11">The commands are generally:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•Data request: </span><span class="rvts11">the Controller responds with a message that includes various operational data from the wind turbine: Status (in Production/Stopped/Faulty), measured wind speed, wind direction, instantaneous power (Active and Reactive), accumulated energy produced, temperatures in various elements, etc.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">STOP</span><span class="rvts11">: start the operation to </span><span class="rvts15">disconnect from the grid</span><span class="rvts11"> (</span><span class="rvts15">cutout</span><span class="rvts11">)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">START</span><span class="rvts11">: start the </span><span class="rvts15">grid connection </span><span class="rvts11">operation (</span><span class="rvts15">cutin</span><span class="rvts11">)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•Active power setpoint </span><span class="rvts11">change: this functionality is not implemented in the wind turbine that simulates this configuration.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Change in </span><span class="rvts16">reactive power setpoint</span><span class="rvts11">: this functionality is not implemented in the wind turbine that simulates this configuration.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,294 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Definition of Registrars</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraLdPDefRegistradores&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Definition of Registers</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="EstructuraAplicLdP.html">Structure of LdP applications</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Basic concepts</a>
+					›› <a href="EstructuraAplicLdPControlSimulac.html">Simulation control</a>
+					›› <a href="EstructuraAplicLdPSinopticoEjecu.html">Execution control synoptic</a>
+					›› <a href="EstructuraAplicLdPRegistrador.html">Recorder synoptic</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAplicLdPRegistrador.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DefinicindeRegistradores.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPBancoTrabajo.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps5"><span class="rvts16">Each </span><span class="rvts19">Tutorial</span><span class="rvts16"> includes a series of Panels consisting of Recorders that the author considers appropriate for the configuration. This series is grouped under the (single) element &quot;</span><span class="rvts19">StripRecorders</span><span class="rvts16">.&quot;</span></p>
+<p class="rvps5"><span class="rvts16">Example:</span></p>
+<p class="rvps5"><span class="rvts16">&lt;</span><span class="rvts19">StripRecorderPanels</span><span class="rvts16"> backColor=&quot;1&quot; borderColor=&quot;0&quot;&gt;</span></p>
+<p class="rvps5"><span class="rvts16">&lt;</span><span class="rvts19">Panel</span><span class="rvts16"> name=&quot;Pitch, Power, Brake, RPMs, Wind&quot; description=&quot;General Panel&quot;&gt;</span></p>
+<p class="rvps2"><span class="rvts16">      &lt;</span><span class="rvts19">Recorder</span><span class="rvts16"> type=&quot;A&quot; name=&quot;Pitch&quot; maxValue=&quot;+55&quot; minValue=&quot;-5&quot; height=&quot;120&quot;&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">Signal</span><span class="rvts16"> type=&quot;A&quot; name=&quot;Controller.Control.PitchOut&quot; color=&quot;0,0,255&quot; /&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;Signal type=&quot;A&quot; name=&quot;Nacelle.DriveTrain.PitchNacelleOut&quot; color=&quot;0,128,0&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;90.0&quot; label=&quot;90&quot; alphaValue=&quot;130&quot; color=&quot;0,0,0&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;45.0&quot; label=&quot; 45&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;-5.0&quot; label=&quot;-5&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;0.0&quot; label=&quot;0&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;30.0&quot; label=&quot;30&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;20.0&quot; label=&quot;20&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">        &lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;10.0&quot; label=&quot;10&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">      &lt;/</span><span class="rvts19">Recorder</span><span class="rvts16">&gt;</span></p>
+<p class="rvps2"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts16">      &lt;</span><span class="rvts19">Recorder</span><span class="rvts16"> type=&quot;A&quot; name=&quot;Power&quot; maxValue=&quot;1700000&quot; minValue=&quot;-10&quot; height=&quot;120&quot;&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">Signal</span><span class="rvts16"> type=&quot;A&quot; name=&quot;Nacelle.DFIGB2B.GridActivePower&quot; color=&quot;0,128,0&quot; /&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">Signal</span><span class="rvts16"> type=&quot;A&quot; name=&quot;Nacelle.DriveTrain.ActualWindPowerOut&quot;/&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;0&quot; label=&quot;0&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;500000&quot; label=&quot;500kW&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;1000000&quot; label=&quot;1MW&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">MarkLine</span><span class="rvts16"> value=&quot;1500000&quot; label=&quot;1.5MW&quot; alphaValue=&quot;130&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">      &lt;/</span><span class="rvts19">Recorder</span><span class="rvts16">&gt;</span></p>
+<p class="rvps2"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts16">      &lt;</span><span class="rvts19">Recorder</span><span class="rvts16"> type=&quot;D&quot; name=&quot;Brakes&quot; height=&quot;60&quot;&gt;</span></p>
+<p class="rvps11"><span class="rvts16">&lt;</span><span class="rvts19">Signal</span><span class="rvts16"> type=&quot;D&quot; name=&quot;Nacelle.Braking.BrakeReleasedOut&quot;/&gt;</span></p>
+<p class="rvps2"><span class="rvts16">      &lt;/</span><span class="rvts19">Recorder</span><span class="rvts16">&gt;</span></p>
+<p class="rvps2"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts16">&lt;/</span><span class="rvts19">Panel</span><span class="rvts16">&gt;</span></p>
+<p class="rvps5"><span class="rvts16">&lt;/</span><span class="rvts19">StripRecorderPanels</span><span class="rvts16">&gt;</span></p>
+<p class="rvps2"><span class="rvts25">Description of Elements Associated with StripRecorders</span></p>
+<p class="rvps4"><span class="rvts15">StripRecorders</span></p>
+<p class="rvps5"><span class="rvts16"> This element has two &quot;properties&quot; or &quot;attributes&quot;</span></p>
+<div class="rvps5"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts17">Property</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts17">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">backColor</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">This property determines the background color of the Panels. The possible ways to specify this color are as follows:</span></p>
+<p class="rvps5"><span class="rvts16">=&quot;0&quot; : black background color.</span></p>
+<p class="rvps5"><span class="rvts16">=&quot;1&quot; : white background color.</span></p>
+<p class="rvps5"><span class="rvts16">=&quot;R,G,B&quot; , where R, G, and B are integer values between 0 and 255.</span></p>
+<p class="rvps5"><span class="rvts16">Example: &quot;200,200,200&quot; produces the following background color. </span><img alt="" style="padding : 1px;" src="lib/Striprecorder bf 200200200.jpg"></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">borderColor</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">=&quot;0&quot; (Future use).</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts15">Panel</span></p>
+<p class="rvps5"><span class="rvts16">This element has two properties, &quot;</span><span class="rvts17">name</span><span class="rvts16">&quot; and &quot;</span><span class="rvts17">description</span><span class="rvts16">,&quot; both of which are text. Each panel corresponds to a synoptic. It can contain one or more &quot;</span><span class="rvts19">Recorder</span><span class="rvts16">&quot; elements.</span></p>
+<p class="rvps4"><span class="rvts15">Recorder</span></p>
+<p class="rvps5"><span class="rvts16">This element can contain one or more &quot;</span><span class="rvts19">Signal</span><span class="rvts16">&quot; elements and zero, one, or more &quot;</span><span class="rvts19">MarkLine</span><span class="rvts16">&quot; elements. It has the following properties:</span></p>
+<div class="rvps5"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts17">Property</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts17">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">type</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Can be &quot;A&quot; if you want to represent analog signals, or &quot;D&quot; if they are digital.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">name</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Used for identification.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">maxValue</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Upper value of the vertical axis of values.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">minValue</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Lower value of the vertical axis.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">height</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Height of the Recorder in pixels.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">scaleMode</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Optional. Values can be &quot;</span><span class="rvts19">lin</span><span class="rvts16">&quot; or &quot;</span><span class="rvts19">log</span><span class="rvts16">&quot;. The default value is &quot;lin&quot;.</span></p>
+<p class="rvps5"><span class="rvts16">If &quot;</span><span class="rvts19">lin</span><span class="rvts16">&quot;, the signal value scale is linear.</span></p>
+<p class="rvps5"><span class="rvts16">If &quot;</span><span class="rvts19">log</span><span class="rvts16">&quot;, the signal value scale is logarithmic.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts15">Signal</span></p>
+<p class="rvps5"><span class="rvts16">This element specifies one of the signals to be represented in the &quot;Recorder&quot; element within which it is defined. The color can be chosen.</span></p>
+<div class="rvps5"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts17">Property</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts17">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">type</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Can be &quot;A&quot; if you want to represent analog signals, or &quot;D&quot; if they are digital.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">name</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Must correspond to the name of a valid &quot;signal.&quot; See </span><a class="rvts18" href="EstructuraAplicLdPSinopticoSenCo.html">Synoptic for editing Signals and Connections</a><span class="rvts16">.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">color</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. =&quot;R,G,B&quot;, where R, G, and B are integer values between 0 and 255.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts15">MarkLine</span></p>
+<p class="rvps5"><span class="rvts16">This element displays a horizontal line corresponding to a possible value of the signals represented in the &quot;Recorder&quot; element where it is defined. The color and transparency can be changed. The associated text is displayed to the right of the ordinate axis. </span></p>
+<div class="rvps5"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts17">Property</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts17">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">value</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Associated value. Examples: &quot;10.0&quot;, &quot;-15.0&quot;, &quot;1e-4&quot;, &quot;-2e+8&quot;.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">label</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Text displayed to the right of the y-axis.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">color</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. =&quot;R,G,B&quot;, where R, G, and B are integer values between 0 and 255.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 126px;"><p class="rvps5"><span class="rvts19">alphaValue</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 727px;"><p class="rvps5"><span class="rvts16">Required. Value between 0 and 255 corresponding to the degree of transparency of the horizontal line drawn. 0 is completely transparent. 255 is not transparent.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

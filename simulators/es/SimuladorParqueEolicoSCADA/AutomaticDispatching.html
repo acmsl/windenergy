@@ -1,0 +1,122 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Gesti&oacute;n autom&aacute;tica</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="dispatching, rango de potencia permitido, TiempoParaCancelarPropuesta, control de la produccion, Control autom&aacute;tico">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("AutomaticDispatching");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Gesti&oacute;n autom&aacute;tica</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureoftheWindFarmSimulator.html">Descripci&oacute;n del Simulador de Parque Eolico</a> &rsaquo;&rsaquo; <a href="Description.html">Componentes del Simulador</a> &rsaquo;&rsaquo; <a href="DescriptionoftheUserInterface.html">Sinoptico principal</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DescriptionoftheUserInterface.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Productionindication.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Meteorologicalstation.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts16">En un parque eólico real existen otros sistemas que facilitan las tareas de Operación y Mantenimiento, y que tienen en cuenta aspectos relacionados con el Mantenimiento Planificado, la logística de piezas, equipos y material fungible, gestión de personal, etc.</span></p>
+<p class="rvps4"><span class="rvts16">Estos aspectos influyen en la gestión de los aerogeneradores (puesta en marcha o paso a parada) en relación con la producción. Así, por ejemplo, si hay que poner un aerogenerador en marcha, y existen varios disponibles, se preferirá uno a otro en función de diversos criterios.</span></p>
+<p class="rvps4"><span class="rvts16">Con objeto de ejemplificar esta influencia de aspectos de gestión adicionales, en este simulador se ha optado por incluir un mecanismo de gestión de la puesta en marcha o paso a parada de un determinado aerogenerador utilizando un criterio que tiene que ver con:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">el </span><span class="rvts32">número de horas en producción</span><span class="rvts16"> de cada aerogenerador (ver columna "</span><span class="rvts32">Horas. Prod</span><span class="rvts16">" en </span><a class="rvts31" href="SCADAview.html">Vista de la aplicación SCADA</a><span class="rvts53"> )</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts32">la elección del operador</span><span class="rvts16"> de permitir a dicho aerogenerador el participar en dicho operación (ver columna "Use" en </span><a class="rvts31" href="SCADAview.html">Vista de la aplicación SCADA</a><span class="rvts16"> )</span></p>
+<p class="rvps4"><span class="rvts16">Se puede controlar el funcionamiento de este mecanismo de "Gestión automática" de los aerogeneradores a través del </span><span class="rvts32">checkbox</span><span class="rvts16"> situado en el centro del sinóptico y etiquetado "</span><span class="rvts63">Control Automático</span><span class="rvts16">"</span></p>
+<p class="rvps4"><span class="rvts16">El algoritmo utilizado monitoriza la potencia producida y comprueba que está dentro de los limites definidos por el </span><span class="rvts44">rango de potencia permitido</span><span class="rvts16"> (ver </span><a class="rvts31" href="Productionindication.html">Indicación de la Producción</a><span class="rvts16"> ). Si está por encima, calcula el conjunto mínimo de aerogeneradores que hace que, si pasan a no producción, la potencia total del Parque sea la máxima posible dentro del rango permitido, y lo "propone" al operador del SCADA. Ver siguiente figura.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Sinoptico%20SCADA%20propuesta%20de%20desconexion.png"></p>
+<p class="rvps4"><span class="rvts16">El operador dispone de unos cuantos segundos (ver parámetro "</span><span class="rvts32">WatingTimeToCancelProposal</span><span class="rvts16">" en </span><a class="rvts31" href="Parameters.html">Parámetros</a><span class="rvts16"> ) para "Cancelar" la propuesta: de otra forma, se ejecuta el paso a parada de los aerogeneradores indicados.</span></p>
+<p class="rvps4"><span class="rvts16">Similarmente, si la potencia que se está produciendo está por debajo del límite del rango de potencia, el algoritmo calcula el conjunto mínimo de aerogeneradores que hace subir la potencia generada hasta un valor inferior al límite máximo.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Sinoptico%20SCADA%20propuesta%20de%20puesta%20en%20marcha.png"></p>
+<p class="rvps4"><span class="rvts27"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

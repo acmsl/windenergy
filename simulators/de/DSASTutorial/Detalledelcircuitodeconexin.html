@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Die Geschichte der Welt</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Normally Closed, Normalmente Cerrado, Normalmente Abierto" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Detalledelcircuitodeconexin&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Problemerkennungslogik bei Schützen</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Was ist eine Windenergieanlage?</a>
+					›› <a href="Conexionredelectrica.html">Anschluss an das elektrische Netz</a>
+					›› <a href="ConexinalaRedElctrica.html">Einzelheiten der Verbindungsschaltung</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ConexinalaRedElctrica.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="ConexinalaRedElctrica.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Nuevotema.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">Die Logik zum Erfassen der Position eines Schützes mit zwei Drähten besteht darin, eine XOR-Funktion zu verwenden.</span></p>
+<p class="rvps13"><img alt="" src="lib/Funcion%20XOR.png" style="padding : 1px;"/></p>
+<p class="rvps13"><span class="rvts6">Abb. 1</span></p>
+<p class="rvps11"><span class="rvts6">Es beginnt mit zwei Kontakten, die mechanisch mit den Hauptschützen verbunden sind, die in Abb. 1 durch die beiden mit der "NC" verbundenen Kontakte dargestellt sind (</span><span class="rvts17">Normalerweise geschlossen</span><span class="rvts6">) und "NO" (</span><span class="rvts17">Normal geöffnet</span><span class="rvts6">) Eingänge.</span></p>
+<p class="rvps11"><span class="rvts6">Die "</span><span class="rvts17">Status</span><span class="rvts6">" Signal, das den Controller entsprechend erreicht</span><span class="rvts17">der Status</span><span class="rvts6">des Schützes ist im Diagramm in Abb. 1 mit dem Eingang "NC" verbunden. Es gibt ein weiteres Signal, das auch den Controller (OK/Fault) erreicht, dass "</span><span class="rvts17">validiert</span><span class="rvts6">"das "Status"-Signal. Dieses Signal entspricht dem</span><span class="rvts29">XOR</span><span class="rvts6">eine logische Funktion, die auf beide vom Kontaktor kommenden Signale angewendet wird.</span></p>
+<p class="rvps11"><span class="rvts6">Die mechanische und elektrische Ausbildung der NC- und NO-Kontakte ist so, dass beide Signale haben müssen</span><span class="rvts17">Gegenwerte im Normalbetrieb</span><span class="rvts6">. Die Logiktabelle für die XOR-Funktion ist wie folgt:</span></p>
+<div class="rvps13">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px; margin: 0px auto;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">NC</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">NO</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">OK/Failure</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps11"><span class="rvts6">Der Wert des OK/Failure-Signals unter Berücksichtigung von Ausfallsituationen ist wie folgt:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">Wenn +Vcc keine Spannung hat, haben sowohl NC als auch NO 0 Volt</span><span class="rvts67">→</span><span class="rvts6"> </span><span class="rvts17">Status</span><span class="rvts6">= Falsch und</span><span class="rvts17">OK/Fail</span><span class="rvts6">= Falsch</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">Wenn die Drähte, die die Kontakte im Contactor und dem Controller verbinden, beide gebrochen sind, haben NC und NO 0 Volt</span><span class="rvts67">→</span><span class="rvts6">Status = Falsch und OK/Failure = Falsch</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">Ist nur eine der beiden die Kontakte im Kontaktor und dem Controller verbindenden Drähte gebrochen, dann</span><span class="rvts17">wenn eine Änderung des Wertes des nicht gebrochenen</span><span class="rvts6">, beide NC und NO haben den gleichen Wert und daher</span><span class="rvts67">→</span><span class="rvts6"> </span><span class="rvts17">OK/Failure</span><span class="rvts6">= Falsch</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

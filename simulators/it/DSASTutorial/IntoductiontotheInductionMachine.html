@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Introduzione alle macchine a induzione</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="velocidad de sincronismo, , rotor en cortocircuito, jaula de ardilla, rotor bobinado, par mecánico, deslizamiento, entrehierro, estator" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;IntoductiontotheInductionMachine&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Introduzione alle macchine a induzione</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Principi fisici</a>
+					›› <a href="WindTurbineControlcriteria.html">Criteri di progettazione e controllo delle turbine eoliche</a>
+					›› <a href="RequirementsimposedbytheElectric.html">Requisiti del generatore elettrico</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="RequirementsimposedbytheElectric.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="RequirementsimposedbytheElectric.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Introductiontothephysicalprincip.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">I generatori elettrici ad induzione (in realtà macchine elettriche ad induzione, in quanto possono essere motori o generatori) sono caratterizzati da una curva che mostra il rapporto tra</span><span class="rvts29">coppia meccanica</span><span class="rvts6">sul loro albero rotante e</span><span class="rvts29">velocità di rotazione di questo albero</span><span class="rvts6">. Vedi la figura seguente.</span></p>
+<p class="rvps9"><a name="Curva Par vs RPMs"></a><img alt="" src="lib/MaquinaInduccionParvsRPMs2Puntos.jpg" style="padding : 1px;"/></p>
+<p class="rvps9"><span class="rvts6">Fig. 1: "La coppia meccanica contro la curva di velocità rotazionale" di una macchina elettrica a induzione</span><span class="rvts89">.</span></p>
+<p class="rvps11"><span class="rvts6">C'è un punto caratteristico su questo grafico definito dalla caratteristica velocità di rotazione del generatore, la</span><span class="rvts29">velocità sincrona</span><span class="rvts6">. Questa velocità corrisponde alla velocità rotazionale del flusso magnetico creato nel suo spazio d'aria dall'avvolgimento dello statore. Per comprendere le due modalità di funzionamento, motore o generatore, dobbiamo ricordare che questo dispositivo trasforma l'energia da un tipo all'altro (energia elettrica in energia meccanica, o energia meccanica in energia elettrica). Pertanto, "collega" due mondi:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">il</span><span class="rvts29">albero rotante</span><span class="rvts6">, dove si trova l'avvolgimento del rotore, che deve essere collegato meccanicamente a un dispositivo che può ruotare e comportarsi come un carico meccanico o un generatore di energia meccanica.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">statore avvolgimento</span><span class="rvts6">, che deve essere collegato ad una fonte di energia elettrica o ad un consumatore di energia elettrica.</span></p>
+<p class="rvps11"><span class="rvts6">Il grafico di cui sopra considera la velocità di rotazione dell'albero, ma non dice nulla su come tale velocità è stata raggiunta.</span></p>
+<p class="rvps11"><span class="rvts6">Per comprendere i principi fisici su cui si basa questa macchina, guardare il seguente video:</span></p>
+<div style="margin: 10px 0;">
+<a href="https://www.youtube.com/watch?v=3nvRhIbjhbo" style="display: inline-block; position: relative; width: 480px; height: 270px;" target="_blank" title="Video - Imanes enfrentados en ejes">
+<img alt="Video - Imanes enfrentados en ejes" src="https://img.youtube.com/vi/3nvRhIbjhbo/maxresdefault.jpg" style="width: 480px; height: 270px; border: 1px solid #ccc; border-radius: 4px;"/>
+<span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; background: rgba(205,32,31,0.9); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+<span style="width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 20px; border-color: transparent transparent transparent #fff; margin-left: 4px;"></span>
+</span>
+</a>
+</div>
+<p class="rvps19"><span class="rvts90">Quando</span><span class="rvts91">velocità dell'albero è inferiore alla velocità sincrona</span><span class="rvts90">, una coppia meccanica appare sull'albero, generato da energia elettrica che entra attraverso l'avvolgimento dello statore, a condizione che sia collegato a una fonte di alimentazione.</span></p>
+<p class="rvps19"><span class="rvts90">Se in qualche modo siamo riusciti a rendere la velocità dell'albero superiore alla velocità sincrona, e l'albero è collegato a un</span><span class="rvts92">dispositivo che fornisce coppia meccanica</span><span class="rvts90">(ad esempio, le pale di una turbina eolica) e lo statore è collegato a una rete elettrica, e la velocità dell'albero è stata fatta per essere superiore alla velocità sincrona, quindi la coppia meccanica applicata all'albero esce dallo statore come energia elettrica.</span></p>
+<p class="rvps11"><span class="rvts6">A quella velocità di rotazione, non c'è</span></p>
+<p class="rvps11"><span class="rvts6">La seguente grafica animata mostra una sezione trasversale di una</span><span class="rvts29">trifase</span><span class="rvts6">macchina di induzione (il rotore è stato rimosso per chiarezza) e come il campo magnetico è creato dalle correnti che passano attraverso ogni coppia di bobine quando sono alimentati da correnti trifase perfettamente bilanciate:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts6">•Separazione temporale di 120o elettrico.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Pari grandezza per valori di picco.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Campo magnetico nel vuoto dell'aria</span></span></h1>
+<p class="rvps13"><img alt="" src="lib/CompletoConCamposDeFaseImanVirtual_2.gif" style="padding : 1px;"/></p>
+<p class="rvps11"><span class="rvts6">Ogni fase della griglia è collegata a una bobina dello statore (una per colore). The</span><span class="rvts17">magnete magnetico</span><span class="rvts6">(cioè, il flusso magnetico) che è presente corrisponde alla somma vettoriale dei flussi magnetici creati da ciascuna delle bobine, alimentati da ciascuna delle fasi della griglia.</span></p>
+<p class="rvps11"><span class="rvts6">Quando non c'è carico meccanico sull'albero (cioè quando l'albero può ruotare liberamente), la velocità di rotazione corrisponde alla velocità di rotazione di questo magnete equivalente.</span></p>
+<p class="rvps11"><span class="rvts6">La figura 1 (sopra) mostra che quando</span><span class="rvts29">frizione</span><span class="rvts6">è introdotto sull'albero, la sua velocità di rotazione diminuisce e la macchina</span><span class="rvts19">crea una coppia meccanica</span><span class="rvts6">che contrasta l'attrito. (Punta A.)</span></p>
+<p class="rvps11"><span class="rvts6">D'altra parte, se l'albero è</span><span class="rvts29">forza</span><span class="rvts6">per correre ad una velocità superiore alla velocità sincrona,</span><span class="rvts19">consuma la coppia meccanica</span><span class="rvts6">necessario per questo forcing, che appare come energia elettrica nelle bobine dello statore. (punto B.)</span></p>
+<p class="rvps11"><span class="rvts6">In altre parole, a seconda che mettiamo un carico meccanico sull'albero o forniamo la coppia meccanica, questa macchina si comporta come un motore o un generatore.</span></p>
+<p class="rvps11"><span class="rvts6">Un punto molto importante da tenere a mente è che il comportamento di questa macchina cambia a seconda della velocità di rotazione: l'area che ci interessa è quella</span><span class="rvts17">intorno</span><span class="rvts6">la sua velocità sincrona.</span></p>
+<p class="rvps11"><span class="rvts6">The</span><span class="rvts29">velocità sincrona</span><span class="rvts6">dipende dal numero di coppie di pali magnetici (1 nel caso della figura sopra) e dalla frequenza della rete. Nel caso della figura, e supponendo 50 cicli/secondo, la velocità sincrona è (50 cicli/secondo)/1, o 50 rivoluzioni/secondo, o (50 * 60) rivoluzioni/minuto = (3.000 giri/min).</span></p>
+<p class="rvps11"><span class="rvts6">Prendendo la velocità di sincronizzazione come riferimento, la curva di funzionamento (Fig. 1) di solito utilizza</span><span class="rvts17">valore relativo</span><span class="rvts6">delle rivoluzioni dell'albero rispetto alle rivoluzioni sincroniste, invece del valore assoluto delle rivoluzioni. Questo valore è chiamato</span><span class="rvts29">slip</span><span class="rvts6">(solitamente rappresentato dalla lettera)</span><span class="rvts29">s</span><span class="rvts6">').</span></p>
+<p class="rvps13"><span class="rvts17">s = (Speed effettivo - SynchronismSpeed) / SynchronismSpeed</span></p>
+<p class="rvps13"><span class="rvts6">or</span></p>
+<p class="rvps13"><span class="rvts17">s = (Speed / SynchronismSpeed) - 1</span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

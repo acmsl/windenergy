@@ -1,0 +1,110 @@
+<html>
+<head>
+<title>Modos</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="vueltas de los cables, , operación de orientación" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Modes&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Modos</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Simulación.html">Âmbito da Simulação</a>
+					›› <a href="Controller.html">Controlador</a>
+					›› <a href="Algorithms.html">Algoritmos usados</a>
+					›› <a href="Yawingofthenacelle.html">Algoritmos para controlar a orientação e desbobinamento de cabos de energia</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Yawingofthenacelle.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Yawingofthenacelle.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Controlmodes.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">O Controlador permite</span><span class="rvts17">dois modos de funcionamento</span><span class="rvts6">em relação à</span><span class="rvts29">orientação da nacele</span><span class="rvts6">funções:</span></p>
+<p class="rvps4"><span class="rvts6">a) Manual.</span></p>
+<p class="rvps4"><span class="rvts6">b) Automático.</span></p>
+<p class="rvps4"><span class="rvts6">No modo "Manual", o operador pode usar os botões no "Control Terminal" associado à "Rotação manual". Veja a figura a seguir.</span></p>
+<p class="rvps9"><img alt="" src="lib/ControlTerminal-espanol-en-produccion.jpg" style="padding : 1px;"/></p>
+<p class="rvps9"><span class="rvts6">Fig. 1</span></p>
+<p class="rvps4"><span class="rvts6">Na produção, estes dois botões são "</span><span class="rvts17">inativo</span><span class="rvts6">", como mostrado na figura 1 acima.</span></p>
+<p class="rvps4"><span class="rvts6">Para fazê-los</span><span class="rvts17">ativo</span><span class="rvts6">," é necessário desconectar a turbina eólica da grade usando o botão "STOP".</span></p>
+<p class="rvps9"><img alt="" src="lib/ControlTerminal-espanol-parado.jpg" style="padding : 1px;"/></p>
+<p class="rvps9"><span class="rvts6">Fig. 2</span></p>
+<p class="rvps4"><span class="rvts6">No modo de orientação "Manual", o Controlador evita que os botões de rotação estejam ativos se houver um problema com o sistema elétrico.</span></p>
+<p class="rvps4"><span class="rvts6">Mesmo no modo manual, o Controlador continua a monitorar o número de voltas dos cabos de alimentação e não permite que o máximo seja excedido em qualquer direção.</span></p>
+<p class="rvps4"><span class="rvts6">No modo "Automático", o controlador toma decisões sobre o desbobinamento de cabos com base em vários critérios.</span></p>
+<p class="rvps29"><span class="rvts6">No modo automático, o comportamento do sistema de orientação leva em conta o estado da turbina eólica. O objetivo principal é manter a turbina eólica sempre orientada para a direção do vento e também reduzir o consumo de energia (os motores de orientação consomem energia que é retirada da energia produzida - se estiver em produção - ou tirada da rede, se o gerador estiver desconectado).</span></p>
+<p class="rvps29"><span class="rvts6">Se a velocidade do vento for inferior a um limite ("</span><span class="rvts17">Mínimo de orientação</span><span class="rvts6">"), então não é aconselhável gastar energia orientando a turbina eólica para o vento. Um valor típico para este limite é 2,3 m/s. Acima deste limite, o critério é perguntar se faz sentido orientar a nacele primeiro, uma vez que o vento provavelmente aumentará o suficiente para tentar um processo de conexão logo em seguida.</span></p>
+<p class="rvps29"><span class="rvts6">Se a decisão é "orientar" a nacele, então o critério seguinte diz respeito ao</span><span class="rvts17">voltas dos cabos</span><span class="rvts6">. Se, no início do processo de orientação, essas curvas são maiores do que um determinado limite (outro parâmetro), então, antes de iniciar a orientação, faz sentido relaxar os cabos, antecipando que o vento pode mudar de direção na direção de atingir esse limite. Uma vez desfeito, o processo de orientação continua. Um valor típico para este limite está relacionado ao número máximo de voltas que os cabos podem suportar. Se este número é, digamos, 3,5 voltas, então um bom limite para relaxar antes de orientar, e antes de tentar se conectar, é cerca de metade disso, digamos 2 ou 2,5 voltas.</span></p>
+<p class="rvps29"><span class="rvts6">Naturalmente, o Controlador, em modo Automático, monitora continuamente o limite máximo de giros de cabo, mas não atua a menos que o interruptor limite seja ativado. Se isso acontecer, a Turbina do Vento irá parar imediatamente, gravando um "incidente" que gera uma sequência de nível 5 STOP. Este nível STOP é o mais suave, o que significa que o Controlador irá mudar o Pitch para obter um valor de potência negativo (por isso, o Power Train começará a desacelerar), até que a velocidade do Gerador atinja o valor síncrono, no ponto em que o Bypass contator irá abrir com o mínimo de tensão (ou seja, quando a corrente que passa por ele é zero ou mínimo, minimizando possíveis arcos elétricos dentro dele), e o Power Train continuará a desacelerar até que sua velocidade atinja um valor ocioso. Nesse momento, se a velocidade do vento for válida para conexão, o desbobinamento automático dos cabos ocorrerá como explicado acima.</span></p>
+<p class="rvps30"><img alt="" src="lib/Nuevo%20tem%2011.svg" style="width : 20px; height : 20px;"/></p>
+<p class="rvps30"><img alt="" src="lib/Nuevo%20tem%2010.svg" style="width : 20px; height : 20px;"/></p>
+<p class="rvps30"><img alt="" src="lib/Nuevo%20tem%209.svg" style="width : 20px; height : 20px;"/></p>
+<p class="rvps30"><img alt="" src="lib/Nuevo%20tem%208.svg" style="width : 20px; height : 20px;"/></p>
+<p class="rvps31"><span class="rvts6"><br/></span></p>
+<p class="rvps32"><img alt="" src="lib/Nuevo%20tem%201.svg" style="width : 20px; height : 20px;"/></p>
+<p class="rvps32"><img alt="" src="lib/Nuevo%20tem.svg" style="width : 16px; height : 16px;"/></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6">No modo automático, o comportamento do sistema de guinada leva em consideração o estado da turbina de vento. O objetivo principal é manter a WindTurbina na produção o maior tempo possível e também reduzir o consumo de energia (os motores de guinada consomem energia que é emprestada da potência produzida – se na produção – ou tirada da grade se o gerador estiver desconectado).</span></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6">Se a velocidade do vento está abaixo de um limite (parâmetro), então não é sábio gastar energia colocando o WindTurbina frente ao vento. Um valor típico para este limite é 2,3 m/s. Acima deste limite, os critérios são: faz sentido orientar primeiro o Nacelle como, muito provavelmente, o vento vai crescer o suficiente para tentar um processo de corte em um curto espaço de tempo.</span></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6">Se a decisão é "orientar" a nacele, então os próximos critérios se referem às voltas dos cabos. Se no início do processo de orientação estas voltas são maiores do que um determinado limite (outro parâmetro), então, antes de iniciar a orientação, faz sentido desapertar os cabos. Uma vez sem torção, o processo de orientação continua. Um valor típico para este limite está relacionado ao número máximo de voltas de suporte dos cabos. Se este número é, digamos, 3,5 voltas, então um bom limite para desenroscar antes de orientar, e antes de tentar cortar, é em torno de metade, digamos, 2.</span></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6">Naturalmente, o Controlador, em modo automático, monitora continuamente o limite máximo de voltas para os cabos, mas não atua a menos que o interruptor limite seja ativado. Se isso acontecer, a WindTurbina irá parar imediatamente, registrando uma "incidência" que gera uma STOP Sequência de nível 5. Este nível de STOP é o mais suave, o que significa que o Controlador irá alterar o Pitch para obter um valor negativo de potência (por isso o DriveTrain começará a desacelerar), até que a velocidade do Gerador atinja o valor síncrono, no ponto em que o Bypass contator será aberto com o mínimo de tensão (ou seja, zero ou mínima corrente passando por ele, minimizando os arcos dentro dele), e o DriveTrain continuará desacelerando, até que sua velocidade atinja um valor ocioso. Nesse momento, se a velocidade do vento for válida para cutins, o desempate automático dos cabos ocorrerá como explicado acima.</span></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps20"><span class="rvts98"><br/></span></p>
+<p class="rvps20"><span class="rvts98"><br/></span></p>
+<p class="rvps20"><span class="rvts98"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

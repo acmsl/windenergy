@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Messung der Windrichtung - Beschreibung eines Wetterflügels</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="veleta, duty cycle, relación de aspecto" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;MedicindeladireccionDireccionVie&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Messung der Windrichtung - Beschreibung eines Wetterflügels</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Was ist eine Windenergieanlage?</a>
+					›› <a href="EstructuraAerogenerador.html">Struktur einer horizontalen Achse Windenergieanlage</a>
+					›› <a href="SensoresMeteo.html">Wettersensoren</a>
+					›› <a href="SensoresViento.html">Windsensoren</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="SensoresViento.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="LidarlaseryefectoDoppler.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Sensorestemperatura.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Windrichtung wird mittels einer</span><span class="rvts16">Windfahne</span><span class="rvts11">. Es gibt mehrere Arten von Windfahnen, je nach der Messung, die sie bieten und wie sie es bieten. Einige geben ein analoges Signal (in der Regel eine Spannung zwischen 0 und 10 V), die dem Winkel relativ zu einer bestimmten Referenz proportional ist. Andere enthalten einen Winkelgeber mit einer Kommunikationsleitung, durch die sie die Messung dieses Winkels direkt in numerischer Form geben.</span></p>
+<p class="rvps4"><span class="rvts11">Andere Windfahnen haben eine einfachere Struktur und liefern ein digitales Signal, dessen "Duty Cycle" dem "Orientierungsfehler" zwischen einer von seiner festen Basis gegebenen Referenz und der Windfahne selbst entspricht. Das folgende Video zeigt, wie es funktioniert.</span></p>
+<p class="rvps4"><span class="rvts11"> </span><img alt="" src="lib/Veletaswf.gif" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Das bewegliche Teil endet in einer unvollständigen Scheibe mit einem festen Winkel von weniger als 180 Grad. Sagen wir (180 -5) Grad. Diese Scheibe unterbricht oder erlaubt das von der LED emittierte Licht eines Gerätes, bestehend aus einer LED und einem Photodetektor, durch. Der Ausgang dieses Photodetektors ist in der vorhergehenden Figur auf dem Oszilloskop dargestellt.</span></p>
+<p class="rvps4"><span class="rvts11">Das von der Windfahne erzeugte Signal ist ein digitales Signal, das die Desorientierung der Gondel, d.h. die Differenz zwischen der Orientierung der Gondel und der Windrichtung, misst. Es ist ein oszillierendes Signal, dessen "Duty Cycle" das Maß dieser Winkeldifferenz ist. Der "Dauerzyklus" eines periodischen Signals ist das Verhältnis zwischen der Zeit, die das Signal im "Ein"-Zustand und der Periode dieses Signals ist.</span></p>
+<p class="rvps4"><span class="rvts11">Die Windfahne ist ein Gerät, das sich wie ein Pendel verhält, das vom Wind angeregt wird, statt durch die Schwerkraft. Wie in dem obigen Video zu erkennen ist, erhält der photoelektrische Detektor ein Signal, wenn der Weg seines Lichts nicht durch den dem Windflügel zugeordneten Halbkreis behindert wird, der vom Schwingungspunkt des Flügels und seiner relativen Lage bezüglich seiner an der Gondel befestigten Basis abhängt. Der folgende Graph zeigt vier Situationen, die diese Konzepte illustrieren.</span></p>
+<p class="rvps10"><img alt="" src="lib/Situaciones%20Veleta.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Der opake Halbkreis der Windfahne ist durch den rosa Halbkreis dargestellt. Der Kreissektor gibt die Schwingungszone des bewegten Teils der Windschaufel an. Im ersten Fall (links) wird die Position der Lichtquelle auf der Windfahne niemals behindert: so wird der Ausgang des Windfahnensensors immer erregt (schwarze Linie). Im zweiten Fall bedeutet die Schwingung der Windfahne, dass während eines kleinen Teils der Schwingung das Licht der Windfahne den Sensor nicht erreicht, und wir haben ein Ausgangssignal, das die meiste Zeit angeregt wird. Im dritten Fall erhält der Sensor während eines kleinen Teils des Schwingungszyklus nur Licht. Im vierten Fall erhält der Sensor während der Schwingung an keiner Stelle Licht.</span></p>
+<p class="rvps4"><span class="rvts11">Die "Ausrichtung" der Gondola gegenüber dem Wind ergibt sich aus der Differenz zwischen dem durchschnittlichen Winkel, unter dem die Windschaufel schwingt, der der Wind ist, und der Richtung der Gondola (die horizontale Linie in der Figur).</span></p>
+<p class="rvps4"><span class="rvts11">Wie man sieht, wenn das Windflügelsignal immer Auf oder ab ist die Desorientierung größer als der Schwingungswinkel der Windfahne (d.h. groß). Wenn dieses Signal schwingt zwischen On und Off, seine "</span><span class="rvts15">Zollsatz</span><span class="rvts11">" lässt die Auslenkung genau gemessen werden. Wenn der Pflichtzyklus 50% beträgt, beträgt der Unterschied 0o.</span></p>
+<p class="rvps4"><span class="rvts11">Die Messung der Auslenkung mittels einer Vorrichtung erfordert eine Schaltung, die diese drei Situationen statistisch bearbeitet (immer auf, immer Off und oszillierend) und bei der Schwingung ihren Tastzyklus misst.</span></p>
+<p class="rvps10"><span class="rvts53"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

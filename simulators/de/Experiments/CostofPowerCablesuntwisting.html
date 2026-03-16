@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosten der Entverdrillung von Leistungskabeln</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <meta name="description" content="Experiment zur Berechnung der wirtschaftlichen Kosten von Entverdrillungsvorgängen">
+    <meta name="keywords" content="Entverdrillung, Kabel, Yaw, Kosten, Produktionsverlust, Windkraftanlage">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    
+    <style type="text/css">
+        #topic_header { background-color: #EFEFEF; }
+        body { font-size: 15px; line-height: 1.6; }
+        #topic_content { }
+        h1 { font-size: 28px; line-height: 1.3; }
+        h2 { font-size: 23px; line-height: 1.4; margin-top: 25px; margin-bottom: 15px; }
+        h3 { font-size: 20px; line-height: 1.4; }
+        h4 { font-size: 18px; line-height: 1.4; margin-top: 15px; }
+        p, li { font-size: 16px; margin-bottom: 12px; }
+        .learning-objective { background-color: #fff9e6; border-left: 4px solid #ffcc00; padding: 18px; margin: 18px 0; }
+        .didactic-box { background-color: #f0f8ff; border-left: 4px solid #0066cc; padding: 18px; margin: 18px 0; }
+        .procedure-box { background-color: #e8f5e9; border-left: 4px solid #4caf50; padding: 18px; margin: 18px 0; }
+        .important-note { background-color: #ffe6e6; border-left: 4px solid #cc0000; padding: 18px; margin: 18px 0; }
+        .key-concept { font-weight: bold; color: #0066cc; }
+        .calculation-box { background-color: #f9f9f9; border: 2px solid #666; padding: 15px; margin: 15px 0; font-family: 'Courier New', monospace; }
+        .data-table { background-color: #f5f5f5; padding: 15px; margin: 15px 0; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { padding: 10px; border: 1px solid #999; text-align: left; }
+        th { background-color: #ddd; font-weight: bold; }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("CostofPowerCablesuntwisting");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Kosten der Entverdrillung von Leistungskabeln</h1>
+        </div>
+        <div id="topic_header_nav">
+            <a href="ObservationoftheNacelleYawoperat.html"><img src="img/arrow_left.png" alt="Zurück"/></a>
+            <a href="Responsetowindgusts.html"><img src="img/arrow_right.png" alt="Weiter"/></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Lernziele</h3>
+            <p>Nach Abschluss dieses Experiments werden Sie in der Lage sein:</p>
+            <ul>
+                <li>Zu verstehen, warum die Entverdrillung von Kabeln erhebliche wirtschaftliche Kosten verursacht</li>
+                <li>Die Gesamtdauer eines vollständigen Entverdrillungsvorgangs zu berechnen</li>
+                <li>Die mit diesem Prozess verbundenen Produktionsverluste abzuschätzen</li>
+                <li>Die Kostenkomponenten zu analysieren: Produktionsverlust vs. Motorenverbrauch</li>
+                <li>Strategien zur Minimierung der wirtschaftlichen Auswirkungen der Entverdrillung zu bewerten</li>
+            </ul>
+        </div>
+
+        <h2>Einleitung: Warum gibt es Kosten?</h2>
+        
+        <div class="didactic-box">
+            <h3>💰 Das wirtschaftliche Problem der Entverdrillung</h3>
+            <p>Wie wir im vorherigen Experiment gesehen haben, verdrehen sich die Leistungskabel fortschreitend, wenn die Gondel den Windrichtungsänderungen folgt. Wenn die Verdrillungsgrenze erreicht wird, muss die Windkraftanlage einen <span class="key-concept">Entverdrillungsvorgang</span> durchführen.</p>
+            
+            <p>Dieser Vorgang hat mehrere Kostenkomponenten:</p>
+            <ul>
+                <li><strong>Netztrennung (Cut-out):</strong> Während dieser Phase wird kein Strom erzeugt</li>
+                <li><strong>Entverdrillungsdrehung:</strong> Die Gondel muss mehrere vollständige Umdrehungen durchführen, was Zeit in Anspruch nimmt</li>
+                <li><strong>Netzwiederanschluss (Cut-in):</strong> Benötigt zusätzliche Zeit bis zur stabilen Produktion</li>
+                <li><strong>Verbrauch der Yaw-Motoren:</strong> Diese Motoren verbrauchen während des Prozesses Energie</li>
+            </ul>
+            
+            <p>Das <strong>Ziel dieses Experiments</strong> ist es, diese Kosten in wirtschaftlichen Größen zu quantifizieren.</p>
+        </div>
+
+        <h2>Problemstellung</h2>
+        
+        <div class="important-note">
+            <h3>📋 Analyseszenario</h3>
+            <p>Wir betrachten folgendes realistische Szenario:</p>
+            
+            <h4>Ausgangsbedingungen:</h4>
+            <ul>
+                <li>Die Windkraftanlage ist in <strong>Produktion</strong> (erzeugt Strom)</li>
+                <li>Die Leistungskabel haben die <strong>Verdrillungsgrenze</strong> in einer Richtung erreicht</li>
+                <li>Konfigurierte Grenze: <strong>2,5 vollständige Umdrehungen</strong> (900 Grad)</li>
+                <li>Ein vollständiger Entverdrillungsvorgang ist erforderlich</li>
+            </ul>
+            
+            <h4>Systemparameter:</h4>
+            <ul>
+                <li>Windgeschwindigkeit: <strong>Über der Nennwindgeschwindigkeit</strong> (gute Produktionsbedingungen)</li>
+                <li>Nennleistung der Windkraftanlage: <strong>1.500 kW</strong></li>
+                <li>Verbrauch der Yaw-Motoren: <strong>5 kW</strong></li>
+                <li>Stromverkaufspreis: <strong>0,10 €/kWh</strong></li>
+                <li>Geschwindigkeit der Yaw-Motoren: <strong>0,5 °/s</strong></li>
+            </ul>
+        </div>
+
+        <h2>Methodik des Experiments</h2>
+        
+        <p>Das Experiment erfordert, dass Sie drei kritische Zeiten bestimmen und dann die zugehörigen Kosten berechnen:</p>
+
+        <div class="procedure-box">
+            <h3>📝 Aufgabe 1: Abschaltzeit (Cut-out) beobachten</h3>
+            
+            <p>Wenn die Windkraftanlage die Entverdrillung einleitet, muss sie sich zunächst sicher vom Stromnetz trennen.</p>
+            
+            <h4>Vorgehensweise:</h4>
+            <ol>
+                <li>Konfigurieren Sie den Simulator mit den angegebenen Bedingungen</li>
+                <li>Aktivieren Sie den Cut-out-Prozess (Netztrennung)</li>
+                <li>Verwenden Sie die grafischen Aufzeichnungsgeräte (StripRecorders) zur Zeitmessung</li>
+                <li>Notieren Sie die <strong>Zeit vom Beginn des Cut-out bis die erzeugte Leistung 0 kW erreicht</strong></li>
+            </ol>
+            
+            <div class="data-table">
+                <h4>Zu erfassende Daten:</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Wert</th>
+                    </tr>
+                    <tr>
+                        <td>Abschaltzeit (t_cutout)</td>
+                        <td>_______ Sekunden</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Aufgabe 2: Entverdrillungszeit berechnen</h3>
+            
+            <p>Nach der Netztrennung muss die Gondel drehen, um die Kabel zu entverdrilen.</p>
+            
+            <h4>Theoretische Berechnung:</h4>
+            <div class="calculation-box">
+                <p><strong>Gesamtwinkel:</strong></p>
+                <p>Wenn die Grenze 2,5 Umdrehungen in eine Richtung beträgt, müssen wir 2,5 Umdrehungen in die entgegengesetzte Richtung drehen</p>
+                <p>Winkel = 2,5 Umdrehungen × 360°/Umdrehung = 900 Grad</p>
+                
+                <p><strong>Motorgeschwindigkeit:</strong> 0,5 °/s</p>
+                
+                <p><strong>Entverdrillungszeit:</strong></p>
+                <p>t_Entverdrillung = Gesamtwinkel / Geschwindigkeit</p>
+                <p>t_Entverdrillung = 900° / 0,5 °/s = <strong>1.800 Sekunden</strong> = <strong>30 Minuten</strong></p>
+            </div>
+            
+            <h4>Experimentelle Überprüfung (optional):</h4>
+            <p>Sie können diesen Prozess im Simulator beobachten, indem Sie die Yaw-Geschwindigkeitsparameter ändern:</p>
+            <ul>
+                <li>Suchen Sie die Parameter <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C5370616E6973685C44534153575453696D756C61746F725C446573656E72726F6C6C654361626C65732E68746D6C65/">'NacelleYawing.CWYawingSpeed'</a> 
+                    und <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C5370616E6973685C44534153575453696D756C61746F725C446573656E72726F6C6C654361626C65732E68746D6C65/">'NacelleYawing.CCWYawingSpeed'</a></li>
+               <li>Stellen Sie diese auf 0,5 °/s ein</li>
+                <li>Beobachten Sie die tatsächliche Dauer des gesamten Prozesses</li>
+            </ul>
+            
+            <div class="data-table">
+                <h4>Zu erfassende Daten:</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Berechneter Wert</th>
+                        <th>Beobachteter Wert (optional)</th>
+                    </tr>
+                    <tr>
+                        <td>Entverdrillungszeit (t_Entverdrillung)</td>
+                        <td>1.800 s (30 min)</td>
+                        <td>_______ Sekunden</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Aufgabe 3: Wiederanschlusszeit (Cut-in) beobachten</h3>
+            
+            <p>Nach Abschluss der Entverdrillung muss die Windkraftanlage sich wieder ans Netz anschließen und stabile Produktion erreichen.</p>
+            
+            <h4>Vorgehensweise:</h4>
+            <ol>
+                <li>Starten Sie nach Abschluss der Entverdrillung den Cut-in-Prozess</li>
+                <li>Verwenden Sie die StripRecorder zur Zeitmessung</li>
+                <li>Notieren Sie die <strong>Zeit vom Beginn des Cut-in bis zur Erreichung stabiler Produktion bei Nennleistung</strong></li>
+            </ol>
+            
+            <p>💡 <strong>Hinweis:</strong> Sie können die Daten aus dem Experiment <a href="ComparisonofcutinindifferentWind.html">„Vergleich des Anlaufverhaltens verschiedener Windkraftanlagen-Familien"</a> verwenden, wenn Sie bereits Messungen bei Wind über Nenngeschwindigkeit durchgeführt haben.</p>
+            
+            <div class="data-table">
+                <h4>Zu erfassende Daten:</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Wert</th>
+                    </tr>
+                    <tr>
+                        <td>Wiederanschlusszeit (t_cutin)</td>
+                        <td>_______ Sekunden</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Kostenberechnung</h2>
+        
+        <div class="important-note">
+            <h3>💶 Wirtschaftliche Analyse</h3>
+            
+            <p>Sobald alle Zeiten vorliegen, können wir die Gesamtkosten des Entverdrillungsvorgangs berechnen.</p>
+            
+            <h4>Gesamtdauer des Vorgangs:</h4>
+            <div class="calculation-box">
+                <p>T_gesamt = t_cutout + t_Entverdrillung + t_cutin</p>
+                <p>T_gesamt = _____ s + 1.800 s + _____ s = _____ Sekunden</p>
+                <p>T_gesamt in Stunden = _____ s / 3.600 s/h = _____ Stunden</p>
+            </div>
+            
+            <h4>Kostenkomponenten:</h4>
+            
+            <h5>1. Produktionsverlust (entgangene Einnahmen):</h5>
+            <div class="calculation-box">
+                <p><strong>Während Cut-out, Entverdrillung und Cut-in:</strong></p>
+                <p>Energie, die erzeugt worden wäre = Nennleistung × Gesamtzeit</p>
+                <p>E_verloren = 1.500 kW × _____ h = _____ kWh</p>
+                <p></p>
+                <p>Entgangene Einnahmen = E_verloren × Preis</p>
+                <p>Kosten_Produktionsverlust = _____ kWh × 0,10 €/kWh = <strong>_____ €</strong></p>
+            </div>
+            
+            <h5>2. Verbrauch der Yaw-Motoren (direkte Kosten):</h5>
+            <div class="calculation-box">
+                <p><strong>Nur während der Entverdrillung:</strong></p>
+                <p>Verbrauchte Energie = Motorleistung × Entverdrillungszeit</p>
+                <p>E_verbraucht = 5 kW × (1.800 s / 3.600 s/h) = 5 kW × 0,5 h = 2,5 kWh</p>
+                <p></p>
+                <p>Verbrauchskosten = E_verbraucht × Preis</p>
+                <p>Kosten_Motoren = 2,5 kWh × 0,10 €/kWh = <strong>0,25 €</strong></p>
+            </div>
+            
+            <h5>3. Gesamtkosten:</h5>
+            <div class="calculation-box">
+                <p>Kosten_gesamt = Kosten_Produktionsverlust + Kosten_Motoren</p>
+                <p>Kosten_gesamt = _____ € + 0,25 € = <strong>_____ €</strong></p>
+            </div>
+        </div>
+
+        <h2>Berechnungsvorlage</h2>
+        
+        <div class="data-table">
+            <h3>📊 Ergebniszusammenfassung</h3>
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #4caf50; color: white;">GEMESSENE DATEN</th>
+                </tr>
+                <tr>
+                    <td>Cut-out-Zeit (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Entverdrillungszeit (s)</td>
+                    <td>1.800</td>
+                </tr>
+                <tr>
+                    <td>Cut-in-Zeit (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #2196f3; color: white;">BERECHNETE ZEITEN</th>
+                </tr>
+                <tr>
+                    <td>Gesamtdauer des Vorgangs (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Gesamtdauer des Vorgangs (h)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #ff9800; color: white;">KOSTEN</th>
+                </tr>
+                <tr>
+                    <td>Verlorene Energie (kWh)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Entgangene Einnahmen (€)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Motorenverbrauch (kWh)</td>
+                    <td>2,5</td>
+                </tr>
+                <tr>
+                    <td>Motorenverbrauchskosten (€)</td>
+                    <td>0,25</td>
+                </tr>
+                <tr style="font-weight: bold; background-color: #ffeb3b;">
+                    <td>GESAMTKOSTEN (€)</td>
+                    <td>_______</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Analyse und Reflexion</h2>
+        
+        <div class="learning-objective">
+            <h3>🤔 Fragen zur Analyse</h3>
+            <ol>
+                <li><strong>Dominierende Kostenkomponente:</strong>
+                    <ul>
+                        <li>Was ist die Hauptkomponente der Kosten: der Produktionsverlust oder der Motorenverbrauch?</li>
+                        <li>In welchem Verhältnis trägt jede Komponente zu den Gesamtkosten bei?</li>
+                    </ul>
+                </li>
+                <li><strong>Einfluss der Windgeschwindigkeit:</strong>
+                    <ul>
+                        <li>Wie würden sich die Kosten ändern, wenn die Entverdrillung bei Wind unter Nenngeschwindigkeit stattfände?</li>
+                        <li>Wäre es wirtschaftlicher, auf Schwachwindbedingungen zu warten?</li>
+                    </ul>
+                </li>
+                <li><strong>Häufigkeit der Entverdrillung:</strong>
+                    <ul>
+                        <li>Wenn das Windmuster jede Woche eine Entverdrillung verursacht, wie hoch wären die jährlichen Kosten?</li>
+                        <li>Welchen Prozentsatz der Jahresproduktion würde das ausmachen?</li>
+                    </ul>
+                </li>
+                <li><strong>Optimierung:</strong>
+                    <ul>
+                        <li>Welche Strategien könnten diese Kosten reduzieren?</li>
+                        <li>Würde es sich lohnen, die zulässige Umdrehungsgrenze zu erhöhen? Welche Risiken wären damit verbunden?</li>
+                        <li>Wäre es vorteilhaft, schnellere Yaw-Motoren zu haben? Welche Aspekte müssten berücksichtigt werden?</li>
+                    </ul>
+                </li>
+                <li><strong>Vergleich zwischen Technologien:</strong>
+                    <ul>
+                        <li>Sind diese Kosten für alle Windkraftanlagentypen (DSAS, RRC, DFIG) gleich?</li>
+                        <li>Welche Unterschiede könnte es bei den Cut-out- und Cut-in-Zeiten zwischen den Technologien geben?</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h2>Praktische Aspekte</h2>
+        
+        <div class="didactic-box">
+            <h3>🔧 Betriebliche Aspekte in realen Windparks</h3>
+            <ul>
+                <li><strong>Intelligente Planung:</strong> Moderne SCADA-Systeme können Entverdrillungen in Zeiten geringer Produktion planen (z.B. bei schwachen Nachtwinden)</li>
+                <li><strong>Wettervorhersage:</strong> Prognosen werden genutzt, um Entverdrillungen direkt vor Perioden optimaler Winde zu vermeiden</li>
+                <li><strong>Kontinuierliche Überwachung:</strong> Frühwarnsysteme bei Annäherung an die Verdrillungsgrenze</li>
+                <li><strong>Präventive Strategien:</strong> Einige Regler versuchen, Drehungen in beide Richtungen auszugleichen, um die Ansammlung zu minimieren</li>
+                <li><strong>Adaptive Grenzwerte:</strong> In einigen Designs kann die Umdrehungsgrenze je nach Betriebsbedingungen angepasst werden</li>
+            </ul>
+        </div>
+
+        <h2>Schlussfolgerungen</h2>
+        
+        <div class="important-note">
+            <h3>📌 Kernpunkte</h3>
+            <ul>
+                <li>Die Kabel-Entverdrillung verursacht <strong>erhebliche wirtschaftliche Kosten</strong>, hauptsächlich durch Produktionsverlust</li>
+                <li>Die Kosten sind deutlich höher, wenn sie bei optimalen Windbedingungen auftreten</li>
+                <li>Die <strong>Entverdrillungszeit</strong> ist der längste Teil des gesamten Prozesses</li>
+                <li>Der Verbrauch der Yaw-Motoren ist im Vergleich zum Produktionsverlust relativ gering</li>
+                <li>Eine gute <strong>Managementstrategie</strong> kann diese Kosten erheblich reduzieren</li>
+                <li>Dies ist ein Beispiel dafür, wie scheinbar einfache betriebliche Entscheidungen <strong>direkte wirtschaftliche Auswirkungen</strong> auf einen Windpark haben</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Algoritmo di controllo della lama</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="pitch, algoritmos, Controller.Control.PitchOut, Nacelle.DriveTrain.PitchIn, Nacelle.DriveTrain.PitchNacelleOut, Controller.Control.PitchNacelleIn, angulo de pitch, bandera" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Pitchcontolalgorithm&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Algoritmo di controllo dell'angolo della lama</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito della simulazione</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="Algorithms.html">Algoritmi usati</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Algorithms.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Algorithms.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Softstarter.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">L'angolo di lancio delle lame può essere comune (tutti e tre con lo stesso angolo) o possono avere valori diversi. Sono controllati da cilindri idraulici o motori elettrici.</span></p>
+<p class="rvps4"><span class="rvts6">Nel caso della turbina eolica emulata in questo simulatore,</span><span class="rvts29">il passo delle tre lame è comune</span><span class="rvts6">ed è modificato da cilindri idraulici.</span></p>
+<p class="rvps4"><span class="rvts6">Il Controller invia un segnale (</span><span class="rvts17">Controller.Control.</span><span class="rvts19">Piazzola</span><span class="rvts6">) che raggiunge il terminale di comando del circuito di servocontrollo nella nacelle che controlla i cilindri idraulici (</span><span class="rvts17">Nacelle.DriveTrain.</span><span class="rvts19">Piazzola</span><span class="rvts6">).</span></p>
+<p class="rvps4"><span class="rvts6">L'algoritmo di controllo utilizzato dal Controller tiene conto del valore effettivo dell'angolo di lancio (</span><span class="rvts17">Nacelle.DriveTrain.</span><span class="rvts19">PiazzolaNacelle Fuori.</span><span class="rvts6">) in qualsiasi momento attraverso il suo ingresso (</span><span class="rvts17">Controller.Control.PitchNacelleIn</span><span class="rvts6">) per implementare un loop di controllo del feedback. Questo algoritmo tiene conto di altri fattori, come la velocità del vento, per impostare il valore dell'angolo del passo in ogni momento.</span></p>
+<p class="rvps4"><span class="rvts6">I concetti presi in considerazione sono derivati da quelli spiegati in</span><a class="rvts18" href="Porqugiranlaspalas.html">Concetti sulla potenza estratta del vento.</a></p>
+<p class="rvps4"><span class="rvts6">Il valore del passo cambia a -90o (posizione del piatto) quando si disconnette dalla griglia e senza produzione, in modo che lo stress meccanico sulle lame, nacelle e torre sia minimizzato.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

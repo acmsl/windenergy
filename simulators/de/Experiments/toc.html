@@ -1,0 +1,463 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experimente - Inhaltsverzeichnis</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <meta name="description" content="Inhaltsverzeichnis der Experimente mit Windkraftanlagen">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/dynatree/chm/ui.dynatree.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+    <!--[if lte IE 8]>
+        <link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+    <![endif]-->
+    
+    <style type="text/css">
+        #tabs .ui-widget-header {
+            background-color: #EFEFEF;
+        }
+        
+        body {
+            font-size: 16px;
+        }
+        
+        #tabs {
+            font-size: 16px;
+        }
+        
+        .ui-tabs-nav li {
+            font-size: 16px;
+        }
+        
+        #tab-toc, #tab-keywords, #tab-search {
+            font-size: 16px;
+        }
+        
+        /* Schriftgröße der Baumlinks vergrößern */
+        #tab-toc a, #tab-keywords a {
+            font-size: 16px !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            line-height: 1.4 !important;
+        }
+        
+        /* Abstände der Baumelemente anpassen */
+        .dynatree-container a {
+            padding: 4px 3px !important;
+            display: inline-block !important;
+            max-width: 95% !important;
+        }
+        
+        .dynatree-title {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+        }
+        
+        ul.dynatree-container li {
+            margin-bottom: 3px !important;
+        }
+        
+        #search_value {
+            font-size: 16px;
+            padding: 6px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        input[type="submit"] {
+            font-size: 16px;
+            padding: 6px 12px;
+            margin-top: 5px;
+        }
+        
+        #search_results {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
+        #search_results a {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+    <script type="text/javascript" src="js/hndjsse.js"></script>
+    <script type="text/javascript">
+    
+        window.bSearchDataLoaded = false;
+        var sHelpIdToActivate = '';
+    
+        $(document).ready(function()
+        {
+            var sAnchorName = '';
+            try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+            catch(err) { sAnchorName = ''; }
+            var nSelectedTab = 0;
+            if (sAnchorName == '_index') nSelectedTab = 1
+            else if (sAnchorName == '_search') nSelectedTab = 2;            
+            $("#tabs").tabs({
+                selected: nSelectedTab,
+                select: function(event, ui) { HideKwPopup(); }
+            });
+            
+            // Toc
+            if ($("#tab-toc").length) {
+                $("#tab-toc").dynatree({
+                    clickFolderMode: 1,
+                    debugLevel: 0,
+                    imagePath: 'css/dynatree/chm/',
+                    onActivate: function(node){
+                        if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+                            $("#tab-keywords").dynatree("getTree").activateKey(null);
+                        if(node.data.href && node.data.href != '#'){
+                            window.open(node.data.href, node.data.target);
+                        }
+                    }
+                });
+                // Expand all nodes if required
+                $("#tab-toc").dynatree("getRoot").visit(function(node){
+                    node.expand(true);
+                });
+                // Select the active help id
+                if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+            }
+            
+            // Keywords
+            if ($("#tab-keywords").length) {
+                $("#tab-keywords").dynatree({
+                    clickFolderMode: 1,
+                    debugLevel: 0,
+                    imagePath: 'css/dynatree/chm/',
+                    onClick: function(node, event){
+                        HideKwPopup();
+                        if (node.data && node.data.click)
+                        {
+                            var aRefList = null;
+                            eval('aRefList=' + node.data.click);
+                            if (ShowKwPopup(node.li, aRefList))
+                            {
+                                if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+                                    $("#tab-toc").dynatree("getTree").activateKey(null);
+                                if(node.data.href && node.data.href != '#'){
+                                    window.open(node.data.href, node.data.target);
+                                }
+                            }
+                        }
+                    }
+                });
+                // Expand all nodes if required
+                $("#tab-keywords").dynatree("getRoot").visit(function(node){
+                    node.expand(true);
+                });
+            }
+            
+            // Load search data
+            (function() {
+                var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+                se.src = 'js/hndsd.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+            })();
+        });
+        
+        $('body').click(function() {
+            HideKwPopup();
+        });
+        
+        function SelectTocItem(sHelpId)
+        {
+            if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+                var aNode = $("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId);
+                if (aNode) {
+                    aNode.activateSilently();  
+                }
+            }
+            else {
+                sHelpIdToActivate = sHelpId;
+            }
+        }
+        
+        function HideKwPopup()
+        {
+            if($("#popupMenu")) $("#popupMenu").remove();
+        }
+        
+        function ShowKwPopup(oSender, aLinks)
+        {
+            HideKwPopup();
+            if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+            else if (aLinks.length == 1) return true
+            else
+            {
+                var oParentDiv = document.createElement("DIV");
+                oParentDiv.id = "popupMenu";
+                var oLink = null;
+                // Close button
+                oLink = document.createElement("SPAN");
+                oLink.className = "close-button";
+                oLink.innerHTML = "X";
+                oLink.href = "#";
+                oLink.onclick = HideKwPopup;
+                oParentDiv.appendChild(oLink);
+                // Items
+                for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+                {
+                    oLink = document.createElement("A");
+                    oLink.innerHTML = aLinks[nCnt][0];
+                    oLink.href = aLinks[nCnt][1];
+                    oLink.target = "FrameMain";
+                    oLink.onclick = HideKwPopup;
+                    oParentDiv.appendChild(oLink);
+                }
+                document.body.appendChild(oParentDiv);
+                var pos = $(oSender).offset(); 
+                var height = $(oSender).height();
+                $(oParentDiv).css({
+                    "left": (pos.left+20) + "px",
+                    "top": (pos.top + height + 5) + "px"
+                });
+                $(oParentDiv).show();
+                return false;
+            }
+        }
+        
+        function PerformSearch()
+        {
+            if (!window.bSearchDataLoaded) {
+                $("#search_results").html("Die Suchmaschinen-Daten wurden noch nicht vollständig geladen oder es ist ein Fehler beim Laden aufgetreten. Dies geschieht häufig beim lokalen Durchsuchen der Dokumentation.");
+                return;
+            }
+            sValue = $("#search_value").val();
+            $("#search_results").html('Suche läuft...');
+            var oSearchEngine = new HndJsSe;
+            oSearchEngine.ParseInput(sValue);            
+            oSearchEngine.PerformSearch();
+            if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+            {
+                $("#search_results").html('Keine Ergebnisse gefunden.');
+            }
+            else
+            {
+                $("#search_results").html('<div id="search_results_content"></div>');
+                var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+                for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+                {
+                    if (oSearchEngine.aResults[nCnt][0] < aTl.length)
+                    {
+                        oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+                    }
+                }
+                // Tree
+                $("#search_results_content").dynatree({
+                    clickFolderMode: 1,
+                    debugLevel: 0,
+                    imagePath: 'css/dynatree/chm/',
+                    onActivate: function(node){
+                        if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+                            $("#search_results_content").dynatree("getTree").activateKey(null);
+                        if(node.data.href && node.data.href != '#'){
+                            window.open(node.data.href, node.data.target);
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tab-toc">Inhalt</a></li>
+            <li><a href="#tab-keywords">Index</a></li>
+            <li><a href="#tab-search">Suche</a></li>
+        </ul>
+        
+        <div id="tab-toc">
+            <ul id="toc" class="">
+                <li class="" id="Introduction" data="icon: '16.png'">
+                    <a href="Introduction.html" target="FrameMain">Einführung</a>
+                </li>
+
+                <li class="" id="WhythebladesinaWindTurbineturn" data="icon: '16.png'">
+                    <a href="WhythebladesinaWindTurbineturn.html" target="FrameMain">
+                        Warum drehen sich die Rotorblätter einer Windkraftanlage?
+                    </a>
+                </li>
+
+                <li class="" id="ComparisonofcutinindifferentWind" data="icon: '16.png'">
+                    <a href="ComparisonofcutinindifferentWind.html" target="FrameMain">
+                        Vergleich des Anlaufverhaltens verschiedener Windkraftanlagen-Familien
+                    </a>
+                </li>
+
+                <li class="" id="ComparisonofPowervsWindcurvesofW" data="icon: '16.png'">
+                    <a href="ComparisonofPowervsWindcurvesofW.html" target="FrameMain">
+                        Vergleich der Leistungs-Wind-Kennlinien
+                    </a>
+                </li>
+
+                <li class="" id="ObservationoftheNacelleYawoperat" data="icon: '16.png'">
+                    <a href="ObservationoftheNacelleYawoperat.html" target="FrameMain">
+                        Beobachtung der Gondel-Nachführungsvorgänge
+                    </a>
+                </li>
+
+                <li class="" id="CostofPowerCablesuntwisting" data="icon: '16.png'">
+                    <a href="CostofPowerCablesuntwisting.html" target="FrameMain">
+                        Kosten der Entverdrillung von Leistungskabeln
+                    </a>
+                </li>
+
+                <li class="" id="Responsetowindgusts" data="icon: '16.png'">
+                    <a href="Responsetowindgusts.html" target="FrameMain">
+                        Reaktion auf Windböen
+                    </a>
+                </li>
+
+                <li class="" id="DifferencesintheElectricGenerato" data="icon: '16.png'">
+                    <a href="DifferencesintheElectricGenerato.html" target="FrameMain">
+                        Unterschiede bei den in Windkraftanlagen verwendeten elektrischen Generatoren
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="tab-keywords">
+            <ul id="keywords">
+                <li class="file" data="click:'[[\'Beobachtung der Gondel-Nachführungsvorgänge\',\'ObservationoftheNacelleYawoperat.html\']]'">
+                    <a href="ObservationoftheNacelleYawoperat.html" target="FrameMain">
+                        aktuelle Windgeschwindigkeit
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Vergleich des Anlaufverhaltens verschiedener Windkraftanlagen-Familien\',\'ComparisonofcutinindifferentWind.html\']]'">
+                    <a href="ComparisonofcutinindifferentWind.html" target="FrameMain">
+                        Anlauf (Cut-in)
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Reaktion auf Windböen\',\'Responsetowindgusts.html\']]'">
+                    <a href="Responsetowindgusts.html" target="FrameMain">
+                        Flicker
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Reaktion auf Windböen\',\'Responsetowindgusts.html\']]'">
+                    <a href="Responsetowindgusts.html" target="FrameMain">
+                        Trägheitsmoment
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Beobachtung der Gondel-Nachführungsvorgänge\',\'ObservationoftheNacelleYawoperat.html\']]'">
+                    <a href="ObservationoftheNacelleYawoperat.html" target="FrameMain">
+                        Gondel-Nachführung
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Vergleich der Leistungs-Wind-Kennlinien\',\'ComparisonofPowervsWindcurvesofW.html\']]'">
+                    <a href="ComparisonofPowervsWindcurvesofW.html" target="FrameMain">
+                        Nennwindgeschwindigkeit
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Beobachtung der Gondel-Nachführungsvorgänge\',\'ObservationoftheNacelleYawoperat.html\']]'">
+                    <a href="ObservationoftheNacelleYawoperat.html" target="FrameMain">
+                        Norden
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Reaktion auf Windböen\',\'Responsetowindgusts.html\']]'">
+                    <a href="Responsetowindgusts.html" target="FrameMain">
+                        Pitch
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Vergleich der Leistungs-Wind-Kennlinien\',\'ComparisonofPowervsWindcurvesofW.html\']]'">
+                    <a href="ComparisonofPowervsWindcurvesofW.html" target="FrameMain">
+                        Leistungs-Wind-Kennlinie
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Einführung\',\'Introduction.html\']]'">
+                    <a href="Introduction.html" target="FrameMain">
+                        virtuelle Arbeitsstationen
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Reaktion auf Windböen\',\'Responsetowindgusts.html\']]'">
+                    <a href="Responsetowindgusts.html" target="FrameMain">
+                        Windböen
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Warum drehen sich die Rotorblätter einer Windkraftanlage?\',\'WhythebladesinaWindTurbineturn.html\']]'">
+                    <a href="WhythebladesinaWindTurbineturn.html" target="FrameMain">
+                        Auftrieb
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Kosten der Entverdrillung von Leistungskabeln\',\'CostofPowerCablesuntwisting.html\']]'">
+                    <a href="CostofPowerCablesuntwisting.html" target="FrameMain">
+                        Kabel-Entverdrillung
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Unterschiede bei den elektrischen Generatoren\',\'DifferencesintheElectricGenerato.html\']]'">
+                    <a href="DifferencesintheElectricGenerato.html" target="FrameMain">
+                        Induktionsgeneratoren
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Unterschiede bei den elektrischen Generatoren\',\'DifferencesintheElectricGenerato.html\']]'">
+                    <a href="DifferencesintheElectricGenerato.html" target="FrameMain">
+                        DFIG
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Vergleich des Anlaufverhaltens verschiedener Familien\',\'ComparisonofcutinindifferentWind.html\']]'">
+                    <a href="ComparisonofcutinindifferentWind.html" target="FrameMain">
+                        DSAS
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Vergleich des Anlaufverhaltens verschiedener Familien\',\'ComparisonofcutinindifferentWind.html\']]'">
+                    <a href="ComparisonofcutinindifferentWind.html" target="FrameMain">
+                        RRC
+                    </a>
+                </li>
+
+                <li class="file" data="click:'[[\'Beobachtung der Gondel-Nachführungsvorgänge\',\'ObservationoftheNacelleYawoperat.html\']]'">
+                    <a href="ObservationoftheNacelleYawoperat.html" target="FrameMain">
+                        Yaw
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="tab-search">
+            <form onsubmit="PerformSearch(); return false;">
+                <label for="search_value">Suchen:</label>
+                <input id="search_value" name="search_value"></input>
+                <input type="submit" value="Suchen"/>
+            </form>
+            <div id="search_results"></div>
+        </div>
+    </div>
+</body>
+</html>

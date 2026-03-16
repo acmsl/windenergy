@@ -1,0 +1,117 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Vista en 3D</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="3DView, parque eolico, Vista 3D del Parque, Vista en 3D, yaw, orientacion gondola">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("3DView");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Vista en 3D</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureoftheWindFarmSimulator.html">Descripci&oacute;n del Simulador de Parque Eolico</a> &rsaquo;&rsaquo; <a href="Description.html">Componentes del Simulador</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Description.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Meteorologicalstation.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="OperationsinaWindFarm.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">El simulador incluye una vista 3D interactiva. El control de este sinóptico, que se presenta aparte, está en el centro del sinóptico del SCADA, etiquetado con "</span><span class="rvts30">Vista 3D del Parque</span><span class="rvts16">"</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Sinoptico%20SCADA%20vista%203D.png"></p>
+<p class="rvps2"><span class="rvts16">El rótulo contiene el nombre del aerogenerador, la orientación de su Góndola, y las rpms de las palas.</span></p>
+<p class="rvps2"><span class="rvts16">Se puede cambiar el punto de vista pulsando el botón izquierdo mientras se arrastra el ratón.</span></p>
+<p class="rvps2"><span class="rvts16">Para cambiar la vista a un aerogenerador determinado se selecciona con "</span><span class="rvts32">doble click</span><span class="rvts16">" en la vista SCADA.</span></p>
+<p class="rvps2"><span class="rvts41"><br/></span></p>
+<p class="rvps2"><span class="rvts41"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

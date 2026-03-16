@@ -1,0 +1,1176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Tutorial - Turbina eolica attiva a due velocità</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="DSASTutorial-es" name="generator"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/silver-theme/jquery-ui-1.8.12.custom.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/dynatree/folder/ui.dynatree.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="css/toc.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#tabs .ui-widget-header {
+			background-color: #EFEFEF;
+		}
+		body { font-size: 14px; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; }
+        #tabs { font-size: 14px; }
+        .ui-tabs-nav li { font-size: 14px; }
+        #tab-toc a, #tab-keywords a {
+            font-size: 14px !important;
+			font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+            line-height: 1.4 !important;
+        }
+        .dynatree-container a {
+            padding: 4px 3px !important;
+            display: inline-block !important;
+            max-width: 95% !important;
+        }
+        .dynatree-title {
+            white-space: normal !important;
+            word-wrap: break-word !important;
+        }
+        ul.dynatree-container li {
+            margin-bottom: 2px !important;
+        }
+        #popupMenu {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #999;
+            padding: 5px;
+            z-index: 1000;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+            min-width: 200px;
+            max-width: 350px;
+        }
+        #popupMenu a {
+            display: block;
+            padding: 4px 8px;
+            text-decoration: none;
+            color: #333;
+            font-size: 13px;
+        }
+        #popupMenu a:hover {
+            background-color: #e0e0e0;
+        }
+        #popupMenu .close-button {
+            float: right;
+            cursor: pointer;
+            color: #999;
+            font-weight: bold;
+            padding: 2px 5px;
+        }
+        #search_value {
+            width: 70%;
+            padding: 4px;
+            margin: 5px 0;
+        }
+		#tab-search input[type="submit"] {
+            padding: 4px 12px;
+            cursor: pointer;
+        }
+        #search_results {
+            margin-top: 10px;
+        }
+        #search_results a {
+            display: block;
+            padding: 4px 2px;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+        }
+        #search_results a:hover {
+            background-color: #e8e8e8;
+        }
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
+<script src="js/jquery.cookie.js" type="text/javascript"></script>
+<script src="js/jquery.dynatree.min.js" type="text/javascript"></script>
+<script src="js/hndjsse.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+	window.bSearchDataLoaded = false;
+	var sHelpIdToActivate = '';
+
+	$(document).ready(function() {
+		// If this TOC is opened standalone (outside the frameset), redirect to the
+		// frameset entrypoint so navigation keeps the left panel visible.
+		if (top.frames.length == 0) {
+			var sHash = window.location.hash || '';
+			window.location.href = "DSASTutorial.html?Introduccion.html" + sHash;
+			return;
+		}
+
+		var sAnchorName = '';
+		try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+		catch(err) { sAnchorName = ''; }
+		var nSelectedTab = 0;
+		if (sAnchorName == '_index') nSelectedTab = 1;
+		else if (sAnchorName == '_search') nSelectedTab = 2;
+		$("#tabs").tabs({
+			selected: nSelectedTab,
+			select: function(event, ui) { HideKwPopup(); }
+		});
+
+		// Toc
+		if ($("#tab-toc").length) {
+			$("#tab-toc").dynatree({
+				clickFolderMode: 1,
+				debugLevel: 0,
+				imagePath: 'css/dynatree/folder/',
+				onActivate: function(node) {
+					if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+						$("#tab-keywords").dynatree("getTree").activateKey(null);
+					if (node.data.href && node.data.href != '#') {
+						window.open(node.data.href, node.data.target);
+					}
+				}
+			});
+			$("#tab-toc").dynatree("getRoot").visit(function(node) {
+				node.expand(true);
+			});
+			if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+		}
+
+		// Keywords
+		if ($("#tab-keywords").length) {
+			$("#tab-keywords").dynatree({
+				clickFolderMode: 1,
+				debugLevel: 0,
+				imagePath: 'css/dynatree/folder/',
+				onClick: function(node, event) {
+					HideKwPopup();
+					if (node.data && node.data.click) {
+						var aRefList = null;
+						eval('aRefList=' + node.data.click);
+						// Some builds store the actual target only in the click ref list.
+						// If there is a single reference, open it directly.
+						if (aRefList && aRefList.length == 1 && aRefList[0] && aRefList[0].length >= 2 && aRefList[0][1]) {
+							if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+								$("#tab-toc").dynatree("getTree").activateKey(null);
+							window.open(aRefList[0][1], (node.data && node.data.target) ? node.data.target : "FrameMain");
+							return;
+						}
+						if (ShowKwPopup(node.li, aRefList)) {
+							if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+								$("#tab-toc").dynatree("getTree").activateKey(null);
+							if (node.data.href && node.data.href != '#') {
+								window.open(node.data.href, node.data.target);
+							}
+						}
+					}
+					else {
+						// Fallback for builds where keyword nodes are direct links (href/target)
+						// instead of click metadata lists.
+						if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+							$("#tab-toc").dynatree("getTree").activateKey(null);
+						if (node.data && node.data.href && node.data.href != '#') {
+							window.open(node.data.href, (node.data && node.data.target) ? node.data.target : "FrameMain");
+						}
+					}
+				}
+			});
+			$("#tab-keywords").dynatree("getRoot").visit(function(node) {
+				node.expand(true);
+			});
+		}
+
+		// Load search data
+		(function() {
+			var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+			se.src = 'js/hndsd.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+		})();
+	});
+
+	$('body').click(function() {
+		HideKwPopup();
+	});
+
+	function SelectTocItem(sHelpId) {
+		if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+			var aNode = $("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId);
+			if (aNode) { aNode.activateSilently(); }
+		} else {
+			sHelpIdToActivate = sHelpId;
+		}
+	}
+
+	function HideKwPopup() {
+		if ($("#popupMenu")) $("#popupMenu").remove();
+	}
+
+	// Map topic href -> translated title from the Contents tree, so Index popups
+	// show English titles without rewriting embedded keyword metadata.
+	var oTopicTitleByHref = null;
+	function NormalizeTopicHref(sHref) {
+		if (!sHref) return '';
+		sHref = String(sHref);
+		var q = sHref.indexOf('?');
+		if (q >= 0) sHref = sHref.substring(0, q);
+		var h = sHref.indexOf('#');
+		if (h >= 0) sHref = sHref.substring(0, h);
+		return sHref;
+	}
+	function EscapeHtmlForInnerHtml(s) {
+		return String(s)
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/\"/g, "&quot;")
+			.replace(/'/g, "&#039;");
+	}
+	function GetTopicTitleByHref(sHref) {
+		if (oTopicTitleByHref === null) {
+			oTopicTitleByHref = {};
+			$("#tab-toc a[target='FrameMain']").each(function() {
+				var sKey = NormalizeTopicHref($(this).attr('href'));
+				if (!sKey) return;
+				if (oTopicTitleByHref[sKey]) return;
+				oTopicTitleByHref[sKey] = $.trim($(this).text());
+			});
+		}
+		var sLookup = NormalizeTopicHref(sHref);
+		return (sLookup && oTopicTitleByHref[sLookup]) ? oTopicTitleByHref[sLookup] : '';
+	}
+
+	function ShowKwPopup(oSender, aLinks) {
+		HideKwPopup();
+		if (!aLinks || !aLinks.length || aLinks.length == 0) return false;
+		else if (aLinks.length == 1) return true;
+		else {
+			var oParentDiv = document.createElement("DIV");
+			oParentDiv.id = "popupMenu";
+			var oLink = null;
+			// Close button
+			oLink = document.createElement("SPAN");
+			oLink.className = "close-button";
+			oLink.innerHTML = "X";
+			oLink.href = "#";
+			oLink.onclick = HideKwPopup;
+			oParentDiv.appendChild(oLink);
+			// Items
+			for (var nCnt = 0; nCnt < aLinks.length; nCnt++) {
+				oLink = document.createElement("A");
+				var sTitle = GetTopicTitleByHref(aLinks[nCnt][1]);
+				oLink.innerHTML = sTitle ? EscapeHtmlForInnerHtml(sTitle) : aLinks[nCnt][0];
+				oLink.href = aLinks[nCnt][1];
+				oLink.target = "FrameMain";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+			}
+			document.body.appendChild(oParentDiv);
+			var pos = $(oSender).offset();
+			var height = $(oSender).height();
+			$(oParentDiv).css({
+				"left": (pos.left + 20) + "px",
+				"top": (pos.top + height + 5) + "px"
+			});
+			$(oParentDiv).show();
+			return false;
+		}
+	}
+
+	function PerformSearch() {
+		if (!window.bSearchDataLoaded) {
+			$("#search_results").html("Los datos del motor de b\u00fasqueda a\u00fan no se han cargado completamente.");
+			return;
+		}
+		var sValue = $("#search_value").val();
+		$("#search_results").html('Buscando...');
+		var oSearchEngine = new HndJsSe;
+		oSearchEngine.ParseInput(sValue);
+		oSearchEngine.PerformSearch();
+		if (!oSearchEngine.aResults || !oSearchEngine.aResults.length) {
+			$("#search_results").html('No se encontraron resultados.');
+		} else {
+			$("#search_results").html('<div id="search_results_content"></div>');
+			var oUl = $("#search_results_content").append("<ul id=\'lr\'></ul>").find("ul");
+			for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++) {
+				if (oSearchEngine.aResults[nCnt][0] < aTl.length) {
+					oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + aTl[oSearchEngine.aResults[nCnt][0]][1] + "</a></li>");
+				}
+			}
+			// Tree
+			$("#search_results_content").dynatree({
+				clickFolderMode: 1,
+				debugLevel: 0,
+				imagePath: 'css/dynatree/folder/',
+				onActivate: function(node) {
+					if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+						$("#search_results_content").dynatree("getTree").activateKey(null);
+					if (node.data.href && node.data.href != '#') {
+						window.open(node.data.href, node.data.target);
+					}
+				}
+			});
+		}
+	}
+	</script>
+</head>
+<body>
+<div id="tabs">
+<ul>
+<li><a href="#tab-toc">Contenuto</a></li>
+<li><a href="#tab-keywords">Indice</a></li>
+<li><a href="#tab-search">Ricerca</a></li>
+</ul>
+<div id="tab-toc">
+<ul class="" id="toc">
+<li class="folder" data="" id="Introduccion">
+<a href="Introduccion.html" target="FrameMain">Introduzione
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Notasobreversion">
+<a href="Notasobreversion.html" target="FrameMain">Nota su questa versione
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Notasobreestaversin">
+<a href="Notasobreestaversin.html" target="FrameMain">Cosa puoi imparare con questo simulatore?
+</a>
+</li></ul></li>
+<li class="folder" data="" id="Queesunaerogenerador">
+<a href="Queesunaerogenerador.html" target="FrameMain">Cos'è una turbina eolica?
+</a>
+<ul>
+<li class="folder" data="icon: '16.png'" id="EstructuraAerogenerador">
+<a href="EstructuraAerogenerador.html" target="FrameMain">Struttura di una turbina eolica orizzontale
+</a>
+<ul>
+<li class="folder" data="" id="EsquemafuncionaldeunaAerogenerad">
+<a href="EsquemafuncionaldeunaAerogenerad.html" target="FrameMain">Lama
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Palas1">
+<a href="Palas1.html" target="FrameMain">Come vengono prodotte le lame
+</a>
+</li></ul></li>
+<li class="folder" data="" id="Palas">
+<a href="Palas.html" target="FrameMain">Meccanismo di regolazione dell'angolo della lama (pitch)
+</a>
+<ul>
+<li class="folder" data="" id="Mecanismodecambiodeangulodelasp1">
+<a href="Mecanismodecambiodeangulodelasp1.html" target="FrameMain">Con cilindri idraulici
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Concilindroshidrulicos1">
+<a href="Concilindroshidrulicos1.html" target="FrameMain">Schema idraulico semplificato
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="Concilindroshidrulicos">
+<a href="Concilindroshidrulicos.html" target="FrameMain">Con motori elettrici
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Nuevotema1">
+<a href="Nuevotema1.html" target="FrameMain">Freni aerodinamici sulle lame a passo fisso
+</a>
+</li></ul></li>
+<li class="folder" data="" id="Mecanismodecambiodeangulodelaspa">
+<a href="Mecanismodecambiodeangulodelaspa.html" target="FrameMain">Sistema frenante Power Train
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="SistemadeFrenos">
+<a href="SistemadeFrenos.html" target="FrameMain">Alcuni esempi industriali di freni
+</a>
+</li></ul></li>
+<li class="folder" data="" id="SistemadeFrenos1">
+<a href="SistemadeFrenos1.html" target="FrameMain">Meccanismo Yaw
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Mecanismodeorientacinyaw">
+<a href="Mecanismodeorientacinyaw.html" target="FrameMain">Alcune soluzioni industriali
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Nuevotema2">
+<a href="Nuevotema2.html" target="FrameMain">Meccanismo di orientamento freni
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="Mecanismodeorientacinyaw2">
+<a href="Mecanismodeorientacinyaw2.html" target="FrameMain">Cavi di alimentazione
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Mecanismodeorientacinyaw1">
+<a href="Mecanismodeorientacinyaw1.html" target="FrameMain">Asta ad alta flessibilità
+</a>
+</li>
+<li class="folder" data="" id="Unionesflexiblesdelejedealta">
+<a href="Unionesflexiblesdelejedealta.html" target="FrameMain">Moltiplicatori
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Multiplicadoras">
+<a href="Multiplicadoras.html" target="FrameMain">Alcuni esempi industriali
+</a>
+</li>
+<li class="" data="" id="Nuevotema6">
+<a href="Nuevotema6.html" target="FrameMain">Dettagli di costruzione
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Algunosejemplosindustriales">
+<a href="Algunosejemplosindustriales.html" target="FrameMain">Lubrificazione dei cambi
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Lubricacindelasmultiplicadoras">
+<a href="Lubricacindelasmultiplicadoras.html" target="FrameMain">Ispezione di moltiplicatori
+</a>
+</li>
+<li class="" data="" id="Nuevotema3">
+<a href="Nuevotema3.html" target="FrameMain">Sostituzione di un moltiplicatore
+</a>
+</li></ul></li>
+<li class="folder" data="" id="SensoresMeteo">
+<a href="SensoresMeteo.html" target="FrameMain">Sensori meteo
+</a>
+<ul>
+<li class="folder" data="" id="SensoresViento">
+<a href="SensoresViento.html" target="FrameMain">Vento vento
+</a>
+<ul>
+<li class="folder" data="" id="Anemometrodecazoletas">
+<a href="Anemometrodecazoletas.html" target="FrameMain">Anemometro
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Delavelocidaddelviento">
+<a href="Delavelocidaddelviento.html" target="FrameMain">Tazza anemometro
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Anemometrodecazoletas1">
+<a href="Anemometrodecazoletas1.html" target="FrameMain">Anemometro a ultrasuoni
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Anemmetroporutltrasonidos">
+<a href="Anemmetroporutltrasonidos.html" target="FrameMain">Anemometro di risonanza acustica
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Anemmetroporresonanciaacstica">
+<a href="Anemmetroporresonanciaacstica.html" target="FrameMain">Lidar (effetto laser e doppler)
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="LidarlaseryefectoDoppler">
+<a href="LidarlaseryefectoDoppler.html" target="FrameMain">SODAR (effetto Sound e Doppler)
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="MedicindeladireccionDireccionVie">
+<a href="MedicindeladireccionDireccionVie.html" target="FrameMain">Misurazione della direzione del vento - descrizione di un furgoncino
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="Sensorestemperatura">
+<a href="Sensorestemperatura.html" target="FrameMain">Sensori di temperatura
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Sensoresdetemperatura">
+<a href="Sensoresdetemperatura.html" target="FrameMain">Circuiti di mediazione del sensore Pt100
+</a>
+</li></ul></li></ul></li>
+<li class="" data="icon: '16.png'" id="Nuevotema4">
+<a href="Nuevotema4.html" target="FrameMain">Terminale di controllo
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="EstructuraoperacionaldeunAerogen">
+<a href="EstructuraoperacionaldeunAerogen.html" target="FrameMain">Schema funzionale di una turbina eolica della gabbia di scoiattolo
+</a>
+</li>
+<li class="folder" data="" id="Conexionredelectrica">
+<a href="Conexionredelectrica.html" target="FrameMain">Collegamento alla rete elettrica
+</a>
+<ul>
+<li class="folder" data="icon: '16.png'" id="ConexinalaRedElctrica">
+<a href="ConexinalaRedElctrica.html" target="FrameMain">Dettaglio del circuito di connessione
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Detalledelcircuitodeconexin">
+<a href="Detalledelcircuitodeconexin.html" target="FrameMain">Logica di rilevamento dei problemi nei contatti
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Nuevotema">
+<a href="Nuevotema.html" target="FrameMain">Tiritori
+</a>
+</li></ul></li></ul></li></ul></li>
+<li class="folder" data="" id="PrincipiosFisicosAerogeneradores">
+<a href="PrincipiosFisicosAerogeneradores.html" target="FrameMain">Principi fisici
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Porqugiranlaspalas1">
+<a href="Porqugiranlaspalas1.html" target="FrameMain">Principio di funzionamento di una turbina eolica con un generatore di gabbia scoiattolo direttamente collegato alla griglia
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="PFAPorquegiranlaspalas">
+<a href="PFAPorquegiranlaspalas.html" target="FrameMain">Perché le lame ruotano?
+</a>
+</li>
+<li class="folder" data="" id="Porqugiranlaspalas">
+<a href="Porqugiranlaspalas.html" target="FrameMain">Concetti relativi alla potenza estratta del vento
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Conceptossobrelapotencia">
+<a href="Conceptossobrelapotencia.html" target="FrameMain">Coefficiente aerodinamico
+</a>
+</li>
+<li class="folder" data="icon: '16.png'" id="Coeficienteaerodinmico2">
+<a href="Coeficienteaerodinmico2.html" target="FrameMain">Controllo della potenza raccolta dal vento
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Coeficienteaerodinmico">
+<a href="Coeficienteaerodinmico.html" target="FrameMain">Con campo attivo (a-the-feathers)
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Stalling">
+<a href="Stalling.html" target="FrameMain">Staccando
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="WindTurbineControlcriteria">
+<a href="WindTurbineControlcriteria.html" target="FrameMain">Criteri di progettazione e controllo delle turbine eoliche
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="RequerimientosdelTrendePotencia">
+<a href="RequerimientosdelTrendePotencia.html" target="FrameMain">Il vento
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="RequirementsimposedbytheDriveTra">
+<a href="RequirementsimposedbytheDriveTra.html" target="FrameMain">Requisiti del treno di potenza
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Productioncurve">
+<a href="Productioncurve.html" target="FrameMain">Curva di potenza in funzione del vento
+</a>
+</li>
+<li class="folder" data="" id="RequirementsimposedbytheElectric">
+<a href="RequirementsimposedbytheElectric.html" target="FrameMain">Requisiti del generatore elettrico
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="IntoductiontotheInductionMachine">
+<a href="IntoductiontotheInductionMachine.html" target="FrameMain">Introduzione alle macchine di induzione
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Introductiontothephysicalprincip">
+<a href="Introductiontothephysicalprincip.html" target="FrameMain">Dettagli di costruzione di macchine a gabbia per scoiattoli
+</a>
+</li></ul></li></ul></li>
+<li class="" data="icon: '16.png'" id="Bibliography">
+<a href="Bibliography.html" target="FrameMain">Bibliografia
+</a>
+</li></ul></li>
+<li class="folder" data="" id="SimDSAS">
+<a href="SimDSAS.html" target="FrameMain">simulatore di turbine eoliche con stallo attivo e due velocità
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="SimDSASObjetivos">
+<a href="SimDSASObjetivos.html" target="FrameMain">Obiettivi principali di questo simulatore
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="BasicemulatorsforaWindTurbineinW">
+<a href="BasicemulatorsforaWindTurbineinW.html" target="FrameMain">Struttura di base dell'emulazione utilizzata in questo simulatore
+</a>
+</li>
+<li class="folder" data="" id="TheWorkBenchusedfortheWFS">
+<a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">Il Simulatore come banco da lavoro di laboratorio
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Electricschematicviewoftheconfig">
+<a href="Electricschematicviewoftheconfig.html" target="FrameMain">Diagramma di connessione del banco da lavoro per questo simulatore
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Indicadoresycomponentesgrficosso">
+<a href="Indicadoresycomponentesgrficosso.html" target="FrameMain">Modifica delle connessioni di configurazione
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Cambiodelasconexionesdelaconfigu">
+<a href="Cambiodelasconexionesdelaconfigu.html" target="FrameMain">Modifica del valore di un parametro
+</a>
+</li></ul></li>
+<li class="folder" data="" id="Sinopticos">
+<a href="Sinopticos.html" target="FrameMain">Sinottica utilizzata in questo simulatore
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="SinopticosComunes">
+<a href="SinopticosComunes.html" target="FrameMain">sinottici comuni della piattaforma LdP
+</a>
+</li>
+<li class="folder" data="" id="SinopticoTrenPotencia">
+<a href="SinopticoTrenPotencia.html" target="FrameMain">Sinottica del Power Train (SynopticDriveTrain)
+</a>
+<ul>
+<li class="folder" data="" id="VistasTrenPotencia">
+<a href="VistasTrenPotencia.html" target="FrameMain">Visite
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="VistaInternaGondola">
+<a href="VistaInternaGondola.html" target="FrameMain">Vista dell'interno della nacelle
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Vista3D">
+<a href="Vista3D.html" target="FrameMain">Vista 3D del parco eolico
+</a>
+</li></ul></li>
+<li class="folder" data="" id="IndicadoresGondola">
+<a href="IndicadoresGondola.html" target="FrameMain">Indicatori comuni
+</a>
+<ul>
+<li class="folder" data="" id="Hub">
+<a href="Hub.html" target="FrameMain">Treno di trasmissione
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="TrendePotencia">
+<a href="TrendePotencia.html" target="FrameMain">Collegamenti indicatori
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="IndicadoresTemperaturas">
+<a href="IndicadoresTemperaturas.html" target="FrameMain">Temperatura
+</a>
+</li>
+<li class="folder" data="" id="Sistemadefrenos3">
+<a href="Sistemadefrenos3.html" target="FrameMain">Controllo del tubo
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="ControldePitch">
+<a href="ControldePitch.html" target="FrameMain">Collegamenti indicatori
+</a>
+</li></ul></li>
+<li class="folder" data="" id="IndicadoresSistemaFreno">
+<a href="IndicadoresSistemaFreno.html" target="FrameMain">Sistema frenante
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="AlgoritmoFrenos">
+<a href="AlgoritmoFrenos.html" target="FrameMain">Algoritmo di controllo del freno e del segnale
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Algoritmodecontroldefrenosyseale">
+<a href="Algoritmodecontroldefrenosyseale.html" target="FrameMain">Collegamenti indicatori
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="Sistemadefrenos2">
+<a href="Sistemadefrenos2.html" target="FrameMain">Simulazione del sensore di vibrazioni della torre
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="SinopticoOrientacionViento">
+<a href="SinopticoOrientacionViento.html" target="FrameMain">Sinottica vento Nacelle Orientamento (SynopticWindNacelle)
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="SinpticodeOrientacindelaGndolaye">
+<a href="SinpticodeOrientacindelaGndolaye.html" target="FrameMain">Cambio di velocità del vento
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Cambiodelavelocidaddelviento">
+<a href="Cambiodelavelocidaddelviento.html" target="FrameMain">Cambiare direzione del vento
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Cambiodeladireccindelviento">
+<a href="Cambiodeladireccindelviento.html" target="FrameMain">Cambiamento di orientamento nacelle
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="CambiodelaorientacindelaGndola">
+<a href="CambiodelaorientacindelaGndola.html" target="FrameMain">Collegamenti indicatori
+</a>
+</li></ul></li>
+<li class="folder" data="" id="SinopticoPanelElectrico">
+<a href="SinopticoPanelElectrico.html" target="FrameMain">Sinottica del Governo Elettrico
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="SinpticodelArmarioElctrico">
+<a href="SinpticodelArmarioElctrico.html" target="FrameMain">Vista esterna
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="SinpticodelArmarioElctrico1">
+<a href="SinpticodelArmarioElctrico1.html" target="FrameMain">Vista interna
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="SinopticoEsquemaElectrico">
+<a href="SinopticoEsquemaElectrico.html" target="FrameMain">Grafico elettrico
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="IndicadoresFasesElectricas">
+<a href="IndicadoresFasesElectricas.html" target="FrameMain">Generazione di errori di fase di rete
+</a>
+</li></ul></li>
+<li class="folder" data="" id="SinopticoTerminalControl">
+<a href="SinopticoTerminalControl.html" target="FrameMain">Terminale di controllo Sinottica
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="SinpticoTerminalControlSTART">
+<a href="SinpticoTerminalControlSTART.html" target="FrameMain">Pulsante di avvio
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="SinpticoTerminalControlSTOP">
+<a href="SinpticoTerminalControlSTOP.html" target="FrameMain">Stop pulsante
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="SinpticoTerminalControlmaqEstado">
+<a href="SinpticoTerminalControlmaqEstado.html" target="FrameMain">Indicazioni della macchina di stato del controller
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="SinpticodelTerminaldeControl">
+<a href="SinpticodelTerminaldeControl.html" target="FrameMain">Come portare un sinottico specifico in primo piano
+</a>
+</li>
+<li class="folder" data="" id="Comopresentarenprimerplanoundete">
+<a href="Comopresentarenprimerplanoundete.html" target="FrameMain">Come visualizzare un Registratore e selezionare un Pannello predefinito in esso.
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="ComopresentarunRegistradoryelegi">
+<a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">Pannello 'Cutin + Cutout + Production'
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="PanelCutinCutoutProduccion">
+<a href="PanelCutinCutoutProduccion.html" target="FrameMain">Pannello "Yawing"
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="PanelYawing">
+<a href="PanelYawing.html" target="FrameMain">Pannello freno idraulico
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="PanelCircuitohidrulicodefrenos">
+<a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">Pannello 'RPMs + Pitch + State Machines'
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="PanelRPMsPitchMaquinasdeEstado">
+<a href="PanelRPMsPitchMaquinasdeEstado.html" target="FrameMain">Pannello macchine di stato del regolatore
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="Simulacion">
+<a href="Simulacion.html" target="FrameMain">Ambito della simulazione
+</a>
+<ul>
+<li class="folder" data="" id="ProcessesinNacelleEmulator">
+<a href="ProcessesinNacelleEmulator.html" target="FrameMain">Processi corrispondenti agli elementi nacelle
+</a>
+<ul>
+<li class="folder" data="" id="ParametrosTrenPotencia">
+<a href="ParametrosTrenPotencia.html" target="FrameMain">del treno di potenza
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Hub1">
+<a href="Hub1.html" target="FrameMain">Hub
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="MultiplicadoraParametros">
+<a href="MultiplicadoraParametros.html" target="FrameMain">Multiplo
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="FrenosParametros">
+<a href="FrenosParametros.html" target="FrameMain">Sistema frenante
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="GeneradorParametros">
+<a href="GeneradorParametros.html" target="FrameMain">Generatore
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Yawingsubsystem">
+<a href="Yawingsubsystem.html" target="FrameMain">Sistema di orientamento
+</a>
+</li>
+<li class="folder" data="" id="EstrategiasSeguridadSobrevelocid">
+<a href="EstrategiasSeguridadSobrevelocid.html" target="FrameMain">Strategie di sicurezza per la velocità eccessiva
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="ParametrosSobrevelocidad">
+<a href="ParametrosSobrevelocidad.html" target="FrameMain">Parametri del meccanismo di sovravelocità
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="Controller">
+<a href="Controller.html" target="FrameMain">Controller
+</a>
+<ul>
+<li class="folder" data="" id="Algorithms">
+<a href="Algorithms.html" target="FrameMain">Algoritmi utilizzati
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Pitchcontolalgorithm">
+<a href="Pitchcontolalgorithm.html" target="FrameMain">Algoritmo di controllo dell'angolo della lama
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Softstarter">
+<a href="Softstarter.html" target="FrameMain">Avviamento morbido (collegamento morbido) alla griglia
+</a>
+</li>
+<li class="folder" data="" id="Yawingofthenacelle">
+<a href="Yawingofthenacelle.html" target="FrameMain">Algoritmi di controllo per l'orientamento del cavo di alimentazione e la disattivazione
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Modes">
+<a href="Modes.html" target="FrameMain">Modalità
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="Controlmodes">
+<a href="Controlmodes.html" target="FrameMain">Modalità operative
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Manual">
+<a href="Manual.html" target="FrameMain">Manuale
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Automatic">
+<a href="Automatic.html" target="FrameMain">Automatico
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="Remotecontrol">
+<a href="Remotecontrol.html" target="FrameMain">Controllo remoto da SCADA
+</a>
+</li></ul></li>
+<li class="folder" data="" id="ControllersFunctionalstructure">
+<a href="ControllersFunctionalstructure.html" target="FrameMain">Struttura funzionale del controller
+</a>
+<ul>
+<li class="folder" data="" id="StateEventsDiagramsoftheimplemen">
+<a href="StateEventsDiagramsoftheimplemen.html" target="FrameMain">Centrali interne
+</a>
+<ul>
+<li class="folder" data="icon: '10.png'" id="OperationStateMachine">
+<a href="OperationStateMachine.html" target="FrameMain">Macchina di funzionamento
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="LegendforOperationStateMachinedi">
+<a href="LegendforOperationStateMachinedi.html" target="FrameMain">Leggenda del diagramma O.S.
+</a>
+</li></ul></li>
+<li class="folder" data="icon: '10.png'" id="SecurityStateMachine">
+<a href="SecurityStateMachine.html" target="FrameMain">Macchina di sicurezza
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="LegendoftheSecurityStateMachine">
+<a href="LegendoftheSecurityStateMachine.html" target="FrameMain">Leggenda per il Diagramma della Sicurezza O.S.
+</a>
+</li></ul></li>
+<li class="" data="icon: '10.png'" id="RelationshipsamongtheStateMachin">
+<a href="RelationshipsamongtheStateMachin.html" target="FrameMain">Rapporti tra macchine statali
+</a>
+</li>
+<li class="" data="icon: '10.png'" id="ExamplethechangesinStatesandEven">
+<a href="ExamplethechangesinStatesandEven.html" target="FrameMain">Esempio di Cambiamenti di Stato e Eventi nell'O.S. durante un'operazione di connessione (cutin)
+</a>
+</li></ul></li></ul></li></ul></li>
+<li class="" data="icon: '16.png'" id="ControlTerminal">
+<a href="ControlTerminal.html" target="FrameMain">Terminale di controllo dell'operatore
+</a>
+</li></ul></li></ul></li>
+<li class="folder" data="" id="DatosTecnicos">
+<a href="DatosTecnicos.html" target="FrameMain">Dati tecnici dei sottosistemi emulati
+</a>
+<ul>
+<li class="folder" data="" id="DatosTecnicosGenerador">
+<a href="DatosTecnicosGenerador.html" target="FrameMain">Caratteristiche del generatore emulato in questo simulatore
+</a>
+<ul>
+<li class="" data="icon: '16.png'" id="DatosTecnicosGen2polos">
+<a href="DatosTecnicosGen2polos.html" target="FrameMain">Collegamento di 2 coppie di pali
+</a>
+</li>
+<li class="" data="icon: '16.png'" id="DatosTecnicosGen3Polos">
+<a href="DatosTecnicosGen3Polos.html" target="FrameMain">Collegamento di 3 coppie di pali
+</a>
+</li></ul></li>
+<li class="" data="icon: '16.png'" id="DatosTecnicosValoresVientos">
+<a href="DatosTecnicosValoresVientos.html" target="FrameMain">Valori del vento funzionali
+</a>
+</li></ul></li>
+</ul>
+</div>
+<div id="tab-keywords">
+<ul id="keywords">
+<li class="file" data="icon: '16.png'"><a href="DatosTecnicosValoresVientos.html" target="FrameMain">Abs max</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelYawing.html" target="FrameMain">Attivazione del 'Brago forte '</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelYawing.html" target="FrameMain">Attivazione della pompa</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelYawing.html" target="FrameMain">attivazione di 'Normal Brake '</a></li>
+<li class="file" data="icon: '16.png'"><a href="Coeficienteaerodinmico2.html" target="FrameMain">Piazzola attiva</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conceptossobrelapotencia.html" target="FrameMain">Stallo attivo</a></li>
+<li class="file" data="icon: '16.png'"><a href="SimDSAS.html" target="FrameMain">Stalling attivo</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">attuatore idraulico</a></li>
+<li class="file" data="icon: '16.png'"><a href="Stalling.html" target="FrameMain">turbine eoliche fisse-pitch</a></li>
+<li class="file" data="icon: '16.png'"><a href="Pitchcontolalgorithm.html" target="FrameMain">algoritmi</a></li>
+<li class="file" data="icon: '16.png'"><a href="BasicemulatorsforaWindTurbineinW.html" target="FrameMain">algoritmi di controllo</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresTemperaturas.html" target="FrameMain">ambiente</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodeorientacinyaw2.html" target="FrameMain">ancora</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">angolo della lama</a></li>
+<li class="file" data="icon: '16.png'"><a href="Algorithms.html" target="FrameMain">angolo della lama</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">angolo cottura</a></li>
+<li class="file" data="icon: '16.png'"><a href="Pitchcontolalgorithm.html" target="FrameMain">angolo cottura</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControldePitch.html" target="FrameMain">Angolo di lama</a></li>
+<li class="file" data="icon: '16.png'"><a href="Introductiontothephysicalprincip.html" target="FrameMain">anelli scorrevoli</a></li>
+<li class="file" data="icon: '16.png'"><a href="Nuevotema.html" target="FrameMain">antiparallelo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Automatic.html" target="FrameMain">Automatico</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Autonomo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodecambiodeangulodelaspa.html" target="FrameMain">Fallimento</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">banca del condensatore</a></li>
+<li class="file" data="icon: '16.png'"><a href="Introduccion.html" target="FrameMain">banco prova</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodecambiodeangulodelaspa.html" target="FrameMain">bandiera</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinpticodelTerminaldeControl.html" target="FrameMain">Barra degli strumenti</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">barre di collegamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Porqugiranlaspalas.html" target="FrameMain">Betz</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">bimetallico</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sensorestemperatura.html" target="FrameMain">bicimetri</a></li>
+<li class="file" data="icon: '16.png'"><a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">blocchi cablati</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">pompa di circuito idraulico freno</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Bypass</a></li>
+<li class="file" data="icon: '16.png'"><a href="Palas.html" target="FrameMain">Qualità dell'alimentazione elettrica</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinpticodeOrientacindelaGndolaye.html" target="FrameMain">cambiamento velocità del vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Comopresentarenprimerplanoundete.html" target="FrameMain">canali</a></li>
+<li class="file" data="icon: '16.png'"><a href="ParametrosSobrevelocidad.html" target="FrameMain">flusso pompa</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">CCW</a></li>
+<li class="file" data="icon: '16.png'"><a href="Lubricacindelasmultiplicadoras.html" target="FrameMain">CSI</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodecambiodeangulodelaspa.html" target="FrameMain">coefficiente aerodinamico</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresTemperaturas.html" target="FrameMain">cuscinetto rotore</a></li>
+<li class="file" data="icon: '16.png'"><a href="Unionesflexiblesdelejedealta.html" target="FrameMain">cuscinetti</a></li>
+<li class="file" data="icon: '16.png'"><a href="Comopresentarenprimerplanoundete.html" target="FrameMain">colore assegnato</a></li>
+<li class="file" data="icon: '16.png'"><a href="Cambiodeladireccindelviento.html" target="FrameMain">comando</a></li>
+<li class="file" data="icon: '16.png'"><a href="Lubricacindelasmultiplicadoras.html" target="FrameMain">Sistemi di monitoraggio delle condizioni</a></li>
+<li class="file" data="icon: '16.png'"><a href="OperationStateMachine.html" target="FrameMain">connessione</a></li>
+<li class="file" data="icon: '16.png'"><a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">connessione alla rete</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">Collegamento generatore</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">collegamento morbido</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sinopticos.html" target="FrameMain">configurazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Remotecontrol.html" target="FrameMain">Set di potenza attiva</a></li>
+<li class="file" data="icon: '16.png'"><a href="Remotecontrol.html" target="FrameMain">Set di potenza reattiva</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">Contattatore di passaggio</a></li>
+<li class="file" data="icon: '16.png'"><a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">Contatto di bypass di Thyristor</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">contatti</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Contatti di passaggio</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControlTerminal.html" target="FrameMain">controllo accessi</a></li>
+<li class="file" data="icon: '16.png'"><a href="Stalling.html" target="FrameMain">controllo</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">Controller</a></li>
+<li class="file" data="icon: '16.png'"><a href="Pitchcontolalgorithm.html" target="FrameMain">Controller.Control.PitchNacelleIn</a></li>
+<li class="file" data="icon: '16.png'"><a href="Pitchcontolalgorithm.html" target="FrameMain">Controller.Control.PitchOut</a></li>
+<li class="file" data="icon: '16.png'"><a href="Comopresentarenprimerplanoundete.html" target="FrameMain">Copia</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conceptossobrelapotencia.html" target="FrameMain">Cp</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conceptossobrelapotencia.html" target="FrameMain">Massimo Cp</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresFasesElectricas.html" target="FrameMain">creare guasti di rete</a></li>
+<li class="file" data="icon: '16.png'"><a href="PFAPorquegiranlaspalas.html" target="FrameMain">stringa di lama</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">CW</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Coppia meccanica</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">Densità dell'aria</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">disallineamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodeorientacinyaw2.html" target="FrameMain">cavo avvolgimento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Algorithms.html" target="FrameMain">disavvolgimento dei cavi di alimentazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="IntoductiontotheInductionMachine.html" target="FrameMain">slip</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">rilevatori di velocità</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">direzione del vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresTemperaturas.html" target="FrameMain">disco freno</a></li>
+<li class="file" data="icon: '16.png'"><a href="ParametrosSobrevelocidad.html" target="FrameMain">disco freno</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">downwind</a></li>
+<li class="file" data="icon: '16.png'"><a href="EsquemafuncionaldeunaAerogenerad.html" target="FrameMain">trascinamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="MedicindeladireccionDireccionVie.html" target="FrameMain">ciclo di lavoro</a></li>
+<li class="file" data="icon: '16.png'"><a href="Nuevotema2.html" target="FrameMain">effetto giroscopico</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">albero di uscita del cambio</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Albero di rotazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">Elettronica di alimentazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraoperacionaldeunAerogen.html" target="FrameMain">emergenza</a></li>
+<li class="file" data="icon: '16.png'"><a href="Stalling.html" target="FrameMain">Stall</a></li>
+<li class="file" data="icon: '16.png'"><a href="IntoductiontotheInductionMachine.html" target="FrameMain">Spazio aereo</a></li>
+<li class="file" data="icon: '16.png'"><a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">Interruttore di regolazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="WindTurbineControlcriteria.html" target="FrameMain">Stabilità</a></li>
+<li class="file" data="icon: '16.png'"><a href="IntoductiontotheInductionMachine.html" target="FrameMain">Stato</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">fattore di potenza</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">fattore di potenza</a></li>
+<li class="file" data="icon: '16.png'"><a href="AlgoritmoFrenos.html" target="FrameMain">Fail/Safe</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">sicurezza del guasto</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">FAS</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">il</a></li>
+<li class="file" data="icon: '16.png'"><a href="Palas.html" target="FrameMain">flicker</a></li>
+<li class="file" data="icon: '16.png'"><a href="Stalling.html" target="FrameMain">flusso laminare</a></li>
+<li class="file" data="icon: '16.png'"><a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">quadro</a></li>
+<li class="file" data="icon: '16.png'"><a href="ParametrosSobrevelocidad.html" target="FrameMain">freno</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodecambiodeangulodelaspa.html" target="FrameMain">freno aerodinamico</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">freno a disco</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraoperacionaldeunAerogen.html" target="FrameMain">freno a mano</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstrategiasSeguridadSobrevelocid.html" target="FrameMain">freno vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstrategiasSeguridadSobrevelocid.html" target="FrameMain">freno duro</a></li>
+<li class="file" data="icon: '16.png'"><a href="AlgoritmoFrenos.html" target="FrameMain">Brake rilasciato</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">Brake rilasciato</a></li>
+<li class="file" data="icon: '16.png'"><a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">Brakes rilasciato</a></li>
+<li class="file" data="icon: '16.png'"><a href="Concilindroshidrulicos.html" target="FrameMain">alimentatori ininterrotti</a></li>
+<li class="file" data="icon: '16.png'"><a href="EsquemafuncionaldeunaAerogenerad.html" target="FrameMain">forza di sollevamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="SimDSAS.html" target="FrameMain">Funzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Controllo cancello</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">Generatore</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresTemperaturas.html" target="FrameMain">Generatore elettrico</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCutinCutoutProduccion.html" target="FrameMain">svolta a destra della Gondola</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCutinCutoutProduccion.html" target="FrameMain">Girare a sinistra della Gondola</a></li>
+<li class="file" data="icon: '16.png'"><a href="CambiodelaorientacindelaGndola.html" target="FrameMain">Girare a destra</a></li>
+<li class="file" data="icon: '16.png'"><a href="CambiodelaorientacindelaGndola.html" target="FrameMain">Turno sinistro</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">Gondola</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Griglia</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">HAWW</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">HCU</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">Isteresi</a></li>
+<li class="file" data="icon: '16.png'"><a href="RequerimientosdelTrendePotencia.html" target="FrameMain">ore all'anno</a></li>
+<li class="file" data="icon: '16.png'"><a href="Hub1.html" target="FrameMain">hub</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">Incidenti</a></li>
+<li class="file" data="icon: '16.png'"><a href="BasicemulatorsforaWindTurbineinW.html" target="FrameMain">interconnessioni</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Interruttore principale</a></li>
+<li class="file" data="icon: '16.png'"><a href="Introductiontothephysicalprincip.html" target="FrameMain">Gabbietta di scoiattolo</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Giunto flessibile</a></li>
+<li class="file" data="icon: '16.png'"><a href="Notasobreestaversin.html" target="FrameMain">LdP</a></li>
+<li class="file" data="icon: '16.png'"><a href="PFAPorquegiranlaspalas.html" target="FrameMain">ascensore</a></li>
+<li class="file" data="icon: '16.png'"><a href="EsquemafuncionaldeunaAerogenerad.html" target="FrameMain">sollevamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodeorientacinyaw2.html" target="FrameMain">possibile limite di rotazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodecambiodeangulodelaspa.html" target="FrameMain">manutenzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">manuale</a></li>
+<li class="file" data="icon: '16.png'"><a href="StateEventsDiagramsoftheimplemen.html" target="FrameMain">stato della macchina</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">Macchina per condizioni di funzionamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">macchina di stato di sicurezza</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControllersFunctionalstructure.html" target="FrameMain">Macchina di stato</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinpticoTerminalControlmaqEstado.html" target="FrameMain">macchine di stato</a></li>
+<li class="file" data="icon: '16.png'"><a href="StateEventsDiagramsoftheimplemen.html" target="FrameMain">macchine di stato</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">rivoluzioni massime</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">meccanismo di orientamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">Tensione media</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinpticodeOrientacindelaGndolaye.html" target="FrameMain">metodo consigliato per cambiare la velocità del vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">Modalità di comando</a></li>
+<li class="file" data="icon: '16.png'"><a href="Manual.html" target="FrameMain">Modalità manuale</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">momento di inerzia</a></li>
+<li class="file" data="icon: '16.png'"><a href="Lubricacindelasmultiplicadoras.html" target="FrameMain">Monitoraggio delle condizioni</a></li>
+<li class="file" data="icon: '16.png'"><a href="SistemadeFrenos1.html" target="FrameMain">motori girevole</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">motori di orientamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresTemperaturas.html" target="FrameMain">moltiplicatore</a></li>
+<li class="file" data="icon: '16.png'"><a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">Emulatore di Nacelle</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoOrientacionViento.html" target="FrameMain">Nacelle orientamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Pitchcontolalgorithm.html" target="FrameMain">Nacelle.DriveTrain.PitchIn</a></li>
+<li class="file" data="icon: '16.png'"><a href="Pitchcontolalgorithm.html" target="FrameMain">Nacelle.DriveTrain.PitchNacelleOut</a></li>
+<li class="file" data="icon: '16.png'"><a href="Detalledelcircuitodeconexin.html" target="FrameMain">Normalmente chiuso</a></li>
+<li class="file" data="icon: '16.png'"><a href="Detalledelcircuitodeconexin.html" target="FrameMain">Normalmente aperto</a></li>
+<li class="file" data="icon: '16.png'"><a href="Detalledelcircuitodeconexin.html" target="FrameMain">Normalmente chiuso</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingofthenacelle.html" target="FrameMain">Numero massimo di giri di cavi di alimentazione prima di avviare il collegamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="StateEventsDiagramsoftheimplemen.html" target="FrameMain">Operazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Modes.html" target="FrameMain">Operazione di orientamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Funzionamento e manutenzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinpticoTerminalControlmaqEstado.html" target="FrameMain">Operazioni</a></li>
+<li class="file" data="icon: '16.png'"><a href="BasicemulatorsforaWindTurbineinW.html" target="FrameMain">blocchi operativi</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">orientamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">guida in gondola</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Over Temp</a></li>
+<li class="file" data="icon: '16.png'"><a href="Productioncurve.html" target="FrameMain">lama</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">Lama</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">lame di passo variabili</a></li>
+<li class="file" data="icon: '16.png'"><a href="Comopresentarenprimerplanoundete.html" target="FrameMain">Pannelli predefiniti</a></li>
+<li class="file" data="icon: '16.png'"><a href="IntoductiontotheInductionMachine.html" target="FrameMain">coppia meccanica</a></li>
+<li class="file" data="icon: '16.png'"><a href="Cambiodeladireccindelviento.html" target="FrameMain">Fermati.</a></li>
+<li class="file" data="icon: '16.png'"><a href="ParametrosSobrevelocidad.html" target="FrameMain">arresto di emergenza</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingofthenacelle.html" target="FrameMain">Parameter.ControllerYawing.MaxCableTwistBeforeCutin</a></li>
+<li class="file" data="icon: '16.png'"><a href="Cambiodelasconexionesdelaconfigu.html" target="FrameMain">Parametri</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticosComunes.html" target="FrameMain">Parametri</a></li>
+<li class="file" data="icon: '16.png'"><a href="Palas.html" target="FrameMain">lampeggiante</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">PCC</a></li>
+<li class="file" data="icon: '16.png'"><a href="Comopresentarenprimerplanoundete.html" target="FrameMain">periodo di campionamento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Remotecontrol.html" target="FrameMain">Richiesta dati</a></li>
+<li class="file" data="icon: '16.png'"><a href="EsquemafuncionaldeunaAerogenerad.html" target="FrameMain">pitch</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControldePitch.html" target="FrameMain">Piazzola</a></li>
+<li class="file" data="icon: '16.png'"><a href="Unionesflexiblesdelejedealta.html" target="FrameMain">planetario</a></li>
+<li class="file" data="icon: '16.png'"><a href="PFAPorquegiranlaspalas.html" target="FrameMain">piano di rotazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="BasicemulatorsforaWindTurbineinW.html" target="FrameMain">PLC</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControllersFunctionalstructure.html" target="FrameMain">PLC</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">Punto di connessione comune</a></li>
+<li class="file" data="icon: '16.png'"><a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">energia elettrica generata</a></li>
+<li class="file" data="icon: '16.png'"><a href="Coeficienteaerodinmico.html" target="FrameMain">potenza massima ottenibile</a></li>
+<li class="file" data="icon: '16.png'"><a href="Palas.html" target="FrameMain">Qualità del potere</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelYawing.html" target="FrameMain">pressione nel circuito idraulico</a></li>
+<li class="file" data="icon: '16.png'"><a href="Algorithms.html" target="FrameMain">pressione nel circuito frenante idraulico</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelYawing.html" target="FrameMain">interruttore di pressione</a></li>
+<li class="file" data="icon: '16.png'"><a href="TheWorkBenchusedfortheWFS.html" target="FrameMain">Processi</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControllersFunctionalstructure.html" target="FrameMain">Regolatori di logica programmabili</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">protocolli d'azione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sensorestemperatura.html" target="FrameMain">Pt100</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">start-up di produzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">Punto di connessione comune</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">Punto di connessione comune</a></li>
+<li class="file" data="icon: '16.png'"><a href="RequirementsimposedbytheDriveTra.html" target="FrameMain">scoppi</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Rete</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticosComunes.html" target="FrameMain">Registratori</a></li>
+<li class="file" data="icon: '16.png'"><a href="MedicindeladireccionDireccionVie.html" target="FrameMain">rapporto di aspetto</a></li>
+<li class="file" data="icon: '16.png'"><a href="AlgoritmoFrenos.html" target="FrameMain">riposo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">rappresentazione del phasor</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">rotore</a></li>
+<li class="file" data="icon: '16.png'"><a href="IntoductiontotheInductionMachine.html" target="FrameMain">rotore della ferita</a></li>
+<li class="file" data="icon: '16.png'"><a href="RequirementsimposedbytheElectric.html" target="FrameMain">rotore cortocircuitato</a></li>
+<li class="file" data="icon: '16.png'"><a href="IntoductiontotheInductionMachine.html" target="FrameMain">rotore cortocircuitato</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControllersFunctionalstructure.html" target="FrameMain">NT2</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoPanelElectrico.html" target="FrameMain">UPS</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">produzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">produzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Remotecontrol.html" target="FrameMain">SCADA</a></li>
+<li class="file" data="icon: '16.png'"><a href="Comopresentarenprimerplanoundete.html" target="FrameMain">Secondi per pixel</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">sicurezza</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticosComunes.html" target="FrameMain">Segnali e connessioni</a></li>
+<li class="file" data="icon: '16.png'"><a href="BasicemulatorsforaWindTurbineinW.html" target="FrameMain">Sensori</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">Sincronismo</a></li>
+<li class="file" data="icon: '16.png'"><a href="SimDSAS.html" target="FrameMain">Sinottica</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sinopticos.html" target="FrameMain">Sinottica comune</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sinopticos.html" target="FrameMain">sinottici base LdP</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">sistema frenante idraulico</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControllersFunctionalstructure.html" target="FrameMain">Sistemi operativi in tempo reale</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">SofStarter</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">collegamento morbido</a></li>
+<li class="file" data="icon: '16.png'"><a href="Nuevotema.html" target="FrameMain">Antipasto morbido</a></li>
+<li class="file" data="icon: '16.png'"><a href="ConexinalaRedElctrica.html" target="FrameMain">Antipasto morbido</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">verso</a></li>
+<li class="file" data="icon: '16.png'"><a href="Introduccion.html" target="FrameMain">gabbia di scoiattolo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Stalling.html" target="FrameMain">stallone</a></li>
+<li class="file" data="icon: '16.png'"><a href="Mecanismodeorientacinyaw2.html" target="FrameMain">Sottoscrizione</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Controllo di supervisione e acquisizione dati</a></li>
+<li class="file" data="icon: '16.png'"><a href="Stalling.html" target="FrameMain">ascensore</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControldePitch.html" target="FrameMain">Treno di trasmissione sinottica</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresTemperaturas.html" target="FrameMain">Temperatura</a></li>
+<li class="file" data="icon: '16.png'"><a href="VistasTrenPotencia.html" target="FrameMain">Temperatura</a></li>
+<li class="file" data="icon: '16.png'"><a href="Automatic.html" target="FrameMain">Terminale di controllo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Nuevotema.html" target="FrameMain">Il tuo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Porqugiranlaspalas.html" target="FrameMain">Velocità di punta Ratio</a></li>
+<li class="file" data="icon: '16.png'"><a href="Nuevotema.html" target="FrameMain">Il tuo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sensorestemperatura.html" target="FrameMain">Tiristori</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Torre</a></li>
+<li class="file" data="icon: '16.png'"><a href="ControllersFunctionalstructure.html" target="FrameMain">Transizioni statali</a></li>
+<li class="file" data="icon: '16.png'"><a href="AlgoritmoFrenos.html" target="FrameMain">TSR</a></li>
+<li class="file" data="icon: '16.png'"><a href="RequirementsimposedbytheDriveTra.html" target="FrameMain">turbolenza</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Unità di controllo</a></li>
+<li class="file" data="icon: '16.png'"><a href="EstructuraAerogenerador.html" target="FrameMain">Unione flessibile</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoPanelElectrico.html" target="FrameMain">UPS</a></li>
+<li class="file" data="icon: '16.png'"><a href="Queesunaerogenerador.html" target="FrameMain">vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">valore attuale dello stato</a></li>
+<li class="file" data="icon: '16.png'"><a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">valore impostato</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">valvola valvola valvola</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">valvole freno</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">VC</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoOrientacionViento.html" target="FrameMain">vettore del vento totale</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">tempo libero</a></li>
+<li class="file" data="icon: '16.png'"><a href="PanelCircuitohidrulicodefrenos.html" target="FrameMain">velocità di rotazione dell'albero generatore elettrico</a></li>
+<li class="file" data="icon: '16.png'"><a href="Softstarter.html" target="FrameMain">velocità di sincronizzazione</a></li>
+<li class="file" data="icon: '16.png'"><a href="ComopresentarunRegistradoryelegi.html" target="FrameMain">velocità del vento efficace</a></li>
+<li class="file" data="icon: '16.png'"><a href="Coeficienteaerodinmico.html" target="FrameMain">velocità fissa</a></li>
+<li class="file" data="icon: '16.png'"><a href="Conexionredelectrica.html" target="FrameMain">Synchronization_speed</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sistemadefrenos2.html" target="FrameMain">Vibrazioni</a></li>
+<li class="file" data="icon: '16.png'"><a href="Sistemadefrenos2.html" target="FrameMain">Vibrazioni nella Torre</a></li>
+<li class="file" data="icon: '16.png'"><a href="Lubricacindelasmultiplicadoras.html" target="FrameMain">video</a></li>
+<li class="file" data="icon: '16.png'"><a href="Lubricacindelasmultiplicadoras.html" target="FrameMain">videoscopi</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinopticoTerminalControl.html" target="FrameMain">Vento vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="PFAPorquegiranlaspalas.html" target="FrameMain">vento rotazionale</a></li>
+<li class="file" data="icon: '16.png'"><a href="PFAPorquegiranlaspalas.html" target="FrameMain">vento incidente</a></li>
+<li class="file" data="icon: '16.png'"><a href="DatosTecnicosValoresVientos.html" target="FrameMain">massimo vento temporaneo</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingofthenacelle.html" target="FrameMain">velocità minima del vento per lo svolgimento dei cavi</a></li>
+<li class="file" data="icon: '16.png'"><a href="RequerimientosdelTrendePotencia.html" target="FrameMain">vento nominale</a></li>
+<li class="file" data="icon: '16.png'"><a href="VistasTrenPotencia.html" target="FrameMain">Vista strumentale</a></li>
+<li class="file" data="icon: '16.png'"><a href="VistasTrenPotencia.html" target="FrameMain">3D vista esterna</a></li>
+<li class="file" data="icon: '16.png'"><a href="SinpticodelArmarioElctrico.html" target="FrameMain">Vista interna</a></li>
+<li class="file" data="icon: '16.png'"><a href="VistaInternaGondola.html" target="FrameMain">Vista interna della nacelle</a></li>
+<li class="file" data="icon: '16.png'"><a href="Modes.html" target="FrameMain">Giranti per cavi</a></li>
+<li class="file" data="icon: '16.png'"><a href="RequerimientosdelTrendePotencia.html" target="FrameMain">Weibull</a></li>
+<li class="file" data="icon: '16.png'"><a href="Palas.html" target="FrameMain">Guarnizione del vento</a></li>
+<li class="file" data="icon: '16.png'"><a href="Yawingsubsystem.html" target="FrameMain">Yawing</a></li>
+<li class="file" data="icon: '16.png'"><a href="IndicadoresSistemaFreno.html" target="FrameMain">scarpa</a></li>
+<li class="file" data="icon: '16.png'"><a href="SistemadeFrenos1.html" target="FrameMain">scarpe</a></li>
+</ul>
+</div>
+<div id="tab-search">
+<form onsubmit="PerformSearch(); return false;">
+<label for="search_value">Ricerca:</label>
+<input id="search_value" name="search_value"/>
+<input type="submit" value="Búsqueda"/>
+</form>
+<div id="search_results"></div>
+</div>
+</div>
+</body>
+</html>

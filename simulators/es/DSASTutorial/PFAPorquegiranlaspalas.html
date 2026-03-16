@@ -1,0 +1,132 @@
+﻿
+
+<html>
+	
+<head>
+	<title>&iquest;Por qu&eacute; giran las palas?</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", lift, dragging, plano de rotaci&oacute;n, flujo laminar, cuerda de la pala, Viento Total, viento incidente, viento de rotaci&oacute;n">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("PFAPorquegiranlaspalas");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">&iquest;Por qu&eacute; giran las palas?</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Principios f&iacute;sicos</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PrincipiosFisicosAerogeneradores.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Porqugiranlaspalas1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Porqugiranlaspalas.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts6">Los principios básicos que gobiernan las fuerzas que aparecen en las palas de los aerogeneradores y obligan al Hub, al que están conectados, a girar, son los mismos que permiten a los aviones ascender. El giro se debe a que el Hub tiene sólo un grado de libertad: rotar sobre su eje.</span></p>
+<p class="rvps14"><span class="rvts12">¿Cúales son estas fuerzas?</span></p>
+<p class="rvps4"><span class="rvts6">Supongamos que tenemos un</span><span class="rvts17"> ala de avión</span><span class="rvts6"> en un túnel de viento, como se muestra en la Fig 1. En un tunel de viento el flujo de aire es uniforme, de tal manera que no haya turbulencias (es decir, "</span><span class="rvts17">flujo laminar</span><span class="rvts6">"). Y &nbsp;podemos variar su intensidad a voluntad.</span></p>
+<p class="rvps4"><span class="rvts6">En el interior de este túnel de viento se coloca el ala (representada por su sección, delimitada por la</span><span class="rvts70"> línea roja</span><span class="rvts6">), y la fijamos bien al exterior del túnel de viento, de forma que no se pueda desplazar. Esta fijación se realiza con una </span><span class="rvts17">barra interna</span><span class="rvts6"> que atraviesa el ala a lo largo de su eje más largo, (el círculo se muestra en el centro), y nos permite girar. De esta forma podemos cambiar el angulo que la cuerda del ala presenta al viento.</span></p>
+<p class="rvps15"><img alt="" style="padding : 1px;" src="lib/Bladeconfuerzas.png"></p>
+<p class="rvps15"><span class="rvts6">Fig 1.</span></p>
+<p class="rvps4"><span class="rvts6">El efecto del viento, que viene desde la izquierda, sobre el ala es una </span><span class="rvts17">compresión del flujo</span><span class="rvts6"> en el lado inferior de la pala, y un depresión en su lado superior. El resultado es un conjunto de fuerzas aplicadas a lo largo de la superficie de la pala: este conjunto de fuerzas se indica por las flechas pequeñas de puntos.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts6">Como la pala es un </span><span class="rvts17">cuerpo rígido</span><span class="rvts6">, el efecto total de estas fuerzas puede asimilarse a una sola fuerza cuyo valor es la suma vectorial de todas ellas, y que está aplicada en el punto de fijación, la barra representada por el circulo: esta fuerza está indicada por el </span><span class="rvts39">vector rojo</span><span class="rvts6">. La magnitud y dirección de esta fuerza depende de:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">la </span><span class="rvts17">forma de la pala</span><span class="rvts6">,&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">la </span><span class="rvts17">velocidad del viento</span><span class="rvts6"> entrante,</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">del </span><span class="rvts17">ángulo</span><span class="rvts6"> entre la </span><span class="rvts17">cuerda de la pala</span><span class="rvts6"> (</span><span class="rvts75">linea gris</span><span class="rvts6"> que une los dos extremos de la pala) y la dirección del viento (</span><span class="rvts29">flecha</span><span class="rvts6"> a la izquierda).&nbsp;</span></p>
+<p class="rvps4"><span class="rvts6">Podemos descomponer este vector rojo a voluntad: en este caso particular, es conveniente pensar en este vector rojo como la suma de dos fuerzas: una para subir, llamada </span><span class="rvts71">Flifting</span><span class="rvts6">, y otra que va hacia la derecha, con nombre </span><span class="rvts71">Fdragging</span><span class="rvts6">.</span></p>
+<p class="rvps11"><span class="rvts6">Estas dos fuerzas explican por qué el avión se mantiene colgado en el aire (debido a </span><span class="rvts17">Flifting</span><span class="rvts6">), y por qué se debe empujar hacia la izquierda (para superar Fdragging), para que el avión se mantenga suspendido en el aire. Esta fuerza es la que debe superar los motores del avión.</span></p>
+<p class="rvps11"><span class="rvts6">Ahora cambiemos el ala de avión por la pala de un aerogenerador y coloquemosla en relación con el eje del mismo. La situación es similar, pero invertida. Véase la siguiente figura donde se presenta la visión que tendría un observador situado en el vértice de una de las palas y estuviera mirando al eje del Hub. El viento lo tendría de frente y las palas girarían hacia su izquierda en un plano perpendicular a la pantalla y que pasaría por el </span><span class="rvts29">vector negro</span><span class="rvts6">.</span></p>
+<p class="rvps15"><img alt="" style="padding : 1px;" src="lib/Hub%20con%20vientos%20y%20fuerzas%20-%20espaol.png"></p>
+<p class="rvps15"><span class="rvts6">Fig 2.</span></p>
+<p class="rvps4"><span class="rvts6">En este caso, el viento que incide sobre el borde de la pala es el "Viento Total" (</span><span class="rvts39">vector rojo</span><span class="rvts6">), una composición del viento incidente (</span><span class="rvts72">vector azul</span><span class="rvts6">) y el viento de </span><span class="rvts17">rotación</span><span class="rvts6"> (</span><span class="rvts29">vector negro</span><span class="rvts6">), que es el producido por la pala cuando gira, porque está a una cierta distancia del punto de giro (el eje del Hub). Estamos asumiendo que el giro se produce "a izquierdas" y debido a ese movimiento el borde más romo de la pala "</span><span class="rvts17">corta en perpendicular</span><span class="rvts6">" el viento incidente. La velocidad de ese corte no es uniforme a lo largo de ese borde: menor cuanto más cerca está la sección de la pala que estamos viendo, del centro del Hub (ver </span><a class="rvts18" href="EsquemafuncionaldeunaAerogenerad.html">Palas</a><span class="rvts6"> ). Esta velocidad de corte del aire es equivalente a un viento que tuviera una dirección opuesta y la pala se mantuviera estática.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts6">En esta breve explicación asumiremos que la velocidad de este viento que nos interesa es el "promedio" a lo largo de todo el borde.</span></p>
+<p class="rvps4"><span class="rvts6">La representación de la izquierda es una forma de resolver el problema de representar la pala girando, haciendo el cambio &nbsp;de proponer una "vista desde la misma pala", como si estuviéramos sentados en el extremo de la pala mirando hacia el eje de giro en el Hub. El vector negro correspondería al viento que sentiríamos en la cara debido a ese giro.</span></p>
+<p class="rvps4"><span class="rvts6">La fuerza total se representa por el </span><span class="rvts73">vector verde</span><span class="rvts6">, y de forma similar al caso del túnel de viento y el ala del avión, lo descomponemos en dos fuerzas: una que tira de la pala a lo largo del único grado de libertad que tiene (el plano de rotación), &nbsp;y otra (</span><span class="rvts74">vector marrón claro</span><span class="rvts6">) va en la dirección del eje del Hub, y se contrarresta por la Torre; es decir, esta es la fuerza que intenta doblar a la Torre.</span></p>
+<p class="rvps4"><span class="rvts6">Este conjunto de fuerzas depende del angulo relativo de la pala respecto de su plano de giro: es decir, en la figura anterior, del angulo entre la</span><span class="rvts76"> línea roja de puntos</span><span class="rvts6"> y el eje horizontal.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

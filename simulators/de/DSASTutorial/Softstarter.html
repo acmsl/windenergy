@@ -1,0 +1,106 @@
+<html>
+<head>
+<title>Weicher Starter (weiche Verbindung) zum Netz</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="asíncrono, cutin, cutout, , hub, , pitch variable, grid, tiristores, contactor bypass, salida de producción, puesta en producción, Bypass, fasores, representación fasorial, , velocidad de sincronismo, , soft conection, SofStarter, fasorial, Soft starter, sincronismo" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Softstarter&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Weicher Starter (weiche Verbindung) zum Netz</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Windkraftanlage Simulator mit Active Stall und zwei Geschwindigkeiten</a>
+					›› <a href="Simulación.html">Umfang der Simulation</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="Algorithms.html">Algorithmen verwendet</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Algorithms.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Pitchcontolalgorithm.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Yawingofthenacelle.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Zweck dieses Algorithmus</span></span></h1>
+<p class="rvps11"><span class="rvts6">Dieser Algorithmus wird während des Prozesses der Verbindung des Generatorstators mit dem Gitter verwendet.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Beschreibung des Netzanschlussproblems.</span></span></h1>
+<p class="rvps11"><span class="rvts6">Wenn der Netzanschlussvorgang beginnt (</span><span class="rvts29">Schnitt</span><span class="rvts6">), wird der Generatorstator vom Gitter getrennt. Im Generatorluftspalt gibt es daher keinen magnetischen Fluss (siehe</span><a class="rvts40" href="IntoductiontotheInductionMachine.html">Einführung in Induktionsmaschinen)</a><span class="rvts6">und dadurch erzeugt der Generator keine elektrische Leistung, obwohl seine Welle rotiert.</span></p>
+<p class="rvps11"><span class="rvts6">Der einzige Weg, ein Magnetfeld im Luftspalt zu erzeugen, so dass</span><span class="rvts17">die mechanische Leistung, die die Welle bewegt, wird in elektrische Leistung umgewandelt</span><span class="rvts6">, durch Verbindung des Stators mit dem Gitter.</span></p>
+<p class="rvps11"><span class="rvts6">Wie dargestellt</span><a class="rvts40" href="IntoductiontotheInductionMachine.html">Einführung in Induktionsmaschinen</a><span class="rvts6">, für diese Maschine als Generator, die</span><span class="rvts17">Geschwindigkeit seiner Welle</span><span class="rvts6">müssen</span><span class="rvts17">über der Synchrondrehzahl</span><span class="rvts6">.</span></p>
+<p class="rvps11"><span class="rvts6">Der Algorithmus, der während der</span><span class="rvts17">Start-up</span><span class="rvts6">Sequenz ist:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Er hält den Stator während des Aufbringens des mechanischen Drehmoments vom Wind auf die Schaufeln vom Gitter getrennt und verstellt ihn jederzeit durch Änderung des Blattwinkelwertes.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•Es</span><span class="rvts6">überwacht kontinuierlich den Wert der Generatorwellenumdrehungen.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Wenn diese Umdrehungen nahe, aber unter Gleichlauf (1480 bis 1490 U/min bei Gleichlauf bei 1500 U/min) liegen, verbindet sie dann den Stator mit dem Gitter, aber nicht direkt, sondern</span><span class="rvts17">durch die Thyristoren</span><span class="rvts6">. Diese Verbindung, die einige Sekunden dauert (3 bis 4), zielt letztlich darauf ab:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">Wechselstrom (vom Gitter) zunächst durch den Stator, um einen mit dem Gitter synchronen magnetischen Fluss zu erzeugen, zunächst aber klein. Dies wird durch Veränderung der</span><span class="rvts17">elektrische Leitungswinkel der Thyristoren</span><span class="rvts6">.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">Dieser Strom steigt progressiv im Wert an, so dass es eine Motorisierungsphase (die Energie vom Netz zum Antrieb der Generatorwelle) gibt, bis er die Synchronisierungsphase erreicht, an welcher Stelle der Leitungswinkel der Thyristoren maximal (180o elektrisch) liegt, an welcher Stelle wir haben:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span class="rvts6">▪ Wellengeschwindigkeit gleich der Synchrondrehzahl.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Ein Strom durch den Stator wird synchron mit dem Gitter (identische Phasenwinkel) sein.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Phasordarstellung der Signalentwicklung in einem weichen Starter</span></span></h1>
+<p class="rvps26"><img alt="" src="lib/SoftStarter.gif" style="padding : 1px;"/></p>
+<p class="rvps27"><span class="rvts38">Links</span><span class="rvts6">: </span><span class="rvts17">Diagramm der Phasoren eines dreiphasigen Gitters</span><span class="rvts6">. Jede der Farben mit einer festen Linie entspricht dem Phasor einer der Phasen. Die Kreise geben die Spannung jeder Phase bezüglich des Neutralen an. Die gestrichelten Linien entsprechen der mittleren Spannung, die jeden Anschluß des Generatorstators erreicht.</span> <span class="rvts38">Richtig.</span><br/><span class="rvts38">Platte</span><span class="rvts6">:</span> <span class="rvts17">gestrichelte Linien</span><span class="rvts6">: Spannung in jeder der Phasen des Netzes. Feste Leitungen: Spannung an den Generatoranschlüssen.</span></p>
+<p class="rvps28"><span class="rvts6">Die in diesem Simulator emulierte Windenergieanlage weist einen Induktionsgenerator mit einem Eichkäfigrotor (kurzgeschlossener Rotor) auf und der Stator ist direkt mit dem elektrischen Netz verbunden.</span></p>
+<p class="rvps28"><span class="rvts6">Wie diskutiert</span><a class="rvts18" href="Porqugiranlaspalas1.html">Wie eine Windenergieanlage mit einem Eichhörnchen-Käfiggenerator direkt mit dem Netz verbunden funktioniert,</a><span class="rvts6">Diese Art des Generators bestimmt die Funktionsweise und den Betrieb der Windenergieanlage.</span></p>
+<p class="rvps11"><span class="rvts6">Die grundlegenden Operationen im Zusammenhang mit dem elektrischen Generator sind</span><span class="rvts17">'start-up '</span><span class="rvts6"> (</span><span class="rvts17">Schnitt</span><span class="rvts6">) und</span><span class="rvts17">'shutdown' '</span><span class="rvts6"> (</span><span class="rvts17">Schnitt</span><span class="rvts6">).</span></p>
+<p class="rvps11"><span class="rvts6">Beim Anfahren beginnt der Kraftzug aus der Ruhe und seine Drehzahl steigt aufgrund der Wirkung des Windes und des Steigungswinkelwertes, bis er die</span><span class="rvts17">„synchrone Geschwindigkeit</span><span class="rvts6">'. Das heißt, bis die Generatorwellendrehzahl nahe der Synchrondrehzahl des Generators liegt. Durch diesen Übergang wird der Stator vom Gitter getrennt. Damit der asynchrone Generator tatsächlich elektrische Energie erzeugt, die in das Netz eingespeist wird, ist Folgendes erforderlich:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">There must be interaction between two magnetic fluxes: one generated by the stator winding (and therefore synchronous with the grid frequency - 50 Hz or 60 Hz depending on the country), and another generated by the current induced in the rotor, which is short-circuited. The rotor current has a frequency that is proportional to the slip (the difference between the actual speed of rotation of the generator's mechanical shaft and the synchronous speed, in relation to the synchronous speed); when operating as a generator, this slip value is usually very low, around 1% or less, depending on the quality of the generator. With a slip of 1%, the frequency of the rotor current will be (1500 * 0.01 = 15 Hz).</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Die mit der Generatorwelle (dem Antriebsstrang) verbundene mechanische Leistungsquelle muss ausreichen, um diese Welle mit einer Geschwindigkeit geringfügig größer als die Synchrondrehzahl zu drehen, und der Stator muss auch mit dem Netz verbunden sein.</span></p>
+<p class="rvps11"><span class="rvts6">Dieses Problem ist für viele Stromerzeugungsanlagen üblich (z.B. in Generatoraggregaten) und</span><span class="rvts17">Softstarter</span><span class="rvts6">ist ein gemeinsames Verfahren. Die Arbeitsweise ist wie folgt:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">In der Anfangsphase wird, wenn die Drehzahl der Generatorwelle weit von der Synchrondrehzahl entfernt ist, der Steigungswinkel der Schaufeln so gesteuert, dass der Antriebsstrang mit gesteuerter Beschleunigung auf die entsprechende Synchrondrehzahl des Generators beschleunigt.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span> <span class="rvts6">Wenn diese Drehzahl nahe der Synchrondrehzahl, aber darunter liegt, wird dem Stator Spannung über Blöcke von zwei antiparallel geschalteten Thyristoren (Anode des einen, mit Kathode des anderen) zugeführt. Thyristoren sind elektronische Geräte mit drei Anschlüssen: die Anode, die Kathode und das Gate. Sie ermöglichen es, zwischen der Anode und der Kathode einen Strom unidirektional zu fließen, aber den Winkel des Wechselzyklus nur während eines bestimmten Teils des Zyklus durchzusteuern. Zwei sind antiparallel verbunden, um eine Richtungsführung zu ermöglichen. Dies ist in der animierten Figur dargestellt. Der Leitungswinkel wird durch den Moment bestimmt, in dem das Gate gegenüber der Kathode angeregt wird.</span><br/><span class="rvts6">Ziel ist es, dem Stator Spannung zuzuführen, so dass er den magnetischen Fluss erzeugen kann, aber gesteuert, beginnend mit einem kleinen Wert, bis er den gesamten Zyklus leitet. Auf diese Weise steigt der "mittlere" Wert dieser Spannung von 0 und wird schließlich kontinuierlich an das Netz angeschlossen.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span> <span class="rvts6">Zunächst führen die Thyristoren nicht durch. Sehen Sie die animierte Figur. In dieser Figur zeigt das Panel rechts die Spannungen in den drei Phasen eines Drehstromnetzes. Auf der linken Platte entsprechen die drei durchgehenden Linien (rot, grün und blau) Vektoren für jede der drei Phasen, "phasors": ein Vektor für jede Phase, wo die Phasenverschiebung zwischen ihnen (120o) zu sehen ist, und wo die "Zeit"-Variable ein Vektor ist, der den Bildschirm "löst".</span><br/><span class="rvts6">Das Panel rechts zeigt mit gestrichelten Linien die Spannungen in jeder der Phasen im Netzwerk.</span><br/><span class="rvts6">Die</span> <span class="rvts17">Phasor Repräsentation</span> <span class="rvts6">Deutlich zeigt das Moment, in dem die Thyristoren zu leiten beginnen, was dann auftritt, wenn die Frequenz der Generatorspannung kleiner ist als die Synchronfrequenz (die mit der des Rasters zusammenfällt). Die Wirkung der Thyristorleitung ist, die</span><span class="rvts17">Veränderungsrate</span><span class="rvts6">der Generatorfrequenz bis sie gleich dem Netz wird.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span> <span class="rvts6">Bei Annäherung der Generatorwellendrehzahl an die Synchrondrehzahl beginnt der Regler, den Thyristor-Leitwinkel schrittweise zu öffnen, so dass der Stator mit Strom beginnt, der das Magnetfeld im Luftspalt erzeugt.</span><br/><span class="rvts6">Dies wird durch die drei Phäsoren mit gestrichelten Linien dargestellt: Da die Welle noch nicht mit synchroner Geschwindigkeit ist, "rotieren" diese Phäsoren mit einer Geschwindigkeit entsprechend der Drehzahldifferenz. Ihre Länge entspricht der durch den Leitungswinkel der Thyristoren auftretenden mittleren Spannung im Zyklus.</span><br/><span class="rvts6">Schließlich sind beide Geschwindigkeiten gleich, an welcher Stelle der Generator über die Thyristoren mit dem Gitter verbunden ist, und die gestrichelten Linien sind auf den festen Leitungen und mit synchroner Geschwindigkeit.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5. </span><span class="rvts6">Wenn genügend Zeit vergangen ist (ein paar Sekunden), überschreitet die Geschwindigkeit der Welle, angetrieben durch den Antriebsstrang, die Synchrondrehzahl, wodurch der Stator Strom im Rotor induziert, die einen magnetischen Fluss erzeugt, der im Luftspalt schneller rotiert als der von dem vom Netz angetriebenen Stator erzeugte magnetische Fluss. Dadurch beginnt der Stator, Strom in das Netz zu liefern, und damit verlangsamt sich der Triebstrang, da die an das Netz gesendete elektrische Leistung als mechanische Belastung der Triebwerkswelle angesehen wird.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span> <span class="rvts6">In diesem Moment sind die Thyristoren kurzgeschlossen. Dies geschieht, weil, wenn sie in voller Leitung (d.h., wenn sie während der 360o eines Netzzyklus leiten), der Spannungsabfall an den Anschlüssen (Anode/Kathode) signifikant ist (ca. 2 Volt). Würde die Verbindung des Stators mit dem Netz durch die Thyristoren aufrechterhalten, würden sie eine beträchtliche Leistung ableiten: Bei Strömen von etwa 800 Ampere bis 1.000 Ampere würde die in diesen abgeführte Leistung 2 kW betragen.</span><br/><span class="rvts6">Um dies zu vermeiden, gibt es Schütze (bekannt als</span><span class="rvts17">Bypasses</span><span class="rvts6">), die diese Ströme ohne nennenswerte Verluste leiten können. Da diese Bypasses aktiviert werden, wenn die Thyristoren in voller Leitung sind, gibt es bei geschlossenem Kontakt keine Probleme mit Lichtbögen.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

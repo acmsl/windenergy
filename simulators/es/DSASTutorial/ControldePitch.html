@@ -1,0 +1,114 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Conexión de los indicadores</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="PitchOut, Angulo pala, SynopticDriveTrain">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ControldePitch");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Conexión de los indicadores</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Simulador de Aerogenerador con Active Stall y Dos Velocidades</a> &rsaquo;&rsaquo; <a href="Sinopticos.html">Sin&oacute;pticos usados en este simulador</a> &rsaquo;&rsaquo; <a href="SinopticoTrenPotencia.html">Sin&oacute;ptico del Tren de Potencia (SynopticDriveTrain)</a> &rsaquo;&rsaquo; <a href="IndicadoresGondola.html">Indicadores comunes</a> &rsaquo;&rsaquo; <a href="Sistemadefrenos3.html">Control de Pitch</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Sistemadefrenos3.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Sistemadefrenos3.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="IndicadoresSistemaFreno.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts6">La figura siguiente muestra las conexiones relacionadas con el angulo de la pala.</span></p>
+<p class="rvps4"><span class="rvts6">El Controlador tiene una variable de salida (</span><span class="rvts17">Controller.PitchOut</span><span class="rvts6">) que en la realidad va al servosistema que fisícamente modifica el angulo de la pala. En el simulador, este mecanismo de pitch es parte del simulador de la Góndola (</span><span class="rvts17">Nacelle</span><span class="rvts6">) y esa señal del Controlador le llega a través de </span><span class="rvts17">Nacelle.DriveTrain.PitchIn</span><span class="rvts6"> pasando por el indicador "</span><span class="rvts17">Angulo pala</span><span class="rvts6">" que se encuentra en el sinóptico "</span><span class="rvts17">SynopticDriveTrain</span><span class="rvts6">". Este indicador esta normalmente en modo "</span><span class="rvts17">solo presentación</span><span class="rvts6">", de forma que presenta el valor indicado por el Controlador. Pero se puede poner en modo "comando" (F6), en cuyo caso el valor que sigue el mecanismo de pitch se puede variar cambiando la posición del </span><span class="rvts17">slider</span><span class="rvts6">, o cambiando el texto. De esta forma es posible forzar situaciones de error.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Esquema%20conexiones%20Pitch.png"><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

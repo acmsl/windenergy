@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beobachtung der Gondel-Nachführungsvorgänge (Yaw)</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <meta name="description" content="Studie des Gondel-Nachführungssystems und der Faktoren, die den Yaw-Prozess steuern">
+    <meta name="keywords" content="Yaw, Nachführung, Gondel, Nacelle, Windkraftanlage, Wind, Steuerung">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    
+    <style type="text/css">
+        #topic_header { background-color: #EFEFEF; }
+        body { font-size: 15px; line-height: 1.6; }
+        #topic_content { }
+        h1 { font-size: 28px; line-height: 1.3; }
+        h2 { font-size: 23px; line-height: 1.4; margin-top: 25px; margin-bottom: 15px; }
+        h3 { font-size: 20px; line-height: 1.4; }
+        h4 { font-size: 18px; line-height: 1.4; margin-top: 15px; }
+        p, li { font-size: 16px; margin-bottom: 12px; }
+        .learning-objective { background-color: #fff9e6; border-left: 4px solid #ffcc00; padding: 18px; margin: 18px 0; }
+        .didactic-box { background-color: #f0f8ff; border-left: 4px solid #0066cc; padding: 18px; margin: 18px 0; }
+        .procedure-box { background-color: #e8f5e9; border-left: 4px solid #4caf50; padding: 18px; margin: 18px 0; }
+        .important-note { background-color: #ffe6e6; border-left: 4px solid #cc0000; padding: 18px; margin: 18px 0; }
+        .key-concept { font-weight: bold; color: #0066cc; }
+        .technical-detail { background-color: #f5f5f5; padding: 15px; margin: 15px 0; border-left: 3px solid #666; }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("ObservationoftheNacelleYawoperat");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Beobachtung der Gondel-Nachführungsvorgänge</h1>
+        </div>
+        <div id="topic_header_nav">
+            <a href="ComparisonofPowervsWindcurvesofW.html"><img src="img/arrow_left.png" alt="Zurück"/></a>
+            <a href="CostofPowerCablesuntwisting.html"><img src="img/arrow_right.png" alt="Weiter"/></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Lernziele</h3>
+            <p>Nach Abschluss dieses Experiments werden Sie in der Lage sein:</p>
+            <ul>
+                <li>Die Funktion und Bedeutung des Nachführungssystems (Yaw) bei Windkraftanlagen zu verstehen</li>
+                <li>Die Faktoren zu identifizieren, die das Steuerungssystem überwacht, um zu entscheiden, wann die Gondel nachgeführt wird</li>
+                <li>Die verschiedenen Methoden zur Messung der Fehlausrichtung zum Wind zu kennen</li>
+                <li>Den Nachführungsprozess und seine betrieblichen Einschränkungen zu analysieren</li>
+                <li>Die Problematik der Verdrillung der Leistungskabel zu verstehen</li>
+            </ul>
+        </div>
+
+        <h2>Einleitung: Warum ist die Nachführung notwendig?</h2>
+        
+        <div class="didactic-box">
+            <h3>📖 Grundkonzept: „Upwind"-Ausrichtung</h3>
+            <p>Bei Windkraftanlagen vom Typ <span class="key-concept">„Upwind"</span> (mit dem Rotor vor dem Turm, auf der Luvseite) muss die Gondel <strong>dem Wind zugewandt</strong> gehalten werden, um die Windenergienutzung zu maximieren.</p>
+            <p>Wenn die Gondel nicht korrekt ausgerichtet ist:</p>
+            <ul>
+                <li>Wird die aus dem Wind gewonnene Leistung reduziert</li>
+                <li>Nehmen die seitlichen Belastungen auf Rotor und Turm zu</li>
+                <li>Erhöht sich der Verschleiß der mechanischen Komponenten</li>
+                <li>Sinkt die Gesamteffizienz der Windkraftanlage</li>
+            </ul>
+        </div>
+
+        <h2>Das Nachführungssystem (Yaw System)</h2>
+        
+        <p>Um die Gondel in Windrichtung zu halten, verfügen Windkraftanlagen über ein <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C596177696E6773756273797374656D2E68746D6C65/"><span class="key-concept">Nachführungs-Teilsystem (Yaw)</span></a>.</p>
+
+        <div class="technical-detail">
+            <h3>⚙️ Typische Komponenten des Yaw-Systems</h3>
+            <p>Das System umfasst normalerweise <strong>zwei Motorsätze mit Getrieben</strong>, einen für jede Drehrichtung:</p>
+            <ul>
+                <li><strong>Nachführungsmotoren:</strong> Liefern die Kraft, um die Gondel zu drehen</li>
+                <li><strong>Getriebe (Untersetzungsgetriebe):</strong> Reduzieren die Drehzahl und erhöhen das Drehmoment</li>
+                <li><strong>Zahnkranz:</strong> Am oberen Ende des Turms montiert</li>
+                <li><strong>Antriebsritzel:</strong> Greifen in den Zahnkranz ein, um die Bewegung zu übertragen</li>
+                <li><strong>Nachführungsbremsen:</strong> Halten die Gondel fest, wenn keine Yaw-Operation stattfindet</li>
+                <li><strong>Messsysteme:</strong> Sensoren zur Bestimmung der Ausrichtung und Windrichtung</li>
+            </ul>
+        </div>
+
+        <h2>Vom Nachführungsprozess überwachte Faktoren</h2>
+        <p>Der <span class="key-concept">Regler der Windkraftanlage</span> überwacht ständig mehrere Faktoren, bevor er entscheidet, ob die Gondel nachgeführt werden soll:</p>
+
+    <h3>1. Fehlausrichtung der Gondel zur Windrichtung</h3>
+    
+    <div class="didactic-box">
+        <h3>📐 Methoden zur Messung der Fehlausrichtung</h3>
+        <p>Dieser Wert kann auf zwei verschiedene Arten ermittelt werden:</p>
+        
+        <h4>Methode A: Mittels Windfahne (Wind Vane)</h4>
+        <p>Verwendet eine <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C57696E64646972656374696F6E77696E6476616E652E68746D6C65/"><span class="key-concept">Windfahne</span></a>, die auf der Gondel montiert ist:</p>
+        <ul>
+            <li>Die Referenzachse der Windfahne muss mit der vertikalen Symmetrieebene der Gondel ausgerichtet sein</li>
+            <li>Misst <strong>direkt</strong> den Fehlausrichtungswinkel</li>
+            <li><strong>Vorteil:</strong> Direkte und einfache Messung des Ausrichtungsfehlers</li>
+            <li><strong>Nachteil:</strong> Kann durch Turbulenzen beeinflusst werden, die der Rotor selbst erzeugt</li>
+        </ul>
+        
+        <h4>Methode B: Mittels erweitertem Anemometer + Absolute Ausrichtungsmessung</h4>
+        <p>Verwendet absolute Messungen bezogen auf den geografischen Norden:</p>
+        <ul>
+            <li>Ein <strong>erweitertes Anemometer</strong> liefert die Windrichtung (bezogen auf Norden)</li>
+            <li>Ein Messsystem liefert die <strong>Gondelausrichtung</strong> (bezogen auf Norden)</li>
+            <li>Der Regler berechnet die Differenz zwischen beiden Messungen</li>
+            <li><strong>Vorteil:</strong> Höhere Genauigkeit, weniger beeinflusst durch lokale Turbulenzen</li>
+            <li><strong>Nachteil:</strong> Erfordert, dass sowohl der Ausrichtungsmessmechanismus als auch das Anemometer korrekt <strong>nach Norden kalibriert</strong> sind</li>
+        </ul>
+    </div>
+
+    <div class="important-note">
+        <h3>⚠️ Bedeutung der Kalibrierung</h3>
+        <p>Für Methode B ist es absolut entscheidend, dass sowohl das Gondel-Ausrichtungsmesssystem als auch das Anemometer <strong>ordnungsgemäß kalibriert und nach dem geografischen Norden ausgerichtet</strong> sind.</p>
+        <p>Jeder Kalibrierungsfehler führt zu einem systematischen Fehler in der Ausrichtung der Windkraftanlage.</p>
+    </div>
+
+    <h3>2. Aktuelle Windgeschwindigkeit</h3>
+    
+    <p>Das Nachführungssystem arbeitet nur, wenn die Windgeschwindigkeit innerhalb eines geeigneten Bereichs liegt, der durch zwei Grenzen definiert ist:</p>
+
+    <div class="technical-detail">
+        <h3>🌬️ Windgeschwindigkeitsgrenzen für Nachführungsvorgänge</h3>
+        <ul>
+            <li><strong>'Minimum für Nachführung' (Min for orientation):</strong>
+                <ul>
+                    <li>Liegt der Wind unter diesem Wert, führt das System keine Nachführungen durch</li>
+                    <li>Grund: Bei sehr niedrigen Winden würde der Betrieb mehr Energie verbrauchen als er gewinnen würde</li>
+                    <li>Zudem ist die Windrichtung bei niedrigen Windgeschwindigkeiten oft sehr variabel und instabil</li>
+                </ul>
+            </li>
+            <li><strong>'Maximum für Anlauf' (Max for cutin):</strong>
+                <ul>
+                    <li>Überschreitet der Wind diesen Wert, kann sich die Windkraftanlage im Notabschaltungsprozess befinden</li>
+                    <li>Nachführungsvorgänge werden aus Sicherheitsgründen ausgesetzt</li>
+                </ul>
+            </li>
+        </ul>
+    <p>📚 Für weitere Details lesen Sie dieses <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C57696E646C696D6974732E68746D6C65/">Tutorial über Windgrenzen</a>.</p>
+    </div>
+
+    <h3>3. Anzahl der in den Leistungskabeln angesammelten Umdrehungen</h3>
+    
+    <div class="didactic-box">
+        <h3>🔌 Problematik der Kabelverdrillung</h3>
+        <p>Die <span class="key-concept">Leistungskabel</span> transportieren den erzeugten Strom vom elektrischen Generator (in der drehbaren Gondel) zum Netzanschlusspunkt (am feststehenden Turmfuß).</p>
+        
+        <p>Wenn sich die Gondel den Windrichtungsänderungen folgend dreht:</p>
+        <ul>
+            <li>Werden die Kabel progressiv <strong>um sich selbst verdrillt</strong></li>
+            <li>Es sammelt sich <strong>mechanische Spannung</strong> in den Kabeln an</li>
+            <li>Es besteht die Gefahr von <strong>Schäden durch übermäßige Torsion</strong>, wenn eine Grenze überschritten wird</li>
+        </ul>
+        
+        <p>Aus diesem Grund führt der Regler einen <strong>Zähler der angesammelten Umdrehungen</strong> (positiv in eine Richtung, negativ in die andere). Wenn ein vordefinierter Grenzwert erreicht wird, muss das System einen <span class="key-concept">Entverdrillungsvorgang</span> durchführen.</p>
+        
+    <p>📚 Weitere Informationen zu diesem Prozess finden Sie im <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C596177696E676F667468656E6163656C6C652E68746D6C65/">Tutorial über die Gondel-Nachführung</a>.</p>
+    </div>
+
+    <h3>4. Zustand der Windkraftanlage</h3>
+    
+    <p>Das Verhalten des Nachführungssystems hängt vom Betriebszustand der Windkraftanlage ab:</p>
+
+    <div class="technical-detail">
+        <h3>🔄 Nachführungsstrategie je nach Zustand</h3>
+        <ul>
+            <li><strong>Im Produktionszustand:</strong>
+                <ul>
+                    <li>Die Windkraftanlage erzeugt Strom</li>
+                    <li>Die Nachführung hat Priorität, um die Energiegewinnung zu maximieren</li>
+                    <li>Die Fehlausrichtungsschwellen sind in der Regel strenger</li>
+                </ul>
+            </li>
+            <li><strong>Im Stillstand:</strong>
+                <ul>
+                    <li>Die Windkraftanlage erzeugt keinen Strom</li>
+                    <li>Die Nachführung ist weniger kritisch</li>
+                    <li>Eine größere Fehlausrichtung kann toleriert werden</li>
+                    <li>Dies ist der ideale Zeitpunkt für die Entverdrillung der Kabel</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Empfohlene praktische technische Sitzung</h2>
+    
+    <div class="learning-objective">
+        <h3>🎓 Geführtes Experiment</h3>
+        <p>Um den vollständigen Nachführungsprozess bei sich ändernden Windbedingungen im Detail zu beobachten, wird dringend empfohlen, der technischen Sitzung zu folgen:</p>
+        <p>📚 <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDSASWTSimulator%5CChangingthewinddirection.htmle'"><strong>„Changing the wind direction"</strong></a> (Änderung der Windrichtung)</p>
+        
+        <p>In dieser praktischen Sitzung können Sie:</p>
+        <ul>
+            <li>Beobachten, wie das System auf allmähliche Windrichtungsänderungen reagiert</li>
+            <li>Die Auslöseschwellen des Reglers analysieren</li>
+            <li>Das Verhalten während der Ansammlung von Kabelumdrehungen studieren</li>
+            <li>Die Interaktion zwischen allen überwachten Faktoren verstehen</li>
+            <li>Mit verschiedenen Parameterkonfigurationen experimentieren</li>
+        </ul>
+    </div>
+
+    <h2>Wichtige betriebliche Aspekte</h2>
+    
+    <div class="important-note">
+        <h3>⚡ Schlüsselaspekte des Betriebs</h3>
+        <ul>
+            <li><strong>Nachführungsgeschwindigkeit:</strong> Typischerweise zwischen 0,3 und 0,5 Grad pro Sekunde (sehr langsam im Vergleich zur Rotordrehung)</li>
+            <li><strong>Energieverbrauch:</strong> Die Yaw-Motoren verbrauchen elektrische Energie; unnötige Nachführungen reduzieren die Nettoproduktion</li>
+            <li><strong>Mechanischer Verschleiß:</strong> Jeder Yaw-Vorgang erzeugt Verschleiß an Zahnrädern, Lagern und Komponenten</li>
+            <li><strong>Designkompromiss:</strong> Der Regler muss optimieren zwischen:
+                <ul>
+                    <li>Gute Ausrichtung beibehalten (maximale Energiegewinnung)</li>
+                    <li>Yaw-Vorgänge minimieren (Verschleiß und Verbrauch reduzieren)</li>
+                    <li>Vermeiden, dass die Kabelverdrillungsgrenzen erreicht werden</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Analyseaufgaben</h2>
+    
+    <div class="learning-objective">
+        <h3>📝 Vorgeschlagene Übungen</h3>
+        <ol>
+            <li><strong>Schwellenwertanalyse:</strong>
+                <ul>
+                    <li>Warum gibt es Ihrer Meinung nach eine Mindestschwelle der Fehlausrichtung, bevor das Yaw-System aktiviert wird?</li>
+                    <li>Was würde passieren, wenn das System ständig versuchen würde, eine perfekte Ausrichtung (0° Fehler) beizubehalten?</li>
+                </ul>
+            </li>
+            <li><strong>Vergleich der Messmethoden:</strong>
+                <ul>
+                    <li>Nennen Sie die Vor- und Nachteile jeder Fehlausrichtungs-Messmethode</li>
+                    <li>In welchen Situationen wäre jede Methode vorzuziehen?</li>
+                </ul>
+            </li>
+            <li><strong>Entverdrillungsstrategien:</strong>
+                <ul>
+                    <li>Ist es besser, die Kabel während der Produktion oder im Stillstand zu entverdrille?</li>
+                    <li>Welche Faktoren beeinflussen diese Entscheidung?</li>
+                </ul>
+            </li>
+            <li><strong>Parameteroptimierung:</strong>
+                <ul>
+                    <li>Wie würden Sie die Parameter anpassen, wenn ein Standort sehr wechselhafte Windrichtungen hat?</li>
+                    <li>Welche Änderungen würden Sie vornehmen, wenn der Wind sehr richtungsstabil ist?</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Schlüsselkonzepte zum Merken</h2>
+    
+    <div class="didactic-box">
+        <h3>📌 Zusammenfassung</h3>
+        <ul>
+            <li>Die korrekte Ausrichtung der Gondel ist wesentlich für die Maximierung der Energiegewinnung</li>
+            <li>Das Yaw-System ist ein Kompromiss zwischen Energieertrag, mechanischem Verschleiß und Verbrauch</li>
+            <li>Mehrere Faktoren (Fehlausrichtung, Windgeschwindigkeit, Kabelverdrillung, Anlagenzustand) müssen vor der Entscheidung zur Nachführung berücksichtigt werden</li>
+            <li>Es gibt zwei Hauptmethoden zur Messung der Fehlausrichtung, jede mit Vor- und Nachteilen</li>
+            <li>Die Kabelverdrillung erzwingt wichtige betriebliche Grenzen, die Entverdrillungsvorgänge erfordern</li>
+            <li>Die korrekte Kalibrierung der Messsysteme ist absolut entscheidend</li>
+            <li>Der Betriebszustand der Windkraftanlage beeinflusst die Nachführungsstrategie erheblich</li>
+        </ul>
+    </div>
+</div>
+
+<div id="topic_footer">
+    <div id="topic_footer_content">
+        Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

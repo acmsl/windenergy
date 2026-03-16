@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Operational structure</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="anemometro, , Controller, , electric diagram, , generator, grid, , operator terminal, pitch, SCADA, , veleta, orientacion gondola, aerogenerador, Terminal de Control, Point of Common Connection, nacelle orientation, meteorological station, PLC" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("StructureofaWindTurbine");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Operational structure</h1>
+<div id="topic_breadcrumb">
+<a href="Introduccion.html">Introduction</a> ›› <a href="WhatisaWindTurbine.html">What is an aerogenerator?</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="WhatisaWindTurbine.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="ControlofaWindTurbine.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Electricalconnectiontothegrid.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">The mechanical, electrical and hydraulic elements that have been presented in</span><a class="rvts31" href="WhatisaWindTurbine.html">What is an aerogenerator?</a><span class="rvts16">We can summarize them in:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Power Train</span><span class="rvts16">: Paddles, Hub, Rotor axis</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Multiplier</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Electrical generation system</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Brake system</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Guidance system</span><span class="rvts16"> </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Sensor</span><span class="rvts16">wind speed and direction, temperatures, pressures, etc.</span></p>
+<p class="rvps2"><span class="rvts16">that are in the</span><span class="rvts30">Gondola</span><span class="rvts16">which is on the</span><span class="rvts30">Tower</span><span class="rvts16">.</span></p>
+<p class="rvps2"><span class="rvts16">Within the Tower is the electric cabinet through which the connection to the Network is made, by means of cables that connect the generator to a transformer. This transformer may be located in the Gondola, or at the base of the Tower, or may be in a nearby outer shed.</span></p>
+<p class="rvps2"><span class="rvts16">In addition, the aerogenerator has a control unit, known as</span><span class="rvts30">Controller</span><span class="rvts16">, in charge of the operation of the same. The Controller may be made up of industrial computers, or</span><span class="rvts30">PLC</span><span class="rvts16">s (</span><span class="rvts32">Programmable Logic Controllers</span><span class="rvts16">) or combinations thereof. The Controller receives signals from the sensors and commands the different elements to achieve the required functionality at all times. Given the complexity of the functions to be performed, their programming is often carried out using the concept of</span><span class="rvts32">"State machines</span><span class="rvts16">. "In general there are two: one that is responsible for the proper operations (cutin, cutout, Gondola orientation, adaptation of the pitch as a function of the wind and the desired power, connection and disconnection of the generator, etc.), and one that monitors the general safety of operation (overvoltage or power, excessive speeds of the Power Train or the electric generator, alarms, excessive temperatures, etc.). Both work in coordination.</span></p>
+<p class="rvps2"><span class="rvts16">The following figure shows the simplified scheme of connections of a variable and fixed speed pitch aerogenerator, which incorporates a generator that requires a "</span><span class="rvts32">softstarter</span><span class="rvts16">"for its connection to the Network (set of tyrants and bypass contactors).</span></p>
+<p class="rvps2"><img alt="" src="lib/Esquema%20sinoptico%20de%20un%20controlador%20de%20jaula.png" style="padding : 1px;"/><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

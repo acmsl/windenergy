@@ -1,0 +1,133 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Why do the blades rotate?</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", lift, dragging, plano de rotaci&oacute;n, flujo laminar, cuerda de la pala, Viento Total, viento incidente, viento de rotaci&oacute;n">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;PFAPorquegiranlaspalas&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Why do the blades rotate?</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Physical principles</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="PrincipiosFisicosAerogeneradores.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Porqugiranlaspalas1.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Porqugiranlaspalas.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts6">The basic principles governing the forces acting on wind turbine blades and causing the hub to which they are connected to rotate are the same as those that enable aircraft to ascend. The rotation is due to the fact that the hub has only one degree of freedom: to rotate on its axis.</span></p>
+<p class="rvps14"><span class="rvts12">What are these forces?</span></p>
+<p class="rvps4"><span class="rvts6">Let&#x27;s imagine we have an </span><span class="rvts17">airplane wing </span><span class="rvts6">in a wind tunnel, as shown in Fig. 1. In a wind tunnel, the air flow is uniform, so there is no turbulence (i.e., &quot;</span><span class="rvts17">laminar flow</span><span class="rvts6">&quot;). And we can vary its intensity at will.</span></p>
+<p class="rvps4"><span class="rvts6">The wing (represented by its section, delimited by the </span><span class="rvts70">red line</span><span class="rvts6">) is placed inside this wind tunnel, and we secure it firmly to the outside of the wind tunnel so that it cannot move. This is done with an </span><span class="rvts17">internal bar </span><span class="rvts6">that crosses the wing along its longest axis (the circle is shown in the center), allowing us to rotate it. In this way, we can change the angle of the wing&#x27;s chord to the wind.</span></p>
+<p class="rvps15"><img alt="" style="padding : 1px;" src="lib/Bladeconfuerzas.png"></p>
+<p class="rvps15"><span class="rvts6">Fig 1.</span></p>
+<p class="rvps4"><span class="rvts6">The effect of the wind, coming from the left, on the wing is a </span><span class="rvts17">compression of the flow</span><span class="rvts6"> on the underside of the blade and a depression on its upper side. The result is a set of forces applied along the surface of the blade: this set of forces is indicated by the small dotted arrows. </span></p>
+<p class="rvps4"><span class="rvts6">Since the blade is a </span><span class="rvts17">rigid body</span><span class="rvts6">, the total effect of these forces can be assimilated to a single force whose value is the vector sum of all of them, and which is applied at the point of attachment, the bar represented by the circle: this force is indicated by the </span><span class="rvts39">red vector</span><span class="rvts6">. The magnitude and direction of this force depends on:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">the </span><span class="rvts17">shape of the blade</span><span class="rvts6">, </span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">the </span><span class="rvts17">speed of the</span><span class="rvts6"> incoming </span><span class="rvts17">wind</span><span class="rvts6">,</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">the </span><span class="rvts17">angle</span><span class="rvts6"> between the </span><span class="rvts17">chord of the blade</span><span class="rvts6"> (</span><span class="rvts75">gray line </span><span class="rvts6">connecting the two ends of the blade) and the direction of the wind (</span><span class="rvts29">arrow</span><span class="rvts6"> to the left). </span></p>
+<p class="rvps4"><span class="rvts6">We can break down this red vector at will: in this particular case, it is convenient to think of this red vector as the sum of two forces: one to go up, called </span><span class="rvts71">Flifting</span><span class="rvts6">, and another that goes to the right, called </span><span class="rvts71">Fdragging</span><span class="rvts6">.</span></p>
+<p class="rvps11"><span class="rvts6">These two forces explain why the plane stays in the air (due to </span><span class="rvts17">Flifting</span><span class="rvts6">), and why it must be pushed to the left (to overcome Fdragging) in order for the plane to remain suspended in the air. This force is what the plane&#x27;s engines must overcome.</span></p>
+<p class="rvps11"><span class="rvts6">Now let&#x27;s replace the airplane wing with the blade of a wind turbine and place it in relation to the turbine&#x27;s axis. The situation is similar, but reversed. See the following figure, which shows the view that an observer standing at the tip of one of the blades and looking at the hub axis would have. The wind would be in front of them and the blades would rotate to their left in a plane perpendicular to the screen and passing through the </span><span class="rvts29">black vector</span><span class="rvts6">.</span></p>
+<p class="rvps15"><img alt="" style="padding : 1px;" src="lib/Hub%20con%20vientos%20y%20fuerzas%20-%20espaol.png"></p>
+<p class="rvps15"><span class="rvts6">Fig. 2.</span></p>
+<p class="rvps4"><span class="rvts6">In this case, the wind hitting the edge of the blade is the &quot;Total Wind&quot; (</span><span class="rvts39">red vector</span><span class="rvts6">), a combination of the incident wind (</span><span class="rvts72">blue vector</span><span class="rvts6">) and the </span><span class="rvts17">rotational </span><span class="rvts6">wind (</span><span class="rvts29">black vector</span><span class="rvts6">), which is produced by the blade as it rotates because it is at a certain distance from the point of rotation (the hub axis). We are assuming that the rotation occurs &quot;to the left&quot; and that, due to this movement, the blunt edge of the blade &quot;</span><span class="rvts17">cuts perpendicularly</span><span class="rvts6">&quot; </span><span class="rvts17">through </span><span class="rvts6">the incident wind. The speed of this cut is not uniform along the edge: it is lower the closer the section of the blade we are looking at is to the center of the hub (see </span><a class="rvts18" href="EsquemafuncionaldeunaAerogenerad.html">Blades</a><span class="rvts6">). This air cutting speed is equivalent to a wind blowing in the opposite direction with the blade remaining static. </span></p>
+<p class="rvps4"><span class="rvts6">In this brief explanation, we will assume that the speed of this wind that interests us is the &quot;average&quot; speed along the entire edge.</span></p>
+<p class="rvps4"><span class="rvts6">The representation on the left is a way of solving the problem of representing the rotating blade, making the change  of proposing a &quot;view from the blade itself,&quot; as if we were sitting at the end of the blade looking towards the axis of rotation at the hub. The black vector would correspond to the wind we would feel on our face due to that rotation.</span></p>
+<p class="rvps4"><span class="rvts6">The total force is represented by the </span><span class="rvts73">green vector</span><span class="rvts6">, and similarly to the case of the wind tunnel and the airplane wing, we break it down into two forces: one that pulls the blade along its only degree of freedom (the plane of rotation), and another (</span><span class="rvts74">light brown vector</span><span class="rvts6">) that goes in the direction of the hub axis and is counteracted by the tower; that is, this is the force that tries to bend the tower.</span></p>
+<p class="rvps4"><span class="rvts6">This set of forces depends on the relative angle of the blade with respect to its plane of rotation: that is, in the figure above, on the angle between the</span> <span class="rvts76">red dotted line</span> <span class="rvts6">and the horizontal axis.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

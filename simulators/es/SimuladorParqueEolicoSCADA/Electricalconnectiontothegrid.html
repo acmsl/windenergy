@@ -1,0 +1,121 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Conexi&oacute;n a la Red</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="busbars, , generator, , , electric diagram, electrical measurement units, Point of Common Connection, PCC, grid, Punto de Conexi&oacute;n Com&uacute;n, Interruptor Principal, barras de conexi&oacute;n, Tiristores, contactores de Bypass, transformadores de medida de corrientes, contactores de conexi&oacute;n con el generador, factor de potencia, Softstarter, Controlador">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Electricalconnectiontothegrid");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Conexi&oacute;n a la Red</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; <a href="WhatisaWindTurbine.html">&iquest;Qu&eacute; es un Aerogenerador?</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="WhatisaWindTurbine.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="StructureofaWindTurbine.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="StructureoftheWindFarmSimulator.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">La conexión de potencia del generador del aerogenerador a la Red se realiza, generalmente, mediante un transformador elevador que pasa de los 690V trifásicos a Media Tensión (15 KV a 30 KV), aunque existen generadores que funcionan en Media Tensión (5KV). Este transformador puede estar situado dentro de la Torre (caso de España), o fuera, muy cerca de la Torre. En los aerogeneradores mas potentes, el transformador está situado en la Gondola. La salida de este transformador se conecta con el cable de potencia más cercano, que lo conecta con la Subestación, al </span><span class="rvts32">Punto de Conexión Común</span><span class="rvts16"> (</span><span class="rvts32">PCC</span><span class="rvts16">).</span></p>
+<p class="rvps2"><span class="rvts16">Internamente, la conexión de los cables de potencia varía de un aerogenerador a otro. En la siguiente figura se muestran los principales componentes para un aerogenerador con un generador de jaula de ardilla con dos tipos de conexión posible (lo que equivale a tener dos generadores independientes).</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Esquema%20electrico%20conexion%20generador.png"></p>
+<p class="rvps2"><span class="rvts16">Estos elementos están dentro de un armario que cumple diversas normas de seguridad (tipo IP56). Sus principales componentes son:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El </span><span class="rvts30">Interruptor Principal</span><span class="rvts16">: que puede ser actuado a mano, desde el exterior, y también está controlado (solo en la operación de desconexión) por el Controlado del aerogenerador.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Las </span><span class="rvts30">barras de conexión</span><span class="rvts16"> (lineas gruesas en el diagrama de la figura anterior): constituyen las conexiones de potencia entre los cables que bajan del generador y los cables de la red. Suelen existir varios grupos, agrupados por paneles, de acuerdo con la disposición donde se colocan los demás elementos de potencia (principalmente los Tiristores y sus contactores de Bypass).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Los </span><span class="rvts30">Tiristores</span><span class="rvts16"> y sus </span><span class="rvts30">contactores de Bypass</span><span class="rvts16">: estos son los componentes físicos del mecanismo de </span><span class="rvts32">Softstarter</span><span class="rvts16"> usado para la realizar la operación de conectar el generador con la Red.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Los </span><span class="rvts30">transformadores de medida de corrientes</span><span class="rvts16"> (uno por fase).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Los </span><span class="rvts30">contactores de conexión con el generador</span><span class="rvts16"> (uno por cada tipo de conexión).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Adicionalmente suele existir en este tipo de aerogeneradores un </span><span class="rvts30">banco de condensadores</span><span class="rvts16"> (no mostrado e el diagrama anterior), situado en la Góndola, muy cerca del Generador, para controlar el </span><span class="rvts32">factor de potencia</span><span class="rvts16">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Los </span><span class="rvts32">elementos electrónicos</span><span class="rvts16"> y </span><span class="rvts32">eléctricos</span><span class="rvts16"> (relés, paneles eléctricos de conexión, etc) y el </span><span class="rvts30">Controlador</span><span class="rvts16"> principal suelen también estar situados en este armario.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

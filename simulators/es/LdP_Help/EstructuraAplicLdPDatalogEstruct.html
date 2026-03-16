@@ -1,0 +1,179 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Estructura de las bases de datos de registro</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", digital, , States, , Date">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "LdP_Help.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("EstructuraAplicLdPDatalogEstruct");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Estructura de las bases de datos de registro</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="EstructuraAplicLdP.html">Estructura de las aplicaciones LdP</a> &rsaquo;&rsaquo; <a href="EstructuraAplicLdPDatalogging.html">Registro de valores de las Se&ntilde;ales (datalogging)</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAplicLdPDatalogging.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPDatalogging.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPDatalogVisuali.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps4"><span class="rvts16">La estructura de las bases de datos usados para registrar las evoluciones de las señales de una simulación es la siguiente:</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Están contenidas en un solo fichero creado con el motor de bases de datos SQLite 3.6.</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Tiene una tabla por cada señal, ya sea de "salida" o de "entrada".</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Cada tabla contiene dos campos que dependen del tipo de señal (analógica o digital). Uno de estos campos ("</span><span class="rvts19">Date</span><span class="rvts16">") es común. Ver los siguientes detalles:</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">Para las </span><span class="rvts17">señales analógicas</span><span class="rvts16">&nbsp;los campos son: :</span></p>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<div class="rvps15"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts17">Nombre del campo</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts17">Tipo del campo</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts17">Descripción</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">Date</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts16">Numerico (double)</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Instante del cambio o muestra con resolución de milisegundo.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">ValueA</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts19">Numerico</span><span class="rvts16">&nbsp;(single)</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Valor de la señal asociada en el instante de Date</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">Para </span><span class="rvts17">señales digitales</span><span class="rvts16">&nbsp;los campos son:</span></p>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<div class="rvps15"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts17">Nombre del campo</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts17">Tipo del campo</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts17">Descripción</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">Date</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts16">Numeric (double)</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Instante del cambio o muestra con resolución de milisegundo.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">ValueD</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts19">Boolean</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Valor de la señal asociada en el instante de Date</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<p class="rvps15"><span class="rvts16">Los valores del campo "</span><span class="rvts19">Date</span><span class="rvts16">" corresponden con la fecha y hora con resolución de milisegundos. La formula de conversión es la siguiente:</span></p>
+<p class="rvps16"><span class="rvts16">Instante = (ValorCampoDate)/86400000 - 693593</span></p>
+<p class="rvps4"><span class="rvts16">Ejemplos</span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

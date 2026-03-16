@@ -1,0 +1,143 @@
+<html>
+<head>
+<title>Lógica para detectar problemas em contadores</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Normally Closed, Normalmente Cerrado, Normalmente Abierto" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Detalledelcircuitodeconexin&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Lógica de detecção de problemas em contactores</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">O que é uma turbina eólica?</a>
+					›› <a href="Conexionredelectrica.html">Ligação à rede eléctrica</a>
+					›› <a href="ConexinalaRedElctrica.html">Detalhes do circuito de conexão</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ConexinalaRedElctrica.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="ConexinalaRedElctrica.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Nuevotema.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">A lógica para detectar a posição de um contator usando dois fios é usar uma função XOR.</span></p>
+<p class="rvps13"><img alt="" src="lib/Funcion%20XOR.png" style="padding : 1px;"/></p>
+<p class="rvps13"><span class="rvts6">Fig. 1</span></p>
+<p class="rvps11"><span class="rvts6">Começa com dois contactos ligados mecanicamente aos principais contactores, representados na figura 1 pelos dois contactos ligados ao "NC" (</span><span class="rvts17">Normalmente Fechado</span><span class="rvts6">) e "NO" (</span><span class="rvts17">Normalmente Abrir</span><span class="rvts6">) entradas, respectivamente.</span></p>
+<p class="rvps11"><span class="rvts6">O "</span><span class="rvts17">Estado</span><span class="rvts6">" sinal que atinge o Controlador correspondente a</span><span class="rvts17">o status</span><span class="rvts6">do contator está associado, no diagrama da figura 1, com a entrada "NC". Há outro sinal que também alcança o Controlador (OK/Fault) que "</span><span class="rvts17">validações</span><span class="rvts6">"O sinal de "Status". Este sinal corresponde ao</span><span class="rvts29">XOR</span><span class="rvts6">função lógica, aplicada a ambos os sinais provenientes do Contactador.</span></p>
+<p class="rvps11"><span class="rvts6">O desenho mecânico e elétrico dos contatos NC e NO é tal que ambos os sinais devem ter</span><span class="rvts17">valores opostos durante a operação normal</span><span class="rvts6">. A tabela lógica para a função XOR é a seguinte:</span></p>
+<div class="rvps13">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px; margin: 0px auto;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">NC</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">NO</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">OK/Failure</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 97px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 86px;">
+<p class="rvps9"><span class="rvts11">1</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 76px;">
+<p class="rvps9"><span class="rvts11">0</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps11"><span class="rvts6">O valor do sinal OK/Failure, tendo em conta situações de falha, é o seguinte:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">Se +Vcc não tiver tensão, tanto NC como NO terão 0 volts</span><span class="rvts67">→</span><span class="rvts6"> </span><span class="rvts17">Estado</span><span class="rvts6">= Falso e</span><span class="rvts17">OK/Fail</span><span class="rvts6">= Falso</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">Se os fios que ligam os contactos no Contactador e no Controlador forem ambos quebrados, tanto o NC como o NO terão 0 volts</span><span class="rvts67">→</span><span class="rvts6">Estado = Falso e OK/Falha = Falso</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">Se apenas um dos dois fios que ligam os contactos no Contactador e no Controlador estiver quebrado, então</span><span class="rvts17">quando há uma mudança no valor daquele que não está quebrado</span><span class="rvts6">, tanto NC como NO terão o mesmo valor e, por conseguinte,</span><span class="rvts67">→</span><span class="rvts6"> </span><span class="rvts17">OK/Failure</span><span class="rvts6">= Falso</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+<head>
+<title>Requisiti del treno di potere</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="ráfagas, turbulencias" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;RequirementsimposedbytheDriveTra&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Requisiti del treno di potere</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Principi fisici</a>
+					›› <a href="WindTurbineControlcriteria.html">Criteri di progettazione e controllo delle turbine eoliche</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="WindTurbineControlcriteria.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="RequerimientosdelTrendePotencia.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Productioncurve.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">La potenza massima che può essere estratta da un dato vento dipende dall'area spazzata dalle lame. Ciò significa che questa potenza è proporzionale al quadrato del raggio della lama utilizzata.</span></p>
+<p class="rvps2"><span class="rvts6">La figura seguente mostra il rapporto tra la potenza massima estraibile per un dato tipo di lama e il suo raggio. L'asse x rappresenta la velocità del vento (m/s) e l'asse y rappresenta potenza (watt).</span></p>
+<p class="rvps9"><img alt="" src="lib/CurvasPotenciaVsVientoConRadioComoParametro_1.jpg" style="padding : 1px;"/></p>
+<p class="rvps3"><span class="rvts17">Fig.: Potenza massima ottenibile in funzione della velocità del vento per vari valori del raggio della lama.</span></p>
+<p class="rvps2"><span class="rvts6">La linea orizzontale sopra 2.000.000 di watt indica il valore di potenza che vogliamo ottenere: questo valore determina le caratteristiche del generatore elettrico che dobbiamo usare, e tutta la sua elettronica di potenza associata. Essa corrisponde quindi ad un limite superiore che non deve essere superato, ed è noto come</span><span class="rvts29">il potere nominale</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Nella figura, vediamo che questa potenza nominale è raggiunta con diversi valori del vento, a seconda del raggio della lama: il vento con cui raggiungiamo la potenza nominale è conosciuto come</span><span class="rvts29">il vento nominale</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">In altre parole, per determinare il raggio della lama, iniziamo dalla potenza nominale desiderata e dal vento disponibile sul nostro sito.</span></p>
+<p class="rvps2"><span class="rvts6">Un'altra conclusione molto importante dalla figura sopra riguarda il controllo del Power Train. Possiamo vedere che quando il vento supera la velocità nominale del vento, la potenza</span><span class="rvts17">ottenibile</span><span class="rvts6">è molto più grande del potere nominale. Tuttavia, il generatore elettrico è stato progettato per la potenza nominale. Ciò significa che dobbiamo avere un meccanismo che ci permette di ridurre la potenza effettivamente estratta dal vento, in modo che non superi la potenza nominale. Questo meccanismo è il controllo dell'angolo della lama (pitch).</span></p>
+<p class="rvps2"><span class="rvts6">Inoltre, il vento ha altre caratteristiche oltre alla distribuzione Weibull 'stabile', come le raffiche e le turbolenze, che tengono conto</span><span class="rvts17">il tasso di cambiamento della velocità del vento</span><span class="rvts6">. Il meccanismo di controllo del passo deve essere dimensionato per resistere alle raffiche eoliche massime previste nella posizione della turbina eolica, soprattutto considerando che le lame sono abbastanza pesanti e che i cambiamenti del passo si verificano durante la rotazione delle lame, con conseguente ulteriori effetti giroscopici che devono essere superati.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

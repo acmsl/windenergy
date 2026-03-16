@@ -1,0 +1,123 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Change in the orientation of the Gondola</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="comando, parada">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Cambiodeladireccindelviento&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Changing the Orientation of the Nacelle</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Wind Turbine Simulator with Active Stall and Two Speeds</a>
+					›› <a href="Sinopticos.html">Synoptics used in this simulator</a>
+					›› <a href="SinopticoOrientacionViento.html">Nacelle and Wind Orientation Synoptic (SynopticWindNacelle)</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="SinopticoOrientacionViento.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Cambiodelavelocidaddelviento.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="CambiodelaorientacindelaGndola.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts6">The nacelle direction changes in the following circumstances:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">When in &quot;</span><span class="rvts29">Production</span><span class="rvts6">&quot; </span><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">mode</span><span class="rvts6">, as a result of decisions made by the Controller related to excessive misalignment with respect to wind direction, or due to cable unwinding operations.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">When in &quot;</span><span class="rvts29">Stop</span><span class="rvts6">&quot; mode (see </span><a class="rvts18" href="SinpticoTerminalControlSTOP.html">Stop button</a><span class="rvts6">) using the &quot;</span><span class="rvts29">Manual Turn</span><span class="rvts6">&quot; buttons on the Control Terminal.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">It can be changed in any circumstance</span><span class="rvts6">: using the &quot;</span><span class="rvts17">Left Turn</span><span class="rvts6">&quot; or &quot;</span><span class="rvts17">Right Turn</span><span class="rvts6">&quot; buttons on this synoptic.</span><br/><span class="rvts6">These buttons usually </span><span class="rvts17">show</span><span class="rvts6"> the status of the orientation motors, which correspond to signals coming from the Controller. However, they can be put into &quot;</span><span class="rvts19">command</span><span class="rvts6">&quot; mode using the following procedure:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Click on the desired button with the left mouse button.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Press the &quot;F6&quot; key: the border will turn red, indicating that the value of this button does not reflect the signal coming from the Controller.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Try changing the status and you will see that the Gondola rotates in the indicated direction.</span></p>
+<p class="rvps2"><span class="rvts6">Note: if the Gondola&#x27;s orientation is manually forced while in Production mode, exceeding the maximum number of turns of the power cables, the Controller will sound an alarm and stop the machine.</span><br/><span class="rvts6">This procedure, used in &quot;Stop&quot; mode, is useful for setting the initial orientation value.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

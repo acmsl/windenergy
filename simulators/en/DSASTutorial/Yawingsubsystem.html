@@ -1,0 +1,143 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Guidance system</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="operaci&oacute;n de orientaci&oacute;n, Yawing, CW, CCW, orientaci&oacute;n, m&aacute;ximo de vueltas, veleta, direcci&oacute;n del viento, orientaci&oacute;n de la g&oacute;ndola">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Yawingsubsystem&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Orientation System</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Wind Turbine Simulator with Active Stall and Two Speeds</a>
+					›› <a href="Simulación.html">Scope of Simulation</a>
+					›› <a href="ProcessesinNacelleEmulator.html">Processes corresponding to Nacelle elements</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ProcessesinNacelleEmulator.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="GeneradorParametros.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstrategiasSeguridadSobrevelocid.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Signals generated</span></span></h1>
+<p class="rvps2"><span class="rvts6">In the &quot;Nacelle&quot; process, the following signals are created, corresponding to the elements in the nacelle that are related to the orientation of the wind turbine_</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Simulation of the two motor blocks that allow clockwise (</span><span class="rvts29">CW</span><span class="rvts6">) and counterclockwise (</span><span class="rvts29">CCW</span><span class="rvts6">) rotation.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Simulation of the number of turns of the </span><span class="rvts29">power cables </span><span class="rvts6">that run from the nacelle to the base of the tower.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Simulation of the limit switch that detects when the </span><span class="rvts29">maximum </span><span class="rvts6">number </span><span class="rvts29">of turns </span><span class="rvts6">has been reached.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Generation of the wind </span><span class="rvts29">vane </span><span class="rvts6">signal, using the </span><span class="rvts29">wind direction </span><span class="rvts6">values (input to the system) and the </span><span class="rvts29">orientation of the nacelle</span><span class="rvts6">.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Algorithms used</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">To generate </span><span class="rvts59">the nacelle orientation signal</span><span class="rvts6">, the following are taken into account:</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The status of the input signals that govern the status of the yaw motors: </span><span class="rvts17">SynopticWindNacelle.YawCCWOut</span><span class="rvts6">, and </span><span class="rvts17">SynopticWindNacelle.YawCWOut</span><span class="rvts6">). These are normally signals that come from the Controller (</span><span class="rvts17">Controller.Yawing.YCCWOut</span><span class="rvts6">, and </span><span class="rvts17">Controller.Yawing.YCWOut</span><span class="rvts6">, respectively).</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The yaw speed values of each of the motors that enter through the signals </span><span class="rvts17">&#x27;Nacelle.Yawing.CWYawingSpeed&#x27;</span><span class="rvts6"> and </span><span class="rvts17">&#x27;Nacelle.Yawing.CCWYawingSpeed&#x27; </span><span class="rvts6">signals and are normally connected to the parameters &quot;</span><span class="rvts17">Parameter.NacelleYawing.CCWYawingSpeed</span><span class="rvts6">&quot; and </span><span class="rvts17">&quot;Parameter.NacelleYawing.CWYawingSpeed</span><span class="rvts6">.&quot; In a real wind turbine, these values are in the order of </span><span class="rvts29">0.5 degrees/second</span><span class="rvts6">. The recommended values, to enhance the simulation experience, are in the order of </span><span class="rvts29">10 degrees/second</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">The algorithm used integrates the time when both signals are active to calculate the current position of the nacelle orientation.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">To generate </span><span class="rvts59">the number of turns of the power cables</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oBased</span><span class="rvts6"> on the orientation of the nacelle, counting the number of times it crosses the north direction.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">To generate </span><span class="rvts59">the digital signal indicating that the maximum number of turns of the power cables has been reached</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oBy </span><span class="rvts6">comparing the number of turns of the power cables with the value of the &quot;</span><span class="rvts17">Parameter.NacelleYawing.MaxCableTwist</span><span class="rvts6">&quot; parameter.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">To generate </span><span class="rvts59">the wind vane signal</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">Using the orientation of the nacelle and the direction of the wind.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Yawsystem.png"></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/YawinMotor%20y%20rueda%20dentada%20desde%20la%20torre.jpg"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/YawingMotor%20sobre%20rueda%20dentada.jpg"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps20"><span class="rvts31"><br/></span></p>
+<p class="rvps20"><span class="rvts31"><br/></span></p>
+<p class="rvps20"><span class="rvts31"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Introduzione</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="jaula de ardilla, , pala fija, Active Stall, Banco de Pruebas, squirrel cage, pitch" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Introducción&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Introduzione</h1>
+</div>
+<div id="topic_header_nav">
+<a href="Notasobreversion.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">Questo tutorial corrisponde al "Simulatore a turbina eolica a due velocità" della famiglia ACM SL dei simulatori di turbine eoliche in tempo reale. I suoi modelli di progettazione turbine eoliche che utilizzano</span><span class="rvts17">gabbia di scoiattolo</span><span class="rvts6">generatori elettrici, cioè, con avvolgimento rotore cortocircuitato e lo statore collegato direttamente alla griglia. Il sistema di controllo della generazione di potenza è ottenuto variando l'angolo della lama in relazione al vento (pitch), utilizzando il</span><a class="rvts18" href="Stalling.html">stallo attivo</a><span class="rvts6">principio (perdite aerodinamiche indotte). Inoltre implementa il concetto di adattamento alla gamma del vento passando tra due generatori (o un singolo generatore con due avvolgimento).</span></p>
+<p class="rvps2"><span class="rvts6">Questo simulatore funziona sulla piattaforma LdP di ACM SL, utilizzando il "</span><span class="rvts13">DSASr12.conf</span><span class="rvts6">" configurazione, che utilizza un insieme di componenti LdP (vedi</span><a class="rvts18" href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a><span class="rvts6">).</span></p>
+<p class="rvps2"><span class="rvts6">Con questo Simulatore, è possibile eseguire i comandi supportati da una vera e propria turbina eolica e osservare le sue reazioni. Ciascuno dei sottosistemi della turbina eolica ha un proprio simulatore, con parametri e segnali specifici che possono essere osservati. Utilizzando sinottici specializzati, i valori di questi segnali possono essere modificati (anche durante l'esecuzione della simulazione), in modo che il simulatore possa essere utilizzato come</span><span class="rvts19">a </span><span class="rvts6">"</span><span class="rvts19">Banco prova</span><span class="rvts6">. La progettazione dei simulatori di sottosistema e dei sinottici permette di osservare l'evoluzione di questi segnali in condizioni generali di funzionamento simili a quelle di fronte a una vera e propria turbina eolica in un parco eolico.</span></p>
+<p class="rvps2"><span class="rvts6">Ad esempio, la reazione ai venti estremi può essere osservata. O come reagisce al riscaldamento eccessivo del generatore. O ad una rottura del meccanismo di variazione dell'angolo della lama. O l'influenza del peso aumentato sulle lame (a causa del ghiaccio, per esempio).</span></p>
+<p class="rvps2"><span class="rvts11">La turbina eolica simulata è un tipo HAWT (asse orizzontale) orientato al vento (</span><span class="rvts15">vento</span><span class="rvts11">), con tre lame.</span></p>
+<p class="rvps2"><span class="rvts11">Questo tutorial spiega i principi fisici utilizzati nella progettazione di turbine eoliche che utilizzano il principio del controllo di potenza attraverso</span><a class="rvts14" href="Stalling.html">stallo</a><span class="rvts11">.</span></p>
+<p class="rvps2"><span class="rvts11">Gli obiettivi di questo simulatore sono:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•To</span><span class="rvts11">emulare il comportamento di ogni sottosistema all'interno della turbina eolica, incluso il controller, in modo che il comportamento osservato sia molto vicino a quello della turbina eolica reale.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•To</span><span class="rvts11">fornire all'utente una serie di strumenti di visualizzazione con cui possono osservare efficacemente e facilmente i valori di tutti i segnali interni e la loro evoluzione.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•To</span><span class="rvts11">consentire l'interazione con la turbina eolica modificando le sue condizioni ambientali (vento, connessione alla rete elettrica, temperature, ecc.) al fine di introdurre la maggior parte delle condizioni operative reali.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Presente, in modo semplice, aspetti relativi al funzionamento sicuro delle turbine eoliche.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Atto</span><span class="rvts15">a </span><span class="rvts11">"</span><span class="rvts15">banco prova</span><span class="rvts11">" dove possono essere forzate le seguenti condizioni: a) condizioni esterne (venti estranei, ad esempio), b) condizioni interne (insufficienza di connessione, malfunzionamenti di apparecchiature, ecc.), e osservare la reazione della turbina eolica, anche per segnali che non sono accessibili in turbine eoliche reali.</span></p>
+<p class="rvps2"><span class="rvts11">Di conseguenza, questo simulatore, insieme a questo tutorial, permette:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Imparare</span><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">circa</span><span class="rvts16">ed esplorare la struttura interna</span><span class="rvts11">di questo tipo di turbine eoliche.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Capire i principi fisici</span><span class="rvts11">su cui si basano turbine eoliche industriali installate in parchi eolici.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Scopri gli algoritmi</span><span class="rvts11">utilizzato in ogni sottosistema della turbina eolica e i parametri che li caratterizzano.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Scopri le macchine statali</span><span class="rvts11">usato per controllare la turbina eolica.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

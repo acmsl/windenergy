@@ -1,0 +1,84 @@
+<html>
+<head>
+<title>Macchina di stato operativo</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content=", , conexión, desconexión de la Red, seguridad" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;OperationStateMachine&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Macchina di stato di funzionamento</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito di simulazione</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="ControllersFunctionalstructure.html">Struttura funzionale del regolatore</a>
+					›› <a href="StateEventsDiagramsoftheimplemen.html">Macchine per il controllo interno</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="StateEventsDiagramsoftheimplemen.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="StateEventsDiagramsoftheimplemen.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="LegendforOperationStateMachinedi.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">La figura seguente mostra gli stati (quadrati) e gli eventi (frecce) della macchina di funzionamento dello Stato.</span></p>
+<p class="rvps4"><span class="rvts11">Questa programmazione è responsabile delle seguenti operazioni:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">connessione e disconnessione dalla griglia,</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">disavvolgimento dei cavi di alimentazione,</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">• </span><span class="rvts11">cambiare il tipo di connessione del generatore elettrico (4 o 6 poli)</span></p>
+<p class="rvps4"><span class="rvts11">Gli stati della "Produzione" sono "Sg" e "SGG". Lo stato di "funzionale ma scollegato dalla griglia" è "St". Lo stato iniziale è "SSTOPSM".</span></p>
+<p class="rvps4"><span class="rvts11">Questa macchina è una schiava</span><a class="rvts48" href="SecurityStateMachine.html">Sicurezza</a><span class="rvts11">macchina, cioè, riceve eventi da esso. The</span><a class="rvts48" href="LegendforOperationStateMachinedi.html">Leggenda del diagramma di operazione M.E.</a><span class="rvts11">elenca i possibili stati ed eventi.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem41.gif" style="padding : 1px;"/><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

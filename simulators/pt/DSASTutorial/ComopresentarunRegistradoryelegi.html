@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Painel 'Cortar + Cortar + Produção '</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="valor de consigna, potencia eléctrica generada, Contactor Bypass de los Tiristores, tiristores, Frenos liberados, velocidad de giro del eje del generador eléctrico, dirección del viento, orientación de la góndola, velocidad del viento, velocidad eficaz del viento, conexión con la Red, cutin, desconexión de la Red, cutout" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ComopresentarunRegistradoryelegi&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Painel «Cortar + Cortar + Produção»</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Sinopticos.html">Sinópticos utilizados neste simulador</a>
+					›› <a href="Comopresentarenprimerplanoundete.html">Como exibir um gravador e selecionar um painel predefinido nele.</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Comopresentarenprimerplanoundete.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Comopresentarenprimerplanoundete.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="PanelCutinCutoutProduccion.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">A figura a seguir mostra um gravador com o painel chamado "Cutin + Cutout + Produção".</span></p>
+<p class="rvps2"><img alt="" src="lib/RegistradorCutinCutoutProduccion.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">Dois sinais são apresentados no primeiro 'canal':</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts6">Sinal gerado no Controlador e usado como</span><span class="rvts17">o valor do setpoint</span><span class="rvts6">para a lâmina</span><span class="rvts29">pitch</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">Sinal do simulador de hub, com o valor real do pitch da lâmina.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">No segundo 'canal', é apresentado um único sinal, correspondente ao</span><span class="rvts29">energia eléctrica gerada</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">Três sinais digitais são apresentados no terceiro 'canal':</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">A</span><span class="rvts29">tiristor</span><span class="rvts6">Sinal de activação.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">A</span><span class="rvts29">'fregos liberados '</span><span class="rvts6">signal.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">O sinal para ativar o</span><span class="rvts29">contacto com o bypass do tiristor</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4. </span><span class="rvts6">O quarto 'canal' apresenta um único sinal com o</span><span class="rvts29">Velocidade de rotação do eixo do gerador elétrico</span><span class="rvts6">(em rpm).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5. </span><span class="rvts6">O quinto 'canal' apresenta dois sinais:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts29">Direcção do vento</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">A</span><span class="rvts29">orientação da nacele</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6. </span><span class="rvts6">O sexto 'canal' exibe dois sinais:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts29">Velocidade do vento</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts29">Velocidade eficaz do vento</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Este painel é muito útil para estudar a evolução da turbina eólica durante</span> <span class="rvts29">ligação à rede</span> <span class="rvts6">(</span><span class="rvts17">corte-in</span><span class="rvts6">),</span> <span class="rvts29">desconexão da rede</span> <span class="rvts6">(</span><span class="rvts17">recortar</span><span class="rvts6">), mudança de direção do vento e operações de mudança de velocidade do vento.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

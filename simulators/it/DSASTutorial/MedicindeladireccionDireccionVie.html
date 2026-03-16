@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Misurazione della direzione del vento - Descrizione di un furgoncino</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="veleta, duty cycle, relación de aspecto" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;MedicindeladireccionDireccionVie&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Misurazione della direzione del vento - descrizione di un furgoncino</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Cos'è una turbina eolica?</a>
+					›› <a href="EstructuraAerogenerador.html">Struttura di una turbina eolica orizzontale</a>
+					›› <a href="SensoresMeteo.html">Sensori meteo</a>
+					›› <a href="SensoresViento.html">Sensori di vento</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="SensoresViento.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="LidarlaseryefectoDoppler.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Sensorestemperatura.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">La direzione del vento viene rilevata utilizzando un</span><span class="rvts16">vento vane</span><span class="rvts11">. Ci sono diversi tipi di vento vane, a seconda della misura che forniscono e come lo forniscono. Alcuni danno un segnale analogico (solitamente una tensione tra 0 e 10 V) che è proporzionale all'angolo rispetto ad un dato riferimento. Altri incorporano un codificatore angolare con una linea di comunicazione attraverso la quale danno la misura di quell'angolo direttamente in forma numerica.</span></p>
+<p class="rvps4"><span class="rvts11">Altri fusti eolici hanno una struttura più semplice e forniscono un segnale digitale il cui "ciclo di polvere" corrisponde al "errore di orientamento" tra un riferimento, dato dalla sua base fissa, e la vane del vento stesso. Il video seguente mostra come funziona.</span></p>
+<p class="rvps4"><span class="rvts11"> </span><img alt="" src="lib/Veletaswf.gif" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">La parte mobile termina in un disco incompleto, con un angolo solido di meno di 180 gradi. Diciamo (180 -5) gradi. Questo disco interrompe o permette la luce emessa dal LED di un dispositivo costituito da un LED e da un photodetector di passare attraverso. L'output di questo fotodetector è mostrato sull'oscilloscopio nella figura precedente.</span></p>
+<p class="rvps4"><span class="rvts11">Il segnale generato dalla ventola è un segnale digitale che misura la disorientamento della nacelle, cioè la differenza tra l'orientamento della nacelle e la direzione del vento. È un segnale oscillante il cui "ciclo di umidità" è la misura di questa differenza di angoli. Il "ciclo di dovere" di un segnale periodico è il rapporto tra il tempo che il segnale è nello stato "On" e il periodo di quel segnale.</span></p>
+<p class="rvps4"><span class="rvts11">Il vento vane è un dispositivo che si comporta come un pendolo eccitato dal vento invece di gravità. Come si può vedere nel video sopra, il rivelatore fotoelettrico riceve un segnale quando il percorso della sua luce non è ostacolato dal semicerchio associato alla ventola, che dipende dal punto di oscillazione della vane e dalla sua posizione relativa rispetto alla sua base, che è fissata alla gondola. Il grafico seguente mostra quattro situazioni che illustrano questi concetti.</span></p>
+<p class="rvps10"><img alt="" src="lib/Situaciones%20Veleta.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Il semicerchio opaco della ventola è rappresentato dal semicerchio rosa. Il settore circolare indica la zona di oscillazione della parte in movimento della ventola. Nel primo caso (a sinistra), la posizione della sorgente luminosa sulla ventola non è mai ostruita: quindi l'uscita del sensore della ventola è sempre eccitata (linea nera). Nel secondo caso, l'oscillazione della ventola significa che durante una piccola parte dell'oscillazione la luce dalla ventola non raggiunge il sensore, e abbiamo un segnale di uscita che è eccitato la maggior parte del tempo. Nel terzo caso, il sensore riceve solo luce durante una piccola parte del ciclo di oscillazione. Nel quarto caso, il sensore non riceve luce in alcun punto durante l'oscillazione.</span></p>
+<p class="rvps4"><span class="rvts11">La "disorientamento" della Gondola rispetto al vento è data dalla differenza tra l'angolo medio a cui oscilla la ventola, che è quella del vento, e la direzione della Gondola (la linea orizzontale nella figura).</span></p>
+<p class="rvps4"><span class="rvts11">Come si può vedere quando il segnale del vento è sempre Su o Off, la disorientazione è maggiore dell'angolo di oscillazione della ventola (cioè, è grande). Quando questo segnale oscilla tra On e Off, il suo "</span><span class="rvts15">ciclo di lavoro</span><span class="rvts11">" consente di misurare con precisione il disorientamento. Quando il ciclo di dovere è 50%, la differenza è 0o.</span></p>
+<p class="rvps4"><span class="rvts11">Misurare il disorientamento utilizzando un dispositivo richiede un circuito che elabora statisticamente queste tre situazioni (sempre On, sempre Off, e oscillante) e, in caso di oscillazione, misura il suo ciclo di dovere.</span></p>
+<p class="rvps10"><span class="rvts53"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

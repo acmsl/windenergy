@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>Data recording</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Datalogging1");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Data recording</h1>
+</div>
+<div id="topic_header_nav">
+<a href="SimulacindePuestaenNodisponibled.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts16">This simulator, being an LdP application, keeps in mind the evolution of the different signals that are exchanged between its subsystems.</span></p>
+<p class="rvps4"><span class="rvts16">When you leave it you wonder if you want to save these developments on disk. See figure.</span></p>
+<p class="rvps4"><img alt="" src="lib/Pregunta%20para%20salvar%20las%20senales.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts16">If the answer is "OK," a database file is created in the directory "c:\ WFS _ Datalog\ Eolico Park Simulator\ aa-nn-d-h-mm-ss.sqlite" where "aa-mm-dd-h-mm-ss" corresponds to the date the session began.</span></p>
+<p class="rvps4"><span class="rvts16">"aa" es el año, pe, "16" para "2016"; "nn", es el mes, "dd", es el dia; "hh", es la hora; "mm", es el minuto: y "ss" es el segundo, del comienzo.</span></p>
+<p class="rvps4"><span class="rvts16">This database is exploratory with several tools for free use. The following figure shows the content of the description of an open example with the application "DB Browser for SQLite."</span></p>
+<p class="rvps4"><img alt="" src="lib/SCADA%20tablas.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts41">Some of these tools have features to generate graphics. For example, the following figure shows the evolution of power produced by one of the wind turbines in a simulation session.</span></p>
+<p class="rvps4"><img alt="" src="lib/SCADA%20visualizacion%20evolucion%20tabla%20bbdd.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts16">These data are exportable in several formats (CSV, Excel, etc.) For a full description see the heading "</span><span class="rvts44">Signal values record (datalogging)</span><span class="rvts16">"in the tutorial"</span><span class="rvts44">Introduction to LdP</span><span class="rvts16">".</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

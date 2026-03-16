@@ -1,0 +1,123 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Circuitos de media de sensores Pt100</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DualSpeedActiveStallWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Sensoresdetemperatura");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Circuitos de media de sensores Pt100</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">&iquest;Qu&eacute; es un Aerogenerador?</a> &rsaquo;&rsaquo; <a href="EstructuraAerogenerador.html">Estructura de un Aerogenerador de Eje Horizontal</a> &rsaquo;&rsaquo; <a href="Sensorestemperatura.html">Sensores de temperatura</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Sensorestemperatura.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Sensorestemperatura.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Nuevotema4.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps11"><span class="rvts6">Los sensores de temperatura tipo Pt100 son dispositivos que contiene una resistencia de platino, que se pone en contacto con el elemento del que se quiere medir la temperatura. Es un tipo de sensor muy fiable y con uso muy extendido en la industria debido a la estabilidad de la relación entre resistencia y temperatura. La curva de resistencia en función de la temperatura es también bastante lineal en el rango de uso.</span></p>
+<p class="rvps11"><span class="rvts6">Existen de varios valores: el tipo Pt100 presenta una resistencia de 100 ohms a 0ºC, y tiene un coeficiente de proporcionalidad de 0,385 Ohms/ºC. Es decir, el valor de la resistencia cuando el sensor se coloca sobre un objeto que está a 100ºC es 138.5 Ohms (= 100 ohms + 100ºC * 0.385).&nbsp;</span></p>
+<p class="rvps11"><span class="rvts6">La medida de esta resistencia tiene dos problemas: uno derivado del bajo valor de las variaciones con la temperatura combinado con la influencia de las resistencias de los hilos que conectan el sensor con el dispositivo que hace la medida. La solución consiste en utilizar un circuito de medida como el mostrado en la fig 1: R1 , R2 y R3 corresponden con las resistencias de los hilos que unen el sensor R</span><span class="rvts58">PT</span><span class="rvts6"> ,con el dispositivo de mediad (situado en las bornas L1, L2 y L3)</span></p>
+<p class="rvps11"><span class="rvts6">.</span><img alt="" style="width : 425px; height : 284px; padding : 1px;" src="lib/Sensor_Pt100.png"></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/Circuito%20Pt100%203%20hilos.jpg"><span class="rvts6"> Fig 1</span></p>
+<p class="rvps11"><span class="rvts6">Por construcción los valores de R1, R2 y R3 son muy similares. Si se miden las resistencias entre las bornas L3 y L2, y después entre las bornas L2 y L1, la resistencia de &nbsp;R</span><span class="rvts58">PT</span><span class="rvts6"> &nbsp;es la diferencia entre las dos.</span></p>
+<p class="rvps11"><span class="rvts6">Un concepto similar se utiliza con el método de los 4 hilos.</span></p>
+<p class="rvps11"><img alt="" style="padding : 1px;" src="lib/Circuito%20Pt100%204%20hilos.jpg"></p>
+<p class="rvps11"><span class="rvts6">La idea está basada en el hecho de que cualquier instrumento de medida de tensión tiene una gran impedancia (superior a 1 M ohms) y por tanto, si se inyecta una corriente conocida entre las bornas L1 y L4, solo una parte despreciable circulará por L3 y L2, con lo que la tensión medida en el voltímetro (DVM) será la misma que hay en bornas del R</span><span class="rvts58">PT</span><span class="rvts6"> .</span></p>
+<p class="rvps11"><span class="rvts6">El otro problema deriva de que inyectar corriente en el R</span><span class="rvts58">PT</span><span class="rvts6"> &nbsp;para hacer la medida, calienta el R</span><span class="rvts58">PT</span><span class="rvts6"> , con lo que se desvirtúa la medida. Este error depende no solo de la corriente, sino de las características térmicas del R</span><span class="rvts58">PT</span><span class="rvts6"> y del punto donde se hace la medida.</span></p>
+<p class="rvps11"><span class="rvts6">Para solventar este problema, algunos sistemas usan un mecanismo de pulsos cortos de corriente, en los cuales hacen la medida.</span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

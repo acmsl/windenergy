@@ -1,0 +1,641 @@
+<html>
+<head>
+<title>Leggenda per l'operazione di diagramma M.E.</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;LegendforOperationStateMachinedi&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Leggenda dell'operazione di diagramma M.E.</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito di simulazione</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="ControllersFunctionalstructure.html">Struttura funzionale del regolatore</a>
+					›› <a href="StateEventsDiagramsoftheimplemen.html">Macchine per il controllo interno</a>
+					›› <a href="OperationStateMachine.html">Macchina di funzionamento</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="OperationStateMachine.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="OperationStateMachine.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="SecurityStateMachine.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">ELENCO DEI NOMI UTILIZZATI NELLA MACHINE DI OPERAZIONE.</span></p>
+<p class="rvps4"><span class="rvts11">STATI:</span></p>
+<div class="rvps4">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts16">Nome</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts16">Nome breve</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts16">Designazione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts16">ID</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SSTOPSM</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SSTOPSM</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Entry State. Anche lo stato di riposo dopo StopSequence ricevuto</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">16</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%; height: 37px;">
+<p class="rvps4"><span class="rvts11">St</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%; height: 37px;">
+<p class="rvps4"><span class="rvts11">St</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%; height: 37px;">
+<p class="rvps4"><span class="rvts11">Testare la velocità del vento</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%; height: 37px;">
+<p class="rvps4"><span class="rvts11">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">sB</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">sB</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Punto di decisione per il collegamento su 6 (Small) o 4 poli (Large)</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">2</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SPrepare4CutinLarge</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SPreCutinL</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">3</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SPrepare4CutinSmall</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SPreCutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">4</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SW4BrakeReleaed</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SW4BrakeReleaed</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">In attesa dei freni rilasciati</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">5</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SG2Cutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SG2Cutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Vai a Cutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">6</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SThyristors</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SThyr</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">I Thyristors spararono</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">7</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SG</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SG</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Produzione stabile a grande connessione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">8</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">Sg</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">Sg</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Produzione stabile a Piccola connessione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">9</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SGSmall2Large</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SGS2L</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Cambio da Grande a Piccolo collegamento</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">19</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SGLarge2Small</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SGL2S</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Cambio da Piccola a Grande connessione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">10</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SGoingSt</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SGoingSt</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Andare alla prova per la velocità del vento</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">17</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">Cavi di collegamento</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SUntwiCabl</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Cavi di alimentazione senza fili</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">15</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SW4Idle</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SW4Idle</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Stato intermedio che si fermerà</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">18</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">SG2Down980</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">SG2D980</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Stato intermedio che va da Grande a Piccola connessione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 19%;">
+<p class="rvps4"><span class="rvts11">STestTwistedCables</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">STTwisCabl</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 64%;">
+<p class="rvps4"><span class="rvts11">Provare se i cavi devono essere non collegati prima del taglio</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+<p class="rvps4"><span class="rvts11">14</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11">EVENTI</span></p>
+<div class="rvps4">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts16">Nome</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts16">Nome breve</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts16">Designazione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts16">ID</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ENoError</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ENER</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">La SequenceSTOP State Machine non ha segnalato errori</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">2</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">Cables UE</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EUnTwist</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">I cavi di alimentazione devono essere non cablati</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">19</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ESTOPSeq</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ESTOP</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Una sequenza è iniziata</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">1</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EInsufficientWind</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EInsufficientWind</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Il vento non è sufficiente per Cutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">10</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EStart</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EStart</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">L'utente ha premuto il pulsante "START"</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">5</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EEnoughWind</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EEnoughWind</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">C'è abbastanza vento per iniziare a tagliare</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">9</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">Abbastanza Wind4Large</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">Esercizio 4L</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Il vento è sufficiente per la connessione 4 poli (Large)</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">11</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EWOnlyForSmall</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EWOFSmall</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Il vento è sufficiente solo per 6 poli di connessione (Small)</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">12</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EWOM4Cutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EWOM4Cutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Il vento è troppo alto per tentare un taglio</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">21</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EToutBrakeReleaed</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">WTOBRel</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Timeout del BrakeReleased timer</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">7</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ECrossedCutinRPMs</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ECrosCutin</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">I RPM hanno attraversato il limite per la cutin (1000 per Small e 1500 per Large)</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">8</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EBypassOnLarge</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EBypassL</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Passare con il generatore in Grande connessione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">3</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EBypassOnSmall</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EBypasss</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Passare con il generatore in Piccola connessione</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">4</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">EWCrossedLarge2Small</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">EWCrossL2S</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">La velocità del vento (la diminuzione) ha attraversato il limite per cambiare da Grande a Piccolo collegamento</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">13</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ERCrossedBelowSynch</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ERCrossBSyn</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">I RPM attraversarono (andando giù) la velocità sincrona (1000 o 1500)</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">14</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ERCrossedBelow1500</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ERCrossB1500</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">I RPM incrociati sotto Grande connessione velocità sincrona</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">16</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ECablesUntwisted</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ECableUnd</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">Cavi ora senza fili</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">18</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ERBelow Idle</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ERBelow Idle</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">I RPM attraversarono (diminuire) il valore per entrare nello stato di Idle</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">17</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 21%;">
+<p class="rvps4"><span class="rvts11">ERPMsBelow980</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 14%;">
+<p class="rvps4"><span class="rvts11">ERpmB980</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 38%;">
+<p class="rvps4"><span class="rvts11">I RPM hanno attraversato (diminuire) il valore per il passaggio a Small</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 9%;">
+<p class="rvps4"><span class="rvts11">15</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts6">  </span><span class="rvts6">        </span><span class="rvts6">        </span></p>
+<p class="rvps2"><span class="rvts6">     </span></p>
+<p class="rvps2"><span class="rvts6">    </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">  </span><span class="rvts6">        </span><span class="rvts6">        </span></p>
+<p class="rvps2"><span class="rvts6">    </span></p>
+<p class="rvps2"><span class="rvts6">    </span></p>
+<p class="rvps2"><span class="rvts6">    </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6">   </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Azioni</span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6">        </span><span class="rvts6">        </span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

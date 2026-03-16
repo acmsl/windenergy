@@ -1,0 +1,121 @@
+<html>
+<head>
+<title>Schema funzionale di una turbina eolica con una gabbia di scoiattolo</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="pitch, veleta, emergencia, freno de mano" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraoperacionaldeunAerogen&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Schema funzionale di una turbina eolica con gabbia scoiattolo</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Cos'è una turbina eolica?</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Queesunaerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Nuevotema4.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Conexionredelectrica.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Schema di blocco funzionale di una turbina eolica con un generatore di gabbia scoiattolo e angolo di lama variabile.</span></span></h1>
+<p class="rvps2"><img alt="" src="lib/Aerog%20active%20stall.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Le principali funzioni del controllore corrispondono al controllo</span><span class="rvts29">connessione (e disconnessione) del</span><span class="rvts6">elettrico</span><span class="rvts29">generatore alla rete elettrica</span><span class="rvts6">e</span><span class="rvts29">controllo dell'angolo della lama:</span><span class="rvts6">questo modifica</span><span class="rvts29">la potenza ottenuta dal vento</span><span class="rvts6">Quando</span><span class="rvts17">produzione</span><span class="rvts6">) e</span><span class="rvts29">frena il treno di potenza</span><span class="rvts6">quando nel</span><span class="rvts17">arresto</span><span class="rvts6">phase.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Schema funzionale dettagliato</span></span></h1>
+<p class="rvps2"><img alt="" src="lib/Esquema%20DSAS.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6">Questa figura mostra lo schema funzionale di questo tipo di turbina eolica.</span></p>
+<p class="rvps2"><span class="rvts6">Funzioni principali</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Controllo del</span><span class="rvts60">connessione e disconnessione della</span><span class="rvts59">elettrico</span><span class="rvts60">generatore</span><span class="rvts59">alla griglia elettrica</span><span class="rvts6">: </span></p>
+<p class="rvps2"><span class="rvts6">Il controller monitora:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Il vento (attraverso l'anemometro).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Le rivoluzioni dell'albero generatore.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">parametri oGrid (tensioni e correnti per fase).</span></p>
+<p class="rvps2"><span class="rvts6">ed esegue il controllo tramite:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">OThyrist</span><span class="rvts6">ors.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">Contatti oBypass.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Controllo del</span><span class="rvts60">potenza ottenuta dal vento</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">Il controller monitora:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Il vento (attraverso l'anemometro).</span></p>
+<p class="rvps2"><span class="rvts6">e controlla la potenza ottenuta dal vento attraverso:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Il meccanismo di controllo dell'angolo della lama (pitch)</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Controllo del</span><span class="rvts60">connessioni generatore a due velocità</span></p>
+<p class="rvps2"><span class="rvts6">Quando il generatore ha due opzioni di connessione dello statore disponibili (che significa che può funzionare a due velocità sincrono), il controller passa automaticamente tra queste due velocità. L'algoritmo utilizzato è il seguente:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Se sta producendo ad alta velocità del generatore:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Inizia il processo di disconnessione dalla griglia, modificando l'angolo della lama in modo che la potenza ottenuta dal vento sia ridotta.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Quando l'energia elettrica prodotta è 0, scollega il generatore dalla griglia, aprendo i contatori di bypass.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Mantiene l'angolo della lama in modo che il treno di potenza perda la velocità di rotazione fino a raggiungere un valore leggermente inferiore alla bassa velocità sincrona.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Cambia la connessione del generatore avvolgimento in modo che corrisponda alla bassa velocità di sincronizzazione.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Funzioni ausiliarie</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts60">• Sicurezza di funzionamento</span><span class="rvts59">controllo</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">Il controller ha algoritmi per monitorare lo stato della turbina eolica, la cui missione è quella di garantire la sicurezza delle persone e delle attrezzature stesse.</span></p>
+<p class="rvps2"><span class="rvts6">Per farlo, monitora:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">o Velocità del vento.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La gamma di velocità dell'albero generatore.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">La velocità di rotazione delle lame.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Lo stato del sensore di vibrazione della torre.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">sensori di temperatura per vari elementi: avvolgimento dello statore del generatore, cuscinetti dell'albero del treno di potenza, cambio, ambiente.</span></p>
+<p class="rvps2"><span class="rvts6">e scollega la griglia (se collegata), e imposta l'angolo della lama</span><span class="rvts17">to </span><span class="rvts6">"</span><span class="rvts17">bandiera</span><span class="rvts6">" (che significa una minima resistenza al vento incidente).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Controllo del</span><span class="rvts60">nacelle orientamento</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Il controller utilizza il vento</span><span class="rvts29">Vane</span><span class="rvts6">segnale per determinare il valore del suo disorientamento rispetto alla direzione del vento.</span></p>
+<p class="rvps2"><span class="rvts6">Utilizza i gruppi motori (uno per ogni direzione di rotazione: CW (in senso orario) o CCW (in senso orario)) per correggere qualsiasi possibile disorientamento.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Monitoraggio e controllo</span><span class="rvts60">il freno a disco</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Il freno a disco viene utilizzato principalmente per evitare che il treno di potenza torni quando le operazioni di manutenzione devono essere effettuate sulle lame, ecc. Funziona come una</span><span class="rvts17">freno a mano</span><span class="rvts6">in macchina.</span></p>
+<p class="rvps2"><span class="rvts6">I componenti del meccanismo frenante (shoe, disco, cilindro idraulico, valvola) sono progettati per un'altra funzione più impegnativa: agire come freno Power Train in</span><span class="rvts17">situazioni di emergenza</span><span class="rvts6">. Quando il Controller decide di fermare il Power Train, utilizza l'angolo della lama, specificando un angolo di 90o. Se questa procedura non risponde adeguatamente (non abbastanza veloce), il freno a disco viene utilizzato come ultima risorsa. Questo uso è considerato</span><span class="rvts17">un fallimento</span><span class="rvts6">perché, se viene applicato a velocità di produzione, tutta l'energia ottenuta dal vento deve essere dissipata nella scarpa freno, causando la deformazione.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Controllo</span><span class="rvts60">vibrazioni torre</span></p>
+<p class="rvps2"><span class="rvts6">Il controller reagisce all'attività di</span><span class="rvts17">il sensore di vibrazioni</span><span class="rvts6">situato nella torre, fermando il treno di potenza e posizionando la lama in una posizione "flag".</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts60">• Sistema idraulico</span><span class="rvts59">manutenzione</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Il sistema idraulico è utilizzato dal meccanismo frenante Power Train, ma a seconda del modello, può anche essere utilizzato per fissare la rotazione della Nacelle, per mezzo di scarpe poste alla sua base. In alcuni modelli, è stato utilizzato anche per fornire pressione al meccanismo di cambio dell'angolo della lama.</span></p>
+<p class="rvps2"><span class="rvts6">Il controller riceve un segnale da un</span><span class="rvts17">interruttore di pressione</span><span class="rvts6">che permette di conoscere il livello di pressione nel circuito idraulico. A seconda delle operazioni da eseguire, inizia e ferma la</span><span class="rvts17">pompa idraulica</span><span class="rvts6">mantenere questo valore entro un intervallo appropriato, o agisce sulla</span><span class="rvts17">valvola di ritegno</span><span class="rvts6">per ridurre questa pressione.</span></p>
+<p class="rvps6"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

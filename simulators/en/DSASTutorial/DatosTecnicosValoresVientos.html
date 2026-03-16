@@ -1,0 +1,182 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Functional wind values</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Abs max, , , , , viento m&aacute;ximo temporal, velocidad del viento">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;DatosTecnicosValoresVientos&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Functional wind values</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DatosTecnicos.html">Technical data of the emulated subsystems</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DatosTecnicos.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DatosTecnicosGen3Polos.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Curva%20de%20potencia%20con%20vientos.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps2">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Min for orientation</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Wind below which the Controller will not start the protocol to track wind direction.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Min for start-up</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Wind speed below which the Controller will not initiate the connection operation with the Grid (cutin).</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Min for Large Gen</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">If the wind turbine is in production, with the large generator connected, and the wind falls below this level, it will initiate the operation to switch from the large generator to the small generator.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max for Small Gen</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">If the wind turbine is in production, with the small generator connected, and the wind exceeds this level, the controller will initiate the operation to switch from the small generator to the large generator.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max for start-up</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">If the wind turbine is disconnected from the grid and the wind is above this limit (normally well above the nominal wind speed: for example, 18 m/s) and the controller receives the command to initiate connection (cutin), it will not do so unless the wind drops below this level.</span></p>
+   <p class="rvps2"><span class="rvts6">This limit has no influence if the wind turbine is in production and the wind exceeds this limit.</span></p>
+   <p class="rvps2"><span class="rvts6">The reason for this limit is statistical, so it must be adjusted for each wind farm. The aim is to avoid starting up the wind turbine if it is suspected that the wind is so strong that it will soon exceed the maximum continuous operating wind speed and therefore have to be disconnected.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max for continuous operation</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Upper limit at which the wind turbine can remain in production. If the wind remains at this level or slightly above it for a certain period of time, the controller proceeds to disconnect.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max for temporary operation</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Similar to &quot;Max for continuous operation,&quot; this is a higher value, but the controller waits less time to proceed with disconnection if the wind remains at or above this level.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Absolute max</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">If the wind reaches this value, the controller immediately proceeds to disconnect.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

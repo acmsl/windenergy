@@ -1,0 +1,129 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Control of wind power collection</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Active Pitch, Active Stall, ">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Coeficienteaerodinmico2&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Control of wind power collection</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Physical principles</a>
+					›› <a href="Porqugiranlaspalas.html">Concepts regarding extractable wind power</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Porqugiranlaspalas.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Conceptossobrelapotencia.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Coeficienteaerodinmico.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">There are several methods for controlling the power collected from the wind: one method consists of controlling the angle of the blades (pitch), since varying this angle modifies the value of the aerodynamic coefficient (Cp). See </span><a class="rvts14" href="Conceptossobrelapotencia.html">Aerodynamic coefficient</a><span class="rvts11">. This solution requires that the support for each blade on the hub must be able to rotate each blade on its longitudinal axis. This technique is known in the specialized literature as &quot;</span><span class="rvts61">Active Pitch</span><span class="rvts11">.&quot; In English-language documentation, this method of pitch control is called &quot;</span><span class="rvts13">to the feathers</span><span class="rvts11">,&quot; since to lower the Cp, the blade is made to &quot;fold to the wind,&quot; that is, the angle of the blade is made to follow the wind, so that it offers the least surface area to it. </span></p>
+<p class="rvps4"><span class="rvts11">There is another technique that also uses the pitch change mechanism but instead of &quot;folding into the wind&quot; it uses another effect (see </span><a class="rvts14" href="Stalling.html">Stalling)</a><span class="rvts11">. In the 3D </span><a class="rvts14" href="Conceptossobrelapotencia.html">Cp </a><span class="rvts11">graphs, this area corresponds to the &quot;hidden wall&quot; which corresponds to negative pitch values. </span></p>
+<p class="rvps4"><span class="rvts11">This control method is called &quot;</span><span class="rvts61">Active Stall</span><span class="rvts11">&quot; and is used in the wind turbine on which this simulator is based.</span></p>
+<p class="rvps11"><span class="rvts12">Implications for a wind turbine with a squirrel cage generator.</span></p>
+<p class="rvps4"><span class="rvts11">In the case of a squirrel cage induction machine used as a generator (as in this simulator), its operating speed is above, but very close to, its synchronous speed (see </span><a class="rvts14" href="IntoductiontotheInductionMachine.html">Introduction to induction machines</a><span class="rvts11">). This synchronous speed, in most wind turbines, is typically between 1000 rpm and 3000 rpm, depending on the frequency of the grid and the number of poles of the generator.</span></p>
+<p class="rvps4"><span class="rvts11">In the particular case of the electric generator in this Simulator, there are two connections for the stator winding: one that &quot;creates&quot; 3 pairs of magnetic poles in the air gap, and another that creates 2 pairs of poles. The synchronous speeds when connected to a 50 Hz grid are therefore: 1000 rpm ( = 50 Hz * 60 / 3) in one case and 1500 rpm ( = 50 Hz * 60 / 2) in the other. </span></p>
+<p class="rvps4"><span class="rvts11">The speed range at which this type of generator produces its maximum power is typically below 2% of the synchronous speed (see </span><a class="rvts14" href="DatosTecnicosGenerador.html">Characteristics of the generator emulated in this simulator</a><span class="rvts11">), which is why wind turbines that use this type of generator are known as &quot;</span><span class="rvts28">fixed speed</span><span class="rvts11">&quot; turbines. Taking into account the first conclusion in the </span><a class="rvts14" href="Coeficienteaerodinmico.html#ConclusionesPuntoFuncionamiento">previous section</a><span class="rvts11">, this implies that</span><span class="rvts28"> this wind turbine is not the best solution for harnessing winds that are below the nominal wind speed</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">To mitigate this inadequacy, fixed-pitch wind turbines use the idea of having two generators that can operate at two different speeds, or a single generator that can operate at two speeds. This makes it possible to use one of them for winds close to or above the nominal wind speed and another that optimizes the TSR for winds well below the nominal wind speed.</span></p>
+<p class="rvps4"><span class="rvts11">In the case of this simulator, where the nominal wind speed is around 11 m/s, and the blade rotation speed for that power is 19.4 rpm, using the stator connection for synchronization at 1500 rpm (2 poles). Therefore, when the connection is changed to 3 poles, the wind for which the optimal TSR is reached is around 7.3 m/s (= 11 m/s * (1000 rpm / 1500 rpm)).</span></p>
+<p class="rvps4"><span class="rvts11">This technique has proven to be very efficient in practice, so this type of wind turbine was widely used before variable speed wind turbines.</span></p>
+<p class="rvps4"><span class="rvts11">The following figure shows the relationship between wind and pitch in a wind turbine that uses &quot;</span><span class="rvts13">Active Pitch</span><span class="rvts11">&quot; (</span><span class="rvts79">green curve</span><span class="rvts11">). It also shows the relationship between the power obtained as a function of wind (</span><span class="rvts80">gray curve</span><span class="rvts11">) as a result of applying the corresponding pitch values for the same wind.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Panel%20Potencia%20y%20Pitch%20vs%20Viento%20espanol.jpg"></p>
+<p class="rvps4"><span class="rvts11">Fig. 1.</span></p>
+<p class="rvps4"><span class="rvts11">There is another control method based on blade design, which uses the concept of &quot;stalling,&quot; described in </span><a class="rvts14" href="Stalling.html">Stalling</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">A third method consists of forcing stalling by also varying the pitch: this technique is known as &quot;</span><span class="rvts61">Active Stall</span><span class="rvts11">&quot; and is also described in </span><a class="rvts14" href="Stalling.html#PitchvsVientoActiveStall">Stalling</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Concetti relativi alla potenza eolica estraibile</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Cp, viento, pitch, Betz, Tip Speed Ratio, TSR" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Porqugiranlaspalas&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Concetti sulla potenza eolica estraibile</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Principi fisici</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="PrincipiosFisicosAerogeneradores.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="PFAPorquegiranlaspalas.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Conceptossobrelapotencia.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><a class="rvts18" href="PFAPorquegiranlaspalas.html">"Perché girano le lame?"</a><span class="rvts6">presenta i concetti di base che spiegano perché la forza del vento perpendicolare al piano di rotazione delle lame li fa girare. Una conseguenza è che questa forza rotazionale dipende dalla forma delle lame e anche dal loro angolo rispetto al piano di rotazione: maggiore è l'angolo (</span><span class="rvts29">pitch</span><span class="rvts6">) (cioè, la superficie inferiore della lama "faccia" il vento), meno forza ci sarà.</span></p>
+<p class="rvps2"><span class="rvts6">La formula che ci dà la potenza estratta dal vento è la seguente (vedi riferimenti</span><a class="rvts18" href="Bibliography.html">Bibliografia</a><span class="rvts6">):</span></p>
+<p class="rvps16"><span class="rvts29">Potenza estratta Da Vinci</span><span class="rvts6"> =</span><br/><span class="rvts6">0.5 * </span><span class="rvts29">AirDensity</span><span class="rvts6"> * </span><span class="rvts29">Traduzione:</span><span class="rvts6"> * </span><span class="rvts29">Vento vento</span><span class="rvts77">3</span> <span class="rvts6">* </span><span class="rvts29">Cp</span><span class="rvts6">(</span><span class="rvts17">Vento, BladeRotation Velocità, Piazzola</span><span class="rvts6">)</span></p>
+<p class="rvps2"><span class="rvts6">Dove?</span><span class="rvts29">Area coperta Blade</span><span class="rvts6"> is </span><span class="rvts67">π</span><span class="rvts6"> * </span><span class="rvts29">Blade</span><span class="rvts77">Radiatore</span><span class="rvts29">us</span><span class="rvts77">²</span><span class="rvts6">, </span><span class="rvts17">Radius Blade</span><span class="rvts6">è la distanza dalla punta della lama al centro del mozzo, e Pitch è l'angolo di attacco della lama rispetto al piano di rotazione delle lame.</span></p>
+<p class="rvps2"><span class="rvts6">The</span><span class="rvts17">influenza di Pitch è attraverso il</span><a class="rvts78" href="Conceptossobrelapotencia.html">coefficiente aerodinamico</a><span class="rvts6">(</span><span class="rvts29">Cp</span><span class="rvts6">), che è una funzione complessa il cui valore massimo teorico è 0.59 (legge di Betz) e che dipende da:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">il vento,</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">la velocità di rotazione delle lame, e</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts6">•Pitch.</span></p>
+<p class="rvps2"><span class="rvts6">Si può anche vedere che l'influenza del vento passa attraverso il termine</span><span class="rvts29">Vento vento</span><span class="rvts77">3,</span><span class="rvts6">e anche attraverso</span><span class="rvts29">Cp</span><span class="rvts6">. </span></p>
+<p class="rvps2"><span class="rvts6">La forma della funzione Cp dipende dalla geometria delle lame e, data una certa geometria, il valore dipende da tre variabili:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">Velocità del vento.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts6">La velocità di rotazione delle lame.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts6">L'angolo di attacco (Pitch) delle lame.</span></p>
+<p class="rvps2"><span class="rvts6">Fortunatamente, queste tre variabili possono essere ridotte a due utilizzando un dispositivo matematico che riguarda la velocità del vento alla velocità di rotazione della lama. Questa variabile è nota come</span><span class="rvts19">TSR</span><span class="rvts6"> (</span><span class="rvts19">Velocità di punta Ratio</span><span class="rvts6">: il rapporto tra la velocità lineare della punta della lama e la velocità del vento).</span></p>
+<p class="rvps2"><span class="rvts6">La definizione di questa variabile ausiliaria è la seguente:</span></p>
+<p class="rvps3"><span class="rvts29">TSR = 2 *</span><span class="rvts67">π</span><span class="rvts29"># BladeRadius # Velocità rpm</span><a name="TSR definition formula"></a><span class="rvts29">)/60) / WindSpeed</span><a name="TSR definition formula"></a><span class="rvts29">   </span></p>
+<p class="rvps2"><span class="rvts6">Utilizzando questa variabile TSR, la funzione Cp dipende solo da due variabili: TSR e Pitch:</span><span class="rvts29">Cp (TSR, Pitch)</span></p>
+<p class="rvps2"><span class="rvts6">Di seguito</span><a class="rvts18" href="Conceptossobrelapotencia.html">sezioni</a><span class="rvts6">presentare dati significativi su questa funzione.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

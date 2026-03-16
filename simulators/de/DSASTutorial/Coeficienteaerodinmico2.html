@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>der Windkrafterfassung</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Active Pitch, Active Stall, " name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Coeficienteaerodinmico2&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Steuerung der Windkrafterfassung</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Allgemeine Grundsätze</a>
+					›› <a href="Porqugiranlaspalas.html">Konzepte zur extrahierbaren Windkraft</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Porqugiranlaspalas.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Conceptossobrelapotencia.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Coeficienteaerodinmico.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Es gibt mehrere Verfahren zur Steuerung der vom Wind gesammelten Leistung: Ein Verfahren besteht darin, den Winkel der Schaufeln (Pitch) zu steuern, da diese Winkel den Wert des aerodynamischen Koeffizienten (Cp) verändert. Vgl.</span><a class="rvts14" href="Conceptossobrelapotencia.html">Aerodynamischer Koeffizient</a><span class="rvts11">. Diese Lösung erfordert, dass die Abstützung für jedes Messer an der Nabe jedes Messer auf seiner Längsachse drehen kann. Diese Technik ist in der Fachliteratur als "</span><span class="rvts61">Aktiver Stellplatz</span><span class="rvts11">." In der englischsprachigen Dokumentation wird diese Methode der Pitchsteuerung als " bezeichnet.</span><span class="rvts13">zu den Federn</span><span class="rvts11">,", da zum Absenken des Cp, wird die Klinge zum "Winkel" gemacht, d.h. der Winkel der Klinge wird zum Winden gemacht, so dass sie die geringste Fläche zu ihr bietet.</span></p>
+<p class="rvps4"><span class="rvts11">Es gibt eine andere Technik, die auch den Gangwechselmechanismus verwendet, aber anstelle des "Einfaltens in den Wind" verwendet es einen anderen Effekt (siehe</span><a class="rvts14" href="Stalling.html">Stalling)</a><span class="rvts11">. In der 3D</span><a class="rvts14" href="Conceptossobrelapotencia.html">Cp </a><span class="rvts11">Dieser Bereich entspricht der "verdeckten Wand", die negativen Pechwerten entspricht.</span></p>
+<p class="rvps4"><span class="rvts11">Diese Steuermethode heißt "</span><span class="rvts61">Aktives Stall</span><span class="rvts11">" und wird in der Windenergieanlage verwendet, auf der dieser Simulator basiert.</span></p>
+<p class="rvps11"><span class="rvts12">Implikationen für eine Windenergieanlage mit einem Eichhörnchen-Käfiggenerator.</span></p>
+<p class="rvps4"><span class="rvts11">Bei einer als Generator verwendeten Eichhörnchen-Käfig-Induktionsmaschine (wie bei diesem Simulator) liegt ihre Betriebsgeschwindigkeit über, aber sehr nahe, ihre Synchrondrehzahl (siehe</span><a class="rvts14" href="IntoductiontotheInductionMachine.html">Einführung in Induktionsmaschinen</a><span class="rvts11">) Diese Synchrondrehzahl beträgt in den meisten Windenergieanlagen typischerweise zwischen 1000 U/min und 3000 U/min, je nach Frequenz des Rasters und der Anzahl der Pole des Generators.</span></p>
+<p class="rvps4"><span class="rvts11">Im besonderen Fall des elektrischen Generators in diesem Simulator gibt es zwei Anschlüsse für die Statorwicklung: eine, die 3 Paare von magnetischen Polen im Luftspalt "erschafft", und eine andere, die 2 Polpaare erzeugt. Die Synchrondrehzahlen, wenn sie mit einem 50 Hz-Gitter verbunden sind, betragen daher: 1000 U/min ( = 50 Hz * 60 / 3) einerseits und 1500 U/min ( = 50 Hz * 60 / 2) andererseits.</span></p>
+<p class="rvps4"><span class="rvts11">Der Drehzahlbereich, bei dem dieser Generator seine maximale Leistung erzeugt, liegt typischerweise unter 2% der Synchrondrehzahl (siehe</span><a class="rvts14" href="DatosTecnicosGenerador.html">Eigenschaften des in diesem Simulator emulierten Generators</a><span class="rvts11">), weshalb Windenergieanlagen, die diese Art von Generator verwenden, als "</span><span class="rvts28">Festgeschwindigkeit</span><span class="rvts11">" Turbinen. Unter Berücksichtigung der ersten Schlussfolgerung im</span><a class="rvts14" href="Coeficienteaerodinmico.html#ConclusionesPuntoFuncionamiento">vorheriger Abschnitt</a><span class="rvts11">Das bedeutet,</span><span class="rvts28">Diese Windenergieanlage ist nicht die beste Lösung für Winde, die unter der nominalen Windgeschwindigkeit liegen</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">Um diese Unzulänglichkeit zu mindern, verwenden feststehende Windenergieanlagen den Gedanken, zwei Generatoren zu haben, die mit zwei verschiedenen Geschwindigkeiten arbeiten können, oder einen einzigen Generator, der mit zwei Geschwindigkeiten arbeiten kann. Dies ermöglicht es, einen von ihnen für Winde in der Nähe oder oberhalb der Nennwindgeschwindigkeit zu verwenden und einen anderen, der die TSR für Winde deutlich unter der Sollwindgeschwindigkeit optimiert.</span></p>
+<p class="rvps4"><span class="rvts11">Bei diesem Simulator, bei dem die Nennwindgeschwindigkeit etwa 11 m/s beträgt, beträgt die Schaufeldrehzahl für diese Leistung 19,4 U/min, wobei der Statoranschluss zur Synchronisation bei 1500 U/min (2 Pole) verwendet wird. Bei Wechsel der Verbindung auf 3 Pole beträgt der Wind, für den die optimale TSR erreicht wird, etwa 7,3 m/s (= 11 m/s * (1000 rpm / 1500 rpm)).</span></p>
+<p class="rvps4"><span class="rvts11">Diese Technik hat sich in der Praxis als sehr effizient erwiesen, so dass diese Art von Windenergieanlage weit verbreitet wurde vor variablen Windenergieanlagen.</span></p>
+<p class="rvps4"><span class="rvts11">Die folgende Figur zeigt die Beziehung zwischen Wind und Pech in einer Windenergieanlage, die "</span><span class="rvts13">Aktiver Stellplatz</span><span class="rvts11">" (</span><span class="rvts79">grüne Kurve</span><span class="rvts11">) Es zeigt auch den Zusammenhang zwischen der in Abhängigkeit von Wind gewonnenen Leistung (</span><span class="rvts80">graue Kurve</span><span class="rvts11">) durch Anlegen der entsprechenden Pechwerte für denselben Wind.</span></p>
+<p class="rvps4"><img alt="" src="lib/Panel%20Potencia%20y%20Pitch%20vs%20Viento%20espanol.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Abb. ANHANG</span></p>
+<p class="rvps4"><span class="rvts11">Es gibt ein anderes Steuerungsverfahren, das auf dem Schaufeldesign basiert, das das Konzept des "Stanzens" verwendet, das in</span><a class="rvts14" href="Stalling.html">Stallungen</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">Ein drittes Verfahren besteht darin, den Stall zu zwingen, indem auch die Tonhöhe variiert wird: Diese Technik wird als "</span><span class="rvts61">Aktives Stall</span><span class="rvts11">" und auch in</span><a class="rvts14" href="Stalling.html#PitchvsVientoActiveStall">Stallungen</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Algoritmo de controle do ângulo do pitch da lâmina</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="pitch, algoritmos, Controller.Control.PitchOut, Nacelle.DriveTrain.PitchIn, Nacelle.DriveTrain.PitchNacelleOut, Controller.Control.PitchNacelleIn, angulo de pitch, bandera" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Pitchcontolalgorithm&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Algoritmo de controle do ângulo do pitch da lâmina</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Simulación.html">Âmbito da Simulação</a>
+					›› <a href="Controller.html">Controlador</a>
+					›› <a href="Algorithms.html">Algoritmos usados</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Algorithms.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Algorithms.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Softstarter.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">O ângulo de passo das lâminas pode ser comum (as três com o mesmo ângulo) ou podem ter valores diferentes. São controlados por cilindros hidráulicos ou motores elétricos.</span></p>
+<p class="rvps4"><span class="rvts6">No caso da turbina eólica emulado neste simulador,</span><span class="rvts29">o passo das três lâminas é comum</span><span class="rvts6">e é modificado por cilindros hidráulicos.</span></p>
+<p class="rvps4"><span class="rvts6">O Controlador envia um sinal (</span><span class="rvts17">Controller.Control.</span><span class="rvts19">PitchOut</span><span class="rvts6">) que atinge o terminal de entrada de controle do circuito de controle servo na nacele que controla os cilindros hidráulicos (</span><span class="rvts17">Nacelle.DriveTrain.</span><span class="rvts19">PitchIn</span><span class="rvts6">).</span></p>
+<p class="rvps4"><span class="rvts6">O algoritmo de controle utilizado pelo Controlador leva em conta o valor real do ângulo de pitch (</span><span class="rvts17">Nacelle.DriveTrain.</span><span class="rvts19">PitchNacelle Sair</span><span class="rvts6">) a qualquer momento através da sua entrada (</span><span class="rvts17">Controller.Control.PitchNacelleIn</span><span class="rvts6">) para implementar um loop de controle de feedback. Este algoritmo leva em conta outros fatores, como a velocidade do vento, para definir o valor do ângulo de passo em todos os momentos.</span></p>
+<p class="rvps4"><span class="rvts6">Os conceitos tidos em conta derivam dos explicados em</span><a class="rvts18" href="Porqugiranlaspalas.html">Conceitos sobre o poder extraível do vento.</a></p>
+<p class="rvps4"><span class="rvts6">O valor de pitch muda para -90o (posição flag) quando desconectado da grade e sem produção, de modo que o estresse mecânico nas lâminas, nacele e torre é minimizado.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

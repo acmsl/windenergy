@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>Verbindung zum Netz</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="barras de conexión, contactor bypass, , , tiristores, PCC, Point of Common Connection, Bypass, conexión suave, , Góndola, Velocidad_de_sincronismo, Generador Grande, Generador Pequeño, Punto de Conexión Común, SofStarter, soft conection, Punto de Conexión Común, jaula de ardilla, Media Tensión" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Conexionredelectrica&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Anschluss an das Elektrogitter</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Was ist eine Windkraftanlage?</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Queesunaerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraoperacionaldeunAerogen.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="ConexinalaRedElctrica.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">Die Verbindung zum Stromnetz ist dort, wo die von der Windenergieanlage erzeugte elektrische Energie evakuiert wird. In der Realität wird diese Verbindung in zwei Abschnitten hergestellt, wobei die eine die Windenergieanlage mit der elektrischen Unterstation des Windparks verbindet, wo sich die Windenergieanlage befindet, und die andere die Unterstation mit dem Stromnetz selbst verbindet.</span></p>
+<p class="rvps2"><span class="rvts6">Beide Abschnitte weisen spezifische Betriebsspannungen auf. Die Verbindung der Windenergieanlage mit der Unterstation erfolgt üblicherweise über einen am Fuß der Windenergieanlage oder innerhalb derselben angeordneten Transformator, dessen Sekundärwicklung an einer Spannung im mittleren Spannungsbereich (über 1000 V) liegt, typischerweise zwischen 15 kV und 22 kV. Die Primärspannung beträgt typischerweise 690 V, was die Spannung des verwendeten elektrischen Generators ist.</span></p>
+<p class="rvps2"><span class="rvts6">Der in der Windenergieanlage verwendete elektrische Generator, auf dem dieser Simulator basiert, ist ein sogenannter "</span><span class="rvts29">Eichhörnchenkäfig</span><span class="rvts6">" oder "</span><span class="rvts17">Kurzschlussrotor</span><span class="rvts6">" Generator (siehe</span><a class="rvts14" href="Introductiontothephysicalprincip.html">Details</a><span class="rvts6">) Die erzeugte elektrische Leistung wird durch den Statoranschluss ausgegeben.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Anschluss des Windenergieanlagengenerators an den Transformator</span></span></h1>
+<p class="rvps2"><span class="rvts6">Die Verbindung erfolgt über Stromkabel, die von der Gondel hinunter zum elektrischen Schrank am Boden des Turms laufen.</span></p>
+<p class="rvps3"><img alt="" src="lib/Lapp_Wind_Portfolio.jpg" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Betriebsmodi Generator</span></span></h1>
+<p class="rvps2"><span class="rvts6">Bei dem in diesem Simulator verwendeten Modell, das einen Betrieb mit zwei Geschwindigkeiten ermöglicht, wird dies durch zwei verschiedene Möglichkeiten der Verbindung der Statorwicklungen erreicht. Diese sind so ausgebildet, daß ein Statoranschluss 4 Magnetpole (2 Polpaare) erzeugt und der andere 6 Pole (3 Polpaare) erzeugt. Dies bedeutet, dass die Synchrondrehzahl in einem Fall 1500 U/min (für ein 50 Hz-Netz) und im anderen Fall 1000 U/min beträgt.</span></p>
+<p class="rvps3"><span class="rvts61">Synchronism_speed</span><span class="rvts13">= (50 Hz * 60 Sekunden / Pairs_of_Poles)</span></p>
+<p class="rvps2"><span class="rvts6">Da die Windenergieanlage bei 1500 U/min ihre höchste Leistung erreicht, wird diese Verbindung üblicherweise als " bezeichnet.</span><span class="rvts17">Großer Generator</span><span class="rvts6">," während die 1000 rpm-Verbindung heißt "</span><span class="rvts17">Kleiner Generator</span><span class="rvts6">."</span></p>
+<p class="rvps2"><span class="rvts6">Bei einigen älteren Modellen wurde die gleiche Funktionalität erreicht, indem zwei unabhängige Generatoren verwendet werden, die mit einem Getriebe mit zwei Hochgeschwindigkeits-Ausgangswellen verbunden sind, die jeweils ein anderes Verhältnis zur Niedergangswelle aufweisen.</span></p>
+<p class="rvps2"><span class="rvts6">Bei einem 60 Hz-Gitter würden die Drehzahlen eines ähnlichen Generators 1800 U/min bzw. 1200 U/min betragen.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Details des Elektropanels</span></span></h1>
+<p class="rvps2"><span class="rvts6">Die Verbindung der Kabel, die vom elektrischen Generator zu den Kabeln kommen aus</span><span class="rvts29">die elektrische Platte</span><span class="rvts6">und die Windenergieanlage mit dem Windpark verbinden</span><span class="rvts59">Gemeinsame Verbindungsstelle</span><span class="rvts6">(bekannt als</span><span class="rvts29">PCC</span><span class="rvts6">) wird durch die Plattensammelschienen, die Schutzsicherungen und den Hauptkontaktor der Windenergieanlage hergestellt.</span></p>
+<p class="rvps2"><span class="rvts6">Die</span><span class="rvts17">Stromschienen</span><span class="rvts6">des Panels sind mit Instrumenten zur Messung der Spannungen in den Phasen und den Strömen in jeder Phase ausgestattet: die Strommessung pro Phase wird durch</span><span class="rvts63">Strommesstransformatoren</span><span class="rvts6">in die Balken eingesetzt. Der Ausgang dieser</span><span class="rvts17">Strommesstransformatoren</span><span class="rvts6">ist bei 1 Amp oder 5 Amps Vollwaage standardisiert: Daher muss ihr Primär/Sekundenverhältnis (z.B. 1000/5) bekannt sein, was ein Parameter ist, der in den Controller eingegeben werden muss, um die richtigen Berechnungen durchzuführen. Mit diesen Transformatoren werden die Instrumente zur Messung elektrischer Parameter</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps3"><img alt="" src="lib/Esquema%20electrico%20conexion%20generador.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6">Die Stromkabel sind über eine Schaltung aus 3 Gruppen Gegenphase verbunden</span> <span class="rvts61">Thyristoren</span> <span class="rvts6">die parallel einen Kontaktor aufweisen, bekannt als</span><span class="rvts61">ein Bypass</span><span class="rvts6">. Diese Gruppe von Komponenten, zusammen mit einer Steuerlogik, die die Thyristor-Triggersignale erzeugt (die die Signale erzeugt, die zu den Thyristor-Gattern gehen), wird verwendet, um eine</span> <span class="rvts17">weich</span><span class="rvts61">Verbindung</span><span class="rvts6">. Diese Verbindungseinrichtung ist als</span><a class="rvts62" href="Softstarter.html">SofStarter</a><span class="rvts6">.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

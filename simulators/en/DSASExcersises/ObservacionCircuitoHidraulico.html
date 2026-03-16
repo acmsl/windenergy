@@ -1,0 +1,409 @@
+
+
+<html>
+	
+<head>
+	<title>Monitoring the brake hydraulic circuit</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Circuito hidr&aacute;ulico de frenos">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+        /* === Estilo Experimentos === */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #topic_header_content {
+            padding-left: 40px;
+        }
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+            padding-left: 40px;
+            padding-right: 30px;
+        }
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        /* Cajas informativas estilo Experimentos */
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .important-note ol, .important-note ul {
+            padding-left: 1.5em;
+        }
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        /* Sobreescribir rvts para fuentes mas grandes */
+        span.rvts6, span.rvts11 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        span.rvts12 {
+            font-size: 24px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+            color: #365f91 !important;
+        }
+        span.rvts13 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts15 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts16 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts17 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-style: italic !important;
+        }
+        span.rvts19 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts118, span.rvts119 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        a.rvts14, span.rvts14, a.rvts18, span.rvts18,
+        a.rvts48, span.rvts48 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+            color: #0066cc !important;
+        }
+        #topic_header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border-bottom: none !important;
+        }
+        #topic_header h1, #topic_header_text {
+            color: #ffffff !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-size: 28px !important;
+        }
+        #topic_header a img {
+            filter: brightness(0) invert(1);
+        }
+        #topic_breadcrumb, #topic_breadcrumb a {
+            color: #e0d0ff !important;
+        }
+        #topic_footer {
+            background: #f8f8f8 !important;
+            border-top: 2px solid #667eea !important;
+        }
+        #topic_footer_content {
+            color: #666 !important;
+            font-size: 14px !important;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASExercises.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ObservacionCircuitoHidraulico&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+<!-- CHATGPT_PAGEINTRO_START -->
+<div class="learning-objective">
+    <h3>🎯 Observation of the hydraulic circuit</h3>
+    <p><strong><em>Objective:</em></strong> To identify the function of the hydraulic circuit and recognize symptoms of abnormal operation.</p>
+    <p><strong><em>What to observe:</em></strong> Pressure, pumps/valves, actuator status, and related alarms.</p>
+    <p><strong><em>What to note:</em></strong> Normal vs. abnormal values and what evidence supports your diagnosis.</p>
+    <p>💡 If there are alarms, note the first one that appears and what variable changes just before it.</p>
+</div>
+<!-- CHATGPT_PAGEINTRO_END -->
+<!-- CHATGPT_QUESTIONS_START -->
+<div class="important-note">
+    <h3>❓ Guiding questions</h3>
+    <ol>
+    <li>When a shutdown process is initiated during production, is the hydraulic brake used?</li>
+    <li>What criteria does the controller use to detect a problem in the hydraulic system and what variables does it monitor?</li>
+    </ol>
+</div>
+<!-- CHATGPT_QUESTIONS_END -->
+
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Monitoring the hydraulic brake circuit</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="ClasesPracticas.html">Practical classes</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ClasesPracticas.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="InfluenciaMomentoInercia.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Observaciondeunfalloexcesivodepe.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">The following practical sessions aim to familiarize you with the </span><span class="rvts15">hydraulic brake circuit </span><span class="rvts11">and explore various problems that may occur in its operation, as well as the procedures implemented by the controller to detect them and generate incidents.</span></p>
+<p class="rvps4"><span class="rvts11">You must first familiarize yourself with the behavior of this system, which is essential for the safety of the wind turbine. The</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?Mecanismodecambiodeangulodelaspa.html" target="_blank"> Brake System </a><span class="rvts11">section provides a general description and some industrial examples. The</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?IndicadoresSistemaFreno.html" target="_blank"> Brake System </a><span class="rvts11">section provides a description of the graphic elements presented in the &quot;SynopticDriveTrain&quot; synoptic that present and/or control the variables associated with this system. The following figure shows the relationship between the indicators and each of the physical components, as well as the connections of the control and input signals to the Controller.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Esquema%20circuito%20hidraulico.png"><span class="rvts11">  </span></p>
+<p class="rvps4"><span class="rvts11">Fig. 1.</span></p>
+<p class="rvps4"><span class="rvts11">The signals involved are as follows</span></p>
+<div class="rvps4">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps9"><span class="rvts28">Output signals</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <br/>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.BrakeReleasedOut</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Comes from the physical brake simulator in the nacelle.</span></p>
+   <p class="rvps4"><span class="rvts11">If it is &#x27;On&#x27;, it indicates that the brake shoe is not touching the disc, i.e. the power train is released. This occurs when the pressure in the hydraulic circuit is higher than the value indicated by the yellow line on the circular &quot;Brake circuit pressure&quot; indicator.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.PressureSwitchOut</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Corresponds to the pressure switch output: if it is &#x27;On&#x27;, the pressure in the hydraulic circuit is higher than the upper value of the green zone.</span></p>
+   <p class="rvps4"><span class="rvts11">If it is &#x27;Off&#x27;, it is below the lower value of the green zone.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Controller.Control.HardBrakeOut</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Brake valve control signal.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Controller.Control.PumpOut</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Pump control signal.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<div class="rvps4">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps9"><span class="rvts28">Input signals</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <br/>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.PumpIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Control input to the pump.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.ValveHardBrake</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Control input to the quick discharge valve.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.ValveSoftBrake</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Control input to the normal discharge valve.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.PumpFlowIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Descriptive value of the pump flow rate. Connected to &quot;</span><span class="rvts13">Parameter.NacelleBrake.PumpFlow&quot;.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Nacelle.Braking.LeakageBrakeHudrCircuit</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Descriptive value of the &#x27;pressure loss status&#x27; in the circuit. </span></p>
+   <p class="rvps4"><span class="rvts11">Corresponds to the aggregate value of pressure losses in hoses, pipes, valves, and pump.</span></p>
+   <p class="rvps4"><span class="rvts11">Connected to &quot;</span><span class="rvts13">Parameter.NacelleBrake.LeakageBrakeHudrCircuit</span><span class="rvts11">&quot;.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Controller.Control.PressureSwitchIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Pressure sensor input in the circuit. This is a digital signal, so it does not correspond to a meter per se.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 279px;">
+   <p class="rvps4"><span class="rvts13">Controller.Control.BrakeReleaseIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 467px;">
+   <p class="rvps4"><span class="rvts11">Input from the sensor measuring the separation between the disc and the brake pad.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
+
+
+
+
+
+
+

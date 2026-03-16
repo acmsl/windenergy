@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>(ja)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content=", CW, CCW, orientación de la góndola, zapatas, motores de giro" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;SistemadeFrenos1&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Orientierungsmechanismus (ja)</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Was ist eine Windenergieanlage?</a>
+					›› <a href="EstructuraAerogenerador.html">Struktur einer horizontalen Achse Windenergieanlage</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="SistemadeFrenos.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Mecanismodeorientacinyaw.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><img alt="" src="lib/Rexroth%20-%20Tren%20de%20potencia%20rotulado%20-%20espaol.png" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Funktionen und Komponenten des Bremsmechanismus</span></span></h1>
+<p class="rvps2"><span class="rvts6">Der Mechanismus zur Ausrichtung der Gondel zum Wind (</span><span class="rvts19">Aufwachen</span><span class="rvts6">) hat folgende Funktionen:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts19">Orientierung der Gondel</span><span class="rvts6">.</span><br/><span class="rvts6">Um dies zu tun, hat es zwei Sätze</span> <span class="rvts29">Drehmotoren</span><span class="rvts6">, eine für jede Richtung, die mit einem an der Oberseite des Turms angebrachten Hohlrad verbunden sind. Diese Motoren werden vom Controller gesteuert, der die entsprechenden Algorithmen implementiert. Die Drehrichtungen werden als</span><span class="rvts19">CW</span><span class="rvts6"> (</span><span class="rvts17">im Uhrzeigersinn</span><span class="rvts6">) und</span><span class="rvts19">CCW</span><span class="rvts6"> (</span><span class="rvts17">Gegen den Uhrzeigersinn</span><span class="rvts6">).</span><br/><span class="rvts6">Bei der Aufrechterhaltung dieser Orientierung ist Folgendes zu berücksichtigen:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Die Ausrichtung der Gondel muss so sein, dass die Windrichtung senkrecht zur Rotationsebene der Schaufeln steht.</span><span class="rvts17">die meiste Zeit, mit minimalem Fehler.</span><span class="rvts6"> </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Die Energie, die erforderlich ist, um die Gondel und die daran befestigten Klingen zu drehen.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Der vorhandene Wind: wenn er zu niedrig ist, kann es nicht wichtig sein, sicherzustellen, dass die Gondel orientiert ist. Diese Algorithmen müssen mit:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Halten der Orientierung der Gondel, so dass die Windrichtung senkrecht zur Rotationsebene der Klingen die meiste Zeit ist.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oVorbeugung</span> <span class="rvts6">bestehende Desorientierung sowie</span><br/><span class="rvts6">  </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts19">Halten der Gondel in einer festen Orientierung</span><span class="rvts6">.</span><br/><span class="rvts6">Dies wird mit</span> <span class="rvts29">Bremsbeläge</span> <span class="rvts6">die die Gondel zum Turm sichern. Diese Bremsen sind</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts19">oErkennen und Steuern der Anzahl der Windungen der Stromkabel</span><span class="rvts6">die vom Generator bis zur Basis des Turms ablaufen. Diese Kabel fallen frei für ein paar Meter, bis sie schließlich an der Wand des Turms befestigt sind. Die (begrenzte) Flexibilität dieser Kabel dient der Lösung des Problems der (Leistungs-)Verbindung zwischen einem festen Teil (dem elektrischen Schrank am Boden des Turms) und einem beweglichen Teil (dem Generator, der mit der Gondel rotiert).</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

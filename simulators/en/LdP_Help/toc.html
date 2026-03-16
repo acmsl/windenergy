@@ -1,0 +1,1141 @@
+﻿
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+	<title>LdP_Help - Table of Contents</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/silver-theme/jquery-ui-1.8.12.custom.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/dynatree/chm/ui.dynatree.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/toc.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#tabs .ui-widget-header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="js/jquery.dynatree.min.js"></script>
+	<script type="text/javascript" src="js/hndjsse.js"></script>
+	<script type="text/javascript">
+	
+		window.bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+	
+		$(document).ready(function()
+		{
+			// If this TOC is opened standalone (outside the frameset), redirect to the
+			// frameset entrypoint so navigation keeps the left panel visible.
+			if (top.frames.length == 0) {
+				var sHash = window.location.hash || '';
+				window.location.href = "LdP_Help.html?Introduccion.html" + sHash;
+				return;
+			}
+
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1
+			else if (sAnchorName == '_search') nSelectedTab = 2;			
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+			
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				// Expand all nodes if required
+				
+					$("#tab-toc").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				
+				// Select the active help id
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+			
+			// Keywords
+			
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onClick: function(node, event){
+						HideKwPopup();
+						if (node.data && node.data.click)
+						{
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList))
+							{
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if(node.data.href && node.data.href != '#'){
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				// Expand all nodes if required
+				
+					$("#tab-keywords").dynatree("getRoot").visit(function(node){
+						node.expand(true);
+					});
+				
+			}
+			
+			// Load search data
+			(function() {
+				var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+				se.src = 'js/hndsd.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+			})();
+		});
+		
+		$('body').click(function() {
+			HideKwPopup();
+		});
+		
+		function SelectTocItem(sHelpId)
+		{
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				var aNode = $("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId);
+				if (aNode) {
+					aNode.activateSilently();
+				}
+			}
+			else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+		
+		function HideKwPopup()
+		{
+			if($("#popupMenu")) $("#popupMenu").remove();
+		}
+		
+		// Map topic href -> translated title from the Contents tree, so Index popups
+		// show English titles without rewriting embedded keyword metadata.
+		var oTopicTitleByHref = null;
+		function NormalizeTopicHref(sHref)
+		{
+			if (!sHref) return '';
+			sHref = String(sHref);
+			var q = sHref.indexOf('?');
+			if (q >= 0) sHref = sHref.substring(0, q);
+			var h = sHref.indexOf('#');
+			if (h >= 0) sHref = sHref.substring(0, h);
+			return sHref;
+		}
+		function EscapeHtmlForInnerHtml(s)
+		{
+			return String(s)
+				.replace(/&/g, "&amp;")
+				.replace(/</g, "&lt;")
+				.replace(/>/g, "&gt;")
+				.replace(/\"/g, "&quot;")
+				.replace(/'/g, "&#039;");
+		}
+		function GetTopicTitleByHref(sHref)
+		{
+			if (oTopicTitleByHref === null)
+			{
+				oTopicTitleByHref = {};
+				$("#tab-toc a[target='FrameMain']").each(function()
+				{
+					var sKey = NormalizeTopicHref($(this).attr('href'));
+					if (!sKey) return;
+					if (oTopicTitleByHref[sKey]) return;
+					oTopicTitleByHref[sKey] = $.trim($(this).text());
+				});
+			}
+			var sLookup = NormalizeTopicHref(sHref);
+			return (sLookup && oTopicTitleByHref[sLookup]) ? oTopicTitleByHref[sLookup] : '';
+		}
+		
+		function ShowKwPopup(oSender, aLinks)
+		{
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false
+			else if (aLinks.length == 1) return true
+			else
+			{
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt=0; nCnt<aLinks.length; nCnt++)
+				{
+					oLink = document.createElement("A");
+					var sTitle = GetTopicTitleByHref(aLinks[nCnt][1]);
+					oLink.innerHTML = sTitle ? EscapeHtmlForInnerHtml(sTitle) : aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset();
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left+20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+		
+		function PerformSearch()
+		{
+			if (!window.bSearchDataLoaded) {
+				$("#search_results").html("Search engine data hasn't been fully loaded yet or an error occurred while loading it. This usually happens when documentation is browsed locally.");
+				return;
+			}
+			sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);			
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length)
+			{
+				$("#search_results").html('No results found.');
+			}
+			else
+			{
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id='lr'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++)
+				{
+					if (oSearchEngine.aResults[nCnt][0] < aTl.length)
+					{
+						oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+					}
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/chm/',
+					onActivate: function(node){
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if(node.data.href && node.data.href != '#'){
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+
+<body>
+
+	<div id="tabs">
+		<ul>
+			
+				<li><a href="#tab-toc">Contents</a></li>
+			
+				<li><a href="#tab-keywords">Index</a></li>
+			
+				<li><a href="#tab-search">Search</a></li>
+			
+		</ul>
+		
+		<div id="tab-toc">
+			<ul id="toc" class="">
+
+				
+
+						<li class="folder" id="Introduccion" data="">
+							<a
+							href="Introduccion.html"
+							target="FrameMain">
+								Introduction
+							</a>
+
+				<ul>
+
+						<li class="" id="Sobreestaversion" data="icon: '16.png'">
+							<a
+							href="Sobreestaversion.html"
+							target="FrameMain">
+								About this version
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="EstructuraAplicLdP" data="">
+							<a
+							href="EstructuraAplicLdP.html"
+							target="FrameMain">
+								Structure of LdP applications
+							</a>
+
+				<ul>
+
+						<li class="folder" id="EstructuraAplicLdPConceptosBasic" data="">
+							<a
+							href="EstructuraAplicLdPConceptosBasic.html"
+							target="FrameMain">
+								Basic concepts
+							</a>
+
+				<ul>
+
+						<li class="" id="EstructuraAplicLdPComponentes" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPComponentes.html"
+							target="FrameMain">
+								Basic components
+							</a>
+
+				</li>
+
+						<li class="folder" id="EstructuraAplicLdPControlSimulac" data="">
+							<a
+							href="EstructuraAplicLdPControlSimulac.html"
+							target="FrameMain">
+								Simulation Control
+							</a>
+
+				<ul>
+
+						<li class="folder" id="EstructuraAplicLdPSinopticoEjecu" data="">
+							<a
+							href="EstructuraAplicLdPSinopticoEjecu.html"
+							target="FrameMain">
+								Execution Control Synoptic
+							</a>
+
+				<ul>
+
+						<li class="" id="EstructuraAplicLdPParametros" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPParametros.html"
+							target="FrameMain">
+								Parameter Synoptic
+							</a>
+
+				</li>
+
+						<li class="folder" id="EstructuraAplicLdPSinopticoSenCo" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPSinopticoSenCo.html"
+							target="FrameMain">
+								Synoptic for editing signals and connections
+							</a>
+
+				<ul>
+
+						<li class="" id="EstructuraAplicLdPEdicionConex" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPEdicionConex.html"
+							target="FrameMain">
+								Connection Editing
+							</a>
+
+				</li></ul></li>
+
+						<li class="folder" id="EstructuraAplicLdPRegistrador" data="">
+							<a
+							href="EstructuraAplicLdPRegistrador.html"
+							target="FrameMain">
+								Recorder Synoptic
+							</a>
+
+				<ul>
+
+						<li class="" id="DefinicindeRegistradores" data="icon: '16.png'">
+							<a
+							href="DefinicindeRegistradores.html"
+							target="FrameMain">
+								Active Copies of the Recorder
+							</a>
+
+				</li>
+
+						<li class="" id="EstructuraLdPDefRegistradores" data="icon: '16.png'">
+							<a
+							href="EstructuraLdPDefRegistradores.html"
+							target="FrameMain">
+								Definition of Recorders
+							</a>
+
+				</li></ul></li></ul></li></ul></li>
+
+						<li class="folder" id="EstructuraAplicLdPBancoTrabajo" data="">
+							<a
+							href="EstructuraAplicLdPBancoTrabajo.html"
+							target="FrameMain">
+								The LdP as a workbench
+							</a>
+
+				<ul>
+
+						<li class="" id="EstructuraAplicLdPIndicadores" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPIndicadores.html"
+							target="FrameMain">
+								Properties of LdP-specific indicators
+							</a>
+
+				</li>
+
+						<li class="" id="EstructuraAplicLdPCondFallo" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPCondFallo.html"
+							target="FrameMain">
+								Creation of abnormal operating conditions
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="folder" id="EstructuraAplicLdPDatalogging" data="">
+							<a
+							href="EstructuraAplicLdPDatalogging.html"
+							target="FrameMain">
+								Recording of Signal Values (datalogging)
+							</a>
+
+				<ul>
+
+						<li class="" id="EstructuraAplicLdPDatalogEstruct" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPDatalogEstruct.html"
+							target="FrameMain">
+								Structure of the recording databases
+							</a>
+
+				</li>
+
+						<li class="" id="EstructuraAplicLdPDatalogVisuali" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPDatalogVisuali.html"
+							target="FrameMain">
+								Display of recorded values
+							</a>
+
+				</li>
+
+						<li class="" id="EstructuraAplicLdPDataloAExcel" data="icon: '16.png'">
+							<a
+							href="EstructuraAplicLdPDataloAExcel.html"
+							target="FrameMain">
+								Exporting data to Excel
+							</a>
+
+				</li></ul></li></ul></li>
+
+						<li class="" id="InformacionVersionylicencia" data="icon: '16.png'">
+							<a
+							href="InformacionVersionylicencia.html"
+							target="FrameMain">
+								Version and license information
+							</a>
+
+				</li>
+				
+				</ul>
+		</div>
+		
+		
+		
+		<div id="tab-keywords">
+			<ul id="keywords">
+
+				
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones\',\'EstructuraAplicLdPSinopticoSenCo.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoSenCo.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones','EstructuraAplicLdPSinopticoSenCo.html']]"
+								>
+								Analog
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Control de la Simulaci&oacute;n\',\'EstructuraAplicLdPControlSimulac.html\']]'">
+							<a
+								href="EstructuraAplicLdPControlSimulac.html"
+								target="FrameMain"
+								onClick="[['Control de la Simulaci&oacute;n','EstructuraAplicLdPControlSimulac.html']]"
+								>
+								Start
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'El LdP como banco de trabajo\',\'EstructuraAplicLdPBancoTrabajo.html\']]'">
+							<a
+								href="EstructuraAplicLdPBancoTrabajo.html"
+								target="FrameMain"
+								onClick="[['El LdP como banco de trabajo','EstructuraAplicLdPBancoTrabajo.html']]"
+								>
+								Test bench
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								workbench
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\'],[\'El LdP como banco de trabajo\',\'EstructuraAplicLdPBancoTrabajo.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html'],['El LdP como banco de trabajo','EstructuraAplicLdPBancoTrabajo.html']]"
+								>
+								workbench
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\']]'">
+							<a
+								href="EstructuraAplicLdPRegistrador.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html']]"
+								>
+								time base
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								connection
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html']]"
+								>
+								connections
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								configuration
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Control de la Simulaci&oacute;n\',\'EstructuraAplicLdPControlSimulac.html\']]'">
+							<a
+								href="EstructuraAplicLdPControlSimulac.html"
+								target="FrameMain"
+								onClick="[['Control de la Simulaci&oacute;n','EstructuraAplicLdPControlSimulac.html']]"
+								>
+								Continue
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Control de la Simulaci&oacute;n\',\'EstructuraAplicLdPControlSimulac.html\']]'">
+							<a
+								href="EstructuraAplicLdPControlSimulac.html"
+								target="FrameMain"
+								onClick="[['Control de la Simulaci&oacute;n','EstructuraAplicLdPControlSimulac.html']]"
+								>
+								Control
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								active copy
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\'],[\'Copias activas del Registrador\',\'DefinicindeRegistradores.html\']]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[['','.html'],['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html'],['Copias activas del Registrador','DefinicindeRegistradores.html']]"
+								>
+								Active copy
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\']]'">
+							<a
+								href="EstructuraAplicLdPRegistrador.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html']]"
+								>
+								active copies
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[['','.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								datalogger
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'\',\'.html\'],[\'\',\'.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\'],[\'Introducci&oacute;n\',\'Introduccion.html\'],[\'Visualizaci&oacute;n de los valores registrados\',\'EstructuraAplicLdPDatalogVisuali.html\']]'">
+							<a
+								href="#"
+								target="FrameMain"
+								onClick="[['','.html'],['','.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html'],['Introducci&oacute;n','Introduccion.html'],['Visualizaci&oacute;n de los valores registrados','EstructuraAplicLdPDatalogVisuali.html']]"
+								>
+								data logging
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las bases de datos de registro\',\'EstructuraAplicLdPDatalogEstruct.html\']]'">
+							<a
+								href="EstructuraAplicLdPDatalogEstruct.html"
+								target="FrameMain"
+								onClick="[['Estructura de las bases de datos de registro','EstructuraAplicLdPDatalogEstruct.html']]"
+								>
+								Date
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las bases de datos de registro\',\'EstructuraAplicLdPDatalogEstruct.html\']]'">
+							<a
+								href="EstructuraAplicLdPDatalogEstruct.html"
+								target="FrameMain"
+								onClick="[['Estructura de las bases de datos de registro','EstructuraAplicLdPDatalogEstruct.html']]"
+								>
+								digital
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones\',\'EstructuraAplicLdPSinopticoSenCo.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoSenCo.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones','EstructuraAplicLdPSinopticoSenCo.html']]"
+								>
+								digital
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								editing
+							</a>
+
+				</li>
+
+						<li class="folder" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html']]"
+								>
+								execution
+							</a>
+
+				<ul>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['','.html']]"
+								>
+								continuous
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['','.html']]"
+								>
+								execute
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'Sin&oacute;ptico de Par&aacute;metros\',\'EstructuraAplicLdPParametros.html\'],[\'\',\'.html\'],[\'Creaci&oacute;n de condiciones de funcionamiento anormales\',\'EstructuraAplicLdPCondFallo.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['Sin&oacute;ptico de Par&aacute;metros','EstructuraAplicLdPParametros.html'],['','.html'],['Creaci&oacute;n de condiciones de funcionamiento anormales','EstructuraAplicLdPCondFallo.html'],['','.html']]"
+								>
+								parameters
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['','.html']]"
+								>
+								stop
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['','.html']]"
+								>
+								exit
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones\',\'EstructuraAplicLdPSinopticoSenCo.html\'],[\'Edici&oacute;n de Conexiones\',\'EstructuraAplicLdPEdicionConex.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'Creaci&oacute;n de condiciones de funcionamiento anormales\',\'EstructuraAplicLdPCondFallo.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones','EstructuraAplicLdPSinopticoSenCo.html'],['Edici&oacute;n de Conexiones','EstructuraAplicLdPEdicionConex.html'],['','.html'],['','.html'],['Creaci&oacute;n de condiciones de funcionamiento anormales','EstructuraAplicLdPCondFallo.html'],['','.html']]"
+								>
+								signals and connections
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Control de Ejecuci&oacute;n\',\'EstructuraAplicLdPSinopticoEjecu.html\'],[\'\',\'.html\']]'">
+							<a
+								href="EstructuraAplicLdPSinopticoEjecu.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Control de Ejecuci&oacute;n','EstructuraAplicLdPSinopticoEjecu.html'],['','.html']]"
+								>
+								synoptics
+							</a>
+
+				</li></ul></li>
+
+						<li class="file" data="click:'[[\'Control de la Simulaci&oacute;n\',\'EstructuraAplicLdPControlSimulac.html\']]'">
+							<a
+								href="EstructuraAplicLdPControlSimulac.html"
+								target="FrameMain"
+								onClick="[['Control de la Simulaci&oacute;n','EstructuraAplicLdPControlSimulac.html']]"
+								>
+								Execute
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								electrical diagram
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html']]"
+								>
+								Human Machine Interface
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'El LdP como banco de trabajo\',\'EstructuraAplicLdPBancoTrabajo.html\']]'">
+							<a
+								href="EstructuraAplicLdPBancoTrabajo.html"
+								target="FrameMain"
+								onClick="[['El LdP como banco de trabajo','EstructuraAplicLdPBancoTrabajo.html']]"
+								>
+								indicators / controls
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html']]"
+								>
+								Human Machine Interface
+							</a>
+
+				</li>
+
+						<li class="folder" data="click:'[[\'El LdP como banco de trabajo\',\'EstructuraAplicLdPBancoTrabajo.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPBancoTrabajo.html"
+								target="FrameMain"
+								onClick="[['El LdP como banco de trabajo','EstructuraAplicLdPBancoTrabajo.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								LdP
+							</a>
+
+				<ul>
+
+						<li class="file" data="click:'[[\'El LdP como banco de trabajo\',\'EstructuraAplicLdPBancoTrabajo.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPBancoTrabajo.html"
+								target="FrameMain"
+								onClick="[['El LdP como banco de trabajo','EstructuraAplicLdPBancoTrabajo.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								building blocks
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Propiedades de los indicadores espec&iacute;ficos de LdP\',\'EstructuraAplicLdPIndicadores.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'\',\'.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPIndicadores.html"
+								target="FrameMain"
+								onClick="[['Propiedades de los indicadores espec&iacute;ficos de LdP','EstructuraAplicLdPIndicadores.html'],['','.html'],['','.html'],['','.html'],['','.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								indicators - controls
+							</a>
+
+				</li></ul></li>
+
+						<li class="file" data="click:'[[\'Propiedades de los indicadores espec&iacute;ficos de LdP\',\'EstructuraAplicLdPIndicadores.html\']]'">
+							<a
+								href="EstructuraAplicLdPIndicadores.html"
+								target="FrameMain"
+								onClick="[['Propiedades de los indicadores espec&iacute;ficos de LdP','EstructuraAplicLdPIndicadores.html']]"
+								>
+								force mode
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Propiedades de los indicadores espec&iacute;ficos de LdP\',\'EstructuraAplicLdPIndicadores.html\']]'">
+							<a
+								href="EstructuraAplicLdPIndicadores.html"
+								target="FrameMain"
+								onClick="[['Propiedades de los indicadores espec&iacute;ficos de LdP','EstructuraAplicLdPIndicadores.html']]"
+								>
+								operating mode
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Propiedades de los indicadores espec&iacute;ficos de LdP\',\'EstructuraAplicLdPIndicadores.html\']]'">
+							<a
+								href="EstructuraAplicLdPIndicadores.html"
+								target="FrameMain"
+								onClick="[['Propiedades de los indicadores espec&iacute;ficos de LdP','EstructuraAplicLdPIndicadores.html']]"
+								>
+								tracking mode
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\']]'">
+							<a
+								href="EstructuraAplicLdPRegistrador.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html']]"
+								>
+								Predefined panels
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Par&aacute;metros\',\'EstructuraAplicLdPParametros.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPParametros.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Par&aacute;metros','EstructuraAplicLdPParametros.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								parameter
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Control de la Simulaci&oacute;n\',\'EstructuraAplicLdPControlSimulac.html\']]'">
+							<a
+								href="EstructuraAplicLdPControlSimulac.html"
+								target="FrameMain"
+								onClick="[['Control de la Simulaci&oacute;n','EstructuraAplicLdPControlSimulac.html']]"
+								>
+								Stop
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								development platform
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html']]"
+								>
+								Process
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html']]"
+								>
+								Processes
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Edici&oacute;n de Conexiones\',\'EstructuraAplicLdPEdicionConex.html\']]'">
+							<a
+								href="EstructuraAplicLdPEdicionConex.html"
+								target="FrameMain"
+								onClick="[['Edici&oacute;n de Conexiones','EstructuraAplicLdPEdicionConex.html']]"
+								>
+								remove connection
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\']]'">
+							<a
+								href="EstructuraAplicLdPRegistrador.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html']]"
+								>
+								registrar
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\'],[\'Control de la Simulaci&oacute;n\',\'EstructuraAplicLdPControlSimulac.html\']]'">
+							<a
+								href="EstructuraAplicLdPRegistrador.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html'],['Control de la Simulaci&oacute;n','EstructuraAplicLdPControlSimulac.html']]"
+								>
+								Recorders
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico Registrador\',\'EstructuraAplicLdPRegistrador.html\']]'">
+							<a
+								href="EstructuraAplicLdPRegistrador.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico Registrador','EstructuraAplicLdPRegistrador.html']]"
+								>
+								Seconds per pixel
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Sin&oacute;ptico de Par&aacute;metros\',\'EstructuraAplicLdPParametros.html\'],[\'Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones\',\'EstructuraAplicLdPSinopticoSenCo.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPParametros.html"
+								target="FrameMain"
+								onClick="[['Sin&oacute;ptico de Par&aacute;metros','EstructuraAplicLdPParametros.html'],['Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones','EstructuraAplicLdPSinopticoSenCo.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								output signal
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\'],[\'Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones\',\'EstructuraAplicLdPSinopticoSenCo.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html'],['Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones','EstructuraAplicLdPSinopticoSenCo.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								Input signals
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\'],[\'Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones\',\'EstructuraAplicLdPSinopticoSenCo.html\'],[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html'],['Sin&oacute;ptico para edici&oacute;n de Se&ntilde;ales y Conexiones','EstructuraAplicLdPSinopticoSenCo.html'],['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								output signals
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Registro de valores de las Se&ntilde;ales (datalogging)\',\'EstructuraAplicLdPDatalogging.html\']]'">
+							<a
+								href="EstructuraAplicLdPDatalogging.html"
+								target="FrameMain"
+								onClick="[['Registro de valores de las Se&ntilde;ales (datalogging)','EstructuraAplicLdPDatalogging.html']]"
+								>
+								session
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								signal
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Conceptos b&aacute;sicos\',\'EstructuraAplicLdPConceptosBasic.html\']]'">
+							<a
+								href="EstructuraAplicLdPConceptosBasic.html"
+								target="FrameMain"
+								onClick="[['Conceptos b&aacute;sicos','EstructuraAplicLdPConceptosBasic.html']]"
+								>
+								simulator
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las aplicaciones LdP\',\'EstructuraAplicLdP.html\']]'">
+							<a
+								href="EstructuraAplicLdP.html"
+								target="FrameMain"
+								onClick="[['Estructura de las aplicaciones LdP','EstructuraAplicLdP.html']]"
+								>
+								Synoptics
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Propiedades de los indicadores espec&iacute;ficos de LdP\',\'EstructuraAplicLdPIndicadores.html\']]'">
+							<a
+								href="EstructuraAplicLdPIndicadores.html"
+								target="FrameMain"
+								onClick="[['Propiedades de los indicadores espec&iacute;ficos de LdP','EstructuraAplicLdPIndicadores.html']]"
+								>
+								presentation only
+							</a>
+
+				</li>
+
+						<li class="file" data="click:'[[\'Estructura de las bases de datos de registro\',\'EstructuraAplicLdPDatalogEstruct.html\']]'">
+							<a
+								href="EstructuraAplicLdPDatalogEstruct.html"
+								target="FrameMain"
+								onClick="[['Estructura de las bases de datos de registro','EstructuraAplicLdPDatalogEstruct.html']]"
+								>
+								States
+							</a>
+
+				</li>
+				
+			</ul>
+		</div>
+		
+		
+		
+		<div id="tab-search">
+			<form onsubmit="PerformSearch(); return false;">
+				<label for="search_value">Search:</label>
+				<input id="search_value" name="search_value"></input>
+				<input type="submit" value="B&uacute;squeda"/>
+			</form>
+			<div id="search_results"></div>
+		</div>
+		
+		
+		
+	</div>
+    
+</body>
+
+</html>
+

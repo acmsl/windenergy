@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Funktionsstruktur des Controllers</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Controlador, PLCs, Programmable Logic Controllers, sistemas operativos en Tiempo Real, RTOSs, Maquina de Estados, transiciones de Estado, eventos, Operación, seguridad" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ControllersFunctionalstructure&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Funktionsstruktur des Controllers</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Windkraftanlage Simulator mit Active Stall und zwei Geschwindigkeiten</a>
+					›› <a href="Simulación.html">Umfang der Simulation</a>
+					›› <a href="Controller.html">Controller</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Controller.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Remotecontrol.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="StateEventsDiagramsoftheimplemen.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Die</span><span class="rvts16">Steuerung</span><span class="rvts11">einer Windenergieanlage ist ein Konzept, das die Prozesse der Signalüberwachung und -steuerung von Elementen umfasst, um das Ziel zu erreichen, die erzeugte Energie unter Beibehaltung der notwendigen Sicherheitsmechanismen zu maximieren.</span></p>
+<p class="rvps4"><span class="rvts11">Seine Implementierung variiert stark, und im Allgemeinen werden Controller mit einem oder mehreren implementiert</span><span class="rvts16">SPS</span><span class="rvts11"> (</span><span class="rvts15">Programmierbare Logik-Controller</span><span class="rvts11">) oder durch industrielle Computer, in der Regel laufen</span><span class="rvts15">Echtzeit-Betriebssysteme</span><span class="rvts11">(RTOS).</span></p>
+<p class="rvps4"><span class="rvts11">SPS sind Überwachungs- und Steuereinheiten, die kein Betriebssystem aufweisen und zur Umsetzung der Logik bestimmter Prozesse programmiert sind.</span></p>
+<p class="rvps4"><span class="rvts11">Industrierechner sind Computer, die für industrielle Umgebungen erstellt werden und in denen Echtzeit-Betriebssysteme betrieben werden: Im Gegensatz zu anderen gängigen Betriebssystemen für Büroanwendungen garantieren RTOSs bekannte Reaktionszeiten für ihren Betrieb. Dieses Merkmal ist wesentlich, um bestimmte Arbeitsgänge in Industrieanlagen bewältigen zu können, die in kurzer Zeit durchgeführt werden müssen und bestimmte Grenzen nicht überschreiten dürfen.</span></p>
+<p class="rvps4"><span class="rvts11">Die implementierten Algorithmen müssen den verschiedenen Subprozessen, denen für die allgemeine Koordination zwischen ihnen, und denen für die Antwort auf 'externe' Befehle (beide vom Bediener, über eine lokale Verbindung, und von der Kontrollzentrale, über eine Remote-Verbindung) entsprechen.</span></p>
+<p class="rvps4"><span class="rvts11">Beispiele für Teilverfahren sind:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Die Orientierung der Gondel.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Haltedruck im hydraulischen Bremskreis.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Steuerung der elektrischen Generatorkühler.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Etc.</span></p>
+<p class="rvps4"><span class="rvts11">Koordinations- und Sicherheitsfunktionen werden in der Regel mit dem "</span><span class="rvts16">Zustandsmaschine</span><span class="rvts11">" Paradigma. Dieses Programmierverfahren hat mehrere Vorteile, einschließlich der Fähigkeit, die verschiedenen möglichen Entwicklungen zu visualisieren (</span><span class="rvts15">Zustandsübergänge</span><span class="rvts11">) und die möglichen Gründe für jede dieser Entwicklungen (</span><span class="rvts15">Veranstaltungen</span><span class="rvts11">).</span></p>
+<p class="rvps4"><span class="rvts11">In der Regel gibt es zwei Zustandsmaschinen in der Windenergieanlagensteuerung, eine zur Realisierung der</span><span class="rvts16">Betrieb</span><span class="rvts11">Funktionen und eine andere, um die</span><span class="rvts16">Sicherheit</span><span class="rvts11">functions.</span></p>
+<p class="rvps4"><span class="rvts11">Die</span><a class="rvts48" href="StateEventsDiagramsoftheimplemen.html">folgende Zustandsmaschinen</a> <span class="rvts11">sind in der Steuerung dieses Simulators implementiert.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

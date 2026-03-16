@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>The Control Room - SCADA</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="SCADA, striprecorder, unifilar, PPC" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("TheControlRoom");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">The Control Room - SCADA</h1>
+<div id="topic_breadcrumb">
+<a href="Introduccion.html">Introduction</a> ›› <a href="WhatisaWindFarm.html">What is a wind farm?</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="WhatisaWindFarm.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="IntegracindeunParqueElicoenlaRed.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="ImportantcharacteristicsofWindT1.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">In a wind farm there is a Control Centre (usually in a building strategically located in the territory where the Park is deployed), from which the state of the Aerogenerators is monitored and its start-up and stop, the maximum power to generate and the reactive power is ordered. A key part of these operations is carried out through a Monitoring and Control System (</span><span class="rvts30">SCADA</span><span class="rvts16">) (</span><span class="rvts40">Supervisory Control And Data Acquisition),</span><span class="rvts27">that</span><span class="rvts40"> </span><span class="rvts16">has</span><span class="rvts32">a communication channel</span><span class="rvts16">with each and every aerogenerator in the park. Its mission, however, is not to maintain the functioning of each of the components of each of the Aerogenerators: the Aerogenerators can be assimilated to</span><span class="rvts32">Independent Production Plants</span><span class="rvts16">, capable of</span><span class="rvts32">autonomous operation</span><span class="rvts16">. </span></p>
+<p class="rvps2"><span class="rvts16">The SCADAs perform functions of:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">the collection of the operational data of the aerogenerators for storage and analysis;</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">the remote control of the aerogenerators, being understood as the ability to give basic orders of "Start" and "Stop," and depending on the aerogenerators, the ability to change certain operating parameters (e.g., maximum active power, reactive power, etc.)</span></p>
+<p class="rvps2"><span class="rvts16">The wind farm usually delivers its production according to certain</span><span class="rvts32">contract terms</span><span class="rvts16">. These conditions basically include how much active power and how much reactive it is committed to deliver. The SCADA system can carry out operations that guarantee the commitments made, taking into account plant maintenance operations.</span></p>
+<p class="rvps2"><span class="rvts16">For this, SCADA also receives data from</span><span class="rvts32">external systems</span><span class="rvts16">that</span><span class="rvts32">predict the wind</span><span class="rvts16">. Based on these predictions, the production conditions are determined, usually made by the operator of the transmission in the Electric Network (</span><span class="rvts30">TSO</span><span class="rvts16">: Transmission System Operator).</span></p>
+<p class="rvps2"><span class="rvts16">As a result, there is a basic control table in the SCADA shown in the following fig 1.</span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem143.png" style="padding : 1px;"/><span class="rvts16">Fig 1</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts16">In this graph the</span><span class="rvts32">wind forecast</span><span class="rvts16">(in</span><span class="rvts39">blue</span><span class="rvts16">),</span><span class="rvts32">demand forecast</span><span class="rvts16">(production required) (in</span><span class="rvts38">green</span><span class="rvts16">), together with the</span><span class="rvts32">real wind evolution</span><span class="rvts16">to the present time (in</span><span class="rvts37">orange</span><span class="rvts16">) and</span><span class="rvts32">production generated</span><span class="rvts16">to the present time (in</span><span class="rvts36">pink</span><span class="rvts16">). This is the basic command box of the wind farm.</span></p>
+<p class="rvps2"><span class="rvts16">It can be seen that the value of the planned demand changes and remains stable in approximately</span><span class="rvts32">15 minutes</span><span class="rvts16">. This parameter is part of the agreement with the Transmission System.</span></p>
+<p class="rvps2"><span class="rvts16">It can also be seen that the</span><span class="rvts32">production generated</span><span class="rvts16">it is fairly accurate, on average, to meet the expected demand.</span></p>
+<p class="rvps2"><span class="rvts16">On the other hand, the SCADA system has a synoptic where it can be seen graphically, and quickly, the state of each of the park's wind turbines. As shown in the following figure.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem142.png" style="padding : 1px;"/><span class="rvts16">Fig 2.</span></p>
+<p class="rvps2"><span class="rvts33">The power cabling between the aerogenerators and the</span><span class="rvts35">CFP</span><span class="rvts33"> (</span><span class="rvts34">Common Connection Point</span><span class="rvts33"> o </span><span class="rvts34">Point of Common Connection</span><span class="rvts33">), where the connection to the Electric Network is produced.</span></p>
+<p class="rvps2"><span class="rvts16">Companies that manage a large number of wind parks have additional control centres, also based on SCADA systems, which receive and add information from SCADAs in the parks. The next photo shows one of these facilities.</span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem50.jpg" style="padding : 1px;"/></p>
+<p class="rvps6"><span class="rvts19"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

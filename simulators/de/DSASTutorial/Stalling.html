@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Mit dem Stall</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="stalling, stall, pitch, Active Pitch, Active Stall, Abs max, , , Entrada en pérdidas, aerogeneradores de pala fija, controlabilidad, lifting, sustentación, dragging, flujo laminar" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Stalling&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Durch den Eintritt in den Verlust (Stalling)</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Allgemeine Grundsätze</a>
+					›› <a href="Porqugiranlaspalas.html">Konzepte zur extrahierbaren Windkraft</a>
+					›› <a href="Coeficienteaerodinmico2.html">Steuerung der aus Wind gewonnenen Leistung</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Coeficienteaerodinmico2.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Coeficienteaerodinmico.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="WindTurbineControlcriteria.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts38">Es gibt einen Effekt, der als "</span><span class="rvts87">Stallungen</span><span class="rvts38">", die einen Rückgang verursacht</span><span class="rvts37">Aufzug</span><span class="rvts38">, die die Schaufeln drehen (siehe</span><a class="rvts18" href="PFAPorquegiranlaspalas.html">Warum drehen sich die Klingen?</a><span class="rvts38">) Dieser Effekt tritt auf, wenn ein Flugzeug den Anstellwinkel seiner Flügel über einen bestimmten Wert erhöht, wie im folgenden Diagramm gezeigt.</span></p>
+<div class="rvps4">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps4"><img alt="" src="lib/AvionSubiendo.gif" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">In diesem Fall bewirkt der Winkel der Flügel eine Aufwärtskraft auf sie. Die</span><span class="rvts88">Roter Vektor</span><span class="rvts6">die Differenz zwischen dieser Aufwärtskraft und dem Gewicht des Luftfahrzeugs angibt.</span></p>
+<p class="rvps4"><span class="rvts11">
+<button onclick="document.getElementById('AvionSubiendo').src='lib/AvionSubiendo.gif';">Refreshing</button></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps4"><img alt="" src="lib/AvionDescendiendo.gif" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Wenn der Winkel zu groß ist, ist die Aufwärtskraft geringer als das Gewicht des Flugzeugs, da der Flügel in einen Stall eintritt.</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11"><p> <img alt="" id="AvionBajando" src="lib/AvionDescendiendo.gif" style="padding : 1px;"/></p>
+<button onclick="document.getElementById('AvionBajando').src='lib/AvionDescendiendo.gif';">Refreshing</button></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps2"><img alt="" src="lib/Pala%20en%20tunel%20con%20pitch%20normal.png" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts6">Wenn der Winkel klein ist, wird die laminare Strömung um den Flügel oder die Klinge nicht gestört.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps2"><img alt="" src="lib/Pala%20en%20tunel%20con%20stalling.png" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps4"><span class="rvts6">Wenn der Winkel einen bestimmten Wert überschreitet, verschwindet die laminare Strömung aus den Endbereichen der Klinge, und</span><span class="rvts19">Turbulenzen</span><span class="rvts6">erscheint, die Oberfläche zu reduzieren, die zum Anheben beiträgt und somit die Kraft, die das Messer nach oben "pullt" (</span><span class="rvts29">Heben</span><span class="rvts6">), verglichen mit dem vorherigen Fall.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps2"><img alt="" src="lib/Pala%20en%20tunel%20active%20stall.jpg" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+<p class="rvps2"><span class="rvts6">Es ist möglich</span><span class="rvts53">Turbulenzen induzieren</span><span class="rvts6">durch Änderung der Richtung des Anstellwinkels. Diese Technik wird in der Steuerlösung " verwendet</span><span class="rvts28">Aktives Stall</span><span class="rvts6">." Der Vorteil liegt dabei darin, dass ein viel kleinerer Winkel erforderlich ist als im vorherigen Fall, um in den Stall zu gelangen.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts11">Abbildung 1</span></p>
+<p class="rvps4"><span class="rvts11">Die folgende Figur zeigt die Kurven entsprechend der Entwicklung der vertikalen Schubkraft (</span><span class="rvts15">Heben</span><span class="rvts11">) und in Windrichtung (</span><span class="rvts15">Schleppen</span><span class="rvts11">) in Abhängigkeit von Tonhöhe. Vgl.</span><a class="rvts14" href="PFAPorquegiranlaspalas.html">Warum drehen sich die Klingen?</a><span class="rvts11">für den Zusammenhang zwischen diesen Kräften und denen, die die Rotationskräfte der Schaufeln und den Schub auf dem Turm bestimmen.</span></p>
+<p class="rvps4"><span class="rvts11">Es ist zu erkennen, dass sich beim Einfahren des Stalls das Verhalten ändert, so dass eine Windzunahme einer Abnahme des</span><span class="rvts13">Heben</span><span class="rvts11">Kraft und damit in der vom Wind gewonnenen Leistung, um die Nabe zu drehen. In der roten Kurve ist auch zu erkennen, dass beim Einfahren des Stalls die auf den Turm wirkende Kraft zunimmt. Mit anderen Worten:</span><span class="rvts61">Einfahrtsstall impliziert zusätzliche Lasten auf dem Turm</span><span class="rvts11">.</span></p>
+<p class="rvps4"><a name="CurvaLiftingDragging"></a><img alt="" src="lib/Grafico%20evolucion%20lifting%20y%20dragging%20por%20entr.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Abb. 2.</span></p>
+<p class="rvps4"><span class="rvts11">Die folgende Abbildung zeigt die aus dem Wind für</span><span class="rvts61">Windkraftanlagen mit festem Hub</span><span class="rvts11">, wo Sie sehen können, die Wirkung der Eingabe von Stall auf die Macht. In diesen Fällen ist die Klinge so ausgebildet, dass der Windpegel, bei dem ein Aufsetzen auftritt, etwas höher ist als die nominale Windgeschwindigkeit. Das</span><span class="rvts13">passive Reaktion</span><span class="rvts11">hilft</span><span class="rvts13">Regelbarkeit</span><span class="rvts11">von der Windenergieanlage: das heißt, es hilft, zu verhindern, dass es aus der Kontrolle, wenn der Wind deutlich zunimmt.</span></p>
+<p class="rvps4"><img alt="" src="lib/Curva%20potencia%20pala%20fija.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Abb. 3.</span></p>
+<p class="rvps4"><span class="rvts11">Die folgende Figur zeigt das Ergebnis der Verwendung von Stall mit dem "</span><span class="rvts61">Aktives Stall</span><span class="rvts11">"Steuertechnik, bei der Pech verwendet wird, um "Kraft" mit Windgeschwindigkeiten niedriger als die der Klinge selbst. In dieser Abbildung sind zwei Bereiche zu sehen:</span></p>
+<p class="rvps4"><span class="rvts11">a) in der Windzone unterhalb der nominalen Windgeschwindigkeit (um 12 m/s im Diagramm), wird die Steigung bei 0o gehalten, was einem maximalen Cp entspricht (siehe</span><a class="rvts86" href="Conceptossobrelapotencia.html">Aerodynamik</a><span class="rvts11">); </span></p>
+<p class="rvps4"><span class="rvts11">b) über der Nennwindgeschwindigkeit, wenn wir die aus dem Wind gewonnene Leistung reduzieren müssen, wird die Klinge in einem kleinen Winkel eingestellt</span><span class="rvts13">gegen den Wind</span><span class="rvts11">(negatives Pitch Zeichen). Der absolute Wert dieses Winkels nimmt mit zunehmendem Wind ab, was das gleiche Stallphänomen in Festwinkelschaufeln widerspiegelt.</span></p>
+<p class="rvps4"><a name="PitchvsVientoActiveStall"></a><img alt="" src="lib/Pitch%20vs%20Viento%20en%20Active%20Stall.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Abb. 4.</span></p>
+<p class="rvps4"><span class="rvts11">Anwenden dieser Pechsteuerung, die charakteristische Power vs. Windkurve in einer von</span><span class="rvts15">Aktives Stall</span><span class="rvts11">ist in der folgenden Abbildung dargestellt.</span></p>
+<p class="rvps2"><img alt="" src="lib/CurvaPotenciaPalaVariable.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts11">Abb. 5.</span></p>
+<p class="rvps2"><span class="rvts11">Wie aus dem Vergleich der Figuren 3 und 5 hervorgeht, verbessert sich die Produktion mit Winden über dem Nominal Wind bei Windenergieanlagen mit variablem Steigungswinkel und der "</span><span class="rvts15">Aktives Stall"</span><span class="rvts11">method.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts85"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

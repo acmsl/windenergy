@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Concetti di base</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="configuracion, conexion, datalogger, datalogging, edicion, esquema eléctrico, plataforma de desarrollo, copia activa, LdP, bloques constructivos, indicadores - controles, signal, simulador, parámetro, señales de salida, señales de entrada, señal de salida, banco de trabajo" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPConceptosBasic&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Concetti di base</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">Struttura delle applicazioni LdP</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdP.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraAplicLdP.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPComponentes.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps8"><span class="rvts16">La struttura di LdP è progettata per facilitare la progettazione di simulatori: un concetto di base è quello di utilizzare un paradigma molto intuitivo e accettato: un armadio elettrico o un dispositivo elettronico. Questi dispositivi hanno indipendente e interconnesso "</span><span class="rvts19">componenti</span><span class="rvts16">" (elettrico o elettronico). The</span><span class="rvts19">connessioni</span><span class="rvts16">tra questi componenti sono realizzati utilizzando cavi elettrici che collegano "</span><span class="rvts19">segnali di uscita</span><span class="rvts16">" con "</span><span class="rvts19">segnali di ingresso</span><span class="rvts16">. Un segnale di uscita può essere collegato a uno o più segnali di ingresso, ma non a un altro segnale di uscita.</span></p>
+<p class="rvps8"><span class="rvts16">Di conseguenza, queste connessioni possono essere rappresentate con un diagramma elettrico.</span></p>
+<p class="rvps8"><span class="rvts16">LdP ha "tools" per osservare queste connessioni e cambiarle, in modo che le loro funzionalità corrispondano a quelle di un "bench di lavoro o di un laboratorio", dove sono disponibili alimentatori, voltmetri, ammetri, oscilloscopi, ecc.</span></p>
+<p class="rvps8"><span class="rvts16">Inoltre, LdP fornisce un record di database di tutte le modifiche che si verificano nei segnali Simulator, con una risoluzione di 1 millisecondo.</span></p>
+<p class="rvps7"><span class="rvts6"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

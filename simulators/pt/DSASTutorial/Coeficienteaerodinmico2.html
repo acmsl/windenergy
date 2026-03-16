@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Controle da recuperação de energia eólica</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Active Pitch, Active Stall, " name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Coeficienteaerodinmico2&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Controlo da recolha de energia eólica</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Princípios físicos</a>
+					›› <a href="Porqugiranlaspalas.html">Conceitos relativos à energia eólica extraível</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Porqugiranlaspalas.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Conceptossobrelapotencia.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Coeficienteaerodinmico.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Existem vários métodos para controlar a potência coletada do vento: um método consiste em controlar o ângulo das lâminas (pitch), uma vez que variar esse ângulo modifica o valor do coeficiente aerodinâmico (Cp). Ver</span><a class="rvts14" href="Conceptossobrelapotencia.html">Coeficiente aerodinâmico</a><span class="rvts11">. Esta solução exige que o suporte para cada lâmina no cubo seja capaz de rodar cada lâmina no seu eixo longitudinal. Essa técnica é conhecida na literatura especializada como "</span><span class="rvts61">Pitch Activo</span><span class="rvts11">." Na documentação em inglês, este método de controle de passo é chamado de "</span><span class="rvts13">nas penas</span><span class="rvts11">, desde que para baixar o Cp, a lâmina é feita para "dobrar ao vento", ou seja, o ângulo da lâmina é feito para seguir o vento, de modo que oferece a menor área de superfície para ele.</span></p>
+<p class="rvps4"><span class="rvts11">Há outra técnica que também usa o mecanismo de mudança de passo, mas em vez de "dobrar no vento" ele usa outro efeito (ver</span><a class="rvts14" href="Stalling.html">Empatar)</a><span class="rvts11">. No 3D</span><a class="rvts14" href="Conceptossobrelapotencia.html">Cp </a><span class="rvts11">grafos, esta área corresponde à ¿parede escondida¿ que corresponde a valores de pitch negativos.</span></p>
+<p class="rvps4"><span class="rvts11">Este método de controlo chama-se "</span><span class="rvts61">Stall Activo</span><span class="rvts11">" e é usado na turbina eólica na qual este simulador é baseado.</span></p>
+<p class="rvps11"><span class="rvts12">Implicações para uma turbina eólica com um gerador de gaiola de esquilo.</span></p>
+<p class="rvps4"><span class="rvts11">No caso de uma máquina de indução de gaiola de esquilo utilizada como gerador (como neste simulador), a sua velocidade de funcionamento é superior, mas muito próxima, à sua velocidade síncrona (ver</span><a class="rvts14" href="IntoductiontotheInductionMachine.html">Introdução às máquinas de indução</a><span class="rvts11">). Esta velocidade síncrona, na maioria das turbinas eólicas, é tipicamente entre 1000 rpm e 3000 rpm, dependendo da frequência da grade e do número de pólos do gerador.</span></p>
+<p class="rvps4"><span class="rvts11">No caso particular do gerador elétrico neste Simulador, existem duas conexões para o enrolamento do estator: uma que "cria" 3 pares de pólos magnéticos na abertura do ar, e outra que cria 2 pares de pólos. As velocidades síncronas quando conectadas a uma grade de 50 Hz são, portanto: 1000 rpm ( = 50 Hz * 60 / 3) em um caso e 1500 rpm ( = 50 Hz * 60 / 2) no outro.</span></p>
+<p class="rvps4"><span class="rvts11">O intervalo de velocidade a que este tipo de gerador produz a sua potência máxima é tipicamente inferior a 2% da velocidade síncrona (ver</span><a class="rvts14" href="DatosTecnicosGenerador.html">Características do gerador emulado neste simulador</a><span class="rvts11">), por isso as turbinas eólicas que usam este tipo de gerador são conhecidas como "</span><span class="rvts28">velocidade fixa</span><span class="rvts11">" turbinas. Tendo em conta a primeira conclusão do</span><a class="rvts14" href="Coeficienteaerodinmico.html#ConclusionesPuntoFuncionamiento">secção anterior</a><span class="rvts11">, isto implica que</span><span class="rvts28">esta turbina eólica não é a melhor solução para aproveitar ventos abaixo da velocidade nominal do vento</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">Para mitigar esta inadequação, turbinas eólicas de ponto fixo usam a ideia de ter dois geradores que podem operar a duas velocidades diferentes, ou um único gerador que pode operar a duas velocidades. Isso permite usar um deles para ventos próximos ou acima da velocidade nominal do vento e outro que otimiza o TSR para ventos bem abaixo da velocidade nominal do vento.</span></p>
+<p class="rvps4"><span class="rvts11">No caso deste simulador, onde a velocidade nominal do vento é de cerca de 11 m/s, e a velocidade de rotação da lâmina para essa potência é 19,4 rpm, usando a conexão estator para sincronização a 1500 rpm (2 pólos). Portanto, quando a conexão é alterada para 3 pólos, o vento para o qual o TSR ótimo é alcançado é de cerca de 7,3 m/s (= 11 m/s * (1000 rpm / 1500 rpm)).</span></p>
+<p class="rvps4"><span class="rvts11">Esta técnica provou ser muito eficiente na prática, de modo que este tipo de turbina eólica foi amplamente utilizado antes de turbinas eólicas de velocidade variável.</span></p>
+<p class="rvps4"><span class="rvts11">A figura a seguir mostra a relação entre vento e pitch em uma turbina eólica que usa "</span><span class="rvts13">Pitch Activo</span><span class="rvts11">" (</span><span class="rvts79">curva verde</span><span class="rvts11">). Também mostra a relação entre a potência obtida em função do vento (</span><span class="rvts80">curva cinzenta</span><span class="rvts11">) como resultado da aplicação dos valores de pitch correspondentes para o mesmo vento.</span></p>
+<p class="rvps4"><img alt="" src="lib/Panel%20Potencia%20y%20Pitch%20vs%20Viento%20espanol.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Fig. 1.</span></p>
+<p class="rvps4"><span class="rvts11">Existe um outro método de controle baseado no projeto da lâmina, que usa o conceito de "estalagem", descrito em</span><a class="rvts14" href="Stalling.html">Atraso</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">Um terceiro método consiste em forçar o empatamento também variando o passo: esta técnica é conhecida como "</span><span class="rvts61">Stall Activo</span><span class="rvts11">" e também é descrito em</span><a class="rvts14" href="Stalling.html#PitchvsVientoActiveStall">Atraso</a><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

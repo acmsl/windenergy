@@ -1,0 +1,255 @@
+<html>
+<head>
+<title>Analisi dettagliata delle fasi di connessione di rete (Cut-in)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="cutin, Inductivo, PAveInd, RPM GENERATOR, máquina de inducción, Capacitivo, PAveCap, potencia activa, PAveAct, Contactores de Bypass de los Tiristores, potencia reactiva, slip" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+        /* === Estilo Experimentos === */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #topic_header_content {
+            padding-left: 40px;
+        }
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+            padding-left: 40px;
+            padding-right: 30px;
+        }
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        /* Cajas informativas estilo Experimentos */
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .important-note ol, .important-note ul {
+            padding-left: 1.5em;
+        }
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        /* Sobreescribir rvts para fuentes mas grandes */
+        span.rvts6, span.rvts11 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        span.rvts12 {
+            font-size: 24px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+            color: #365f91 !important;
+        }
+        span.rvts13 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts15 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts16 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts17 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-style: italic !important;
+        }
+        span.rvts19 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts118, span.rvts119 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        a.rvts14, span.rvts14, a.rvts18, span.rvts18,
+        a.rvts48, span.rvts48 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+            color: #0066cc !important;
+        }
+        #topic_header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border-bottom: none !important;
+        }
+        #topic_header h1, #topic_header_text {
+            color: #ffffff !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-size: 28px !important;
+        }
+        #topic_header a img {
+            filter: brightness(0) invert(1);
+        }
+        #topic_breadcrumb, #topic_breadcrumb a {
+            color: #e0d0ff !important;
+        }
+        #topic_footer {
+            background: #f8f8f8 !important;
+            border-top: 2px solid #667eea !important;
+        }
+        #topic_footer_content {
+            color: #666 !important;
+            font-size: 14px !important;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASExercises.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;AnalisisFasesCutin&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<!-- CHATGPT_PAGEINTRO_START -->
+<div class="learning-objective">
+<h3>🎯 Analisi delle fasi di taglio</h3>
+<p><strong><em>Obiettivo:</em></strong>Abbassare l'avvio (taglio-in) in fasi e capire quale condizione innesca ogni transizione.</p>
+<p><strong><em>Cosa osservare:</em></strong>La macchina afferma, autorizza ed evoluzione delle variabili durante l'avvio.</p>
+<p><strong><em>Cosa notare:</em></strong>Sequenza degli stati, durata di ogni fase e valore che innesca il cambiamento.</p>
+<p>💡 Registra il momento esatto di ogni transizione (stato precedente → stato successivo).</p>
+</div>
+<!-- CHATGPT_PAGEINTRO_END -->
+<!-- CHATGPT_QUESTIONS_START -->
+<div class="important-note">
+<h3>❓ Domande guida</h3>
+<ol>
+<li>Quanto tempo ci vuole per verificare che il sistema frenante idraulico funzioni?</li>
+<li>Circa quanto tempo sono i tiristori in conduzione (partiale o totale)?</li>
+</ol>
+</div>
+<!-- CHATGPT_QUESTIONS_END -->
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Analisi dettagliata delle fasi di connessione alla griglia (Cutin)</h1>
+<div id="topic_breadcrumb">
+<a href="ClasesPracticas.html">Lezioni pratiche</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ClasesPracticas.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="DesenrrolleCables.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="AnalisisCambiosGeneradores.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Questo pratico utilizza dati reali da una turbina eolica come quella simulata, presa con una velocità di campionamento di 1 campione al secondo.</span></p>
+<p class="rvps4"><span class="rvts11">Fig. 1 mostra uno zoom temporale corrispondente alla connessione del generatore alla griglia. Fig. 2 mostra un dettaglio ingrandito con l'intervallo immediatamente prima e dopo il collegamento del generatore alla griglia.</span></p>
+<p class="rvps4"><span class="rvts11">L'obiettivo è osservare come le variabili chiave si evolvono. In particolare, osservare l'improvvisa variazione dell'accelerazione del treno di potenza in questo tipo di turbina eolica, e nelle principali variabili elettriche.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem60.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts11">Fig. 1.</span></p>
+<p class="rvps4"><span class="rvts11">The</span><span class="rvts121">blu</span><span class="rvts11">area mostra come il controller modifica il valore del passo in modo che l'accelerazione del treno di potenza ("</span><span class="rvts15">RPM GENERATOR</span><span class="rvts11">" segnale) rimane costante fino al raggiungimento della connessione. L'accelerazione in questa zona è dell'ordine di 23 rpm/secondo (= (1500 rpm - 800 rpm)/30 secondi). Quando la produzione inizia, questa accelerazione è praticamente 0 rpm/secondo: questo avviene perché, in produzione, la potenza estratta dal vento è uguale alla potenza (elettrica) consegnata alla griglia. Questi valori danno un'idea dello stress meccanico a cui i componenti del treno di potenza e la torre sono sottoposti al momento della connessione alla griglia.</span></p>
+<p class="rvps4"><span class="rvts11">Proprio quando il generatore è collegato (prima in modo limitato dai tiristori e poi dall'attivazione di</span><span class="rvts15"> </span><span class="rvts11">il</span><span class="rvts15">contattori di bypass di tiro</span><span class="rvts11">), c'è un picco (significante) in "</span><span class="rvts15">L'industria</span><span class="rvts11">" consumo di energia reattiva"</span><span class="rvts15">PAVEI</span><span class="rvts11">"). Questa potenza corrisponde alla corrente che scorre attraverso il generatore di stato nei momenti iniziali, per costituire il flusso magnetico necessario per il "</span><span class="rvts15">macchina di induzione</span><span class="rvts11">" esistere.</span></p>
+<p class="rvps4"><span class="rvts11">Subito dopo, un "</span><span class="rvts15">capacità</span><span class="rvts11">" si verifica il picco di potenza reattiva (segnale "</span><span class="rvts15">PAVECap</span><span class="rvts11">"), caratteristica della regolazione dello slittamento, dal passaggio di sincronismo (slip = 0) al valore finale, corrispondente alla potenza meccanica che forza l'albero. Vedi</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?IntoductiontotheInductionMachine.html" target="_blank">Introduzione alle macchine a induzione</a><span class="rvts11">. Si noti che il valore iniziale di questa potenza è significativo in relazione al</span><span class="rvts16">potenza attiva</span><span class="rvts11">(</span><span class="rvts15">L'Attimo</span><span class="rvts11">segnale) che viene infine consegnato alla griglia.</span></p>
+<p class="rvps4"><span class="rvts11">La figura seguente mostra gli stessi segnali ma con uno zoom con risoluzione temporale più alta, proprio al momento della connessione.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem59.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts11">Fig. 2.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts27"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

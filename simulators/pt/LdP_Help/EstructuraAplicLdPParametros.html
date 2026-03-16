@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Visão Geral do Parâmetro</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="parametros, señal de salida, parámetro" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPParametros&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Parâmetro Synoptic</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">Estrutura de Aplicação LdP</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Conceitos Básicos</a>
+					›› <a href="EstructuraAplicLdPControlSimulac.html">Controle de Simulação</a>
+					›› <a href="EstructuraAplicLdPSinopticoEjecu.html">Controle de Execução Synoptic</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdPSinopticoEjecu.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraAplicLdPSinopticoEjecu.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPSinopticoSenCo.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps2"><span class="rvts25">Parâmetros</span></p>
+<p class="rvps5"><span class="rvts16">O conceito de parâmetros em LdP implementa a ideia de valores que são usados em certos processos e não precisam ser alterados frequentemente durante a execução de uma simulação. Por exemplo, a velocidade de rotação do motor que gira a nacele de uma turbina eólica no sentido horário.</span></p>
+<p class="rvps10"><img alt="" src="lib/Sinoptico parametros.jpg" style="padding : 1px;"/></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Cada parâmetro é um "</span><span class="rvts19">sinal de saída</span><span class="rvts16">" declarado no arquivo de configuração, onde eles recebem um nome (por exemplo, "NacelleYawing. CWYawingSpeed" para o parâmetro mencionado acima).</span></p>
+<p class="rvps5"><span class="rvts16">O sinóptico acima permite modificar o valor de cada um desses parâmetros dentro do intervalo de valores definidos para cada um deles.</span></p>
+<p class="rvps10"><span class="rvts6"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

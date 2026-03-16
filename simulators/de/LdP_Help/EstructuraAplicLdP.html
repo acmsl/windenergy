@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>Struktur der LdP-Anwendungen</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Human Machine Interface, Procesos, conexiones, banco de trabajo, señales de salida, señales de entrada, Proceso, Sinópticos, interfaz Hombre Máquina" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdP&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Struktur der LdP-Anwendungen</h1>
+</div>
+<div id="topic_header_nav">
+<a href="Sobreestaversion.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPConceptosBasic.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps5"><span class="rvts16">Struktur der LdP-Anwendungen</span></p>
+<p class="rvps2" style="page-break-before: always;"><span class="rvts6"><br/></span></p>
+<p class="rvps5"><span class="rvts26">LdP</span><span class="rvts16">(Unterschrift für "</span><span class="rvts19">Prozesssprache</span><span class="rvts16">") ist eine Plattform für die Ausführung und Entwicklung von Real-Time Simulatoren, die das Konzept von</span><span class="rvts26">a </span><span class="rvts16">"</span><span class="rvts26">Werkbanken</span><span class="rvts16">", in der es möglich ist, mit diesen Simulatoren zu interagieren.</span></p>
+<p class="rvps5"><span class="rvts16">Die Benutzeroberfläche wird durch</span><span class="rvts26">Synoptics,</span><span class="rvts16">sowohl allgemeine LdP-Synoptik als auch spezifische Synoptik für jeden Simulator. Diese Synoptics enthalten Indikatoren und/oder Tasten, die mit verschiedenen internen Signalen des Simulators verbunden sind.</span></p>
+<p class="rvps5"><span class="rvts19">LdP</span><span class="rvts16">das Konzept von "</span><span class="rvts26">Verfahren</span><span class="rvts16">" als Element, bei dem das Verhalten einer der Simulatorkomponenten realisiert ist.</span></p>
+<p class="rvps5"><span class="rvts16">Die</span><span class="rvts19">Inhalt</span><span class="rvts16">und</span><span class="rvts19">Verfahren</span><span class="rvts16">von einem Simulator sind Komponenten, die mit dem Paradigma der elektrischen Komponenten in einem elektrischen Stromkreis verbinden:</span><span class="rvts26">Ausgangssignale</span><span class="rvts16">jeder von ihnen kann mit einem oder mehreren verbunden werden</span><span class="rvts26">Eingangssignale</span><span class="rvts16">jeder von ihnen.</span></p>
+<p class="rvps5"><span class="rvts19">Inhalt</span><span class="rvts16">kann keine, eine oder mehrere enthalten</span><span class="rvts19">Verfahren</span><span class="rvts16">. Prozesse können in sich selbst unabhängig von Synoptics Komponenten sein.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 24px;"><span style="font-size: 11pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Jedes</span><span class="rvts19">Verfahren</span><span class="rvts16">simuliert ein Teilsystem in der zu simulierenden Ausrüstung.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 24px;"><span style="font-size: 11pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Die Mensch-Maschine-Schnittstelle ist in der Gestaltung der Synoptik angegeben, die die entsprechenden Indikatoren haben muss, so dass der Benutzer die Werte der internen Signale jederzeit und bestmöglich kennen kann. Der Wert eines Signals kann in mehr als einem Synoptic angezeigt und/oder verwendet werden.</span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts24"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

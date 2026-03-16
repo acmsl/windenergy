@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Thyristoren</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Tiristor, Thyristor, anti-paralelo, Soft starter" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Nuevotema&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Thyristoren</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Was ist eine Windkraftanlage?</a>
+					›› <a href="Conexionredelectrica.html">Anschluss an das Elektrogitter</a>
+					›› <a href="ConexinalaRedElctrica.html">Einzelheiten der Verbindungsschaltung</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ConexinalaRedElctrica.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Detalledelcircuitodeconexin.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="PrincipiosFisicosAerogeneradores.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Beschreibung eines Thyristor</span></span></h1>
+<p class="rvps2"><span class="rvts6">Ein Thyristor ist ein Festkörper-Halbleitergerät, das als Diode fungiert, d.h. Strom fließt in eine Richtung, von der Anode zur Kathode, sofern die Spannung zwischen Anode und Kathode positiv ist, aber nur wenn die Gate-Kathodenspannung einen bestimmten Wert überschritten hat.</span></p>
+<p class="rvps2"><span class="rvts6">Seine Kennlinie und Schichtstruktur sind in der folgenden Figur dargestellt.</span></p>
+<p class="rvps2"><img alt="" src="lib/Semikron_Thyristor.jpg" style="padding : 1px;"/></p>
+<p class="rvps3"><img alt="" src="lib/power-thyristor.jpg" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Typische Schaltung</span></span></h1>
+<p class="rvps3"><img alt="" src="lib/tiristor_circuito1.gif" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6">Die obige Figur zeigt einen elektrischen Stromkreis, der zur Steuerung des von einem Glühbirnen emittierten Lichts mittels eines Thyristors verwendet werden kann.</span></p>
+<p class="rvps2"><span class="rvts6">Bei Schalter S</span><span class="rvts58">1 </span><span class="rvts6">die durch den Widerstand R gebildete Schaltung geschlossen ist,</span><span class="rvts58">t</span><span class="rvts6">und Kondensator C die V</span><span class="rvts58">AC </span><span class="rvts6">Signal an den Anschlüssen C,</span><span class="rvts37">zeitverzögert</span><span class="rvts6">. Wenn diese Spannung bei C die</span><span class="rvts38">Leitungswert der Diode D</span><span class="rvts68">1</span><span class="rvts38"> </span><span class="rvts6">(ca. 0,6 V) plus die erforderliche Spannung</span><span class="rvts38">das Tor des SCR-Thyristors anregen</span><span class="rvts6">(ein Wert kleiner als ")</span><span class="rvts17">Vorwärts brechen über</span><span class="rvts6">"), beginnt der Thyristor dann zu leiten. Dies ist in der Abbildung oben rechts dargestellt ("</span><span class="rvts17">Wettbewerb</span><span class="rvts6">").</span></p>
+<p class="rvps2"><span class="rvts6">Je länger die Verzögerung beim Anregen des Thyristor-Gatters, desto kürzer wird die Zeit, die es leiten wird, und damit die</span><span class="rvts38">mittlerer Strom fließt durch ihn in einem Zyklus</span><span class="rvts6">wird niedriger sein. Das von der "</span><span class="rvts17">Lampe</span><span class="rvts6">"Lampe ist größer, je höher dieser mittlere Strom ist. Diese Verzögerung ist proportional zu den Werten von R</span><span class="rvts58">t</span><span class="rvts6">und C, d.h. der höhere R</span><span class="rvts58">t </span><span class="rvts6">ist, je mehr der Zeitpunkt des Eintritts in die Durchführung verzögert wird, und daher wird die Leitungszeit kürzer sein. Mit anderen Worten:</span><span class="rvts29">höher R</span><span class="rvts69">t</span><span class="rvts29"> </span><span class="rvts46">⇒</span><span class="rvts29">weniger Licht</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">Dies ist das gleiche Prinzip, das im</span><a class="rvts40" href="Softstarter.html">Weicher Starter</a><span class="rvts6">, außer dass in jeder Phase des elektrischen Netzes zwei Thyristoren in "</span><span class="rvts29">antiparallel</span><span class="rvts6">"d.h. die Kathode der einen mit der Anode der anderen verbinden, so daß die Schaltung in beiden Halbkreisen arbeitet.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

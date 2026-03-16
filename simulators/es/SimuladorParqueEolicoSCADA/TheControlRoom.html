@@ -1,0 +1,129 @@
+﻿
+
+<html>
+	
+<head>
+	<title>La Sala de Control - SCADA</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="SCADA, striprecorder, unifilar, PPC">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("TheControlRoom");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">La Sala de Control - SCADA</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; <a href="WhatisaWindFarm.html">&iquest;Qu&eacute; es un Parque E&oacute;lico?</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="WhatisaWindFarm.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="IntegracindeunParqueElicoenlaRed.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ImportantcharacteristicsofWindT1.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">En un Parque Eólico existe un Centro de Control (generalmente en un edificio situado estratégicamente en el territorio donde se despliega el Parque), desde donde se monitoriza el estado de los Aerogeneradores y se comanda su puesta en marcha y paro, &nbsp;la potencia máxima a generar y la potencia reactiva. Una parte fundamental de dichas operaciones se realizan a través de un Sistema de Monitorización y Control (</span><span class="rvts30">SCADA</span><span class="rvts16">) (</span><span class="rvts40">Supervisory Control And Data Adquisition), </span><span class="rvts27">que</span><span class="rvts40"> </span><span class="rvts16">tiene</span><span class="rvts32"> un canal de comunicaciones</span><span class="rvts16"> con todos y cada uno de los Aerogeneradores del Parque. Su misión, sin embargo, no es la de mantener el funcionamiento de cada uno de los componentes de cada uno de los Aerogeneradores: los Aerogeneradores pueden asimilarse a </span><span class="rvts32">Plantas de Producción Independientes</span><span class="rvts16">, capaces de</span><span class="rvts32"> funcionamiento autónomo</span><span class="rvts16">.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts16">A través de Los SCADAs se realizan funciones de:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">recogida de los datos operacionales de los Aerogeneradores, para su almacenamiento y análisis,</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">el control remoto de los Aerogeneradores, entendiéndose éste como capacidad para dar ordenes básicas de "Arranque" y "Parada", y dependiendo de los aerogeneradores, capacidad para cambiar determinados parámetros operativos (p.e., potencia activa máxima, potencia reactiva, etc.)</span></p>
+<p class="rvps2"><span class="rvts16">Generalmente, el parque eólico entrega su producción de acuerdo con determinadas</span><span class="rvts32"> condiciones contractuales</span><span class="rvts16">. Estas condiciones incluyen, básicamente, cuanta potencia activa y cuanta reactiva se comprometen a entregar. Con el sistema SCADA se pueden realizar las operaciones que garanticen los compromisos adquiridos, tomando en cuenta las operaciones de mantenimiento de la planta.</span></p>
+<p class="rvps2"><span class="rvts16">Para ello, el SCADA recibe datos también de </span><span class="rvts32">sistemas externos</span><span class="rvts16"> que </span><span class="rvts32">predicen el viento</span><span class="rvts16">. Basándose en estas predicciones, se determina las condiciones de producción, generalmente hechas por la entidad operadora de la transmisión en la Red Electriza (</span><span class="rvts30">TSO</span><span class="rvts16"> : Transmission System Operator).</span></p>
+<p class="rvps2"><span class="rvts16">Como consecuencia, existe un cuadro de mando básico en el SCADA se muestra en la siguiente fig 1.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem143.png"><span class="rvts16"> Fig 1</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts16">En este gráfico se presenta la </span><span class="rvts32">previsión del viento</span><span class="rvts16"> (en </span><span class="rvts39">azul</span><span class="rvts16">), la </span><span class="rvts32">previsión de la demanda</span><span class="rvts16"> (producción requerida) (en </span><span class="rvts38">verde</span><span class="rvts16">), juntamente con la </span><span class="rvts32">evolución real del viento</span><span class="rvts16"> hasta el momento actual (en </span><span class="rvts37">naranja</span><span class="rvts16">) y la </span><span class="rvts32">producción generada</span><span class="rvts16"> hasta el momento actual (en </span><span class="rvts36">rosa</span><span class="rvts16">). Este es el cuadro de mando básico del Parque Eólico.</span></p>
+<p class="rvps2"><span class="rvts16">Puede apreciarse que el valor de la demanda prevista cambia y se mantiene estable en periodos de aproximadamente </span><span class="rvts32">15 minutos</span><span class="rvts16">. Este parámetro es parte del acuerdo con el Sistema de Transmisión.</span></p>
+<p class="rvps2"><span class="rvts16">También puede apreciarse que la </span><span class="rvts32">producción generada</span><span class="rvts16"> se ajusta con bastante precisión, en promedio, a la demanda prevista.</span></p>
+<p class="rvps2"><span class="rvts16">Por otro lado, el sistema SCADA tiene un sinóptico donde se puede apreciar de forma gráfica, y rápidamente, el estado de cada uno de los aerogeneradores del parque. Tal como se muestra en la siguiente figura.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem142.png"><span class="rvts16"> Fig 2.</span></p>
+<p class="rvps2"><span class="rvts33">Se suele también indicar el cableado de potencia entre los aerogeneradores y el </span><span class="rvts35">PPC</span><span class="rvts33"> (</span><span class="rvts34">Punto de Conexion Común</span><span class="rvts33"> o </span><span class="rvts34">Point of Common Connection</span><span class="rvts33">, en inglés), donde se produce la conexión a la Red Eléctrica.</span></p>
+<p class="rvps2"><span class="rvts16">Las empresas que gestionan un gran número de parques eólicos disponen de Centros de Control adicionales, también basados en sistemas SCADA, que reciben y agregan la información de los SCADAs en los parques. La siguiente foto muestra una de estas instalaciones.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem50.jpg"></p>
+<p class="rvps6"><span class="rvts19"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

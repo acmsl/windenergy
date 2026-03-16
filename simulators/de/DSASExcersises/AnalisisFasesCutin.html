@@ -1,0 +1,255 @@
+<html>
+<head>
+<title>Analyse der Netzanschlussphasen (Cut-in)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="cutin, Inductivo, PAveInd, RPM GENERATOR, máquina de inducción, Capacitivo, PAveCap, potencia activa, PAveAct, Contactores de Bypass de los Tiristores, potencia reactiva, slip" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+        /* === Estilo Experimentos === */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #topic_header_content {
+            padding-left: 40px;
+        }
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+            padding-left: 40px;
+            padding-right: 30px;
+        }
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        /* Cajas informativas estilo Experimentos */
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .important-note ol, .important-note ul {
+            padding-left: 1.5em;
+        }
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        /* Sobreescribir rvts para fuentes mas grandes */
+        span.rvts6, span.rvts11 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        span.rvts12 {
+            font-size: 24px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+            color: #365f91 !important;
+        }
+        span.rvts13 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts15 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts16 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts17 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-style: italic !important;
+        }
+        span.rvts19 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts118, span.rvts119 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        a.rvts14, span.rvts14, a.rvts18, span.rvts18,
+        a.rvts48, span.rvts48 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+            color: #0066cc !important;
+        }
+        #topic_header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border-bottom: none !important;
+        }
+        #topic_header h1, #topic_header_text {
+            color: #ffffff !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-size: 28px !important;
+        }
+        #topic_header a img {
+            filter: brightness(0) invert(1);
+        }
+        #topic_breadcrumb, #topic_breadcrumb a {
+            color: #e0d0ff !important;
+        }
+        #topic_footer {
+            background: #f8f8f8 !important;
+            border-top: 2px solid #667eea !important;
+        }
+        #topic_footer_content {
+            color: #666 !important;
+            font-size: 14px !important;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASExercises.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;AnalisisFasesCutin&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<!-- CHATGPT_PAGEINTRO_START -->
+<div class="learning-objective">
+<h3>🎯 Analyse von Phasen im Einschnitt</h3>
+<p><strong><em>Ziel:</em></strong>Trennen Sie den Start-up (cut-in) in Phasen und verstehen Sie, welche Bedingung jeden Übergang auslöst.</p>
+<p><strong><em>Was zu beachten ist:</em></strong>Maschinenzustände, Berechtigungen und Evolution von Variablen während des Starts.</p>
+<p><strong><em>Was ist zu beachten:</em></strong>Folge von Zuständen, Dauer jeder Phase und Wert, der die Änderung auslöst.</p>
+<p>RECHT Erfassen Sie den genauen Moment jedes Übergangs (vorheriger Zustand → nächster Zustand).</p>
+</div>
+<!-- CHATGPT_PAGEINTRO_END -->
+<!-- CHATGPT_QUESTIONS_START -->
+<div class="important-note">
+<h3>❓ Fragen zum Guiding</h3>
+<ol>
+<li>Wie lange dauert der Controller, um zu überprüfen, ob die hydraulische Bremsanlage funktioniert?</li>
+<li>Ungefähr wie lange sind die Thyristoren in der Führung (Teil oder Gesamt)?</li>
+</ol>
+</div>
+<!-- CHATGPT_QUESTIONS_END -->
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Detaillierte Analyse der Phasen der Verbindung zum Netz (Cutin)</h1>
+<div id="topic_breadcrumb">
+<a href="ClasesPracticas.html">Praktische Kurse</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ClasesPracticas.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="DesenrrolleCables.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="AnalisisCambiosGeneradores.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">Diese Praxis verwendet reale Daten einer Windenergieanlage wie die simulierte, mit einer Abtastrate von 1 Probe pro Sekunde.</span></p>
+<p class="rvps4"><span class="rvts11">Abb. 1 zeigt einen Zeitzoom, der der Verbindung des Generators mit dem Gitter entspricht. Fig. 2 zeigt einen vergrößerten Ausschnitt mit dem Intervall unmittelbar vor und nach dem Anschluss des Generators an das Gitter.</span></p>
+<p class="rvps4"><span class="rvts11">Ziel ist es, zu beobachten, wie sich Schlüsselvariablen entwickeln. Insbesondere beobachten Sie die plötzliche Änderung der Beschleunigung des Antriebsstrangs bei dieser Art von Windenergieanlagen und in den wichtigsten elektrischen Größen.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem60.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts11">Abb. ANHANG</span></p>
+<p class="rvps4"><span class="rvts11">Die</span><span class="rvts121">Blau</span><span class="rvts11">Bereich zeigt, wie der Regler den Pechwert so verändert, dass die Beschleunigung des Antriebsstrangs ("</span><span class="rvts15">RPM GENERATOR</span><span class="rvts11">"Signal) bleibt solange konstant, bis die Verbindung erreicht ist. Die Beschleunigung in diesem Bereich liegt in der Größenordnung von 23 U/sec (= (1500 U/min - 800 U/min)/30 Sek.). Wenn die Produktion beginnt, beträgt diese Beschleunigung praktisch 0 rpm/Sekunde: Dies geschieht, weil in der Produktion die aus dem Wind gewonnene Leistung gleich der (elektrischen) Leistung ist, die dem Netz zugeführt wird. Diese Werte geben einen Gedanken über die mechanische Belastung, der die Antriebsstrangkomponenten und der Turm im Moment der Verbindung zum Netz ausgesetzt sind.</span></p>
+<p class="rvps4"><span class="rvts11">Gerade dann, wenn der Generator (erst begrenzt durch die Thyristoren und dann durch die Aktivierung des Generators verbunden ist)</span><span class="rvts15"> </span><span class="rvts11">die</span><span class="rvts15">Thyristor Bypass-Kontakte</span><span class="rvts11">), gibt es einen (bedeutenden) Peak in "</span><span class="rvts15">Induktiv</span><span class="rvts11">" Blindleistungsverbrauch (Signal "</span><span class="rvts15">PAveIndien</span><span class="rvts11">". Diese Leistung entspricht dem in den Anfangsmomenten durch den Generatorstator fließenden Strom, um den für die "</span><span class="rvts15">Induktionsmaschine</span><span class="rvts11">"zu existieren.</span></p>
+<p class="rvps4"><span class="rvts11">Unmittelbar danach ein "</span><span class="rvts15">kapazitiv</span><span class="rvts11">" Blindleistungsspitzen auftreten (Signal "</span><span class="rvts15">PAveCap</span><span class="rvts11">"), charakteristisch für die Schlupfverstellung, vom Synchronisationskanal (slip = 0) zum Endwert, entsprechend der mechanischen Leistung, die die Welle drückt. Vgl.</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?IntoductiontotheInductionMachine.html" target="_blank">Einführung in Induktionsmaschinen</a><span class="rvts11">. Beachten Sie, dass der Anfangswert dieser Leistung in Bezug auf die</span><span class="rvts16">Aktive Leistung</span><span class="rvts11">(</span><span class="rvts15">PAveAct</span><span class="rvts11">Signal), das letztendlich dem Netz zugeführt wird.</span></p>
+<p class="rvps4"><span class="rvts11">Die folgende Figur zeigt die gleichen Signale, aber mit einem Zoom mit höherer zeitlicher Auflösung, kurz im Moment der Verbindung.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/NewItem59.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts11">Abb. 2.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts27"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

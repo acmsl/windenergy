@@ -1,0 +1,87 @@
+<html>
+<head>
+<title>Como apresentar um secretário e escola um painel predefinido nele.</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Registradores, Paneles predefinidos, Copia, Segundos por pixel, periodo de muestreo, canales, color asignado" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Comopresentarenprimerplanoundete&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Como apresentar um Logger e escolher um Painel predefinido nele.</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Sinopticos.html">Sinópticos utilizados neste simulador</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Sinopticos.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="SinpticodelTerminaldeControl.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="ComopresentarunRegistradoryelegi.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">"</span><span class="rvts29">Gravadores</span><span class="rvts6">" são sinóticos que exibem a evolução dos sinais ao longo do tempo.</span></p>
+<p class="rvps4"><span class="rvts6">Um "Recorder" pode exibir vários</span><span class="rvts17">grupos predefinidos de sinais</span><span class="rvts6">, </span><span class="rvts38">mas apenas um de cada vez</span><span class="rvts6">. Estes grupos de sinais são chamados de "</span><span class="rvts29">Painéis Predefinidos</span><span class="rvts6">," e foram definidos com a visualização de sinais específicos para certas observações em mente.</span></p>
+<p class="rvps4"><span class="rvts6">Cada painel contém um número de "</span><span class="rvts29">canais</span><span class="rvts6">," que exibem um ou mais sinais</span><span class="rvts17">que são "congruentes em termos de valores</span><span class="rvts6">.</span><span class="rvts17">" </span><span class="rvts6">Cada sinal é</span><span class="rvts17">atribuído</span><span class="rvts6">a </span><span class="rvts17">cor</span><span class="rvts6">Para efeitos de identificação.</span></p>
+<p class="rvps4"><span class="rvts6">Você pode criar quantos Recorders quiser. Para fazer isso, vá para o "Simulador Corrente..." sinótico e clique no "</span><span class="rvts17">Sinópticos</span><span class="rvts6">" --&gt; "</span><span class="rvts17">Gravadores</span><span class="rvts6">"botão.</span></p>
+<p class="rvps4"><span class="rvts6">Qualquer Gravador pode ser fechado usando o botão "X" em seu canto superior direito.</span></p>
+<p class="rvps4"><span class="rvts6">Em qualquer Gravador, você pode alterar o "Painel Predefinido" que é exibido nele: no entanto, isso fará com que o conteúdo atual do Painel seja perdido. Podes fazer um "</span><span class="rvts29">Copiar</span><span class="rvts6">" de antemão usando o botão correspondente em seu menu.</span></p>
+<p class="rvps4"><span class="rvts6">Você também pode mudar o "</span><span class="rvts29">período de amostragem</span><span class="rvts6">" dos sinais exibidos usando o primeiro botão no menu direito "</span><span class="rvts29">Segundos por pixel</span><span class="rvts6">xx": os valores possíveis são</span><span class="rvts17">200 ms, 500 ms, 1 segundo, 2 segundos, 5 segundos</span><span class="rvts6">. A alteração do valor deste período apagará o conteúdo atual do Painel.</span></p>
+<p class="rvps4"><span class="rvts6">The following figure illustrates these concepts: "Signals" = 'signals'; "Recorder" = 'channel'; "Hardcopy" = 'Copy'; "Time per pixel xx" = 'Seconds per pixel xx'</span></p>
+<p class="rvps4"><img alt="" src="lib/StripRecorder%20explicaciones.png" style="padding : 1px;"/><span class="rvts6"> </span></p>
+<p class="rvps4"><span class="rvts6">As seguintes seções mostram os 5 "Painéis Predefinidos" disponíveis na configuração deste simulador.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><a class="rvts18" href="ComopresentarunRegistradoryelegi.html">Cutin + Cutout + Produção</a></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><a class="rvts18" href="PanelCutinCutoutProduccion.html">Yawing</a></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><a class="rvts18" href="PanelYawing.html">• Circuito hidráulico dos travões</a></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><a class="rvts18" href="PanelCircuitohidrulicodefrenos.html">RPMs + Pitch + State Machines</a></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><a class="rvts18" href="PanelRPMsPitchMaquinasdeEstado.html">• Controller State Machines</a></p>
+<p class="rvps4"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

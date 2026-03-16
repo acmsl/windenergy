@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Sistema de transporte do conjunto de potência</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="bandera, coeficiente aerodinámico, mantenimiento, freno aerodinámico, avería" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Mecanismodecambiodeangulodelaspa&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Sistema de travagem do comboio de potência</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">O que é uma turbina de vento?</a>
+					›› <a href="EstructuraAerogenerador.html">Estrutura de uma Horizontal Turbina do Vento do Eixo</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Nuevotema1.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="SistemadeFrenos.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">O trem de potência, que inclui as lâminas, tem um mecanismo de freio que não é (normalmente) usado para reduzir a velocidade das lâminas, mas sim como um mecanismo para fixar sua posição uma vez que eles pararam (ou estão girando em velocidade muito baixa). Para reduzir a velocidade de rotação das lâminas, utiliza-se o valor do seu ângulo de pitch: acima de um determinado valor, o</span><span class="rvts17">lâminas empurrar o ar</span><span class="rvts6">, </span><span class="rvts17">transferência de energia cinética do comboio de alimentação para o ar</span><span class="rvts6">. </span></p>
+<p class="rvps2"><span class="rvts6">A figura seguinte mostra um exemplo típico, localizado no</span><span class="rvts17">eixo elevado</span><span class="rvts6">(o eixo gerador).</span></p>
+<p class="rvps3"><img alt="" src="lib/NewItem122.jpg" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Conceitos de freio em uma turbina eólica</span></span></h1>
+<p class="rvps2"><span class="rvts6">A</span><span class="rvts17">Comboio de potência</span><span class="rvts6">de uma turbina eólica pode estar nas seguintes situações:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">In </span><span class="rvts29">produção</span><br/><span class="rvts6">Nesse estado, o ângulo das lâminas faz com que a energia seja coletada do vento na forma de torque mecânico que move o eixo do gerador elétrico, que o transforma em energia elétrica.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts17">Idle</span><br/><span class="rvts6">Neste estado, o ângulo das lâminas é tal que elas não recolhem energia do vento, de modo que o trem de potência não gira. Este ângulo é de 90 graus e esta posição é chamada "</span><span class="rvts17">sinalizado</span><span class="rvts6">."</span><br/><span class="rvts6">Nesta posição, o</span> <a class="rvts40" href="Conceptossobrelapotencia.html">coeficiente aerodinâmico</a> <span class="rvts6">das lâminas é</span><span class="rvts17">negativo</span><span class="rvts6">: isto é, qualquer rotação que o trem de potência pode fazer é travada pelas lâminas. Em outras palavras, qualquer energia rotacional que o trem tem é usada para "mover o ar", e, portanto, é energia que é transferida para o ar e, portanto, diminui.</span><br/><span class="rvts6">Neste estado, o trem de potência pode girar, embora por um curto período de tempo.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Frenagem</span><br/><span class="rvts6">Este estado é usado para realizar trabalhos dentro da turbina eólica e para garantir a segurança do pessoal. Este Estado é assegurado por um</span> <span class="rvts29">Sistema de travagem de disco</span><span class="rvts6">: ver</span><a class="rvts40" href="SistemadeFrenos.html">Alguns exemplos industriais</a><span class="rvts6"> </span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Funções do sistema de travagem</span></span></h1>
+<p class="rvps2"><span class="rvts6">O sistema de travagem numa turbina eólica tem as seguintes funções:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Impedir que o trem de energia se mova enquanto estiver na posição de "estacionamento"</span><span class="rvts6">, normalmente durante as operações de manutenção.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Evitar a sobrevelocidade do comboio de potência</span><span class="rvts6">.</span><br/><span class="rvts6">O controlador monitoriza continuamente a velocidade de rotação do trem de alimentação e inicia um protocolo de segurança para garantir que não exceda um valor máximo.</span><br/><span class="rvts6">Para isso, ele usa dois dispositivos:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">As lâminas, fixando um ângulo tal que o torque mecânico do vento é negativo, ou seja, trava o trem de potência, que corresponde a um</span><span class="rvts17">Travão aerodinâmico</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Se o travão aerodinâmico não conseguir reduzir a velocidade de rotação do comboio de potência num determinado período de tempo, o controlador utilizará o sistema de travão de disco.</span></p>
+<p class="rvps6"><span class="rvts6">Parar o trem de energia envolve dissipar a energia cinética armazenada nele. Por conseguinte, se o sistema de travagem de disco for utilizado, pode resultar numa deformação significativa do disco ou das pastilhas de travão, o que constitui uma</span><span class="rvts29">falha grave</span><span class="rvts6">da turbina eólica.</span></p>
+<p class="rvps6"><span class="rvts6">O disco de freio pode ser localizado no eixo de alta velocidade da caixa de velocidades (ou seja, no eixo do gerador) ou no eixo de baixa velocidade (ou seja, no eixo do rotor, que está diretamente ligado ao cubo da lâmina). A posição mais comum é no eixo alto, uma vez que, embora haja geralmente mais espaço no eixo baixo, essa posição requer maior torque de atrito.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

@@ -1366,12 +1366,7 @@
     <Title>Movement of the Tower with high wind, from inside</Title>
     <Help></Help>
   </Video>
-  <Video>
-    <Exec>https://1drv.ms/v/s!AsEAQ7Uim-DCrchZoQrsXJ9Zq0WcFA?e=qQFMQR</Exec>
-    <Image>img/wind-tunnel-experiments-reducido.png</Image>
-    <Title>Wind Tunnel Experiments</Title>
-    <Help></Help>
-  </Video>
+  
 </Root>
     </script>
     <script>
@@ -2235,7 +2230,7 @@ document.addEventListener('DOMContentLoaded', function() {
           // Si es header.title y hay valor personalizado, no sobrescribir
           if(key === 'header.title' && _customHeaderTitle !== null) return;
           if(key === 'header.subtitle' && _customHeaderSubtitle !== null) return;
-          el.textContent = t(key);
+          el.innerHTML = t(key);
         });
         document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
           const key = el.dataset.i18nPlaceholder;
@@ -2301,15 +2296,14 @@ document.addEventListener('DOMContentLoaded', function() {
           const script = document.createElement('script');
           script.src = 'libs/crypto-js.min.js';
           document.head.appendChild(script);
-          await new Promise(resolve => { script.onload = resolve; });
+          await new Promise(resolve => { script.onload = resolve; script.onerror = resolve; });
         }
 
-        // Si hay parámetro cl, cargar el JSON o el archivo encriptado y renderizar los botones personalizados
         const cl = getUrlClParam();
         let clConfig = null;
-        const passphrase = 'clave_fija_segura'; // Cambia esto por tu clave real
+        const passphrase = 'clave_fija_segura';
+
         async function fetchConfig(cl) {
-          // Intenta primero el archivo encriptado en 'configurations/'
           try {
             const encRes = await fetch('configurations/' + cl + '.enc');
             if (encRes.ok) {
@@ -2319,77 +2313,83 @@ document.addEventListener('DOMContentLoaded', function() {
               if (!jsonStr) throw new Error('Clave incorrecta o archivo corrupto');
               return JSON.parse(jsonStr);
             }
-          } catch (e) { /* Si falla, sigue con el JSON normal */ }
-          // Si no existe el .enc, usa el .json en 'configurations/'
+          } catch (e) { /* continuar con JSON normal */ }
           const res = await fetch('configurations/' + cl + '.json');
           if (res.ok) return await res.json();
           throw new Error('No se pudo cargar el archivo de configuración');
         }
 
+        // 1) Cargar config si hay parámetro cl
         if (cl) {
           try {
             clConfig = await fetchConfig(cl);
-            renderLandingButtons(clConfig);
-            // Si el config tiene 'langs', reconstruir el selector solo con esos idiomas
-            if (clConfig.langs && Array.isArray(clConfig.langs) && clConfig.langs.length > 0) {
-              const sel = document.getElementById('langSelect');
-              if (sel) {
-                sel.innerHTML = '';
-                clConfig.langs.forEach(lang => {
-                  const langOpt = document.createElement('option');
-                  langOpt.value = lang.toLowerCase();
-                  langOpt.textContent = lang.toUpperCase();
-                  sel.appendChild(langOpt);
-                });
-                sel.style.display = '';
-                // Seleccionar el idioma por defecto
-                const defLang = clConfig.defaultLang ? clConfig.defaultLang.toLowerCase() : clConfig.langs[0].toLowerCase();
-                sel.value = defLang;
-                await setLang(defLang);
-              }
-            }
-            // Guardar header personalizado en variables globales
-            let customTitle = null, customSubtitle = null;
-            if (clConfig.header && clConfig.header.title) {
-              customTitle = clConfig.header.title;
-            } else if (clConfig["header.title"]) {
-              customTitle = clConfig["header.title"];
-            }
-            if (clConfig.header && clConfig.header.subtitle) {
-              customSubtitle = clConfig.header.subtitle;
-            } else if (clConfig["header.subtitle"]) {
-              customSubtitle = clConfig["header.subtitle"];
-            }
-            if (customTitle !== null) {
-              _customHeaderTitle = customTitle;
-              const h1 = document.querySelector('h1[data-i18n="header.title"]');
-              if (h1) h1.textContent = customTitle;
-              // Actualizar el <title> del <head>
-              const headTitle = document.querySelector('head title');
-              if (headTitle) headTitle.textContent = customTitle;
-            }
-            if (customSubtitle !== null) {
-              _customHeaderSubtitle = customSubtitle;
-              const p = document.querySelector('h1[data-i18n="header.title"] + p');
-              if (p) p.textContent = customSubtitle;
-            }
-            translatePage(); // Traducir títulos si hay data-i18n, pero no sobrescribir header personalizado
-          } catch (e) { console.warn('No se pudo cargar el archivo de configuración de landing:', cl, e); }
-        }
-        const sel = document.getElementById('langSelect');
-        const urlLang = getUrlLangParam();
-        let langToUse = urlLang || localStorage.getItem('lang') || (navigator.language||'en').split('-')[0];
-        langToUse = langToUse.toLowerCase();
-        // Solo cargar traducciones si no se ha cargado un idioma por config
-        if (!cl || !clConfig || !clConfig.lang) {
-          if (urlLang && sel) {
-            sel.style.display = 'none'; // Oculta el selector si hay lang en la URL
-          } else if (sel) {
-            sel.value = langToUse;
+          } catch (e) {
+            console.warn('No se pudo cargar configuración:', cl, e);
           }
-          await loadTranslations(langToUse);
         }
-        if(sel && !urlLang) sel.addEventListener('change', e => setLang(e.target.value));
+
+        // 2) Determinar idioma con prioridad: config.defaultLang > URL lang > localStorage > navegador
+        const urlLang = getUrlLangParam();
+        let langToUse;
+        if (clConfig && (clConfig.defaultLang || (clConfig.langs && clConfig.langs.length > 0))) {
+          langToUse = (clConfig.defaultLang || clConfig.langs[0]).toLowerCase();
+        } else if (urlLang) {
+          langToUse = urlLang;
+        } else {
+          langToUse = (localStorage.getItem('lang') || (navigator.language||'en').split('-')[0] || 'en').toLowerCase();
+          if (!['es','en','fr','it','de','pt'].includes(langToUse)) langToUse = 'en';
+        }
+
+        // 3) Cargar traducciones para el idioma elegido
+        await loadTranslations(langToUse);
+        localStorage.setItem('lang', langToUse);
+
+        // 4) Aplicar config: botones, selector de idioma y header personalizado
+        if (clConfig) {
+          renderLandingButtons(clConfig);
+
+          // Reconstruir selector de idioma si el config lo limita
+          if (clConfig.langs && Array.isArray(clConfig.langs) && clConfig.langs.length > 0) {
+            const sel = document.getElementById('langSelect');
+            if (sel) {
+              sel.innerHTML = '';
+              clConfig.langs.forEach(l => {
+                const opt = document.createElement('option');
+                opt.value = l.toLowerCase();
+                opt.textContent = l.toUpperCase();
+                sel.appendChild(opt);
+              });
+              sel.style.display = '';
+              sel.value = langToUse;
+            }
+          }
+
+          // Header personalizado
+          const customTitle = (clConfig.header && clConfig.header.title) || clConfig["header.title"] || null;
+          const customSubtitle = (clConfig.header && clConfig.header.subtitle) || clConfig["header.subtitle"] || null;
+          if (customTitle !== null) {
+            _customHeaderTitle = customTitle;
+            const h1 = document.querySelector('h1[data-i18n="header.title"]');
+            if (h1) h1.textContent = customTitle;
+            const headTitle = document.querySelector('head title');
+            if (headTitle) headTitle.textContent = customTitle;
+          }
+          if (customSubtitle !== null) {
+            _customHeaderSubtitle = customSubtitle;
+            const p = document.querySelector('h1[data-i18n="header.title"] + p');
+            if (p) p.textContent = customSubtitle;
+          }
+          translatePage();
+        }
+
+        // 5) Gestionar selector de idioma global
+        const sel = document.getElementById('langSelect');
+        if (urlLang && sel) {
+          sel.style.display = 'none';
+        } else if (sel && !clConfig?.langs) {
+          sel.value = langToUse;
+        }
+        if (sel && !urlLang) sel.addEventListener('change', e => setLang(e.target.value));
       });
     </script>
 

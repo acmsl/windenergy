@@ -1,0 +1,108 @@
+<html>
+<head>
+<title>Introdução às máquinas de indução</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="velocidad de sincronismo, , rotor en cortocircuito, jaula de ardilla, rotor bobinado, par mecánico, deslizamiento, entrehierro, estator" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;IntoductiontotheInductionMachine&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Introdução às máquinas de indução</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Princípios físicos</a>
+					›› <a href="WindTurbineControlcriteria.html">Critérios de concepção e controlo da turbina eólica</a>
+					›› <a href="RequirementsimposedbytheElectric.html">Exigências do gerador elétrico</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="RequirementsimposedbytheElectric.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="RequirementsimposedbytheElectric.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Introductiontothephysicalprincip.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">Os geradores elétricos de indução (na verdade máquinas elétricas de indução, uma vez que podem ser motores ou geradores) são caracterizados por uma curva que mostra a relação entre</span><span class="rvts29">binário mecânico</span><span class="rvts6">no seu eixo rotativo e na</span><span class="rvts29">velocidade de rotação deste eixo</span><span class="rvts6">. Veja a figura a seguir.</span></p>
+<p class="rvps9"><a name="Curva Par vs RPMs"></a><img alt="" src="lib/MaquinaInduccionParvsRPMs2Puntos.jpg" style="padding : 1px;"/></p>
+<p class="rvps9"><span class="rvts6">Fig. 1: "Curva mecânica de binário vs. velocidade rotacional" de uma máquina eléctrica de indução</span><span class="rvts89">.</span></p>
+<p class="rvps11"><span class="rvts6">Há um ponto característico neste gráfico definido pela velocidade de rotação característica do gerador, o</span><span class="rvts29">velocidade síncrona</span><span class="rvts6">. Esta velocidade corresponde à velocidade de rotação do fluxo magnético criado em seu gap de ar pelo enrolamento do estator. Para entender os dois modos de operação, motor ou gerador, devemos lembrar que este dispositivo transforma energia de um tipo para outro (energia elétrica em energia mecânica, ou energia mecânica em energia elétrica). Portanto, "conecta" dois mundos:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">a</span><span class="rvts29">eixo rotativo</span><span class="rvts6">, onde o enrolamento do rotor está localizado, que deve ser ligado mecanicamente a um dispositivo que pode rodar e se comportar como uma carga mecânica ou um gerador de energia mecânica.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">• o</span><span class="rvts29">enrolamento do estator</span><span class="rvts6">, que deve estar ligado a uma fonte de energia eléctrica ou a um consumidor de energia eléctrica.</span></p>
+<p class="rvps11"><span class="rvts6">O gráfico acima considera a velocidade de rotação do eixo, mas não diz nada sobre como essa velocidade foi alcançada.</span></p>
+<p class="rvps11"><span class="rvts6">Para entender os princípios físicos em que esta máquina se baseia, assista ao seguinte vídeo:</span></p>
+<div style="margin: 10px 0;">
+<a href="https://www.youtube.com/watch?v=3nvRhIbjhbo" style="display: inline-block; position: relative; width: 480px; height: 270px;" target="_blank" title="Video - Imanes enfrentados en ejes">
+<img alt="Video - Imanes enfrentados en ejes" src="https://img.youtube.com/vi/3nvRhIbjhbo/maxresdefault.jpg" style="width: 480px; height: 270px; border: 1px solid #ccc; border-radius: 4px;"/>
+<span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; background: rgba(205,32,31,0.9); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+<span style="width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 20px; border-color: transparent transparent transparent #fff; margin-left: 4px;"></span>
+</span>
+</a>
+</div>
+<p class="rvps19"><span class="rvts90">Quando</span><span class="rvts91">velocidade do eixo é inferior à velocidade síncrona</span><span class="rvts90">, um torque mecânico aparece no eixo, gerado a partir de energia elétrica entrando através do enrolamento do estator, desde que esteja conectado a uma fonte de energia.</span></p>
+<p class="rvps19"><span class="rvts90">Se de alguma forma conseguimos fazer a velocidade do eixo mais alta do que a velocidade síncrona, e o eixo está ligado a um</span><span class="rvts92">dispositivo que fornece torque mecânico</span><span class="rvts90">(por exemplo, as lâminas de uma turbina eólica) e o estator está conectado a uma rede elétrica, e a velocidade do eixo foi feita para estar acima da velocidade síncrona, então o torque mecânico aplicado ao eixo sai do estator como energia elétrica.</span></p>
+<p class="rvps11"><span class="rvts6">A essa velocidade de rotação, não há</span></p>
+<p class="rvps11"><span class="rvts6">O seguinte gráfico animado mostra uma secção transversal de um</span><span class="rvts29">trifásico</span><span class="rvts6">máquina de indução (o rotor foi removido por clareza) e como o campo magnético é criado pelas correntes que passam por cada par de bobinas quando são alimentados por correntes trifásicas perfeitamente equilibradas:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts6">•Separação temporal de 120o elétrico.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Igual magnitude para valores de pico.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Campo magnético na abertura do ar</span></span></h1>
+<p class="rvps13"><img alt="" src="lib/CompletoConCamposDeFaseImanVirtual_2.gif" style="padding : 1px;"/></p>
+<p class="rvps11"><span class="rvts6">Cada fase da grade é conectada a uma bobina de estator (uma por cor). A</span><span class="rvts17">ímã</span><span class="rvts6">(i.e., o fluxo magnético) que está presente corresponde à soma vetorial dos fluxos magnéticos criados por cada uma das bobinas, alimentadas por cada uma das fases da grelha.</span></p>
+<p class="rvps11"><span class="rvts6">Quando não há carga mecânica no eixo (ou seja, quando o eixo é permitido girar livremente), a velocidade de rotação corresponde à velocidade de rotação deste íman equivalente.</span></p>
+<p class="rvps11"><span class="rvts6">A figura 1 (acima) mostra que quando</span><span class="rvts29">fricção</span><span class="rvts6">é introduzido no eixo, sua velocidade de rotação diminui e a máquina</span><span class="rvts19">cria um torque mecânico</span><span class="rvts6">que neutraliza o atrito. (Ponto A.)</span></p>
+<p class="rvps11"><span class="rvts6">Por outro lado, se o eixo é</span><span class="rvts29">forçado</span><span class="rvts6">funcionar a uma velocidade superior à velocidade síncrona,</span><span class="rvts19">consome o torque mecânico</span><span class="rvts6">necessário para esta força, que aparece como energia elétrica nas bobinas do estator. (Ponto B.)</span></p>
+<p class="rvps11"><span class="rvts6">Em outras palavras, dependendo se colocamos uma carga mecânica no eixo ou fornecemos torque mecânico, esta máquina se comporta como um motor ou um gerador.</span></p>
+<p class="rvps11"><span class="rvts6">Um ponto muito importante a ter em mente é que o comportamento desta máquina muda dependendo da velocidade de rotação: a área que nos interessa é a única</span><span class="rvts17">cerca</span><span class="rvts6">A sua velocidade síncrona.</span></p>
+<p class="rvps11"><span class="rvts6">A</span><span class="rvts29">velocidade síncrona</span><span class="rvts6">depende do número de pares de pólos magnéticos (1 no caso da figura acima) e da frequência da rede. No caso da figura, e assumindo 50 ciclos/segundo, a velocidade síncrona é (50 ciclos/segundo)/1, ou 50 rotações/segundo, ou (50 * 60) rotações/minuto = (3.000 rpm).</span></p>
+<p class="rvps11"><span class="rvts6">Tomando a velocidade de sincronismo como referência, a curva de operação (Fig. 1) geralmente usa o</span><span class="rvts17">valor relativo</span><span class="rvts6">das revoluções do eixo em relação às revoluções do sincronismo, em vez do valor absoluto das revoluções. Este valor é chamado</span><span class="rvts29">escorregar</span><span class="rvts6">(geralmente representado pela letra ')</span><span class="rvts29">s</span><span class="rvts6">').</span></p>
+<p class="rvps13"><span class="rvts17">s = (AtualSpeed - SincronizemSpeed) / SincronizemSpeed</span></p>
+<p class="rvps13"><span class="rvts6">or</span></p>
+<p class="rvps13"><span class="rvts17">s = (AtualSpeed / SincronizemSpeed) - 1</span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

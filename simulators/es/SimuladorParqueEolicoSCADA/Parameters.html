@@ -1,0 +1,117 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Par&aacute;metros</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="parameter, dispatching, aleatorio, Par&aacute;metros, demanda">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Parameters");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Par&aacute;metros</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="StructureoftheWindFarmSimulator.html">Descripci&oacute;n del Simulador de Parque Eolico</a> &rsaquo;&rsaquo; <a href="Description.html">Componentes del Simulador</a> &rsaquo;&rsaquo; <a href="ComponentesdelSimulador.html">Control de la ejecuci&oacute;n y acceso a opciones</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ComponentesdelSimulador.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ComponentesdelSimulador.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PowerpergroupTotalproducedPowera.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">Este simulador utiliza los parámetros que se listan en la siguiente figura, para los procesos internos. Se puede acceder a ellos desde el sinóptico de control de ejecución "</span><span class="rvts32">Sinópticos</span><span class="rvts16">" -&gt; "</span><span class="rvts32">Parámetros</span><span class="rvts16">"</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Parametros%20SCADA.png"></p>
+<p class="rvps2"><span class="rvts41"><br/></span></p>
+<p class="rvps2"><span class="rvts16">El parámetro "</span><span class="rvts44">RandomCoefficient</span><span class="rvts16">" del proceso "</span><span class="rvts44">Wind</span><span class="rvts16">" regula la aleatoriedad de la velocidad del viento en cada aerogenerador.</span></p>
+<p class="rvps2"><span class="rvts16">El parámetro "</span><span class="rvts44">WaitingTimeToCancelProposal</span><span class="rvts16">" del proceso "</span><span class="rvts44">AutoDispatcher</span><span class="rvts16">" regula el tiempo máximo que tiene el operador para cancelar la propuesta del algoritmo de puesta en marcha o paro de un conjunto de aerogeneradores como respuesta a un cambio en la velocidad del viento o de la demanda. Ver </span><a class="rvts31" href="AutomaticDispatching.html">Gestión automática</a><span class="rvts16">.</span></p>
+<p class="rvps2"><span class="rvts16">El parámetro "</span><span class="rvts44">SetPointTolerance</span><span class="rvts16">" del proceso "</span><span class="rvts44">AutoDispatcher</span><span class="rvts16">" determina cual es el </span><span class="rvts32">rango de potencia</span><span class="rvts16"> producida que se considera aceptable. En % sobre la </span><a class="rvts31" href="Externaldemandsetpoint.html">demanda</a><span class="rvts16">.</span></p>
+<p class="rvps2"><span class="rvts16">Para eliminar de pantalla este formulario o sinóptico debe utilizar el icono "X" en la parte superior derecha.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

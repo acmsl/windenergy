@@ -1,0 +1,160 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Basic components</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPComponentes&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Basic components</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="EstructuraAplicLdP.html">Structure of LdP applications</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Basic concepts</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAplicLdPConceptosBasic.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPConceptosBasic.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPControlSimulac.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps5 ldp-align-with-table"><span class="rvts16">An LdP application (Simulator) is defined by a description in a configuration file, in which:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•Each of the components used in the Simulator is declared.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•The connections between the output and input signals of each of the components are declared.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts16">•Auxiliary elements are defined: parameter values, help, definition of graphic recorder configurations, etc.</span></p>
+<p class="rvps5"><span class="rvts16">The &quot;components&quot; of an LdP configuration can be of the following types:</span></p>
+<div class="rvps2"><table class="ldp-component-table" width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Processes</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">This element can contain none, one, or more &quot;</span><span class="rvts19">Process</span><span class="rvts16">&quot; type elements. Each of these refers to a DLL developed specifically to simulate a particular aspect or subsystem.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Synoptics</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">This element can contain one or more &quot;Synoptic&quot; type elements. These elements refer to DLLs developed specifically using graphic indicators. They constitute the user interface.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Connections</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">This element contains &quot;</span><span class="rvts19">InternalConnection</span><span class="rvts16">&quot; type elements. These elements contain one &quot;output signal&quot; and one or more &quot;input signals.&quot;</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Parameters</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">This element contains none, one, or more &quot;Parameter&quot; type elements. Each of them has an associated &quot;output signal&quot; with a name associated with a Process or Synoptic. There is a base Synoptic (&quot;Parameters&quot;) that allows you to access these &quot;Parameters&quot; and change the associated value. It is usually used to define parameters of algorithms implemented in the different &quot;Process&quot; and &quot;Synoptic&quot; elements.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">StripRecorders</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">(</span><span class="rvts19">Recorders</span><span class="rvts16">) This element contains a set of &quot;</span><span class="rvts19">Panel</span><span class="rvts16">&quot; type elements, each of which defines the content and format of &quot;</span><span class="rvts19">Recorders</span><span class="rvts16">,&quot; through which the set of signals presented and the form of representation are defined.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><span class="rvts17">Functions</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 409px;"><p class="rvps5"><span class="rvts16">Element containing none, one, or more &quot;</span><span class="rvts19">Function</span><span class="rvts16">&quot; type elements. Each of these elements implements a &quot;</span><span class="rvts19">formula</span><span class="rvts16">&quot;: each formula has an associated output signal and a set of input signals corresponding to the variables it uses.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps7"><span class="rvts6"><br/></span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

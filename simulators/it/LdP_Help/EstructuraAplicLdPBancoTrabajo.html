@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>Il LdP come banco da lavoro</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="LdP, bloques constructivos, banco de pruebas, banco de trabajo, indicadores / controles" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPBancoTrabajo&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Il LdP come banco da lavoro</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">Struttura delle applicazioni LdP</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Concetti di base</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdPConceptosBasic.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraLdPDefRegistradores.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPIndicadores.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps5"><span class="rvts16">Come indicato in</span><a class="rvts18" href="EstructuraAplicLdPConceptosBasic.html">Concetti di base</a><span class="rvts16">, un simulatore sviluppato in LdP può essere rappresentato come un diagramma elettrico in cui ci sono diversi</span><span class="rvts17">blocchi</span><span class="rvts16">che si presume di eseguire alcune operazioni (parti del simulatore) che ricevono un insieme di segnali e generano altri segnali che si presume siano utilizzati da altri blocchi.</span></p>
+<p class="rvps5"><span class="rvts16">Questi blocchi sono interconnessi da "connessioni", equivalenti a cavi fisici in un pannello elettrico. La figura seguente illustra questo concetto.</span></p>
+<p class="rvps7"><a name="Nacelle y Controller conectados"></a><img alt="" height="131" src="lib/NacelleyController conectados.png" style="padding : 1px;" width="636"/></p>
+<p class="rvps7"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Inoltre, LdP ha meccanismi che permettono di funzionare come una "banca di prova" o "banca da lavoro". L'idea è di facilitare il cambiamento delle condizioni in cui il simulatore corre e osserva le sue risposte a tali cambiamenti. A tal fine, si presume che ogni simulatore abbia i sinottici appropriati, adattati alle esigenze di simulazione dell'apparecchiatura o del sistema da simulare. Ecco alcuni esempi:</span></p>
+<div class="rvps5"><table border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;" width="101%">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 469px;"><p class="rvps5"><img alt="" src="lib/Brake system.jpg" style="padding : 1px;"/></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 311px;"><p class="rvps5"><span class="rvts16">Circuito idraulico freno sottosistema.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 469px;"><p class="rvps5"><img alt="" src="lib/Reloj presion hidraulica.jpg" style="padding : 1px;"/></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 311px;"><p class="rvps5"><span class="rvts16">Indicatore di pressione in un circuito idraulico.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 469px;"><p class="rvps5"><img alt="" src="lib/GeneradorConFlujosYFlechas.jpg" style="padding : 1px;"/></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 311px;"><p class="rvps5"><span class="rvts16">Indicatore del vettore del flusso magnetico in una macchina di induzione.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 469px;"><p class="rvps5"><img alt="" src="lib/Vista Cp en MPPT en espaol.png" style="padding : 1px;"/></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 311px;"><p class="rvps5"><span class="rvts16">Valore attuale di una funzione di diversi parametri.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 469px;"><p class="rvps5"><img alt="" src="lib/Potencia vs rpms con cursores en produccion e.jpg" style="padding : 1px;"/></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 311px;"><p class="rvps5"><span class="rvts16">Valore di due segnali (energia meccanica ed elettrica) su una mappa di possibili aree operative.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 469px;"><p class="rvps5"><img alt="" src="lib/RRC PowervsSlip en produccion.jpg" style="padding : 1px;"/></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 311px;"><p class="rvps5"><span class="rvts16">Punto operativo e pendenza associata.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Inoltre</span><a class="rvts28" href="EstructuraAplicLdPIndicadores.html">,</a><span class="rvts16">LdP ha</span><a class="rvts28" href="EstructuraAplicLdPIndicadores.html">indicators/controls</a><span class="rvts16">che sono elementi grafici utilizzati per visualizzare i valori del segnale e anche per</span><span class="rvts19">forza</span><span class="rvts16">i valori di altri segnali. Questi indicatori, disponibili per gli sviluppatori di sinottici compatibili con LdP, sono stati progettati per ridurre al minimo lo spazio dello schermo necessario per progettare un'interfaccia utente che sia completa e non travolgente.</span></p>
+<p class="rvps5"><span class="rvts16">Questi componenti LdP sono descritti nella sezione seguente e la loro caratteristica principale è che possono essere utilizzati sia per indicare il valore di un segnale e per forzare quel valore manualmente.</span></p>
+<p class="rvps5"><span class="rvts16">Inoltre, LdP ha "</span><a class="rvts18" href="EstructuraAplicLdPRegistrador.html">Registratori</a><span class="rvts16">" per visualizzare l'evoluzione dei cambiamenti in alcuni segnali scelti come significativi, così come</span><a class="rvts18" href="EstructuraAplicLdPEdicionConex.html">editor di connessione</a><span class="rvts16">(che permette il concetto di un cavo rotto da simulare) e un altro</span><a class="rvts18" href="EstructuraAplicLdPParametros.html">parametro editor</a><span class="rvts16">, valori caratteristici delle unità di simulazione all'interno del simulatore generale.</span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts6"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

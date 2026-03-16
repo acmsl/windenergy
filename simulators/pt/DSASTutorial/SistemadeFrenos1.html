@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>Mecanismo de orientação (iaw)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content=", CW, CCW, orientación de la góndola, zapatas, motores de giro" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;SistemadeFrenos1&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Mecanismo de orientação (iaw)</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">O que é uma turbina eólica?</a>
+					›› <a href="EstructuraAerogenerador.html">Estrutura de uma turbina eólica de eixo horizontal</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="SistemadeFrenos.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Mecanismodeorientacinyaw.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><img alt="" src="lib/Rexroth%20-%20Tren%20de%20potencia%20rotulado%20-%20espaol.png" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Funções e componentes do mecanismo de travagem</span></span></h1>
+<p class="rvps2"><span class="rvts6">O mecanismo para orientar a nacele para o vento (</span><span class="rvts19">vento ascendente</span><span class="rvts6">) tem as seguintes funções:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts19">Orientação da nacele</span><span class="rvts6">.</span><br/><span class="rvts6">Para isso, tem dois conjuntos de</span> <span class="rvts29">Motores de rotação</span><span class="rvts6">, um para cada direção, que são conectados a uma engrenagem anel ligado ao topo da torre. Estes motores são controlados a partir do controlador, que implementa os algoritmos apropriados. As direcções de rotação são referidas como</span><span class="rvts19">CW</span><span class="rvts6"> (</span><span class="rvts17">no sentido horário</span><span class="rvts6">) e</span><span class="rvts19">CCW</span><span class="rvts6"> (</span><span class="rvts17">anti- horário</span><span class="rvts6">).</span><br/><span class="rvts6">Na manutenção desta orientação, devem ser tidos em conta os seguintes elementos:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">A orientação da nacele deve ser tal que a direção do vento seja perpendicular ao plano de rotação das lâminas</span><span class="rvts17">na maioria das vezes, com erro mínimo.</span><span class="rvts6"> </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">A energia necessária para rodar a nacele e as lâminas ligadas a ela.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">O vento existente: se for muito baixo, pode não ser importante garantir que a nacele está orientada. Estes algoritmos têm a ver com:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Manter a orientação da nacele para que a direção do vento seja perpendicular ao plano de rotação das lâminas na maior parte do tempo.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oPrevenir</span> <span class="rvts6">desorientação existente, bem como</span><br/><span class="rvts6">  </span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts19">Manter a nacele numa orientação fixa</span><span class="rvts6">.</span><br/><span class="rvts6">Este objectivo é alcançado com</span> <span class="rvts29">pastilhas de travões</span> <span class="rvts6">que protegem a nacele para a torre. Estes travões são...</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts19">oDetectar e controlar o número de voltas dos cabos de alimentação</span><span class="rvts6">que corre até à base da torre do gerador. Estes cabos caem livremente por alguns metros até que sejam finalmente fixados à parede da torre. A flexibilidade (limitada) desses cabos é usada para resolver o problema da conexão (potência) entre uma parte fixa (o gabinete elétrico na base da torre) e uma parte móvel (o gerador, que gira com a nacele).</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>"Grid codes"</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content=", , pala, , , , grid code, , , pitch, , , viento, parque eolico, rafaga de viento, aerogenerador, grid, , TSO, estabilidad, Grid Codes, Códigos de Red, territorio extenso, Low Voltage Ride Through capability" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Gridcodes");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">"Grid codes"</h1>
+<div id="topic_breadcrumb">
+<a href="Introduccion.html">Introduction</a> ›› <a href="WhatisaWindFarm.html">What is a wind farm?</a> ›› <a href="StrucutureandFunctionalitiesofaW.html">Structure and Functions of a wind farm</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="StrucutureandFunctionalitiesofaW.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="IntegracionconlaRedElectrica.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="WhatisaWindTurbine.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">Because, in many countries, the contribution of the wind parks to total electricity production is considerable, it has been necessary to consider their influence on the "</span><span class="rvts48">stability</span><span class="rvts16">"of the Network. The power supply networks must be maintained under conditions of operation such as to ensure that there will not be a widespread cut in the supply in a</span><span class="rvts32">Extensive territory</span><span class="rvts16">. Para ello se diseñan atendiendo la evolución prevista de los consumos en cada nodo. Inicialmente, la garantía de este funcionamiento radicaba en el tipo de generadores (básicamente grandes generadores síncronos), con una gran inercia. Al aumentar la penetración de la eólica se introdujeron dos variaciones sobre la situación anterior: a) el viento es una fuente de energía no controlada; b) la inercia de los aerogeneradores era considerablemente inferior que la de los generadores asociados a las plantas térmicas, hidráulicas, nucleares, etc.</span></p>
+<p class="rvps2"><span class="rvts16">The first problem has been addressed by an early knowledge of wind evolution, along with a precise modeling of consumption evolution in each network node.</span></p>
+<p class="rvps2"><span class="rvts16">However, the response to very rapid changes (of the order of 1 s or less), which occur in the normal operation of Distribution Networks (for example, the fall of a tree on the electrical tensile) generates dynamics that can be well tolerated by the large synchronous generators, but could not be supported by the initial industrial wind turbines (those installed until the end of the 90s). The design of these aerogenerator models was based on "protecting the aerogenerator": the form of this protection was to detect abnormal situations (e.g. phase failure) and to disconnect the aerogenerator from the Network immediately.</span></p>
+<p class="rvps2"><span class="rvts16">This reaction to Network failures of those initial wind turbines had a perverse effect on the stability of the Network. To understand this effect let us think of the following sequence: suppose that we have a 25 MW wind farm and that there is a momentary cut in the supply. This may occur due to a short circuit in a phase, for example, that triggers a protection procedure (typically momentarily disconnected from the line, as it is known that this operation can, on its own, solve the problem). If the line is temporarily disconnected in the connection circuit with the wind farm, and assuming that the aerogenerators of this Park have only the self-protection mechanism, a cascade reaction will occur so that, in a very short time, the entire Park will be disconnected from the Network. In other words, a "minor" problem (a branch of a tree on the power line) ends with the loss of production of a complete plant, that is, a "greater" problem for the stability of the Network.</span></p>
+<p class="rvps2"><span class="rvts16">Due to this behaviour, the entities responsible for the control of the overall stability of the Electrical System modified the conditions to be assumed by any Power Production Plant, especially the Aerogenerators, so that they did not disconnect from the Network when the Network itself produced, at the Connection Point, short supply cuts (typically less than 1 second). These rules are known as "</span><span class="rvts30">Grid Codes</span><span class="rvts16">"or"</span><span class="rvts30">Network codes</span><span class="rvts16">"and vary from country to country, due to the different capacities of its corresponding power networks.</span></p>
+<p class="rvps2"><span class="rvts16">The specification is complex and is shown in following graphs:</span></p>
+<p class="rvps2"><img alt="" src="lib/GridCode1.png" style="padding : 1px;"/><span class="rvts16">Fig 1.</span></p>
+<p class="rvps2"><span class="rvts16">The red-branded area is the area of evolution of the Red voltage in which the Aerogenerator cannot disconnect. That is, if there is a fall in the tension of the Network, but it is kept within the area in red, the Aerogenerator</span><span class="rvts32">must continue to generate</span><span class="rvts16">.  </span></p>
+<p class="rvps2"><span class="rvts16">The following figure shows two changes in the tension. The green is always inside the red zone, and therefore the Aerogenerator cannot disconnect without failing to comply with the regulations. However, if the evolution is blue, which leaves the red zone at the moment 0.15 seconds after "is the beginning of the incidence, if it can do so without violating the regulations.</span></p>
+<p class="rvps2"><img alt="" src="lib/GridCode2.png" style="padding : 1px;"/><span class="rvts16">Fig 2.</span></p>
+<p class="rvps2"><span class="rvts16">The capacity of the wind turbines to support "Grid Codes" is called "</span><span class="rvts30">Low Voltage Ride Through Capability</span><span class="rvts16">"in English.</span></p>
+<p class="rvps2"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts27"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

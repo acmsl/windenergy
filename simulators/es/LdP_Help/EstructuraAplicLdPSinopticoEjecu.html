@@ -1,0 +1,166 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Sin&oacute;ptico de Control de Ejecuci&oacute;n</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="ejecucion, ejecutar, parar, continua, salir, sinopticos, parametros, se&ntilde;ales y conexiones">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "LdP_Help.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("EstructuraAplicLdPSinopticoEjecu");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Sin&oacute;ptico de Control de Ejecuci&oacute;n</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="EstructuraAplicLdP.html">Estructura de las aplicaciones LdP</a> &rsaquo;&rsaquo; <a href="EstructuraAplicLdPConceptosBasic.html">Conceptos b&aacute;sicos</a> &rsaquo;&rsaquo; <a href="EstructuraAplicLdPControlSimulac.html">Control de la Simulaci&oacute;n</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAplicLdPControlSimulac.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPControlSimulac.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPParametros.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Este sinóptico es común a todas a las aplicaciones LdP:</span></p>
+<p class="rvps5"><img alt="" style="padding : 1px;" src="lib/Sinoptico Ejecutando en espanol.jpg"></p>
+<p class="rvps7"><span class="rvts16"><br/></span></p>
+<p class="rvps7"><span class="rvts16">El siguiente cuadro muestra una descripción de las funcionalidades asociadas a cada uno de estos botones.</span></p>
+<div class="rvps7"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton salir.jpg"></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 512px;"><p class="rvps5"><span class="rvts16">Permite salir del programa.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps5"><img alt="" style="padding : 1px;" src="lib/Boton Ejecutar.jpg"></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton Parar.jpg"></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton Continuar.jpg"></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 512px;"><p class="rvps5"><span class="rvts16">Estos botones permite la ejecución de la Simulación. Cuando pulsa el botón "Parar" queda en suspenso la evolución temporal de las señales del Simulador.</span></p>
+<p class="rvps5"><span class="rvts16">Se puede volver a la ejecución pulsando el botón "Continuar"</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton sinopticos.png"></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 512px;"><p class="rvps5"><span class="rvts16">A través de este botón se controla la visibilidad de todos los sinópticos, tanto los comunes de LdP ("Señales y Conexiones", "Parámetros" y "Registradores") como los específicos del Simulador que se está ejecutando.</span></p>
+<p class="rvps2"><span class="rvts22"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Listado sinopticos retocado.png"></p>
+<p class="rvps2"><span class="rvts22"><br/></span></p>
+<p class="rvps5"><span class="rvts16">El control de la visibilidad de los sinópticos se puede hacer también a través de los iconos que se instalan en la barra de herramientas de Windows.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton tutoriales.jpg"></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 512px;"><p class="rvps5"><span class="rvts16">Este botón permite acceder a los tutoriales asociados al Simulador que se está ejecutando. </span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton mensajes.jpg"></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 512px;"><p class="rvps5"><span class="rvts16">Este botón expande el sinóptico para incluir un area de mensajes que la aplicación puede enviar al usuario. Su uso es principalmente para depuración de ficheros de configuración.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 135px;"><p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Boton informacion versiones.jpg"></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 512px;"><p class="rvps5"><span class="rvts16">Este botón permite el acceso a información sobre la versión de LdP y del Simulador que se está ejecutando.</span></p>
+<p class="rvps5"><span class="rvts16">También permite acceso a información sobre la licencia de uso del producto. Ver </span><a class="rvts18" href="InformacionVersionylicencia.html">Información de versiones y licencia.</a></p>
+</td>
+</tr>
+</table>
+</div>
+<h4 class="rvps9"><span class="rvts0"><span class="rvts27"><br/></span></span></h4>
+<h4 class="rvps9"><span class="rvts0"><span class="rvts27"><br/></span></span></h4>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,326 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vergleich der Leistungs-Wind-Kennlinien verschiedener Windkraftanlagen-Familien</title>
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <meta name="description" content="Vergleichsexperiment der Leistungskennlinien in Abhängigkeit von der Windgeschwindigkeit">
+    <meta name="keywords" content="Leistungskennlinie, Windgeschwindigkeit, Windkraftanlagen, DSAS, RRC, DFIG, Wirkungsgrad">
+    
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+    
+    <style type="text/css">
+        #topic_header { background-color: #EFEFEF; }
+        body { font-size: 15px; line-height: 1.6; }
+        #topic_content { }
+        h1 { font-size: 28px; line-height: 1.3; }
+        h2 { font-size: 23px; line-height: 1.4; margin-top: 25px; margin-bottom: 15px; }
+        h3 { font-size: 20px; line-height: 1.4; }
+        p, li { font-size: 16px; margin-bottom: 12px; }
+        .learning-objective { background-color: #fff9e6; border-left: 4px solid #ffcc00; padding: 18px; margin: 18px 0; font-size: 16px; }
+        .didactic-box { background-color: #f0f8ff; border-left: 4px solid #0066cc; padding: 18px; margin: 18px 0; font-size: 16px; }
+        .procedure-box { background-color: #e8f5e9; border-left: 4px solid #4caf50; padding: 18px; margin: 18px 0; font-size: 16px; }
+        .important-note { background-color: #ffe6e6; border-left: 4px solid #cc0000; padding: 18px; margin: 18px 0; font-size: 16px; }
+        .key-concept { font-weight: bold; color: #0066cc; }
+        .data-table { background-color: #f5f5f5; padding: 15px; margin: 15px 0; border-radius: 5px; font-size: 16px; }
+        .formula-box { background-color: #f9f9f9; border: 2px solid #666; padding: 15px; margin: 15px 0; text-align: center; font-family: 'Courier New', monospace; font-size: 16px; }
+        img { max-width: 100%; height: auto; margin: 15px 0; }
+    </style>
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("ComparisonofPowervsWindcurvesofW");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Vergleich der Leistungs-Wind-Kennlinien</h1>
+        </div>
+        <div id="topic_header_nav">
+            <a href="ComparisonofcutinindifferentWind.html"><img src="img/arrow_left.png" alt="Zurück"/></a>
+            <a href="ObservationoftheNacelleYawoperat.html"><img src="img/arrow_right.png" alt="Weiter"/></a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Lernziele</h3>
+            <p>Nach Abschluss dieses Experiments werden Sie in der Lage sein:</p>
+            <ul>
+                <li>Die charakteristische Leistungskennlinie einer Windkraftanlage zu verstehen</li>
+                <li>Die Unterschiede in der Energieumwandlungseffizienz zwischen den Technologien zu identifizieren</li>
+                <li>Das Verhalten im Bereich unterhalb der Nennwindgeschwindigkeit zu analysieren</li>
+                <li>Normierte grafische Darstellungen zum Vergleich verschiedener Windkraftanlagen zu erstellen</li>
+                <li>Zu bewerten, welche Technologie den Wind unter verschiedenen Bedingungen am besten nutzt</li>
+            </ul>
+        </div>
+
+        <h2>Einleitung: Die Leistungskennlinie</h2>
+        
+        <div class="didactic-box">
+            <h3>📖 Grundkonzept: Leistungs-Wind-Kennlinie</h3>
+            <p>Die <span class="key-concept">Leistungskennlinie</span> ist eine grafische Darstellung, die den Zusammenhang zwischen der Windgeschwindigkeit und der von einer Windkraftanlage erzeugten elektrischen Leistung zeigt.</p>
+            <p>Diese Kurve ist der „Fingerabdruck" jeder Windkraftanlage und ist grundlegend für:</p>
+            <ul>
+                <li>Die Schätzung der jährlichen Energieproduktion</li>
+                <li>Den Vergleich der Leistung verschiedener Technologien</li>
+                <li>Die Optimierung des Designs entsprechend den Standortbedingungen</li>
+                <li>Die Bewertung der Investitionsrendite des Projekts</li>
+            </ul>
+        </div>
+
+        <h2>Eigenschaften der idealen Kennlinien</h2>
+        
+        <p>Die <span class="key-concept">idealen</span> Leistungs-Wind-Kennlinien für die verschiedenen Windkraftanlagen-Familien sind im Tutorial <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544265686176696F724472697665547261696E2E68746D6C65/">hier</a> detailliert beschrieben.</p>
+
+        <div class="important-note">
+            <h3>⚡ Hauptunterschied zwischen den Technologien</h3>
+            <p>Einer der Hauptunterschiede zwischen den Windkraftanlagen-Familien ist die <strong>Effektivität der Energieübertragung, wenn die Windgeschwindigkeit unter der Nennwindgeschwindigkeit liegt</strong>.</p>
+            <p>In diesem Betriebsbereich bestimmt die Fähigkeit, die Windenergie effizient zu extrahieren, weitgehend die jährliche Energieproduktion der Windkraftanlage.</p>
+        </div>
+
+        <h2>Charakteristische Bereiche der Leistungskennlinie</h2>
+        
+        <div class="didactic-box">
+            <h3>📊 Bereiche der Leistungskennlinie</h3>
+            <p>Eine typische Leistungskennlinie weist vier charakteristische Bereiche auf:</p>
+            <ol>
+                <li><strong>Bereich I - Unter dem Cut-in:</strong> Unzureichende Geschwindigkeit, Windkraftanlage steht (Leistung = 0)</li>
+                <li><strong>Bereich II - Zwischen Cut-in und Nennwindgeschwindigkeit:</strong> Ansteigende Leistung, Bereich maximaler Energienutzung</li>
+                <li><strong>Bereich III - Zwischen Nennwind- und Abschaltgeschwindigkeit:</strong> Konstante Leistung (Nennleistung)</li>
+                <li><strong>Bereich IV - Über der Abschaltgeschwindigkeit:</strong> Windkraftanlage aus Sicherheitsgründen abgeschaltet (Leistung = 0)</li>
+            </ol>
+        </div>
+
+        <h2>Ziel des Experiments</h2>
+        
+        <div class="learning-objective">
+            <h3>🔬 Experimentelles Ziel</h3>
+            <p>Das Ziel dieses Experiments ist die <strong>Erstellung vergleichender Diagramme</strong> der Leistungs-Wind-Kennlinien für die drei Hauptfamilien von Windkraftanlagen:</p>
+            <ul>
+                <li>DSAS (Direct Stall Active Stall)</li>
+                <li>RRC (Rotor Resistance Control)</li>
+                <li>DFIG (Doubly Fed Induction Generator)</li>
+            </ul>
+            <p>Die Analyse konzentriert sich besonders auf den <strong>Bereich II</strong>, in dem die größten Leistungsunterschiede zu beobachten sind.</p>
+        </div>
+
+        <h2>Methodik des Experiments</h2>
+
+        <div class="procedure-box">
+            <h3>📋 Datenvorbereitung</h3>
+            
+            <h4>Schritt 1: Simulatoren des vorherigen Experiments verwenden</h4>
+            <p>Nutzen Sie die Simulatoren, die Sie bereits im Experiment <a href="ComparisonofcutinindifferentWind.html">„Vergleich des Anlaufverhaltens verschiedener Windkraftanlagen-Familien"</a> konfiguriert haben.</p>
+            
+            <h4>Schritt 2: Datenstruktur erstellen</h4>
+            <p>Erstellen Sie eine Tabelle mit 4 Spalten:</p>
+            <div class="data-table">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="background-color: #ddd;">
+                        <th style="padding: 8px; border: 1px solid #999;">Windgeschwindigkeit (m/s)</th>
+                        <th style="padding: 8px; border: 1px solid #999;">Leistung DSAS (kW)</th>
+                        <th style="padding: 8px; border: 1px solid #999;">Leistung RRC (kW)</th>
+                        <th style="padding: 8px; border: 1px solid #999;">Leistung DFIG (kW)</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #999;">4</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #999;">5</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <h4>Schritt 3: Datenerfassung</h4>
+            <p>Für jede Windkraftanlage:</p>
+            <ol>
+                <li>Stellen Sie die Windgeschwindigkeit ein (beginnen Sie beim Cut-in bis über die Nennwindgeschwindigkeit hinaus)</li>
+                <li>Warten Sie, bis die Windkraftanlage einen stabilen Betrieb erreicht</li>
+                <li>Notieren Sie die im stationären Zustand erzeugte Leistung</li>
+                <li>Erhöhen Sie die Windgeschwindigkeit in regelmäßigen Schritten (empfohlen: 0,5 oder 1 m/s)</li>
+            </ol>
+        </div>
+
+        <h2>Normierung der Daten: Bezogene Werte (p.u.)</h2>
+        
+        <div class="important-note">
+            <h3>⚠️ Wichtiger Hinweis zum Vergleich</h3>
+            <p>Die drei Windkraftanlagen haben <strong>unterschiedliche Nennleistungen</strong>, was den direkten Vergleich erschwert. Daher ist es notwendig, die Daten mit bezogenen Werten „pro Einheit" (p.u.) zu <span class="key-concept">normieren</span>.</p>
+        </div>
+
+        <div class="didactic-box">
+            <h3>📐 Berechnung der bezogenen Werte</h3>
+            <p>Um die bezogenen Werte (p.u.) zu erhalten, teilen Sie jeden beobachteten Leistungswert durch die Nennleistung der entsprechenden Windkraftanlage:</p>
+            
+            <div class="formula-box">
+                <p><strong>Leistung (p.u.) = Gemessene Leistung (kW) / Nennleistung (kW)</strong></p>
+            </div>
+            
+            <p>Verwenden Sie folgende Nennleistungswerte:</p>
+            <ul>
+                <li><strong>DSAS:</strong> 1300 kW</li>
+                <li><strong>RRC:</strong> 660 kW</li>
+                <li><strong>DFIG:</strong> 1500 kW</li>
+            </ul>
+            
+            <h4>Berechnungsbeispiel:</h4>
+            <p>Wenn die DFIG-Windkraftanlage bei einer bestimmten Windgeschwindigkeit 750 kW erzeugt:</p>
+            <div class="formula-box">
+                Leistung (p.u.) = 750 kW / 1500 kW = 0,5 p.u.
+            </div>
+        </div>
+
+        <h2>Erstellung des Vergleichsdiagramms</h2>
+        
+        <div class="procedure-box">
+            <h3>📊 Diagrammerstellung</h3>
+            <ol>
+                <li><strong>Wandeln Sie alle Daten in p.u.-Werte um</strong> gemäß den obigen Formeln</li>
+                <li><strong>Erstellen Sie ein Diagramm mit:</strong>
+                    <ul>
+                        <li>X-Achse: Windgeschwindigkeit (m/s)</li>
+                        <li>Y-Achse: Normierte Leistung (p.u.)</li>
+                    </ul>
+                </li>
+                <li><strong>Stellen Sie die drei Kurven</strong> im selben Diagramm mit verschiedenen Farben oder Linienstilen dar</li>
+                <li><strong>Fügen Sie eine Legende hinzu</strong>, die jede Kurve identifiziert (DSAS, RRC, DFIG)</li>
+            </ol>
+        </div>
+
+        <h2>Erwartetes Ergebnis</h2>
+        
+        <p>Bei korrekter Durchführung des Experiments sollten Sie ein Diagramm erhalten, das dem folgenden ähnelt:</p>
+        
+        <div style="text-align: center; margin: 20px 0;">
+            <img alt="Vergleich der Produktion DSAS, RRC und DFIG" src="lib/Comparacion%20produccion%20DAS%20RRC%20y%20DFIG.jpg">
+            <p style="font-style: italic; font-size: 14px;">Abbildung 1: Normierte Leistungskennlinien der drei Windkraftanlagen-Familien</p>
+        </div>
+
+        <h2>Ergebnisanalyse</h2>
+        
+        <div class="learning-objective">
+            <h3>🔍 Fragen zur Analyse</h3>
+            <p>Analysieren Sie nach Erhalt der Kurven folgende Aspekte:</p>
+            
+            <h4>1. Vergleich im Bereich II (unter Nennwindgeschwindigkeit):</h4>
+            <ul>
+                <li>Welche Windkraftanlage hat die steilste Kurve? Was bedeutet das?</li>
+                <li>Welche erreicht zuerst 50% ihrer Nennleistung?</li>
+                <li>Welche Technologie nutzt schwache Winde am besten?</li>
+            </ul>
+            
+            <h4>2. Nennwindgeschwindigkeit:</h4>
+            <ul>
+                <li>Bei welcher Geschwindigkeit erreicht jede Windkraftanlage ihre Nennleistung?</li>
+                <li>Warum kann diese Geschwindigkeit zwischen den Technologien unterschiedlich sein?</li>
+                <li>Welche Vorteile hat es, die Nennleistung bei niedrigeren Windgeschwindigkeiten zu erreichen?</li>
+            </ul>
+            
+            <h4>3. Form der Kurven:</h4>
+            <ul>
+                <li>Welche Kurve ist am glattesten? Welche Auswirkungen hat das?</li>
+                <li>Beobachten Sie Unterschiede in den Übergängen zwischen den Bereichen?</li>
+                <li>Wie beeinflusst das Regelungssystem die Form der Kurve?</li>
+            </ul>
+            
+            <h4>4. Umwandlungseffizienz:</h4>
+            <ul>
+                <li>Welche Technologie hat die höchste Effizienz bei niedrigen Windgeschwindigkeiten?</li>
+                <li>Welche Technologie ist bei mittleren Windgeschwindigkeiten am effizientesten?</li>
+                <li>Wie würden Sie diese Unterschiede aus technischer Sicht erklären?</li>
+            </ul>
+        </div>
+
+        <div class="didactic-box">
+            <h3>💡 Physikalische Interpretation</h3>
+            <p>Die beobachteten Unterschiede in den Kurven sind grundsätzlich auf folgende Faktoren zurückzuführen:</p>
+            <ul>
+                <li><strong>Regelungssystem:</strong> Variables Pitch vs. festes Pitch vs. variable Drehzahlregelung</li>
+                <li><strong>Generatortyp:</strong> Käfigläufer, Schleifringläufer oder doppelt gespeist</li>
+                <li><strong>Drehzahlbereich:</strong> Feste Drehzahl vs. variable Drehzahl</li>
+                <li><strong>Regelungsstrategie:</strong> Aerodynamischer Strömungsabriss vs. aktive Regelung</li>
+            </ul>
+            <p>Jede Technologie stellt einen anderen Kompromiss zwischen Komplexität, Kosten und Leistung dar.</p>
+        </div>
+
+        <h2>Praktische Anwendung</h2>
+        
+        <div class="important-note">
+            <h3>🌍 Relevanz in realen Projekten</h3>
+            <p>Die Kenntnis dieser Kurven ist wesentlich für:</p>
+            <ul>
+                <li><strong>Auswahl der Windkraftanlagen:</strong> Wahl der am besten geeigneten Technologie entsprechend dem Windprofil des Standorts</li>
+                <li><strong>Produktionsschätzung:</strong> Berechnung der geschätzten Jahresenergie durch Kombination der Leistungskennlinie mit der statistischen Windverteilung</li>
+                <li><strong>Wirtschaftliche Analyse:</strong> Bewertung der Rentabilität unter Berücksichtigung der Investition vs. erwartete Produktion</li>
+                <li><strong>Parkoptimierung:</strong> Bestimmung des optimalen Technologie-Mix in einem Windpark</li>
+            </ul>
+        </div>
+
+        <h2>Schlussfolgerungen und Reflexionen</h2>
+        
+        <div class="learning-objective">
+            <h3>📝 Zusammenfassung der Schlüsselkonzepte</h3>
+            <ul>
+                <li>Die Leistungskennlinien charakterisieren die Leistung jeder Windkraftanlage</li>
+                <li>Die Normierung (p.u.-Werte) ermöglicht den Vergleich von Windkraftanlagen unterschiedlicher Größe</li>
+                <li>Der Bereich unter der Nennwindgeschwindigkeit ist entscheidend für die jährliche Energieproduktion</li>
+                <li>Jede Technologie hat Vorteile in unterschiedlichen Windgeschwindigkeitsbereichen</li>
+                <li>Die optimale Auswahl hängt von den spezifischen Standorteigenschaften ab</li>
+            </ul>
+        </div>
+
+        <h2>Ergänzende Materialien</h2>
+        
+        <div class="didactic-box">
+            <h3>📚 Zur Vertiefung</h3>
+            <p>Es wird empfohlen:</p>
+            <ul>
+                <li>Tutorials zum spezifischen Verhalten jeder Technologie unter verschiedenen Windbedingungen</li>
+                <li>Technische Dokumentation über Steuerungs- und Regelungssysteme</li>
+                <li>Fallstudien zur Auswahl von Windkraftanlagen in realen Projekten</li>
+                <li>Analyse von Windverteilungen (Weibull) und deren Zusammenhang mit Leistungskennlinien</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

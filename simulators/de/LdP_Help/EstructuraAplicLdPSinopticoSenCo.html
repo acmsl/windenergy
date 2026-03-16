@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Synoptisch für die Bearbeitung von Signalen und Verbindungen</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="señales y conexiones, analógicas, digitales, señales de entrada, señales de salida, señal de salida" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPSinopticoSenCo&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Synoptisch für die Bearbeitung von Signalen und Verbindungen</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">LdP Anwendungsstruktur</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Grundkonzepte</a>
+					›› <a href="EstructuraAplicLdPControlSimulac.html">Simulationssteuerung</a>
+					›› <a href="EstructuraAplicLdPSinopticoEjecu.html">Execution Control Synopt</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdPSinopticoEjecu.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraAplicLdPParametros.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPEdicionConex.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps2"><a name="_Toc283017681"></a><span class="rvts25">Synoptisch für Signalvisualisierung und Verbindungsbearbeitung</span></p>
+<p class="rvps5"><span class="rvts16">Wenn angezeigt, zeigt dieser Synoptisch die Liste "</span><span class="rvts19">Interne Verbindungen</span><span class="rvts16">." Siehe die folgende Figur, die einem bestimmten Simulator entspricht.</span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><img alt="" src="lib/Sinoptico Senales inicial.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Jede Zeile entspricht der Verbindung einer "</span><span class="rvts19">Ausgangssignal</span><span class="rvts16">"Mit einem "</span><span class="rvts19">Eingangssignal</span><span class="rvts16">." Jene mit rotem Hintergrund entsprechen analogen Signalen, und diejenigen mit grauem Hintergrund entsprechen digitalen Signalen.</span></p>
+<p class="rvps5"><span class="rvts16">Die Nomenklatur der Namen entspricht den Begriffen "Komponente", gefolgt von "Prozess" innerhalb dieser Komponente, gefolgt von dem eigentlichen Namen des Signals. "Parameter" ist ähnlich wie "Komponente".</span></p>
+<p class="rvps2"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Das Klicken auf den Spaltenkopf ("Output" oder "Input") zeigt den gleichen Inhalt, aber alphabetisch sortiert. Die folgende Abbildung zeigt den gleichen Inhalt, aber nach der Spalte "Output" sortiert.</span></p>
+<p class="rvps5"><img alt="" src="lib/Sinoptico senales ordenado por Salida.jpg" style="padding : 1px;"/></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Eine Spalte kann durch "dragging" vor einer anderen platziert werden. Zum Beispiel entspricht die folgende Abbildung dem gleichen Inhalt wie der vorherige, aber wo wir die Spalte "Eingabe" zuerst gesetzt haben (von der linken Seite aus gesehen). (Linksklicken Sie auf den Header der Spalte "Output" und ziehen Sie ihn ohne die Schaltfläche links in die Spalte "Eingabe" ein.</span></p>
+<p class="rvps5"><img alt="" src="lib/Sinoptico senales entrada primero.jpg" style="padding : 1px;"/></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16">Ein "Ausgangssignal" kann mit mehreren "Eingangssignalen" verbunden werden: dies wird am besten mit einer Baumansicht gesehen. Der Inhalt kann auch als eine Reihe von Bäumen, ein pro Signal, dargestellt werden, indem man folgendes tut:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Klicken Sie mit der rechten Maustaste auf eine der Spaltenüberschriften. Über ihnen erscheint ein Raum, wie in der folgenden Figur gezeigt.</span></p>
+<p class="rvps5"><img alt="" src="lib/Sinoptico senales detalle treeview 1.jpg" style="padding : 1px;"/></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Wählen und ziehen Sie den Spaltenkopf, der als Wurzel des Baumes fungiert. Sie erhalten ein Display ähnlich dem in der Figur.</span></p>
+<p class="rvps5"><img alt="" src="lib/Sinoptico senales treeview expandido.jpg" style="padding : 1px;"/></p>
+<p class="rvps5"><span class="rvts16">In diesem Beispiel haben wir den Baum entsprechend dem Ausgangssignal "Controller erweitert. Kontrolle. PitchOut", die mit "SynopticWindNacelle.PitchControllerIn" und auch mit "SynopticDriveTrain.PitchIn" verbunden ist.</span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts25">Zusätzliche Registerkarten</span></p>
+<p class="rvps5"><span class="rvts16">Die zusätzlichen Registerkarten in diesem Synoptic ermöglichen es Ihnen, auf die Liste aller Signale zuzugreifen, sowohl Eingang als auch Ausgang.</span></p>
+<p class="rvps5"><img alt="" src="lib/Sinoptico senales salidas.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><img alt="" src="lib/Sinoptico senales senales entrada.jpg" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts25"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>About the wind</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Weibull, horas por a&ntilde;o, viento nominal">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;RequerimientosdelTrendePotencia&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">About wind</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Physical principles</a>
+					›› <a href="WindTurbineControlcriteria.html">Wind turbine design and control criteria</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="WindTurbineControlcriteria.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="WindTurbineControlcriteria.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="RequirementsimposedbytheDriveTra.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Definition of wind</span></span></h1>
+<p class="rvps4"><span class="rvts6">The wind regime of a location is described as a statistical function called &quot;</span><span class="rvts29">Weibull</span><span class="rvts6">.&quot; The following figure shows on the y-axis the percentage of time (in </span><span class="rvts17">hours per year</span><span class="rvts6">) that the wind is in the range indicated on the x-axis.</span></p>
+<p class="rvps15"><img alt="" style="padding : 1px;" src="lib/Distribucion%20Weibull%20castellano.png"></p>
+<p class="rvps4"><span class="rvts6">At the site corresponding to the distribution in the figure above, the most probable wind speed is between 4 and 6 m/s.</span></p>
+<p class="rvps4"><span class="rvts6">The </span><span class="rvts29">Weibull </span><span class="rvts6">distribution has two characteristic parameters: the &quot;</span><span class="rvts17">average wind</span><span class="rvts6">&quot; and the &quot;</span><span class="rvts17">highest expected wind</span><span class="rvts6">.&quot; </span></p>
+<p class="rvps4"><span class="rvts6">However, as we are interested in the power that can be extracted from the wind, it is more interesting to consider the distribution of the power associated with the wind, for which we must apply the formula described in  </span><a class="rvts18" href="Porqugiranlaspalas.html">Concepts on extractable wind power</a><span class="rvts6">.</span></p>
+<p class="rvps15"><span class="rvts29">WindPower = K * AirDensity * BladeSweptArea * Wind</span><span class="rvts77">3 </span><span class="rvts28">  </span></p>
+<p class="rvps4"><span class="rvts6">Where </span><span class="rvts17">K</span><span class="rvts6"> is a constant. If we apply this formula to the previous graph to obtain the power distribution as a function of wind, we get the following figure. The x-axis continues to refer to wind speed (m/s) and the y-axis to power.</span></p>
+<p class="rvps15"><img alt="" style="padding : 1px;" src="lib/Distribucion%20Potencia%20Viento.png"></p>
+<p class="rvps4"><span class="rvts6">We can see that, in this particular case, although the wind speed that has the most hours per year is between 4 and 6 m/s, there is a </span><span class="rvts37">higher production speed</span><span class="rvts6">, around 10 m/s, so this value becomes the &quot;</span><span class="rvts29">Nominal</span><span class="rvts6"> Wind.&quot;</span></p>
+<p class="rvps2"><span class="rvts6">The second condition defines the characteristics of the electric generator to be used in the wind turbine, and all the associated power electronics (if any). This value is the &quot;Nominal Power.&quot;</span></p>
+<p class="rvps2"><span class="rvts6">The length of the blades must be such that at the nominal wind speed we have the Nominal Power. This condition has an important consequence: for winds higher than the nominal wind, the power that can be extracted from the wind is greater than the nominal power of the electric generator. This very important aspect is presented in the following paragraph:</span> <a class="rvts18" href="RequirementsimposedbytheDriveTra.html">Power Train Requirements.</a><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

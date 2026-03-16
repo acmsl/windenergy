@@ -1,0 +1,521 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Corsi pratici - Tabella dei contenuti</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="DSASExercises-es split" name="generator"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/silver-theme/jquery-ui-1.8.12.custom.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/dynatree/folder/ui.dynatree.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="css/toc.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#tabs .ui-widget-header {
+			background-color: #EFEFEF;
+		}
+		body { font-size: 15px; }
+		#tabs { font-size: 15px; }
+		.ui-tabs-nav li { font-size: 15px; }
+		#tab-toc a, #tab-keywords a {
+			font-size: 15px !important;
+			white-space: normal !important;
+			word-wrap: break-word !important;
+			line-height: 1.4 !important;
+		}
+		.dynatree-container a {
+			padding: 4px 3px !important;
+			display: inline-block !important;
+			max-width: 95% !important;
+		}
+		.dynatree-title {
+			white-space: normal !important;
+			word-wrap: break-word !important;
+		}
+		ul.dynatree-container li {
+			margin-bottom: 3px !important;
+		}
+		#popupMenu {
+			position: absolute;
+			background: #fff;
+			border: 1px solid #999;
+			padding: 5px;
+			z-index: 1000;
+			box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+			min-width: 200px;
+			max-width: 350px;
+		}
+		#popupMenu a {
+			display: block;
+			padding: 4px 8px;
+			text-decoration: none;
+			color: #333;
+			font-size: 13px;
+		}
+		#popupMenu a:hover {
+			background-color: #e0e0e0;
+		}
+		#popupMenu .close-button {
+			float: right;
+			cursor: pointer;
+			color: #999;
+			font-weight: bold;
+			padding: 2px 5px;
+		}
+		#search_value {
+			width: 70%;
+			padding: 4px;
+			margin: 5px 0;
+		}
+		#tab-search input[type="submit"] {
+			padding: 4px 12px;
+			cursor: pointer;
+		}
+		#search_results {
+			margin-top: 10px;
+		}
+		#search_results a {
+			display: block;
+			padding: 4px 2px;
+			text-decoration: none;
+			color: #333;
+			font-size: 14px;
+		}
+		#search_results a:hover {
+			background-color: #e8e8e8;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.8.17.custom.min.js" type="text/javascript"></script>
+<script src="js/jquery.cookie.js" type="text/javascript"></script>
+<script src="js/jquery.dynatree.min.js" type="text/javascript"></script>
+<script src="js/hndjsse.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+		window.bSearchDataLoaded = false;
+		var sHelpIdToActivate = '';
+
+		$(document).ready(function() {
+			// If the TOC is opened standalone (not inside the frameset), redirect to the
+			// main entry point so the TOC stays visible while navigating topics.
+			if (top.frames.length == 0) {
+				var sDefaultTopic = "ClasesPracticas.html";
+				var sHash = window.location.hash || "";
+				window.location.href = "DSASExercises.html?" + sDefaultTopic + sHash;
+				return;
+			}
+
+			var sAnchorName = '';
+			try { sAnchorName = top.location.href.substring(top.location.href.lastIndexOf("#") + 1, top.location.href.length); }
+			catch(err) { sAnchorName = ''; }
+			var nSelectedTab = 0;
+			if (sAnchorName == '_index') nSelectedTab = 1;
+			else if (sAnchorName == '_search') nSelectedTab = 2;
+			$("#tabs").tabs({
+				selected: nSelectedTab,
+				select: function(event, ui) { HideKwPopup(); }
+			});
+
+			// Toc
+			if ($("#tab-toc").length) {
+				$("#tab-toc").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/folder/',
+					onActivate: function(node) {
+						if ($("#tab-keywords").length && $("#tab-keywords").dynatree && $("#tab-keywords").dynatree("getTree") && $("#tab-keywords").dynatree("getTree").activateKey)
+							$("#tab-keywords").dynatree("getTree").activateKey(null);
+						if (node.data.href && node.data.href != '#') {
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+				$("#tab-toc").dynatree("getRoot").visit(function(node) {
+					node.expand(true);
+				});
+				if (sHelpIdToActivate != '') $("#tab-toc").dynatree("getTree").activateKey(sHelpIdToActivate);
+			}
+
+			// Keywords
+			if ($("#tab-keywords").length) {
+				$("#tab-keywords").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/folder/',
+					onClick: function(node, event) {
+						HideKwPopup();
+						if (node.data && node.data.click) {
+							var aRefList = null;
+							eval('aRefList=' + node.data.click);
+							if (ShowKwPopup(node.li, aRefList)) {
+								if ($("#tab-toc") && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").activateKey)
+									$("#tab-toc").dynatree("getTree").activateKey(null);
+								if (node.data.href && node.data.href != '#') {
+									window.open(node.data.href, node.data.target);
+								}
+							}
+						}
+					}
+				});
+				$("#tab-keywords").dynatree("getRoot").visit(function(node) {
+					node.expand(true);
+				});
+			}
+
+			// Load search data
+			(function() {
+				var se = document.createElement('script'); se.type = 'text/javascript'; se.async = true;
+				se.src = 'js/hndsd.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(se, s);
+			})();
+		});
+
+		$('body').click(function() {
+			HideKwPopup();
+		});
+
+		function SelectTocItem(sHelpId) {
+			if ($("#tab-toc").length && $("#tab-toc").dynatree && $("#tab-toc").dynatree("getTree") && $("#tab-toc").dynatree("getTree").getNodeByKey) {
+				var aNode = $("#tab-toc").dynatree("getTree").getNodeByKey(sHelpId);
+				if (aNode) { aNode.activateSilently(); }
+			} else {
+				sHelpIdToActivate = sHelpId;
+			}
+		}
+
+		function HideKwPopup() {
+			if ($("#popupMenu")) $("#popupMenu").remove();
+		}
+
+		var oTopicTitleByHref = null;
+		function GetTopicTitleByHref(sHref) {
+			if (!sHref) return '';
+			if (!oTopicTitleByHref) {
+				oTopicTitleByHref = {};
+				// Use the (translated) TOC titles as the source of truth.
+				try {
+					$("#tab-toc a[target='FrameMain']").each(function() {
+						var href = $(this).attr('href');
+						if (!href) return;
+						if (oTopicTitleByHref[href]) return;
+						var title = $(this).text();
+						if (title) oTopicTitleByHref[href] = $.trim(title);
+					});
+				} catch (e) {
+					// Ignore and fall back to provided captions.
+				}
+			}
+			if (oTopicTitleByHref[sHref]) return oTopicTitleByHref[sHref];
+			var sHrefNoQuery = sHref.split('?')[0];
+			if (oTopicTitleByHref[sHrefNoQuery]) return oTopicTitleByHref[sHrefNoQuery];
+			return '';
+		}
+
+		function ShowKwPopup(oSender, aLinks) {
+			HideKwPopup();
+			if (!aLinks || !aLinks.length || aLinks.length == 0) return false;
+			else if (aLinks.length == 1) return true;
+			else {
+				var oParentDiv = document.createElement("DIV");
+				oParentDiv.id = "popupMenu";
+				var oLink = null;
+				// Close button
+				oLink = document.createElement("SPAN");
+				oLink.className = "close-button";
+				oLink.innerHTML = "X";
+				oLink.href = "#";
+				oLink.onclick = HideKwPopup;
+				oParentDiv.appendChild(oLink);
+				// Items
+				for (var nCnt = 0; nCnt < aLinks.length; nCnt++) {
+					oLink = document.createElement("A");
+					var sHref = aLinks[nCnt][1];
+					var sTitle = GetTopicTitleByHref(sHref);
+					oLink.innerHTML = (sTitle && sTitle.length) ? sTitle : aLinks[nCnt][0];
+					oLink.href = aLinks[nCnt][1];
+					oLink.target = "FrameMain";
+					oLink.onclick = HideKwPopup;
+					oParentDiv.appendChild(oLink);
+				}
+				document.body.appendChild(oParentDiv);
+				var pos = $(oSender).offset();
+				var height = $(oSender).height();
+				$(oParentDiv).css({
+					"left": (pos.left + 20) + "px",
+					"top": (pos.top + height + 5) + "px"
+				});
+				$(oParentDiv).show();
+				return false;
+			}
+		}
+
+		function PerformSearch() {
+			if (!window.bSearchDataLoaded) {
+				$("#search_results").html("Search data hasn't finished loading yet.");
+				return;
+			}
+			var sValue = $("#search_value").val();
+			$("#search_results").html('Searching...');
+			var oSearchEngine = new HndJsSe;
+			oSearchEngine.ParseInput(sValue);
+			oSearchEngine.PerformSearch();
+			if (!oSearchEngine.aResults || !oSearchEngine.aResults.length) {
+				$("#search_results").html('No results found.');
+			} else {
+				$("#search_results").html('<div id="search_results_content"></div>');
+				var oUl = $("#search_results_content").append("<ul id=\'lr\'></ul>").find("ul");
+				for (var nCnt = 0; nCnt < oSearchEngine.aResults.length; nCnt++) {
+					if (oSearchEngine.aResults[nCnt][0] < aTl.length) {
+						oUl.append("<li><a href='" + aTl[oSearchEngine.aResults[nCnt][0]][0] + "?search=" + escape(sValue) + "' target='FrameMain'>" + unescape(aTl[oSearchEngine.aResults[nCnt][0]][1]) + "</a></li>");
+					}
+				}
+				// Tree
+				$("#search_results_content").dynatree({
+					clickFolderMode: 1,
+					debugLevel: 0,
+					imagePath: 'css/dynatree/folder/',
+					onActivate: function(node) {
+						if ($("#search_results_content") && $("#search_results_content").dynatree && $("#search_results_content").dynatree("getTree") && $("#search_results_content").dynatree("getTree").activateKey)
+							$("#search_results_content").dynatree("getTree").activateKey(null);
+						if (node.data.href && node.data.href != '#') {
+							window.open(node.data.href, node.data.target);
+						}
+					}
+				});
+			}
+		}
+	</script>
+</head>
+<body>
+<div id="tabs">
+<ul>
+<li><a href="#tab-toc">Esercizi</a></li>
+<li><a href="#tab-keywords">Indice</a></li>
+<li><a href="#tab-search">Ricerca</a></li>
+</ul>
+<div id="tab-toc">
+<ul class="" id="toc">
+<li class="folder" data="" id="ClasesPracticas">
+<a href="ClasesPracticas.html" target="FrameMain">Corsi pratici</a>
+<ul>
+<li class="" data="icon: '16.png'" id="CutinVientoBajo">
+<a href="CutinVientoBajo.html" target="FrameMain">Impostare le condizioni per l'ingresso in produzione con vento basso</a>
+</li>
+<li class="" data="icon: '16.png'" id="Cambiode1000a1500">
+<a href="Cambiode1000a1500.html" target="FrameMain">Mentre in produzione, modificare il vento per cambiare il collegamento del generatore da piccolo a grande</a>
+</li>
+<li class="" data="icon: '16.png'" id="Cambiode1500a1000">
+<a href="Cambiode1500a1000.html" target="FrameMain">Mentre in produzione, modificare il vento per cambiare la connessione da grande generatore a piccolo generatore</a>
+</li>
+<li class="" data="icon: '16.png'" id="Cutout">
+<a href="Cutout.html" target="FrameMain">Osservazione della reazione al comando "STOP"</a>
+</li>
+<li class="" data="icon: '16.png'" id="PorqueLasPalasGiran">
+<a href="PorqueLasPalasGiran.html" target="FrameMain">Spiegazione delle condizioni che causano la rotazione delle lame</a>
+</li>
+<li class="folder" data="" id="MaquinasDeEstado">
+<a href="MaquinasDeEstado.html" target="FrameMain">Monitoraggio dell'evoluzione del controller (macchine di stato) in varie condizioni</a>
+<ul>
+<li class="" data="icon: '16.png'" id="MEstadoCutin">
+<a href="MEstadoCutin.html" target="FrameMain">Durante il processo di connessione (Cutin)</a>
+</li>
+<li class="" data="icon: '16.png'" id="MEstadoCutout">
+<a href="MEstadoCutout.html" target="FrameMain">Durante il processo di disconnessione (Cutout)</a>
+</li>
+<li class="" data="icon: '16.png'" id="MEstadoCambio1000a1500">
+<a href="MEstadoCambio1000a1500.html" target="FrameMain">Durante i processi di cambiamento di connessione del generatore (piccolo a grande e viceversa)</a>
+</li>
+</ul></li>
+<li class="folder" data="icon: '16.png'" id="CambioDireccionViento">
+<a href="CambioDireccionViento.html" target="FrameMain">Effetti dei cambiamenti nella direzione del vento</a>
+<ul>
+<li class="" data="icon: '16.png'" id="OrientacionManual">
+<a href="OrientacionManual.html" target="FrameMain">orientamento manuale</a>
+</li>
+<li class="" data="icon: '16.png'" id="OrientacionAutomatica">
+<a href="OrientacionAutomatica.html" target="FrameMain">Orientamento automatico</a>
+</li>
+<li class="" data="icon: '16.png'" id="DesenrrolleCables">
+<a href="DesenrrolleCables.html" target="FrameMain">Svolgimento dei cavi di alimentazione</a>
+</li>
+</ul></li>
+<li class="" data="icon: '16.png'" id="AnalisisFasesCutin">
+<a href="AnalisisFasesCutin.html" target="FrameMain">Analisi dettagliata delle fasi di connessione alla griglia (Cutin)</a>
+</li>
+<li class="" data="icon: '16.png'" id="AnalisisCambiosGeneradores">
+<a href="AnalisisCambiosGeneradores.html" target="FrameMain">Analisi dettagliata del meccanismo di cambio di velocità (piccolo/grande cambiamento del generatore)</a>
+</li>
+<li class="" data="icon: '16.png'" id="FalloFaseRed">
+<a href="FalloFaseRed.html" target="FrameMain">Osservazione della reazione a un fallimento in una delle fasi di rete</a>
+</li>
+<li class="folder" data="" id="ComportamientoVientosFuertes">
+<a href="ComportamientoVientosFuertes.html" target="FrameMain">Comportamento in venti molto forti</a>
+<ul>
+<li class="" data="icon: '16.png'" id="ObservacionProtocolosVientosFuer">
+<a href="ObservacionProtocolosVientosFuer.html" target="FrameMain">Osservazione del comportamento in venti molto forti: diversi casi</a>
+</li>
+</ul></li>
+<li class="" data="icon: '16.png'" id="InfluenciaMomentoInercia">
+<a href="InfluenciaMomentoInercia.html" target="FrameMain">Influenza del momento dell'inerzia sull'evoluzione del treno di potenza rpm</a>
+</li>
+<li class="folder" data="icon: '16.png'" id="ObservacionCircuitoHidraulico">
+<a href="ObservacionCircuitoHidraulico.html" target="FrameMain">Monitoraggio del circuito frenante idraulico</a>
+<ul>
+<li class="" data="icon: '16.png'" id="Observaciondeunfalloexcesivodepe">
+<a href="Observaciondeunfalloexcesivodepe.html" target="FrameMain">Osservazione del funzionamento normale</a>
+</li>
+<li class="" data="icon: '16.png'" id="ObservacionPerdidasCircuitoHidra">
+<a href="ObservacionPerdidasCircuitoHidra.html" target="FrameMain">Osservazione dell'eccessiva mancanza di pressione nel circuito</a>
+</li>
+<li class="" data="icon: '16.png'" id="ObservacionBombaConFallo">
+<a href="ObservacionBombaConFallo.html" target="FrameMain">Osservazione dell'effetto di una pompa malfunzionante</a>
+</li>
+<li class="" data="icon: '16.png'" id="ObservacionValvualConFallo">
+<a href="ObservacionValvualConFallo.html" target="FrameMain">Osservazione dell'effetto di una valvola di scarico malfunzionante</a>
+</li>
+</ul></li>
+<li class="" data="icon: '16.png'" id="Monitorizaciondelcircuitohidruli">
+<a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">Osservazione dei rilevatori di temperatura</a>
+</li>
+</ul></li>
+</ul>
+</div>
+<div id="tab-keywords">
+<ul id="keywords">
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">aperto</a></li>
+<li class="file" data="click:'[[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\']]'"><a href="MEstadoCambio1000a1500.html" target="FrameMain">aperto</a></li>
+<li class="file" data="click:'[[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="ComportamientoVientosFuertes.html" target="FrameMain">assoluto</a></li>
+<li class="file" data="click:'[[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="ComportamientoVientosFuertes.html" target="FrameMain">azione</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">accelerazione</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">attivo</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">attivazione</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">attivo</a></li>
+<li class="file" data="click:'[[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="Cutout.html" target="FrameMain">performance</a></li>
+<li class="file" data="click:'[[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="ObservacionBombaConFallo.html" target="FrameMain">attuatori</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">turbina eolica</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">turbine eoliche</a></li>
+<li class="file" data="click:'[[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="InfluenciaMomentoInercia.html" target="FrameMain">effetti</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">allarme</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">allarmi</a></li>
+<li class="file" data="icon: '16.png'"><a href="DesenrrolleCables.html" target="FrameMain">algoritmi</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">Alcuni</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">Alcuni</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">allineamento</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">intorno</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">studente</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">giallo</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">analisi</a></li>
+<li class="file" data="click:'[[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="InfluenciaMomentoInercia.html" target="FrameMain">analizzare</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">precedente</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">analisi</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">appare</a></li>
+<li class="file" data="click:'[[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="FalloFaseRed.html" target="FrameMain">apparirà</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">circa</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">ca.</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">armadio armadio armadio</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">inizio</a></li>
+<li class="file" data="icon: '16.png'"><a href="OrientacionAutomatica.html" target="FrameMain">automatico</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">automaticamente</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">automatico</a></li>
+<li class="file" data="icon: '16.png'"><a href="ObservacionProtocolosVientosFuer.html" target="FrameMain">automatico</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">pompa</a></li>
+<li class="file" data="click:'[[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\']]'"><a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">pompe</a></li>
+<li class="file" data="icon: '16.png'"><a href="DesenrrolleCables.html" target="FrameMain">cablaggio</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">cavi</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">circuito</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">connessioni</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">connessione</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">contattore</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">contatti</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">controller</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">taglio</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">taglio</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="Cambiode1500a1000.html" target="FrameMain">disconnessione</a></li>
+<li class="file" data="icon: '16.png'"><a href="DesenrrolleCables.html" target="FrameMain">rilassamento</a></li>
+<li class="file" data="click:'[[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\']]'"><a href="ComportamientoVientosFuertes.html" target="FrameMain">rilassati</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">elettrico</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">elettrico elettrico</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">elettrico</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">elettrico elettrico</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">errore</a></li>
+<li class="file" data="icon: '16.png'"><a href="ClasesPracticas.html" target="FrameMain">errori</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">Stati</a></li>
+<li class="file" data="click:'[[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="FalloFaseRed.html" target="FrameMain">guasto</a></li>
+<li class="file" data="icon: '16.png'"><a href="ClasesPracticas.html" target="FrameMain">difetti</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">fase</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">fasi</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">freno</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">freni</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">generatore</a></li>
+<li class="file" data="icon: '16.png'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">generatori</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">Gondola</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">idraulico</a></li>
+<li class="file" data="icon: '16.png'"><a href="InfluenciaMomentoInercia.html" target="FrameMain">inerzia</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">manuale</a></li>
+<li class="file" data="icon: '16.png'"><a href="OrientacionManual.html" target="FrameMain">manuale</a></li>
+<li class="file" data="click:'[[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\']]'"><a href="Cutout.html" target="FrameMain">manualmente manualmente</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">momento</a></li>
+<li class="file" data="icon: '16.png'"><a href="AnalisisFasesCutin.html" target="FrameMain">momenti</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">monitor</a></li>
+<li class="file" data="click:'[[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">monitoraggio</a></li>
+<li class="file" data="icon: '16.png'"><a href="ObservacionProtocolosVientosFuer.html" target="FrameMain">monitoraggio</a></li>
+<li class="file" data="icon: '16.png'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">moltiplicatore</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">macchina</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Seguimiento de las evoluciones del Controlador (Maquinas de Estado) en varias condiciones\',\'MaquinasDeEstado.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">macchine</a></li>
+<li class="file" data="click:'[[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\']]'"><a href="InfluenciaMomentoInercia.html" target="FrameMain">#</a></li>
+<li class="file" data="click:'[[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\']]'"><a href="ObservacionBombaConFallo.html" target="FrameMain">nacellebrake</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">nacelleyawing</a></li>
+<li class="file" data="click:'[[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="CambioDireccionViento.html" target="FrameMain">orientamento</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">lama</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">lame</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">pannello</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">Fermati.</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">pitch</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Efectos del cambio en la dirección del viento\',\'CambioDireccionViento.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Orientación manual\',\'OrientacionManual.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">potenza</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">pressione</a></li>
+<li class="file" data="click:'[[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="ClasesPracticas.html" target="FrameMain">protezione</a></li>
+<li class="file" data="click:'[[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="ComportamientoVientosFuertes.html" target="FrameMain">riduzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="Cambiode1500a1000.html" target="FrameMain">riduzione</a></li>
+<li class="file" data="click:'[[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="ObservacionProtocolosVientosFuer.html" target="FrameMain">riduzione</a></li>
+<li class="file" data="icon: '16.png'"><a href="CutinVientoBajo.html" target="FrameMain">registrazione</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">rotore</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'En el proceso de conexión (Cutin)\',\'MEstadoCutin.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">r</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">sicurezza</a></li>
+<li class="file" data="icon: '16.png'"><a href="ObservacionCircuitoHidraulico.html" target="FrameMain">sensore sensore sensore</a></li>
+<li class="file" data="click:'[[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\']]'"><a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">sensori</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">simulatore</a></li>
+<li class="file" data="icon: '16.png'"><a href="ClasesPracticas.html" target="FrameMain">simulatori</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Observación de la reaccion a un fallo en una de las fases de la Red\',\'FalloFaseRed.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Observación del efecto de una bomba con funcionamiento no correcto\',\'ObservacionBombaConFallo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\'],[\'Observación del funcionamiento normal\',\'Observaciondeunfalloexcesivodepe.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">sinottico</a></li>
+<li class="file" data="icon: '16.png'"><a href="CutinVientoBajo.html" target="FrameMain">sinottici</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">inizio</a></li>
+<li class="file" data="click:'[[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\']]'"><a href="Cambiode1000a1500.html" target="FrameMain">starter</a></li>
+<li class="file" data="icon: '16.png'"><a href="ObservacionPerdidasCircuitoHidra.html" target="FrameMain">inizio</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'En el proceso de desconexión (Cutout)\',\'MEstadoCutout.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación automatica\',\'OrientacionAutomatica.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">Fermati.</a></li>
+<li class="file" data="icon: '16.png'"><a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">temperatura</a></li>
+<li class="file" data="icon: '16.png'"><a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">temperature</a></li>
+<li class="file" data="click:'[[\'Analisis detallado de las fases de la conexión a la red (Cutin)\',\'AnalisisFasesCutin.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="AnalisisFasesCutin.html" target="FrameMain">treno</a></li>
+<li class="file" data="click:'[[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="Cutout.html" target="FrameMain">turbina</a></li>
+<li class="file" data="click:'[[\'Analisis detallado del mecanismo de cambio de velocidad (cambio Generador Pequeño a/de Grande)\',\'AnalisisCambiosGeneradores.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Pequeño a Grande\',\'Cambiode1000a1500.html\'],[\'Estando en producción, modificacion del viento para cambiar la conexión del Generador de Grande a Pequeño\',\'Cambiode1500a1000.html\'],[\'Clases prácticas\',\'ClasesPracticas.html\'],[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Observación de la reaccion al comando &amp;quot;STOP&amp;quot;\',\'Cutout.html\'],[\'Influencia del momento de inercia en la evolución de las rpms del Tren de Potencia\',\'InfluenciaMomentoInercia.html\'],[\'Durante los procesos de cambio de conexión del Generador (Pequeño a Grande y viceversa)\',\'MEstadoCambio1000a1500.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\'],[\'Orientación manual\',\'OrientacionManual.html\'],[\'Explicación de las condiciones que hacen girar las palas\',\'PorqueLasPalasGiran.html\']]'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">velocità</a></li>
+<li class="file" data="icon: '16.png'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">velocità</a></li>
+<li class="file" data="icon: '16.png'"><a href="AnalisisCambiosGeneradores.html" target="FrameMain">Sincronismo</a></li>
+<li class="file" data="click:'[[\'Comportamiento frente a vientos muy fuertes\',\'ComportamientoVientosFuertes.html\'],[\'Observación del comportamiento con vientos muy fuertes: varios casos\',\'ObservacionProtocolosVientosFuer.html\']]'"><a href="ComportamientoVientosFuertes.html" target="FrameMain">vento</a></li>
+<li class="file" data="click:'[[\'Poner las condiciones para que se produzca la entrada en Producción con viento bajo\',\'CutinVientoBajo.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="CutinVientoBajo.html" target="FrameMain">valvola valvola valvola</a></li>
+<li class="file" data="click:'[[\'Observación de los detectores de temperaturas\',\'Monitorizaciondelcircuitohidruli.html\'],[\'Monitorización del circuito hidráulico de Frenos\',\'ObservacionCircuitoHidraulico.html\'],[\'Observación de un fallo excesivo de perdida de presión en el circuito\',\'ObservacionPerdidasCircuitoHidra.html\'],[\'Observación del efecto de una válvula de descarga que no funciona\',\'ObservacionValvualConFallo.html\']]'"><a href="Monitorizaciondelcircuitohidruli.html" target="FrameMain">valvole</a></li>
+<li class="file" data="click:'[[\'Desenrolle de cables de potencia\',\'DesenrrolleCables.html\'],[\'Orientación manual\',\'OrientacionManual.html\']]'"><a href="DesenrrolleCables.html" target="FrameMain">sbilanciamento</a></li>
+</ul>
+</div>
+<div id="tab-search">
+<form onsubmit="PerformSearch(); return false;">
+<label for="search_value">Ricerca:</label>
+<input id="search_value" name="search_value"/>
+<input type="submit" value="Search"/>
+</form>
+<div id="search_results"></div>
+</div>
+</div>
+</body>
+</html>

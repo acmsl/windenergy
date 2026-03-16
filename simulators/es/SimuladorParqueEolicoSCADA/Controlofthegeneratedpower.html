@@ -1,0 +1,114 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Sobre el control de la potencia generada</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="activa, Potencia activa, produccion, Potencia reactiva, consigna, control de la producci&oacute;n, reactiva">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Controlofthegeneratedpower");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Sobre el control de la potencia generada</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; <a href="WhatisaWindFarm.html">&iquest;Qu&eacute; es un Parque E&oacute;lico?</a> &rsaquo;&rsaquo; <a href="StrucutureandFunctionalitiesofaW.html">Estructura y Funcionalidades de un Parque E&oacute;lico</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StrucutureandFunctionalitiesofaW.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Ambienttemperature.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="IntegracionconlaRedElectrica.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">La potencia total generada por el Parque debe mantenerse siempre dentro de la </span><span class="rvts44">consigna exterior</span><span class="rvts16"> marcada por el TSO (operador del sistema de transporte.) Esta consigna es un valor que </span><span class="rvts32">entra</span><span class="rvts16"> al SCADA. Generalmente, la producción de energía de origen eólico tiene prioridad sobre otras fuentes, pero no siempre es así. En </span><a class="rvts31" href="IntegracionconlaRedElectrica.html">Control de la Potencia Activa entregada</a><span class="rvts16"> se describen diferentes protocolos para realizar dicho seguimiento.</span></p>
+<p class="rvps2"><span class="rvts16">El </span><span class="rvts32">control de la producción</span><span class="rvts16"> depende del tipo de aerogeneradores del parque. Si estos son de velocidad fija, y o de los que utilizan el método de control de entrada en pérdidas aerodinámicas (</span><span class="rvts32">Active Stall</span><span class="rvts16">), el único método de control consiste en poner en marcha o parar cada uno de los aerogeneradores. En este caso la </span><span class="rvts32">granularidad del control</span><span class="rvts16"> corresponde con la potencia de uno de estos aerogeneradores.</span></p>
+<p class="rvps2"><span class="rvts16">En aerogeneradores más modernos, como los tipos doblemente alimentados (DFIG), o con control por resistencia de rotor, o con convertidor de potencia completo (</span><span class="rvts32">full converter</span><span class="rvts16">), es posible controlar la potencia máxima producida por cada aerogenerador, de forma independiente. En estos casos la granularidad del control es mucho más fina.</span></p>
+<p class="rvps2"><span class="rvts16">El control de la producción tanto de </span><span class="rvts32">potencia activa</span><span class="rvts16"> como de </span><span class="rvts32">reactiva</span><span class="rvts16"> es un requerimiento para poder considerar a la energía de origen eólico como una más dentro del mix energético (ver </span><a class="rvts31" href="IntegrationofaWindFarmintheGrid.html">Integración de un Parque Eólico en la Red Eléctrica.</a><span class="rvts16">)</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

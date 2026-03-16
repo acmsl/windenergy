@@ -1,0 +1,181 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Structure of the registration databases</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 6.9.0.577">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", digital, , States, , Date">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPDatalogEstruct&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Structure of the log databases</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="EstructuraAplicLdP.html">Structure of LdP applications</a>
+					›› <a href="EstructuraAplicLdPDatalogging.html">Signal value logging (datalogging)</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="EstructuraAplicLdPDatalogging.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPDatalogging.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="EstructuraAplicLdPDatalogVisuali.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps4"><span class="rvts16">The structure of the databases used to record the evolution of signals in a simulation is as follows:</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">They are contained in a single file created with the SQLite 3.6 database engine.</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•There </span><span class="rvts16">is one table for each signal, whether &quot;output&quot; or &quot;input.&quot;</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Each table contains two fields that depend on the type of signal (analog or digital). One of these fields (&quot;</span><span class="rvts19">Date</span><span class="rvts16">&quot;) is common. See the following details:</span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">For </span><span class="rvts17">analog signals</span><span class="rvts16">, the fields are: :</span></p>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<div class="rvps15"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts17">Field name</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts17">Field type</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts17">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">Date</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts16">Numeric (double)</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Instant of change or sample with millisecond resolution.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">ValueA</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts19">Numeric</span><span class="rvts16"> (single)</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Value of the associated signal at the moment of Date</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<p class="rvps15" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">For </span><span class="rvts17">digital signals</span><span class="rvts16">, the fields are:</span></p>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<div class="rvps15"><table width="100%" border="1" style="border-color: #000000; border-style: solid; border-spacing: 2px;">
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts17">Field name</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts17">Field type</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts17">Description</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">Date</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts16">Numeric (double)</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Instant of change or sample with millisecond resolution.</span></p>
+</td>
+</tr>
+<tr valign="top">
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 187px;"><p class="rvps15"><span class="rvts16">ValueD</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 156px;"><p class="rvps15"><span class="rvts19">Boolean</span></p>
+</td>
+<td style="border-color: #000000; border-style: solid; padding: 1px; width: 624px;"><p class="rvps15"><span class="rvts16">Value of the associated signal at the moment of Date</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps15"><span class="rvts16"><br/></span></p>
+<p class="rvps15"><span class="rvts16">The values in the &quot;</span><span class="rvts19">Date</span><span class="rvts16">&quot; field correspond to the date and time with millisecond resolution. The conversion formula is as follows:</span></p>
+<p class="rvps16"><span class="rvts16">Instant = (DateFieldValue)/86400000 - 693593</span></p>
+<p class="rvps4"><span class="rvts16">Examples</span></p>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - &quot;www.acm-sl.com&quot;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

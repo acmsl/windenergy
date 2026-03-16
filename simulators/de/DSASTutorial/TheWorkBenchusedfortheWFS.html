@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Der Simulator als Labor-Workbench</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Controlador, framework, , banco de trabajo, , , , indicador gráfico, bloques cableados, Nacelle emulator, enulador del controlador, modo comando, Procesos" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;TheWorkBenchusedfortheWFS&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Der Simulator als Labor-Workbench</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Windkraftanlage Simulator mit Active Stall und zwei Geschwindigkeiten</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="SimDSAS.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="BasicemulatorsforaWindTurbineinW.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Electricschematicviewoftheconfig.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">Ein Simulator entspricht der Ausführung einer bestimmten Konfiguration auf der LdP-Plattform (</span><span class="rvts97">©</span><span class="rvts6">ACM.</span></p>
+<p class="rvps2"><span class="rvts6">Jede Konfiguration kann eine Anzahl von:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Verfahren</span><span class="rvts6">:</span><br/><span class="rvts6">Bei diesem Simulator handelt es sich beispielsweise um die Überwachung und Steuerung der Ausrichtung der Gondel gegenüber der Windrichtung. Eine andere ist die Steuerung der Anzahl der Windungen der Stromkabel. Eine andere ist die Steuerung der Steigung, etc.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Inhalt</span><span class="rvts6">:</span><br/><span class="rvts6">Diese stellen die grafische Schnittstelle des Simulators dar. Sie können Prozesse enthalten. Sie verfügen über grafische Indikatoren, die auch Steuerindikatoren sein können, um die Werte bestimmter Variablen anzuzeigen oder ihre Werte zu ändern.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Parameter</span><span class="rvts6">:</span><br/><span class="rvts6">Jeder der definierten Prozesse kann eine bestimmte Anzahl von Parametern aufweisen. Die Parameter in LdP ermöglichen es dem Benutzer, auf ihre Anzeige und Modifikation sowie ihre Registrierung zuzugreifen. (Siehe das Tutorial "</span><span class="rvts17">Einführung in LdP</span><span class="rvts6">".)</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Verbindungen</span><span class="rvts6">zwischen den obigen Elementen.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Auf den Wunschzettel</span><span class="rvts6">:</span><br/><span class="rvts6">Dies sind Sätze von grafischen Recordern der Evolution eines ausgewählten Satzes von Variablen, speziell für einen Simulator konzipiert.</span></p>
+<p class="rvps2"><span class="rvts6">(Siehe eine ausführliche Beschreibung im Tutorial "</span><span class="rvts19">Einführung in LdP</span><span class="rvts6">").</span></p>
+<p class="rvps2"><span class="rvts6">Diese Prozesse verhalten sich wie</span><span class="rvts17">virtuelle Repliken von realen physischen Elementen in elektrischen Schränken</span><span class="rvts6">, so daß sie miteinander verbunden werden können: mit an Eingangsklemmen angeschlossenen Ausgangsklemmen.</span></p>
+<p class="rvps2"><span class="rvts6">These connections, as well as the value of the parameters, can be modified in real time; that is, they can be deleted or created even while the simulation is "running." These concepts correspond to changing the connections in an electrical cabinet or certain parameters of elements in such cabinets while the simulation is running. In this way, LdP simulators behave like highly flexible "</span><span class="rvts19">Laborarbeit</span><span class="rvts6">."</span></p>
+<p class="rvps2"><span class="rvts6">Die folgende Figur zeigt ein Beispiel für diese möglichen Verbindungen in diesem Simulator.</span></p>
+<p class="rvps2"><img alt="" src="lib/Ejemplo%20conectividad%20en%20LdP%20espaol.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts6">Diese Figur zeigt zwei Blocks, die die beschriebenen Verfahren bündeln. Beide Prozesse müssen richtig miteinander verbunden sein. Einer der Signale, in diesem Fall die Umdrehungen des elektrischen Generators, stammt aus einem der Prozesse in der Gondelgruppe und muss mit einem oder mehreren Prozessen in der Steuerung verbunden werden. Im Falle der Figur "durchgeht dieses Signal" den Satz von Indikatoren: Text, Schieber und Uhr, wo der aktuelle Wert angezeigt wird, bevor Sie mit dem Controller verbinden.</span></p>
+<p class="rvps2"><span class="rvts6">Da einige dieser grafischen Indikatoren z.B. das Textfeld oder der Schieber "eingestellt" werden können,</span><span class="rvts17">Befehlsmodus</span><span class="rvts6">(durch Drücken der Taste "F6") können Sie simulieren (</span><span class="rvts17">ohne Änderungen der Simulatorkonfiguration</span><span class="rvts6">) einen Fehler, der einem Bruch des Generatorwellendrehzahlsensors entspricht. Zur vollständigen Beschreibung der Funktionalitäten der grafischen Indikatoren in der LdP-Synoptik siehe das Thema "</span><span class="rvts29">Die LdP als Werkbank</span><span class="rvts6">" in der "</span><span class="rvts17">Einführung in LdP</span><span class="rvts6">" Tutorial.</span></p>
+<p class="rvps2"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts18"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

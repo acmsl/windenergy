@@ -1,0 +1,279 @@
+<html>
+<head>
+<title>Impostare le condizioni per l'ingresso in produzione con vento basso</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content=", registrador, velocidad de muestreo, , Incidencias abiertas, Interruptor Principal, Manual STOP, recuperadas, Historial incidencias, visto bueno, Recuperada, localice el sinóptico, Avance de Pagina, Retroceso de Pagina, Flecha hacia arriba, Flecha hacia abajo, Dirección viento, cambiar el viento, Giro Izq, Giro derech, velocidad eficaz del viento, Control Terminal, VeloEficVien, Ejecutar, Potencia Nominal, viento nominal, START, Velocidad de giro de las palas, Velocidad de giro del eje del Generador, orientación de la góndola, Presión del circuito hidráulico, bomba, liberación de frenos, pitch, velocidad del viento, Contactor de Bypass de Tiristores, conexión a Red, cutin, Gen. Grande, Gen. Pequeño, Análisis funcional, desenrolle, cables de potencia, mecanismo de frenos, Tren de Potencia, velocidad de sincronismo, Generador Pequeño" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+        /* === Estilo Experimentos === */
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #topic_header_content {
+            padding-left: 40px;
+        }
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+            padding-left: 40px;
+            padding-right: 30px;
+        }
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        /* Cajas informativas estilo Experimentos */
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .important-note ol, .important-note ul {
+            padding-left: 1.5em;
+        }
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+        /* Sobreescribir rvts para fuentes mas grandes */
+        span.rvts6, span.rvts11 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        span.rvts12 {
+            font-size: 24px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+            color: #365f91 !important;
+        }
+        span.rvts13 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts15 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts16 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-weight: bold !important;
+        }
+        span.rvts17 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-style: italic !important;
+        }
+        span.rvts19 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+        }
+        span.rvts118, span.rvts119 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+        }
+        a.rvts14, span.rvts14, a.rvts18, span.rvts18,
+        a.rvts48, span.rvts48 {
+            font-size: 18px !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            line-height: 1.8 !important;
+            color: #0066cc !important;
+        }
+        #topic_header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            border-bottom: none !important;
+        }
+        #topic_header h1, #topic_header_text {
+            color: #ffffff !important;
+            font-family: &#x27;Calibri&#x27;, &#x27;Arial&#x27;, &#x27;Helvetica&#x27;, sans-serif !important;
+            font-size: 28px !important;
+        }
+        #topic_header a img {
+            filter: brightness(0) invert(1);
+        }
+        #topic_breadcrumb, #topic_breadcrumb a {
+            color: #e0d0ff !important;
+        }
+        #topic_footer {
+            background: #f8f8f8 !important;
+            border-top: 2px solid #667eea !important;
+        }
+        #topic_footer_content {
+            color: #666 !important;
+            font-size: 14px !important;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASExercises.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;CutinVientoBajo&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<!-- CHATGPT_PAGEINTRO_START -->
+<div class="learning-objective">
+<h3>🎯 Taglio con vento basso</h3>
+<p><strong><em>Obiettivo:</em></strong>Identificare le condizioni di velocità del vento che permettono alla generazione di iniziare.</p>
+<p><strong><em>Cosa osservare:</em></strong>Velocità del vento, stato del sistema e transizione dalla chiusura al funzionamento.</p>
+<p><strong><em>Cosa notare:</em></strong>Velocità del vento approssimata al momento dell'avvio e successiva evoluzione.</p>
+<p>💡 Osservare se c'è isteresi tra shutdown e start-up.</p>
+</div>
+<!-- CHATGPT_PAGEINTRO_END -->
+<!-- CHATGPT_QUESTIONS_START -->
+<div class="important-note">
+<h3>❓ Domande guida</h3>
+<ol>
+<li>Quanto tempo passa dalla pressione<b>Inizio</b>(in stato di disconnessione della griglia) a<b>connessione rete</b>e l'inizio della produzione? Misura due casi:
+<ul>
+<li>Vento basso (ad esempio, 6 m/s).</li>
+<li>Vento alto (ad esempio, 14 m/s).</li>
+</ul>
+</li>
+</ol>
+</div>
+<!-- CHATGPT_QUESTIONS_END -->
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Impostare le condizioni di produzione per iniziare in condizioni di vento basso.</h1>
+<div id="topic_breadcrumb">
+<a href="ClasesPracticas.html">Lezioni pratiche</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="ClasesPracticas.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="ClasesPracticas.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Cambiode1000a1500.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts118"><br/></span></p>
+<p class="rvps4"><span class="rvts11">L'obiettivo di questa pratica è quello di familiarizzare lo studente</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">con i diversi sinottici disponibili.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">• </span><span class="rvts11">con la creazione delle condizioni necessarie per la turbina eolica per iniziare la produzione.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts11">Assicurarsi che la simulazione sia in esecuzione: nel "</span><span class="rvts15">Simulatore in esecuzione</span><span class="rvts11">..." sinottico, stampa "</span><span class="rvts16">Corri!</span><span class="rvts11">."</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span> <span class="rvts11">Si noti che l'angolo di lancio cambia a -90o. Potete controllare questo nel sinottico Power Train.</span><br/><img alt="" src="lib/Vista3D90grados.png" style="padding : 1px;"/><br/><img alt="" src="lib/Hubcon90grados.png" style="padding : 1px;"/><br/><span class="rvts11">Anche nel sinottico "WindNacelle":</span><br/><img alt="" src="lib/WindNacelle90grados.png" style="padding : 1px;"/><br/><span class="rvts11">E nel sinottico "Control Terminal":</span><br/><img alt="" src="lib/NewItem16.png" style="padding : 1px;"/><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span> <span class="rvts11">Controllare nel "Manuale Elettrico..." sinottico che il "</span><span class="rvts15">Interruttore principale</span><span class="rvts11">" è collegato. Vedi la seguente figura:</span><br/><span class="rvts11"> </span><img alt="" src="lib/ArmarioElectricoConectado.jpg" style="padding : 1px;"/><img alt="" src="lib/DSAS%20MainContactor.jpg" style="padding : 1px;"/><br/><span class="rvts11">Fig. Dettaglio della "</span><span class="rvts15">Interruttore principale.</span><span class="rvts11">"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span> <span class="rvts11">Nella schermata "Control Terminal", verificare che non ci siano incidenti che devono essere riconosciuti nel "</span><span class="rvts15">Interventi aperti</span><span class="rvts11">" scheda (eccetto per "</span><span class="rvts15">STOP manuale</span><span class="rvts11">").</span><br/><span class="rvts11">Ad esempio, se si dispone di 'run' la simulazione e il "Main Switch" non è stato collegato, il Controller rileva la mancanza di alimentazione principale e segnala incidenti come quelli mostrati nella figura seguente, notando la data in cui sono stati rilevati (ora di giorno di anno: minuto: secondo, secondo):</span><br/><img alt="" src="lib/ControlTerminal-espanol-con-incidencias-inici.jpg" style="padding : 1px;"/><br/><span class="rvts15"></span><br/><span class="rvts11">Se si passa al "Main Switch" a "On", il Controller rileva che le condizioni che hanno causato gli incidenti sono scomparse e noterà il momento in cui ciò si verifica nella colonna intitolata "</span><span class="rvts15">Recuperato</span><span class="rvts11">. Vedi la figura seguente.</span><br/><img alt="" src="lib/CT-espanol-con-incidencias-restauradas-detall.jpg" style="padding : 1px;"/><br/><span class="rvts11"></span><br/><span class="rvts11">Questi tipi di incidenti devono essere</span> <span class="rvts15">"riconosciuto" '</span><span class="rvts11">per l'operatore: per farlo, devono controllare (con il mouse) la casella nella colonna "OK" per ciascuno (primi due elementi nella figura sopra). Quando lo farai, vedrai che spariscono dal "</span><span class="rvts15">Incidenti in attesa"</span> <span class="rvts11">elenco e vengono automaticamente spostati al "</span><span class="rvts15">Storia dell'incidente</span><span class="rvts11">" scheda, come mostrato nella figura seguente:</span><br/><img alt="" src="lib/CT-espanol-historial-incidencias.jpg" style="padding : 1px;"/><br/><span class="rvts11"></span><br/><span class="rvts11">Questa lista contiene il record tenuto dal Titolare stesso degli incidenti che si sono verificati. In altre classi pratiche, si vedrà che ci sono incidenti che non devono essere "consapevoli" dall'operatore: cioè, il Controller continuerà ad eseguire il programmato 'protocollo' quando le condizioni dell'incidente sono scomparse, senza richiedere all'operatore di riconoscerlo.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span> <span class="rvts11">In questa situazione, l'elenco dei "Incidenti aperti" dovrebbe mostrare solo "STOP manuale", come nella figura seguente:</span><br/><img alt="" src="lib/CT-espanol-solo-ManualSTOP.jpg" style="padding : 1px;"/><br/><span class="rvts11"></span><br/><span class="rvts11">Il Controller è in grado di ricevere il comando "START".</span><span class="rvts15">In questo particolare tipo di Controller</span><span class="rvts11">, il comando (manuale) del Terminale di controllo deve essere preceduto dall'approvazione dell'operatore, per la quale deve essere controllata la casella corrispondente alla linea "Manual STOP". Vedi la figura seguente.</span><br/><img alt="" src="lib/CT-espanol-ManualSTOP-checked.jpg" style="padding : 1px;"/><br/><span class="rvts11"></span><br/><span class="rvts11">Si noti che il riconoscimento di questo incidente non si riflette nella 'Storia dell'incidente'.</span><br/><span class="rvts11">Da questo momento in poi, il Controller è disponibile per ricevere il comando "manuale" "START".</span><br/><span class="rvts11">Se si preme il pulsante "START", le prestazioni della turbina eolica dipendono dalla velocità del vento. Prima di premerlo:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span> <span class="rvts11">Assicurati di avere un "Recorder" visibile dove viene visualizzato il "Pannello predefinito" con il nome "Cutin + Cutout + Production", come mostrato nella figura seguente. Vedi</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?Comopresentarenprimerplanoundete.html" target="_blank">Come visualizzare un Registratore e scegliere un Pannello predefinito in esso.</a><br/><img alt="" src="lib/RegistradorCutinCutoutProduccion.jpg" style="padding : 1px;"/><br/><span class="rvts11"><br/></span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span> <span class="rvts11">Cambiare la velocità del vento a 6,0 m/s. Questo è un basso valore eolico: la turbina eolica simulata genera una potenza nominale di 1.300 KW ad una velocità nominale del vento di circa 12 m/s. Una velocità del vento di 6 m/s è sotto la velocità del vento "Max. for Large Generator" (vedi</span> <a class="rvts48" href="../DSASTutorial/DSASTutorial.html?DatosTecnicosValoresVientos.html" target="_blank">Valori eolici funzionali</a><span class="rvts11">), quindi sappiamo che il collegamento a 6 poli del generatore (Small Generator) sarà utilizzato.</span><br/><span class="rvts11">Per fare questo, individuare il sinottico "SynopticWindNacelle" (vedere</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?SinpticodelTerminaldeControl.html" target="_blank">Come portare un sinottico specifico in primo piano</a><span class="rvts11">).</span><br/><span class="rvts11">In questo sinottico, posizionare il mouse sopra l'indicatore del vento (fondo bianco). Vedi la figura seguente.</span><br/><img alt="" src="lib/Viento-direccion-13.jpg" style="padding : 1px;"/><br/><span class="rvts11"></span><br/><span class="rvts11">Puoi cambiare il vento in due modi:</span></p>
+<p class="rvps22" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span> <span class="rvts16">digitando</span> <span class="rvts11">il valore desiderato direttamente.</span><br/><span class="rvts11">Si noti che quando si cambia il valore, lo sfondo diventa giallo fino a quando si preme il tasto "Enter" sulla tastiera. Se si desidera interrompere il cambiamento, prima di premere "Enter", è possibile premere il tasto "ESC" (in alto a sinistra della tastiera).</span></p>
+<p class="rvps22" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span> <span class="rvts16">Usare il</span><span class="rvts11"> "</span><span class="rvts15">Pagina</span><span class="rvts11">," "</span><span class="rvts15">Pagina iniziale</span><span class="rvts11">," "</span><span class="rvts15">Arrow</span><span class="rvts11">#</span><span class="rvts15">Condividi su Facebook</span><span class="rvts11">"</span> <span class="rvts16">chiavi</span><span class="rvts11">.</span><br/><span class="rvts11">Questo metodo è preferito e consente di modificare il valore in incrementi di 1 m/s (Page Up/Page Down) o in incrementi di 0,1 m/s (Arrows).</span><br/><span class="rvts119">Questo è il metodo preferito</span> <span class="rvts11">perché limita il cambiamento della velocità del vento a valori ragionevoli, mentre nel metodo 1, questi cambiamenti possono essere molto brutti.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span><span class="rvts11">È possibile approfittare di questo per cambiare la direzione del vento, utilizzando la stessa procedura sul "</span><span class="rvts15">Direzione del vento</span><span class="rvts11">"indicatore.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">9.</span><span class="rvts11">Premere il tasto "START" e osservare l'evoluzione dei seguenti segnali sul registratore e sui diversi sinottici.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts16">Velocità di rotazione della lama:</span><span class="rvts11">in SynopticDriveTrain, Control Terminal e Recorder.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts16">Velocità di rotazione albero generatore</span><span class="rvts11">: in Control Terminal e Recorder.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts16">Nacelle orientamento</span><span class="rvts11">: in SynopticWindNacelle e Recorder.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4. </span><span class="rvts16">Pressione del circuito idraulico</span><span class="rvts11">, </span><span class="rvts16">pompa</span><span class="rvts11">operazione, e</span><span class="rvts16">rilascio freno</span><span class="rvts11">: in SynopticDriveTrain e Recorder</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5. </span><span class="rvts16">Piazzola</span><span class="rvts11">angolo: in SynopticDriveTrain (entrambi in 'Vista Interna' e 'Vista 3D'), in Control Terminal, in SynopticWindNacelle, e nel Logger.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6. </span><span class="rvts16">Velocità del vento</span><span class="rvts11">: in SynopticWindNacelle, in Control Terminal e Recorder.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7. </span><span class="rvts16">Contatto di bypass di Thyristor</span><span class="rvts11">stato (connessione alla griglia): in Armadio elettrico (vista interna), in Terminale di controllo e Logger.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">10.</span><span class="rvts118">Si otterrà un'evoluzione del segnale nel registratore simile a quello mostrato nella figura seguente:</span><br/><img alt="" src="lib/Registrador-con-cuitn-a-6ms.jpg" style="padding : 1px;"/></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">11.</span><span class="rvts11">Si può vedere che, dopo una certa quantità di tempo (a pochi secondi) dopo aver premuto START, il Controller attiva i motori di orientamento ("</span><span class="rvts15">Girare</span><span class="rvts11">" e "</span><span class="rvts15">Girare a destra</span><span class="rvts11">") fino all'orientamento della Nacelle 'apprezzabilmente' corrisponde alla direzione del vento indicata, ma non esattamente. Questo perché il controllore assume che ci sia un certo grado di incertezza nella misura della direzione del vento e che, d'altra parte, spostando l'energia della nacelle 'richiede' e quindi ha un costo. Il risultato è che se l'errore tra la direzione del vento 'misurato' e l'orientamento della nacelle è all'interno di un certo margine, 'decide' che è orientato.</span><br/><span class="rvts11">Il valore di questo margine nel simulatore è esagerato per scopi educativi.</span><br/><span class="rvts11">Allo stesso modo, la velocità di rotazione della nacelle nel simulatore non è realistica, anche se questo è un valore che può essere modificato, anche durante l'esecuzione della simulazione, utilizzando i parametri</span><span class="rvts15">NacelleYawing.CWYawingSpeed</span><span class="rvts11">e</span><span class="rvts15">NacelleYawing.CCWYawingSpeed</span><span class="rvts11">. Il valore predefinito è di 10 gradi/secondo, mentre in realtà questo valore è di circa 0,5 gradi/secondo.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">12.</span><span class="rvts11">Il concetto di "</span><span class="rvts16">Velocità del vento efficace</span><span class="rvts11">."</span><br/><span class="rvts11">Questo valore corrisponde al valore di</span><span class="rvts15"> </span><span class="rvts16">il</span><span class="rvts15">vento anteriore al piano di rotazione delle lame</span><span class="rvts11">, cioè, il vento che serve efficacemente a ruotare le lame.</span><br/><span class="rvts11">Se la turbina eolica non è orientata, questo valore corrisponde al prodotto della velocità del vento reale moltiplicato per il cosne dell'angolo di disallineamento. Essa corrisponde al vettore rosso nella figura seguente.</span><br/><img alt="" src="lib/Viento-eficaz.jpg" style="padding : 1px;"/><br/><span class="rvts11"></span><br/><span class="rvts11">Questo valore effettivo è mostrato nel "</span><span class="rvts16">VeloEficVien</span><span class="rvts11">"indicatore sul "</span><span class="rvts15">Controllo del terminale</span><span class="rvts11">" sinottico. Quando la nacelle è orientata, questo valore coincide con il valore della velocità del vento. Questo può essere verificato dall'evoluzione di entrambi i valori nella figura del registratore, nell'ultimo canale, dove convergono allo stesso valore quando la nacelle è orientata.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">13. </span><span class="rvts16">Analisi funzionale della sequenza degli eventi durante l'operazione di connessione della griglia</span><span class="rvts11">(cutin):</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts11">Se la nacelle non è orientata verso il vento, inizia l'operazione di orientamento. Può essere necessario prima eseguire un'operazione di disavvolgimento del cavo di alimentazione.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Sulla base della misurazione del vento, il controller</span><span class="rvts15">decide</span><span class="rvts11">che il generatore, che ha due possibili connessioni (corrispondente a avvolgimento dello statore con 4 o 6 pali magnetici, "</span><span class="rvts16">Grande Gen.</span><span class="rvts11">" e "</span><span class="rvts16">Piccolo Gen.</span><span class="rvts11">"), sarà collegato con 6 poli ("Small Gen."). In questo caso, il</span><span class="rvts15">velocità sincrona</span><span class="rvts11">e' di 1.000 giri.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts11">Prima di iniziare l'operazione effettiva, il controller decide di controllare la condizione del meccanismo frenante (condizione della scarpa freno, molla, ecc.). Per fare questo, attiva il freno, impostando il passo delle lame ad un valore in cui sa che il vento produce una coppia meccanica sufficiente sulle lame per questo controllo.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4. </span><span class="rvts11">Se tutto è OK, procede a rilasciare i freni: per farlo, chiude la valvola di circuito idraulico e inizia la pompa.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5. </span><span class="rvts11">Il treno di potenza inizia ad accelerare.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6. </span><span class="rvts11">Il controller monitora il valore di accelerazione del treno di potenza e agisce sul campo (che è la fonte di accelerazione) in modo che questo valore rimanga al di sotto di un certo livello.</span></p>
+<p class="rvps6" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">7.</span> <span class="rvts11">Quando la velocità del generatore si avvicina alla velocità sincrona, il controller attiva i tiristori. L'angolo di conduzione del tiristor segue un modello di partenza con un piccolo angolo di conduzione e raggiungendo la piena conduzione dopo pochi secondi (tipicamente da 2 a 4 secondi).</span><br/><span class="rvts11">Vedere l'animazione in</span><a class="rvts48" href="../DSASTutorial/DSASTutorial.html?Softstarter.html" target="_blank">Avviamento morbido (collegamento morbido) alla griglia</a><span class="rvts11">.  </span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Calibri', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">8.</span> <span class="rvts11">Quando i tiristori stanno conducendo completamente, il controllore attiva i contattori di bypass del tiristoro, che li cortocircuitano: in questa situazione, nessuna corrente scorre attraverso i tiristori e sono disattivati. La turbina eolica è in produzione.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

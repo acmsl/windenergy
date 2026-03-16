@@ -1,0 +1,163 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Functional diagram of a wind turbine with a squirrel cage</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="pitch, veleta, emergencia, freno de mano">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraoperacionaldeunAerogen&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Functional diagram of a wind turbine with squirrel cage</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">What is a wind turbine?</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Queesunaerogenerador.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Nuevotema4.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Conexionredelectrica.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Functional block diagram of a wind turbine with a squirrel cage generator and variable blade angle.</span></span></h1>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Aerog%20active%20stall.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">The main functions of the controller correspond to controlling the </span><span class="rvts29">connection (and disconnection) of the</span><span class="rvts6"> electric </span><span class="rvts29">generator to the power grid </span><span class="rvts6">and </span><span class="rvts29">controlling the blade angle: </span><span class="rvts6">this modifies</span><span class="rvts29"> the power obtained from the wind </span><span class="rvts6">(when in </span><span class="rvts17">production</span><span class="rvts6">) and </span><span class="rvts29">brakes the power train </span><span class="rvts6">when in the </span><span class="rvts17">shutdown </span><span class="rvts6">phase.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Detailed functional diagram</span></span></h1>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Esquema%20DSAS.png"></p>
+<p class="rvps2"><span class="rvts6">This figure shows the functional diagram of this type of wind turbine.</span></p>
+<p class="rvps2"><span class="rvts6">Main functions</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Control of the </span><span class="rvts60">connection and disconnection of the</span><span class="rvts59"> electric </span><span class="rvts60">generator </span><span class="rvts59">to the electrical grid</span><span class="rvts6">: </span></p>
+<p class="rvps2"><span class="rvts6">The controller monitors:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The wind (via the anemometer).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The revolutions of the generator shaft.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oGrid parameters (voltages and currents per phase).</span></p>
+<p class="rvps2"><span class="rvts6">and performs control via:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">oThyrist</span><span class="rvts6">ors.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oBypass contactors.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Control of the </span><span class="rvts60">power obtained from the wind</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">The controller monitors:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The wind (via the anemometer).</span></p>
+<p class="rvps2"><span class="rvts6">and controls the power obtained from the wind through:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The blade angle control mechanism (pitch)</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Control of the </span><span class="rvts60">two-speed generator connections</span></p>
+<p class="rvps2"><span class="rvts6">When the generator has two stator connection options available (meaning it can operate at two synchronous speeds), the controller automatically switches between these two speeds. The algorithm used is as follows:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">If it is producing at high generator speed:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">It initiates the process of disconnecting from the grid, modifying the blade angle so that the power obtained from the wind is reduced.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">When the electrical power produced is 0, it disconnects the generator from the grid, opening the bypass contactors.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">Maintains the blade angle so that the power train loses rotational speed until it reaches a value slightly below the low synchronous speed.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">It changes the connection of the generator winding so that it corresponds to the low synchronism speed.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Auxiliary functions</span></span></h1>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts60">•Operation safety </span><span class="rvts59">control</span><span class="rvts6">:</span></p>
+<p class="rvps2"><span class="rvts6">The controller has algorithms for monitoring the status of the wind turbine, whose mission is to ensure the safety of people and the equipment itself. </span></p>
+<p class="rvps2"><span class="rvts6">To do this, it monitors:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oWind speed.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The speed range of the generator shaft.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The rotation speed of the blades.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">The vibration sensor status of the tower.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">oTemperature sensors for various elements: generator stator winding, power train shaft bearings, gearbox, environment.</span></p>
+<p class="rvps2"><span class="rvts6">and disconnects the grid (if connected), and sets the blade angle </span><span class="rvts17">to </span><span class="rvts6">&quot;</span><span class="rvts17">flag</span><span class="rvts6">&quot; (meaning minimum resistance to incident wind).</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Control of the </span><span class="rvts60">nacelle orientation</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">The controller uses the wind </span><span class="rvts29">vane </span><span class="rvts6">signal to determine the value of its disorientation with respect to the wind direction.</span></p>
+<p class="rvps2"><span class="rvts6">It uses the motor groups (one for each direction of rotation: CW (clockwise) or CCW (counterclockwise)) to correct any possible disorientation.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Monitoring and control of </span><span class="rvts60">the disc brake</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">The disc brake is mainly used to prevent the power train from turning when maintenance operations need to be carried out on the blades, etc. It works like a </span><span class="rvts17">handbrake</span><span class="rvts6"> in a car.</span></p>
+<p class="rvps2"><span class="rvts6">The components of the brake mechanism (shoe, disc, hydraulic cylinder, valve) are designed for another more demanding function: to act as a Power Train brake in </span><span class="rvts17">emergency situations</span><span class="rvts6">. When the Controller decides to stop the Power Train, it uses the blade angle, specifying an angle of 90º. If this procedure does not respond adequately (not fast enough), the disc brake is used as a last resort. This use is considered </span><span class="rvts17">a failure </span><span class="rvts6">because, if it is applied at production speed, all the energy obtained from the wind must be dissipated in the brake shoe, causing it to deform.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts59">Monitoring of </span><span class="rvts60">tower vibrations</span></p>
+<p class="rvps2"><span class="rvts6">The controller reacts to the activity of </span><span class="rvts17">the vibration sensor </span><span class="rvts6">located in the tower, stopping the power train and placing the blade in a &quot;flag&quot; position.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts60">•Hydraulic system </span><span class="rvts59">maintenance</span><span class="rvts6">.</span></p>
+<p class="rvps2"><span class="rvts6">The hydraulic system is used by the Power Train brake mechanism, but depending on the model, it can also be used to fix the rotation of the Nacelle, by means of shoes placed at its base. In certain models, it has also been used to supply pressure to the blade angle change mechanism.</span></p>
+<p class="rvps2"><span class="rvts6">The controller receives a signal from a </span><span class="rvts17">pressure switch</span><span class="rvts6"> that allows it to know the pressure level in the hydraulic circuit. Depending on the operations to be performed, it starts and stops the </span><span class="rvts17">hydraulic pump </span><span class="rvts6">to maintain this value within an appropriate range, or acts on the </span><span class="rvts17">relief valve </span><span class="rvts6">to reduce this pressure. </span></p>
+<p class="rvps6"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

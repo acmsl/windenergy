@@ -1,0 +1,131 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Connection to the Power Grid</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="barras de conexi&oacute;n, contactor bypass, , , tiristores, PCC, Point of Common Connection, Bypass, conexi&oacute;n suave, , G&oacute;ndola, Velocidad_de_sincronismo, Generador Grande, Generador Peque&ntilde;o, Punto de Conexión Com&uacute;n, SofStarter, soft conection, Punto de Conexi&oacute;n Com&uacute;n, jaula de ardilla, Media Tensi&oacute;n">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Conexionredelectrica&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Connection to the Electrical Grid</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Queesunaerogenerador.html">What is a Wind Turbine?</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Queesunaerogenerador.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="EstructuraoperacionaldeunAerogen.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ConexinalaRedElctrica.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts6">The connection to the electricity grid is where the electrical energy produced by the wind turbine is evacuated. In reality, this connection is made in two sections, one connecting the wind turbine to the wind farm&#x27;s electrical substation where the wind turbine is located, and the other connecting the substation to the electricity grid itself.</span></p>
+<p class="rvps2"><span class="rvts6">Both sections have specific operating voltages. The connection of the wind turbine to the substation is usually made through a transformer, located at the foot of the wind turbine or inside it, whose secondary winding is at a voltage in the medium voltage range (over 1,000 V), typically between 15 kV and 22 kV. The primary is typically 690 V, which is the voltage of the electric generator used.</span></p>
+<p class="rvps2"><span class="rvts6">The electric generator used in the wind turbine on which this simulator is based is a so-called &quot;</span><span class="rvts29">squirrel cage</span><span class="rvts6">&quot; or &quot;</span><span class="rvts17">short-circuit rotor</span><span class="rvts6">&quot; generator (see </span><a class="rvts14" href="Introductiontothephysicalprincip.html">details</a><span class="rvts6">). The electrical power generated is output through the stator connection.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Connection of the wind turbine generator to the transformer</span></span></h1>
+<p class="rvps2"><span class="rvts6">The connection is made via power cables that run down from the nacelle to the electrical cabinet located at the bottom of the tower. </span></p>
+<p class="rvps3"><img alt="" style="padding : 1px;" src="lib/Lapp_Wind_Portfolio.jpg"></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Generator operating modes</span></span></h1>
+<p class="rvps2"><span class="rvts6">In the model used in this simulator, which allows operation at two speeds, this is achieved by using two different ways of connecting the stator windings. These are designed so that one stator connection generates 4 magnetic poles (2 pairs of poles) and the other generates 6 poles (3 pairs of poles). This means that the synchronous speed in one case will be 1500 rpm (for a 50 Hz network) and in the other case 1000 rpm. </span></p>
+<p class="rvps3"><span class="rvts61">Synchronism_speed</span><span class="rvts13"> = (50 Hz * 60 seconds / Pairs_of_Poles)</span></p>
+<p class="rvps2"><span class="rvts6">As the wind turbine achieves its highest power at 1500 rpm, this connection is usually called &quot;</span><span class="rvts17">Large Generator</span><span class="rvts6">,&quot; while the 1000 rpm connection is called &quot;</span><span class="rvts17">Small Generator</span><span class="rvts6">.&quot;</span></p>
+<p class="rvps2"><span class="rvts6">In some older models, the same functionality was achieved by using two independent generators connected to a gearbox with two high-speed &quot;output&quot; shafts, each with a different ratio to the low-speed shaft.</span></p>
+<p class="rvps2"><span class="rvts6">In the case of a 60 Hz grid, the speeds of a similar generator would be 1800 rpm and 1200 rpm, respectively.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Details of the Electrical Panel</span></span></h1>
+<p class="rvps2"><span class="rvts6">The connection of the cables coming down from the electric generator to the cables coming out of </span><span class="rvts29">the Electrical Panel </span><span class="rvts6">and connecting the wind turbine to the Wind Farm </span><span class="rvts59">Common Connection Point </span><span class="rvts6">(known as </span><span class="rvts29">PCC</span><span class="rvts6">) is made through the Panel busbars, the protection fuses, and the Main Contactor of the wind turbine. </span></p>
+<p class="rvps2"><span class="rvts6">The </span><span class="rvts17">busbars</span><span class="rvts6"> of the Panel are equipped with instruments for measuring the voltages in the phases and the currents in each phase: the current measurement per phase is carried out through </span><span class="rvts63">current measuring transformers </span><span class="rvts6">inserted in the bars. The output of these </span><span class="rvts17">current measuring transformers </span><span class="rvts6">is standardized at 1 Amp or 5 Amps full scale: therefore, their primary/secondary ratio (e.g., 1000/5) must be known, which is a parameter that must be entered into the Controller to perform the correct calculations. With these transformers, the instruments for measuring electrical parameters</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps3"><img alt="" style="padding : 1px;" src="lib/Esquema%20electrico%20conexion%20generador.png"></p>
+<p class="rvps2"><span class="rvts6">The power cables are connected through a circuit composed of 3 groups of counterphase</span> <span class="rvts61">thyristors</span> <span class="rvts6">that have a contactor in parallel, known as </span><span class="rvts61">a bypass</span><span class="rvts6">. This group of components, together with a control logic that generates the thyristor trigger signals (which generates the signals that go to the thyristor gates), are used to achieve a</span> <span class="rvts17">soft </span><span class="rvts61">connection</span><span class="rvts6">. This connection mechanism is known as </span><a class="rvts62" href="Softstarter.html">SofStarter</a><span class="rvts6">.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Sensores de temperatura</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Pt100, bimetales, tiristores" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Sensorestemperatura&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Sensores de temperatura</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">O que é uma turbina eólica?</a>
+					›› <a href="EstructuraAerogenerador.html">Estrutura de uma turbina eólica de eixo horizontal</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="MedicindeladireccionDireccionVie.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Sensoresdetemperatura.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">Turbinas eólicas têm sensores de temperatura para diferentes elementos. O tipo de sensor depende do tipo de componente monitorado e da precisão de medição necessária. Por exemplo, para medir a temperatura de tiristors ou motores de guinada, sensores baseados em bimetal calibrados para a temperatura correspondente são geralmente utilizados. Estes sensores estão em um circuito fechado quando a temperatura é menor do que a temperatura de calibração e em um circuito aberto se for maior.</span></p>
+<p class="rvps11"><img alt="" src="lib/sensor%20temperatura%20bimetal.png" style="padding : 1px;"/><span class="rvts6"> </span><img alt="" src="lib/Sensor%20temperatura%20bimetal%20ejemplo.gif" style="padding : 1px;"/></p>
+<p class="rvps11"><span class="rvts6">Outros elementos, como o gerador elétrico ou o rolamento do rotor, exigem uma medição de temperatura mais precisa para que sua evolução possa ser monitorada mais de perto.</span></p>
+<p class="rvps11"><span class="rvts6">Medidas mais precisas que exigem maior confiabilidade são realizadas usando</span><span class="rvts28">Pt100</span><span class="rvts6">sensores, que são amplamente utilizados na indústria e possuem desempenho bem conhecido e estável e um nível adequado de precisão.</span></p>
+<p class="rvps11"><span class="rvts6">O efeito físico utilizado é a variação da resistência de um condutor em função de sua temperatura. Estes sensores são feitos de platina e seu valor nominal é pequeno, tipicamente 100 ohms, embora 1.000 ohm sensores também estão disponíveis.</span></p>
+<p class="rvps11"><span class="rvts6">A relação entre resistência e temperatura é bastante estável em platina e segue uma regra razoavelmente linear.</span></p>
+<p class="rvps11"><span class="rvts6">O principal problema com este tipo de sensor é a medição de sua resistência. Como tem um valor baixo e está a uma distância considerável do dispositivo eletrônico que realiza a medição, é necessário evitar o problema dos cabos que ligam o sensor Pt100 e seu sistema de medição, e também reduzir a corrente utilizada na medição tanto quanto possível, uma vez que esta corrente "aquece" a resistência e, portanto, distorce a medição.</span></p>
+<p class="rvps11"><span class="rvts6">O procedimento, bem conhecido na indústria e laboratórios, é conhecido como o método de 3 ou 4 fios. Ver</span><a class="rvts18" href="Sensoresdetemperatura.html">Circuitos de medição de sensores Pt100.</a></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

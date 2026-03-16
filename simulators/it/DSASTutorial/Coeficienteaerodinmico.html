@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>Da Pitch Activo (a-the-feathers)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="potencia máxima obtenible, velocidad fija" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Coeficienteaerodinmico&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Da Active Pitch (a-the-feathers)</h1>
+<div id="topic_breadcrumb">
+<a href="PrincipiosFisicosAerogeneradores.html">Principi fisici</a>
+					›› <a href="Porqugiranlaspalas.html">Concetti relativi alla potenza eolica estraibile</a>
+					›› <a href="Coeficienteaerodinmico2.html">Controllo della raccolta di energia eolica</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Coeficienteaerodinmico2.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Coeficienteaerodinmico2.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Stalling.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">La funzione Cp (vedere</span><a class="rvts14" href="Conceptossobrelapotencia.html">Coefficiente aerodinamico</a><span class="rvts11">) mostra la complessità del rapporto tra il suo valore e i valori TSR (che a sua volta dipendono dal vento, dal raggio della lama e dalla velocità di rotazione della lama) e dall'angolo della lama (Pitch). Tuttavia, se cerchiamo il massimo Valore Cp per un dato valore TSR tra tutti i possibili valori Pitch, otteniamo una curva come mostrato nel grafico seguente. Questa curva dipende dalla forma della lama, logicamente.</span></p>
+<p class="rvps4"><img alt="" src="lib/Cp%20vs%20TSR%20con%20TSRoptimo.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Fig. 1.</span></p>
+<p class="rvps4"><span class="rvts11">L'interesse di questo grafico sta nel fatto che mostra un massimo assoluto: vale a dire, c'è un valore TSR per il quale il Cp è massimo. Sembra chiaro che</span><span class="rvts28">quando il vento è inferiore al valore nominale</span><span class="rvts11">, ciò che conta è che</span><span class="rvts13">la TSR in cui dobbiamo operare la turbina eolica corrisponde a quel punto</span><span class="rvts11">(nel grafico nella figura, questo</span><span class="rvts81"></span><span class="rvts83">ottimale</span><span class="rvts16">TSR</span><span class="rvts11">è di circa 7,8 m/s), da allora otterremo il più grande potere dal vento.</span></p>
+<p class="rvps4"><span class="rvts11">Ricordando che la definizione di TSR è:</span></p>
+<p class="rvps17"><span class="rvts16">TSR = 2 *</span><span class="rvts82">π</span><span class="rvts16">* BladeRadius * (BladeRotationSpeed)</span><span class="rvts81">rpm</span><a name="TSR definition formula"></a><span class="rvts16">)/60)/ WindSpeed</span></p>
+<p class="rvps4"><span class="rvts11">la dichiarazione di cui sopra implica che dovremmo operare il treno di potenza ad una velocità che dipende dal vento incidente:</span></p>
+<p class="rvps17"><span class="rvts83">Ottimizzazione</span><span class="rvts16">Velocità di rotazione della lama</span><span class="rvts81">rpm</span><span class="rvts16">= 60 *</span><span class="rvts81"></span><span class="rvts83">Ottimizzazione</span><span class="rvts16">TSR * Velocità del vento /( 2 *</span><span class="rvts82">π</span><span class="rvts16">* Blade Radius)</span></p>
+<p class="rvps4"><span class="rvts11">Una importante conseguenza della rotazione delle lame a questa velocità è che la</span><span class="rvts28">potenza massima estratta dal vento in questo caso è proporzionale al quadrato della velocità del vento (Wind</span><span class="rvts84">2</span><span class="rvts28">)</span><span class="rvts11">. Il grafico seguente mostra le curve di potenza massima per un dato tipo di lama e per vari valori del raggio della lama, assumendo che i valori TRS e Pitch determinano il valore massimo di Cp.</span></p>
+<p class="rvps4"><span class="rvts11">Valori tipici per questa velocità ottimale, per il tipo di lama corrispondente al grafico precedente, vanno da</span></p>
+<p class="rvps4"><img alt="" src="lib/Curva%20velocidad%20optima%20rotor%20vs%20radio%20pala%20es.gif" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Fig. 2.</span></p>
+<p class="rvps4"><span class="rvts11">Un'altra importante conclusione dal grafico precedente è che è possibile conoscere il</span><span class="rvts13">massima potenza ottenibile</span><span class="rvts11">da una lama conoscendo il suo Cpmax e la sua lunghezza, a seconda del vento. Il grafico seguente mostra diverse curve corrispondenti alle lame che sono dello stesso disegno (cioè, con lo stesso Cpmax) e diverse lunghezze.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><img alt="" src="lib/CurvasPotenciaVsVientoConRadioComoParametro_1.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts11">Figura 3</span></p>
+<p class="rvps4"><span class="rvts11">Questo grafico mostra anche il desiderato</span><span class="rvts28">Potenza nominale</span><span class="rvts11">(</span><span class="rvts13">Obiettivo</span><span class="rvts11">) valore per la turbina eolica: questo valore corrisponde alle specifiche del generatore elettrico.</span></p>
+<p class="rvps4"><span class="rvts11">La velocità minima del vento a cui vogliamo ottenere la Potenza nominale è la</span><span class="rvts28">Velocità nominale del vento</span><span class="rvts11">. In altre parole, il</span><span class="rvts28">i valori nominali del vento e della potenza determinano il raggio della lama</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">Sotto il vento nominale, la potenza ottenuta dal vento sarà inferiore al potere nominale. Sopra questa velocità del vento,</span><span class="rvts13">la potenza può essere maggiore del potere nominale</span><span class="rvts11">. Poiché la componente elettrica della turbina eolica sarà dimensionata per fornire il potere nominale,</span><span class="rvts28">la turbina eolica deve avere un meccanismo che assicura che sopra il vento nominale, la potenza estratta dal vento non superi la Potenza nominale</span><span class="rvts11">. Vedi</span><a class="rvts14" href="Coeficienteaerodinmico2.html">Controllo della potenza raccolta dal vento</a><span class="rvts11">.</span></p>
+<p class="rvps18"><a name="ConclusionesPuntoFuncionamiento"></a><span class="rvts13">CONCLUSIONI IMPORTANTI:</span><br/><span class="rvts13">1- Per ottenere sempre la massima potenza disponibile dal vento in venti sotto la velocità nominale del vento, il treno di potenza</span> <span class="rvts61">deve</span><span class="rvts13">operare a velocità variabile. Questa è una condizione importante per il generatore elettrico.</span><br/><span class="rvts13">2- Il Power Train deve includere meccanismi o disegni che assicurano che la potenza meccanica consegnata al generatore elettrico non superi la sua Potenza nominale.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps11"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

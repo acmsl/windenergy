@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>View of the SCADA application</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Supervisory Control And Data Adquisition, SCADA, comunicaciones, Vista en 3D, horas de producción" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("SCADAview");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">View of the SCADA application</h1>
+<div id="topic_breadcrumb">
+<a href="StructureoftheWindFarmSimulator.html">Description of the Eolico Park Simulator</a> ›› <a href="Description.html">Simulator components</a> ›› <a href="DescriptionoftheUserInterface.html">Main synoptic</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="DescriptionoftheUserInterface.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="IconicviewoftheWTsPCCandpowercab.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Maintenanceview.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">The central part of the synoptic has a similar interface to that found at the center of the synoptic. See Figure 1.</span></p>
+<p class="rvps2"><img alt="" src="lib/Sinoptico%20SCADA%20-%20panel%20de%20visualizacion%20y%20co.png" style="padding : 1px;"/><span class="rvts16">Fig 1.</span></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts16">Doing</span><span class="rvts32">click</span><span class="rvts16">with left mouse button in any "</span><span class="rvts32">row</span><span class="rvts16">"of this grid a certain aerogenerator is selected, and that row changes from color to pink. If the synoptic is visible with the"</span><span class="rvts32">3D view</span><span class="rvts16">"and it's done."</span><span class="rvts32">double click</span><span class="rvts16">"in a row, the"</span><span class="rvts32">3D view</span><span class="rvts16">"moves to this generator.</span></p>
+<p class="rvps2"><span class="rvts16">The description of each of these columns, functionalities and meanings is as follows:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">ID</span><span class="rvts16">": internal indicator of a given aerogenerator.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">State</span><span class="rvts16">"</span></p>
+<div class="rvps2">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 118px;">
+<p class="rvps2"><span class="rvts60">Not available</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 527px;">
+<p class="rvps2"><span class="rvts16">For some reason, the wind turbine cannot / should not be launched.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 118px;">
+<p class="rvps2"><span class="rvts59">Stop</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 527px;">
+<p class="rvps2"><span class="rvts16">The wind turbine is available, but it is not currently in production.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 118px;">
+<p class="rvps2"><span class="rvts58">Production</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 527px;">
+<p class="rvps2"><span class="rvts16">The wind turbine is in production</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Name</span><span class="rvts16">": Identification name of the aerogenerator.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Model</span><span class="rvts16">": type of wind turbine.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Use</span><span class="rvts16">": if the check-box is not marked, this aerogenerator shall not be taken into account in the start-up / stop algorithm of aerogenerators. See</span><a class="rvts31" href="AutomaticDispatching.html">Automatic management</a><span class="rvts16">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Start/Stop</span><span class="rvts16">": this box allows to start or stop the wind turbine</span></p>
+<p class="rvps2"><span class="rvts43"><br/></span></p>
+<div class="rvps2">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 83px;">
+<p class="rvps2"><span class="rvts30">Icon</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 168px;">
+<p class="rvps2"><span class="rvts30">State</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 618px;">
+<p class="rvps2"><span class="rvts43">Possible action</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 83px;">
+<p class="rvps2"><span class="rvts16">(No icon)</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 168px;">
+<p class="rvps2"><span class="rvts16">The wind turbine is not available</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 618px;">
+<p class="rvps2"><span class="rvts16">None, until the wind turbine becomes available and standing. See</span><a class="rvts31" href="Maintenanceview.html">View of maintenance operations</a></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 83px;">
+<p class="rvps2"><img alt="" src="lib/NewItem172.ico" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 168px;">
+<p class="rvps2"><span class="rvts16">In "</span><span class="rvts58">Production</span><span class="rvts16">"</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 618px;">
+<p class="rvps2"><span class="rvts16">With double click the wind turbine goes to production</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 83px;">
+<p class="rvps2"><img alt="" src="lib/NewItem173.ico" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 168px;">
+<p class="rvps2"><span class="rvts16">Stop, "</span><span class="rvts59">Stop</span><span class="rvts16">"</span></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 618px;">
+<p class="rvps2"><span class="rvts27">With double click the wind turbine passes to "Stop," available but without production.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Est. Comm</span><span class="rvts16">": indicates the state of communications between SCADA and the wind turbine.</span></p>
+<div class="rvps2">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 138px;">
+<p class="rvps2"><img alt="" src="lib/NewItem169.ico" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 1073px;">
+<p class="rvps2"><span class="rvts16">At that moment, SCADA is asking the wind turbine to send him his state.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 138px;">
+<p class="rvps2"><img alt="" src="lib/NewItem170.ico" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 1073px;">
+<p class="rvps2"><span class="rvts16">SCADA has successfully received the status data requested from the wind turbine.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 138px;">
+<p class="rvps2"><img alt="" src="lib/NewItem171.ico" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 1073px;">
+<p class="rvps2"><span class="rvts16">SCADA did not receive a correct response to its request for a state.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Pot. Nominal</span><span class="rvts16">": the nominal power of the wind turbine. KW.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Pot. Real</span><span class="rvts16">": the power that the wind turbine is producing at that time. KW.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Wind</span><span class="rvts16">": the wind measured by the aerogenerator anemometer at that time. In m / s</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Guidance</span><span class="rvts16">": indicates the direction of Gondola at that time. In degrees, between 0 and 360.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Column "</span><span class="rvts30">Hours. Prod</span><span class="rvts16">": indicates the number of hours of production of the wind turbine. This value is used to decide which are the wind turbines to start or stop in a</span><a class="rvts31" href="AutomaticDispatching.html">automatic park management</a><span class="rvts16">. </span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

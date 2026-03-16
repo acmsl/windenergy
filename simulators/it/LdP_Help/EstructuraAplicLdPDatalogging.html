@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Registrazione del valore di segnale (datalogging)</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="sesión" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPDatalogging&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Registrazione del valore di segnale (data logging)</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">Struttura delle applicazioni LdP</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdP.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraAplicLdPCondFallo.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="EstructuraAplicLdPDatalogEstruct.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps5"><span class="rvts16">LdP registra cambiamenti che si verificano in ciascuno dei segnali Simulator in un database in modo completamente trasparente. La risoluzione temporale di questi record è di 1 millisecondo.</span></p>
+<p class="rvps5"><span class="rvts16">Questa registrazione è indipendente da qualsiasi registratore sinottico visibile.</span></p>
+<p class="rvps5"><span class="rvts16">Ogni "</span><span class="rvts19">sessione</span><span class="rvts16">" di ciascuno</span><span class="rvts19">configurazione</span><span class="rvts16">(simulatore) crea un file di database. Il nome di questo file corrisponde alla data di inizio della sessione e si trova in una sottodirectory denominata dopo la configurazione. Ad esempio, il file "C:\WFS_Datalog\</span><span class="rvts19">WFS_SCADA</span><span class="rvts16">\10-10-04-15-20-35.sqlite" corrisponde ad una sessione del "</span><span class="rvts19">WFS_SCADA</span><span class="rvts16">" simulatore iniziato il 4 ottobre 2010, alle 3:20:35</span></p>
+<p class="rvps5"><span class="rvts16">I file sono del tipo "SQlite" (vedere</span><a class="rvts18" href="https://www.sqlite.org/" target="_blank">Orgoglio di SQLite</a><span class="rvts16">) e la loro struttura è descritta in</span><a class="rvts18" href="EstructuraAplicLdPDatalogEstruct.html">Struttura dei database di log</a><span class="rvts16">.</span></p>
+<p class="rvps5"><span class="rvts16">Questi file sono scritti alla fine della sessione, a condizione che l'utente risponda affermativamente al messaggio che appare dopo aver cliccato "Esci" e confermando l'uscita.</span></p>
+<p class="rvps5"><img alt="" src="lib/Salvar evoluciones en disco.jpg" style="padding : 1px;"/></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps2"><span class="rvts22"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

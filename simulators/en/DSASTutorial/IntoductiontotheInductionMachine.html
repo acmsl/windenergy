@@ -1,0 +1,150 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Introduction to induction machines</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="velocidad de sincronismo, , rotor en cortocircuito, jaula de ardilla, rotor bobinado, par mec&aacute;nico, deslizamiento, entrehierro, estator">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;IntoductiontotheInductionMachine&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Introduction to induction machines</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Physical principles</a>
+					›› <a href="WindTurbineControlcriteria.html">Wind turbine design and control criteria</a>
+					›› <a href="RequirementsimposedbytheElectric.html">Electric generator requirements</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="RequirementsimposedbytheElectric.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="RequirementsimposedbytheElectric.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Introductiontothephysicalprincip.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps11"><span class="rvts6">Induction electric generators (actually induction electric machines, since they can be motors or generators) are characterized by a curve that shows the relationship between the </span><span class="rvts29">mechanical torque </span><span class="rvts6">on their rotating shaft and the </span><span class="rvts29">rotational speed of this shaft</span><span class="rvts6">. See the following figure.</span></p>
+<p class="rvps9"><a name="Curva Par vs RPMs"></a><img alt="" style="padding : 1px;" src="lib/MaquinaInduccionParvsRPMs2Puntos.jpg"></p>
+<p class="rvps9"><span class="rvts6">Fig. 1: &quot;Mechanical torque vs. rotational speed curve&quot; of an induction electric machine</span><span class="rvts89">.</span></p>
+<p class="rvps11"><span class="rvts6">There is a characteristic point on this graph defined by the generator&#x27;s characteristic rotational speed, the </span><span class="rvts29">synchronous speed</span><span class="rvts6">. This speed corresponds to the rotational speed of the magnetic flux created in its air gap by the stator winding. To understand the two modes of operation, motor or generator, we must remember that this device transforms energy from one type to another (electrical energy into mechanical energy, or mechanical energy into electrical energy). Therefore, it &quot;connects&quot; two worlds:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">the </span><span class="rvts29">rotating shaft</span><span class="rvts6">, where the rotor winding is located, which must be mechanically connected to a device that can rotate and behave as a mechanical load or a mechanical energy generator.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•the </span><span class="rvts29">stator winding</span><span class="rvts6">, which must be connected to a source of electrical energy or an electrical energy consumer. </span></p>
+<p class="rvps11"><span class="rvts6">The above graph considers the speed of rotation of the shaft, but does not say anything about how that speed was reached.</span></p>
+<p class="rvps11"><span class="rvts6">To understand the physical principles on which this machine is based, watch the following video:</span></p>
+<div style="margin: 10px 0;">
+<a href="https://www.youtube.com/watch?v=3nvRhIbjhbo" target="_blank" title="Video - Imanes enfrentados en ejes" style="display: inline-block; position: relative; width: 480px; height: 270px;">
+<img src="https://img.youtube.com/vi/3nvRhIbjhbo/maxresdefault.jpg" alt="Video - Imanes enfrentados en ejes" style="width: 480px; height: 270px; border: 1px solid #ccc; border-radius: 4px;">
+<span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; background: rgba(205,32,31,0.9); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+<span style="width: 0; height: 0; border-style: solid; border-width: 10px 0 10px 20px; border-color: transparent transparent transparent #fff; margin-left: 4px;"></span>
+</span>
+</a>
+</div>
+<p class="rvps19"><span class="rvts90">When the </span><span class="rvts91">shaft speed is lower than the synchronous speed</span><span class="rvts90">, a mechanical torque appears on the shaft, generated from electrical energy entering through the stator winding, provided that it is connected to a power source. </span></p>
+<p class="rvps19"><span class="rvts90"> If we have somehow managed to make the shaft speed higher than the synchronous speed, and the shaft is connected to a </span><span class="rvts92">device that provides mechanical torque </span><span class="rvts90">(for example, the blades of a wind turbine) and the stator is connected to an electrical network, and the shaft speed has been made to be above the synchronous speed, then the mechanical torque applied to the shaft comes out of the stator as electrical energy. </span></p>
+<p class="rvps11"><span class="rvts6">At that rotational speed, there is no </span></p>
+<p class="rvps11"><span class="rvts6">The following animated graphic shows a cross-section of a </span><span class="rvts29">three-phase </span><span class="rvts6">induction machine (the rotor has been removed for clarity) and how the magnetic field is created by the currents passing through each pair of coils when they are fed by perfectly balanced three-phase currents: </span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts6">•Temporal separation of 120º electrical.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: 'Tahoma', 'Geneva', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Equal magnitude for peak values. </span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Magnetic field in the air gap</span></span></h1>
+<p class="rvps13"><img alt="" style="padding : 1px;" src="lib/CompletoConCamposDeFaseImanVirtual_2.gif"></p>
+<p class="rvps11"><span class="rvts6">Each phase of the grid is connected to a stator coil (one per color). The </span><span class="rvts17">magnet</span><span class="rvts6"> (i.e., the magnetic flux) that is present corresponds to the vector sum of the magnetic fluxes created by each of the coils, fed by each of the phases of the grid.</span></p>
+<p class="rvps11"><span class="rvts6">When there is no mechanical load on the shaft (i.e., when the shaft is allowed to rotate freely), the rotational speed corresponds to the rotational speed of this equivalent magnet.</span></p>
+<p class="rvps11"><span class="rvts6">Figure 1 (above) shows that when </span><span class="rvts29">friction </span><span class="rvts6">is introduced on the shaft, its rotational speed decreases and the machine</span><span class="rvts19"> creates a mechanical torque </span><span class="rvts6">that counteracts the friction. (Point A.)</span></p>
+<p class="rvps11"><span class="rvts6">On the other hand, if the shaft is </span><span class="rvts29">forced</span><span class="rvts6"> to run at a speed higher than the synchronous speed, </span><span class="rvts19">it consumes the mechanical torque </span><span class="rvts6">necessary for this forcing, which appears as electrical energy in the stator coils. (Point B.) </span></p>
+<p class="rvps11"><span class="rvts6">In other words, depending on whether we place a mechanical load on the shaft or supply mechanical torque, this machine behaves like a motor or a generator. </span></p>
+<p class="rvps11"><span class="rvts6">A very important point to bear in mind is that the behavior of this machine changes depending on the speed of rotation: the area that interests us is the one </span><span class="rvts17">around</span><span class="rvts6"> its synchronous speed.</span></p>
+<p class="rvps11"><span class="rvts6">The</span><span class="rvts29"> synchronous speed </span><span class="rvts6">depends on the number of &#x27;magnetic pole pairs&#x27; (1 in the case of the figure above) and the frequency of the network. In the case of the figure, and assuming 50 cycles/second, the synchronous speed is (50 cycles/second)/1, or 50 revolutions/second, or (50 * 60) revolutions/minute = (3,000 rpm).</span></p>
+<p class="rvps11"><span class="rvts6">Taking the synchronism speed as a reference, the operating curve (Fig. 1) usually uses the </span><span class="rvts17">relative value </span><span class="rvts6">of the shaft revolutions with respect to the synchronism revolutions, instead of the absolute value of the revolutions. This value is called </span><span class="rvts29">slip</span><span class="rvts6"> (usually represented by the letter &#x27;</span><span class="rvts29">s</span><span class="rvts6">&#x27;).</span></p>
+<p class="rvps13"><span class="rvts17">s = (ActualSpeed - SynchronismSpeed) / SynchronismSpeed </span></p>
+<p class="rvps13"><span class="rvts6">or</span></p>
+<p class="rvps13"><span class="rvts17">s = (ActualSpeed / SynchronismSpeed) - 1</span></p>
+<p class="rvps11"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,101 @@
+<html>
+<head>
+<title>Connections of wind turbines to the PCC</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="simbolos, sinoptico, cables de potencia, aerogenerador" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("IconicviewoftheWTsPCCandpowercab");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Connections of wind turbines to the PCC</h1>
+<div id="topic_breadcrumb">
+<a href="StructureoftheWindFarmSimulator.html">Description of the Eolico Park Simulator</a> ›› <a href="Description.html">Simulator components</a> ›› <a href="DescriptionoftheUserInterface.html">Main synoptic</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="DescriptionoftheUserInterface.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="DescriptionoftheUserInterface.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="SCADAview.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">The top of the main synoptic presents a graph with the shape of the connections of the wind turbines to the PCC (Electrical Substation).</span></p>
+<p class="rvps2"><img alt="" src="lib/Sinoptico%20SCADA%20-%20conectividad.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts16">The state of the wind turbine is also indicated:</span></p>
+<div class="rvps2">
+<table style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;" width="100%">
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 63px;">
+<p class="rvps2"><img alt="" src="lib/Sinoptico%20SCADA%20-%20aerogenerador%20en%20produccion.png" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 582px;">
+<p class="rvps2"><span class="rvts16">El </span><span class="rvts55">green</span><span class="rvts16">the aerogenerator indicates that it is in production.</span></p>
+<p class="rvps2"><span class="rvts16">The height of the green column on its left indicates the current production, compared to the nominal.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 63px;">
+<p class="rvps2"><img alt="" src="lib/Sinoptico%20SCADA%20aerogenerador%20parado.png" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 582px;">
+<p class="rvps2"><span class="rvts16">El </span><span class="rvts54">yellow</span><span class="rvts16">indicates that it is not in production, although available, without problems.</span></p>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 63px;">
+<p class="rvps2"><img alt="" src="lib/Sinoptico%20SCADA%20aerogenerador%20no%20disponible.png" style="padding : 1px;"/></p>
+</td>
+<td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 582px;">
+<p class="rvps2"><span class="rvts16">El </span><span class="rvts56">red</span><span class="rvts16">indicates that the aerogenerator is not available: that is, it presents some problem that prevents it from being put into production, or that it advises not to be put into production.</span></p>
+</td>
+</tr>
+</table>
+</div>
+<p class="rvps2"><span class="rvts16"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

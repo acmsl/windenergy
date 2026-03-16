@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Sistema frenante del treno di potenza</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="bandera, coeficiente aerodinámico, mantenimiento, freno aerodinámico, avería" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Mecanismodecambiodeangulodelaspa&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Sistema frenante del treno di potenza</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Cos'è una turbina a vento?</a>
+					›› <a href="EstructuraAerogenerador.html">Struttura di un orizzontale Turbina eolica Axis</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Nuevotema1.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="SistemadeFrenos.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts6">Il treno di potenza, che comprende le lame, ha un meccanismo di freno che NON è (normalmente) utilizzato per ridurre la velocità delle lame, ma piuttosto come meccanismo per fissare la loro posizione una volta che si sono fermati (o stanno ruotando a velocità molto bassa). Per ridurre la velocità di rotazione delle lame, viene utilizzato il valore del loro angolo di tiro: sopra un certo valore, il</span><span class="rvts17">le lame spingono l'aria</span><span class="rvts6">, </span><span class="rvts17">trasferire energia cinetica dal treno di potenza all'aria</span><span class="rvts6">. </span></p>
+<p class="rvps2"><span class="rvts6">La figura seguente mostra un esempio tipico, situato sulla</span><span class="rvts17">asse elevato</span><span class="rvts6">(l'asse del generatore).</span></p>
+<p class="rvps3"><img alt="" src="lib/NewItem122.jpg" style="padding : 1px;"/></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Concetti di freno in una turbina eolica</span></span></h1>
+<p class="rvps2"><span class="rvts6">The</span><span class="rvts17">treno di potenza</span><span class="rvts6">di una turbina eolica può essere nelle seguenti situazioni:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">In </span><span class="rvts29">produzione</span><br/><span class="rvts6">In questo stato, l'angolo delle lame causa la raccolta di energia dal vento sotto forma di coppia meccanica che sposta l'albero generatore elettrico, che lo trasforma in energia elettrica.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts17">Idle</span><br/><span class="rvts6">In questo stato, l'angolo delle lame è tale che non raccolgono alcuna energia dal vento, quindi il treno di potenza non ruota. Questo angolo è di 90 gradi e questa posizione è chiamata "</span><span class="rvts17">bandito</span><span class="rvts6">."</span><br/><span class="rvts6">In questa posizione,</span> <a class="rvts40" href="Conceptossobrelapotencia.html">coefficiente aerodinamico</a> <span class="rvts6">delle lame è</span><span class="rvts17">negativo</span><span class="rvts6">: cioè, qualsiasi rotazione che il treno di potenza può fare è frenata dalle lame. In altre parole, qualsiasi energia rotazionale che il treno di potenza ha usato per "muovere l'aria", e quindi, è energia che viene trasferita all'aria e quindi diminuisce.</span><br/><span class="rvts6">In questo stato, il treno di potenza può ruotare, anche se per un breve periodo.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Freno</span><br/><span class="rvts6">Questo stato viene utilizzato per eseguire il lavoro all'interno della turbina eolica e per garantire la sicurezza del personale. Questo stato è garantito da un</span> <span class="rvts29">sistema freno a disco</span><span class="rvts6">cfr.</span><a class="rvts40" href="SistemadeFrenos.html">Alcuni esempi industriali</a><span class="rvts6"> </span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Funzioni del sistema frenante</span></span></h1>
+<p class="rvps2"><span class="rvts6">Il sistema frenante in una turbina eolica ha le seguenti funzioni:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Evitare che il treno di potenza si muova mentre nella posizione "parcheggio"</span><span class="rvts6">, tipicamente durante le operazioni di manutenzione.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Evitare la velocità eccessiva del treno di potenza</span><span class="rvts6">.</span><br/><span class="rvts6">Il controllore monitora continuamente la velocità di rotazione del treno di potenza e avvia un protocollo di sicurezza per garantire che non superi un valore massimo.</span><br/><span class="rvts6">Per fare questo, utilizza due dispositivi:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Le lame, fissando un angolo tale che la coppia meccanica del vento è negativa, cioè, frena il treno di potenza, che corrisponde a un</span><span class="rvts17">freno aerodinamico</span><span class="rvts6">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts6">Se il freno aerodinamico non è in grado di ridurre la velocità di rotazione del treno di potenza entro un certo tempo, il controller utilizzerà il sistema di freno a disco.</span></p>
+<p class="rvps6"><span class="rvts6">Fermare il treno di potenza comporta dissipare l'energia cinetica immagazzinata in esso. Pertanto, se viene utilizzato il sistema frenante a disco, può provocare una significativa deformazione del disco o dei cuscinetti freno, che costituisce un</span><span class="rvts29">fallimento principale</span><span class="rvts6">della turbina eolica.</span></p>
+<p class="rvps6"><span class="rvts6">Il disco freno può essere posizionato sull'albero ad alta velocità del cambio (cioè sull'albero del generatore) o sull'albero a bassa velocità (cioè sull'albero del rotore, che è direttamente collegato al mozzo della lama). La posizione più comune è sull'albero alto, poiché, anche se di solito c'è più spazio sull'albero basso, quella posizione richiede una maggiore coppia di attriti.</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

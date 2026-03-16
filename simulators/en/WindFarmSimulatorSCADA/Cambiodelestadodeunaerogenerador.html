@@ -1,0 +1,74 @@
+<html>
+<head>
+<title>3D view presentation</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.3.0.232" name="generator"/>
+<meta content="" name="description"/>
+<meta content="" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Cambiodelestadodeunaerogenerador");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">3D view presentation</h1>
+<div id="topic_breadcrumb">
+<a href="Teachingsessions.html">Practical classes</a> ›› 
+ </div>
+</div>
+<div id="topic_header_nav">
+<a href="Teachingsessions.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Teachingsessions.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Clasesprcticas1.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps2"><span class="rvts16">La </span><a class="rvts31" href="3DView.html">3D view</a><span class="rvts16">is controlled from the tagged checkbox "</span><span class="rvts44">3D view of the Park</span><span class="rvts16">".</span></p>
+<p class="rvps2"><span class="rvts16">Make sure you are selected and see how the corresponding synoptic appears (described in</span><a class="rvts31" href="3DView.html">3D view</a><span class="rvts16"> ).</span></p>
+<p class="rvps2"><span class="rvts16">As long as it is visible, this synoptic will present a focused view of the aerogenerator that is selected in the section</span><a class="rvts66" href="SCADAview.html">SCADA</a><span class="rvts16">.</span></p>
+<p class="rvps2"><span class="rvts16">In the "</span><a class="rvts67" href="Meteorologicalstation.html">Weather station</a><span class="rvts16">"modify the wind direction by turning the circular button with a red mark. Note that the selected wind generator changes the direction, adapting to the new wind direction.</span></p>
+<p class="rvps2"><img alt="" src="lib/Sinoptico%20SCADA%20estacion%20meteorologica.png" style="padding : 1px;"/></p>
+<p class="rvps2"><span class="rvts16">The response time for wind direction changes in a real wind turbine is quite slow, of the order of 0.5 degrees / second. That is, it takes a full turn of 720 seconds (= 360 / 0.5), that is, 12 minutes. In the simulator, an immediate response has been chosen to avoid these long waiting times.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt; 2017 &gt;, &lt; Automated Computing Machinery SL &gt; ACM SLwww.acm-sl.com
+ </div>
+</div>
+</body>
+</html>

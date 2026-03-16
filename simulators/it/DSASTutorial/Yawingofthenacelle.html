@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>Algoritmi per il controllo dell'orientamento e lo svolgimento dei cavi di alimentazione</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="operación de orientación, Parameter.ControllerYawing.MaxCableTwistBeforeCutin, , cutin, viento mínimo para proceder al desenrollado de los cables, numero máximo de vueltas de los cables de potencia antes de iniciar la conexión" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Yawingofthenacelle&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Algoritmi per il controllo dell'orientamento e lo svolgimento dei cavi di alimentazione</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito della simulazione</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="Algorithms.html">Algoritmi utilizzati</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Algorithms.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Softstarter.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Modes.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">Il Controller contiene un processo indipendente specifico alle seguenti funzioni:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Orientamento della nacelle alla direzione del vento.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Svolgimento dei cavi di alimentazione</span></p>
+<p class="rvps4"><span class="rvts6">L'algoritmo implementato tiene conto dei concetti di:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts17">•'numero massimo di giri dei cavi di alimentazione prima di avviare la connessione</span><span class="rvts6">(cutin)'.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts17">• numero massimo di giri dei cavi di alimentazione '</span><span class="rvts6">. Questo valore non è lo stesso del limite massimo impostato dall'interruttore limite associato a questi cavi, che è controllato dal parametro "</span><span class="rvts13">Parameter.NacelleYawing.MaxCableTwist</span><span class="rvts6">", con un valore iniziale di 3.5 giri.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span class="rvts17">•'velocità minima del vento per lo svolgimento dei cavi '</span><span class="rvts6">.</span></p>
+<p class="rvps4"><span class="rvts6">Inoltre, questo processo tiene conto della modalità operativa corrente: "Manuale" e "Automatica". Vedi</span><a class="rvts18" href="Modes.html">Modes.</a></p>
+<p class="rvps4"><span class="rvts6">Per il processo di di disavvolgimento del cavo di alimentazione, è prima necessario scollegare la turbina eolica dalla griglia (cutout), utilizzando il protocollo normale (senza imporre tempi di risposta brevi).</span></p>
+<p class="rvps4"><span class="rvts6">Quando il numero di giri del cavo è entro il primo turno, il Controller avvia il processo di connessione alla griglia (taglio) senza alcun intervento dell'operatore.</span></p>
+<p class="rvps4"><span class="rvts6">Il grafico seguente mostra il rapporto tra i parametri menzionati e gli stati.</span></p>
+<p class="rvps4"><img alt="" src="lib/Grafico%20numero%20vueltas%20cables.png" style="padding : 1px;"/></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Se la turbina eolica è nel processo di connessione alla griglia (taglio) e il numero di giri è maggiore di 1,5, allora il processo di disavvolgimento viene avviato prima di continuare.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">• Se</span><span class="rvts6">la turbina eolica è in produzione e il numero di giri supera 2,5, il controller avvia un processo di disconnessione dalla griglia, seguito da un'avvolgimento e connessione alla griglia.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">In ogni caso, ad esempio, quando si utilizza il controllo manuale per l'orientamento nacelle, se il numero di giri raggiunge 3.5, il controller impedisce alla nacelle di girare.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

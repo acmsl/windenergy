@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Algoritmo di controllo del freno e del segnale</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="parada, cutout, reposo, cutin, TSR, Freno liberado, Circuito hidráulico de frenos, Fail/Safe" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;AlgoritmoFrenos&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Algoritmo di controllo del freno e del segnale</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Sinopticos.html">Sinottica utilizzata in questo simulatore</a>
+					›› <a href="SinopticoTrenPotencia.html">Synoptic (SynopticDriveTrain)</a>
+					›› <a href="IndicadoresGondola.html">Indicatori comuni</a>
+					›› <a href="IndicadoresSistemaFreno.html">Sistema frenante</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="IndicadoresSistemaFreno.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="IndicadoresSistemaFreno.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Algoritmodecontroldefrenosyseale.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">L'algoritmo di controllo utilizzato nel sistema frenante si basa sulle seguenti idee:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts29">Principio di progettazione Fail/Safe</span><span class="rvts6">: questo principio stabilisce che un dispositivo che controlla una parte importante di un sistema deve essere progettato in modo tale che, se non riesce, lascia il sistema in una posizione "sicuro".</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2. </span><span class="rvts29">Abilitare l'arresto rapido del treno di potenza</span><span class="rvts6">. Questo requisito deriva dall'uso secondario del meccanismo frenante come "alternativa di sicurezza" nel caso in cui il treno di potenza non possa essere rallentato da mezzi aerodinamici.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3. </span><span class="rvts29">Minimizzazione del numero di sensori e attuatori</span><span class="rvts6">.</span></p>
+<p class="rvps4"><span class="rvts59">Questo meccanismo di freno del treno di potenza NON è il meccanismo utilizzato per</span><span class="rvts63">arresto</span><span class="rvts59">operazioni (</span><span class="rvts63">taglio</span><span class="rvts6">): queste operazioni vengono eseguite utilizzando metodi aerodinamici, cioè utilizzando le lame, cambiando l'angolo di attacco, o, in alcuni modelli più vecchi che non hanno un meccanismo di cambio del passo, cambiando la forma. Vedi la figura seguente.</span></p>
+<p class="rvps4"><img alt="" src="lib/Blade-tip-brakr-foto.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">Tuttavia, in condizioni eccezionali, ad esempio, quando il meccanismo di pitch fallisce, o alcuni giri sono stati superati nel treno di potenza, o è richiesto un arresto molto rapido, il Controller utilizza anche il freno idraulico.</span></p>
+<p class="rvps4"><span class="rvts6">Nel design scelto, il "</span><span class="rvts17">riposo</span><span class="rvts6">" la posizione è con la scarpa pressata contro il disco freno dalla molla del cilindro. Questo segue il principio operativo 'Fail/Save' (se qualcosa va storto, il meccanismo rimane in un</span><span class="rvts17">sicuro</span><span class="rvts6">posizione), in questo caso la posizione sicura è l'arresto del treno di potenza.</span></p>
+<p class="rvps4"><span class="rvts6">Quando la turbina eolica è in produzione, la scarpa freno è lontano dal disco, quindi non interferisce con il movimento del treno di potenza. Per questo accadere, è necessario contrastare la pressione della molla nel cilindro che forza la scarpa freno. Ciò si ottiene aumentando la pressione idraulica applicata alla base della molla. Questo aumento di pressione è raggiunto impostando la valvola alla posizione "chiusa" e avviando la pompa.</span></p>
+<p class="rvps4"><img alt="" src="lib/Zapata-separada-bomba-valvula-cerrada.jpg" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6">Quando si desidera frenare (scarpe contro il disco), semplicemente ridurre la pressione idraulica alla base della molla. Questo si ottiene aprendo la valvola. Di solito c'è più di una valvola, con diverse portate, in modo che la velocità della caduta della pressione, e quindi la frenata, può essere regolata (in una certa misura).</span></p>
+<p class="rvps4"><span class="rvts6">Infine, nella progettazione di questo circuito vengono utilizzati un minimo di elementi: una pompa, un serbatoio per il liquido, la valvola(i), l'interruttore di pressione (non mostrato), e il sensore di separazione della scarpa (non mostrato).</span></p>
+<p class="rvps4"><span class="rvts6">The</span><span class="rvts17">Stato</span><span class="rvts6">della scarpa freno non è misurata da alcun sensore, ma è</span><span class="rvts17">deduzione</span><span class="rvts6">dal controller durante la fase di avvio (</span><span class="rvts17">taglio</span><span class="rvts6">). La procedura consiste nell'applicare una significativa coppia meccanica al treno di potenza mantenendo attivo il freno idraulico (scarpe contro il disco). Questa coppia meccanica si ottiene orientando la nacelle verso il vento e impostando un valore di passo che garantisce il massimo utilizzo del vento con valori di rotazione bassi (cioè, con</span><span class="rvts17">TSR</span><span class="rvts6"> practically 0). In these circumstances, the rotation speed of the power train is monitored: if it is not 0 (stopped), it is due to a problem with the shoe or the cylinder spring; in these circumstances, the cutin operation is aborted.</span></p>
+<p class="rvps4"><span class="rvts6">La pompa viene utilizzata per mantenere la pressione alla base della molla ad un valore che assicura che, in produzione, la scarpa non sfrega contro il disco freno. Per fare questo, questa pressione non viene misurata, ma viene utilizzato un dispositivo più robusto, un interruttore di pressione, calibrato sulla pressione desiderata. In questo modo, il controller riceve solo un segnale digitale (l'uscita dall'interruttore di pressione) e deve controllare altri due segnali digitali: il controllo della pompa e il controllo della valvola. C'è anche un commutatore di limite che viene attivato quando la scarpa del freno è già separata dal disco del freno. Questo segnale corrisponde al segnale associato al pulsante 'Brake rilasciato'. Il valore di pressione a cui questo segnale viene tipicamente attivato corrisponde al</span><span class="rvts60">giallo '</span><span class="rvts29">Marchio</span><span class="rvts6">sull'indicatore di pressione del circuito idraulico circolare.</span></p>
+<p class="rvps4"><span class="rvts6">L'evoluzione dei segnali relativi a questo circuito idraulico può essere osservata utilizzando uno dei "pannelli di registrazione predefiniti" (cliccando sul controllo di esecuzione sinottico:</span><span class="rvts17">Sinoptics '</span><span class="rvts6"> --&gt; </span><span class="rvts17">"Recorders" '</span><span class="rvts6">viene visualizzato un modulo di registrazione, e in</span><span class="rvts17">Pannelli finiti '</span><span class="rvts6">selezionare</span><span class="rvts17">Circuito frenante idraulico '</span><span class="rvts6">). È possibile osservare la variazione di vari segnali dal circuito idraulico durante diverse situazioni operative e di arresto.</span></p>
+<p class="rvps4"><span class="rvts6">I concetti di controllo di base si basano sull'isteresi dell'interruttore di pressione, la cui uscita viene utilizzata dal Controller per avviare la pompa quando il suo valore è "Off", cioè la pressione è al di sotto del limite di calibrazione inferiore dell'interruttore di pressione. E per fermare la pompa quando la pressione supera il limite superiore dell'interruttore di pressione. Si presume che le valvole siano chiuse. La figura seguente illustra questo metodo di controllo.</span></p>
+<p class="rvps4"><img alt="" src="lib/CicloControlBombaconHisteresis.png" style="padding : 1px;"/></p>
+<p class="rvps4"><span class="rvts6"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

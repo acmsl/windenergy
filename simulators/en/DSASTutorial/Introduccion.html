@@ -1,0 +1,118 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Introduction</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="jaula de ardilla, , pala fija, Active Stall, Banco de Pruebas, squirrel cage, pitch">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Introducción&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Introduction</h1>
+				
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Notasobreversion.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts6">This tutorial corresponds to the &quot;Two-Speed and Active Stall Wind Turbine Simulator&quot; from the ACM SL family of Real-Time Wind Turbine Simulators.  Its design models wind turbines that use </span><span class="rvts17">squirrel cage </span><span class="rvts6">electric generators, i.e., with short-circuited rotor windings and the stator connected directly to the grid. The power generation control system is achieved by varying the angle of the blade in relation to the wind (pitch), using the </span><a class="rvts18" href="Stalling.html">active stall </a><span class="rvts6">principle (induced aerodynamic losses). It also implements the concept of adaptation to the wind range by switching between two generators (or a single generator with two windings).</span></p>
+<p class="rvps2"><span class="rvts6">This simulator runs on the LdP platform from ACM SL, using the &quot;</span><span class="rvts13">DSASr12.conf</span><span class="rvts6">&quot; configuration, which utilizes a set of LdP components (see </span><a class="rvts18" href="SimDSAS.html">Wind Turbine Simulator with Active Stall and Two Speeds</a><span class="rvts6">).</span></p>
+<p class="rvps2"><span class="rvts6">With this Simulator, you can execute the commands supported by a real wind turbine and observe its reactions. Each of the wind turbine&#x27;s subsystems has its own simulator, with specific parameters and signals that can be observed. Using specialized synoptics, the values of these signals can be modified (even during the execution of the simulation), so that the simulator can be used as </span><span class="rvts19">a </span><span class="rvts6">&quot;</span><span class="rvts19">Test Bench</span><span class="rvts6">.&quot; The design of the subsystem simulators and synoptics allows the evolution of these signals to be observed under general operating conditions similar to those faced by a real wind turbine in a wind farm.</span></p>
+<p class="rvps2"><span class="rvts6">For example, the reaction to extreme winds can be observed. Or how it reacts to excessive heating of the generator. Or to a breakage of the blade angle variation mechanism. Or the influence of increased weight on the blades (due to ice, for example).</span></p>
+<p class="rvps2"><span class="rvts11">The simulated wind turbine is a HAWT (horizontal axis) type, wind-oriented (</span><span class="rvts15">upwind</span><span class="rvts11">), with three blades.</span></p>
+<p class="rvps2"><span class="rvts11">This tutorial explains the physical principles used in the design of wind turbines that use the principle of power control through </span><a class="rvts14" href="Stalling.html">stalling</a><span class="rvts11">.</span></p>
+<p class="rvps2"><span class="rvts11">The objectives of this simulator are:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•To </span><span class="rvts11">emulate the behavior of each subsystem within the wind turbine, including the controller, so that the observed behavior is very close to that of the actual wind turbine.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•To </span><span class="rvts11">provide the user with a set of visualization tools with which they can effectively and easily observe the values of all internal signals and their evolution.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•To </span><span class="rvts11">allow interaction with the wind turbine by changing its environmental conditions (wind, connection to the power grid, temperatures, etc.) in order to introduce most of the real operating conditions.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Present, in a simple way, aspects related to the safe operation of wind turbines.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Act as </span><span class="rvts15">a </span><span class="rvts11">&quot;</span><span class="rvts15">test bench</span><span class="rvts11">&quot; where the following can be forced: a) external conditions (extreme winds, for example), b) internal conditions (connection failures, equipment malfunctions, etc.), and observe the reaction of the wind turbine, even for signals that are not accessible in real wind turbines.</span></p>
+<p class="rvps2"><span class="rvts11">As a result, this simulator, together with this tutorial, allows:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Learn </span><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">about </span><span class="rvts16">and explore the internal structure </span><span class="rvts11">of this type of wind turbine.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Understand the physical principles </span><span class="rvts11">on which industrial wind turbines installed in wind farms are based.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Learn about the algorithms</span><span class="rvts11"> used in each subsystem of the wind turbine and the parameters that characterize them.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Learn about the state machines </span><span class="rvts11">used to control the wind turbine.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

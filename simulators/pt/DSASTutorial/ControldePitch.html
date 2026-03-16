@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>Conectar os indicadores</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="PitchOut, Angulo pala, SynopticDriveTrain" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DSASTutorial.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ControldePitch&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Ligação dos indicadores</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulador de turbina de vento com empatamento ativo e duas velocidades</a>
+					›› <a href="Sinopticos.html">Sinópticos utilizados neste simulador</a>
+					›› <a href="SinopticoTrenPotencia.html">Sinóptico do Comboio de Energia (SynopticDriveTrain)</a>
+					›› <a href="IndicadoresGondola.html">Indicadores comuns</a>
+					›› <a href="Sistemadefrenos3.html">Controle de passo</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Sistemadefrenos3.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Sistemadefrenos3.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="IndicadoresSistemaFreno.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts6">A figura seguinte mostra as ligações relacionadas com o ângulo da lâmina.</span></p>
+<p class="rvps4"><span class="rvts6">O Controlador tem uma variável de saída (</span><span class="rvts17">Controller.PitchOut</span><span class="rvts6">) que na realidade vai para o sistema servo que modifica fisicamente o ângulo da lâmina. No simulador, este mecanismo de pitch faz parte do</span><span class="rvts17">Nacelle</span><span class="rvts6">simulador, e esse sinal do Controlador atinge-o através</span><span class="rvts17">Nacelle.DriveTrain.PitchIn</span><span class="rvts6">, passando pelo "</span><span class="rvts17">Ângulo da lâmina</span><span class="rvts6">" indicador encontrado no "</span><span class="rvts17">SinopticDriveTrain</span><span class="rvts6">" synoptic. Este indicador está normalmente em "</span><span class="rvts17">display somente</span><span class="rvts6">" modo, então ele exibe o valor indicado pelo Controller. No entanto, pode ser definido como modo de "comando" (F6), caso em que o valor seguido pelo mecanismo de pitch pode ser variado alterando a posição de</span><span class="rvts17">a barra deslizante</span><span class="rvts6">ou mudar o texto. Isso torna possível forçar situações de erro.</span></p>
+<p class="rvps4"><img alt="" src="lib/Esquema%20conexiones%20Pitch.png" style="padding : 1px;"/><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

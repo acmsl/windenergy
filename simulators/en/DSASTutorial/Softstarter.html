@@ -1,0 +1,148 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Soft starter (soft connection) to the mains</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="as&iacute;ncrono, cutin, cutout, , hub, , pitch variable, grid, tiristores, contactor bypass, salida de producci&oacute;n, puesta en producci&oacute;n, Bypass, fasores, representaci&oacute;n fasorial, , velocidad de sincronismo, , soft conection, SofStarter, fasorial, Soft starter, sincronismo">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Softstarter&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Soft starter (soft connection) to the grid</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Wind Turbine Simulator with Active Stall and Two Speeds</a>
+					›› <a href="Simulación.html">Scope of Simulation</a>
+					›› <a href="Controller.html">Controller</a>
+					›› <a href="Algorithms.html">Algorithms used</a>
+					›› 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Algorithms.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Pitchcontolalgorithm.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Yawingofthenacelle.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Purpose of this algorithm</span></span></h1>
+<p class="rvps11"><span class="rvts6">This algorithm is used during the process of connecting the generator stator to the grid.</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Description of the grid connection problem.</span></span></h1>
+<p class="rvps11"><span class="rvts6">When the grid connection process begins (</span><span class="rvts29">cutin</span><span class="rvts6">), the generator stator is disconnected from the grid. Therefore, there is no magnetic flux in the generator air gap (see </span><a class="rvts40" href="IntoductiontotheInductionMachine.html">Introduction to Induction Machines)</a><span class="rvts6"> and, as a result, the generator does not generate any electrical power even though its shaft is rotating.</span></p>
+<p class="rvps11"><span class="rvts6">The only way to create a magnetic field in the air gap, so that</span><span class="rvts17"> the mechanical power that moves the shaft is transformed into electrical power</span><span class="rvts6">, is by connecting the stator to the grid.</span></p>
+<p class="rvps11"><span class="rvts6">As shown in </span><a class="rvts40" href="IntoductiontotheInductionMachine.html">Introduction to Induction Machines</a><span class="rvts6">, for this machine to function as a generator, the </span><span class="rvts17">speed of its shaft </span><span class="rvts6">must </span><span class="rvts17">be above its synchronous speed</span><span class="rvts6">.</span></p>
+<p class="rvps11"><span class="rvts6">Therefore, the algorithm used by the controller during the </span><span class="rvts17">start-up </span><span class="rvts6">sequence is:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">It keeps the stator disconnected from the grid while applying the mechanical torque from the wind on the blades, adjusting it at all times by modifying the blade angle value.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•It</span><span class="rvts6"> continuously monitors the value of the generator shaft revolutions.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">When these revolutions are close to but below synchronism (1480 to 1490 rpm in the case of synchronism at 1500 rpm), it then connects the stator to the grid, but not directly, rather </span><span class="rvts17">through the thyristors</span><span class="rvts6">. This connection, which lasts a few seconds (3 to 4), aims to ultimately:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">alternating current (from the grid) to begin to pass through the stator, to create a magnetic flux synchronous with the grid, but initially small. This is achieved by changing the </span><span class="rvts17">electrical conduction angle of the thyristors</span><span class="rvts6">.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts6">this current increases progressively in value, so that there is a motorization phase (taking energy from the grid to drive the generator shaft) until it reaches the synchronism phase, at which point the conduction angle of the thyristors is at its maximum (180º electric), at which point we will have:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span class="rvts6">▪shaft speed equal to the synchronous speed.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 96px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">▪</span><span class="rvts6">current through the stator will be synchronous with the grid (identical phase angles).</span></p>
+<h1 class="rvps7"><span class="rvts0"><span class="rvts49">Phasor representation of signal evolution in a soft starter</span></span></h1>
+<p class="rvps26"><img alt="" style="padding : 1px;" src="lib/SoftStarter.gif"></p>
+<p class="rvps27"><span class="rvts38">Left panel</span><span class="rvts6">: </span><span class="rvts17">Diagram of the phasors of a three-phase grid</span><span class="rvts6">. Each of the colors with a solid line corresponds to the phasor of one of the phases. The circles indicate the voltage of each phase with respect to the neutral. The dotted lines correspond to the average voltage reaching each terminal of the generator stator.</span> <span class="rvts38">Right</span><br/><span class="rvts38">panel</span><span class="rvts6">:</span> <span class="rvts17">Dotted lines</span><span class="rvts6">: voltage in each of the phases of the grid. Solid lines: voltage at the generator terminals.</span></p>
+<p class="rvps28"><span class="rvts6">The wind turbine emulated in this simulator has an induction generator with a squirrel cage rotor (short-circuited rotor), and the stator is connected directly to the electrical grid.</span></p>
+<p class="rvps28"><span class="rvts6">As discussed in </span><a class="rvts18" href="Porqugiranlaspalas1.html">How a wind turbine with a squirrel cage generator directly connected to the grid works, </a><span class="rvts6">this type of generator determines the functioning and operation of the wind turbine.</span></p>
+<p class="rvps11"><span class="rvts6">The basic operations related to the electric generator are </span><span class="rvts17">&#x27;start-up&#x27;</span><span class="rvts6"> (</span><span class="rvts17">cutin</span><span class="rvts6">) and </span><span class="rvts17">&#x27;shutdown&#x27;</span><span class="rvts6"> (</span><span class="rvts17">cutout</span><span class="rvts6">).</span></p>
+<p class="rvps11"><span class="rvts6">During start-up, the power train starts from rest and its rotational speed increases due to the effect of the wind and the pitch angle value, until it reaches the </span><span class="rvts17">&#x27;synchronous speed</span><span class="rvts6">&#x27;. That is, until the generator shaft speed is close to the generator&#x27;s synchronous speed. Throughout this transition, the stator is disconnected from the grid. For the asynchronous generator to actually produce electrical energy that is fed into the grid, the following is necessary:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">There must be interaction between two magnetic fluxes: one generated by the stator winding (and therefore synchronous with the grid frequency - 50 Hz or 60 Hz depending on the country), and another generated by the current induced in the rotor, which is short-circuited. The rotor current has a frequency that is proportional to the slip (the difference between the actual speed of rotation of the generator&#x27;s mechanical shaft and the synchronous speed, in relation to the synchronous speed); when operating as a generator, this slip value is usually very low, around 1% or less, depending on the quality of the generator. With a slip of 1%, the frequency of the rotor current will be (1500 * 0.01 = 15 Hz).</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">The mechanical power source connected to the generator shaft (the power train) must be sufficient to cause this shaft to rotate at a speed slightly higher than the synchronism speed, and the stator must also be connected to the grid.</span></p>
+<p class="rvps11"><span class="rvts6">This problem is common to many power generation systems (e.g., those used in generator sets), and the </span><span class="rvts17">Softstarter</span><span class="rvts6"> is a common procedure for achieving this. The mode of operation is as follows:</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1. </span><span class="rvts6">In the initial phase, when the speed of the generator shaft is far from the synchronous speed, the pitch angle of the blades is controlled so that the power train accelerates to the corresponding synchronous speed of the generator, with controlled acceleration.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span> <span class="rvts6">When this speed is close to the synchronous speed, but below it, voltage is supplied to the stator through blocks of two thyristors connected in anti-parallel (anode of one, with cathode of the other). Thyristors are electronic devices with three connections: the anode, the cathode, and the gate. They allow current to flow unidirectionally between the anode and cathode, but allow the angle of the alternating cycle to be controlled through only during a certain part of the cycle. Two are connected in anti-parallel to allow directional conduction. This is shown in the animated figure. The conduction angle is determined by the moment when the gate is excited with respect to the cathode.</span><br/><span class="rvts6">The objective is to supply voltage to the stator so that it can generate the magnetic flux, but in a controlled manner, starting with a small value, until it conducts throughout the entire cycle. In this way, the &quot;average&quot; value of this voltage increases from 0 and will eventually end up connected to the grid continuously.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span> <span class="rvts6">Initially, the thyristors do not conduct. See the animated figure. In this figure, the panel on the right shows the voltages in the three phases of a three-phase grid. On the left panel, the three continuous lines (red, green, and blue) correspond to vectors for each of the three phases, &quot;phasors&quot;: one vector for each phase, where the phase shift between them (120º) can be seen, and where the &quot;time&quot; variable is a vector that &quot;leaves the screen.&quot;</span><br/><span class="rvts6">The panel on the right shows, with dotted lines, the voltages in each of the phases in the network.</span><br/><span class="rvts6">The</span> <span class="rvts17">phasor representation</span> <span class="rvts6">clearly shows the moment when the thyristors begin to conduct, which occurs when the frequency of the generator voltage is lower than the synchronous frequency (which coincides with that of the grid). The effect of thyristor conduction is to reduce the </span><span class="rvts17">rate of change</span><span class="rvts6"> of the generator frequency until it becomes equal to that of the grid.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span> <span class="rvts6">When the generator shaft speed approaches the synchronous speed, the controller begins to progressively open the thyristor conduction angle, so that the stator begins to carry current that generates the magnetic field in the air gap.</span><br/><span class="rvts6">This is represented by the three phasors with dotted lines: as the shaft is not yet at synchronous speed, these phasors &quot;rotate&quot; at a speed corresponding to the difference in speeds. Their length corresponds to the average voltage in the cycle in which it occurs due to the conduction angle of the thyristors.</span><br/><span class="rvts6">Eventually, both speeds equalize, at which point the generator is connected to the grid through the thyristors, and the dotted lines are on the fixed lines and at synchronous speed.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5. </span><span class="rvts6">When sufficient time has elapsed (a few seconds), the speed of the shaft, driven by the power train, exceeds the synchronous speed, causing the stator to induce current in the rotor, which generates a magnetic flux that tends to rotate in the air gap faster than the magnetic flux created by the stator powered by the grid. The result is that the stator begins to deliver current to the grid, and consequently, the power train decelerates, since the electrical power sent to the grid is seen as a mechanical load on the power train shaft.</span></p>
+<p class="rvps11" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 10pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span> <span class="rvts6">At that moment, the thyristors are short-circuited. This is done because, when they are in full conduction (i.e., when they conduct during the 360º of a grid cycle), the voltage drop at the terminals (anode/cathode) is significant (around 2 volts). If the connection of the stator to the grid were maintained through the thyristors, they would dissipate a significant amount of power: with currents of around 800 amps to 1,000 amps, the power dissipated in these would be 2 kW.</span><br/><span class="rvts6">To avoid this, there are contactors (known as </span><span class="rvts17">bypasses</span><span class="rvts6">) that are capable of conducting these currents without significant losses. As these bypasses are activated when the thyristors are in full conduction, there are no problems with electric arcs when the contact is closed.</span></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps2"><span class="rvts6"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

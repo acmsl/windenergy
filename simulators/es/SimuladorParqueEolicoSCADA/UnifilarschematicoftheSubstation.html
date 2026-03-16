@@ -1,0 +1,131 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Esquema el&eacute;ctrico unifilar</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="electrical measurement units, Potencia reactiva, substation, unifilar, parque eolico, Point of Common Connection, cables de potencia, diagrama unifilar, linea trif&aacute;sica, operaciones de mantenimiento">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "SimuladorParqueEolico.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("UnifilarschematicoftheSubstation");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Esquema el&eacute;ctrico unifilar</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; <a href="WhatisaWindFarm.html">&iquest;Qu&eacute; es un Parque E&oacute;lico?</a> &rsaquo;&rsaquo; <a href="StrucutureandFunctionalitiesofaW.html">Estructura y Funcionalidades de un Parque E&oacute;lico</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="StrucutureandFunctionalitiesofaW.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Landlayout.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Legendofsymbols.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts16">La</span><span class="rvts30"> Subestación eléctrica</span><span class="rvts16"> incluye el transformador que eleva la tensión de salida de los aerogeneradores, normalmente en Baja Tensión , 690 V, aunque también existen con salida en Media Tensión (entre 3KV y 5KV) hasta el nivel de la linea de evacuación, que suele ser en Alta Tension (&gt; 110 KV), aunque pueden existir casos de conexión en Media Tensión ( &gt; 30KV).&nbsp;</span></p>
+<p class="rvps2"><span class="rvts16">Generalmente, dependiendo de la extensión del Parque, la salida de cada aerogenerador dispone de un transformador elevador (tipicamente de 690 V &nbsp;a 15KV o 20 KV), con objeto de reducir las perdidas en los cables de conexión con el transformador de la Subestación.</span></p>
+<p class="rvps2"><span class="rvts16">En la Subestación se encuentran los </span><span class="rvts32">dispositivos de corte</span><span class="rvts16"> (seccionadores e </span><span class="rvts32">interruptores</span><span class="rvts16">) que permiten conectar el transformador de la linea de evacuación, y las </span><span class="rvts32">'celdas'</span><span class="rvts16"> de operación, que, a su vez contiene los dispositivos de corte que permiten conectar y desconectar los cables que conectan con los transformadores de los aerogeneradores: esta funcionalidad es requerida para poder realizar trabajos que requieren la desactivación de algunos de estos cables.</span></p>
+<p class="rvps2"><span class="rvts16">Adicionalmente, y para cumplir con las normativas de operación, en la Subestación existen mecanismos de control estandard, que monitorizan: a) la frecuencia de la red; b) que la tensión esté dentro de determinados limites, c) las temperaturas de determinados elementos, etc.</span></p>
+<p class="rvps2"><span class="rvts16">En la siguiente figura se muestra el "</span><span class="rvts30">diagrama unifilar</span><span class="rvts16">" correspondiente a la Subestación del parque eólico de ejemplo. El concepto de "unifilar" corresponde a una representación simplificada en la que cada linea en el dibujo corresponde con los tres (solo las tres fases), o cuatro (tres fases y el neutro) hilos eléctricos de una linea trifásica.</span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/NewItem148.png"></p>
+<p class="rvps2"><span class="rvts27"><br/></span></p>
+<p class="rvps2"><span class="rvts16">En la parte superior se muestra la conexión con la línea (aérea en este caso) de conexión con la Red Eléctrica: en este caso a 220 KV.</span></p>
+<p class="rvps2"><span class="rvts16">Las conexiones con los aerogeneradores se concentra en tres lineas C-1, C-2, y C-3. La conexión de los aerogeneradores se realiza en "daisy chain": de uno al siguiente más próximo. A cada uno de los aerogeneradores le llega uno de estos cables, e internamente tienen dispositivos para su conexión/desconexión.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts16">Estas lineas pueden ser en Media Tensión (como en este caso) con tensión entre 15KV y 30KV, aunque también existen parques eólicos donde los aerogeneradores están conectados a Baja Tensión (690V), que suele ser la salida del generador eléctrico. La conexión en Media Tensión encarece la instalación (transformadores en cada aerogenerador para elevar de 690V a Media Tensión), pero reduce las pérdidas de transmisión.</span></p>
+<p class="rvps2"><span class="rvts16">Entre la salida de Alta Tensión y las conexiones con los aerogeneradores se encuentran:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El </span><span class="rvts30">Seccionador</span><span class="rvts16"> "89 L". Este dispositivo tiene dos posiciones fijas: a) una en la que conecta el circuito inferior a la Red Eléctrica, y b) otra en la que este circuito está puesto a Tierra. La posición b) se utiliza para realizar </span><span class="rvts32">operaciones de mantenimiento</span><span class="rvts16"> de la Subestación.</span><span class="rvts32"> </span><span class="rvts44">Este dispositivo no puede ser operado</span><span class="rvts16"> (es decir, no se puede cambiar su posición de a) a b) o viceversa) </span><span class="rvts44">si existe corriente o puede existir corriente a su través</span><span class="rvts16">. Es decir, solo puede cambiar de posición si el Interruptor "52 L" esta abierto.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">El </span><span class="rvts30">Interruptor</span><span class="rvts16"> "52 L" es el principal elemento de corte y conexión de la Subestación. </span><span class="rvts44">Este dispositivo puede cambiar de estado en cualquier situación</span><span class="rvts16">: es decir, puede abrirse teniendo conectados la Red Eléctrica (Seccionador "89 L" cerrado) y los aerogeneradores conectados (C-1, C-2 y C-3 cerrados) y en producción. Igualmente puede abrirse en estas mismas circunstancias.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Existen </span><span class="rvts30">transformadores de medida de tensión</span><span class="rvts16"> (220 KW a 110V) conectados a la Red Eléctrica (cuando "89 L" está cerrado) &nbsp;y </span><span class="rvts30">transformadores de medida de corriente</span><span class="rvts16"> en cada fase.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Los anteriores transformadores alimentan diversos </span><span class="rvts30">elementos de protección</span><span class="rvts16"> ("</span><span class="rvts32">relés</span><span class="rvts16">") donde:</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">se monitorizan la tensión y la corriente en cada fase con sus valores máximos,&nbsp;</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">se calcula la potencia que circula por las lineas (de entrada - consumo - , &nbsp;salida - producción -), y</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">se monitoriza la frecuencia de la Red. Un listado de estos relés se encuentra en </span><a class="rvts31" href="Legendofsymbols.html">Leyenda de los simbolos en el esquema unifilar</a><span class="rvts16">. La salida de estos elementos de protección gobierna el mando del Interruptor "52 L". Este Interruptor también puede ser comandado desde el SCADA del Parque.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Un </span><span class="rvts30">transformador elevador</span><span class="rvts16">, de 20 KV a 220 KV, en configuración triangulo/estrella, de forma que se aíslen los </span><span class="rvts44">posibles desequilibrios entre fases</span><span class="rvts16">.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts30">Elementos de protección</span><span class="rvts16"> &nbsp;contra sobre-tensiones.</span></p>
+<p class="rvps2" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Un Seccionador seguido de un Interruptor que conecta con las "barras" de la Subestación a las que se conectan las conexiones con los aerogeneradores, a través de conjuntos de Seccionador + Interruptor.</span><br/><span class="rvts16">El objetivo de estos conjuntos es el de poder desconectar una linea C-x, sin tener que desconectar las otras.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2017&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL  www.acm-sl.com
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

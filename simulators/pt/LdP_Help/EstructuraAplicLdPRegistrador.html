@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>Gravador Sinótico</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 6.9.0.577" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Registradores, copias activas, base de tiempos, Copia activa, registrador, Paneles predefinidos, Segundos por pixel" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;LdP_Help.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;EstructuraAplicLdPRegistrador&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Gravador Sinótico</h1>
+<div id="topic_breadcrumb">
+<a href="EstructuraAplicLdP.html">Estrutura de Aplicação LdP</a>
+					›› <a href="EstructuraAplicLdPConceptosBasic.html">Conceitos Básicos</a>
+					›› <a href="EstructuraAplicLdPControlSimulac.html">Controle de Simulação</a>
+					›› <a href="EstructuraAplicLdPSinopticoEjecu.html">Controle de Execução Synoptic</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAplicLdPSinopticoEjecu.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="EstructuraAplicLdPEdicionConex.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="DefinicindeRegistradores.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts25">Gravadores de Tiras</span></p>
+<p class="rvps5"><span class="rvts16">O intérprete LdP inclui a possibilidade de criar qualquer número de sinóticos tipo "Recorder", que mostram a evolução de um conjunto de sinais. A representação é especificada associando o Gravador com um "Painel Predefinido". Estes sinópticos consistem em:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•A </span><span class="rvts19">registo da base temporal</span><span class="rvts16">que se move para a esquerda com o passar do tempo.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">Um ou mais "</span><span class="rvts26">Registos</span><span class="rvts16">," localizado imediatamente abaixo do indicador de data, que mostram:</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">A evolução de um ou mais sinais.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 12pt; font-family: 'Courier New', 'Courier', monospace; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">o</span><span class="rvts16">Um eixo vertical à direita, marcado de acordo com o intervalo de valores de sinal. Pode ser linear ou logarítmico.</span></p>
+<p class="rvps5" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span class="rvts16">Linhas horizontais (</span><span class="rvts19">marcas</span><span class="rvts16">) correspondente a certos valores.</span></p>
+<p class="rvps5"><span class="rvts16">Os sinais de um Registro devem ser do mesmo tipo, "analógico" ou "digital". Cada sinal pode ter uma cor associada diferente.</span></p>
+<p class="rvps7"><img alt="" src="lib/SR pitch potencias frenos rpms viento 0.png" style="padding : 1px;"/></p>
+<p class="rvps7" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">O "</span><span class="rvts26">Painéis Predefinidos</span><span class="rvts16">" botão exibe o conjunto de painéis predefinidos para o Simulador que está em execução.</span></p>
+<p class="rvps7" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">O "</span><span class="rvts26">Segundos por pixel</span><span class="rvts16">" botão permite-lhe alterar a escala de base de tempo entre os valores mostrados na seguinte figura:</span></p>
+<p class="rvps7"><img alt="" src="lib/Time per pixel listado espanol.jpg" style="padding : 1px;"/></p>
+<p class="rvps7" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Arial Unicode MS', 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts16">O "</span><span class="rvts26">Copiar</span><span class="rvts16">"botão cria um sinóptico chamado</span><a class="rvts28" href="DefinicindeRegistradores.html">Cópia ativa</a><span class="rvts16">" (hardcopy) que permite visualizar a evolução dos sinais em um determinado instante e realizar medições de tempo entre instantes de uma forma gráfica.</span></p>
+<p class="rvps5"><span class="rvts6"><br/></span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts16"><br/></span></p>
+<p class="rvps5"><span class="rvts6"><br/></span></p>
+<p></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2014&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL - "www.acm-sl.com"
+</div>
+</div>
+</body>
+</html>

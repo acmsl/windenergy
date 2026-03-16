@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Sensori di temperatura</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Pt100, bimetales, tiristores" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;Sensorestemperatura&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Sensori di temperatura</h1>
+<div id="topic_breadcrumb">
+<a href="Queesunaerogenerador.html">Cos'è una turbina eolica?</a>
+					›› <a href="EstructuraAerogenerador.html">Struttura di una turbina eolica orizzontale</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="EstructuraAerogenerador.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="MedicindeladireccionDireccionVie.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="Sensoresdetemperatura.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps11"><span class="rvts6">Le turbine eoliche hanno sensori di temperatura per diversi elementi. Il tipo di sensore dipende dal tipo di componente monitorato e dalla precisione di misura richiesta. Ad esempio, per misurare la temperatura dei tiristori o dei motori yaw, vengono generalmente utilizzati sensori bimetal-based calibrati per la temperatura corrispondente. Questi sensori sono in un circuito chiuso quando la temperatura è inferiore alla temperatura di calibrazione e in un circuito aperto se è più alta.</span></p>
+<p class="rvps11"><img alt="" src="lib/sensor%20temperatura%20bimetal.png" style="padding : 1px;"/><span class="rvts6"> </span><img alt="" src="lib/Sensor%20temperatura%20bimetal%20ejemplo.gif" style="padding : 1px;"/></p>
+<p class="rvps11"><span class="rvts6">Altri elementi, come il generatore elettrico o il cuscinetto del rotore, richiedono una misurazione della temperatura più accurata in modo che la loro evoluzione possa essere monitorata più da vicino.</span></p>
+<p class="rvps11"><span class="rvts6">Misure più accurate che richiedono una maggiore affidabilità vengono eseguite utilizzando</span><span class="rvts28">Pt100</span><span class="rvts6">sensori, che sono ampiamente utilizzati nell'industria e hanno prestazioni ben note e stabili e un adeguato livello di precisione.</span></p>
+<p class="rvps11"><span class="rvts6">L'effetto fisico utilizzato è la variazione nella resistenza di un conduttore come funzione della sua temperatura. Questi sensori sono realizzati in platino e il loro valore nominale è piccolo, tipicamente 100 ohms, anche se sono disponibili 1.000 sensori ohm.</span></p>
+<p class="rvps11"><span class="rvts6">Il rapporto tra resistenza e temperatura è abbastanza stabile in platino e segue una regola ragionevolmente lineare.</span></p>
+<p class="rvps11"><span class="rvts6">Il problema principale con questo tipo di sensore è la misura della sua resistenza. Poiché ha un basso valore ed è a una notevole distanza dal dispositivo elettronico che esegue la misura, è necessario evitare il problema dei cavi che collegano il sensore Pt100 e il suo sistema di misura, e anche ridurre la corrente utilizzata nella misura il più possibile, in quanto questa corrente 'riscalda' la resistenza e quindi distorce la misura.</span></p>
+<p class="rvps11"><span class="rvts6">La procedura, ben nota nell'industria e nei laboratori, è conosciuta come metodo 3- o 4-wire. Vedi</span><a class="rvts18" href="Sensoresdetemperatura.html">Circuiti di misura del sensore Pt100.</a></p>
+<p class="rvps11"><span class="rvts6"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>

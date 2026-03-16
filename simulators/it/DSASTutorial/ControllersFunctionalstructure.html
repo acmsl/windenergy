@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>Struttura funzionale del regolatore</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<meta content="HelpNDoc Professional Edition 10.0.0.105" name="generator"/>
+<meta content="" name="description"/>
+<meta content="Controlador, PLCs, Programmable Logic Controllers, sistemas operativos en Tiempo Real, RTOSs, Maquina de Estados, transiciones de Estado, eventos, Operación, seguridad" name="keywords"/>
+<link href="css/reset.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/base.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="css/hnd.css" media="all" rel="stylesheet" type="text/css"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/hnd.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf(&quot;/&quot;) + 1, top.location.href.length);
+				top.location.href = &quot;DualSpeedActiveStallWTSimulator.html?&quot; + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top &amp;&amp; top.FrameTOC &amp;&amp; top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem(&quot;ControllersFunctionalstructure&quot;);
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+</head>
+<body>
+<div id="topic_header">
+<div id="topic_header_content">
+<h1 id="topic_header_text">Struttura funzionale del regolatore</h1>
+<div id="topic_breadcrumb">
+<a href="SimDSAS.html">Simulatore di turbine eoliche con Stall attivo e due velocità</a>
+					›› <a href="Simulación.html">Ambito di simulazione</a>
+					›› <a href="Controller.html">Controller</a>
+					›› 
+				</div>
+</div>
+<div id="topic_header_nav">
+<a href="Controller.html"><img alt="Parent" src="img/arrow_up.png"/></a>
+<a href="Remotecontrol.html"><img alt="Previous" src="img/arrow_left.png"/></a>
+<a href="StateEventsDiagramsoftheimplemen.html"><img alt="Next" src="img/arrow_right.png"/></a>
+</div>
+<div class="clear"></div>
+</div>
+<div id="topic_content">
+<p class="rvps4"><span class="rvts11">The</span><span class="rvts16">controller</span><span class="rvts11">di una turbina eolica è un concetto che comprende i processi di monitoraggio del segnale e controllo degli elementi per raggiungere l'obiettivo di massimizzare l'energia prodotta, mantenendo i necessari meccanismi di sicurezza.</span></p>
+<p class="rvps4"><span class="rvts11">La sua implementazione varia notevolmente e, in generale, i controller vengono implementati con uno o più</span><span class="rvts16">PLC</span><span class="rvts11"> (</span><span class="rvts15">Regolatori di logica programmabili</span><span class="rvts11">) o tramite computer industriali, solitamente in esecuzione</span><span class="rvts15">sistemi operativi in tempo reale</span><span class="rvts11">(RTOSs).</span></p>
+<p class="rvps4"><span class="rvts11">I PLC sono unità di monitoraggio e controllo che non hanno un sistema operativo e sono programmati per implementare la logica di determinati processi.</span></p>
+<p class="rvps4"><span class="rvts11">I computer industriali sono computer creati per ambienti industriali e dove vengono eseguiti sistemi operativi in tempo reale: a differenza di altri sistemi operativi comuni per applicazioni di ufficio, RTOSs garantisce tempi di risposta noti per le loro operazioni. Questa caratteristica è essenziale per essere in grado di gestire alcune operazioni in impianti industriali, che devono essere svolte in breve tempo e non devono superare determinati limiti.</span></p>
+<p class="rvps4"><span class="rvts11">Gli algoritmi implementati devono corrispondere ai diversi sottoprocessi, quelli per il coordinamento generale tra loro, e quelli per rispondere ai comandi 'esterni' (sia dall'operatore, tramite una connessione locale, sia dal centro di controllo, tramite una connessione remota).</span></p>
+<p class="rvps4"><span class="rvts11">Esempi di sottoprocessi sono:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">L'orientamento della nacelle.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Mantenere la pressione nel circuito frenante idraulico.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Controllo dei ventilatori di raffreddamento del generatore elettrico.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts11">Etc.</span></p>
+<p class="rvps4"><span class="rvts11">Le funzioni di coordinamento e di sicurezza sono di solito programmate utilizzando "</span><span class="rvts16">macchina di stato</span><span class="rvts11">" paradigma. Questo metodo di programmazione ha diversi vantaggi, tra cui la capacità di visualizzare le diverse evoluzioni possibili (</span><span class="rvts15">transizioni statali</span><span class="rvts11">) e le possibili ragioni per ciascuna di queste evoluzioni (</span><span class="rvts15">eventi</span><span class="rvts11">).</span></p>
+<p class="rvps4"><span class="rvts11">In generale, ci sono due macchine statali nel controllo delle turbine eoliche, una per implementare</span><span class="rvts16">operazione</span><span class="rvts11">funzioni e un altro per implementare</span><span class="rvts16">sicurezza</span><span class="rvts11">functions.</span></p>
+<p class="rvps4"><span class="rvts11">The</span><a class="rvts48" href="StateEventsDiagramsoftheimplemen.html">macchine di stato</a> <span class="rvts11">sono implementati nel controller di questo simulatore.</span><span class="rvts6"></span></p>
+</div>
+<div id="topic_footer">
+<div id="topic_footer_content">Copyright © &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+</div>
+</div>
+</body>
+</html>
