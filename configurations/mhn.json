@@ -6,7 +6,7 @@
   "buttons": [
     {
       "target": "opcionSimuladores",
-      "image": "img/vista-wt-reducida.png",
+      "image": "img/Aerogenerador_3d_chatgpt-reducida.png",
       "title": "Accès aux Simulateurs en Temps Réel d'Éoliennes",
       "i18n": "card.grid.title3"
     },

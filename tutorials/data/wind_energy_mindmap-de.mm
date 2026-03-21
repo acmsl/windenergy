@@ -9,10 +9,7 @@
   </head>
   <body>
     <p style="text-align: center">
-      Schulung zu<br/><b>Industriellen Aspekten </b>
-    </p>
-    <p style="text-align: center">
-      <b>der<br/>Windenergie</b>
+      <b>Konzepte der<br/> Windenergie</b>
     </p>
   </body>
 </html>

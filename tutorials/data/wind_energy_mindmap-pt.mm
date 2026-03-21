@@ -9,10 +9,7 @@
   </head>
   <body>
     <p style="text-align: center">
-      Formação em<br/><b>Aspectos Industriais </b>
-    </p>
-    <p style="text-align: center">
-      <b>da<br/>Energia Eólica</b>
+      <b>Conceitos em<br/> Energia Eólica</b>
     </p>
   </body>
 </html>
