@@ -814,7 +814,7 @@
 
           <!-- 3. Aerogeneradores en Parques Eólicos -->
           <button class="card" type="button" data-target="opcSimulators">
-            <div class="card-image" style="background-image:url('img/vista-wt-reducida.png');"></div>
+            <div class="card-image" style="background-image:url('img/Aerogenerador_3d_chatgpt-reducida.png');"></div>
             <div class="card-title" data-i18n="card.grid.title3">card.grid.title3</div>
           </button>
 
@@ -836,6 +836,12 @@
               <img src="img/dfigb2b.png" alt="Help image" />
               <p data-i18n="card.grid.help5">Program to compute the values of the magnetic and electric variables in the Asynchronous Induction Machine in <strong>DFIG Wind Turbines</strong>, assuming it is connected to a <strong>Power Electronics Back-to-Back converter</strong>.</p>
             </div>
+          </button>
+
+          <!-- 5.5. Data Processing -->
+          <button class="card" type="button" data-target="opcDataProcessing">
+            <div class="card-image" style="background-image:url('img/Datalog2.png'); background-size: auto 100%; background-repeat: no-repeat;"></div>
+            <div class="card-title" data-i18n="card.grid.titleDP">Data Processing</div>
           </button>
 
           <!-- 6. Vídeos interesantes -->
@@ -1147,6 +1153,23 @@
         </div>
       </section>
 
+      <!-- DATA PROCESSING -->
+      <section id="opcDataProcessing" data-breadcrumb="opcDataProcessing">
+        <div class="section-header">
+          <h2 data-i18n="dataprocessing.title">Data Processing</h2>
+        </div>
+
+        <div class="sub-card">
+          <h3 data-i18n="dataprocessing.datalogger.h3">Application to visualize datalogged signal evolutions, to process them and export to CSV format for further processing</h3>
+        </div>
+
+        <div class="sub-card">
+          <h3 data-i18n="dataprocessing.windseries.h3">Creation of wind speed data series to be used as wind speed evolution in the Simulator</h3>
+        </div>
+
+        
+      </section>
+
       <!-- OPTION 6: INTERESTING VIDEOS -->
       <section id="opcVideos" data-breadcrumb="opcVideos">
         <div class="section-header">
@@ -1186,6 +1209,7 @@
       "breadcrumb.opcVideos": "Videos",
       "breadcrumb.opcOperCurve": "Tren de Potencia",
       "breadcrumb.opcDFIGB2B": "Back-to-Back converter",
+      "breadcrumb.opcDataProcessing": "Data Processing",
       "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
       "landing.title": "Selecciona un tema",
       "landing.subtitle": "Haz clic en un tema para acceder a las aplicaciones correspondientes",
@@ -1194,6 +1218,10 @@
       "card.grid.title3": "Acceso a los Simuladores de Aerogeneradores en Tiempo Real",
       "card.grid.title4": "Software de análisis del Tren de Potencia",
       "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
+      "card.grid.titleDP": "Data Processing",
+      "dataprocessing.title": "Data Processing",
+      "dataprocessing.windseries.h3": "Creation of wind speed data series to be used as wind speed evolution in the Simulator",
+      "dataprocessing.datalogger.h3": "Application to visualize datalogged signal evolutions, to process them and export to CSV format for further processing",
       "card.grid.title6": "Algunos vídeos significativos",
       "card.grid.title7": "Acceso a los Tutoriales",
       "card.grid.title8": "Aprendizaje guiado y experimentos sugeridos",
@@ -1204,10 +1232,10 @@
       "concepts.intro.mindmap.button": "▶ Abre el Mapa Mental",
       "tutorial.family.path": "Tutorials/WindTurbineFamilies.html",
       "mindmap.windenergy.path": "Tutorials/WindEnergyMindMap.html",
-      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
-      "tutorial.dsas.path": "Tutorials/DSAS.html",
-      "tutorial.dsaswt.path": "simulators/en/DSASTutorial/toc.html",
-      "tutorial.dsasexercises.path": "simulators/en/DSASExcersises/toc.html",
+      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.htmle",
+      "tutorial.dsas.path": "Tutorials/DSAS.htmle",
+      "tutorial.dsaswt.path": "simulators/en/DSASTutorial/toc.htmle",
+      "tutorial.dsasexercises.path": "simulators/en/DSASExcersises/toc.htmle",
       "tutorial.rrc.path": "Tutorials/RRC.html",
       "tutorial.dfig.path": "Tutorials/DFIG.html",
       "languagename": "English",
@@ -1234,6 +1262,7 @@
       "breadcrumb.opcVideos": "Vídeos",
       "breadcrumb.opcOperCurve": "Tren de Potencia",
       "breadcrumb.opcDFIGB2B": "Back-to-Back converter",
+      "breadcrumb.opcDataProcessing": "Procesamiento de Datos",
       "breadcrumb.opcionGuiaWFSSCADA": "Guía SCADA",
       "landing.title": "Selecciona un tema",
       "landing.subtitle": "Haz clic en un tema para acceder a las aplicaciones correspondientes",
@@ -1242,6 +1271,10 @@
       "card.grid.title3": "Acceso a los Simuladores de Aerogeneradores en Tiempo Real",
       "card.grid.title4": "Software de análisis del Tren de Potencia",
       "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
+      "card.grid.titleDP": "Procesamiento de Datos",
+      "dataprocessing.title": "Procesamiento de Datos",
+      "dataprocessing.windseries.h3": "Creación de series temporales de velocidad de viento para su uso como evolución del viento en el Simulador",
+      "dataprocessing.datalogger.h3": "Aplicación para visualizar evoluciones de señales registradas, procesarlas y exportarlas a formato CSV para su posterior tratamiento",
       "card.grid.title6": "Algunos vídeos significativos",
       "card.grid.title7": "Acceso a los Tutoriales",
       "card.grid.title8": "Aprendizaje guiado y experimentos sugeridos",
@@ -1743,7 +1776,20 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = comando;
       }
 
-      function runAviewer(param1) {
+      async function runAviewer(param1) {
+        // Pre-flight check for relative web paths (not absolute Windows paths like C:\...)
+        const isAbsPath = /^[A-Za-z]:[\\\/]|^[\\\/][\\\/]/.test(param1);
+        if (!isAbsPath) {
+          try {
+            const res = await fetch(param1, { method: 'HEAD' });
+            if (!res.ok) {
+              showToast('File not found: ' + param1, 'error');
+              return;
+            }
+          } catch (e) { /* network error — proceed and let the viewer handle it */ }
+        }
+        // Save current section so the page can recover if navigation fails
+        sessionStorage.setItem('weblauncher_returnSection', _currentSection);
         const comandoHex = _toHex(param1);
         const comando = "acmsl://viewertutorial%20-n%20-h" + comandoHex;
         window.location.href = comando;
@@ -2390,6 +2436,15 @@ document.addEventListener('DOMContentLoaded', function() {
           sel.value = langToUse;
         }
         if (sel && !urlLang) sel.addEventListener('change', e => setLang(e.target.value));
+
+        // Session recovery: if the page was navigated away by runAviewer and returned
+        // (e.g. user pressed browser Back from a 404), restore the previous section
+        const returnSection = sessionStorage.getItem('weblauncher_returnSection');
+        if (returnSection) {
+          sessionStorage.removeItem('weblauncher_returnSection');
+          showSection(returnSection, false);
+          showToast('Viewer not available or file not found. Returned to previous section.', 'error');
+        }
       });
     </script>
 
