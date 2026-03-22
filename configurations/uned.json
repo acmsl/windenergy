@@ -1,0 +1,54 @@
+{
+  "langs": ["es"],
+  "defaultLang": "es",
+  "header.title": "Material didáctico sobre Tecnologías de Aerogeneradores",
+  "header.subtitle": "Particularizado para los cursos de UNED (universidad Nacional de Educación a Distancia)",
+  "buttons": [
+    {
+      "target": "opcSimulators",
+      "image": "img/vista-wt-reducida.png",
+      "title": "Acceso a los Simuladores en Tiempo Real de Aerogeneradores",
+      "i18n": "card.grid.title3"
+    },
+    {
+      "target": "concepts",
+      "image": "img/mindmaprecortado.png",
+      "title": "Introducción a los conceptos de energía eólica",
+      "i18n": "card.intro.title"
+    },
+    {
+      "target": "Wind Farm SCADA",
+      "image": "img/ParqueEolico.png",
+      "title": "Conceptos de la Red Eléctrica y de los Parques Eólicos",
+      "i18n": "card.grid.title2"
+    },
+    {
+      "target": "opcOperCurve",
+      "image": "img/powervsrpms-reducido.png",
+      "title": "Software de análisis del Tren de Potencia del Aerogenerador",
+      "i18n": "card.grid.title4",
+      "helpImage": "img/OperCurveVarSpeedWTs.jpg",
+      "helpText": "Software para el cálculo de la curva operacional de aerogeneradores de velocidad variable (familias DFIG y Full Converter)."
+    },
+	{
+	"target": "opcDFIGB2B",
+      "image": "img/dfigradar.png",
+      "title": "Software de análisis del Tren de Potencia del Aerogenerador",
+      "i18n": "card.grid.title5",
+      "helpImage": "img/dfigb2b.png",
+      "helpText": "Programa que permite calcular los valores de las variables eléctricas y magnéticas de Máquina Asíncronas de Inducción usadas en Aerogeneradores de Doble Alimentación, con conexión a Convertidores de Potencia de Back-to-Back.</p>"
+	},
+    {
+      "target": "opcVideos",
+      "image": "img/CollageImagenesVideos-reducido.png",
+      "title": "Videos seleccionados",
+      "i18n": "card.grid.title6"
+    },
+    {
+      "target": "opcionTutoriales",
+      "image": "img/AccesoaTutoriales.png",
+      "title": "Acceso a los tutoriales",
+      "i18n": "card.grid.title7"
+    }
+  ]
+}

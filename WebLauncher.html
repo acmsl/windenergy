@@ -37,8 +37,9 @@
       header {
         background: linear-gradient(135deg, var(--primary), #0099cc);
         color: white;
-        padding: 1.25rem 2rem;
+        padding: 1.25rem 2rem 0;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
@@ -102,15 +103,14 @@
       }
 
       .breadcrumb {
-        position: sticky;
-        top: 5rem;
-        background: var(--bg);
-        padding: 0.25rem 2rem;
+        width: 100%;
+        background: rgba(255,255,255,0.15);
+        margin: 0.75rem -2rem 0;
+        padding: 0.35rem 2rem;
         font-size: 0.75rem;
-        color: #666;
+        color: rgba(255,255,255,0.85);
         font-style: italic;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
-        z-index: 100;
+        border-top: 1px solid rgba(255,255,255,0.2);
         line-height: 1.2;
       }
 
@@ -119,19 +119,19 @@
       }
 
       .bc-link {
-        color: var(--primary);
+        color: rgba(255,255,255,0.9);
         cursor: pointer;
         text-decoration: none;
         transition: color 0.2s;
       }
 
       .bc-link:hover {
-        color: #005580;
+        color: #fff;
         text-decoration: underline;
       }
 
       .bc-current {
-        color: var(--dark);
+        color: #fff;
         font-weight: 500;
       }
 
@@ -788,9 +788,8 @@
         </select>
         <button class="home-btn" type="button" onclick="goHome()">🏠 <span data-i18n="home">home</span></button>
       </div>
+      <div id="breadcrumb" class="breadcrumb"></div>
     </header>
-
-    <div id="breadcrumb" class="breadcrumb"></div>
     <main>
       <!-- LANDING: 6 OPCIONES -->
       <section id="landing" class="active" data-breadcrumb="landing">
@@ -972,44 +971,44 @@
 
         <div class="suboptions one-per-row">
           <div class="sub-button">
-            <h3>1 - Basic characteristics of the Electric Grid</h3>
+            <h3 data-i18n="scada.guide.step1.h3">1 - Basic characteristics of the Electric Grid</h3>
             <div class="btn-row">
-              <button class="btn" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\TheControlRoom1.html')">📖 Open the Tutorial</button>
+              <button class="btn" type="button" onclick="runAviewer(t('scada.guide.step1.path'))" data-i18n="scada.guide.step1.button">📖 Open the Tutorial</button>
             </div>
           </div>
 
           <div class="sub-button">
-            <h3>2 - Structure and Functionalitires of a Wind Farm</h3>
+            <h3 data-i18n="scada.guide.step2.h3">2 - Structure and Functionalities of a Wind Farm</h3>
             <div class="btn-row">
-              <button class="btn" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\StrucutureandFunctionalitiesofaW.html')">📖 Open the Tutorial</button>
+              <button class="btn" type="button" onclick="runAviewer(t('scada.guide.step2.path'))" data-i18n="scada.guide.step2.button">📖 Open the Tutorial</button>
             </div>
           </div>
 
           <div class="sub-button">
-            <h3>3 - Control of Wind Turbine</h3>
-            <p>Each Wind Turbine operates as an <em>Autonomous Independent Production Unit</em> and is capable of generating electrical power without relying on any external sensing devices, provided that the required operating conditions are met.</p>
-            <p>They admit remote command for starting production (<em>cut in</em>), stoping production (<em>cut out</em>), and (modern ones) for fixing the maximum production.</p>
+            <h3 data-i18n="scada.guide.step3.h3">3 - Control of Wind Turbine</h3>
+            <p data-i18n="scada.guide.step3.p1">Each Wind Turbine operates as an <em>Autonomous Independent Production Unit</em> and is capable of generating electrical power without relying on any external sensing devices, provided that the required operating conditions are met.</p>
+            <p data-i18n="scada.guide.step3.p2">They admit remote command for starting production (<em>cut in</em>), stoping production (<em>cut out</em>), and (modern ones) for fixing the maximum production.</p>
             <div class="btn-row">
-              <button class="btn" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\ControlofaWindTurbine.html')">📖 Open the Tutorial</button>
+              <button class="btn" type="button" onclick="runAviewer(t('scada.guide.step3.path'))" data-i18n="scada.guide.step3.button">📖 Open the Tutorial</button>
             </div>
           </div>
 
           <div class="sub-button">
-            <h3>4 - Connection of the Wind Farm with the Grid</h3>
-            <p>The Wind Turbines are connected with the Substation through with Medium Voltage power cables.</p>
-            <p>In on-shore Wind Farms the Substation is connected to the Grid through a High Voltage AC line (&gt; 100 KV)</p>
-            <p>In off-shore Wind Farms this connection may be with very high voltage DC cables.</p>
+            <h3 data-i18n="scada.guide.step4.h3">4 - Connection of the Wind Farm with the Grid</h3>
+            <p data-i18n="scada.guide.step4.p1">The Wind Turbines are connected with the Substation through with Medium Voltage power cables.</p>
+            <p data-i18n="scada.guide.step4.p2">In on-shore Wind Farms the Substation is connected to the Grid through a High Voltage AC line (&gt; 100 KV)</p>
+            <p data-i18n="scada.guide.step4.p3">In off-shore Wind Farms this connection may be with very high voltage DC cables.</p>
             <div class="btn-row">
-              <button class="btn" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\UnifilarschematicoftheSubstation.html')">📖 Open the Tutorial</button>
+              <button class="btn" type="button" onclick="runAviewer(t('scada.guide.step4.path'))" data-i18n="scada.guide.step4.button">📖 Open the Tutorial</button>
             </div>
           </div>
 
           <div class="sub-button">
-            <h3>5 - Grid Codes of the Wind Turbines</h3>
-            <p>Each national Transmission System Operator (TSO) defines a mandatory Grid Code specifying the technical requirements that wind turbines must comply with when connected to the electrical network. These requirements are established to ensure system stability and continuity of supply (i.e., preventing unintended outages). The applicable Grid Code varies from one country to another.</p>
+            <h3 data-i18n="scada.guide.step5.h3">5 - Grid Codes of the Wind Turbines</h3>
+            <p data-i18n="scada.guide.step5.p1">Each national Transmission System Operator (TSO) defines a mandatory Grid Code specifying the technical requirements that wind turbines must comply with when connected to the electrical network. These requirements are established to ensure system stability and continuity of supply (i.e., preventing unintended outages). The applicable Grid Code varies from one country to another.</p>
             <div class="btn-row">
-              <button class="btn" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\GridCodes.html')">📖 Open the Tutorial</button>
-              <button class="btn" type="button" onclick="runAviewer('C:\\ACMSL\\WindFarmSimulator\\Help\\English\\DFIGWTSimulator\\GridDescriptionGridCodes.html')">📖 Open the Tutorial</button>
+              <button class="btn" type="button" onclick="runAviewer(t('scada.guide.step5.path1'))" data-i18n="scada.guide.step5.button1">📖 Open the Tutorial</button>
+              <button class="btn" type="button" onclick="runAviewer(t('scada.guide.step5.path2'))" data-i18n="scada.guide.step5.button2">📖 Open the Tutorial</button>
             </div>
           </div>
         </div>
@@ -1031,7 +1030,7 @@
             </div>
           </div>
 
-          <div class="sub-card">
+          <div class="sub-card" data-lang-only="es">
             <h3 data-i18n="guided.learning.scada.title">Guided learning for the Wind Farm Control Center/SCADA</h3>
             <div class="card-text">
               <p data-i18n="guided.learning.scada.p">The items in the next links provide an ordered reading of the Tutorial of the Wind Farm Control Center/SCADA, following</p>
@@ -1161,11 +1160,16 @@
 
         <div class="sub-card">
           <h3 data-i18n="dataprocessing.datalogger.h3">Application to visualize datalogged signal evolutions, to process them and export to CSV format for further processing</h3>
+        <p>This application allows users to: a) visualize data sets datalogged during a session with any of the simulators; b) to export them in CSV format; c) to resample them for further processing.</p>
+          <img src="img/Datalog1.png" alt="Datalog screenshot" style="max-width:100%; margin-top:1rem;">
+          <div class="btn-row" style="justify-content:center;">
+            <button class="btn btn-primary" type="button" onclick="runAfile('ldp_data_processing')" data-i18n="dataprocessing.datalogger.button">▶ Run Datalogger Data Processor</button>
+          </div>
         </div>
 
-        <div class="sub-card">
+        <!--div class="sub-card">
           <h3 data-i18n="dataprocessing.windseries.h3">Creation of wind speed data series to be used as wind speed evolution in the Simulator</h3>
-        </div>
+        </div-->
 
         
       </section>
@@ -1220,6 +1224,7 @@
       "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
       "card.grid.titleDP": "Data Processing",
       "dataprocessing.title": "Data Processing",
+      "dataprocessing.datalogger.button": "▶ Run Datalogger Data Processor",
       "dataprocessing.windseries.h3": "Creation of wind speed data series to be used as wind speed evolution in the Simulator",
       "dataprocessing.datalogger.h3": "Application to visualize datalogged signal evolutions, to process them and export to CSV format for further processing",
       "card.grid.title6": "Algunos vídeos significativos",
@@ -1234,7 +1239,7 @@
       "mindmap.windenergy.path": "Tutorials/WindEnergyMindMap.html",
       "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.htmle",
       "tutorial.dsas.path": "Tutorials/DSAS.htmle",
-      "tutorial.dsaswt.path": "simulators/en/DSASTutorial/toc.htmle",
+      "tutorial.dsaswt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\DSASWTSimulator\\Introduction.htmle",
       "tutorial.dsasexercises.path": "simulators/en/DSASExcersises/toc.htmle",
       "tutorial.rrc.path": "Tutorials/RRC.html",
       "tutorial.dfig.path": "Tutorials/DFIG.html",
@@ -1273,6 +1278,7 @@
       "card.grid.title5": "Convertidores Back-to-Back de DFIGs",
       "card.grid.titleDP": "Procesamiento de Datos",
       "dataprocessing.title": "Procesamiento de Datos",
+      "dataprocessing.datalogger.button": "▶ Ejecutar Datalogger Data Processor",
       "dataprocessing.windseries.h3": "Creación de series temporales de velocidad de viento para su uso como evolución del viento en el Simulador",
       "dataprocessing.datalogger.h3": "Aplicación para visualizar evoluciones de señales registradas, procesarlas y exportarlas a formato CSV para su posterior tratamiento",
       "card.grid.title6": "Algunos vídeos significativos",
@@ -1283,11 +1289,11 @@
       "concepts.intro.family": "Introducción a las familias de Aerogeneradores y su evolución",
       "concepts.intro.textbutton": "▶ Visualizar el Tutorial",
       "concepts.intro.mindmap.button": "▶ Abre el Mapa Mental",
-      "tutorial.family.path": "utToriales/FamiliasAerogeneradores.html",
-      "mindmap.windenergy.path": "Tutoriales/MapaMentalEnergiaEolica.html",
-      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\English\\Wind_Farm_Simulator_SCADA\\Introduction.html",
-      "tutorial.dsas.path": "Tutoriales/DSAS.html",
-      "tutorial.dsaswt.path": "simulators/es/DSASTutorial/toc.html",
+      "tutorial.family.path": "utToriales/FamiliasAerogeneradores.htmle",
+      "mindmap.windenergy.path": "Tutoriales/MapaMentalEnergiaEolica.htmle",
+      "tutorial.wfscada.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\Wind_Farm_Simulator_SCADA\\Introduccion.htmle",
+      "tutorial.dsas.path": "Tutoriales/DSAS.htmle",
+      "tutorial.dsaswt.path": "C:\\ACMSL\\WindFarmSimulator\\Help\\Spanish\\DSASWTSimulator\\Introduccion.htmle",
       "tutorial.dsasexercises.path": "simulators/es/DSASExcersises/toc.html",
       "tutorial.rrc.path": "Tutoriales/RRC.html",
       "tutorial.dfig.path": "Tutoriales/DFIG.html",
@@ -1535,7 +1541,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setActionButton('btnMindMap', 'runAfile', t('mindmap.windenergy.path'));
 
   setActionButton('btnTutorialWFSCADA', 'runAviewer', t('tutorial.wfscada.path'));
-  setActionButton('btnTutorialDSAS', 'runAwebpage', t('tutorial.dsaswt.path'));
+  setActionButton('btnTutorialDSAS', 'runAviewer', t('tutorial.dsaswt.path'));
   setActionButton('btnExercisesDSAS', 'runAwebpage', t('tutorial.dsasexercises.path'));
   setActionButton('btnTutorialRRC', 'runAviewer', t('tutorial.rrcwt.path'));
   setActionButton('btnTutorialDFIG', 'runAviewer', t('tutorial.dfigwt.path'));
@@ -2282,6 +2288,11 @@ document.addEventListener('DOMContentLoaded', function() {
           const key = el.dataset.i18nPlaceholder;
           if(!key) return;
           el.placeholder = t(key);
+        });
+        // Show/hide elements restricted to a specific language
+        const currentLang = localStorage.getItem('lang') || 'en';
+        document.querySelectorAll('[data-lang-only]').forEach(el => {
+          el.style.display = el.dataset.langOnly === currentLang ? '' : 'none';
         });
         // breadcrumb home (if present)
         const bc = document.querySelector('#breadcrumb');
