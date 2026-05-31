@@ -3584,6 +3584,101 @@
     /* ========== I18N ========== */
     let _currentLang = 'en';
 
+    const TUTORIAL_PAGE_PATHS = {
+      downloads: {
+        en: 'downloads.html',
+        es: 'descargas.html',
+        fr: 'telechargements.html',
+        de: 'downloads.html',
+        it: 'download.html',
+        pt: 'downloads.html'
+      },
+      guidedScada: {
+        en: 'simulators-and-tutorials.html',
+        es: 'simuladores-y-tutoriales.html',
+        fr: 'simulateurs-et-tutoriels.html',
+        de: 'simulatoren-und-tutorials.html',
+        it: 'simulatori-e-tutorial.html',
+        pt: 'simuladores-e-tutoriais.html'
+      },
+      introduction: {
+        en: 'introduction.html',
+        es: 'introduccion.html',
+        fr: 'introduction.html',
+        de: 'einfuehrung.html',
+        it: 'introduzione.html',
+        pt: 'introducao.html'
+      },
+      mindmap: {
+        en: 'wind-energy-mindmap.html',
+        es: 'mapa-mental.html',
+        fr: 'carte-mentale.html',
+        de: 'windenergie-wissenskarte.html',
+        it: 'mappa-conoscenza-eolica.html',
+        pt: 'mapa-conhecimento-eolico.html'
+      },
+      families: {
+        en: 'wind-turbine-families.html',
+        es: 'familias-aerogeneradores.html',
+        fr: 'familles-eoliennes.html',
+        de: 'windturbinen-familien.html',
+        it: 'famiglie-turbine-eoliche.html',
+        pt: 'familias-turbinas-eolicas.html'
+      },
+      industrial: {
+        en: 'industrial-wind-turbines.html',
+        es: 'aerogeneradores-industriales.html',
+        fr: 'eoliennes-industrielles.html',
+        de: 'industrielle-windturbinen.html',
+        it: 'turbine-eoliche-industriali.html',
+        pt: 'turbinas-eolicas-industriais.html'
+      },
+      ranges: {
+        en: 'operational-wind-ranges.html',
+        es: 'rangos-operacionales.html',
+        fr: 'plages-operationnelles.html',
+        de: 'betriebliche-windgeschwindigkeiten.html',
+        it: 'intervalli-operativi-vento.html',
+        pt: 'faixas-operacionais-vento.html'
+      }
+    };
+
+    const TUTORIAL_PAGE_BY_PATH = Object.entries(TUTORIAL_PAGE_PATHS).reduce((acc, [pageId, localizedPaths]) => {
+      Object.entries(localizedPaths).forEach(([pageLang, fileName]) => {
+        acc[pageLang + '/' + fileName] = pageId;
+      });
+      return acc;
+    }, {});
+
+    function localizeTutorialHref(href, lang) {
+      if (!href) return href;
+
+      try {
+        const url = new URL(href, document.baseURI);
+        const match = url.pathname.match(/\/tutorials\/(en|es|fr|de|it|pt)\/([^/?#]+)/i);
+
+        if (!match) return url.href;
+
+        const sourceLang = match[1].toLowerCase();
+        const sourceFile = match[2];
+        const pageId = TUTORIAL_PAGE_BY_PATH[sourceLang + '/' + sourceFile];
+
+        if (!pageId) {
+          url.pathname = url.pathname.replace(/\/tutorials\/(en|es|fr|de|it|pt)\//i, '/tutorials/' + lang + '/');
+          return url.href;
+        }
+
+        const targetFile = TUTORIAL_PAGE_PATHS[pageId][lang] || TUTORIAL_PAGE_PATHS[pageId].en;
+        url.pathname = url.pathname.replace(
+          /\/tutorials\/(en|es|fr|de|it|pt)\/[^/?#]+/i,
+          '/tutorials/' + lang + '/' + targetFile
+        );
+        return url.href;
+      } catch (e) {
+        return href;
+      }
+    }
+
     function applyI18n(lang) {
       _currentLang = lang;
       let dict = {};
@@ -3611,8 +3706,8 @@
       });
 
       // Update tutorial links to match language
-      document.querySelectorAll('a[href*="/tutorials/"]').forEach(a => {
-        a.href = a.href.replace(/\/tutorials\/(en|es|fr|de|it|pt)\//, '/tutorials/' + lang + '/');
+      document.querySelectorAll('a[href*="tutorials/"]').forEach(a => {
+        a.href = localizeTutorialHref(a.getAttribute('href') || a.href, lang);
       });
 
       document.documentElement.lang = ['es','fr','de','it','pt'].includes(lang) ? lang : 'en';
