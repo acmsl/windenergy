@@ -6,32 +6,44 @@
  * 1. Ir a https://workers.cloudflare.com  → Sign up (gratis)
  * 2. Dashboard → Workers & Pages → Create application → Create Worker
  * 3. Pegar todo este archivo en el editor online y pulsar "Deploy"
- * 4. Copiar la URL que aparece (ej. https://acmsl-mailer.TU_USUARIO.workers.dev)
- * 5. Pegar esa URL en formulario.html → constante WORKER_URL
+ * 4. En Settings → Variables and Secrets crear estos secrets:
+ *      SMTP2GO_API_KEY   = tu API key de SMTP2GO
+ *      HCAPTCHA_SECRET   = tu secret de hCaptcha (opcional pero recomendado)
+ * 5. Copiar la URL que aparece (ej. https://acmsl-mailer.TU_USUARIO.workers.dev)
+ * 6. Pegar esa URL en formulario.html → constante WORKER_URL
  *
  * Plan gratuito: 100.000 peticiones/día, más que suficiente.
  */
 
-const SMTP2GO_API_KEY = 'api-4FF8401B844D4E96AD5DF8C44F8CF48D';
 const RECIPIENT       = 'support@acm-sl.com';
 const SENDER          = 'Formulario ACM SL <support@acm-sl.com>';
-
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin':  '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
+const ALLOWED_ORIGINS = new Set([
+  'https://www.acm-sl.com',
+  'https://acm-sl.com',
+]);
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+    const origin = request.headers.get('Origin') || '';
 
     /* ── Preflight CORS ─────────────────────────────────────── */
     if (request.method === 'OPTIONS') {
-      return new Response(null, { status: 204, headers: CORS_HEADERS });
+      if (!isAllowedOrigin(origin)) {
+        return new Response(null, { status: 403, headers: corsHeaders('') });
+      }
+      return new Response(null, { status: 204, headers: corsHeaders(origin) });
     }
 
     if (request.method !== 'POST') {
       return new Response('Method Not Allowed', { status: 405 });
+    }
+
+    if (origin && !isAllowedOrigin(origin)) {
+      return json({ ok: false, error: 'Origin not allowed' }, 403, origin);
+    }
+
+    if (!env.SMTP2GO_API_KEY) {
+      return json({ ok: false, error: 'Cloudflare secret SMTP2GO_API_KEY is not configured' }, 500, origin);
     }
 
     /* ── Parse body ─────────────────────────────────────────── */
@@ -39,13 +51,48 @@ export default {
     try {
       data = await request.json();
     } catch {
-      return json({ ok: false, error: 'Invalid JSON body' }, 400);
+      return json({ ok: false, error: 'Invalid JSON body' }, 400, origin);
     }
 
-    const { nombre, apellidos, email, telefono, direccion, ciudad, pais, mensaje } = data;
+    const {
+      nombre,
+      apellidos,
+      email,
+      telefono,
+      direccion,
+      ciudad,
+      pais,
+      mensaje,
+      hcaptchaToken,
+      website,
+      elapsedMs,
+    } = data;
 
     if (!nombre || !apellidos || !email || !telefono || !ciudad || !pais || !mensaje) {
-      return json({ ok: false, error: 'Missing required fields' }, 422);
+      return json({ ok: false, error: 'Missing required fields' }, 422, origin);
+    }
+
+    if (website) {
+      return json({ ok: false, error: 'Spam detected' }, 422, origin);
+    }
+
+    if (!Number.isFinite(Number(elapsedMs)) || Number(elapsedMs) < 3000) {
+      return json({ ok: false, error: 'Form submitted too quickly' }, 429, origin);
+    }
+
+    if (mensaje.trim().length < 20) {
+      return json({ ok: false, error: 'Message is too short' }, 422, origin);
+    }
+
+    if (env.HCAPTCHA_SECRET) {
+      if (!hcaptchaToken) {
+        return json({ ok: false, error: 'Missing hCaptcha token' }, 422, origin);
+      }
+
+      const verification = await verifyHCaptcha(env.HCAPTCHA_SECRET, hcaptchaToken, request.headers.get('CF-Connecting-IP') || '');
+      if (!verification.success) {
+        return json({ ok: false, error: 'hCaptcha verification failed' }, 403, origin);
+      }
     }
 
     /* ── Build HTML email ───────────────────────────────────── */
@@ -77,7 +124,7 @@ export default {
     const visitorName = `${nombre.trim()} ${apellidos.trim()}`;
 
     const payload = {
-      api_key:   SMTP2GO_API_KEY,
+      api_key:   env.SMTP2GO_API_KEY,
       sender:    SENDER,
       to:        [RECIPIENT],
       cc:        [`${visitorName} <${email}>`],
@@ -94,23 +141,56 @@ export default {
       });
       smtpJson = await smtpRes.json();
     } catch (err) {
-      return json({ ok: false, error: `Network error: ${err.message}` }, 502);
+      return json({ ok: false, error: `Network error: ${err.message}` }, 502, origin);
     }
 
     if (!smtpRes.ok || smtpJson.data?.error) {
-      return json({ ok: false, error: smtpJson.data?.error || `SMTP2GO HTTP ${smtpRes.status}` }, 502);
+      return json({ ok: false, error: smtpJson.data?.error || `SMTP2GO HTTP ${smtpRes.status}` }, 502, origin);
     }
 
-    return json({ ok: true, email_id: smtpJson.data?.email_id });
+    return json({ ok: true, email_id: smtpJson.data?.email_id }, 200, origin);
   },
 };
 
 /* ── Helpers ────────────────────────────────────────────────── */
-function json(body, status = 200) {
+function json(body, status = 200, origin = '') {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json', ...CORS_HEADERS },
+    headers: { 'Content-Type': 'application/json', ...corsHeaders(origin) },
   });
+}
+
+function corsHeaders(origin) {
+  return {
+    'Access-Control-Allow-Origin': isAllowedOrigin(origin) ? origin : 'https://www.acm-sl.com',
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin',
+  };
+}
+
+function isAllowedOrigin(origin) {
+  return ALLOWED_ORIGINS.has(origin);
+}
+
+async function verifyHCaptcha(secret, token, remoteIp) {
+  try {
+    const body = new URLSearchParams({
+      secret,
+      response: token,
+      remoteip: remoteIp,
+    });
+
+    const response = await fetch('https://hcaptcha.com/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body,
+    });
+
+    return await response.json();
+  } catch {
+    return { success: false };
+  }
 }
 
 function esc(str) {

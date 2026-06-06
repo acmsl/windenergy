@@ -119,13 +119,25 @@
 
       .form-group.full { grid-column: 1 / -1; }
 
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
       label {
         font-size: 0.9rem;
         font-weight: 600;
         color: var(--ink);
       }
 
-      label .req { color: var(--err); margin-left: 0.15em; }
+      .req { color: var(--err); margin-left: 0.15em; }
 
       input, select, textarea {
         width: 100%;
@@ -232,9 +244,14 @@
     <main>
       <div class="form-card">
         <h2>Formulario de Contacto</h2>
-        <p class="subtitle">Los campos marcados con <span style="color:var(--err)">*</span> son obligatorios.</p>
+        <p class="subtitle">Los campos marcados con <span class="req">*</span> son obligatorios.</p>
 
         <form id="contactForm" novalidate>
+          <div class="form-group visually-hidden" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
           <div class="form-row">
             <div class="form-group">
               <label for="nombre">Nombre <span class="req">*</span></label>
@@ -277,8 +294,8 @@
 
           <div class="form-row">
             <div class="form-group full">
-              <p class="interest-label">Por favor, indíquenos en qué está interesado <span style="color:var(--err)">*</span></p>
-              <textarea id="mensaje" name="mensaje" rows="10" required></textarea>
+              <label class="interest-label" for="mensaje">Por favor, indíquenos en qué está interesado <span class="req">*</span></label>
+              <textarea id="mensaje" name="mensaje" rows="10" required placeholder="Describa su interés, proyecto o consulta"></textarea>
             </div>
           </div>
 
@@ -327,6 +344,7 @@
       const submitBtn = document.getElementById('submitBtn');
       const msgOk     = document.getElementById('msgSuccess');
       const msgErr    = document.getElementById('msgError');
+      const formStartedAt = Date.now();
 
       /* ── Validation helpers ───────────────────────────────── */
       function markField(el, valid) {
@@ -362,6 +380,9 @@
           ciudad:    g('ciudad'),
           pais:      g('pais'),
           mensaje:   g('mensaje'),
+          website:   g('website'),
+          hcaptchaToken: hcaptcha.getResponse(),
+          elapsedMs: Date.now() - formStartedAt,
         };
 
         if (!/^https:\/\//i.test(WORKER_URL) || WORKER_URL.includes('TU-WORKER')) {
