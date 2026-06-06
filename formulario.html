@@ -318,8 +318,18 @@
        *      Host:     mail-eu.smtp2go.com
        *      Puerto:   2525  (alternativos con TLS: 8025, 587, 80, 25)
        *                      (SSL: 465, 8465, 443)
-       *      Usuario:  tu usuario SMTP de SMTP2GO (panel → Senders → SMTP Users)
-       *      Password: tu contraseña SMTP de SMTP2GO
+       *
+       *    ⚠ IMPORTANTE – credenciales SMTP ≠ API Key:
+       *      La API Key (api-4FF8401B844D4E96AD5DF8C44F8CF48D) es para la
+       *      REST API desde servidor/PowerShell y NO es válida como contraseña SMTP.
+       *      EmailJS necesita credenciales SMTP independientes:
+       *
+       *      En el panel de SMTP2GO:
+       *        Settings → SMTP Users → (crear usuario si no existe)
+       *        → copiar "Username" y "Password" que aparecen ahí
+       *
+       *      Usuario:  el "Username" de SMTP2GO → Settings → SMTP Users
+       *      Password: la "Password" de SMTP2GO → Settings → SMTP Users
        *
        * 3. Crear plantilla de email (Email Templates → Create New Template)
        *    Variables disponibles:
