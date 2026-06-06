@@ -192,8 +192,8 @@
         margin-top: 1.5rem;
       }
 
-      .msg.success { display: block; background: #e7fbf4; color: #006644; border: 1px solid #b2e8d5; }
-      .msg.error   { display: block; background: #fdecea; color: var(--err); border: 1px solid #f5c6c3; }
+      .msg.success { background: #e7fbf4; color: #006644; border: 1px solid #b2e8d5; }
+      .msg.error   { background: #fdecea; color: var(--err); border: 1px solid #f5c6c3; }
 
       /* ── Footer ───────────────────────────────────────────── */
       footer {
@@ -291,11 +291,11 @@
             Enviar
           </button>
 
-          <div id="msgSuccess" class="msg success" role="alert">
+          <div id="msgSuccess" class="msg" role="alert">
             ¡Mensaje enviado correctamente! Nos pondremos en contacto con usted lo antes posible.
             También recibirá una copia en su correo electrónico.
           </div>
-          <div id="msgError" class="msg error" role="alert" id="msgError"></div>
+          <div id="msgError" class="msg" role="alert"></div>
         </form>
       </div>
     </main>
@@ -338,7 +338,7 @@
 
       /* ── Build HTML email body ────────────────────────────── */
       function buildEmailHtml() {
-        const f = field => document.getElementById(f).value.trim();
+        const f = field => document.getElementById(field).value.trim();
         return `
           <table style="font-family:sans-serif;font-size:15px;color:#123047;border-collapse:collapse;width:100%;max-width:640px">
             <tr><td colspan="2" style="background:#006699;color:#fff;padding:14px 20px;font-size:18px;font-weight:700">
@@ -399,6 +399,7 @@
 
         if (!validateForm()) {
           msgErr.textContent = 'Por favor, complete todos los campos obligatorios correctamente.';
+          msgErr.className = 'msg error';
           msgErr.style.display = 'block';
           return;
         }
@@ -406,6 +407,7 @@
         const captchaToken = hcaptcha.getResponse();
         if (!captchaToken) {
           msgErr.textContent = 'Por favor, complete el captcha antes de enviar.';
+          msgErr.className = 'msg error';
           msgErr.style.display = 'block';
           return;
         }
@@ -417,10 +419,12 @@
           await sendMail();
           form.reset();
           hcaptcha.reset();
+          msgOk.className = 'msg success';
           msgOk.style.display = 'block';
           msgOk.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } catch (err) {
           msgErr.textContent = `Error al enviar el mensaje: ${err.message}. Por favor, inténtelo de nuevo o escriba directamente a support@acm-sl.com`;
+          msgErr.className = 'msg error';
           msgErr.style.display = 'block';
         } finally {
           submitBtn.disabled = false;
