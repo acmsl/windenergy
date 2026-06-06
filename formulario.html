@@ -363,30 +363,41 @@
           .replace(/"/g, '&quot;');
       }
 
+      /* Strip newlines to prevent header injection */
+      function sanitizeHeader(str) {
+        return String(str).replace(/[\r\n]+/g, ' ').trim();
+      }
+
       /* ── Send via SMTP2GO API ─────────────────────────────── */
       async function sendMail() {
-        const visitorEmail = document.getElementById('email').value.trim();
-        const visitorName  = `${document.getElementById('nombre').value.trim()} ${document.getElementById('apellidos').value.trim()}`;
+        const visitorEmail = sanitizeHeader(document.getElementById('email').value);
+        const visitorName  = sanitizeHeader(
+          `${document.getElementById('nombre').value.trim()} ${document.getElementById('apellidos').value.trim()}`
+        );
 
         const payload = {
           api_key:   SMTP2GO_API_KEY,
           to:        [RECIPIENT],
-          cc:        [`${escHtml(visitorName)} <${visitorEmail}>`],
+          cc:        [`${visitorName} <${visitorEmail}>`],
           sender:    SENDER,
           subject:   `Contacto web: ${visitorName}`,
           html_body: buildEmailHtml()
         };
 
-        const res = await fetch('https://api.smtp2go.com/v3/email/send', {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body:    JSON.stringify(payload)
-        });
-
-        const json = await res.json();
+        let res, json;
+        try {
+          res  = await fetch('https://api.smtp2go.com/v3/email/send', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(payload)
+          });
+          json = await res.json();
+        } catch (networkErr) {
+          throw new Error('No se pudo conectar con el servidor de correo. Compruebe su conexión o escriba directamente a support@acm-sl.com');
+        }
 
         if (!res.ok || json.data?.error) {
-          throw new Error(json.data?.error || `HTTP ${res.status}`);
+          throw new Error(json.data?.error || `Error del servidor (HTTP ${res.status})`);
         }
         return json;
       }
