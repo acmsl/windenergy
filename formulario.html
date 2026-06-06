@@ -309,17 +309,27 @@
     <script>
       /*
        * ─────────────────────────────────────────────────────────────
-       * CONFIGURACIÓN EMAILJS
-       * 1. Crea una cuenta gratuita en https://www.emailjs.com
-       * 2. Añade un servicio de correo (puede ser SMTP2GO, Gmail, etc.)
-       *    → Email Services → Add New Service → SMTP
-       *      Host: mail.smtp2go.com  Puerto: 2525
-       *      Usuario y contraseña: credenciales SMTP de tu cuenta SMTP2GO
-       * 3. Crea una plantilla de email con estas variables:
-       *    {{nombre}}, {{apellidos}}, {{email}}, {{telefono}},
-       *    {{direccion}}, {{ciudad}}, {{pais}}, {{mensaje}}
-       *    Activa "Reply To" = {{email}} para que el reply vaya al visitante.
-       * 4. Sustituye los tres valores de abajo con los de tu cuenta.
+       * CONFIGURACIÓN EMAILJS  (pasos a realizar una sola vez)
+       *
+       * 1. Crear cuenta gratuita en https://www.emailjs.com
+       *
+       * 2. Añadir servicio SMTP2GO:
+       *    Email Services → Add New Service → SMTP
+       *      Host:     mail-eu.smtp2go.com
+       *      Puerto:   2525  (alternativos con TLS: 8025, 587, 80, 25)
+       *                      (SSL: 465, 8465, 443)
+       *      Usuario:  tu usuario SMTP de SMTP2GO (panel → Senders → SMTP Users)
+       *      Password: tu contraseña SMTP de SMTP2GO
+       *
+       * 3. Crear plantilla de email (Email Templates → Create New Template)
+       *    Variables disponibles:
+       *      {{nombre}}, {{apellidos}}, {{email}}, {{telefono}},
+       *      {{direccion}}, {{ciudad}}, {{pais}}, {{mensaje}}
+       *    Configurar "Reply To" = {{email}}  (el reply irá al visitante)
+       *    Configurar "To Email" = support@acm-sl.com
+       *    Activar "Auto-Reply" con CC a {{email}} si se desea copia al visitante
+       *
+       * 4. Sustituir los tres valores de abajo con los datos de tu cuenta.
        * ─────────────────────────────────────────────────────────────
        */
       const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';    // Account → General → Public Key
