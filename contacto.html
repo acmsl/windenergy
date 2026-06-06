@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Automated Computing Machinery SL</title>
+    <meta
+      name="description"
+      content="Conozca Automated Computing Machinery SL, su trayectoria y la forma de contactar con la empresa."
+    />
+    <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
+    <link rel="shortcut icon" type="image/png" href="img/ACM_LOGO.png" />
+    <style>
+      :root {
+        --primary: #006699;
+        --primary-dark: #004d73;
+        --primary-soft: #e3f4ff;
+        --accent: #00a878;
+        --accent-soft: #e7fbf4;
+        --ink: #123047;
+        --muted: #516272;
+        --surface: #ffffff;
+        --bg: #f3f7fb;
+        --border: rgba(18, 48, 71, 0.1);
+        --shadow: 0 18px 45px rgba(18, 48, 71, 0.12);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(0, 153, 204, 0.14), transparent 28%),
+          linear-gradient(180deg, #f9fcff 0%, var(--bg) 100%);
+        color: var(--ink);
+        min-height: 100vh;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), #0099cc);
+        color: #fff;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.18);
+      }
+
+      .header-wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 1.35rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .brand img {
+        width: auto;
+        height: 44px;
+        display: block;
+      }
+
+      .brand-copy h1 {
+        font-size: 1.35rem;
+        line-height: 1.15;
+        font-weight: 700;
+      }
+
+      .brand-copy p {
+        margin-top: 0.2rem;
+        font-size: 0.95rem;
+        opacity: 0.88;
+      }
+
+      .header-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .header-link:hover {
+        background: rgba(255, 255, 255, 0.24);
+        transform: translateY(-1px);
+      }
+
+      main {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 1.5rem;
+        align-items: stretch;
+        margin-bottom: 1.75rem;
+      }
+
+      .hero-card,
+      .panel,
+      .option-btn {
+        border-radius: var(--radius);
+      }
+
+      .hero-card {
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        padding: 2rem;
+        border: 1px solid var(--border);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-card::after {
+        content: "";
+        position: absolute;
+        inset: auto -8% -28% auto;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(0, 168, 120, 0.16), transparent 68%);
+      }
+
+      .hero-card h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+        max-width: 12ch;
+        margin-bottom: 0.9rem;
+      }
+
+      .hero-card p {
+        color: var(--muted);
+        line-height: 1.75;
+        max-width: 60ch;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .stat {
+        background: linear-gradient(180deg, var(--surface), #f8fcff);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 1.4rem;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--primary);
+        margin-bottom: 0.35rem;
+      }
+
+      .stat span {
+        color: var(--muted);
+        line-height: 1.5;
+        font-size: 0.95rem;
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .option-btn {
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.78);
+        padding: 1.1rem 1rem;
+        text-align: left;
+        cursor: pointer;
+        box-shadow: 0 10px 24px rgba(18, 48, 71, 0.07);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      }
+
+      .option-btn:hover,
+      .option-btn:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 16px 30px rgba(18, 48, 71, 0.12);
+        border-color: rgba(0, 102, 153, 0.28);
+        outline: none;
+      }
+
+      .option-btn.active {
+        background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .option-btn small {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        opacity: 0.78;
+        margin-bottom: 0.45rem;
+      }
+
+      .option-btn strong {
+        display: block;
+        font-size: 1.08rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .option-btn span {
+        display: block;
+        line-height: 1.55;
+        color: inherit;
+        opacity: 0.92;
+      }
+
+      .panel-wrap {
+        position: relative;
+      }
+
+      .panel {
+        display: none;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 1.75rem;
+        animation: panelIn 0.22s ease-out;
+      }
+
+      .panel.active {
+        display: block;
+      }
+
+      @keyframes panelIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .panel h3 {
+        font-size: 1.35rem;
+        margin-bottom: 0.95rem;
+      }
+
+      .panel p {
+        color: var(--muted);
+        line-height: 1.8;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      .timeline-item {
+        display: grid;
+        grid-template-columns: 108px 1fr;
+        gap: 1rem;
+        align-items: start;
+        padding: 1rem;
+        background: linear-gradient(180deg, #fbfdff, #f4faff);
+        border: 1px solid rgba(0, 102, 153, 0.09);
+        border-radius: 14px;
+      }
+
+      .timeline-item strong {
+        color: var(--primary);
+        font-size: 1rem;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .contact-card {
+        padding: 1.2rem;
+        border-radius: 14px;
+        background: linear-gradient(180deg, #ffffff, #f8fbfe);
+        border: 1px solid var(--border);
+      }
+
+      .contact-card h4 {
+        margin-bottom: 0.45rem;
+        font-size: 1rem;
+      }
+
+      .contact-card p {
+        font-size: 0.96rem;
+      }
+
+      .contact-actions {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        margin-top: 1.2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.15rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+        box-shadow: 0 10px 22px rgba(0, 168, 120, 0.22);
+      }
+
+      .btn-primary:hover {
+        background: #009669;
+      }
+
+      .btn-secondary {
+        background: var(--primary-soft);
+        color: var(--primary);
+      }
+
+      footer {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 1.25rem 2.25rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .options,
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .header-wrap,
+        main,
+        footer {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        .hero-card,
+        .panel {
+          padding: 1.35rem;
+        }
+
+        .hero-card h2 {
+          font-size: 1.65rem;
+        }
+
+        .hero-stats {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline-item {
+          grid-template-columns: 1fr;
+          gap: 0.4rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-wrap">
+        <div class="brand">
+          <img src="img/ACM_LOGO.png" alt="ACM SL" />
+          <div class="brand-copy">
+            <h1>Automated Computing Machinery SL</h1>
+            <p>ACM SL</p>
+          </div>
+        </div>
+        <a class="header-link" href="index.html">Volver al inicio</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Presentacion de ACM SL">
+        <article class="hero-card">
+          <h2>Contacto e informacion corporativa</h2>
+          <p>
+            ACM SL combina experiencia en Instrumentacion y Control Industrial,
+            desarrollo de instrumentacion industrial y software de simulacion para
+            formacion tecnica especializada en el sector eolico.
+          </p>
+        </article>
+
+        <div class="hero-stats" aria-label="Resumen de trayectoria">
+          <article class="stat hero-card">
+            <strong>2001</strong>
+            <span>Inicio de actividad especializada en Instrumentacion y Control Industrial.</span>
+          </article>
+          <article class="stat hero-card">
+            <strong>2002</strong>
+            <span>Primera entrega de simuladores de aerogeneradores con Hardware-in-the-Loop.</span>
+          </article>
+          <article class="stat hero-card">
+            <strong>2011</strong>
+            <span>Primera instalacion en un Technical College de Estados Unidos.</span>
+          </article>
+          <article class="stat hero-card">
+            <strong>8 paises</strong>
+            <span>Instalaciones en EE.UU., Canada, Francia, Mexico, Chile, India y Espana.</span>
+          </article>
+        </div>
+      </section>
+
+      <nav class="options" aria-label="Opciones de contenido">
+        <button class="option-btn active" type="button" data-panel="quienes-somos">
+          <small>Opcion 1</small>
+          <strong>Quienes somos</strong>
+          <span>Vision general de la empresa y sus areas de especializacion.</span>
+        </button>
+        <button class="option-btn" type="button" data-panel="historia">
+          <small>Opcion 2</small>
+          <strong>Historia</strong>
+          <span>Hitos relevantes en la evolucion de ACM SL.</span>
+        </button>
+        <button class="option-btn" type="button" data-panel="contacto">
+          <small>Opcion 3</small>
+          <strong>Contacto</strong>
+          <span>Canales para consultas comerciales, academicas o tecnicas.</span>
+        </button>
+      </nav>
+
+      <div class="panel-wrap">
+        <section id="quienes-somos" class="panel active" aria-labelledby="quienes-somos-title">
+          <h3 id="quienes-somos-title">Quienes somos</h3>
+          <p>
+            Creada en 2001, especializada en Instrumentacion y Control Industrial,
+            amplia experiencia en tecnologias CAD / CAM.
+          </p>
+          <div class="timeline" aria-label="Desarrollo de instrumentacion industrial">
+            <article class="timeline-item">
+              <strong>Desarrollo</strong>
+              <p>Generador Programable de Red Trifasica y Emulacion de Carga.</p>
+            </article>
+            <article class="timeline-item">
+              <strong>Precision</strong>
+              <p>Tacometro digital de alta resolucion (1 en 15000), con una medida por vuelta.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="historia" class="panel" aria-labelledby="historia-title">
+          <h3 id="historia-title">Historia</h3>
+          <div class="timeline" aria-label="Linea temporal de ACM SL">
+            <article class="timeline-item">
+              <strong>2002</strong>
+              <p>
+                Primera entrega de Simuladores de Aerogeneradores con
+                Hardware-in-the-Loop para Formacion de Personal de Fabricacion e
+                Instalacion de Aerogeneradores.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <strong>2011</strong>
+              <p>
+                Primera instalacion de Software de Simulacion de Aerogeneradores en
+                un Technical College en EE.UU.
+              </p>
+            </article>
+            <article class="timeline-item">
+              <strong>Expansion</strong>
+              <p>
+                Instalaciones de nuestros Simuladores en EE.UU., Canada, Francia,
+                Mexico, Chile, India y Espana.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section id="contacto" class="panel" aria-labelledby="contacto-title">
+          <h3 id="contacto-title">Contacto</h3>
+          <p>
+            Para consultas sobre simuladores, programas de formacion, licencias,
+            instalaciones academicas o soporte tecnico, utilice los canales oficiales
+            de ACM SL.
+          </p>
+
+          <div class="contact-grid">
+            <article class="contact-card">
+              <h4>Direccion</h4>
+              <p>
+                c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Espana.
+              </p>
+            </article>
+            <article class="contact-card">
+              <h4>Email</h4>
+              <p>
+                <a href="mailto:support@acm-sl.com">support@acm-sl.com</a>
+              </p>
+            </article>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://www.acm-sl.com/es/contacto" target="_blank" rel="noopener noreferrer">
+              Ir al formulario de contacto
+            </a>
+            <a class="btn btn-secondary" href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer">
+              Visitar web corporativa
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Automated Computing Machinery SL (ACM SL).</p>
+    </footer>
+
+    <script>
+      const optionButtons = document.querySelectorAll('.option-btn');
+      const panels = document.querySelectorAll('.panel');
+
+      optionButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const targetId = button.dataset.panel;
+
+          optionButtons.forEach((item) => item.classList.remove('active'));
+          panels.forEach((panel) => panel.classList.remove('active'));
+
+          button.classList.add('active');
+          document.getElementById(targetId).classList.add('active');
+        });
+      });
+    </script>
+  </body>
+</html>

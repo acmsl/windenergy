@@ -835,7 +835,7 @@
           <option value="pt">PT</option>
         </select>
         <button class="home-btn" type="button" onclick="goHome()"><span data-i18n="home">Home</span></button>
-        <a href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer" class="web-btn" data-i18n="header.website">Website &amp; Contact</a>
+        <a href="contacto.html" target="_self" rel="noopener noreferrer" class="web-btn" data-i18n="header.website">Website &amp; Contact</a>
       </div>
       <div id="breadcrumb" class="breadcrumb"></div>
     </header>
@@ -3721,9 +3721,13 @@
       // Update "Website & Contact" button URL based on language
       const webBtn = document.querySelector('a.web-btn');
       if (webBtn) {
-        webBtn.href = (lang === 'es')
-          ? 'https://www.acm-sl.com/es/contacto'
-          : 'https://www.acm-sl.com/en/contact';
+        if (lang === 'es') {
+          webBtn.href = 'contacto.html';
+          webBtn.target = '_self';
+        } else {
+          webBtn.href = 'https://www.acm-sl.com/en/contact';
+          webBtn.target = '_blank';
+        }
       }
 
       // Re-render videos if already loaded
