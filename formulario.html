@@ -318,7 +318,7 @@
        * El Worker llama a SMTP2GO desde servidor, evitando el problema CORS.
        * ─────────────────────────────────────────────────────────────
        */
-      const WORKER_URL = 'https://TU-WORKER.workers.dev';
+      const WORKER_URL = 'https://sweet-wood-42f6.josesanleandro.workers.dev';
 
       const form      = document.getElementById('contactForm');
       const submitBtn = document.getElementById('submitBtn');
@@ -361,15 +361,20 @@
           mensaje:   g('mensaje'),
         };
 
-        if (!WORKER_URL.includes('workers.dev')) {
-          throw new Error('Configure primero la constante WORKER_URL con la URL publica del Cloudflare Worker');
+        if (!/^https:\/\//i.test(WORKER_URL) || WORKER_URL.includes('TU-WORKER')) {
+          throw new Error('Configure primero la constante WORKER_URL con la URL publica real del Cloudflare Worker');
         }
 
-        const response = await fetch(WORKER_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
+        let response;
+        try {
+          response = await fetch(WORKER_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+        } catch {
+          throw new Error('No se pudo conectar con el Cloudflare Worker. Verifique que la URL publicada sea correcta y que el Worker este desplegado');
+        }
 
         const result = await response.json().catch(() => ({}));
         if (!response.ok || !result.ok) {
