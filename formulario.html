@@ -8,6 +8,8 @@
     <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
     <link rel="shortcut icon" type="image/png" href="img/ACM_LOGO.png" />
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <!-- EmailJS SDK: browser-compatible email sending with CORS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
       :root {
         --primary: #006699;
@@ -305,9 +307,26 @@
     </footer>
 
     <script>
-      const SMTP2GO_API_KEY = 'api-8DEDAAE3ED784E138D8EB4BB8FA3444B';
-      const RECIPIENT       = 'support@acm-sl.com';
-      const SENDER          = 'Formulario ACM SL <support@acm-sl.com>';
+      /*
+       * ─────────────────────────────────────────────────────────────
+       * CONFIGURACIÓN EMAILJS
+       * 1. Crea una cuenta gratuita en https://www.emailjs.com
+       * 2. Añade un servicio de correo (puede ser SMTP2GO, Gmail, etc.)
+       *    → Email Services → Add New Service → SMTP
+       *      Host: mail.smtp2go.com  Puerto: 2525
+       *      Usuario y contraseña: credenciales SMTP de tu cuenta SMTP2GO
+       * 3. Crea una plantilla de email con estas variables:
+       *    {{nombre}}, {{apellidos}}, {{email}}, {{telefono}},
+       *    {{direccion}}, {{ciudad}}, {{pais}}, {{mensaje}}
+       *    Activa "Reply To" = {{email}} para que el reply vaya al visitante.
+       * 4. Sustituye los tres valores de abajo con los de tu cuenta.
+       * ─────────────────────────────────────────────────────────────
+       */
+      const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';    // Account → General → Public Key
+      const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';    // Email Services → Service ID
+      const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';  // Email Templates → Template ID
+
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
       const form      = document.getElementById('contactForm');
       const submitBtn = document.getElementById('submitBtn');
@@ -336,70 +355,19 @@
         return ok;
       }
 
-      /* ── Build HTML email body ────────────────────────────── */
-      function buildEmailHtml() {
-        const f = field => document.getElementById(field).value.trim();
-        return `
-          <table style="font-family:sans-serif;font-size:15px;color:#123047;border-collapse:collapse;width:100%;max-width:640px">
-            <tr><td colspan="2" style="background:#006699;color:#fff;padding:14px 20px;font-size:18px;font-weight:700">
-              Nuevo mensaje de contacto – ACM SL
-            </td></tr>
-            <tr><td style="padding:10px 20px;font-weight:600;width:160px">Nombre</td><td style="padding:10px 20px">${escHtml(f('nombre'))} ${escHtml(f('apellidos'))}</td></tr>
-            <tr style="background:#f3f7fb"><td style="padding:10px 20px;font-weight:600">Email</td><td style="padding:10px 20px">${escHtml(f('email'))}</td></tr>
-            <tr><td style="padding:10px 20px;font-weight:600">Teléfono</td><td style="padding:10px 20px">${escHtml(f('telefono'))}</td></tr>
-            <tr style="background:#f3f7fb"><td style="padding:10px 20px;font-weight:600">Dirección</td><td style="padding:10px 20px">${escHtml(f('direccion') || '—')}</td></tr>
-            <tr><td style="padding:10px 20px;font-weight:600">Ciudad</td><td style="padding:10px 20px">${escHtml(f('ciudad'))}</td></tr>
-            <tr style="background:#f3f7fb"><td style="padding:10px 20px;font-weight:600">País</td><td style="padding:10px 20px">${escHtml(f('pais'))}</td></tr>
-            <tr><td colspan="2" style="padding:10px 20px;font-weight:600">Mensaje</td></tr>
-            <tr><td colspan="2" style="padding:10px 20px;background:#f3f7fb;white-space:pre-wrap">${escHtml(f('mensaje'))}</td></tr>
-          </table>`;
-      }
-
-      function escHtml(str) {
-        return String(str)
-          .replace(/&/g, '&amp;')
-          .replace(/</g, '&lt;')
-          .replace(/>/g, '&gt;')
-          .replace(/"/g, '&quot;');
-      }
-
-      /* Strip newlines to prevent header injection */
-      function sanitizeHeader(str) {
-        return String(str).replace(/[\r\n]+/g, ' ').trim();
-      }
-
-      /* ── Send via SMTP2GO API ─────────────────────────────── */
+      /* ── Send via EmailJS (browser-compatible, CORS-enabled) ── */
       async function sendMail() {
-        const visitorEmail = sanitizeHeader(document.getElementById('email').value);
-        const visitorName  = sanitizeHeader(
-          `${document.getElementById('nombre').value.trim()} ${document.getElementById('apellidos').value.trim()}`
-        );
-
-        const payload = {
-          api_key:   SMTP2GO_API_KEY,
-          to:        [RECIPIENT],
-          cc:        [`${visitorName} <${visitorEmail}>`],
-          sender:    SENDER,
-          subject:   `Contacto web: ${visitorName}`,
-          html_body: buildEmailHtml()
-        };
-
-        let res, json;
-        try {
-          res  = await fetch('https://api.smtp2go.com/v3/email/send', {
-            method:  'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body:    JSON.stringify(payload)
-          });
-          json = await res.json();
-        } catch (networkErr) {
-          throw new Error('No se pudo conectar con el servidor de correo. Compruebe su conexión o escriba directamente a support@acm-sl.com');
-        }
-
-        if (!res.ok || json.data?.error) {
-          throw new Error(json.data?.error || `Error del servidor (HTTP ${res.status})`);
-        }
-        return json;
+        const g = id => document.getElementById(id).value.trim();
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          nombre:    g('nombre'),
+          apellidos: g('apellidos'),
+          email:     g('email'),
+          telefono:  g('telefono'),
+          direccion: g('direccion') || '—',
+          ciudad:    g('ciudad'),
+          pais:      g('pais'),
+          mensaje:   g('mensaje'),
+        });
       }
 
       /* ── Form submit ──────────────────────────────────────── */
