@@ -108,10 +108,6 @@
       }
 
       .hero {
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 1.5rem;
-        align-items: stretch;
         margin-bottom: 1.75rem;
       }
 
@@ -153,31 +149,7 @@
         max-width: 60ch;
       }
 
-      .hero-stats {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-      }
 
-      .stat {
-        background: linear-gradient(180deg, var(--surface), #f8fcff);
-        border: 1px solid var(--border);
-        box-shadow: var(--shadow);
-        padding: 1.4rem;
-      }
-
-      .stat strong {
-        display: block;
-        font-size: 1.8rem;
-        color: var(--primary);
-        margin-bottom: 0.35rem;
-      }
-
-      .stat span {
-        color: var(--muted);
-        line-height: 1.5;
-        font-size: 0.95rem;
-      }
 
       .options {
         display: grid;
@@ -388,10 +360,6 @@
           font-size: 1.65rem;
         }
 
-        .hero-stats {
-          grid-template-columns: 1fr;
-        }
-
         .timeline-item {
           grid-template-columns: 1fr;
           gap: 0.4rem;
@@ -423,40 +391,18 @@
             formacion tecnica especializada en el sector eolico.
           </p>
         </article>
-
-        <div class="hero-stats" aria-label="Resumen de trayectoria">
-          <article class="stat hero-card">
-            <strong>2001</strong>
-            <span>Inicio de actividad especializada en Instrumentacion y Control Industrial.</span>
-          </article>
-          <article class="stat hero-card">
-            <strong>2002</strong>
-            <span>Primera entrega de simuladores de aerogeneradores con Hardware-in-the-Loop.</span>
-          </article>
-          <article class="stat hero-card">
-            <strong>2011</strong>
-            <span>Primera instalacion en un Technical College de Estados Unidos.</span>
-          </article>
-          <article class="stat hero-card">
-            <strong>8 paises</strong>
-            <span>Instalaciones en EE.UU., Canada, Francia, Mexico, Chile, India y Espana.</span>
-          </article>
-        </div>
       </section>
 
       <nav class="options" aria-label="Opciones de contenido">
         <button class="option-btn active" type="button" data-panel="quienes-somos">
-          <small>Opcion 1</small>
           <strong>Quienes somos</strong>
           <span>Vision general de la empresa y sus areas de especializacion.</span>
         </button>
         <button class="option-btn" type="button" data-panel="historia">
-          <small>Opcion 2</small>
           <strong>Historia</strong>
           <span>Hitos relevantes en la evolucion de ACM SL.</span>
         </button>
         <button class="option-btn" type="button" data-panel="contacto">
-          <small>Opcion 3</small>
           <strong>Contacto</strong>
           <span>Canales para consultas comerciales, academicas o tecnicas.</span>
         </button>
