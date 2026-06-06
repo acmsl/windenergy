@@ -8,8 +8,6 @@
     <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
     <link rel="shortcut icon" type="image/png" href="img/ACM_LOGO.png" />
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
-    <!-- EmailJS SDK: browser-compatible email sending with CORS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
       :root {
         --primary: #006699;
@@ -309,44 +307,18 @@
     <script>
       /*
        * ─────────────────────────────────────────────────────────────
-       * CONFIGURACIÓN EMAILJS  (pasos a realizar una sola vez)
+       * CONFIGURACIÓN CLOUDFLARE WORKER (pasos a realizar una sola vez)
        *
-       * 1. Crear cuenta gratuita en https://www.emailjs.com
+       * 1. Abrir worker-mailer.js en este proyecto.
+       * 2. Ir a Cloudflare → Workers & Pages → Create Worker.
+       * 3. Pegar el contenido de worker-mailer.js y desplegar.
+       * 4. Copiar la URL pública del Worker.
+       * 5. Sustituir WORKER_URL por esa URL.
        *
-       * 2. Añadir servicio SMTP2GO:
-       *    Email Services → Add New Service → SMTP
-       *      Host:     mail-eu.smtp2go.com
-       *      Puerto:   2525  (alternativos con TLS: 8025, 587, 80, 25)
-       *                      (SSL: 465, 8465, 443)
-       *
-       *    ⚠ IMPORTANTE – credenciales SMTP ≠ API Key:
-       *      La API Key (api-4FF8401B844D4E96AD5DF8C44F8CF48D) es para la
-       *      REST API desde servidor/PowerShell y NO es válida como contraseña SMTP.
-       *      EmailJS necesita credenciales SMTP independientes:
-       *
-       *      En el panel de SMTP2GO:
-       *        Settings → SMTP Users → (crear usuario si no existe)
-       *        → copiar "Username" y "Password" que aparecen ahí
-       *
-       *      Usuario:  el "Username" de SMTP2GO → Settings → SMTP Users
-       *      Password: la "Password" de SMTP2GO → Settings → SMTP Users
-       *
-       * 3. Crear plantilla de email (Email Templates → Create New Template)
-       *    Variables disponibles:
-       *      {{nombre}}, {{apellidos}}, {{email}}, {{telefono}},
-       *      {{direccion}}, {{ciudad}}, {{pais}}, {{mensaje}}
-       *    Configurar "Reply To" = {{email}}  (el reply irá al visitante)
-       *    Configurar "To Email" = support@acm-sl.com
-       *    Activar "Auto-Reply" con CC a {{email}} si se desea copia al visitante
-       *
-       * 4. Sustituir los tres valores de abajo con los datos de tu cuenta.
+       * El Worker llama a SMTP2GO desde servidor, evitando el problema CORS.
        * ─────────────────────────────────────────────────────────────
        */
-      const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';    // Account → General → Public Key
-      const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';    // Email Services → Service ID
-      const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';  // Email Templates → Template ID
-
-      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+      const WORKER_URL = 'https://TU-WORKER.workers.dev';
 
       const form      = document.getElementById('contactForm');
       const submitBtn = document.getElementById('submitBtn');
@@ -375,10 +347,10 @@
         return ok;
       }
 
-      /* ── Send via EmailJS (browser-compatible, CORS-enabled) ── */
+      /* ── Send via Cloudflare Worker (server-side SMTP2GO call) ── */
       async function sendMail() {
         const g = id => document.getElementById(id).value.trim();
-        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        const payload = {
           nombre:    g('nombre'),
           apellidos: g('apellidos'),
           email:     g('email'),
@@ -387,7 +359,22 @@
           ciudad:    g('ciudad'),
           pais:      g('pais'),
           mensaje:   g('mensaje'),
+        };
+
+        if (!WORKER_URL.includes('workers.dev')) {
+          throw new Error('Configure primero la constante WORKER_URL con la URL publica del Cloudflare Worker');
+        }
+
+        const response = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
         });
+
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || !result.ok) {
+          throw new Error(result.error || `HTTP ${response.status}`);
+        }
       }
 
       /* ── Form submit ──────────────────────────────────────── */
