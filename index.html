@@ -228,6 +228,102 @@
         filter: none;
       }
 
+      /* ===== CLIENT STRIP (Option B) ===== */
+      .clients-strip {
+        margin-top: 2rem;
+        padding: 1.2rem 0;
+        border-top: 1px solid #dde5ee;
+        border-bottom: 1px solid #dde5ee;
+        overflow: hidden;
+      }
+
+      .clients-strip-label {
+        text-align: center;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #6b7f96;
+        margin-bottom: 0.8rem;
+      }
+
+      .clients-ticker-wrap {
+        overflow: hidden;
+        position: relative;
+      }
+
+      .clients-ticker {
+        display: flex;
+        gap: 2.5rem;
+        animation: ticker-scroll 40s linear infinite;
+        white-space: nowrap;
+      }
+
+      .clients-ticker:hover { animation-play-state: paused; }
+
+      @keyframes ticker-scroll {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-50%); }
+      }
+
+      .clients-ticker a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.82rem;
+        font-weight: 500;
+        color: #2a4a6a;
+        text-decoration: none;
+        white-space: nowrap;
+        padding: 0.25rem 0.6rem;
+        border-radius: 4px;
+        transition: background 0.15s;
+      }
+
+      .clients-ticker a:hover { background: #e8f0fa; }
+
+      /* ===== CLIENT SECTION (Option A) ===== */
+      .clients-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 0.8rem;
+        margin-top: 1rem;
+      }
+
+      .client-card {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        padding: 0.7rem 1rem;
+        border: 1px solid #dde5ee;
+        border-radius: 8px;
+        background: #f7fafd;
+        transition: box-shadow 0.15s, background 0.15s;
+      }
+
+      .client-card:hover {
+        background: #eaf2fc;
+        box-shadow: 0 2px 8px rgba(0,60,120,0.08);
+      }
+
+      .client-flag { font-size: 1.4rem; flex-shrink: 0; }
+
+      .client-info { display: flex; flex-direction: column; min-width: 0; }
+
+      .client-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #1a3050;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .client-country {
+        font-size: 0.75rem;
+        color: #6b7f96;
+      }
+
       .card-overlay {
         position: absolute;
         inset: 0;
@@ -914,6 +1010,78 @@
             <div class="card-image no-filter" style="background-image:url('img/DataloggerViewer/InicioConSQLite.png');"></div>
             <div class="card-title" data-i18n="card.grid.title9">Data Visualizer &amp; Processing</div>
           </button>
+
+          <!-- 10. Clients -->
+          <button class="card" type="button" data-target="clients">
+            <div class="card-image" style="background-image:url('img/ParqueEolico.png'); filter:brightness(0.4) sepia(0.5) hue-rotate(180deg);"></div>
+            <div class="card-title" data-i18n="card.grid.title10">Our Clients</div>
+          </button>
+        </div>
+
+        <!-- ===== CLIENT STRIP (Option B) ===== -->
+        <div class="clients-strip">
+          <div class="clients-strip-label" data-i18n="clients.strip.label">Trusted by institutions in 8 countries</div>
+          <div class="clients-ticker-wrap">
+            <div class="clients-ticker" id="clientsTicker">
+              <a href="https://www.uned.es" target="_blank" rel="noopener">🇪🇸 UNED</a>
+              <a href="https://www.bcit.ca" target="_blank" rel="noopener">🇨🇦 British Columbia Institute of Technology</a>
+              <a href="https://turin.uz/" target="_blank" rel="noopener">🇺🇿 Technical University of Tashkent</a>
+              <a href="https://www.njc.edu" target="_blank" rel="noopener">🇺🇸 Northeastern Junior College</a>
+              <a href="https://www.clarendoncollege.edu" target="_blank" rel="noopener">🇺🇸 Clarendon College</a>
+              <a href="https://www.virginiawestern.edu" target="_blank" rel="noopener">🇺🇸 Virginia Western Community College</a>
+              <a href="https://www.delmar.edu" target="_blank" rel="noopener">🇺🇸 Del Mar College</a>
+              <a href="https://www.tstc.edu" target="_blank" rel="noopener">🇺🇸 Texas State Technical College</a>
+              <a href="https://www.mnwest.edu" target="_blank" rel="noopener">🇺🇸 MN West Community College</a>
+              <a href="https://www.cloud.edu" target="_blank" rel="noopener">🇺🇸 Cloud County Community College</a>
+              <a href="https://www.riverland.edu" target="_blank" rel="noopener">🇺🇸 Riverland Community College</a>
+              <a href="https://www.cvtech.edu" target="_blank" rel="noopener">🇺🇸 Canadian Valley Tech CTR</a>
+              <a href="https://www.ivcc.edu" target="_blank" rel="noopener">🇺🇸 Illinois Valley Community College</a>
+              <a href="https://www.uasd.edu.do" target="_blank" rel="noopener">🇩🇴 Instituto Tecnológico Superior UASD</a>
+              <a href="https://www.ceduc.cl" target="_blank" rel="noopener">🇨🇱 CEDUC</a>
+              <a href="https://www.cdjuarez.tecnm.mx" target="_blank" rel="noopener">🇲🇽 Instituto Tecnológico de Ciudad Juárez</a>
+              <a href="https://www.nmjc.edu" target="_blank" rel="noopener">🇺🇸 New Mexico Junior College</a>
+              <a href="https://www.lccc.wy.edu" target="_blank" rel="noopener">🇺🇸 Laramie County Community College</a>
+              <a href="https://www.farmingdale.edu" target="_blank" rel="noopener">🇺🇸 Farmingdale State College</a>
+              <a href="https://www.afpa.fr/" target="_blank" rel="noopener">🇫🇷 AFPA</a>
+              <a href="https://www.stlawrencecollege.ca" target="_blank" rel="noopener">🇨🇦 St. Lawrence College</a>
+              <a href="https://www.pcitraining.edu" target="_blank" rel="noopener">🇺🇸 Pinnacle Career Institute</a>
+              <a href="https://micampusvirtual.es/" target="_blank" rel="noopener">🇪🇸 Campus Training</a>
+              <a href="https://es-learning-campus.tuvsud.com/" target="_blank" rel="noopener">🇪🇸 TÜV-SÜD España</a>
+              <a href="https://alojaweb.educastur.es/web/cifpmsp" target="_blank" rel="noopener">🇪🇸 CIFP MSP de Langreo</a>
+              <a href="https://www.juntadeandalucia.es/educacion/portales/profesorado" target="_blank" rel="noopener">🇪🇸 Junta de Andalucía – CEP</a>
+              <a href="http://csfp.centros.educa.jcyl.es/sitio/index.cgi" target="_blank" rel="noopener">🇪🇸 Junta Castilla y León – CFIE</a>
+              <a href="https://www.educa2.madrid.org/educamadrid/" target="_blank" rel="noopener">🇪🇸 Comunidad de Madrid – CTIF</a>
+              <!-- duplicate set for seamless loop -->
+              <a href="https://www.uned.es" target="_blank" rel="noopener">🇪🇸 UNED</a>
+              <a href="https://www.bcit.ca" target="_blank" rel="noopener">🇨🇦 British Columbia Institute of Technology</a>
+              <a href="https://turin.uz/" target="_blank" rel="noopener">🇺🇿 Technical University of Tashkent</a>
+              <a href="https://www.njc.edu" target="_blank" rel="noopener">🇺🇸 Northeastern Junior College</a>
+              <a href="https://www.clarendoncollege.edu" target="_blank" rel="noopener">🇺🇸 Clarendon College</a>
+              <a href="https://www.virginiawestern.edu" target="_blank" rel="noopener">🇺🇸 Virginia Western Community College</a>
+              <a href="https://www.delmar.edu" target="_blank" rel="noopener">🇺🇸 Del Mar College</a>
+              <a href="https://www.tstc.edu" target="_blank" rel="noopener">🇺🇸 Texas State Technical College</a>
+              <a href="https://www.mnwest.edu" target="_blank" rel="noopener">🇺🇸 MN West Community College</a>
+              <a href="https://www.cloud.edu" target="_blank" rel="noopener">🇺🇸 Cloud County Community College</a>
+              <a href="https://www.riverland.edu" target="_blank" rel="noopener">🇺🇸 Riverland Community College</a>
+              <a href="https://www.cvtech.edu" target="_blank" rel="noopener">🇺🇸 Canadian Valley Tech CTR</a>
+              <a href="https://www.ivcc.edu" target="_blank" rel="noopener">🇺🇸 Illinois Valley Community College</a>
+              <a href="https://www.uasd.edu.do" target="_blank" rel="noopener">🇩🇴 Instituto Tecnológico Superior UASD</a>
+              <a href="https://www.ceduc.cl" target="_blank" rel="noopener">🇨🇱 CEDUC</a>
+              <a href="https://www.cdjuarez.tecnm.mx" target="_blank" rel="noopener">🇲🇽 Instituto Tecnológico de Ciudad Juárez</a>
+              <a href="https://www.nmjc.edu" target="_blank" rel="noopener">🇺🇸 New Mexico Junior College</a>
+              <a href="https://www.lccc.wy.edu" target="_blank" rel="noopener">🇺🇸 Laramie County Community College</a>
+              <a href="https://www.farmingdale.edu" target="_blank" rel="noopener">🇺🇸 Farmingdale State College</a>
+              <a href="https://www.afpa.fr/" target="_blank" rel="noopener">🇫🇷 AFPA</a>
+              <a href="https://www.stlawrencecollege.ca" target="_blank" rel="noopener">🇨🇦 St. Lawrence College</a>
+              <a href="https://www.pcitraining.edu" target="_blank" rel="noopener">🇺🇸 Pinnacle Career Institute</a>
+              <a href="https://micampusvirtual.es/" target="_blank" rel="noopener">🇪🇸 Campus Training</a>
+              <a href="https://es-learning-campus.tuvsud.com/" target="_blank" rel="noopener">🇪🇸 TÜV-SÜD España</a>
+              <a href="https://alojaweb.educastur.es/web/cifpmsp" target="_blank" rel="noopener">🇪🇸 CIFP MSP de Langreo</a>
+              <a href="https://www.juntadeandalucia.es/educacion/portales/profesorado" target="_blank" rel="noopener">🇪🇸 Junta de Andalucía – CEP</a>
+              <a href="http://csfp.centros.educa.jcyl.es/sitio/index.cgi" target="_blank" rel="noopener">🇪🇸 Junta Castilla y León – CFIE</a>
+              <a href="https://www.educa2.madrid.org/educamadrid/" target="_blank" rel="noopener">🇪🇸 Comunidad de Madrid – CTIF</a>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -1337,8 +1505,7 @@
       </section>
 
       <!-- ==================== DATA VIEWER ==================== -->
-      <section id="dataviewer" data-breadcrumb="Data Viewer">
-        <div class="section-header">
+      <section id="dataviewer" data-breadcrumb="Data Viewer">        <div class="section-header">
           <h2 data-i18n="dataviewer.title">Data Visualizer &amp; Processing</h2>
           <p data-i18n="dataviewer.subtitle">Visualize, process and export signal recordings from simulator sessions</p>
         </div>
@@ -1353,6 +1520,44 @@
               <a href="tutorials/en/downloads.html" data-i18n-href="dl.page" class="btn btn-accent" data-i18n="dataviewer.btn.download">Download</a>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ==================== CLIENTS ==================== -->
+      <section id="clients" data-breadcrumb="Clients">
+        <div class="section-header">
+          <h2 data-i18n="clients.title">Our Clients</h2>
+          <p data-i18n="clients.subtitle">Institutions from 8 countries trust our wind energy training simulators</p>
+        </div>
+        <div class="clients-grid">
+          <a class="client-card" href="https://www.uned.es" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">UNED</span><span class="client-country">España</span></span></a>
+          <a class="client-card" href="https://www.bcit.ca" target="_blank" rel="noopener"><span class="client-flag">🇨🇦</span><span class="client-info"><span class="client-name">British Columbia Institute of Technology</span><span class="client-country">Canada</span></span></a>
+          <a class="client-card" href="https://turin.uz/" target="_blank" rel="noopener"><span class="client-flag">🇺🇿</span><span class="client-info"><span class="client-name">Technical University of Tashkent</span><span class="client-country">Uzbekistan</span></span></a>
+          <a class="client-card" href="https://www.njc.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Northeastern Junior College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.clarendoncollege.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Clarendon College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.virginiawestern.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Virginia Western Community College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.delmar.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Del Mar College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.tstc.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Texas State Technical College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.mnwest.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">MN West Community College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.cloud.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Cloud County Community College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.riverland.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Riverland Community College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.cvtech.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Canadian Valley Tech CTR</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.ivcc.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Illinois Valley Community College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.uasd.edu.do" target="_blank" rel="noopener"><span class="client-flag">🇩🇴</span><span class="client-info"><span class="client-name">Instituto Tecnológico Superior UASD</span><span class="client-country">Rep. Dominicana</span></span></a>
+          <a class="client-card" href="https://www.ceduc.cl" target="_blank" rel="noopener"><span class="client-flag">🇨🇱</span><span class="client-info"><span class="client-name">CEDUC</span><span class="client-country">Chile</span></span></a>
+          <a class="client-card" href="https://www.cdjuarez.tecnm.mx" target="_blank" rel="noopener"><span class="client-flag">🇲🇽</span><span class="client-info"><span class="client-name">Instituto Tecnológico de Ciudad Juárez</span><span class="client-country">México</span></span></a>
+          <a class="client-card" href="https://www.nmjc.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">New Mexico Junior College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.lccc.wy.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Laramie County Community College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.farmingdale.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Farmingdale State College</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://www.afpa.fr/" target="_blank" rel="noopener"><span class="client-flag">🇫🇷</span><span class="client-info"><span class="client-name">AFPA</span><span class="client-country">Francia</span></span></a>
+          <a class="client-card" href="https://www.stlawrencecollege.ca" target="_blank" rel="noopener"><span class="client-flag">🇨🇦</span><span class="client-info"><span class="client-name">St. Lawrence College</span><span class="client-country">Canada</span></span></a>
+          <a class="client-card" href="https://www.pcitraining.edu" target="_blank" rel="noopener"><span class="client-flag">🇺🇸</span><span class="client-info"><span class="client-name">Pinnacle Career Institute</span><span class="client-country">USA</span></span></a>
+          <a class="client-card" href="https://micampusvirtual.es/" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">Campus Training</span><span class="client-country">España</span></span></a>
+          <a class="client-card" href="https://es-learning-campus.tuvsud.com/" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">TÜV-SÜD España</span><span class="client-country">España</span></span></a>
+          <a class="client-card" href="https://alojaweb.educastur.es/web/cifpmsp" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">CIFP MSP de Langreo</span><span class="client-country">España</span></span></a>
+          <a class="client-card" href="https://www.juntadeandalucia.es/educacion/portales/profesorado/formacion-del-profesorado/centros-del-profesorado" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">Junta de Andalucía – CEP</span><span class="client-country">España</span></span></a>
+          <a class="client-card" href="http://csfp.centros.educa.jcyl.es/sitio/index.cgi" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">Junta de Castilla y León – CFIE</span><span class="client-country">España</span></span></a>
+          <a class="client-card" href="https://www.educa2.madrid.org/educamadrid/" target="_blank" rel="noopener"><span class="client-flag">🇪🇸</span><span class="client-info"><span class="client-name">Comunidad de Madrid – CTIF</span><span class="client-country">España</span></span></a>
         </div>
       </section>
     </main>
@@ -1444,6 +1649,11 @@
       "card.grid.title7": "Access to Tutorials",
       "card.grid.title8": "Downloads & Free Evaluation",
       "card.grid.title9": "Data Visualizer & Processing",
+      "card.grid.title10": "Our Clients",
+      "clients.title": "Our Clients",
+      "clients.subtitle": "Institutions from 8 countries trust our wind energy training simulators",
+      "clients.strip.label": "Trusted by institutions in 8 countries",
+      "breadcrumb.clients": "Clients",
       "dataviewer.title": "Data Visualizer & Processing",
       "dataviewer.subtitle": "Visualize, process and export signal recordings from simulator sessions",
       "dataviewer.p": "Application for visualizing signal evolution recordings, processing them, and exporting to CSV format for further analysis. Allows users to: a) visualize data sets recorded during a session with any of the simulators; b) export them in CSV format; c) resample them for subsequent processing.<br><br>It also enables quick and convenient visualization of CSV files from other sources.",
@@ -1680,6 +1890,11 @@
       "card.grid.title7": "Acceso a Tutoriales",
       "card.grid.title8": "Descargas y Evaluación Gratuita",
       "card.grid.title9": "Visualización y tratamiento de datos",
+      "card.grid.title10": "Nuestros Clientes",
+      "clients.title": "Nuestros Clientes",
+      "clients.subtitle": "Instituciones de 8 países confían en nuestros simuladores de formación en energía eólica",
+      "clients.strip.label": "Con la confianza de instituciones en 8 países",
+      "breadcrumb.clients": "Clientes",
       "dataviewer.title": "Visualización y tratamiento de datos",
       "dataviewer.subtitle": "Visualice, procese y exporte registros de señales de sesiones con el simulador",
       "dataviewer.p": "Aplicación para visualizar evoluciones de señales registradas, procesarlas y exportarlas a formato CSV para su posterior tratamiento. Esta aplicación permite a los usuarios: a) visualizar conjuntos de datos registrados durante una sesión con cualquiera de los simuladores; b) exportarlos en formato CSV; c) remuestrearlos para su posterior procesamiento.<br><br>Permite también una visualización rápida y cómoda de ficheros CSV provenientes de otras fuentes.",
@@ -1916,6 +2131,11 @@
       "card.grid.title7": "Accès aux Tutoriels",
       "card.grid.title8": "Téléchargements et Évaluation Gratuite",
       "card.grid.title9": "Visualiseur et traitement des données",
+      "card.grid.title10": "Nos Clients",
+      "clients.title": "Nos Clients",
+      "clients.subtitle": "Des institutions de 8 pays font confiance à nos simulateurs de formation en énergie éolienne",
+      "clients.strip.label": "La confiance d’institutions dans 8 pays",
+      "breadcrumb.clients": "Clients",
       "dataviewer.title": "Visualiseur et traitement des données",
       "dataviewer.subtitle": "Visualisez, traitez et exportez les enregistrements de signaux des sessions simulateur",
       "dataviewer.p": "Application pour visualiser l'évolution des signaux enregistrés, les traiter et les exporter au format CSV pour une analyse ultérieure. Permet aux utilisateurs : a) de visualiser les ensembles de données enregistrés lors d'une session avec l'un des simulateurs ; b) de les exporter au format CSV ; c) de les rééchantillonner pour un traitement ultérieur.<br><br>Permet également une visualisation rapide et pratique de fichiers CSV provenant d'autres sources.",
@@ -2152,6 +2372,11 @@
       "card.grid.title7": "Zugang zu den Tutorials",
       "card.grid.title8": "Downloads und kostenlose Testversion",
       "card.grid.title9": "Datenvisualisierung und -verarbeitung",
+      "card.grid.title10": "Unsere Kunden",
+      "clients.title": "Unsere Kunden",
+      "clients.subtitle": "Institutionen aus 8 Ländern vertrauen auf unsere Windenergie-Schulungssimulatoren",
+      "clients.strip.label": "Vertrauen von Institutionen in 8 Ländern",
+      "breadcrumb.clients": "Kunden",
       "dataviewer.title": "Datenvisualisierung und -verarbeitung",
       "dataviewer.subtitle": "Visualisieren, verarbeiten und exportieren Sie Signalaufzeichnungen aus Simulatorsitzungen",
       "dataviewer.p": "Anwendung zur Visualisierung aufgezeichneter Signalverläufe, deren Verarbeitung und Export im CSV-Format zur weiteren Analyse. Ermöglicht Benutzern: a) Datensätze aus Simulatorsitzungen zu visualisieren; b) im CSV-Format zu exportieren; c) für die weitere Verarbeitung neu abzutasten.<br><br>Ermöglicht außerdem eine schnelle und komfortable Visualisierung von CSV-Dateien aus anderen Quellen.",
@@ -2388,6 +2613,11 @@
       "card.grid.title7": "Accesso ai tutorial",
       "card.grid.title8": "Download e valutazione gratuita",
       "card.grid.title9": "Visualizzatore e elaborazione dati",
+      "card.grid.title10": "I Nostri Clienti",
+      "clients.title": "I Nostri Clienti",
+      "clients.subtitle": "Istituzioni di 8 paesi si affidano ai nostri simulatori di formazione sull’energia eolica",
+      "clients.strip.label": "La fiducia di istituzioni in 8 paesi",
+      "breadcrumb.clients": "Clienti",
       "dataviewer.title": "Visualizzatore e elaborazione dati",
       "dataviewer.subtitle": "Visualizza, elabora ed esporta le registrazioni dei segnali dalle sessioni del simulatore",
       "dataviewer.p": "Applicazione per visualizzare l'evoluzione dei segnali registrati, elaborarli ed esportarli in formato CSV per ulteriori analisi. Consente agli utenti: a) di visualizzare i set di dati registrati durante una sessione con uno qualsiasi dei simulatori; b) di esportarli in formato CSV; c) di ricampionarli per un'elaborazione successiva.<br><br>Consente inoltre una visualizzazione rapida e comoda di file CSV provenienti da altre fonti.",
@@ -2624,6 +2854,11 @@
       "card.grid.title7": "Acesso aos tutoriais",
       "card.grid.title8": "Downloads e avaliação gratuita",
       "card.grid.title9": "Visualizador e processamento de dados",
+      "card.grid.title10": "Nossos Clientes",
+      "clients.title": "Nossos Clientes",
+      "clients.subtitle": "Instituições de 8 países confiam em nossos simuladores de treinamento em energia eólica",
+      "clients.strip.label": "A confiança de instituições em 8 países",
+      "breadcrumb.clients": "Clientes",
       "dataviewer.title": "Visualizador e processamento de dados",
       "dataviewer.subtitle": "Visualize, processe e exporte gravações de sinais de sessões do simulador",
       "dataviewer.p": "Aplicação para visualizar evoluções de sinais registrados, processá-los e exportá-los para formato CSV para análise posterior. Permite aos usuários: a) visualizar conjuntos de dados gravados durante uma sessão com qualquer um dos simuladores; b) exportá-los em formato CSV; c) reamostrar para processamento posterior.<br><br>Permite também uma visualização rápida e conveniente de arquivos CSV provenientes de outras fontes.",
