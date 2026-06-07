@@ -341,7 +341,10 @@
       const WORKER_URL = 'https://sweet-wood-42f6.josesanleandro.workers.dev';
       const supportedLangs = ['es', 'en', 'fr', 'it', 'de', 'pt'];
       const pageLang = new URLSearchParams(window.location.search).get('lang');
-      const lang = supportedLangs.includes(pageLang) ? pageLang : 'es';
+      const browserLang = (navigator.language || navigator.userLanguage || 'en').split('-')[0].toLowerCase();
+      const lang = supportedLangs.includes(pageLang)
+        ? pageLang
+        : (supportedLangs.includes(browserLang) ? browserLang : 'en');
       const translations = {
         es: {
           title: 'Formulario de Contacto | Automated Computing Machinery SL',

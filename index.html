@@ -3782,16 +3782,13 @@
       });
     }
 
-    /* ========== URL PARAMS ========== */
-    function getUrlParam(name) {
-      const params = new URLSearchParams(window.location.search);
-      return params.get(name);
-    }
-
     /* ========== INIT ========== */
     document.addEventListener('DOMContentLoaded', function() {
       // Language
-      let lang = getUrlParam('lang') || (navigator.language || 'en').split('-')[0].toLowerCase();
+      let lang = getUrlParam('lang');
+      if (!lang) {
+        lang = (navigator.language || 'en').split('-')[0].toLowerCase();
+      }
       if (!['en', 'es', 'fr', 'de', 'it', 'pt'].includes(lang)) lang = 'en';
 
       const langSelect = document.getElementById('langSelect');
