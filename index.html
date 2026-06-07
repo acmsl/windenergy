@@ -224,6 +224,10 @@
         z-index: 10;
       }
 
+      .card-image.no-filter {
+        filter: none;
+      }
+
       .card-overlay {
         position: absolute;
         inset: 0;
@@ -907,7 +911,7 @@
 
           <!-- 9. Data Viewer -->
           <button class="card" type="button" data-target="dataviewer">
-            <div class="card-image" style="background-image:url('img/DataloggerViewer/InicioConSQLite.png');"></div>
+            <div class="card-image no-filter" style="background-image:url('img/DataloggerViewer/InicioConSQLite.png');"></div>
             <div class="card-title" data-i18n="card.grid.title9">Data Visualizer &amp; Processing</div>
           </button>
         </div>
@@ -1675,8 +1679,8 @@
       "card.grid.title6": "Vídeos y Demostraciones",
       "card.grid.title7": "Acceso a Tutoriales",
       "card.grid.title8": "Descargas y Evaluación Gratuita",
-      "card.grid.title9": "Visualizador y tratamiento de datos",
-      "dataviewer.title": "Visualizador y tratamiento de datos",
+      "card.grid.title9": "Visualización y tratamiento de datos",
+      "dataviewer.title": "Visualización y tratamiento de datos",
       "dataviewer.subtitle": "Visualice, procese y exporte registros de señales de sesiones con el simulador",
       "dataviewer.p": "Aplicación para visualizar evoluciones de señales registradas, procesarlas y exportarlas a formato CSV para su posterior tratamiento. Esta aplicación permite a los usuarios: a) visualizar conjuntos de datos registrados durante una sesión con cualquiera de los simuladores; b) exportarlos en formato CSV; c) remuestrearlos para su posterior procesamiento.",
       "dataviewer.btn.help": "Ayuda de DataloggerViewer",
