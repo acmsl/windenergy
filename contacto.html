@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contacto | Automated Computing Machinery SL</title>
     <meta
+      id="pageDescription"
       name="description"
       content="Conozca Automated Computing Machinery SL, su trayectoria y la forma de contactar con la empresa."
     />
@@ -149,8 +150,6 @@
         max-width: 60ch;
       }
 
-
-
       .options {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -226,6 +225,11 @@
           opacity: 0;
           transform: translateY(8px);
         }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
         to {
           opacity: 1;
           transform: translateY(0);
@@ -377,79 +381,79 @@
             <p>ACM SL</p>
           </div>
         </div>
-        <a class="header-link" href="index.html?lang=es">Volver al inicio</a>
+        <a class="header-link" id="backHomeLink" href="index.html?lang=es">Volver al inicio</a>
       </div>
     </header>
 
     <main>
-      <section class="hero" aria-label="Presentacion de ACM SL">
+      <section class="hero" id="heroSection" aria-label="Presentacion de ACM SL">
         <article class="hero-card">
-          <h2>Contacto e informacion corporativa</h2>
-          <p>
-            ACM SL combina experiencia en Instrumentacion y Control Industrial,
-            desarrollo de instrumentacion industrial y software de simulacion para
-            formacion tecnica especializada en el sector eolico.
+          <h2 id="heroTitle">Contacto e información corporativa</h2>
+          <p id="heroText">
+            ACM SL combina experiencia en instrumentación y control industrial,
+            desarrollo de instrumentación industrial y software de simulación para
+            formación técnica especializada en el sector eólico.
           </p>
         </article>
       </section>
 
-      <nav class="options" aria-label="Opciones de contenido">
+      <nav class="options" id="contentOptions" aria-label="Opciones de contenido">
         <button class="option-btn active" type="button" data-panel="quienes-somos">
-          <strong>Quienes somos</strong>
-          <span>Vision general de la empresa y sus areas de especializacion.</span>
+          <strong id="navWhoTitle">Quiénes somos</strong>
+          <span id="navWhoText">Visión general de la empresa y sus áreas de especialización.</span>
         </button>
         <button class="option-btn" type="button" data-panel="historia">
-          <strong>Historia</strong>
-          <span>Hitos relevantes en la evolucion de ACM SL.</span>
+          <strong id="navHistoryTitle">Historia</strong>
+          <span id="navHistoryText">Hitos relevantes en la evolución de ACM SL.</span>
         </button>
         <button class="option-btn" type="button" data-panel="contacto">
-          <strong>Contacto</strong>
-          <span>Canales para consultas comerciales, academicas o tecnicas.</span>
+          <strong id="navContactTitle">Contacto</strong>
+          <span id="navContactText">Canales para consultas comerciales, académicas o técnicas.</span>
         </button>
       </nav>
 
       <div class="panel-wrap">
         <section id="quienes-somos" class="panel active" aria-labelledby="quienes-somos-title">
-          <h3 id="quienes-somos-title">Quienes somos</h3>
-          <p>
-            Creada en 2001, especializada en Instrumentacion y Control Industrial,
-            amplia experiencia en tecnologias CAD / CAM.
+          <h3 id="quienes-somos-title">Quiénes somos</h3>
+          <p id="whoText">
+            Creada en 2001, especializada en instrumentación y control industrial,
+            con amplia experiencia en tecnologías CAD / CAM.
           </p>
-          <div class="timeline" aria-label="Desarrollo de instrumentacion industrial">
+          <div class="timeline" id="whoTimeline" aria-label="Desarrollo de instrumentación industrial">
             <article class="timeline-item">
-              <strong>Desarrollo</strong>
-              <p>Generador Programable de Red Trifasica y Emulacion de Carga.</p>
+              <strong id="whoTimelineStrong1">Desarrollo</strong>
+              <p id="whoTimelineText1">Generador programable de red trifásica y emulación de carga.</p>
             </article>
             <article class="timeline-item">
-              <strong>Precision</strong>
-              <p>Tacometro digital de alta resolucion (1 en 15000), con una medida por vuelta.</p>
+              <strong id="whoTimelineStrong2">Precisión</strong>
+              <p id="whoTimelineText2">Tacómetro digital de alta resolución (1 en 15000), con una medida por vuelta.</p>
             </article>
           </div>
         </section>
 
         <section id="historia" class="panel" aria-labelledby="historia-title">
           <h3 id="historia-title">Historia</h3>
-          <div class="timeline" aria-label="Linea temporal de ACM SL">
+          <div class="timeline" id="historyTimeline" aria-label="Línea temporal de ACM SL">
             <article class="timeline-item">
               <strong>2002</strong>
-              <p>
-                Primera entrega de Simuladores de Aerogeneradores con
-                Hardware-in-the-Loop para Formacion de Personal de Fabricacion e
-                Instalacion de Aerogeneradores.
+              <p id="historyText1">
+                Primera entrega de simuladores de aerogeneradores con
+                Hardware-in-the-Loop para formación de personal de fabricación e
+                instalación.
               </p>
             </article>
             <article class="timeline-item">
               <strong>2011</strong>
-              <p>
-                Primera instalacion de Software de Simulacion de Aerogeneradores en
-                un Technical College en EE.UU.
+              <p id="historyText2">
+                Primera instalación de software de simulación de aerogeneradores en
+                un centro técnico en EE. UU.
               </p>
             </article>
             <article class="timeline-item">
-              <strong>Expansion</strong>
-              <p>
-                Instalaciones de nuestros Simuladores en EE.UU., Canada, Francia,
-                Mexico, Chile, India y Espana.
+              <strong id="historyStrong3">Expansión</strong>
+              <p id="historyText3">
+                Instalaciones de nuestros simuladores en EE. UU., Canadá, Francia,
+                México, Chile, India y España.
               </p>
             </article>
           </div>
@@ -457,21 +461,21 @@
 
         <section id="contacto" class="panel" aria-labelledby="contacto-title">
           <h3 id="contacto-title">Contacto</h3>
-          <p>
-            Para consultas sobre simuladores, programas de formacion, licencias,
-            instalaciones academicas o soporte tecnico, utilice los canales oficiales
+          <p id="contactText">
+            Para consultas sobre simuladores, programas de formación, licencias,
+            instalaciones académicas o soporte técnico, utilice los canales oficiales
             de ACM SL.
           </p>
 
           <div class="contact-grid">
             <article class="contact-card">
-              <h4>Direccion</h4>
-              <p>
-                c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Espana.
+              <h4 id="addressTitle">Dirección</h4>
+              <p id="addressText">
+                c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, España.
               </p>
             </article>
             <article class="contact-card">
-              <h4>Email</h4>
+              <h4 id="emailTitle">Correo electrónico</h4>
               <p>
                 <a href="mailto:support@acm-sl.com">support@acm-sl.com</a>
               </p>
@@ -479,11 +483,11 @@
           </div>
 
           <div class="contact-actions">
-            <a class="btn btn-primary" href="formulario.html?v=20260607">
-              Ir al formulario de contacto
+            <a class="btn btn-primary" id="formLink" href="formulario.html?lang=es&amp;v=20260607">
+              <span id="formLinkText">Ir al formulario de contacto</span>
             </a>
-            <a class="btn btn-secondary" href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer">
-              Visitar web corporativa
+            <a class="btn btn-secondary" id="corporateLink" href="https://www.acm-sl.com" target="_blank" rel="noopener noreferrer">
+              <span id="corporateLinkText">Visitar la web corporativa</span>
             </a>
           </div>
         </section>
@@ -491,10 +495,277 @@
     </main>
 
     <footer>
-      <p>&copy; 2026 Automated Computing Machinery SL (ACM SL).</p>
+      <p id="footerText">&copy; 2026 Automated Computing Machinery SL (ACM SL).</p>
     </footer>
 
     <script>
+      const supportedLangs = ['es', 'en', 'fr', 'it', 'de', 'pt'];
+      const pageLang = new URLSearchParams(window.location.search).get('lang');
+      const lang = supportedLangs.includes(pageLang) ? pageLang : 'es';
+
+      const translations = {
+        es: {
+          title: 'Contacto | Automated Computing Machinery SL',
+          description: 'Conozca Automated Computing Machinery SL, su trayectoria y la forma de contactar con la empresa.',
+          backHome: 'Volver al inicio',
+          heroAria: 'Presentación de ACM SL',
+          heroTitle: 'Contacto e información corporativa',
+          heroText: 'ACM SL combina experiencia en Instrumentación y Control Industrial, desarrollo de instrumentación industrial y software de simulación para formación técnica especializada en el sector eólico.',
+          navAria: 'Opciones de contenido',
+          navWhoTitle: 'Quiénes somos',
+          navWhoText: 'Visión general de la empresa y sus áreas de especialización.',
+          navHistoryTitle: 'Historia',
+          navHistoryText: 'Hitos relevantes en la evolución de ACM SL.',
+          navContactTitle: 'Contacto',
+          navContactText: 'Canales para consultas comerciales, académicas o técnicas.',
+          whoTitle: 'Quiénes somos',
+          whoText: 'Creada en 2001, especializada en Instrumentación y Control Industrial, con amplia experiencia en tecnologías CAD / CAM.',
+          whoTimelineAria: 'Desarrollo de instrumentación industrial',
+          whoTimelineStrong1: 'Desarrollo',
+          whoTimelineText1: 'Generador programable de red trifásica y emulación de carga.',
+          whoTimelineStrong2: 'Precisión',
+          whoTimelineText2: 'Tacómetro digital de alta resolución (1 en 15000), con una medida por vuelta.',
+          historyTitle: 'Historia',
+          historyTimelineAria: 'Línea temporal de ACM SL',
+          historyText1: 'Primera entrega de Simuladores de Aerogeneradores con Hardware-in-the-Loop para formación de personal de fabricación e instalación de aerogeneradores.',
+          historyText2: 'Primera instalación de software de simulación de aerogeneradores en un centro técnico en EE. UU.',
+          historyStrong3: 'Expansión',
+          historyText3: 'Instalaciones de nuestros simuladores en EE. UU., Canadá, Francia, México, Chile, India y España.',
+          contactTitle: 'Contacto',
+          contactText: 'Para consultas sobre simuladores, programas de formación, licencias, instalaciones académicas o soporte técnico, utilice los canales oficiales de ACM SL.',
+          addressTitle: 'Dirección',
+          addressText: 'c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, España.',
+          emailTitle: 'Correo electrónico',
+          formLinkText: 'Ir al formulario de contacto',
+          corporateLinkText: 'Visitar la web corporativa',
+          footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
+        },
+        en: {
+          title: 'Contact | Automated Computing Machinery SL',
+          description: 'Learn about Automated Computing Machinery SL, its background, and how to contact the company.',
+          backHome: 'Back to Home',
+          heroAria: 'ACM SL overview',
+          heroTitle: 'Contact and corporate information',
+          heroText: 'ACM SL combines expertise in Industrial Instrumentation and Control, industrial instrumentation development, and simulation software for specialized technical training in the wind energy sector.',
+          navAria: 'Content options',
+          navWhoTitle: 'Who we are',
+          navWhoText: 'Overview of the company and its areas of expertise.',
+          navHistoryTitle: 'History',
+          navHistoryText: 'Key milestones in ACM SL\'s evolution.',
+          navContactTitle: 'Contact',
+          navContactText: 'Channels for commercial, academic, or technical enquiries.',
+          whoTitle: 'Who we are',
+          whoText: 'Founded in 2001, ACM SL specializes in Industrial Instrumentation and Control, with extensive experience in CAD / CAM technologies.',
+          whoTimelineAria: 'Industrial instrumentation development',
+          whoTimelineStrong1: 'Development',
+          whoTimelineText1: 'Programmable three-phase grid generator and load emulation.',
+          whoTimelineStrong2: 'Precision',
+          whoTimelineText2: 'High-resolution digital tachometer (1 in 15000), with one measurement per revolution.',
+          historyTitle: 'History',
+          historyTimelineAria: 'ACM SL timeline',
+          historyText1: 'First delivery of wind turbine simulators with Hardware-in-the-Loop for manufacturing and installation staff training.',
+          historyText2: 'First installation of wind turbine simulation software at a technical college in the United States.',
+          historyStrong3: 'Expansion',
+          historyText3: 'Installations of our simulators in the United States, Canada, France, Mexico, Chile, India, and Spain.',
+          contactTitle: 'Contact',
+          contactText: 'For enquiries about simulators, training programs, licensing, academic installations, or technical support, please use ACM SL\'s official channels.',
+          addressTitle: 'Address',
+          addressText: 'c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Spain.',
+          emailTitle: 'Email',
+          formLinkText: 'Open contact form',
+          corporateLinkText: 'Visit corporate website',
+          footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
+        },
+        fr: {
+          title: 'Contact | Automated Computing Machinery SL',
+          description: 'Découvrez Automated Computing Machinery SL, son parcours et les moyens de contacter l’entreprise.',
+          backHome: 'Retour à l’accueil',
+          heroAria: 'Présentation d’ACM SL',
+          heroTitle: 'Contact et informations sur l’entreprise',
+          heroText: 'ACM SL combine une expertise en instrumentation et contrôle industriels, en développement d’instrumentation industrielle et en logiciels de simulation pour la formation technique spécialisée dans le secteur éolien.',
+          navAria: 'Options de contenu',
+          navWhoTitle: 'Qui sommes-nous',
+          navWhoText: 'Vue d’ensemble de l’entreprise et de ses domaines d’expertise.',
+          navHistoryTitle: 'Historique',
+          navHistoryText: 'Étapes clés dans l’évolution d’ACM SL.',
+          navContactTitle: 'Contact',
+          navContactText: 'Canaux pour les demandes commerciales, académiques ou techniques.',
+          whoTitle: 'Qui sommes-nous',
+          whoText: 'Créée en 2001, ACM SL est spécialisée en instrumentation et contrôle industriels, avec une solide expérience des technologies CAD / CAM.',
+          whoTimelineAria: 'Développement d’instrumentation industrielle',
+          whoTimelineStrong1: 'Développement',
+          whoTimelineText1: 'Générateur programmable de réseau triphasé et émulation de charge.',
+          whoTimelineStrong2: 'Précision',
+          whoTimelineText2: 'Tachymètre numérique haute résolution (1 sur 15000), avec une mesure par tour.',
+          historyTitle: 'Historique',
+          historyTimelineAria: 'Chronologie d’ACM SL',
+          historyText1: 'Première livraison de simulateurs d’éoliennes avec Hardware-in-the-Loop pour la formation du personnel de fabrication et d’installation.',
+          historyText2: 'Première installation d’un logiciel de simulation d’éoliennes dans un établissement technique supérieur aux États-Unis.',
+          historyStrong3: 'Expansion',
+          historyText3: 'Installations de nos simulateurs aux États-Unis, au Canada, en France, au Mexique, au Chili, en Inde et en Espagne.',
+          contactTitle: 'Contact',
+          contactText: 'Pour toute question sur les simulateurs, les programmes de formation, les licences, les installations académiques ou le support technique, veuillez utiliser les canaux officiels d’ACM SL.',
+          addressTitle: 'Adresse',
+          addressText: 'c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Espagne.',
+          emailTitle: 'E-mail',
+          formLinkText: 'Accéder au formulaire de contact',
+          corporateLinkText: 'Visiter le site institutionnel',
+          footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
+        },
+        it: {
+          title: 'Contatto | Automated Computing Machinery SL',
+          description: 'Scopra Automated Computing Machinery SL, la sua esperienza e come contattare l’azienda.',
+          backHome: 'Torna alla home',
+          heroAria: 'Presentazione di ACM SL',
+          heroTitle: 'Contatto e informazioni aziendali',
+          heroText: 'ACM SL unisce esperienza in strumentazione e controllo industriale, sviluppo di strumentazione industriale e software di simulazione per la formazione tecnica specializzata nel settore eolico.',
+          navAria: 'Opzioni di contenuto',
+          navWhoTitle: 'Chi siamo',
+          navWhoText: 'Panoramica dell’azienda e delle sue aree di specializzazione.',
+          navHistoryTitle: 'Storia',
+          navHistoryText: 'Tappe rilevanti nell’evoluzione di ACM SL.',
+          navContactTitle: 'Contatto',
+          navContactText: 'Canali per richieste commerciali, accademiche o tecniche.',
+          whoTitle: 'Chi siamo',
+          whoText: 'Fondata nel 2001, ACM SL è specializzata in strumentazione e controllo industriale, con ampia esperienza nelle tecnologie CAD / CAM.',
+          whoTimelineAria: 'Sviluppo di strumentazione industriale',
+          whoTimelineStrong1: 'Sviluppo',
+          whoTimelineText1: 'Generatore programmabile di rete trifase ed emulazione del carico.',
+          whoTimelineStrong2: 'Precisione',
+          whoTimelineText2: 'Tachimetro digitale ad alta risoluzione (1 su 15000), con una misura per giro.',
+          historyTitle: 'Storia',
+          historyTimelineAria: 'Cronologia di ACM SL',
+          historyText1: 'Prima consegna di simulatori di aerogeneratori con Hardware-in-the-Loop per la formazione del personale di produzione e installazione.',
+          historyText2: 'Prima installazione del software di simulazione di aerogeneratori presso un istituto tecnico superiore negli Stati Uniti.',
+          historyStrong3: 'Espansione',
+          historyText3: 'Installazioni dei nostri simulatori negli Stati Uniti, in Canada, Francia, Messico, Cile, India e Spagna.',
+          contactTitle: 'Contatto',
+          contactText: 'Per richieste su simulatori, programmi di formazione, licenze, installazioni accademiche o supporto tecnico, utilizzi i canali ufficiali di ACM SL.',
+          addressTitle: 'Indirizzo',
+          addressText: 'c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Spagna.',
+          emailTitle: 'Email',
+          formLinkText: 'Apri il modulo di contatto',
+          corporateLinkText: 'Visita il sito aziendale',
+          footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
+        },
+        de: {
+          title: 'Kontakt | Automated Computing Machinery SL',
+          description: 'Erfahren Sie mehr über Automated Computing Machinery SL, den Werdegang des Unternehmens und die Kontaktmöglichkeiten.',
+          backHome: 'Zur Startseite',
+          heroAria: 'Vorstellung von ACM SL',
+          heroTitle: 'Kontakt und Unternehmensinformationen',
+          heroText: 'ACM SL vereint Erfahrung in industrieller Mess-, Steuer- und Regeltechnik, in der Entwicklung industrieller Instrumentierung sowie in Simulationssoftware für spezialisierte technische Schulungen im Windenergiesektor.',
+          navAria: 'Inhaltsoptionen',
+          navWhoTitle: 'Wer wir sind',
+          navWhoText: 'Überblick über das Unternehmen und seine Fachgebiete.',
+          navHistoryTitle: 'Geschichte',
+          navHistoryText: 'Wichtige Meilensteine in der Entwicklung von ACM SL.',
+          navContactTitle: 'Kontakt',
+          navContactText: 'Kanäle für kommerzielle, akademische oder technische Anfragen.',
+          whoTitle: 'Wer wir sind',
+          whoText: 'Gegründet im Jahr 2001, ist ACM SL auf industrielle Mess-, Steuer- und Regeltechnik spezialisiert und verfügt über umfangreiche Erfahrung mit CAD / CAM-Technologien.',
+          whoTimelineAria: 'Entwicklung industrieller Instrumentierung',
+          whoTimelineStrong1: 'Entwicklung',
+          whoTimelineText1: 'Programmierbarer Dreiphasen-Netzgenerator und Lastemulation.',
+          whoTimelineStrong2: 'Präzision',
+          whoTimelineText2: 'Hochauflösender digitaler Drehzahlmesser (1 von 15000) mit einer Messung pro Umdrehung.',
+          historyTitle: 'Geschichte',
+          historyTimelineAria: 'Zeitachse von ACM SL',
+          historyText1: 'Erste Lieferung von Windturbinen-Simulatoren mit Hardware-in-the-Loop für die Schulung von Fertigungs- und Installationspersonal.',
+          historyText2: 'Erste Installation von Windturbinen-Simulationssoftware an einem technischen College in den USA.',
+          historyStrong3: 'Expansion',
+          historyText3: 'Installationen unserer Simulatoren in den USA, Kanada, Frankreich, Mexiko, Chile, Indien und Spanien.',
+          contactTitle: 'Kontakt',
+          contactText: 'Für Anfragen zu Simulatoren, Schulungsprogrammen, Lizenzen, akademischen Installationen oder technischem Support nutzen Sie bitte die offiziellen Kanäle von ACM SL.',
+          addressTitle: 'Adresse',
+          addressText: 'c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Spanien.',
+          emailTitle: 'E-Mail',
+          formLinkText: 'Zum Kontaktformular',
+          corporateLinkText: 'Unternehmenswebsite besuchen',
+          footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
+        },
+        pt: {
+          title: 'Contacto | Automated Computing Machinery SL',
+          description: 'Conheça a Automated Computing Machinery SL, a sua trajetória e as formas de contactar a empresa.',
+          backHome: 'Voltar ao início',
+          heroAria: 'Apresentação da ACM SL',
+          heroTitle: 'Contacto e informação corporativa',
+          heroText: 'A ACM SL combina experiência em Instrumentação e Controlo Industrial, desenvolvimento de instrumentação industrial e software de simulação para formação técnica especializada no setor eólico.',
+          navAria: 'Opções de conteúdo',
+          navWhoTitle: 'Quem somos',
+          navWhoText: 'Visão geral da empresa e das suas áreas de especialização.',
+          navHistoryTitle: 'História',
+          navHistoryText: 'Marcos relevantes na evolução da ACM SL.',
+          navContactTitle: 'Contacto',
+          navContactText: 'Canais para consultas comerciais, académicas ou técnicas.',
+          whoTitle: 'Quem somos',
+          whoText: 'Criada em 2001, a ACM SL é especializada em Instrumentação e Controlo Industrial, com ampla experiência em tecnologias CAD / CAM.',
+          whoTimelineAria: 'Desenvolvimento de instrumentação industrial',
+          whoTimelineStrong1: 'Desenvolvimento',
+          whoTimelineText1: 'Gerador Programável de Rede Trifásica e Emulação de Carga.',
+          whoTimelineStrong2: 'Precisão',
+          whoTimelineText2: 'Tacómetro digital de alta resolução (1 em 15000), com uma medição por volta.',
+          historyTitle: 'História',
+          historyTimelineAria: 'Linha temporal da ACM SL',
+          historyText1: 'Primeira entrega de Simuladores de Aerogeradores com Hardware-in-the-Loop para formação de pessoal de fabrico e instalação.',
+          historyText2: 'Primeira instalação de software de simulação de aerogeradores num instituto técnico superior nos Estados Unidos.',
+          historyStrong3: 'Expansão',
+          historyText3: 'Instalações dos nossos simuladores nos Estados Unidos, Canadá, França, México, Chile, Índia e Espanha.',
+          contactTitle: 'Contacto',
+          contactText: 'Para consultas sobre simuladores, programas de formação, licenças, instalações académicas ou suporte técnico, utilize os canais oficiais da ACM SL.',
+          addressTitle: 'Endereço',
+          addressText: 'c/. Playa de Lagoa, 1, 28660 Boadilla del Monte, Madrid, Espanha.',
+          emailTitle: 'Email',
+          formLinkText: 'Ir para o formulário de contacto',
+          corporateLinkText: 'Visitar o site institucional',
+          footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
+        }
+      };
+
+      const t = translations[lang];
+
+      function setText(id, value) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.textContent = value;
+        }
+      }
+
+      function setHtml(id, value) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.innerHTML = value;
+        }
+      }
+
+      document.documentElement.lang = lang;
+      document.title = t.title;
+      document.getElementById('pageDescription').setAttribute('content', t.description);
+      document.getElementById('backHomeLink').href = `index.html?lang=${lang}`;
+      document.getElementById('backHomeLink').textContent = t.backHome;
+      document.getElementById('heroSection').setAttribute('aria-label', t.heroAria);
+      document.getElementById('contentOptions').setAttribute('aria-label', t.navAria);
+      document.getElementById('quienes-somos-title').textContent = t.whoTitle;
+      document.getElementById('historia-title').textContent = t.historyTitle;
+      document.getElementById('contacto-title').textContent = t.contactTitle;
+      document.getElementById('whoTimeline').setAttribute('aria-label', t.whoTimelineAria);
+      document.getElementById('historyTimeline').setAttribute('aria-label', t.historyTimelineAria);
+      document.getElementById('formLink').href = `formulario.html?lang=${lang}&v=20260607`;
+
+      [
+        'heroTitle', 'heroText', 'navWhoTitle', 'navWhoText', 'navHistoryTitle', 'navHistoryText',
+        'navContactTitle', 'navContactText', 'whoText', 'whoTimelineStrong1', 'whoTimelineText1',
+        'whoTimelineStrong2', 'whoTimelineText2', 'historyText1', 'historyText2', 'historyStrong3',
+        'historyText3', 'contactText', 'addressTitle', 'addressText', 'emailTitle', 'formLinkText',
+        'corporateLinkText', 'footerText'
+      ].forEach((key) => {
+        if (key === 'footerText') {
+          setHtml(key, t[key]);
+        } else {
+          setText(key, t[key]);
+        }
+      });
+
       const optionButtons = document.querySelectorAll('.option-btn');
       const panels = document.querySelectorAll('.panel');
 

@@ -3720,13 +3720,8 @@
       // Update "Website & Contact" button URL based on language
       const webBtn = document.querySelector('a.web-btn');
       if (webBtn) {
-        if (lang === 'es') {
-          webBtn.href = 'contacto.html?lang=es';
-          webBtn.target = '_self';
-        } else {
-          webBtn.href = 'https://www.acm-sl.com/en/contact';
-          webBtn.target = '_blank';
-        }
+        webBtn.href = `contacto.html?lang=${lang}`;
+        webBtn.target = '_self';
       }
 
       // Re-render videos if already loaded

@@ -7,7 +7,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <title>Formulario de Contacto | Automated Computing Machinery SL</title>
-    <meta name="description" content="Formulario de contacto de Automated Computing Machinery SL." />
+    <meta id="pageDescription" name="description" content="Formulario de contacto de Automated Computing Machinery SL." />
     <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
     <link rel="shortcut icon" type="image/png" href="img/ACM_LOGO.png" />
     <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
@@ -237,64 +237,64 @@
             <p>ACM SL</p>
           </div>
         </div>
-        <a class="header-link" href="contacto.html?lang=es">Volver a Contacto</a>
+        <a class="header-link" id="backContactLink" href="contacto.html?lang=es">Volver a Contacto</a>
       </div>
     </header>
 
     <main>
       <div class="form-card">
-        <h2>Formulario de Contacto</h2>
-        <p class="subtitle">Los campos marcados con <span class="req">*</span> son obligatorios.</p>
+        <h2 id="formTitle">Formulario de Contacto</h2>
+        <p class="subtitle" id="formSubtitle">Los campos marcados con <span class="req">*</span> son obligatorios.</p>
 
         <form id="contactForm" novalidate>
           <div class="form-group visually-hidden" aria-hidden="true">
-            <label for="website">Website</label>
+            <label id="websiteLabel" for="website">Website</label>
             <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="nombre">Nombre <span class="req">*</span></label>
+              <label id="nombreLabel" for="nombre">Nombre <span class="req">*</span></label>
               <input type="text" id="nombre" name="nombre" autocomplete="given-name" required />
             </div>
             <div class="form-group">
-              <label for="apellidos">Apellidos <span class="req">*</span></label>
+              <label id="apellidosLabel" for="apellidos">Apellidos <span class="req">*</span></label>
               <input type="text" id="apellidos" name="apellidos" autocomplete="family-name" required />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="email">Correo electrónico <span class="req">*</span></label>
+              <label id="emailLabel" for="email">Correo electrónico <span class="req">*</span></label>
               <input type="email" id="email" name="email" autocomplete="email" required />
             </div>
             <div class="form-group">
-              <label for="telefono">Teléfono <span class="req">*</span></label>
+              <label id="telefonoLabel" for="telefono">Teléfono <span class="req">*</span></label>
               <input type="tel" id="telefono" name="telefono" autocomplete="tel" required />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="direccion">Dirección (calle y número)</label>
+              <label id="direccionLabel" for="direccion">Dirección (calle y número)</label>
               <input type="text" id="direccion" name="direccion" autocomplete="street-address" />
             </div>
             <div class="form-group">
-              <label for="ciudad">Ciudad <span class="req">*</span></label>
+              <label id="ciudadLabel" for="ciudad">Ciudad <span class="req">*</span></label>
               <input type="text" id="ciudad" name="ciudad" autocomplete="address-level2" required />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="pais">País <span class="req">*</span></label>
+              <label id="paisLabel" for="pais">País <span class="req">*</span></label>
               <input type="text" id="pais" name="pais" autocomplete="country-name" required />
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group full">
-              <label class="interest-label" for="mensaje">Por favor, indíquenos en qué está interesado <span class="req">*</span></label>
+              <label class="interest-label" id="mensajeLabel" for="mensaje">Por favor, indíquenos en qué está interesado <span class="req">*</span></label>
               <textarea id="mensaje" name="mensaje" rows="10" required placeholder="Describa su interés, proyecto o consulta"></textarea>
             </div>
           </div>
@@ -308,7 +308,7 @@
               <line x1="22" y1="2" x2="11" y2="13"></line>
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
             </svg>
-            Enviar
+            <span id="submitBtnText">Enviar</span>
           </button>
 
           <div id="msgSuccess" class="msg" role="alert">
@@ -339,6 +339,200 @@
        * ─────────────────────────────────────────────────────────────
        */
       const WORKER_URL = 'https://sweet-wood-42f6.josesanleandro.workers.dev';
+      const supportedLangs = ['es', 'en', 'fr', 'it', 'de', 'pt'];
+      const pageLang = new URLSearchParams(window.location.search).get('lang');
+      const lang = supportedLangs.includes(pageLang) ? pageLang : 'es';
+      const translations = {
+        es: {
+          title: 'Formulario de Contacto | Automated Computing Machinery SL',
+          description: 'Formulario de contacto de Automated Computing Machinery SL.',
+          backContact: 'Volver a Contacto',
+          formTitle: 'Formulario de Contacto',
+          formSubtitle: 'Los campos marcados con <span class="req">*</span> son obligatorios.',
+          websiteLabel: 'Website',
+          nombreLabel: 'Nombre <span class="req">*</span>',
+          apellidosLabel: 'Apellidos <span class="req">*</span>',
+          emailLabel: 'Correo electrónico <span class="req">*</span>',
+          telefonoLabel: 'Teléfono <span class="req">*</span>',
+          direccionLabel: 'Dirección (calle y número)',
+          ciudadLabel: 'Ciudad <span class="req">*</span>',
+          paisLabel: 'País <span class="req">*</span>',
+          mensajeLabel: 'Por favor, indíquenos en qué está interesado <span class="req">*</span>',
+          mensajePlaceholder: 'Describa su interés, proyecto o consulta',
+          submitLabel: 'Enviar',
+          sendingLabel: 'Enviando…',
+          successMessage: '¡Mensaje enviado correctamente! Nos pondremos en contacto con usted lo antes posible. También recibirá una copia en su correo electrónico.',
+          invalidMessage: 'Por favor, complete todos los campos obligatorios correctamente.',
+          captchaMessage: 'Por favor, complete el captcha antes de enviar.',
+          configMessage: 'Configure primero la constante WORKER_URL con la URL pública real del Cloudflare Worker',
+          connectionMessage: 'No se pudo conectar con el Cloudflare Worker. Verifique que la URL publicada sea correcta y que el Worker esté desplegado',
+          sendErrorPrefix: 'Error al enviar el mensaje',
+          sendErrorSuffix: 'Por favor, inténtelo de nuevo o escriba directamente a support@acm-sl.com'
+        },
+        en: {
+          title: 'Contact Form | Automated Computing Machinery SL',
+          description: 'Contact form for Automated Computing Machinery SL.',
+          backContact: 'Back to Contact',
+          formTitle: 'Contact Form',
+          formSubtitle: 'Fields marked with <span class="req">*</span> are required.',
+          websiteLabel: 'Website',
+          nombreLabel: 'First name <span class="req">*</span>',
+          apellidosLabel: 'Last name <span class="req">*</span>',
+          emailLabel: 'Email <span class="req">*</span>',
+          telefonoLabel: 'Phone <span class="req">*</span>',
+          direccionLabel: 'Address (street and number)',
+          ciudadLabel: 'City <span class="req">*</span>',
+          paisLabel: 'Country <span class="req">*</span>',
+          mensajeLabel: 'Please tell us what you are interested in <span class="req">*</span>',
+          mensajePlaceholder: 'Describe your interest, project, or enquiry',
+          submitLabel: 'Send',
+          sendingLabel: 'Sending…',
+          successMessage: 'Message sent successfully. We will contact you as soon as possible. You will also receive a copy by email.',
+          invalidMessage: 'Please complete all required fields correctly.',
+          captchaMessage: 'Please complete the captcha before submitting.',
+          configMessage: 'Please configure the WORKER_URL constant with the real public Cloudflare Worker URL first',
+          connectionMessage: 'Could not connect to the Cloudflare Worker. Verify that the published URL is correct and that the Worker is deployed',
+          sendErrorPrefix: 'Error sending the message',
+          sendErrorSuffix: 'Please try again or write directly to support@acm-sl.com'
+        },
+        fr: {
+          title: 'Formulaire de contact | Automated Computing Machinery SL',
+          description: 'Formulaire de contact d’Automated Computing Machinery SL.',
+          backContact: 'Retour au contact',
+          formTitle: 'Formulaire de contact',
+          formSubtitle: 'Les champs marqués avec <span class="req">*</span> sont obligatoires.',
+          websiteLabel: 'Site web',
+          nombreLabel: 'Prénom <span class="req">*</span>',
+          apellidosLabel: 'Nom <span class="req">*</span>',
+          emailLabel: 'E-mail <span class="req">*</span>',
+          telefonoLabel: 'Téléphone <span class="req">*</span>',
+          direccionLabel: 'Adresse (rue et numéro)',
+          ciudadLabel: 'Ville <span class="req">*</span>',
+          paisLabel: 'Pays <span class="req">*</span>',
+          mensajeLabel: 'Merci de nous indiquer ce qui vous intéresse <span class="req">*</span>',
+          mensajePlaceholder: 'Décrivez votre besoin, projet ou demande',
+          submitLabel: 'Envoyer',
+          sendingLabel: 'Envoi…',
+          successMessage: 'Message envoyé avec succès. Nous vous recontacterons dès que possible. Vous recevrez également une copie par e-mail.',
+          invalidMessage: 'Veuillez renseigner correctement tous les champs obligatoires.',
+          captchaMessage: 'Veuillez compléter le captcha avant l’envoi.',
+          configMessage: 'Veuillez d’abord configurer la constante WORKER_URL avec l’URL publique réelle du Cloudflare Worker',
+          connectionMessage: 'Connexion au Cloudflare Worker impossible. Vérifiez que l’URL publiée est correcte et que le Worker est déployé',
+          sendErrorPrefix: 'Erreur lors de l’envoi du message',
+          sendErrorSuffix: 'Veuillez réessayer ou écrire directement à support@acm-sl.com'
+        },
+        it: {
+          title: 'Modulo di contatto | Automated Computing Machinery SL',
+          description: 'Modulo di contatto di Automated Computing Machinery SL.',
+          backContact: 'Torna al contatto',
+          formTitle: 'Modulo di contatto',
+          formSubtitle: 'I campi contrassegnati con <span class="req">*</span> sono obbligatori.',
+          websiteLabel: 'Sito web',
+          nombreLabel: 'Nome <span class="req">*</span>',
+          apellidosLabel: 'Cognome <span class="req">*</span>',
+          emailLabel: 'Email <span class="req">*</span>',
+          telefonoLabel: 'Telefono <span class="req">*</span>',
+          direccionLabel: 'Indirizzo (via e numero)',
+          ciudadLabel: 'Città <span class="req">*</span>',
+          paisLabel: 'Paese <span class="req">*</span>',
+          mensajeLabel: 'Indichi per favore a cosa è interessato <span class="req">*</span>',
+          mensajePlaceholder: 'Descriva il suo interesse, progetto o richiesta',
+          submitLabel: 'Invia',
+          sendingLabel: 'Invio…',
+          successMessage: 'Messaggio inviato correttamente. La contatteremo al più presto. Riceverà anche una copia via e-mail.',
+          invalidMessage: 'Compili correttamente tutti i campi obbligatori.',
+          captchaMessage: 'Completi il captcha prima di inviare.',
+          configMessage: 'Configuri prima la costante WORKER_URL con l’URL pubblica reale del Cloudflare Worker',
+          connectionMessage: 'Impossibile connettersi al Cloudflare Worker. Verifichi che l’URL pubblicata sia corretta e che il Worker sia stato distribuito',
+          sendErrorPrefix: 'Errore durante l’invio del messaggio',
+          sendErrorSuffix: 'Riprovi oppure scriva direttamente a support@acm-sl.com'
+        },
+        de: {
+          title: 'Kontaktformular | Automated Computing Machinery SL',
+          description: 'Kontaktformular von Automated Computing Machinery SL.',
+          backContact: 'Zurück zu Kontakt',
+          formTitle: 'Kontaktformular',
+          formSubtitle: 'Mit <span class="req">*</span> markierte Felder sind erforderlich.',
+          websiteLabel: 'Website',
+          nombreLabel: 'Vorname <span class="req">*</span>',
+          apellidosLabel: 'Nachname <span class="req">*</span>',
+          emailLabel: 'E-Mail <span class="req">*</span>',
+          telefonoLabel: 'Telefon <span class="req">*</span>',
+          direccionLabel: 'Adresse (Straße und Nummer)',
+          ciudadLabel: 'Stadt <span class="req">*</span>',
+          paisLabel: 'Land <span class="req">*</span>',
+          mensajeLabel: 'Bitte teilen Sie uns mit, wofür Sie sich interessieren <span class="req">*</span>',
+          mensajePlaceholder: 'Beschreiben Sie Ihr Interesse, Projekt oder Anliegen',
+          submitLabel: 'Senden',
+          sendingLabel: 'Wird gesendet…',
+          successMessage: 'Nachricht erfolgreich gesendet. Wir werden uns so bald wie möglich bei Ihnen melden. Sie erhalten auch eine Kopie per E-Mail.',
+          invalidMessage: 'Bitte füllen Sie alle Pflichtfelder korrekt aus.',
+          captchaMessage: 'Bitte vervollständigen Sie das Captcha vor dem Senden.',
+          configMessage: 'Bitte konfigurieren Sie zuerst die Konstante WORKER_URL mit der echten öffentlichen Cloudflare-Worker-URL',
+          connectionMessage: 'Verbindung zum Cloudflare Worker konnte nicht hergestellt werden. Prüfen Sie, ob die veröffentlichte URL korrekt ist und der Worker bereitgestellt wurde',
+          sendErrorPrefix: 'Fehler beim Senden der Nachricht',
+          sendErrorSuffix: 'Bitte versuchen Sie es erneut oder schreiben Sie direkt an support@acm-sl.com'
+        },
+        pt: {
+          title: 'Formulario de contacto | Automated Computing Machinery SL',
+          description: 'Formulário de contacto da Automated Computing Machinery SL.',
+          backContact: 'Voltar ao contacto',
+          formTitle: 'Formulário de contacto',
+          formSubtitle: 'Os campos assinalados com <span class="req">*</span> são obrigatórios.',
+          websiteLabel: 'Website',
+          nombreLabel: 'Nome <span class="req">*</span>',
+          apellidosLabel: 'Apelido <span class="req">*</span>',
+          emailLabel: 'Email <span class="req">*</span>',
+          telefonoLabel: 'Telefone <span class="req">*</span>',
+          direccionLabel: 'Morada (rua e número)',
+          ciudadLabel: 'Cidade <span class="req">*</span>',
+          paisLabel: 'País <span class="req">*</span>',
+          mensajeLabel: 'Indique-nos, por favor, no que está interessado <span class="req">*</span>',
+          mensajePlaceholder: 'Descreva o seu interesse, projeto ou consulta',
+          submitLabel: 'Enviar',
+          sendingLabel: 'A enviar…',
+          successMessage: 'Mensagem enviada com sucesso. Entraremos em contacto consigo o mais rapidamente possível. Também receberá uma cópia por email.',
+          invalidMessage: 'Por favor, preencha corretamente todos os campos obrigatórios.',
+          captchaMessage: 'Por favor, complete o captcha antes de enviar.',
+          configMessage: 'Configure primeiro a constante WORKER_URL com o URL público real do Cloudflare Worker',
+          connectionMessage: 'Não foi possível ligar ao Cloudflare Worker. Verifique se o URL publicado está correto e se o Worker está implementado',
+          sendErrorPrefix: 'Erro ao enviar a mensagem',
+          sendErrorSuffix: 'Por favor, tente novamente ou escreva diretamente para support@acm-sl.com'
+        }
+      };
+      const t = translations[lang];
+      const submitIcon = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>`;
+
+      function setHtml(id, value) {
+        const element = document.getElementById(id);
+        if (element) {
+          element.innerHTML = value;
+        }
+      }
+
+      document.documentElement.lang = lang;
+      document.title = t.title;
+      document.getElementById('pageDescription').setAttribute('content', t.description);
+      document.getElementById('backContactLink').href = `contacto.html?lang=${lang}`;
+      document.getElementById('backContactLink').textContent = t.backContact;
+      document.getElementById('mensaje').placeholder = t.mensajePlaceholder;
+      setHtml('formTitle', t.formTitle);
+      setHtml('formSubtitle', t.formSubtitle);
+      setHtml('websiteLabel', t.websiteLabel);
+      setHtml('nombreLabel', t.nombreLabel);
+      setHtml('apellidosLabel', t.apellidosLabel);
+      setHtml('emailLabel', t.emailLabel);
+      setHtml('telefonoLabel', t.telefonoLabel);
+      setHtml('direccionLabel', t.direccionLabel);
+      setHtml('ciudadLabel', t.ciudadLabel);
+      setHtml('paisLabel', t.paisLabel);
+      setHtml('mensajeLabel', t.mensajeLabel);
+      document.getElementById('submitBtnText').textContent = t.submitLabel;
+      document.getElementById('msgSuccess').textContent = t.successMessage;
 
       const form      = document.getElementById('contactForm');
       const submitBtn = document.getElementById('submitBtn');
@@ -386,7 +580,7 @@
         };
 
         if (!/^https:\/\//i.test(WORKER_URL) || WORKER_URL.includes('TU-WORKER')) {
-          throw new Error('Configure primero la constante WORKER_URL con la URL publica real del Cloudflare Worker');
+          throw new Error(t.configMessage);
         }
 
         let response;
@@ -397,7 +591,7 @@
             body: JSON.stringify(payload),
           });
         } catch {
-          throw new Error('No se pudo conectar con el Cloudflare Worker. Verifique que la URL publicada sea correcta y que el Worker este desplegado');
+          throw new Error(t.connectionMessage);
         }
 
         const result = await response.json().catch(() => ({}));
@@ -413,7 +607,7 @@
         msgErr.style.display = 'none';
 
         if (!validateForm()) {
-          msgErr.textContent = 'Por favor, complete todos los campos obligatorios correctamente.';
+          msgErr.textContent = t.invalidMessage;
           msgErr.className = 'msg error';
           msgErr.style.display = 'block';
           return;
@@ -421,14 +615,14 @@
 
         const captchaToken = hcaptcha.getResponse();
         if (!captchaToken) {
-          msgErr.textContent = 'Por favor, complete el captcha antes de enviar.';
+          msgErr.textContent = t.captchaMessage;
           msgErr.className = 'msg error';
           msgErr.style.display = 'block';
           return;
         }
 
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Enviando…';
+        submitBtn.innerHTML = `${submitIcon}<span id="submitBtnText">${t.sendingLabel}</span>`;
 
         try {
           await sendMail();
@@ -438,17 +632,12 @@
           msgOk.style.display = 'block';
           msgOk.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } catch (err) {
-          msgErr.textContent = `Error al enviar el mensaje: ${err.message}. Por favor, inténtelo de nuevo o escriba directamente a support@acm-sl.com`;
+          msgErr.textContent = `${t.sendErrorPrefix}: ${err.message}. ${t.sendErrorSuffix}`;
           msgErr.className = 'msg error';
           msgErr.style.display = 'block';
         } finally {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = `
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="22" y1="2" x2="11" y2="13"></line>
-              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-            </svg>
-            Enviar`;
+          submitBtn.innerHTML = `${submitIcon}<span id="submitBtnText">${t.submitLabel}</span>`;
         }
       });
 
