@@ -3782,6 +3782,11 @@
       });
     }
 
+    /* ========== URL PARAMS ========== */
+    function getUrlParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
     /* ========== INIT ========== */
     document.addEventListener('DOMContentLoaded', function() {
       // Language
