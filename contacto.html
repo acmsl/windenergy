@@ -144,6 +144,31 @@
         margin-bottom: 0.9rem;
       }
 
+      .hero-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.9rem;
+      }
+
+      .hero-top h2 {
+        margin-bottom: 0;
+      }
+
+      .hero-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem 1rem;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+
       .hero-card p {
         color: var(--muted);
         line-height: 1.75;
@@ -364,6 +389,11 @@
           font-size: 1.65rem;
         }
 
+        .hero-top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
         .timeline-item {
           grid-template-columns: 1fr;
           gap: 0.4rem;
@@ -388,7 +418,10 @@
     <main>
       <section class="hero" id="heroSection" aria-label="Presentacion de ACM SL">
         <article class="hero-card">
-          <h2 id="heroTitle">Contacto e información corporativa</h2>
+          <div class="hero-top">
+            <h2 id="heroTitle">Contacto e información corporativa</h2>
+            <a class="hero-link" id="developmentsLink" href="desarrollos.html?lang=es">Desarrollos</a>
+          </div>
           <p id="heroText">
             ACM SL combina experiencia en instrumentación y control industrial,
             desarrollo de instrumentación industrial y software de simulación para
@@ -508,6 +541,7 @@
           title: 'Contacto | Automated Computing Machinery SL',
           description: 'Conozca Automated Computing Machinery SL, su trayectoria y la forma de contactar con la empresa.',
           backHome: 'Volver al inicio',
+          developmentsLink: 'Desarrollos',
           heroAria: 'Presentación de ACM SL',
           heroTitle: 'Contacto e información corporativa',
           heroText: 'ACM SL combina experiencia en Instrumentación y Control Industrial, desarrollo de instrumentación industrial y software de simulación para formación técnica especializada en el sector eólico.',
@@ -544,6 +578,7 @@
           title: 'Contact | Automated Computing Machinery SL',
           description: 'Learn about Automated Computing Machinery SL, its background, and how to contact the company.',
           backHome: 'Back to Home',
+          developmentsLink: 'Developments',
           heroAria: 'ACM SL overview',
           heroTitle: 'Contact and corporate information',
           heroText: 'ACM SL combines expertise in Industrial Instrumentation and Control, industrial instrumentation development, and simulation software for specialized technical training in the wind energy sector.',
@@ -580,6 +615,7 @@
           title: 'Contact | Automated Computing Machinery SL',
           description: 'Découvrez Automated Computing Machinery SL, son parcours et les moyens de contacter l’entreprise.',
           backHome: 'Retour à l’accueil',
+          developmentsLink: 'Développements',
           heroAria: 'Présentation d’ACM SL',
           heroTitle: 'Contact et informations sur l’entreprise',
           heroText: 'ACM SL combine une expertise en instrumentation et contrôle industriels, en développement d’instrumentation industrielle et en logiciels de simulation pour la formation technique spécialisée dans le secteur éolien.',
@@ -616,6 +652,7 @@
           title: 'Contatto | Automated Computing Machinery SL',
           description: 'Scopra Automated Computing Machinery SL, la sua esperienza e come contattare l’azienda.',
           backHome: 'Torna alla home',
+          developmentsLink: 'Sviluppi',
           heroAria: 'Presentazione di ACM SL',
           heroTitle: 'Contatto e informazioni aziendali',
           heroText: 'ACM SL unisce esperienza in strumentazione e controllo industriale, sviluppo di strumentazione industriale e software di simulazione per la formazione tecnica specializzata nel settore eolico.',
@@ -652,6 +689,7 @@
           title: 'Kontakt | Automated Computing Machinery SL',
           description: 'Erfahren Sie mehr über Automated Computing Machinery SL, den Werdegang des Unternehmens und die Kontaktmöglichkeiten.',
           backHome: 'Zur Startseite',
+          developmentsLink: 'Entwicklungen',
           heroAria: 'Vorstellung von ACM SL',
           heroTitle: 'Kontakt und Unternehmensinformationen',
           heroText: 'ACM SL vereint Erfahrung in industrieller Mess-, Steuer- und Regeltechnik, in der Entwicklung industrieller Instrumentierung sowie in Simulationssoftware für spezialisierte technische Schulungen im Windenergiesektor.',
@@ -688,6 +726,7 @@
           title: 'Contacto | Automated Computing Machinery SL',
           description: 'Conheça a Automated Computing Machinery SL, a sua trajetória e as formas de contactar a empresa.',
           backHome: 'Voltar ao início',
+          developmentsLink: 'Desenvolvimentos',
           heroAria: 'Apresentação da ACM SL',
           heroTitle: 'Contacto e informação corporativa',
           heroText: 'A ACM SL combina experiência em Instrumentação e Controlo Industrial, desenvolvimento de instrumentação industrial e software de simulação para formação técnica especializada no setor eólico.',
@@ -743,6 +782,7 @@
       document.getElementById('pageDescription').setAttribute('content', t.description);
       document.getElementById('backHomeLink').href = `index.html?lang=${lang}`;
       document.getElementById('backHomeLink').textContent = t.backHome;
+      document.getElementById('developmentsLink').href = `desarrollos.html?lang=${lang}`;
       document.getElementById('heroSection').setAttribute('aria-label', t.heroAria);
       document.getElementById('contentOptions').setAttribute('aria-label', t.navAria);
       document.getElementById('quienes-somos-title').textContent = t.whoTitle;
@@ -753,7 +793,7 @@
       document.getElementById('formLink').href = `formulario.html?lang=${lang}&v=20260607`;
 
       [
-        'heroTitle', 'heroText', 'navWhoTitle', 'navWhoText', 'navHistoryTitle', 'navHistoryText',
+        'developmentsLink', 'heroTitle', 'heroText', 'navWhoTitle', 'navWhoText', 'navHistoryTitle', 'navHistoryText',
         'navContactTitle', 'navContactText', 'whoText', 'whoTimelineStrong1', 'whoTimelineText1',
         'whoTimelineStrong2', 'whoTimelineText2', 'historyText1', 'historyText2', 'historyStrong3',
         'historyText3', 'contactText', 'addressTitle', 'addressText', 'emailTitle', 'formLinkText',
