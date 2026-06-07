@@ -3431,11 +3431,17 @@
       bc.innerHTML = "";
       if (stack.length === 1 && stack[0] === "landing") return;
 
+      let dict = {};
+      try {
+        const script = document.getElementById('i18n-' + _currentLang);
+        if (script) dict = JSON.parse(script.textContent);
+      } catch (e) {}
+
       stack.forEach((secId, i) => {
         const span = document.createElement("span");
         const i18nKey = "breadcrumb." + secId;
         span.setAttribute("data-i18n", i18nKey);
-        span.textContent = getBreadcrumbLabel(secId);
+        span.textContent = dict[i18nKey] || getBreadcrumbLabel(secId);
 
         if (i < stack.length - 1) {
           span.className = "bc-link";
@@ -3729,6 +3735,9 @@
         _videosLang = null; // force re-render
         renderVideos(lang);
       }
+
+      // Re-render breadcrumb with new language
+      renderBreadcrumb([..._navStack, _currentSection]);
     }
 
     /* ========== SEARCH ========== */
