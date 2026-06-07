@@ -152,8 +152,37 @@
         margin-bottom: 0.9rem;
       }
 
+      .hero-heading {
+        flex: 1 1 340px;
+      }
+
       .hero-top h2 {
         margin-bottom: 0;
+      }
+
+      .hero-development-card {
+        flex: 0 0 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+        padding: 1rem 1.05rem;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #fbfdff, #f1f8fd);
+        border: 1px solid rgba(0, 102, 153, 0.12);
+        box-shadow: 0 10px 24px rgba(18, 48, 71, 0.08);
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-development-card h3 {
+        font-size: 1.02rem;
+        line-height: 1.3;
+      }
+
+      .hero-development-card p {
+        max-width: none;
+        font-size: 0.96rem;
+        line-height: 1.6;
       }
 
       .hero-link {
@@ -162,11 +191,17 @@
         justify-content: center;
         padding: 0.7rem 1rem;
         border-radius: 999px;
-        background: var(--primary-soft);
-        color: var(--primary);
+        background: var(--accent);
+        color: #fff;
         text-decoration: none;
         font-weight: 700;
         white-space: nowrap;
+        align-self: flex-start;
+        box-shadow: 0 10px 22px rgba(0, 168, 120, 0.2);
+      }
+
+      .hero-link:hover {
+        background: #009669;
       }
 
       .hero-card p {
@@ -394,6 +429,11 @@
           align-items: flex-start;
         }
 
+        .hero-development-card {
+          width: 100%;
+          flex-basis: auto;
+        }
+
         .timeline-item {
           grid-template-columns: 1fr;
           gap: 0.4rem;
@@ -419,8 +459,14 @@
       <section class="hero" id="heroSection" aria-label="Presentacion de ACM SL">
         <article class="hero-card">
           <div class="hero-top">
-            <h2 id="heroTitle">Contacto e información corporativa</h2>
-            <a class="hero-link" id="developmentsLink" href="desarrollos.html?lang=es">Desarrollos</a>
+            <div class="hero-heading">
+              <h2 id="heroTitle">Contacto e información corporativa</h2>
+            </div>
+            <div class="hero-development-card">
+              <h3 id="developmentsCardTitle">Desarrollos</h3>
+              <p id="developmentsCardText">Desarrollos significativos de ACM SL</p>
+              <a class="hero-link" id="developmentsLink" href="desarrollos.html?lang=es">Desarrollos</a>
+            </div>
           </div>
           <p id="heroText">
             ACM SL combina experiencia en instrumentación y control industrial,
@@ -541,6 +587,8 @@
           title: 'Contacto | Automated Computing Machinery SL',
           description: 'Conozca Automated Computing Machinery SL, su trayectoria y la forma de contactar con la empresa.',
           backHome: 'Volver al inicio',
+          developmentsCardTitle: 'Desarrollos',
+          developmentsCardText: 'Desarrollos significativos de ACM SL',
           developmentsLink: 'Desarrollos',
           heroAria: 'Presentación de ACM SL',
           heroTitle: 'Contacto e información corporativa',
@@ -578,6 +626,8 @@
           title: 'Contact | Automated Computing Machinery SL',
           description: 'Learn about Automated Computing Machinery SL, its background, and how to contact the company.',
           backHome: 'Back to Home',
+          developmentsCardTitle: 'Developments',
+          developmentsCardText: 'Significant ACM SL developments',
           developmentsLink: 'Developments',
           heroAria: 'ACM SL overview',
           heroTitle: 'Contact and corporate information',
@@ -615,6 +665,8 @@
           title: 'Contact | Automated Computing Machinery SL',
           description: 'Découvrez Automated Computing Machinery SL, son parcours et les moyens de contacter l’entreprise.',
           backHome: 'Retour à l’accueil',
+          developmentsCardTitle: 'Développements',
+          developmentsCardText: 'Développements significatifs d’ACM SL',
           developmentsLink: 'Développements',
           heroAria: 'Présentation d’ACM SL',
           heroTitle: 'Contact et informations sur l’entreprise',
@@ -652,6 +704,8 @@
           title: 'Contatto | Automated Computing Machinery SL',
           description: 'Scopra Automated Computing Machinery SL, la sua esperienza e come contattare l’azienda.',
           backHome: 'Torna alla home',
+          developmentsCardTitle: 'Sviluppi',
+          developmentsCardText: 'Sviluppi significativi di ACM SL',
           developmentsLink: 'Sviluppi',
           heroAria: 'Presentazione di ACM SL',
           heroTitle: 'Contatto e informazioni aziendali',
@@ -689,6 +743,8 @@
           title: 'Kontakt | Automated Computing Machinery SL',
           description: 'Erfahren Sie mehr über Automated Computing Machinery SL, den Werdegang des Unternehmens und die Kontaktmöglichkeiten.',
           backHome: 'Zur Startseite',
+          developmentsCardTitle: 'Entwicklungen',
+          developmentsCardText: 'Bedeutende Entwicklungen von ACM SL',
           developmentsLink: 'Entwicklungen',
           heroAria: 'Vorstellung von ACM SL',
           heroTitle: 'Kontakt und Unternehmensinformationen',
@@ -726,6 +782,8 @@
           title: 'Contacto | Automated Computing Machinery SL',
           description: 'Conheça a Automated Computing Machinery SL, a sua trajetória e as formas de contactar a empresa.',
           backHome: 'Voltar ao início',
+          developmentsCardTitle: 'Desenvolvimentos',
+          developmentsCardText: 'Desenvolvimentos significativos da ACM SL',
           developmentsLink: 'Desenvolvimentos',
           heroAria: 'Apresentação da ACM SL',
           heroTitle: 'Contacto e informação corporativa',
@@ -793,7 +851,7 @@
       document.getElementById('formLink').href = `formulario.html?lang=${lang}&v=20260607`;
 
       [
-        'developmentsLink', 'heroTitle', 'heroText', 'navWhoTitle', 'navWhoText', 'navHistoryTitle', 'navHistoryText',
+        'developmentsCardTitle', 'developmentsCardText', 'developmentsLink', 'heroTitle', 'heroText', 'navWhoTitle', 'navWhoText', 'navHistoryTitle', 'navHistoryText',
         'navContactTitle', 'navContactText', 'whoText', 'whoTimelineStrong1', 'whoTimelineText1',
         'whoTimelineStrong2', 'whoTimelineText2', 'historyText1', 'historyText2', 'historyStrong3',
         'historyText3', 'contactText', 'addressTitle', 'addressText', 'emailTitle', 'formLinkText',
