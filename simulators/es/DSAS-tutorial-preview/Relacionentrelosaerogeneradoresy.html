@@ -1,0 +1,157 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Relaci&oacute;n entre los aerogeneradores y su lugar de emplazamiento</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="viento nominal, Weibull, BladesSweptArea, potencia nominal, coeficiente aerodin&aacute;mico, Cp, pitch, r&aacute;fagas de viento, reg&iacute;menes de vientos bajos, , Viento Nominal, Potencia Nominal, r&aacute;fagas de viento, viento m&aacute;s alto esperado, densidad del aire, &aacute;rea barrida por las palas, coeficiente aerodin&aacute;mico, viento promedio">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Relacionentrelosaerogeneradoresy");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Relaci&oacute;n entre los aerogeneradores y su lugar de emplazamiento</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Introduccion.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Principalescomponentesdeunaeroge.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PorqueAerogenVeloVariable.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">Los parámetros básicos en el diseño de un Aerogenerador son:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+ <li class="rvps8 noindent"><span class="rvts15">La potencia máxima que entregará a la red.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">El régimen de vientos del sitio donde se va a erigir.</span></li>
+</ol>
+<p class="rvps8"><span class="rvts15">El régimen de vientos de un lugar está descrito como una función estadística llamada de Weibull. La siguiente figura muestra en ordenadas el porcentaje tiempo (en horas por año) en que el viento está en el rango indicado en las abcisas.</span></p>
+<p class="rvps10"><img alt="" style="padding : 1px;" src="lib/Distribucion%20Weibull%20castellano.png"></p>
+<p class="rvps8"><span class="rvts15">En el sitio al que corresponde la distribución de la figura anterior, la velocidad más probable del viento está entre 4 y 5 m/s.</span></p>
+<p class="rvps8"><span class="rvts15">La distribución de Weibull tiene dos parámetros característicos: el </span><span class="rvts24">viento promedio</span><span class="rvts15"> y el </span><span class="rvts24">viento más alto esperado</span><span class="rvts15">. Sin embargo, desde el punto de vista de producción eléctrica, es importante tomar en consideración que la potencia generada en un momento determinado es proporcional al cubo de la velocidad del viento en ese momento. Es decir la formula es:</span></p>
+<p class="rvps10"><span class="rvts21">PotenciaDelViento = K * DensidadDelAire * AreaBarridaPalas * Viento</span><span class="rvts26">3&nbsp;</span><span class="rvts21"> &nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">Si aplicamos la formula anterior a la distribución de vientos del sitio, obtenemos una función de distribución de la potencia obtenible de este sitio, como muestra la figura siguiente.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Distribucion%20Potencia%20Viento.png"></p>
+<p class="rvps8"><span class="rvts15">Es claro que existe un velocidad "</span><span class="rvts24">favorita</span><span class="rvts15">" de producción, alrededor de 10 m/s, de forma que éste parece un buen valor para el diseño de un aerogenerador para este sitio. Este pasa a ser el "</span><span class="rvts21">Viento Nominal</span><span class="rvts15">" ("</span><span class="rvts21">Nominal Wind</span><span class="rvts15">" en inglés)</span></p>
+<p class="rvps8"><span class="rvts15">La segunda condición define las características del generador eléctrico a utilizar en el aerogenerador, y toda la circuiteria de Electrónica de Potencia asociada, si es que la hay. Este valor es la "</span><span class="rvts21">Potencia Nominal</span><span class="rvts15">" ("</span><span class="rvts21">Nominal Power</span><span class="rvts15">" en inglés).</span></p>
+<p class="rvps8"><span class="rvts15">La longitud de las palas debe ser tal que con la velocidad nominal del viento tengamos la Potencia Nominal. Este condicionante tiene una importante consecuencia: para vientos superiores al viento nominal, la potencia que puede ser extraída del viento es mayor que la potencia nominal del generador eléctrico.</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps7"><a name="FormulaPotenciadelViento"></a><span class="rvts19">Descripción del funcionamiento del tren de potencia de un Aerogenerador</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">La formula para calcular la potencia que extraemos de un flujo de viento V, mencionada anteriormente, puede detallarse en la forma más explicita siguiente:</span></p>
+<p class="rvps11"><span class="rvts15">&nbsp; </span><span class="rvts21">PontenciaExtraidaDelViento</span><span class="rvts15"> = 0.5 * </span><span class="rvts27">DensidadAire</span><span class="rvts15"> * </span><span class="rvts27">AreaBarridaPalas</span><span class="rvts15"> * </span><span class="rvts27">Viento</span><span class="rvts25">3&nbsp;</span><span class="rvts15"> &nbsp;* &nbsp;</span><span class="rvts27">Cp</span><span class="rvts15">(</span><span class="rvts24">Viento</span><span class="rvts15">, </span><span class="rvts24">VelocidadRotacionPalas</span><span class="rvts15">, </span><span class="rvts24">AnguloAtaquePalas</span><a name="FormulaPotenciViento"></a><span class="rvts15">)</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">En ella se ve que la PotenciaExtraidaDelViento es directamente proporcional a</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">La</span><span class="rvts24"> densidad del aire</span><span class="rvts15">.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">El </span><span class="rvts24">área barrida por las palas</span><span class="rvts15">, es decir, proporcional al cuadrado de la longitud de las palas. Es decir, incrementando la longitud de la pala un 40 % (1.4) la potencia extraída del viento será el doble (1.4 x 1.4 = aprox. 2).</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Al cubo del viento. Es decir, si el viento pasa de 5 m/s a 10 m/s la potencia que </span><span class="rvts24">podemos extraer</span><span class="rvts15"> del viento se multiplica por &nbsp;8. La potencia que realmente extraemos depende de otro factor, el Cp, que también depende de la velocidad del viento.</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">El cuarto componente, Cp, conocido como </span><span class="rvts21">coeficiente aerodinámico</span><span class="rvts15">, es una función compleja que depende de:&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">a) la velocidad del viento,&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">b) la velocidad a la que giran las palas,&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">c) el angulo de ataque de las palas sobre el viento (</span><span class="rvts21">Pitch</span><span class="rvts15"> en inglés)</span></p>
+<p class="rvps8"><span class="rvts15">En </span><a class="rvts22" href="DescripcindelafuncinCpcoeficient.html">Descripción de la función Cp (coeficiente aerodinámico)</a><span class="rvts15"> se hace una presentación detallada de esta función.</span></p>
+<p class="rvps8"><span class="rvts15">El valor máximo de la función Cp está alrededor de 0.49 y depende del diseño de la pala. Utilizando este valor podemos hacer un gráfico como el mostrado en la siguiente figura, que nos da la potencia </span><span class="rvts24">máxima extraíble</span><span class="rvts15"> del viento en función de la longitud de la pala.</span></p>
+<p class="rvps10"><img alt="" style="padding : 1px;" src="lib/CurvasPotenciaVsVientoConRadioComoParametro_1.jpg"></p>
+<p class="rvps8"><span class="rvts15">En la figura se ha dibujado también una línea horizontal correspondiente a una determinada potencia nominal (</span><span class="rvts24">Target</span><span class="rvts15">, en este caso 2.000.000 W)</span></p>
+<p class="rvps8"><span class="rvts15">De este gráfico se pueden obtener las siguientes conclusiones:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+ <li class="rvps8 noindent"><span class="rvts15">La </span><span class="rvts21">gran influencia de las velocidades de viento superiores a la nominal</span><span class="rvts15"> .&nbsp;</span><br/><span class="rvts15">Es decir, si mantenemos las condiciones (velocidad de giro de las palas y angulo de ataque) de tal forma que el Cp sea siempre el máximo, entonces un viento un 10% por encima del nominal ofrece una potencia de mas del 33% sobre la potencia nominal. Si el viento sube un 50 % (hasta 15 m/s en la figura) la potencia obtenible es de un 337% de la nominal. Por ejemplo, tomando el caso de un radio de pala de 48 m con una potencia nominal de 2MW a 10 m/s, un incremento de viento hasta 12 m/s implica que la potencia disponible pasaría a ser de casi el doble (3.8Mw). Como conclusión se ve que es necesario controlar el valor de Cp para cada valor del viento, de forma que, para vientos superiores al nominal, la potencia </span><span class="rvts24">realmente extraída</span><span class="rvts15"> del viento corresponda con la nominal y no la obtenible. Ver siguiente gráfico.</span></li>
+</ol>
+<p class="rvps10"><a name="CurvaPotenciaViento"></a><img alt="" style="padding : 1px;" src="lib/CurvasPotenciaVsVientoConRadioComoParametro_1.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+ <li value="2" class="rvps8 noindent"><span class="rvts15">Comportamiento frente a </span><span class="rvts21">ráfagas de viento</span><span class="rvts15"> (</span><span class="rvts21">wind gusts </span><span class="rvts15">en inglés</span><span class="rvts21">)</span><br/><span class="rvts15">Si ocurre una ráfaga (entendida como subida rápida de viento (ver </span><a class="rvts22" href="RfagasdevientoWindgusts.html">Ráfagas de viento (Wind gusts)</a><span class="rvts15"> ) pero el viento en ningún momento supera el Viento Nominal, la potencia extraíble del viento no superará la nominal y, por tanto, no existirá peligro para el generador eléctrico.&nbsp;</span><br/><span class="rvts15">Sin embargo si el algún momento el viento supera el nominal y crece rápidamente, el aerogenerador debe disponer de un</span><span class="rvts24"> mecanismo rápido que permita controlar el Cp</span><span class="rvts15"> en todo momento, de forma que la potencia realmente extraída del viento no supere la nominal, excepto durante periodos de tiempo predeterminado. Este concepto es clave para entender como funciona un aerogenerador DFIG. &nbsp;Es decir, la ráfaga más rápida esperable condiciona la capacidad de cambio del mecanismo del Cp (básicamente el angulo de ataque de las palas).&nbsp;</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Adaptación del aerogenerador para </span><span class="rvts21">regímenes de vientos bajos</span><span class="rvts15">.</span><br/><span class="rvts15">Si el emplazamiento del aerogenerador tiene un régimen de vientos bajo se debe adaptar el aerogenerador para los mismos. Para ello la única opción consiste en aumentar el radio de las palas. En el gráfico anterior se puede ver que para mantener la misma potencia nominal y reducir el viento nominal de 10 m/s (curva azul) a 9 m/s (curva verde) tenemos que incrementar el radio de la pala de 48 m a 55 m. Es decir, para reducir el viento nominal un 10% hemos de incrementar el radio un 14.6%. Si quisiéramos reducirlo hasta 8 m/s, el radio debe incrementarse hasta 68 m: es decir, reducir un 20% el viento nominal implica incrementar el radio un 41.7 %. Esto tiene un importante impacto no solo en el &nbsp;precio del aerogenerador sino también en las condiciones de instalación y transporte.</span><br/><span class="rvts15"><br/></span></li>
+</ol>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

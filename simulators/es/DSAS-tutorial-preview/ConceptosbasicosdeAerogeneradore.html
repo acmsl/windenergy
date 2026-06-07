@@ -1,0 +1,131 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Conceptos basicos de Aerogeneradores</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="Aerogenerador, WT, energ&iacute;a cin&eacute;tica, HAWT, Horizontal Axis Wind Turbine, DFIG, Doubly Fed Induction Generator, Simulador de Aerogenerador B&aacute;sico, planta, G&oacute;ndola, nacelle, barlovento, upwind, sotavento, sotavento, multiplicadora, velocidad de sincronismo, Resistencia de Rotor, Tren de Potencia, imanes permanentes, as&iacute;ncrono, sincronismo, DC Link, full Converter solution, Back-to-Back">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ConceptosbasicosdeAerogeneradore");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Conceptos basicos de Aerogeneradores</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Introduccion.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Acercadeestedocumento.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Principalescomponentesdeunaeroge.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">En este documento se asume que el lector está familiarizado con la terminología básica, las funcionalidades y las capacidad de un Aerogenerador. Recomendamos la lectura del Tutorial "Simulador de Aerogenerador Básico".</span></p>
+<p class="rvps8"><span class="rvts15">En todo caso, aquí se hace una breve presentación de estos conceptos, a modo de recordatorio.</span></p>
+<p class="rvps8"><span class="rvts15">Un </span><span class="rvts21">Aerogenerador</span><span class="rvts15"> </span><span class="rvts21">industrial</span><span class="rvts15"> es una </span><span class="rvts21">planta de producción de energía eléctrica</span><span class="rvts15">, con capacidad a partir de 100 KW. Actualmente existen modelos comerciales in el rango de los 6 MW.</span></p>
+<p class="rvps8"><span class="rvts15">A alto nivel, un Aerogenerador se puede describirse como dos convertidores de potencia que trabajan conjuntamente: uno que transforma la energía cinética del viento que le incide en energía rotativa, y otro que transforma esta energía rotativa en energía eléctrica.</span></p>
+<p class="rvps8"><span class="rvts15">Los aerogeneradores puede ser clasificados atendiendo a estos dos convertidores. El más común, en el uso industrial, es el llamado </span><span class="rvts21">HAWT</span><span class="rvts15"> ( de Aergenerador de Eje Horizontal), en el que el viento incide perpendicularmente sobre el plano de giro de las palas, que están sujetas a un "tren de potencia". Este "tren de potencia" gira horizontalmente y está situado en una plataforma elevada, conocida como "</span><span class="rvts21">Góndola</span><span class="rvts15">" (</span><span class="rvts21">Nacelle</span><span class="rvts15"> en inglés).</span></p>
+<p class="rvps8"><span class="rvts15">El plano de giro de las palas ha de ser mantenido perpendicular al viento y para ello hay dos métodos según se quiera que las palas sean lo primero que el viento incidente toca (</span><span class="rvts24">barlovento</span><span class="rvts15"> o </span><span class="rvts24">upwind</span><span class="rvts15"> en inglés) o lo ultimo (</span><span class="rvts24">sotavento</span><span class="rvts15"> o </span><span class="rvts24">downwind</span><span class="rvts15"> en inglés). La ventaja teórica del método a sotavento es que es el propio viento el que se encarga de orientar la góndola (el mismo principio que las veletas comunes), sin embargo tiene el inconveniente de que se pierde viento, que choca contra la misma góndola y la torre antes de llegar a las palas. Por ello</span><span class="rvts23"> la gran mayoría de los aerogeneradores HAWT se orientan cara al viento</span><span class="rvts15">. Esto implica que tienen que tener un mecanismo para mantenerlos bien orientados "frente" al viento.</span></p>
+<p class="rvps8"><span class="rvts15">Generalmente tienen tres palas aunque existen modelos industriales con dos palas.</span></p>
+<p class="rvps8"><span class="rvts15">En cuanto a los convertidores eléctricos, todos utilizan algún tipo de generador eléctrico y, en algunos casos, equipos de Electrónica de Potencia.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">Los tipos de generadores eléctricos más comunes son:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Generador de inducción asíncrono.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Generador de inducción de imanes permanentes.&nbsp;</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Cuando se usan generadores de inducción asíncronos, es necesario usar una </span><span class="rvts21">multiplicadora</span><span class="rvts15"> (</span><span class="rvts21">gearbox</span><span class="rvts15"> en inglés) ya que normalmente el tren de potencia, es decir, el subsistema mecánico conectado a las palas, gira con velocidades del orden de 15 a 40 rpms, mientras que los generadores de inducción asíncronos funcionan en el rango entre 1000 a 2000 rpms.</span></p>
+<p class="rvps8"><span class="rvts15">En los casos en los que se usan generadores de inducción de imanes permanentes, existen algunos diseños que permiten trabajar directamente a la velocidad de giro del tren de potencia, y por tanto no necesitan multiplicadora.</span></p>
+<p class="rvps8"><span class="rvts15">Otro aspecto importante se refiere a como se conecta el generador eléctrico a la red. En la forma más simple, esta conexión es directa, es decir, el estator del generador está directamente conectado a la Red. Esta solución fuerza a que el tren de potencia (las palas en definitiva) giren a una velocidad prácticamente fija, ya que los generadores de inducción tienen un rango muy estrecho de funcionamiento, típicamente menor del 1%, en la zona inmediatamente superior a su "velocidad de sincronismo". Esta solución es la común en las primeras generaciones de aerogeneradores, hasta potencias del orden de 700 KW a 800 KW.</span></p>
+<p class="rvps8"><span class="rvts15">Forzar al tren de potencia a trabajar a una velocidad fija no es el procedimiento más eficiente desde el punto de vista de "aprovechamiento" de la energía del viento, cuando éste varía en un &nbsp;amplio margen: </span><span class="rvts23">cada velocidad de viento requiere una velocidad determinada para una transferencia óptima</span><span class="rvts15">: ver </span><a class="rvts22" href="PorqueAerogenVeloVariable.html">Razones para el uso de Aerogeneradores de Velocidad Variable</a><span class="rvts15"> ). Para solventar el desacuerdo en los requerimientos del generador de inducción y el mecanismo eólico, se han adoptado varias soluciones: la primera fue dividir en dos el rango de vientos donde se quiere funcionar, y usar dos generadores eléctricos, uno para cada rango. Una variante de esta solución es la de utilizar un solo generador pero cambiando la forma de conexión de sus devanados, de forma que se pueden cambiar los polos magnéticos del mismo, típicamente entre 6 y 4 polos, y por tanto su velocidad de sincronismo. &nbsp;&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">Una segunda solución fue usar la característica de Par-Velocidad de los generadores de inducción, que es muy sensible a cambios en la resistencia del devanado del rotor. La gran ventaja de esta aproximación consiste en que la Electrónica de Potencia necesaria para cambiar la resistencia del rotor debe manejar una potencia que es una fracción muy pequeña de la Potencia Nominal del conjunto. En el caso del controlador llamado de "Resistencia de Rotor", controlando la resistencia externa que ve el rotor es posible aumentar el margen dinámico del generador a potencia nominal hasta un 10% por encima de su velocidad de sincronismo.</span></p>
+<p class="rvps8"><span class="rvts15">Una tercera solución que se puede encontrar en algunos aerogeneradores, aunque muy minoritaria, consiste en no conectar el generador de inducción a la red directamente, sino alimentando a un Convertidor Electrónico de Potencia mediante un rectificador controlado: este convertidor es el que realmente está conectado a la red. En esta solución el generador suministra potencia a un circuito de continua (</span><span class="rvts21">DC Link</span><span class="rvts15">), que a su vez, alimenta al Convertidor Electrónico de Potencia: esta modalidad se suele referenciar en el sector como "</span><span class="rvts21">full Converter solution</span><span class="rvts15">", para hacer hincapié en que el Convertidor Electrónico tiene que soportar toda la potencia que se trasiega en el aerogenerador, por lo que este Convertidor es una parte importante del coste de construcción y también de mantenimiento del aerogenerador.</span></p>
+<p class="rvps8"><span class="rvts15">Una cuarta solución usa las ideas de las dos soluciones ultimas expuestas, y se conoce como DFIG (de Doubly Fed Induction Generator), o Generador Doblemente Alimentado. Esta solución utiliza un generador de inducción de rotor bobinado el cuál está conectado a un estructura de convertidores electrónicos de potencia conocida com "</span><span class="rvts21">Back-to-Back</span><span class="rvts15">". Esta solución permite extender el rango de velocidades de funcionamiento del generador entre un 15% por debajo a un 15% por encima de la velocidad de sincronismo. Aparte del este rango extendido de funcionamiento, esta solución tiene la ventaja de que los convertidores electrónicos de potencia solo tienen que "soportar" un porcentaje (entre un 25% y un 30%) de la potencia total del aerogenerador.</span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

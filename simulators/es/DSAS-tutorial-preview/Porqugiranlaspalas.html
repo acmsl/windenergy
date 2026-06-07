@@ -1,0 +1,125 @@
+﻿
+
+<html>
+	
+<head>
+	<title>&iquest;Por qu&eacute; giran las palas?</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="Flifting, Fdragging, Rotational wind">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Porqugiranlaspalas");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">&iquest;Por qu&eacute; giran las palas?</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Informacincomplementaria.html">Informaci&oacute;n complementaria</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Informacincomplementaria.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="MedicindeladireccionDireccionVie.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Vistasconstructivasdemaquinaselc.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">Los principios básicos que gobiernan las fuerzas que aparecen en las palas de los aerogeneradores son los mismos que permiten a los aviones ascender. Las palas giran por la sencilla razón de que están montados en un "dispositivo" (HUB) que tiene sólo un grado de libertad: rotar en un plano perpendicular al eje del Hub.</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps7"><span class="rvts19">¿Cúales son estas fuerzas?</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">Supongamos que tenemos un ala de avión en un túnel de viento: un lugar donde podemos crear un flujo de aire controlado, de tal manera que no haya turbulencias (es decir, "flujo laminar"). En el interior de este túnel de viento se coloca el ala (representada por su sección, delimitada por la línea roja), y la fijamos bien al exterior del túnel de viento, de forma que no se pueda mover. Vamos a suponer que esta fijación se realiza con una barra interna que atraviesa la hoja a lo largo de su eje más largo, precisamente en el círculo se muestra en la siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Bladeconfuerzas.png"></p>
+<p class="rvps8"><span class="rvts15">El efecto del viento que viene desde la izquierda es una compresión del flujo laminar en el lado inferior de la hoja y un depresión en su lado superior. El resultado es un conjunto de fuerzas aplicadas a lo largo de la superficie de la hoja: este conjunto de fuerzas se indica por las flechas pequeñas de puntos. Como la hoja es un cuerpo rígido, el efecto total de estas fuerzas aparece como una sola fuerza en el punto de fijación: esta fuerza está indicada por el vector rojo. La magnitud y ​dirección de esta fuerza depende de la forma de la hoja, la velocidad del viento entrante y del ángulo entre la cuerda de la pala (linea gris que une los dos extremos de la pala) y la dirección del viento. Podemos descomponer este vector rojo a voluntad: en este caso particular, es conveniente pensar en este vector de color rojo como la suma de dos fuerzas: una para subir, llamada </span><span class="rvts24">Flifting</span><span class="rvts15">, y otra que va hacia la derecha, con nombre </span><span class="rvts24">Fdragging</span><span class="rvts15">.</span></p>
+<p class="rvps8"><span class="rvts15">Estas dos fuerzas explican por qué el avión se mantiene colgado en el aire (debido a Flifting), y por qué se debe empujar hacia la izquierda (para superar Fdragging) para que la situación se mantenga.</span></p>
+<p class="rvps8"><span class="rvts15">Ahora cambiemos el ala de avión por la pala de un aerogenerador y coloquemos la en relación con el eje del mismo. La situación es similar, pero invertida. Véase la siguiente figura donde se presenta la visión que tendría un observador situado en el vértice de una de las palas y estuviera mirando al eje del Hub. El viento lo tendría de frente y las palas girarían hacia su izquierda en un plano perpendicular a la pantalla y que pasaría por el vector negro.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/WindNacelle%20Panel%20Hub%20con%20fuerzas.png"><img alt="" style="padding : 1px;" src="lib/Flujo%20a%20traves%20de%20las%20palas.png"></p>
+<p class="rvps8"><span class="rvts15">En este caso, el viento que incide sobre el borde de la hoja es el "Viento Total" (vector rojo), una composición de la real del viento (vector azul) y el viento de rotación (vector negro) que el filo de la cuchilla "ve", porque está girando en el plano perpendicular a la pantalla y que pasa por la linea del vector negro. Estamos asumiendo que el giro se produce "a izquierdas" y debido a ese movimiento el borde más romo de la pala "corta" el aire a una velocidad (viento) que no es uniforme a lo largo de ese borde: menor cuanto más cerca del Hub. En esta breve explicación asumiremos que la velocidad de este viento que nos interesa es el "promedio" a lo largo de todo el borde.</span></p>
+<p class="rvps8"><span class="rvts15">La representación de la izquierda es una forma de resolver el problema de representar la pala girando, haciendo el cambio &nbsp;de proponer una "vista desde la misma pala", como si estuviéramos sentados en el extremo de la pala mirando hacia el eje de giro en el Hub. El vector negro correspondería al viento que sentiríamos en la cara debido a ese giro.</span></p>
+<p class="rvps8"><span class="rvts15">La fuerza total se representa por el vector verde, y de forma similar al caso del túnel de viento y el ala del avión, lo descomponemos en dos fuerzas: una que tira de la pala a lo largo del único grado de libertad que tiene (el plano de rotación).</span></p>
+<p class="rvps8"><span class="rvts15">La segunda fuerza (vector marrón claro) va en la dirección del eje de la barquilla y se contrarresta por la Torre; es decir, esta es la fuerza que intenta doblar a la Torre.</span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

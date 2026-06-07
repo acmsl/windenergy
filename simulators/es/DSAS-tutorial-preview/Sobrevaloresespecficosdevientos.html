@@ -1,0 +1,130 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Sobre valores espec&iacute;ficos de vientos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Sobrevaloresespecficosdevientos");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Sobre valores espec&iacute;ficos de vientos</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DescripcindelSimuladordelAerogen.html">Descripci&oacute;n del Simulador del Aerogenerador DFIG</a> &rsaquo;&rsaquo; <a href="DFIGWTSinopticos.html">Sin&oacute;pticos</a> &rsaquo;&rsaquo; <a href="Especificacindelvientoyvistaceni.html">Especificaci&oacute;n del viento y vista cenital de la G&oacute;ndola</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Especificacindelvientoyvistaceni.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Creacindeperfilesdeviento.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PanelespredefinidosparalosRegist.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps16"><span class="rvts41">WindMaxForOperation:</span></p>
+<p class="rvps8"><span class="rvts15">Viento máximo compatible con producción</span><span class="rvts23"> sin límite en el tiempo</span><span class="rvts15">. Típicamente del orden de 25 m/s.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">Maximum value of sustained wind speed at which the WindTurbine will work continuously. Around 25 m/s. See WindMaxForTemporalOperation.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps16"><span class="rvts41">WindMaxForTemporalOperation</span></p>
+<p class="rvps8"><span class="rvts15">Viento máximo compatible con producción</span><span class="rvts23"> con un límite en el tiempo</span><span class="rvts15">. Típicamente del orden de 28 m/s con un máximo de 10 minutos.</span></p>
+<p class="rvps8"><span class="rvts15">Maybe in a gust of wind, the wind exceeds WindMaxForOperation but not maintained continuously. The WindMaxForTemporalOperation value is a higher value to WindMaxForOperation but lasting less than a certain period of time, typically 10 minutes. If it lasts longer, the turbine is switched off (cutout). Typically 28 m / s.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps16"><span class="rvts41">WindAbsoluteMax:</span></p>
+<p class="rvps8"><span class="rvts15">Viento máximo absoluto: viento por encima del cual si está en producción el generador se procede a una desconexión normal de forma inmedianta (cutout).</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps16"><span class="rvts41">WindMaxForCutin</span></p>
+<p class="rvps8"><span class="rvts15">Viento máximo para iniciar la operación de conexión a la Red del estator (cutin). Típicamente del orden de 20 m/s. El criterio para aplicar esta limitación consiste en suponer que si el viento es tan alto antes de la conexión, existen grandes posibilidades de que después de entrada en conexión (producción) se llegue rápidamente al valor de WindMaxForOperation, con lo que habría que parar.</span></p>
+<p class="rvps8"><span class="rvts15">Para que entre en funcionamiento esta limitación hace falta que el viento sea superior a este valor (WindMaxForCutin) durante un largo periodo de tiempo (es decir, no puede venir de una ráfaga).</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps16"><span class="rvts41">WindMinForAutomaticYawing</span></p>
+<p class="rvps8"><span class="rvts15">Viento mínimo para Orientación Automática: por debajo de este viento el Controlador no toma en cuenta la desorientación de la Góndola. Este es un límite muy bajo (entre 2 y 3 m/s), inferior al WindMinForCutin.&nbsp;</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps16"><span class="rvts41">WindMinForCutin</span></p>
+<p class="rvps8"><span class="rvts15">Viento mínimo que el Controlador considera para iniciar la operación de conexión a la Red. Típicamente entre 4 y 6 m/s.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

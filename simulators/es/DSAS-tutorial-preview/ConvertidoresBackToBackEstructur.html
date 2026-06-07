@@ -1,0 +1,131 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Estructura b&aacute;sica de los Convertidores Back-to-Back</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="rectificador controlado">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ConvertidoresBackToBackEstructur");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Estructura b&aacute;sica de los Convertidores Back-to-Back</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Informacincomplementaria.html">Informaci&oacute;n complementaria</a> &rsaquo;&rsaquo; <a href="ConvertidoresBackToBack.html">Descripci&oacute;n de los Convertidores Back-to-Back</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ConvertidoresBackToBack.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ConvertidoresBackToBack.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ConvertidoresBackToBackModosFunc.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">Para entender la estructura de los convertidores Back-to-Back (B2B) es importante ser consciente de su propósito:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Tienen que tener una importante capacidad de potencia: el convertidor conectado a la Red (GSC) debe poder suministrar entre un 25% y un 30% de la Potencia Nominal del Aerogenerador. Es decir, aproximadamente 600KW para un aerogenerador de 2MW. También esa es la potencia que "sale" por el rotor cuando está en funcionamiento supersíncrono y por tanto, la capacidad del RSC como rectificador controlado.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Los dos convertidores (GSC y RSC) debe poder actuar también como rectificadores controlados. El RSC ademas debe disponer de mecanismos de control tales que permita "presentar" un determinado tipo de carga al rotor del Generador, controlables tanto en frecuencia, como en tensión, corriente y fase, por cada bobinado del rotor.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">EL DC Link debe poder almacenar suficiente energía para soportar todos los funcionamientos posibles, tanto en subsincrono como supersíncrono.</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Un esquema general de estos convertidores se muestra en la siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/B2B%20esquema%20en%20colores.jpg"></p>
+<p class="rvps8"><span class="rvts15">La parte verde (izquierda) corresponde con el RSC, la parte de derecha con el GSC y la parte central corresponde con el DC Link.</span></p>
+<p class="rvps8"><span class="rvts15">Se puede ver que las salidas (tanto del RSC como de GSC) tienen inductancias: estos son los elementos que permiten </span><span class="rvts24">controlar</span><span class="rvts15"> las corrientes que en cada momento fluyen desde/hacia el exterior de ambos convertidores. En </span><a class="rvts22" href="ConvertidoresBackToBackPrincipio.html">Principios de funcionamiento</a><span class="rvts15"> se presentan algunos circuitos electrónicos de base en los que están basados estos convertidores.</span></p>
+<p class="rvps8"><span class="rvts15">Conceptualmente podemos resumir el comportamiento de este conjunto de convertidores con las siguientes ideas:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Cada uno de ellos es capaz de funcionar como "generador de alterna" y también como "</span><span class="rvts24">rectificador controlado</span><span class="rvts15">".</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Cuando uno de ellos genera alterna el otro rectifica.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Todo el trasiego de potencia se hace a través de un almacén, que es un condensador, llamado DC Link.</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Es decir que estos circuitos lo que hacen es trasvasar energía eléctrica de una fuente de alterna a otra de continua y viceversa. La forma de hacer este trasvase es utilizando componentes electrónicos que funcionan solo en modo digital: es decir, que la única forma de control es decidiendo cuando están en conducción y cuando en abierto. Cuando están en conducción se comportan como "cortocircuitos" (o muy cerca) y por tanto el circuito necesita un componente que limite la corriente: ese componente es una inductancia. Vea una descripción más detallada en </span><a class="rvts22" href="ConvertidoresBackToBackPrincipio.html">Principios de funcionamiento</a><span class="rvts15"> .</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Esquema%20basico%20del%20B2B.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

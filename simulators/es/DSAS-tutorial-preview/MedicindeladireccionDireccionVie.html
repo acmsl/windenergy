@@ -1,0 +1,122 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Medici&oacute;n de la direcci&oacute;n del viento - descripci&oacute;n de una veleta</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="G&oacute;ndola, WindNacelle">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("MedicindeladireccionDireccionVie");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Medici&oacute;n de la direcci&oacute;n del viento - descripci&oacute;n de una veleta</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Informacincomplementaria.html">Informaci&oacute;n complementaria</a> &rsaquo;&rsaquo; <a href="Sobreelviento.html">Sobre el viento</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Sobreelviento.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="MedicionVientoAnemometro.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Porqugiranlaspalas.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">La dirección del viento es detectada con una veleta. Vea el siguiente vídeo para entender cómo funciona.</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Veleta1.gif"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps8"><span class="rvts15">La señal generada por la veleta es una señal digital que presenta la medida de la desorientación de la góndola, es decir, de la diferencia entre la orientación de la góndola y la dirección del viento. Es una señal oscilante cuyo "ciclo de trabajo" ("duty cycle" en inglés) es la medida de esta diferencia de ángulos. El "ciclo de trabajo" de una señal periódica es la relación entre el tiempo en que la señal está en estado "On" respecto al periodo de dicha señal.</span></p>
+<p class="rvps8"><span class="rvts15">La veleta es un dispositivo que se comporta como un péndulo excitado por el viento en vez de por la gravedad. Como se puede apreciar en el video anterior, el detector fotoeléctrico recibe señal cuando el camino de su luz no es entorpecido por el semicirculo asociado a la veleta, lo cual depende del punto de oscilación de la misma y de su posición relativa respecto a su base, que está fija a la Góndola. El siguiente gráfico muestra 4 situaciones que ilustran estos conceptos.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Situaciones%20Veleta.png"></p>
+<p class="rvps8"><span class="rvts15">El semicírculo opaco de la veleta está representado por el semicírculo rosa. El sector circular indica la zona de oscilación de la parte móvil de la veleta . En el primer caso (a la izquierda) la posición de la fuente de luz en la veleta no es entorpecida nunca: por ello la salida del sensor de la veleta está siempre excitado (linea negra). En el segundo caso, la oscilación de la veleta hace que durante un pequeña parte de la oscilación la luz de la veleta no llega al sensor, y tenemos una señal de salida que, en la mayor parte del tiempo, está excitada. En el tercero solo durante una pequeña parte del ciclo de oscilación el sensor recibe luz. En el cuarto caso, el sensor no recibe luz en ningún momento de la oscilación.</span></p>
+<p class="rvps8"><span class="rvts15">La "desorientación" de la Góndola respecto del viento viene dada por la diferencia entre el angulo medio sobre el que oscila la veleta, que es la del viento, y la dirección de la Góndola (la horizontal en la figura).</span></p>
+<p class="rvps8"><span class="rvts15">Como se ve cuando la señal de la veleta está siempre en On o en Off, la desorientación es mayor que el angulo de oscilación de la veleta (es decir, es grande). Cuando esta señal oscila entre On y Off, &nbsp;su "relación de aspecto" (duty cycle en inglés) permite medir con precisión la desorientación. Cuando la relación de aspecto es del 50%, la diferencia es 0º.</span></p>
+<p class="rvps8"><span class="rvts15">La medida de la desorientación mediante dispositivo requiere de un circuito que haga un tratamiento estadístico de estas tres situaciones (siempre en On, siempre en Off y oscilando), y, en el caso de que oscile, que haga una medida de su relación de aspecto.</span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

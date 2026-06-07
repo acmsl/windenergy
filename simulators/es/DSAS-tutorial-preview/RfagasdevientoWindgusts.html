@@ -1,0 +1,155 @@
+﻿
+
+<html>
+	
+<head>
+	<title>R&aacute;fagas de viento (Wind gusts)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="pitch">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("RfagasdevientoWindgusts");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">R&aacute;fagas de viento (Wind gusts)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DescripcindelSimuladordelAerogen.html">Descripci&oacute;n del Simulador del Aerogenerador DFIG</a> &rsaquo;&rsaquo; <a href="DFIGWTSinopticos.html">Sin&oacute;pticos</a> &rsaquo;&rsaquo; <a href="Especificacindelvientoyvistaceni.html">Especificaci&oacute;n del viento y vista cenital de la G&oacute;ndola</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Especificacindelvientoyvistaceni.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Especificacindelvientoyvistaceni.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="SinopticoVientoGondRafagasEjempl.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">Los aerogeneradores DFIG están diseñados para tener un buen comportamiento cuando el viento muestra ráfagas de viento. Este simulador permite utilizar ficheros de evolución del viento, de los que la instalación incluye los mostrados en la siguiente figura, a los que se accede a través de la opción de menú "Rachas de viento".</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Menu%20rachas%20de%20viento.jpg"></p>
+<p class="rvps8"><span class="rvts15">Estos ficheros tienen la extensión "*.wgt" y deben estar en el subdirectorio "</span><span class="rvts24">[DirectorioDeIntalación]\WindFarmSimulator\windgusts</span><span class="rvts15">". El titulo mostrado coincide con el nombre del fichero correspondiente. El formato de estos ficheros se describe en </span><a class="rvts22" href="Creacindeperfilesdeviento.html">Creación de perfiles de viento</a><span class="rvts15"> .</span></p>
+<p class="rvps8"><span class="rvts15">Los ficheros de ráfagas de viento que se incluyen en la instalación son casos particulares de la curva estandarizada que corresponde a la formula:</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/WindGustStandardFormula.png"></p>
+<p class="rvps8"><span class="rvts15">En los gráficos siguientes se muestran dos de ellos. Los ejes de abscisas corresponde con el tiempo, en segundos, y las ordenadas al </span><span class="rvts24">viento adicional</span><span class="rvts15">.</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 412px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/DFIG%20WindGust%20Def%20120x4.jpg"></p>
+   <p class="rvps8"><span class="rvts15">Esta figura corresponde al fichero "</span><span class="rvts24">Standard124x4.wgt</span><span class="rvts15">".</span></p>
+   <p class="rvps8"><span class="rvts15">La velocidad máxima de cambio del viento es de: </span><span class="rvts21">0.22 m/s/ s</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 426px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/DFIG%20WindGust%20Def%2060x10.jpg"></p>
+   <p class="rvps8"><span class="rvts15">Esta figura corresponde con el fichero "</span><span class="rvts24">Standard60x10.wgt</span><span class="rvts15">".</span></p>
+   <p class="rvps8"><span class="rvts15">La velocidad máxima de cambio del viento es de: </span><span class="rvts21">2.8 m/s/ s</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15">La nomenclatura que se ha utilizado para dar nombre a estas ráfagas de viento están determinadas por los dos números: en "StandardGust100x4" la extensión temporal es de 100 segundos y la amplitud de 4 m/s. &nbsp;</span></p>
+<p class="rvps8"><span class="rvts15"></span><br/><img alt="" style="padding : 1px;" src="lib/Menu%20rachas%20editar.jpg"></p>
+<p class="rvps8"><span class="rvts15">Cuando se selecciona uno de estos ficheros de ráfagas existen dos funcionalidades posibles:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">"</span><span class="rvts24">Editar</span><span class="rvts15">": Visualización y eventualmente edición de sus valores.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">"</span><span class="rvts24">Forzar</span><span class="rvts15">": Forzamiento del viento total aplicado. El viento va cambiando de conforme pasa el tiempo y su valor en todo momento corresponde con el viento al inicio de pulsar "Forzar" más el viento del fichero correspondiente al tiempo transcurrido desde dicho momento.</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">En el modo "Editar" aparece un formulario que contiene dos paneles:&nbsp;</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Menu%20rachas%20vista%20en%20edicion.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">Si se hace click en el botón derecho del ratón aparece un submenu con las siguientes dos opciones:</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Edicion%20racha%20viento%201.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">Si se elige la opción "Añadiendo nuevo punto al Perfil" aparece el siguiente sinóptico en el que podemos introducir los datos del nuevo "punto" (instante de tiempo y valor de viento para ese instante).&nbsp;</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Edicion%20rachas%20anadir%20punto.jpg"></p>
+<p class="rvps8"><span class="rvts15">El nuevo valor es introducido en la tabla, que se ordena por valor creciente de instante de tiempo. El gráfico también se refresca con los nuevos valores.</span></p>
+<p class="rvps7"><span class="rvts19">Creación manual de un perfile</span></p>
+<p class="rvps8"><span class="rvts15">Se puede crear un nuevo "perfil" de ráfaga de viento utilizando el item "(nuevo)" al pulsar en "Rafagas de viento"</span></p>
+<p class="rvps8"><span class="rvts15">To add a new wind gust profile you have to select "(new)". You will prompted with the following form:</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/WindNacelle%20add%20profile.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

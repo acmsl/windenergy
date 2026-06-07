@@ -1,0 +1,135 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Control del Pitch</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ControldelPitch");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Control del Pitch</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DescripcindelSimuladordelAerogen.html">Descripci&oacute;n del Simulador del Aerogenerador DFIG</a> &rsaquo;&rsaquo; <a href="DFIGWTSinopticos.html">Sin&oacute;pticos</a> &rsaquo;&rsaquo; <a href="DFIGWTGondola.html">Vistas de la G&oacute;ndola</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DFIGWTGondola.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DFIGWTGondolaFrenos.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="DFIGWTGondolaIndicadoresRPMs.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">En este sinóptico se presenta el valor del Pitch de las Palas en dos sitios:&nbsp;</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 212px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Hub%20con%20pitch%20a%201%205%20grados.jpg"></p>
+   <p class="rvps8"><span class="rvts15">En el Hub</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 212px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Indicador%20Pitch%20a%201%205%20grados.jpg"></p>
+   <p class="rvps8"><span class="rvts15">En un indicador lineal</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15">Este valor también se representa &nbsp;en panel derecho en el sinóptico "</span><span class="rvts24">SynopticWindNacelle</span><span class="rvts15">"</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/WindNacelle%20panel%20hub%201%205%20grados.jpg"></p>
+<p class="rvps8"><span class="rvts24"><br/></span></p>
+<p class="rvps8"><span class="rvts15">En el aerogenerador existe una señal que es generada en el Controlador y que llega al servocontrol del mecanismo de Pitch en cada Pala. En el simulador se implementa el siguiente circuito, que incluye otras señales referidas al Pitch.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Esquema%20conexiones%20Pitch.png"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">La señal generada en el Controlador (</span><span class="rvts24">Controller.Control.PitchOut</span><span class="rvts15">) se envía al simulador de la Góndola, al que se accede a través del SinopticDriveTrain. Dicho sinóptico dispone de un indicador lineal que puede funcionar en modo indicador del valor de la señal que llega a su entrada (</span><span class="rvts24">PitchOut</span><span class="rvts15"> en este caso) o en modo de "Forzar". A esto modo se llega pulsando la tecla de función F6. Cuando está en este modo, el valor de su salida no refleja el valor de la señal que llega a su entrada (90º en el ejemplo que se muestra), sino el valor impuesto por el usuario a través de la aguja deslizante (</span><span class="rvts24">slider</span><span class="rvts15">) o directamente tecleando el valor deseado (acabando con un "Enter"). Este valor es el que se usa en el gráfico del Hub, que está refrescado en tiempo real. Ambos valores son indicados en el panel del Hub en el SynopticWindNacelle: el del Controlador como vector color rosa; el del valor en la Góndola para colocar la dirección de la pala.</span></p>
+<p class="rvps8"><span class="rvts15">El valor real del Pitch en las Palas llega también al Controlador, que lo monitoriza continuamente.</span></p>
+<p class="rvps8"><span class="rvts15">Esta disposición de indicadores y señales permite crear situaciones "anómalas" con mucha facilidad, con objeto de estudiar la reacción del Controlador. Por ejemplo se puede conmutar el modo del indicador del Pitch en SynoticDriveTrain (F6) o también se puede "cortar" la conexión entre </span><span class="rvts24">Controller.Control.PitchOut</span><span class="rvts15"> y </span><span class="rvts24">SynopticDriveTrain.PitchIn</span><span class="rvts15">, a la vez que se lanza una operación de puesta en marcha y observar cuando el Controlador genera una incidencia que aborta dicha operación.</span></p>
+<p class="rvps8"><span class="rvts15">La simulación del servosistema que gobierna el Pitch, que puede ser único para las tres palas (p.e., en los aerogeneradores donde estos servosistemas tienen actuadores hidráulicos) o uno por pala, incluye un parámetro que es clave para la estabilidad de la operación del aerogenerador: "</span><span class="rvts24">NacellePitch.BladeSlewRate</span><span class="rvts15">". Este parámetro nos indica cual es la velocidad de cambio de ángulo de Pitch. Este valor determina la adaptación del Tren de Potencia a cambios rápidos de viento o la velocidad máxima de parada del mismo. Modificando el valor de este parámetro es posible observar diversos comportamientos del aerogenerador frente a diferentes operaciones (puesta en marcha, parada, respuesta a ráfagas de viento, etc.)</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,135 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Circuitos auxiliares para el control de la respuesta a Grid Codes: Crowbars</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="CrowBar, Low-Voltage-Fault-Ride-Through capability, Tren de Potencia">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ConvertidoresCrobars");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Circuitos auxiliares para el control de la respuesta a Grid Codes: Crowbars</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Informacincomplementaria.html">Informaci&oacute;n complementaria</a> &rsaquo;&rsaquo; <a href="RedElectricaExigencias.html">Capacidades de tolerancia a fallos en la Red (Voltage-Fault-drive-through)</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="RedElectricaExigencias.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="RedElectricaExigenciasGridCodes.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="CalidadSuminisElectricoPowerQual.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps8"><span class="rvts15">La capacidad de soportar el comportamiento especificado en los </span><a class="rvts22" href="RedElectricaExigenciasGridCodes.html">Grid Codes</a><span class="rvts15">, determina las características de los convertidores en el Back-to-Back y también los algoritmos de control del Tren de Potencia. Esto último ocurre porque cuando se produce una bajada de tensión muy rápida, la potencia eléctrica "sigue" a la tensión (es decir, baja).Sin embargo, la potencia mecánica que recibe el Tren de Potencia se mantiene constante, ya que esta depende del viento existente (que podemos suponer que no cambia) y del Pitch de las palas (que no cambian tampoco porque el mecanismo de control tiene un tiempo de respuesta muy lento comparado con la duración de estas bajadas de tensión). El resultado es que &nbsp;el equilibrio que existía&nbsp;</span></p>
+<p class="rvps10"><span class="rvts24">(Potencia Mecánica de entrada = Potencia Eléctrica entregada a la Red + Pérdidas varias</span><span class="rvts15">)&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">se rompe y aparece una potencia mecánica "disponible" cuyo efecto es la aceleración del Tren de Potencia.</span></p>
+<p class="rvps8"><span class="rvts15">Esta aceleración se ha de controlar ya que las rpms del Tren de Potencia tienen un límite superior (punto E en </span><a class="rvts22" href="ImplicacionesparaelTrendePotenci.html#Implications%20for%20the%20Blades%20Rotor">Implicaciones para el Tren de Potencia</a><span class="rvts15"> ), no muy lejano del punto de funcionamiento en producción (punto D en la misma figura). Si las rpms del Tren de Potencia llegan a superar el punto E, el Controlador lanza un proceso de parada de prioridad alta (es decir, haciendo uso del freno hidráulico) lo cual es considerado una avería en sí mismo.</span></p>
+<p class="rvps8"><span class="rvts15">Por otro lado si necesitamos que las condiciones de producción "vuelvan" inmediatamente después que se recupere la tensión de la Red, necesitamos que las rpms del Tren de Potencia se mantengan en su valor inicial durante el transitorio.</span></p>
+<p class="rvps8"><span class="rvts15">Un mecanismo común en los DFIGs consiste en utilizar una carga resistiva que se conecta para disipar esta potencia mecánica durante el transitorio. Se le conoce como "</span><span class="rvts21">CrowBar</span><span class="rvts15">" en inglés y se suele situar en el circuito del Rotor, tal como muestra la siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/GraficoDFIG.jpg"></p>
+<p class="rvps8"><span class="rvts15">Este CrowBar se conecta al Rotor con un conmutador rápido: existen versiones en los que este conmutador está realizado mediante Tiristores (más económicos) y en otros mediante IGBTs. Los distintos interruptores de la figura cambian durante la caída momentánea de tensión, para adaptarse a los requerimientos impuestos por el Grid Code.</span></p>
+<p class="rvps8"><span class="rvts15">Los conceptos básicos para el análisis de este tipo de configuración son los siguientes:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Durante una caída importante de la tensión de la Red, la velocidad de giro del Tren de Potencia no puede cambiar mucho, debido a la importante inercia del mismo. Esta característica es importante para conseguir que se mantenga la misma situación cuando la tensión se reponga.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Durante la caída de tensión, aumenta la corriente del estator (ya que ha caído su tensión), lo que induce un incremento proporcional en la corriente del rotor. Podemos distinguir dos casos en función de las revoluciones del rotor:&nbsp;</span></li>
+</ul>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+ <ol style="text-indent: 0px; padding: 0; margin: 0 0 0 48px; list-style-position: outside;">
+  <li class="rvps8 noindent"><span class="rvts15">Supersincrono &nbsp;</span><br/><span class="rvts15">En este caso, la potencia sale del rotor. Esto puede producir un incremento importante en la energía (es decir, tensión) en el DC Link. Cuando se supera un cierto límite, se debe conectar el Crowbar de forma que parte de esa potencia se disipe.</span></li>
+  <li class="rvps8 noindent"><span class="rvts15">Subsincrono</span><br/><span class="rvts15">En este caso, es necesario inyectar potencia en el rotor, lo cual puede hacerse con un control adecuado de convertidor RSC, tomando en cuenta la caída de tensión que se producirá en el DC Link.&nbsp;</span></li>
+ </ol>
+</ol>
+<p class="rvps8"><span class="rvts15">En el sinóptico </span><a class="rvts22" href="DFIGArmarioElectrico.html">Armario eléctrico</a><span class="rvts15"> se puede apreciar el tamaño relativo de un Crowbar. En la figura siguiente se pueden ver varios esquemas para su implementación. Las más comunes son las de rotor.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Crowbars%20espaol.png"></p>
+<p class="rvps8"><span class="rvts15">En el caso a) la desconexión es difícil, lo que complica el algoritmo de control y limita los casos de aplicabilidad. En el caso b) es posible conectar las resistencias del Crowbar en cualquier momento del ciclo, lo que amplia el grado de controlabilidad de esta unidad.</span></p>
+<p class="rvps8"><span class="rvts15">El caso c) es similar al a) pero situando las resistancias de disipación en la conexión del estator: en este caso existe una pérdida continua durante situaciones normales de producción, es las que los tiristores se mantienen en conducción, de forma que las resistencias quedan "cortocircuitadas"; cuando se necesita activar la disipación en las resistencia se desexcitan los tiritores. Esta solución es muy poco usada.</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

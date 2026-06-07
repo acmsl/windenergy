@@ -1,0 +1,136 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Implicaciones para el Convertidor El&eacute;ctrico</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="velocidad de sincronismo, Slip, deslizamiento, DC Link, RSC, GSC, Generador de Inducci&oacute;n Doblemente Alimentado, Full converter, frecuencias negativas, Rotor Side Converter">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ImplicacionesVeloVariableConvert");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Implicaciones para el Convertidor El&eacute;ctrico</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Introduccion.html">Introducci&oacute;n</a> &rsaquo;&rsaquo; <a href="Implicacionesdelcomportamientode.html">Implicaciones del comportamiento deseado</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Implicacionesdelcomportamientode.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ImplicacionesparaelTrendePotenci.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="DescripcindelafuncinCpcoeficient.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps7"><a name="Implications for the electric generator"></a><span class="rvts19">Implicaciones para el convertidor eléctrico</span></p>
+<p class="rvps4"><span class="rvts15">La parte de conversión mecánico-eléctrica de un aerogenerador de velocidad variable debe ser capaz de funcionar en las condiciones impuestas por los algoritmos de control del Tren de Potencia.</span></p>
+<p class="rvps4"><span class="rvts15">Esto significa ser capaz de funcionar en un rango de velocidades que tiene una relación entre el valor mínimo y el máximo de alrededor de 2.</span></p>
+<p class="rvps4"><span class="rvts15">La configuración conocida como Generador de Inducción Doblemente Alimentado, cumple estos requerimientos. Esta configuración está compuesta por un Generador Eléctrico de Rotor accesible mediante anillos (ver </span><a class="rvts22" href="Vistasconstructivasdemaquinaselc.html#rotor%20bobinado">figura</a><span class="rvts15">), cuyo estator está conectado directamente a la red y cuyo rotor está conectado a un conjunto de Electrónica de Potencia conocido como "</span><a class="rvts22" href="ConvertidoresBackToBack.html">Convertidor Back-to-Back</a><span class="rvts15">" (ver figura siguiente).</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Formulario%20Generador%20Induccion%20doblemente%20ali.png"></p>
+<p class="rvps4"><span class="rvts15">&nbsp;Figura 1.</span></p>
+<p class="rvps4"><span class="rvts15">La idea de esta configuración se basa en utilizar un tipo de generador eléctrico con una tecnología muy probada y añadirle los equipos de Electrónica de Potencia necesarios para solventar el problema del rango de velocidades de funcionamiento. Para entender el problema hay que recordar que las maquinas eléctricas de inducción están caracterizadas por una curva que relaciona el par mecánico en su eje con la velocidad del mismo que se muestra en la siguiente figura. En ella se ve que el comportamiento cambia de sentido alrededor de un valor concreto de velocidad: la </span><span class="rvts24">velocidad de sincronismo</span><span class="rvts15">. Por encima de la velocidad de sincronismo el par es negativo, indicando que la máquina intentará desacelerar al eje: es decir, &nbsp;funciona como generador eléctrico, cuya potencia de salida corresponderá con ese valor del par "oponente". Cuando es positivo (por debajo de la velocidad de sincronismo), el par mecánico que aplicará al eje tratará de acelerar la carga mecánica conectada al mismo, es decir tendremos un motor.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/MaquinaInduccionParvsRPMs2Puntos.jpg"><span class="rvts15"> Figura 2</span></p>
+<p class="rvps4"><span class="rvts15">En la figura anterior, la velocidad de giro del eje está presentado por la variable "</span><span class="rvts21">Slip</span><span class="rvts15">" (</span><span class="rvts21">deslizamiento</span><span class="rvts15"> en inglés), que está relacionada con la velocidad mediante la formula:</span></p>
+<p class="rvps4"><span class="rvts15">&nbsp;"Slip" (= 1 - </span><span class="rvts24">VelocidadActual</span><span class="rvts15"> / </span><span class="rvts24">VelocidaddeSincronismo</span><span class="rvts15">)&nbsp;</span></p>
+<p class="rvps4"><span class="rvts15">El valor de Slip para la velocidad de sincronismo es 0.</span></p>
+<p class="rvps4"><span class="rvts15">En la figura puede apreciarse que la relación entre la velocidad (slip) y el par es lineal en la vecindad de la velocidad de sincronismo, pero en un rango muy pequeño: en el caso de la figura menor que 5%. La velocidad de sincronismo es proporcional a la frecuencia de la red a la que está conectado el estator: por esa razón una maquina de inducción por si sola no es utilizable para aerogeneradores de velocidad variable.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts15">Una solución posible es no conectar el estátor a la red: esta solución existe en el mercado y consiste en utilizar una maquina asíncrona, incluso de jaula de ardilla, cuyo estátor esta conectado a un rectificador, el cual "carga" un condensador (normalmente conocido como "</span><span class="rvts21">DC Link</span><span class="rvts15">"), el cual alimenta a un Convertidor Electrónico de Potencia, que es el que está conectado a la red. De esta forma la velocidad de sincronismo puede hacer variable, de acuerdo con las necesidades del Tren de Potencia. Sin embargo esta solución tiene el inconveniente de necesitar un Convertidor Electrónico de Potencia que debe ser capaz de gestionar toda la potencia del aerogenerador. Estos aerogeneradores son parte de la familia "</span><span class="rvts21">Full converter</span><span class="rvts15">". Esta no es la solución adoptada en los DFIGs.</span></p>
+<p class="rvps4"><span class="rvts15">En los DFIGs la idea es usar los fenómenos físicos que ocurren en la máquina de inducción de forma que el flujo magnético creado en su entrehierro, corresponda, en velocidad y fase, con el que corresponde con el estátor, que está conectado directamente a la red, independientemente de la velocidad de giro del eje del rotor. Esto se consigue haciendo que las corrientes que circulan por el rotor tengan una frecuencia y fases especificas para cada velocidad de giro del eje del rotor y para cada potencia mecánica aplicada al mismo. El principal beneficio es que los circuitos electrónicos de potencia para realizar esta funcionalidad solo requieren soportan una potencia que está entre el 25% y el 30% de la potencia total del aerogenerador, y por tanto haciéndolo más competitivo.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts15">La clave consiste en </span><span class="rvts34">complementar la velocidad angular del flujo magnético creado por las corrientes del rotor</span><span class="rvts15"> de forma que el flujo resultante tenga una velocidad angular idéntica a la del flujo creado por el estator, que está conectado directamente a la Red. Cualquier flujo creado por el rotor, como está montado sobre su eje, que está girando, tiene una velocidad angular "real" que corresponde con la velocidad mecánica del rotor más la debida a la frecuencia de las corrientes que circulan por él.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts15">Pongamos un ejemplo: supongamos que tenemos una red de 50 Hz y un generador de dos pares de polos. En este caso, si el estator está conectado directamente a la Red creará un flujo magnético en el entrehierro cuya velocidad angular será de &nbsp; 1.500 rpms (= (50 Hz * 60 seg) / 2 pares de polos). Esta velocidad, vista en el Tren de Potencia (en las palas) estará dividida por la relación de la multiplicadora. Asumamos un valor característico, pe, 90, para esta relación: las 1500 rpms del eje del rotor del generador corresponderán a 16,67 rpms (=1500/90) en el Tren de Potencia)</span></p>
+<p class="rvps4"><span class="rvts15">Supongamos ahora que el algoritmo de control del Tren de Potencia nos dice que, para un determinado viento, necesitamos que el Tren de Potencia funcione a 15,15 rpms. El Controlador se encargará de eso controlando la aceleración y el angulo de la pala. Cuando se haya llegado a estas rpms deseadas las 15,15 rpms del Tren de Potencia corresponderán con &nbsp; 1.364,7 rpms (=15,15 * 90). Si en esta situación alimentaramos el bobinado del rotor del generador con una corriente continua, la velocidad angular del flujo creado por el rotor sería el debido a la velocidad angular del Tren de Potencia, es decir 1.364,7 rpms, diferente del flujo magnético creado por el estator: es claro que esta no es una situación que nos permite enviar potencia a la Red.</span></p>
+<p class="rvps4"><span class="rvts15">Sin embargo si en vez de suministrar corriente continua suministramos al rotor corrientes con frecuencia de 2,253 Hz (valor que corresponde a la diferencia de rpms, pero medida en Hz [= (1500 - 1354,7) / 60]), entonces la velocidad angular del flujo creado por el rotor también será exactamente 1.500 rpms. Si además podemos controlar la fase de estas corrientes de forma que el flujo creado por el rotor vaya algo adelantado respecto al flujo magnético que crea el estator entonces "tirará" de éste y esta diferencia de flujos (notese que solo es la fase) creará una corriente en el estator que será enviada a la Red, con lo que estaremos generando potencia.</span></p>
+<p class="rvps4"><span class="rvts15">Otra situación diferente puede ser con una velocidad superior de viento, en la que el Controlador decida que las rpms "adecuadas" para el control del Tren de Potencia sean, digamos 20,26 rmps. Esto significa que el rotor del generador girará a 1.823 rms [=20,26 * 90]. En este caso tendríamos que aplicar unas corrientes de rotor con frecuencia </span><span class="rvts21">-</span><span class="rvts15">5,383 Hz [=(1500 - 1823)/60]. ¿Cómo se pueden generar frecuencias negativas? En realidad esta expresión se refiere a un "cambio de dirección" del giro del flujo magnético, es decir, lo que tenemos que hacer es que el flujo gire al contrario que en el caso anterior. Afortunadamente esto es muy fácil de hacer en un circuito trifásico: consiste en cambiar la conexión de las fases de la red. Es decir, si los bobinados trifásicos del rotor de la máquina de inducción se conectan con las fases de la red en la secuencia "A", "B" y "C" de la red, el flujo magnético producido girará en un sentido. Si estos bobinados los conectamos con la secuencia "A", "C" y "B" &nbsp;o "C", "B" y "A", el flujo magnético producido girará en sentido contrario al anterior: este es el efecto equivalente de la frecuencia negativa.</span></p>
+<p class="rvps4"><span class="rvts15">Asumiendo que en un DFIG tenemos el rotor conectado a un circuito electrónico, lo anterior significa que este circuito debe ser capaz de cambiar la fase de las corrientes del rotor. Este caso tiene otra implicación importante: no hay que suministrar potencia al rotor sino llevársela, ya que parte de la potencia mecánica aplicada al rotor "sale" por el rotor. Esto tiene implicaciones importantes en el funcionamiento del Convertidor Electrónico que está directamente conectado con el rotor, que es conocido como </span><span class="rvts24">Rotor Side Converter</span><span class="rvts15"> (ver siguiente figura), ya que, en este supuesto, debe funcionar como rectificador que alimenta al "almacén intermedio" (condensador en la figura, llamado "DC Link"). Ver una descripción más detallada en </span><a class="rvts22" href="ConvertidoresBackToBackModosFunc.html">Modos de funcionamiento</a><span class="rvts15"> ).</span></p>
+<p class="rvps4"><span class="rvts15">En la figura 1 se muestra la conexión del DFIG y sus convertidores Bac-to-Back. Estos reciben el nombre de "Rotor side Converter" (RSC) y "Grid Side" (GSC).</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Formulario%20Generador%20Induccion%20doblemente%20ali.png"></p>
+<p class="rvps4"><span class="rvts15">&nbsp;Figure 3</span></p>
+<p class="rvps4"><span class="rvts15">Cuando el rotor entrega potencia (ver figura 1) ésta es convertida a continua y almacenada en el </span><span class="rvts21">DC Link</span><span class="rvts15">. El convertidor GSC toma esa energía y la envía a la red. En este caso el GSC actúa como en los aerogeneradores con "Full converter".</span></p>
+<p class="rvps4"><span class="rvts15">Cuando hay que suministrar potencia al rotor (Figure 3) el RSC actúa como convertidor de potencia especializado, ya que las corrientes que debe inyectar en el rotor deben tener la frecuencia y tener un defasaje específico que depende de la velocidad del rotor y de las potencias activa y reactiva. En este caso el RSC se alimenta del DC Link, que a su vez recibe potencia de la red a través del GSC, que, en éste caso, se comporta como un rectificador controlado.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts15">La aplicación "DFIGB2B" permite explorar en detalle la evolución de las variables del rotor tomando en cuenta todas las condiciones: velocidad del rotor, par mecánico o potencia mecánica forzada o evacuada por el rotor, tensión de la Red, potencias activa y reactiva deseadas.</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

@@ -1,0 +1,309 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Mecanismo de frenos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content=", , pump, reservoir, Valve, , disco, zapata, muelle, bomba, tanque, v&aacute;lvula, presostato, hist&eacute;resis">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("DFIGWTGondolaFrenos");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Mecanismo de frenos</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DescripcindelSimuladordelAerogen.html">Descripci&oacute;n del Simulador del Aerogenerador DFIG</a> &rsaquo;&rsaquo; <a href="DFIGWTSinopticos.html">Sin&oacute;pticos</a> &rsaquo;&rsaquo; <a href="DFIGWTGondola.html">Vistas de la G&oacute;ndola</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DFIGWTGondola.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DFIGWTGondolaVistaInterna.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="ControldelPitch.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps7"><span class="rvts19">El sistema de freno hidráulico</span></p>
+<p class="rvps8"><span class="rvts15">El mecanismo de freno mecánico del Tren de Potencia está implementado mediante un freno de disco, accionado a través de un circuito hidráulico. Este mecanismo implementa el paradigma de "Fail Safe" (Funcionamiento Seguro cuando hay Fallo), de forma que en condiciones en que no hay conexión con la Red, el Tren de Potencia está fijo.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts34">El diseño de este freno no es para ser utilizado como mecanismo habitual de paro del Tren de Potencia</span><span class="rvts15"> durante operaciones normales de desconexión de la Red (orden STOP): estas operaciones se realizan actuando sobre el Pitch de las palas, ya que el coeficiente aerodinámico de las mismas puede a llevar a ser muy negativo cuando el Pitch está en valores superiores a 20 º y el Tren de Potencia está en rpms de producción. Con ese procedimiento la energía cinética almacenada en el Tren de Potencia se utiliza para "impulsar" el aire.</span></p>
+<p class="rvps8"><span class="rvts15">El sistema de freno sí está diseñado para que pueda realizar una parada de emergencia, es decir, para disipar en muy poco tiempo la energía cinética del Tren de Potencia cuando está en rpms de producción, aunque habitualmente esto implique una destrucción de las pastillas de fricción y/o una deformación del disco o de la pinza que soporta las pastillas; es decir, aunque esa parada implique una avería del aerogenerador.</span></p>
+<p class="rvps8"><span class="rvts15">El uso habitual del freno de disco es como mecanismo de inmovilización del Tren de Potencia,</span><span class="rvts23"> una vez que está parado</span><span class="rvts15">. Esto es útil en varias situaciones, por ejemplo, durante operaciones de mantenimiento en la Góndola.</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 270px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Sistema%20hidraulico%20con%20textos.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 591px;">
+   <p class="rvps8"><span class="rvts15">Componentes:</span></p>
+   <ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+    <li class="rvps8 noindent"><span class="rvts15">El </span><span class="rvts21">disco</span><span class="rvts15">, donde se disipa la energía cinética del Tren de Potencia.</span></li>
+    <li class="rvps8 noindent"><span class="rvts15">La </span><span class="rvts21">zapata</span><span class="rvts15"> , forzada a estar con gran presión contra el disco, cuando se desea que éste esté activo. Esto se hace mediante un </span><span class="rvts21">muelle</span><span class="rvts15"> potente. Dicho muelle es forzado, en una sola dirección, a través de un circuito hidráulico.</span></li>
+    <li class="rvps8 noindent"><span class="rvts15">La </span><span class="rvts21">bomba</span><span class="rvts15">, que fuerza la presión hidráulica en el circuito del muelle, a través del liquido que existe en el </span><span class="rvts21">tanque</span><span class="rvts15">.&nbsp;</span></li>
+    <li class="rvps8 noindent"><span class="rvts15">Cuando la </span><span class="rvts21">válvula</span><span class="rvts15"> está cerrada y la bomba está activa, el líquido del circuito hidráulico aumenta la presión, haciendo que el muelle se comprima, lo que hace que la zapata se separe del disco, liberando el Tren de Potencia al que está sujeto, de forma que éste puede girar libremente.</span></li>
+    <li class="rvps8 noindent"><span class="rvts15">Cuando la válvula se abre, el líquido hidráulico pasa al tanque, disminuyendo su presión, de forma que el muelle fuerza la zapata contra el disco, frenando el giro del Tren de Potencia.</span></li>
+    <li class="rvps8 noindent"><span class="rvts15">Existe un </span><span class="rvts21">presostato</span><span class="rvts15"> (que no se muestra en el sinóptico, aunque sí se muestra el estado de su interruptor. Ver más abajo).</span></li>
+    <li class="rvps8 noindent"><span class="rvts15">Existe también un contacto fin de carrera (</span><span class="rvts21">actuator switch</span><span class="rvts15">)que se activa cuando </span><span class="rvts34">la distancia entre el disco y las pastilla del freno supera un cierto valor</span><span class="rvts15">.&nbsp;</span></li>
+   </ul>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 270px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Freno%20de%20disco%20-%20espanol.jpg"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 591px;">
+   <p class="rvps8"><span class="rvts15">Detalle de los componentes del freno de disco.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 270px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Presotato%20detalle.jpg"></p>
+   <p class="rvps8"><img alt="" style="width : 274px; height : 182px; padding : 1px;" src="lib/Histeresis%20presostato.png"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 591px;">
+   <p class="rvps8"><span class="rvts15">Detalle del </span><span class="rvts21">presostato:</span></p>
+   <p class="rvps8"><span class="rvts15">La presión P debe superar la fuerza de oposición producida por los muelles (12) y (8). La de este último es regulable (en un cierto margen) a través del tornillo (9). Cuando esto ocurre el microruptor (7) conmuta cerrando su contacto eléctrico. Cuando la presión desciende el microruptor cambia de estado y se abre.</span></p>
+   <p class="rvps8"><span class="rvts15">Comportamiento con </span><span class="rvts21">Histéresis del presostato:</span></p>
+   <p class="rvps8"><span class="rvts15">El valor de la presión a la que el microruptor se cierra no es exactamente igual que el valor al que se abre. Esta característica se denomina histéresis y es común en muchos sensores. La siguiente figura muestra este comportamiento. Cuando la presión es inferior a P1 y va subiendo, cuando supera ese valor el estado cambia a On. Cuando la presión es superior a P2 y va bajando, cuando supera ese valor el estado cambia a Off.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps7"><span class="rvts19">Control del mecanismo de frenos</span></p>
+<p class="rvps8"><span class="rvts15">El algoritmo de control del freno se encuentra en el Controlador del aerogenerador. Las únicas señales utilizadas para este control (salidas del Controlador) son:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Señal de puesta en marcha de la bomba. Esta es una señal digital. Dentro del simulador su nombre es "</span><span class="rvts24">Controller.Control.PumpOut</span><span class="rvts15">".</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Señal de apertura de válvula. Es una señal digital. Dentro del simulador su nombre es "</span><span class="rvts24">Controller.Control.HardBrakeOut</span><span class="rvts15">".</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">El Controlador solo recibe la siguiente señal del circuito hidráulico:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">La salida del presostato. Es una señal digital que indica si la presión en el circuito hidráulico es superior a P1 (On), o es inferior a P2 (Off). Ver gráfico anterior. Dentro del simulador su nombre es "</span><span class="rvts24">Controller.Control.PressureSwitchIn</span><span class="rvts15">".</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Adicionalmente recibe otra señal digital proveniente del contacto fin de carrera que indica que las pastillas de freno están separadas del mismo una distancia que garantiza que el Tren de Potencia está liberado. Dentro del simulador su nombre es "</span><span class="rvts24">Controller.Control.BrakeReleaseIn</span><span class="rvts15">". Este contacto fin de carrera está ajustado de forma que pasa a On con una presión del circuito hidráulico bastante inferior al valor P2 mencionado anteriormente.</span></p>
+<p class="rvps8"><span class="rvts15">Es interesante notar que el Controlador no recibe una señal analógica que corresponda con la presión en el circuito hidráulico. Sin embargo, el algoritmo de supervisión del estado del Controlador permite detectar un conjunto de problemas como son:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Que la bomba tiene un fallo de potencia: esto se detecta mirando el tiempo que va desde que el Controlador pone en marcha la bomba y el presostato informa que ya se ha superado el nivel de presión P1.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Que existe un fallo de pérdidas de presión en el circuito hidráulico. Este fallo se detecta midiendo el intervalo de tiempo que va desde que la bomba se desactiva porque la presión ha superado el nivel P1, hasta que el presostato indica que la presión ha descendido por debajo del nivel P2. Este fallo puede tener varias causas: el propio circuito hidráulico, la válvula, etc.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Que existe un problema en el contacto fin de carrera de liberación de frenos. Esta situación se detecta porque el presostato indique que se ha superado el nivel P1 y sin embargo este fin de carrera no se ha activado.</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Con objeto de hacer más cómoda la observación de la evolución del estado y de las variables del sistema de frenos, este sinóptico incluye un panel especifico, que se describe a continuación. En él se incluye un indicador tipo reloj donde vienen reflejados:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Los niveles de actuación del presostato (P1 y P2): zona verde.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">El nivel a partir del cual el contacto fin de carrera indica que el freno está liberado (marca amarilla).</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Incluye también un control lineal ("</span><span class="rvts24">Pres. circ. frenos</span><span class="rvts15">") que habitualmente se utiliza para indicar el valor relativo de la presión, pero que también puede usarse para </span><span class="rvts24">forzar</span><span class="rvts15"> un valor arbitrario de esta presión y comprobar la reacción del Controlador. Es un mecanismo cómodo de simular averías. Para pasar al modo "forzar" debe pulsar la tecla de función "F6".</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/DriveTrain%20circuito%20frenos%20espanol.jpg"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 638px;">
+   <p class="rvps8"><span class="rvts15">Este panel incluye los botones de presentación de estado y/o control de un conjunto de señales.</span></p>
+   <p class="rvps8"><span class="rvts15">Los botones rotulados "Bomba", "Freno fuerte", "Freno suave", "Presostato" y "Freno liberado" presentan o controlan las señales asociadas. Ver el esquema más abajo. Lo mismo ocurre con el indicador lineal rotulado "Pres.circ.frenos" que presenta o controla la presión en el circuito.&nbsp;</span></p>
+   <p class="rvps8"><span class="rvts15">Los limites de la zona verde corresponden con los límites del presostato.</span></p>
+   <p class="rvps8"><span class="rvts15">La marca amarilla corresponde con la presión que hace que el fin de carrera se active.</span></p>
+   <p class="rvps8"><span class="rvts15"><br/></span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15">El siguiente listado muestra las conexiones de estos botones e indicadores con las señales asociadas. El "Freno suave" no se usa en este simulador, aunque se mantiene en el sinóptico ya que existen modelos que si lo incluyen. Se refiere a una segunda válvula de descarga, que tiene una caudal cuando esta abierta que es inferior a la correspondiente a "Freno fuerte".</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps25"><span class="rvts21">Botón o indicador</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps10"><span class="rvts21">Señal de salida controlada</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps10"><span class="rvts21">Señal indicada cuando no están en modo "forzar"</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps10"><span class="rvts21">Señal de salida a la que está conectada la señal de entrada</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps25"><span class="rvts15">Bomba</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps8"><span class="rvts24">Nacelle.Braking.PumpIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps14"><span class="rvts24">SynopticDriveTrain.PumpIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><span class="rvts24">Controller.Control.PumpOut</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps25"><span class="rvts15">Presotato</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps8"><span class="rvts24">Controller.Control.PressureSwitchIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps14"><span class="rvts24">SynopticDriveTrain.PressureSwitch</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><span class="rvts24">Nacelle.BrakingPressureSwitchOut</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps10"><span class="rvts15">Freno fuerte</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps8"><span class="rvts24">Nacelle.Braking.ValveHardBrake</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps23"><span class="rvts24">SynopticDriveTrain.HardBrakeIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><span class="rvts24">Controller.Control.HardBrakeOut</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps10"><span class="rvts15">Freno suave</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps8"><span class="rvts24">Nacelle.Braking.ValveSoftBrake</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps14"><span class="rvts24">SynopticDriveTrain.SoftBrakeIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><span class="rvts24">Controller.Control.SoftBrakeOut</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps25"><span class="rvts15">Freno liberado</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps8"><span class="rvts24">Controller.Control.BrakeReleaseIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps14"><span class="rvts24">SynopticDriveTrain.BrakeReleasedIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><span class="rvts24">Nacelle.Braking.BrakeReleaseOut</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 156px;">
+   <p class="rvps25"><span class="rvts15">Presión circuito hidráulico</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 213px;">
+   <p class="rvps8"><span class="rvts24">--</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 194px;">
+   <p class="rvps14"><span class="rvts24">SynopticDriveTrain.BrakeHydrPressureIn</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 223px;">
+   <p class="rvps8"><span class="rvts24">Nacelle.BrakeCircuitPressure</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15">El siguiente esquema muestra la relación entre:&nbsp;</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Las señales de control del Controlador.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Los indicadores y botones en el sinóptico.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Las señales de entrada al Controlador.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Los elementos del simulador: Bomba, Valvula, Integrador de Presión, Presostato, Fin de Carrera de Freno liberado</span></li>
+</ul>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Esquema%20circuito%20frenos.png"></p>
+<p class="rvps8"><span class="rvts15">Los iconos "F6" indican que esas señales se pueden interrumpir, de forma que el indicador correspondiente pasa a modo "Forzar", es decir, su salida no es réplica de la entrada si no del valor elegido por el usuario. Esta funcionalidad permite crear situaciones "anómalas" con mucha facilidad.</span></p>
+<p class="rvps8"><span class="rvts15">Por ejemplo, si ponemos el indicador lineal "Pres.circ.frenos" en modo "Forzar", podemos observar que el estado de "Válvula" y el de "Bomba" no afectan a la presión. También que modificando con el indicador la presion de forma manual podemos comprobar rápidamente la funcionalidad de los simuladores de "Presostato" y "Freno liberado". Haciendo estas manipulaciones comenzaremos a tener mensajes en </span><a class="rvts22" href="TerminaldeControl.html">Terminal de Control</a><span class="rvts15"> .</span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

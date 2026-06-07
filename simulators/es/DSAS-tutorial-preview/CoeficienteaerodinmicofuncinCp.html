@@ -1,0 +1,127 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Coeficiente aerodin&aacute;mico: funci&oacute;n Cp</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content=", coeficiente aerodin&aacute;mico, Cp, Lambda, pitch, Tip Speed Ratio, TSR, Cp, coeficiente aerodin&aacute;mico">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("CoeficienteaerodinmicofuncinCp");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Coeficiente aerodin&aacute;mico: funci&oacute;n Cp</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DescripcindelSimuladordelAerogen.html">Descripci&oacute;n del Simulador del Aerogenerador DFIG</a> &rsaquo;&rsaquo; <a href="DFIGWTSinopticos.html">Sin&oacute;pticos</a> &rsaquo;&rsaquo; <a href="TerminaldeControl.html">Terminal de Control</a> &rsaquo;&rsaquo; <a href="DFIGWTTCCurvasOperacionales.html">Curvas operativas del Tren de Potencia</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DFIGWTTCCurvasOperacionales.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DFIGWTTCPotenciaPitchvsViento.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="GeneradorDFIG.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps7"><span class="rvts19">Panel del Coeficiente aerodinámico</span></p>
+<p class="rvps8"><span class="rvts15">El propósito del diagrama en este panel es la presentación del valor del coeficiente aerodinámico (Cp) instantáneo, que depende dela velocidad de la punta de la pala y del viento incidente (TSR) y del ángulo de Pitch. Ver </span><a class="rvts22" href="DescripcindelafuncinCpcoeficient.html">Descripción de la función Cp (coeficiente aerodinámico)</a><span class="rvts15"> .</span></p>
+<p class="rvps8"><span class="rvts15">El valor de Cp se indica con el icono </span><img alt="" style="padding : 1px;" src="lib/Icono%20Cp.jpg"><span class="rvts15"> ; el eje de abcisas corresponde con el TSR y las curvas rojas &nbsp;corresponden con el valor rotulado en ellas del Pitch. Esta función es compleja: se ha elegido una vista que permite seguir la evolución del Cp cuando van cambiando las condiciones de trabajo del aerogenerador. Para facilitar más su comprensión se han añadido un conjunto de vistas en 3D que son accesibles a través del selector indicado como "3D views". &nbsp;</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Vista%20Cp%20en%20MPPT%20en%20espaol.png"></p>
+<p class="rvps8"><span class="rvts19"><br/></span></p>
+<p class="rvps16"><span class="rvts41">Vista 3D con eje horizontal correspondiente a TSR</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Vista%203D%20inicial.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps16"><span class="rvts41">Vista 3D &nbsp;desde la izquierda</span></p>
+<p class="rvps7"><img alt="" style="padding : 1px;" src="lib/Vista%203D%20desde%20la%20derecha.jpg"></p>
+<p class="rvps7"><span class="rvts41"><br/></span></p>
+<p class="rvps16"><span class="rvts41">Vista 3D desde la derecha</span></p>
+<p class="rvps7"><img alt="" style="padding : 1px;" src="lib/Vista%203D%20desde%20la%20izquierda.jpg"></p>
+<p class="rvps7"><span class="rvts41"><br/></span></p>
+<p class="rvps7"><span class="rvts41">Vista 3D cenital con isozonas</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Vista%20cenital%20con%20isozonas.jpg"></p>
+<p class="rvps7"><span class="rvts41"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

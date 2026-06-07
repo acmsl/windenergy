@@ -1,0 +1,119 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Requerimientos de la Red</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="codificador angular, codificador rotatorio, PLL, Phase Locked Loop">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ConvertidoresBackToBackRequerimi");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Requerimientos de la Red</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Informacincomplementaria.html">Informaci&oacute;n complementaria</a> &rsaquo;&rsaquo; <a href="ConvertidoresBackToBack.html">Descripci&oacute;n de los Convertidores Back-to-Back</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ConvertidoresBackToBack.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="IGBTs.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="RedElectricaExigencias.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps16"><span class="rvts41">La necesidad de sincronización de las señales del B2B con la Red.</span></p>
+<p class="rvps8"><span class="rvts15">La frecuencia de la Red no es fija, sino que puede tomar un valor entre dos extremos (ver </span><a class="rvts22" href="RedElectricaExigenciasAreaFuncio.html">Área de funcionamiento tolerable de la Red</a><span class="rvts15"> ). Por ejemplo, en España los limites están entre 47 Hz y 52 Hz. Las variaciones de frecuencia provienen de un conjunto de circunstancias que alteran, durante intervalos de tiempo cortos, el equilibrio de distribución de potencias a lo largo de la Red. Cuando hay incorporaciones súbitas de carga, cortocircuitos en las líneas, pérdidas de potencia en alguno de los generadores conectados a la Red, etc, se produce un cambio en la situación de estabilidad en la Red que implica una variación de la velocidad de los ejes de los generadores y estas variaciones implican variación de la frecuencia de las potencias vertidas en la Red.</span></p>
+<p class="rvps8"><span class="rvts15">Adicionalmente, los convertidores B2B de aerogeneradores DFIG permiten controlar tanto la potencia activa como la reactiva (algo que no pueden hacer otros generadores clásicos - de plantas térmicas, hidráulicas, nucleares- ) y debido a esto deben conocer con precisión las fases relativas respecto de la señal de la Red.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">Para poder hacer un seguimiento adecuado, el controlador de los B2B recibe la señal de un codificador angular conectado al eje del Generador y monitoriza la señal de la Red utilizando un circuito PLL (Phase-Locked-Loop: Lazo enganchado en fase) para poder hacer un seguimiento de la evolución de la frecuencia. La señal de salida de este circuito, cuya frecuencia deriva de la Red, se utiliza como "reloj maestro" para elaborar las otras señales de control de los IGBTs.</span></p>
+<p class="rvps8"><span class="rvts15">El </span><span class="rvts24">codificador angular</span><span class="rvts15"> (también conocido como </span><span class="rvts24">codificador rotatorio</span><span class="rvts15">) que se utiliza es del tipo "absoluto", y sirve para medir el angulo del eje del rotor del Generador respecto de una posición de referencia. Esta posición de referencia necesita ser calibrada para un correcto funcionamiento de los convertidores B2B.</span></p>
+<p class="rvps8"><span class="rvts15">Utilizando ambas señales (codificador angular y PLL) es posible conocer el angulo de los flujos magnéticos en el entrehierro del Generador, que constituye el punto de conversión de potencia mecánica a eléctrica.</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

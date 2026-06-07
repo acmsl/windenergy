@@ -1,0 +1,121 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Velocidad del Tren de Potencia vs Viento</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("DFIGWTTCVeloTrenPotenciavsViento");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Velocidad del Tren de Potencia vs Viento</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DescripcindelSimuladordelAerogen.html">Descripci&oacute;n del Simulador del Aerogenerador DFIG</a> &rsaquo;&rsaquo; <a href="DFIGWTSinopticos.html">Sin&oacute;pticos</a> &rsaquo;&rsaquo; <a href="TerminaldeControl.html">Terminal de Control</a> &rsaquo;&rsaquo; <a href="DFIGWTTCCurvasOperacionales.html">Curvas operativas del Tren de Potencia</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DFIGWTTCCurvasOperacionales.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DFIGWTTCPanelPotenciaVSrpms.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="DFIGWTTCPotenciaPitchvsViento.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps7"><span class="rvts19">Diagrama de la velocidad del Tren de Potencia (Rotor) en función del Viento</span></p>
+<p class="rvps8"><span class="rvts15">Este panel presenta aspectos significativos de la evolución de las revoluciones del Tren de Potencia cuando el Controlador implementa el mecanismo de control implícito en la Curva Operativa de Aerogeneradores de Velocidad Variable, según se describe en </span><a class="rvts22" href="Implicacionesdelcomportamientode.html">Implicaciones del comportamiento deseado</a><span class="rvts15"> .</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/DFIG%20RotorvsViento.jpg"></p>
+<p class="rvps8"><span class="rvts15">Este gráfico muestra 4 zonas bien diferenciadas:</span></p>
+<ol style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside;">
+ <li class="rvps8 noindent"><span class="rvts15">Primero, cuando el viento está en el rango en que la Curva Operativa coincide con la curva de MPPT (Maximum Power Point Tracking), las rpms están sobre una línea recta (zona entre puntos B y C).</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Segundo, cuando el viento supera el Viento Nominal, la velocidad de giro del Tren de Potencia en estado estacionario (cuando se ha estabilizado) es fija.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">Las otras dos zonas son de transito a las descritas en los puntos 1 y 2 anteriores.</span></li>
+</ol>
+<p class="rvps8"><span class="rvts15">Es también un buen diagrama donde seguir la evolución dinámica del aerogenerador durante ráfagas de viento.</span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

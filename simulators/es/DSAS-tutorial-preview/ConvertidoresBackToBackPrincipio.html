@@ -1,0 +1,204 @@
+﻿
+
+<html>
+	
+<head>
+	<title>Principios de funcionamiento</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.3.0.232">
+	<meta name="description" content="Simulador para Aerogenerador con Generador de Inducci&oacute;n conectado a convertidores Back-to-Back" /> 
+	<meta name="keywords" content="IGBTs">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DFIGWTSimulator.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("ConvertidoresBackToBackPrincipio");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Principios de funcionamiento</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="Informacincomplementaria.html">Informaci&oacute;n complementaria</a> &rsaquo;&rsaquo; <a href="ConvertidoresBackToBack.html">Descripci&oacute;n de los Convertidores Back-to-Back</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="ConvertidoresBackToBack.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="ConvertidoresBackToBackModosFunc.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="IGBTs.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps16"><a name="B2B working principle"></a><span class="rvts41">Principios básicos de los convertidores usados en los B2B.</span></p>
+<p class="rvps8"><span class="rvts15">En el esquema general &nbsp;de la configuración B2B se presenta en la siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/B2B%20esquema%20en%20colores.jpg"></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">Las conversiones de potencia se realizan hacia el DC Link (el condensador en el centro) desde las dos posible fuentes: la Red o el bobinado del Rotor, y también desde el DC Link hacia la Red o hacia el bobinado del Rotor.</span></p>
+<p class="rvps8"><span class="rvts15">Estas conversiones de potencia se realizan exclusivamente abriendo o cerrando conexiones directas entre estos tres puntos (Rotor, DC Link y Red). Los interruptores que realizan estas conexiones son </span><span class="rvts21">IGBTs</span><span class="rvts15"> (</span><span class="rvts24">Insulated Gate Bipolar Transistor</span><span class="rvts15">): dispositivos electrónicos a los que se hace funcionar como interruptores eléctricos que conmutan entre los estados de "conduciendo" y "abierto", con tiempos de respuesta muy bajos, del orden de los &nbsp;microsegundos. Cuando están en conducción la resistencia ohmica es muy baja, del orden de miliohmios, mientras que cuando están abiertos la corriente de perdidas es muy baja (alta impedancia). Cuando están en abierto existe un valor máximo de la tensión que pueden soportar sin entrar en una falla catastrófica. Existen varias familias, y el límite actual de esta tensión está entre 1.000 v y 3.300 v.</span></p>
+<p class="rvps8"><span class="rvts15">Tienen un límite en su capacidad de disipación, que depende del disipador al que está sujetos, de la resistencia térmica de esa unión y del tipo de evacuación de calor producido (forzada con un ventilador o con un intercambiador basado . La potencia disipada en estos IGBTs depende de la corriente que circula por ellos cuando están en conducción y del numero de veces por segundo que están en las fases intermedias de paso a conducción y paso a corte: esto hace que dicha potencia disipada dependa de la frecuencia a la que se les haga operar.</span></p>
+<p class="rvps8"><span class="rvts15">Como se puede ver en el esquema estos interruptores conmutan entre fuentes de tensión y su resistencia ohmica es muy baja: esta situación (conexión de dos fuentes de tensión, en principio con tensiones diferentes) no se puede sostener mucho tiempo porque la corriente por el dispositivo sería muy grande. La solución a este problema consiste en poner una inductancia en serie con el interruptor, ya que en estas circunstancias, </span><span class="rvts23">esta inductancia limita la velocidad de cambio de la corriente que atraviesa el circuito</span><span class="rvts15">.</span></p>
+<p class="rvps8"><span class="rvts15">Para ilustrar este concepto, analizaremos un circuito que utiliza dicho principio, usado en la mayoría de los alimentadores de dispositivos portátiles, conocido como "Booster". El esquema básico se muestra en la siguiente figura.</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 433px;">
+   <p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Boost%20converter%201.jpg"></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 428px;">
+   <p class="rvps10"><span class="rvts15"><br/></span></p>
+   <p class="rvps10"><span class="rvts15"><br/></span></p>
+   <p class="rvps10"><span class="rvts15">Convertidor de tensión tipo Booster.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15">El objetivo de este circuito consiste en alimentar una carga (R</span><span class="rvts43">L</span><span class="rvts15">) a una determinada tensión (V</span><span class="rvts43">O</span><span class="rvts15">) a partir de una fuente (V</span><span class="rvts43">I</span><span class="rvts15">), cuyo valor es diferente de V</span><span class="rvts43">O</span><span class="rvts15"> . Esta versión del circuito se utiliza cuando queremos que la tensión de la carga sea mayor que la fuente disponible ( V</span><span class="rvts43">O</span><span class="rvts15"> &gt; V</span><span class="rvts43">I</span><span class="rvts15"> ).</span></p>
+<p class="rvps8"><span class="rvts15">El "truco" de este circuito consiste en utilizar la propiedad que tiene las inductancias para "almacenar" energía eléctrica (durante breves espacios de tiempo). Recordemos que un condensador es también un almacén de energía eléctrica: si lo "cargamos" (inyectamos corriente) hasta que en sus bornas tengamos una tensión determinada, y después lo desconectamos, el condensador "mantendrá" dicha tensión por un tiempo indefinido (si el condensador no tiene perdidas). Si el condensador tiene pérdidas o/y está conectado de cualquier circuito eléctrico su tensión irá decreciendo hasta que llegue a 0, disipando su energía en la carga representada por el circuito externo o sus propias pérdidas internas.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15">Una forma de ver este comportamiento del condensador consiste en considerar que, cuando está cargado, </span><span class="rvts24">se opone a cualquier cambio en su tensión</span><span class="rvts15">, y la forma de reaccionar es "soltando" corriente, tanto más cuanto mayor sea nuestro empeño en hacer un cambio rápido de tensión.</span></p>
+<p class="rvps8"><span class="rvts15">Las inductancias se comportan de una manera análoga, pero cambiando tensión por corriente. Es decir, si queremos que por una inductancia circule una determinada corriente (I</span><span class="rvts43">L</span><span class="rvts15">) tenemos que aplicar un cambio de la tensión en sus bornas con una cierta velocidad de ese cambio. Una vez que esta I</span><span class="rvts43">L</span><span class="rvts15"> circula por la inductancia, si intentamos hacer un cambio en dicho valor, la inductancia reaccionará haciendo variar la tensión en sus bornas, oponiéndose a dicho cambio. Un caso común es el circuito eléctrico que alimenta las bujías de un motor de explosión de gasolina. Dicho circuito consiste en una bobina que es periódicamente conectada y desconectada de la batería. Durante la fase en que está conectada a la batería, la corriente a través de ella crece; cuando se separa la reacción es subir (extraordinariamente) la tensión en bornas, de forma que es mucho mayor que la tensión de la batería, en un intento de mantener la circulación de corriente previa. Esta subida de tensión dura muy poco tiempo. De esta forma podemos generar con un circuito muy simple altas tensiones (&gt; 15.000 V) a partir de una batería de 12 V.</span></p>
+<p class="rvps8"><span class="rvts15">La relación entre tensión en bornas y el cambio de corriente por unidad de tiempo en una inductancia viene dado por la siguiente formula:</span></p>
+<div class="rvps8">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps10"><span class="rvts15"><br/></span></p>
+   <p class="rvps10"><span class="rvts44">V = L * (</span><span class="rvts45">Δ</span><span class="rvts44"> I ) / ( </span><span class="rvts45">Δ</span><span class="rvts44"> t)</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px;">
+   <p class="rvps19"><span class="rvts15">Donde :</span></p>
+   <p class="rvps18"><span class="rvts15">V = tensión en bornas.</span></p>
+   <p class="rvps18"><span class="rvts15">L = Valor de la inductancia.</span></p>
+   <p class="rvps18"><span class="rvts15">(</span><span class="rvts16">Δ</span><span class="rvts15"> I ) / ( </span><span class="rvts16">Δ</span><span class="rvts15"> t) = velocidad de cambio de la corriente.&nbsp;</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">En el circuito anterior el mecanismo de control para pasar de V</span><span class="rvts43">O</span><span class="rvts15"> a V</span><span class="rvts43">I</span><span class="rvts15"> consiste en </span><span class="rvts21">controlar cuanto tiempo y cuando</span><span class="rvts15"> </span><span class="rvts21">debemos mantener los interruptores abiertos o cerrados</span><span class="rvts15">. El algoritmo de control se divide en dos etapas: a) carga de la inductancia, b) trasferencia de la energía cargada en la inductancia a la carga.</span></p>
+<p class="rvps8"><span class="rvts15">Utilizaremos un circuito equivalente teórico del anterior para hacerlo más comprensible.</span></p>
+<p class="rvps8"><span class="rvts15">A) Carga de la inductancia L.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Boost%20converter%202.jpg"></p>
+<p class="rvps8"><span class="rvts15">Durante un cierto tiempo pondremos al IGBT en conducción. En esta situación el diodo aislará la carga de la inductancia, ya que la tensión en su cátodo (tensión del condensador) será superior a la tensión en la borna derecha de la inductancia (que está puesta a 0 por el IGBT).</span></p>
+<p class="rvps8"><span class="rvts15">En esta situación habrá un incremento progresivo de la corriente que atraviesa la inductancia, en la dirección indicada en la figura.</span></p>
+<p class="rvps8"><span class="rvts15">B) Transferencia de la energía de la inductancia a la carga.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Boost%20converter%203.jpg"></p>
+<p class="rvps8"><span class="rvts15">Un determinado tiempo después, abrimos el IGBT y lo que ocurrirá es que habrá un flujo de corriente (ID) en la dirección indicada en la figura debido a que la tensión de la borna derecha de la inductancia crecerá debido a la oposición de ésta al cambio, de manera que un cierto tiempo después dicha tensión será superior a la tensión en el condensador: cuando eso ocurra el diodo se comportará como un cortocircuito y por tanto permitirá que la corriente de la inductancia (que momentos antes circulaba por el IGBT) a partir de ese momento circule por el diodo al condensador y la carga. La parte de corriente que circule por el condensador incrementará la tensión en bornas del mismo.</span></p>
+<p class="rvps8"><span class="rvts15">Es decir, en esta fase tenemos una trasferencia de la energía eléctrica almacenada en la inductancia L al circuitor formado por la carga R</span><span class="rvts43">L</span><span class="rvts15"> y el condensador C. La energía que pasa a la carga se disipa, mientras que la que pasa al condensador queda almacenada en él. &nbsp;Esta última energía es la que "alimenta" a la carga durante la fase A, cuando está desconectada de la inductancia.</span></p>
+<p class="rvps8"><span class="rvts15">El valor de la tensión "promedio" en el condensador (V</span><span class="rvts43">O</span><span class="rvts15"> ) respecto de la tensión de la fuente de energía (V</span><span class="rvts43">L</span><span class="rvts15">) dependerá del valor de L, C, R</span><span class="rvts43">L</span><span class="rvts15"> y de los tiempos relativos de las fases A y B.&nbsp;</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps17"><span class="rvts24">Dicho de otro modo: si disponemos de un circuito con una instalación fija (L y C), gestionando la relación de tiempos de las fases A y B podremos variar la tensión en la carga; o también, podemos adaptarnos a cargas variables (RL) cambiando también la relación de tiempos de ambas fases.</span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15">Una importante conclusión de esta aproximación es el cambio de paradigma de control de magnitudes físicas del hardware al software.</span></p>
+<p class="rvps16"><span class="rvts41">Obtención de tensiones alternas</span></p>
+<p class="rvps8"><span class="rvts15">Si en el circuito anterior eliminamos el condensador de salida y el diodo, es posible ir variando la tensión en bornas de la carga. Para ello solo es necesario que la frecuencia de señal que gobierna los IGBTs sea muy superior a la frecuencia deseada en la carga (según el criterio de Nyquist, al menos dos veces la frecuencia de la tensión deseada en la carga). La siguiente figura muestra el ejemplo más simple, en donde la relación de tiempos de las fases A y B es de 1 (iguales). La tensión en bornas de la carga corresponde con la linea negra. La línea gris (la deseada) se obtiene introduciendo filtros. El efecto de estos filtros es pasar la tensión en las zonas marcadas en vede a las zonas marcadas en azul.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Aproximacion%201.jpg"></p>
+<p class="rvps16"><span class="rvts41">Formas de onda y "niveles"</span></p>
+<p class="rvps8"><span class="rvts15">La forma de onda anterior se puede mejorar utilizando dos fuentes de alimentación conectadas en serie en vez de una sola, y conectando la carga al punto común entre ellas. Se obtiene de esta forma lo que se conoce como "tres niveles". Ver siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Aproximacion%202.jpg"></p>
+<p class="rvps8"><span class="rvts15">El siguiente circuito implementa esta idea creando las dos fuentes a partir de una sola y utilizando dos condensadores de idéntico valor (C1 y C2) en serie.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Convertidor%20esquema%20tres%20niveles.png"></p>
+<p class="rvps8"><span class="rvts15">En este caso, existen dos circuitos por cada fase (dos fuentes y dos IGBTs) que tienen sus propios generadores de señales de control. El contenido armónico de la señal resultante es menor que en el caso anterior, lo que implica que los filtros de salida (los que conectan con la carga) son menores.</span></p>
+<p class="rvps8"><span class="rvts15">Utiilzando técnicas especiales, por ejemplo, las de modulación de ancho de pulso (PWM) para las &nbsp;señales de control, es posible rebajar aun más el contenido armónico. Ver la siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Sinusoide%20PWM%20modulation.jpg"></p>
+<p class="rvps8"><span class="rvts15">Similarme existen circuitos que añaden "niveles" con objeto de minimizar el contenido armónico: ver siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/Aproximacion%203.jpg"></p>
+<p class="rvps8"><span class="rvts15">Esta aproximación requiere la generación de onda cada vez más complejas para excitar las puertas de control de los IGBTs. Ver siguiente figura.</span></p>
+<p class="rvps8"><img alt="" style="padding : 1px;" src="lib/DFIGB2Bv2%20-%20B2B%20senal%20una%20fase.jpg"></p>
+<p class="rvps16"><span class="rvts41">Otros requerimientos específicos</span></p>
+<p class="rvps8"><span class="rvts15">Los anteriores conceptos se aplican a muchos tipos de convertidores, por ejemplo los utilizados para suministrar alimentación a frecuencia variable a motores de jaula de ardilla con objeto de poder controlar su velocidad de giro sin tener que perder potencia. Igualmente se utilizan en convertidores DC/AC, por ejemplo en fuentes de alimentación ininterrumpibles.</span></p>
+<p class="rvps8"><span class="rvts15">El caso de los convertidores que se utilizan en los B2B existen otros condicionantes importantes:</span></p>
+<p class="rvps2"><span class="rvts42">Cambio de modo de funcionamiento</span></p>
+<p class="rvps8"><span class="rvts15">Cuando el controlador del Tren de Potencia del aerogenerador decide que su velocidad de funcionamiento corresponde con una velocidad del generador eléctrico que es subsincrona:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">El GSC debe alimentar el DC Link y por tanto debe funcionar como un rectificador controlador.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">El RSC debe generar una tensiones y corrientes con dos condiciones importantes: a) que su frecuencia sea la correspondiente a la de velocidad deseada del Tren de Potencia y b) que sus ángulos de fase relativos sean tales que el flujo creado por el bobinado del rotor esté adecuadamente adelantado respecto al creado por el bobinado del estator.</span></li>
+</ul>
+<p class="rvps8"><span class="rvts15">Para el caso particular de que la velocidad corresponda con la de sincronismo, la frecuencia de las señales del rotor es 0, es decir, corriente continua (en promedio), pero presentando una impedancia cuyo angulo es uno determinado, el cual depende de la potencia trasegada por el Generador.</span></p>
+<p class="rvps8"><span class="rvts15">Cuando la situación la situación supersincrona:</span></p>
+<ul style="text-indent: 0px; padding: 0; margin: 0 0 0 24px; list-style-position: outside; list-style-type: disc;">
+ <li class="rvps8 noindent"><span class="rvts15">Parte de la potencia eléctrica sale por el bobinado del rotor y por tanto el RSC actúa como rectificador controlado que alimenta el DC Link; pero además para que eso ocurra, el RSC ha de ser "visto" desde el bobinado del rotor con una determinada impedancia (modulo y fase), que es dependiente de la potencia también.</span></li>
+ <li class="rvps8 noindent"><span class="rvts15">El GSC debe funcionar como un convertidor de contínua (DC Link) a alterna.</span></li>
+</ul>
+<p class="rvps2"><span class="rvts15"><br/></span></p>
+<p class="rvps16"><span class="rvts41"><br/></span></p>
+<p class="rvps8"><span class="rvts15"><br/></span></p>
+<p class="rvps8"><span class="rvts15"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2020&gt;, &lt;Automated Computing Machinery SL&gt;
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
