@@ -208,6 +208,13 @@
             de entrada y montaje estándar en rail DIN.
           </span>
         </a>
+        <a class="development-item" id="dl1300Link" href="datalogger-dl1300-aerogeneradores.html?lang=es">
+          <strong id="dl1300Title">Datalogger DL1300 para Aerogeneradores</strong>
+          <span id="dl1300Text">
+            Sistema de adquisición de datos tolerante a fallos para instrumentación
+            industrial RS232 y RS485, sin necesidad de programación.
+          </span>
+        </a>
       </section>
     </main>
 
@@ -234,6 +241,8 @@
           gptrText: 'Equipo para generación de red trifásica completamente programable y realización de pruebas reales en laboratorio de equipos de control industrial.',
           cvrTitle: 'Doble tacómetro industrial de alta resolución',
           cvrText: 'Equipo de medida de velocidad con doble tacómetro de precisión, amplio rango de entrada y montaje estándar en rail DIN.',
+          dl1300Title: 'Datalogger DL1300 para Aerogeneradores',
+          dl1300Text: 'Sistema de adquisición de datos tolerante a fallos para instrumentación industrial RS232 y RS485, sin necesidad de programación.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         en: {
@@ -250,6 +259,8 @@
           gptrText: 'Equipment for fully programmable three-phase grid generation and real laboratory testing of industrial control equipment.',
           cvrTitle: 'High-resolution dual industrial tachometer',
           cvrText: 'Speed measurement equipment with dual precision tachometer, wide input range, and standard DIN rail mounting.',
+          dl1300Title: 'DL1300 Datalogger for Wind Turbines',
+          dl1300Text: 'Fault-tolerant data acquisition system for RS232 and RS485 industrial instrumentation, with no programming required.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         fr: {
@@ -266,6 +277,8 @@
           gptrText: 'Équipement destiné à la génération d’un réseau triphasé entièrement programmable et aux essais réels en laboratoire d’équipements de contrôle industriel.',
           cvrTitle: 'Double tachymètre industriel haute résolution',
           cvrText: 'Équipement de mesure de vitesse avec double tachymètre de précision, large plage d’entrée et montage standard sur rail DIN.',
+          dl1300Title: 'Datalogger DL1300 pour éoliennes',
+          dl1300Text: 'Système d’acquisition de données tolérant aux pannes pour instrumentation industrielle RS232 et RS485, sans programmation requise.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         it: {
@@ -282,6 +295,8 @@
           gptrText: 'Apparecchiatura per la generazione di rete trifase completamente programmabile e per prove reali in laboratorio di apparecchiature di controllo industriale.',
           cvrTitle: 'Doppio tachimetro industriale ad alta risoluzione',
           cvrText: 'Apparecchiatura di misura della velocità con doppio tachimetro di precisione, ampio intervallo di ingresso e montaggio standard su guida DIN.',
+          dl1300Title: 'Datalogger DL1300 per aerogeneratori',
+          dl1300Text: 'Sistema di acquisizione dati tollerante ai guasti per strumentazione industriale RS232 e RS485, senza necessità di programmazione.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         de: {
@@ -298,6 +313,8 @@
           gptrText: 'Gerät zur Erzeugung eines vollständig programmierbaren Dreiphasennetzes und für reale Labortests von industriellen Steuergeräten.',
           cvrTitle: 'Industrieller Hochauflösungs-Doppeldrehzahlmesser',
           cvrText: 'Drehzahlmessgerät mit zwei Präzisions-Drehzahlmessern, großem Eingangsbereich und Standardmontage auf DIN-Schiene.',
+          dl1300Title: 'DL1300-Datenlogger für Windenergieanlagen',
+          dl1300Text: 'Fehlertolerantes Datenerfassungssystem für industrielle RS232- und RS485-Instrumentierung, ohne Programmieraufwand.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         pt: {
@@ -314,6 +331,8 @@
           gptrText: 'Equipamento para geração de rede trifásica totalmente programável e realização de ensaios reais em laboratório de equipamentos de controlo industrial.',
           cvrTitle: 'Duplo tacómetro industrial de alta resolução',
           cvrText: 'Equipamento de medição de velocidade com duplo tacómetro de precisão, ampla gama de entrada e montagem padrão em calha DIN.',
+          dl1300Title: 'Datalogger DL1300 para aerogeradores',
+          dl1300Text: 'Sistema de aquisição de dados tolerante a falhas para instrumentação industrial RS232 e RS485, sem necessidade de programação.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         }
       };
@@ -342,10 +361,11 @@
       document.getElementById('bonus1300Link').href = `simulador-bonus-1300.html?lang=${lang}`;
       document.getElementById('gptrLink').href = `generador-programable-red-trifasica.html?lang=${lang}`;
       document.getElementById('cvrLink').href = `doble-tacometro-industrial-alta-resolucion.html?lang=${lang}`;
+      document.getElementById('dl1300Link').href = `datalogger-dl1300-aerogeneradores.html?lang=${lang}`;
       document.getElementById('heroSection').setAttribute('aria-label', t.heroAria);
       document.getElementById('developmentList').setAttribute('aria-label', t.listAria);
 
-      ['heroTitle', 'heroText', 'bonus1300Title', 'bonus1300Text', 'gptrTitle', 'gptrText', 'cvrTitle', 'cvrText'].forEach((key) => {
+      ['heroTitle', 'heroText', 'bonus1300Title', 'bonus1300Text', 'gptrTitle', 'gptrText', 'cvrTitle', 'cvrText', 'dl1300Title', 'dl1300Text'].forEach((key) => {
         setText(key, t[key]);
       });
 
