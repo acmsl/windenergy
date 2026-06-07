@@ -201,6 +201,13 @@
             realización de pruebas reales en laboratorio de equipos de control industrial.
           </span>
         </a>
+        <a class="development-item" id="cvrLink" href="doble-tacometro-industrial-alta-resolucion.html?lang=es">
+          <strong id="cvrTitle">Doble tacómetro industrial de alta resolución</strong>
+          <span id="cvrText">
+            Equipo de medida de velocidad con doble tacómetro de precisión, amplio rango
+            de entrada y montaje estándar en rail DIN.
+          </span>
+        </a>
       </section>
     </main>
 
@@ -225,6 +232,8 @@
           bonus1300Text: 'Equipo de simulación para formación en oficina de personal técnico de fabricación, instalación y mantenimiento de aerogeneradores.',
           gptrTitle: 'Generador Programable de Red Trifásica',
           gptrText: 'Equipo para generación de red trifásica completamente programable y realización de pruebas reales en laboratorio de equipos de control industrial.',
+          cvrTitle: 'Doble tacómetro industrial de alta resolución',
+          cvrText: 'Equipo de medida de velocidad con doble tacómetro de precisión, amplio rango de entrada y montaje estándar en rail DIN.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         en: {
@@ -239,6 +248,8 @@
           bonus1300Text: 'Simulation equipment for office-based training of technical staff in the manufacturing, installation, and maintenance of wind turbines.',
           gptrTitle: 'Programmable Three-Phase Grid Generator',
           gptrText: 'Equipment for fully programmable three-phase grid generation and real laboratory testing of industrial control equipment.',
+          cvrTitle: 'High-resolution dual industrial tachometer',
+          cvrText: 'Speed measurement equipment with dual precision tachometer, wide input range, and standard DIN rail mounting.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         fr: {
@@ -253,6 +264,8 @@
           bonus1300Text: 'Équipement de simulation destiné à la formation en bureau du personnel technique à la fabrication, l’installation et la maintenance d’éoliennes.',
           gptrTitle: 'Générateur programmable de réseau triphasé',
           gptrText: 'Équipement destiné à la génération d’un réseau triphasé entièrement programmable et aux essais réels en laboratoire d’équipements de contrôle industriel.',
+          cvrTitle: 'Double tachymètre industriel haute résolution',
+          cvrText: 'Équipement de mesure de vitesse avec double tachymètre de précision, large plage d’entrée et montage standard sur rail DIN.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         it: {
@@ -267,6 +280,8 @@
           bonus1300Text: 'Apparecchiatura di simulazione per la formazione in ufficio del personale tecnico nella fabbricazione, installazione e manutenzione degli aerogeneratori.',
           gptrTitle: 'Generatore programmabile di rete trifase',
           gptrText: 'Apparecchiatura per la generazione di rete trifase completamente programmabile e per prove reali in laboratorio di apparecchiature di controllo industriale.',
+          cvrTitle: 'Doppio tachimetro industriale ad alta risoluzione',
+          cvrText: 'Apparecchiatura di misura della velocità con doppio tachimetro di precisione, ampio intervallo di ingresso e montaggio standard su guida DIN.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         de: {
@@ -281,6 +296,8 @@
           bonus1300Text: 'Simulationsgerät für die bürogestützte Schulung von technischem Personal in Fertigung, Installation und Wartung von Windturbinen.',
           gptrTitle: 'Programmierbarer Dreiphasen-Netzgenerator',
           gptrText: 'Gerät zur Erzeugung eines vollständig programmierbaren Dreiphasennetzes und für reale Labortests von industriellen Steuergeräten.',
+          cvrTitle: 'Industrieller Hochauflösungs-Doppeldrehzahlmesser',
+          cvrText: 'Drehzahlmessgerät mit zwei Präzisions-Drehzahlmessern, großem Eingangsbereich und Standardmontage auf DIN-Schiene.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         pt: {
@@ -295,6 +312,8 @@
           bonus1300Text: 'Equipamento de simulação para formação em escritório de pessoal técnico na fabricação, instalação e manutenção de aerogeradores.',
           gptrTitle: 'Gerador Programável de Rede Trifásica',
           gptrText: 'Equipamento para geração de rede trifásica totalmente programável e realização de ensaios reais em laboratório de equipamentos de controlo industrial.',
+          cvrTitle: 'Duplo tacómetro industrial de alta resolução',
+          cvrText: 'Equipamento de medição de velocidade com duplo tacómetro de precisão, ampla gama de entrada e montagem padrão em calha DIN.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         }
       };
@@ -322,10 +341,11 @@
       document.getElementById('backContactLink').textContent = t.backContact;
       document.getElementById('bonus1300Link').href = `simulador-bonus-1300.html?lang=${lang}`;
       document.getElementById('gptrLink').href = `generador-programable-red-trifasica.html?lang=${lang}`;
+      document.getElementById('cvrLink').href = `doble-tacometro-industrial-alta-resolucion.html?lang=${lang}`;
       document.getElementById('heroSection').setAttribute('aria-label', t.heroAria);
       document.getElementById('developmentList').setAttribute('aria-label', t.listAria);
 
-      ['heroTitle', 'heroText', 'bonus1300Title', 'bonus1300Text', 'gptrTitle', 'gptrText'].forEach((key) => {
+      ['heroTitle', 'heroText', 'bonus1300Title', 'bonus1300Text', 'gptrTitle', 'gptrText', 'cvrTitle', 'cvrText'].forEach((key) => {
         setText(key, t[key]);
       });
 
