@@ -215,6 +215,13 @@
             industrial RS232 y RS485, sin necesidad de programación.
           </span>
         </a>
+        <a class="development-item" id="controller600Link" href="controlador-aerogenerador.html?lang=es">
+          <strong id="controller600Title">Controlador de Aerogenerador</strong>
+          <span id="controller600Text">
+            Sistema de control para aerogeneradores de pala fija con generador de
+            jaula de ardilla y soft starter, orientado a integración y ensayo.
+          </span>
+        </a>
       </section>
     </main>
 
@@ -243,6 +250,8 @@
           cvrText: 'Equipo de medida de velocidad con doble tacómetro de precisión, amplio rango de entrada y montaje estándar en rail DIN.',
           dl1300Title: 'Datalogger DL1300 para Aerogeneradores',
           dl1300Text: 'Sistema de adquisición de datos tolerante a fallos para instrumentación industrial RS232 y RS485, sin necesidad de programación.',
+          controller600Title: 'Controlador de Aerogenerador',
+          controller600Text: 'Sistema de control para aerogeneradores de pala fija con generador de jaula de ardilla y soft starter, orientado a integración y ensayo.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         en: {
@@ -261,6 +270,8 @@
           cvrText: 'Speed measurement equipment with dual precision tachometer, wide input range, and standard DIN rail mounting.',
           dl1300Title: 'DL1300 Datalogger for Wind Turbines',
           dl1300Text: 'Fault-tolerant data acquisition system for RS232 and RS485 industrial instrumentation, with no programming required.',
+          controller600Title: 'Wind Turbine Controller',
+          controller600Text: 'Control system for fixed-blade wind turbines with squirrel-cage generator and soft starter, intended for integration and testing.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         fr: {
@@ -279,6 +290,8 @@
           cvrText: 'Équipement de mesure de vitesse avec double tachymètre de précision, large plage d’entrée et montage standard sur rail DIN.',
           dl1300Title: 'Datalogger DL1300 pour éoliennes',
           dl1300Text: 'Système d’acquisition de données tolérant aux pannes pour instrumentation industrielle RS232 et RS485, sans programmation requise.',
+          controller600Title: 'Contrôleur d’éolienne',
+          controller600Text: 'Système de contrôle pour éoliennes à pales fixes avec générateur à cage d’écureuil et soft starter, destiné à l’intégration et aux essais.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         it: {
@@ -297,6 +310,8 @@
           cvrText: 'Apparecchiatura di misura della velocità con doppio tachimetro di precisione, ampio intervallo di ingresso e montaggio standard su guida DIN.',
           dl1300Title: 'Datalogger DL1300 per aerogeneratori',
           dl1300Text: 'Sistema di acquisizione dati tollerante ai guasti per strumentazione industriale RS232 e RS485, senza necessità di programmazione.',
+          controller600Title: 'Controllore per aerogeneratore',
+          controller600Text: 'Sistema di controllo per aerogeneratori a pale fisse con generatore a gabbia di scoiattolo e soft starter, destinato a integrazione e collaudo.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         de: {
@@ -315,6 +330,8 @@
           cvrText: 'Drehzahlmessgerät mit zwei Präzisions-Drehzahlmessern, großem Eingangsbereich und Standardmontage auf DIN-Schiene.',
           dl1300Title: 'DL1300-Datenlogger für Windenergieanlagen',
           dl1300Text: 'Fehlertolerantes Datenerfassungssystem für industrielle RS232- und RS485-Instrumentierung, ohne Programmieraufwand.',
+          controller600Title: 'Windenergieanlagen-Steuerung',
+          controller600Text: 'Steuerungssystem für Windenergieanlagen mit festen Rotorblättern, Käfigläufergenerator und Soft Starter, ausgelegt für Integration und Erprobung.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         },
         pt: {
@@ -333,6 +350,8 @@
           cvrText: 'Equipamento de medição de velocidade com duplo tacómetro de precisão, ampla gama de entrada e montagem padrão em calha DIN.',
           dl1300Title: 'Datalogger DL1300 para aerogeradores',
           dl1300Text: 'Sistema de aquisição de dados tolerante a falhas para instrumentação industrial RS232 e RS485, sem necessidade de programação.',
+          controller600Title: 'Controlador de Aerogerador',
+          controller600Text: 'Sistema de controlo para aerogeradores de pá fixa com gerador de gaiola de esquilo e soft starter, destinado à integração e ensaio.',
           footerText: '&copy; 2026 Automated Computing Machinery SL (ACM SL).'
         }
       };
@@ -362,10 +381,11 @@
       document.getElementById('gptrLink').href = `generador-programable-red-trifasica.html?lang=${lang}`;
       document.getElementById('cvrLink').href = `doble-tacometro-industrial-alta-resolucion.html?lang=${lang}`;
       document.getElementById('dl1300Link').href = `datalogger-dl1300-aerogeneradores.html?lang=${lang}`;
+      document.getElementById('controller600Link').href = `controlador-aerogenerador.html?lang=${lang}`;
       document.getElementById('heroSection').setAttribute('aria-label', t.heroAria);
       document.getElementById('developmentList').setAttribute('aria-label', t.listAria);
 
-      ['heroTitle', 'heroText', 'bonus1300Title', 'bonus1300Text', 'gptrTitle', 'gptrText', 'cvrTitle', 'cvrText', 'dl1300Title', 'dl1300Text'].forEach((key) => {
+      ['heroTitle', 'heroText', 'bonus1300Title', 'bonus1300Text', 'gptrTitle', 'gptrText', 'cvrTitle', 'cvrText', 'dl1300Title', 'dl1300Text', 'controller600Title', 'controller600Text'].forEach((key) => {
         setText(key, t[key]);
       });
 
