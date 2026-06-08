@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pourquoi les pales d'une éolienne tournent-elles ?</title>
+    <meta name="description" content="Explication didactique du principe aérodynamique qui fait tourner les pales d'une éolienne">
+    <meta name="keywords" content="éolienne, pales, portance, énergie éolienne, principe aérodynamique">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        p, li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("WhythebladesinaWindTurbineturn");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Pourquoi les pales d'une éolienne tournent-elles ?</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="Introduction.html"><img src="img/arrow_left.png" alt="Précédent"/></a>
+            <a href="ComparisonofcutinindifferentWind.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objectif d'apprentissage</h3>
+            <p>À l'issue de cette section, vous comprendrez le principe physique fondamental qui permet la conversion de l'énergie cinétique du vent en énergie mécanique de rotation dans une éolienne.</p>
+        </div>
+
+        <h2>Introduction : Le rôle des pales dans une éolienne</h2>
+
+        <p>Les pales sont les éléments clés où s'opère la <span class="key-concept">conversion d'énergie</span> dans une éolienne. Plus précisément, les pales transforment une partie de l'<span class="key-concept">énergie cinétique du vent</span> en <span class="key-concept">énergie cinétique de rotation</span> de la chaîne cinématique de l'éolienne.</p>
+
+        <h2>Comment s'effectue cette conversion ?</h2>
+
+        <p>Cette conversion d'énergie se produit grâce aux <span class="key-concept">forces aérodynamiques</span> générées lorsque le vent traverse les pales. Ces forces provoquent le mouvement de rotation du rotor.</p>
+
+        <div class="didactic-box">
+            <h3>💭 Idée reçue courante</h3>
+            <p>À première vue, il pourrait sembler que les forces du vent « poussent » simplement les pales perpendiculairement au plan de rotation, comme si le vent heurtait un mur vertical qui tourne.</p>
+            <p><strong>Cependant, cette explication est incorrecte.</strong> Le principe de fonctionnement réel est bien plus sophistiqué et efficace.</p>
+        </div>
+
+        <h2>Le véritable principe aérodynamique : la portance</h2>
+
+        <p>La vraie raison pour laquelle les pales tournent <strong>n'est pas intuitive</strong>, mais elle est fondamentale pour comprendre le fonctionnement d'une éolienne.</p>
+
+        <div class="important-note">
+            <h3>⚡ Principe clé</h3>
+            <p>Les pales d'une éolienne fonctionnent selon un principe similaire à celui qui permet aux <strong>avions de rester en l'air pendant le vol</strong>.</p>
+            <p>Ce principe est basé sur la génération de <span class="key-concept">forces de portance</span> produites par le profil aérodynamique des pales.</p>
+        </div>
+
+        <h2>Approfondir le concept</h2>
+
+        <p>Pour comprendre en détail ce fascinant principe physique, nous vous recommandons de consulter l'explication complète dans le tutoriel :</p>
+
+        <div class="didactic-box">
+            <p>📚 <a class="rvts12" href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C5768797468654875627475726E732E68746D6C65"><strong>« Pourquoi les pales tournent-elles ? »</strong></a> - Tutoriel complet</p>
+            <p>Dans ce tutoriel vous trouverez :</p>
+            <ul>
+                <li>Explication détaillée du profil aérodynamique des pales</li>
+                <li>Comparaison avec une aile d'avion</li>
+                <li>Diagrammes de forces et vecteurs de vitesse</li>
+                <li>Concepts de portance et de traînée aérodynamique</li>
+            </ul>
+        </div>
+
+        <h2>Résumé des concepts clés</h2>
+
+        <div class="didactic-box">
+            <h3>📝 Points importants à retenir :</h3>
+            <ol>
+                <li>Les pales convertissent l'énergie cinétique du vent en énergie de rotation</li>
+                <li>Cette conversion s'effectue par le biais de forces aérodynamiques</li>
+                <li>Le principe n'est PAS simplement le vent qui « pousse »</li>
+                <li>Le véritable principe est similaire à la portance des avions</li>
+                <li>Le profil aérodynamique des pales est essentiel pour ce fonctionnement</li>
+            </ol>
+        </div>
+
+        <h2>Activités suggérées</h2>
+
+        <div class="learning-objective">
+            <h3>🔬 Pour consolider votre apprentissage :</h3>
+            <ol>
+                <li>Consultez le tutoriel complet sur le principe de portance</li>
+                <li>Comparez le profil d'une pale d'éolienne avec une aile d'avion</li>
+                <li>Identifiez les principales forces agissant sur une pale en rotation</li>
+                <li>Réfléchissez à pourquoi ce principe est plus efficace que la simple « poussée »</li>
+            </ol>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coût du déroulage des câbles de puissance</title>
+    <meta name="description" content="Expérience pour calculer le coût économique des opérations de déroulage des câbles">
+    <meta name="keywords" content="déroulage, câbles, lacet, coût, perte de production, éolienne">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 15px;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .calculation-box {
+            background-color: #f9f9f9;
+            border: 2px solid #666;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .data-table {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #999;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("CostofPowerCablesuntwisting");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Coût du déroulage des câbles de puissance</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="ObservationoftheNacelleYawoperat.html"><img src="img/arrow_left.png" alt="Précédent"/></a>
+            <a href="Responsetowindgusts.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objectifs d'apprentissage</h3>
+            <p>À l'issue de cette expérience vous serez capable de :</p>
+            <ul>
+                <li>Comprendre pourquoi le déroulage des câbles a un coût économique significatif</li>
+                <li>Calculer le temps total d'une opération de déroulage complète</li>
+                <li>Estimer les pertes de production associées à ce processus</li>
+                <li>Analyser les composantes du coût : perte de production vs consommation des moteurs</li>
+                <li>Évaluer des stratégies pour minimiser l'impact économique du déroulage</li>
+            </ul>
+        </div>
+
+        <h2>Introduction : Pourquoi y a-t-il un coût ?</h2>
+
+        <div class="didactic-box">
+            <h3>💰 Le problème économique du déroulage</h3>
+            <p>Comme nous l'avons vu dans l'expérience précédente, les câbles de puissance se tordent progressivement au fur et à mesure que la nacelle tourne en suivant les changements de direction du vent. Lorsque la limite de torsion est atteinte, l'éolienne doit effectuer une <span class="key-concept">opération de déroulage</span>.</p>
+
+            <p>Cette opération comporte plusieurs composantes de coût :</p>
+            <ul>
+                <li><strong>Déconnexion du réseau (coupure) :</strong> Aucune électricité n'est générée pendant cette phase</li>
+                <li><strong>Rotation de déroulage :</strong> La nacelle doit effectuer plusieurs tours complets, un processus qui prend du temps</li>
+                <li><strong>Reconnexion au réseau (mise en service) :</strong> Un temps supplémentaire est nécessaire jusqu'à atteindre une production stable</li>
+                <li><strong>Consommation des moteurs de lacet :</strong> Ces moteurs consomment de l'énergie pendant le processus</li>
+            </ul>
+
+            <p>L'<strong>objectif de cette expérience</strong> est de quantifier ces coûts en termes économiques.</p>
+        </div>
+
+        <h2>Énoncé du problème</h2>
+
+        <div class="important-note">
+            <h3>📋 Scénario d'analyse</h3>
+            <p>Nous considérerons le scénario réaliste suivant :</p>
+
+            <h4>Conditions initiales :</h4>
+            <ul>
+                <li>L'éolienne est en <strong>production</strong> (génère de l'électricité)</li>
+                <li>Les câbles de puissance ont atteint la <strong>limite de torsion</strong> dans un sens</li>
+                <li>Limite configurée : <strong>2,5 tours complets</strong> (900 degrés)</li>
+                <li>Une opération de déroulage complète doit être effectuée</li>
+            </ul>
+
+            <h4>Paramètres du système :</h4>
+            <ul>
+                <li>Vitesse du vent : <strong>Au-dessus de la vitesse nominale</strong> (bonnes conditions de production)</li>
+                <li>Puissance nominale de l'éolienne : <strong>1 500 kW</strong></li>
+                <li>Consommation des moteurs de lacet : <strong>5 kW</strong></li>
+                <li>Prix de vente de l'électricité : <strong>0,10 €/kWh</strong></li>
+                <li>Vitesse des moteurs de lacet : <strong>0,5 °/s</strong></li>
+            </ul>
+        </div>
+
+        <h2>Méthodologie de l'expérience</h2>
+
+        <p>L'expérience vous demande de déterminer trois temps critiques puis de calculer les coûts associés :</p>
+
+        <div class="procedure-box">
+            <h3>📝 Tâche 1 : Observer le temps de déconnexion (coupure)</h3>
+
+            <p>Lorsque l'éolienne décide de commencer le déroulage, elle doit d'abord se déconnecter en toute sécurité du réseau électrique.</p>
+
+            <h4>Procédure :</h4>
+            <ol>
+                <li>Configurez le simulateur avec les conditions spécifiées</li>
+                <li>Activez le processus de coupure (déconnexion)</li>
+                <li>Utilisez les enregistreurs de bande (StripRecorders) pour mesurer le temps</li>
+                <li>Enregistrez le <strong>temps depuis le début de la coupure jusqu'à ce que la puissance générée atteigne 0 kW</strong></li>
+            </ol>
+
+            <div class="data-table">
+                <h4>Données à enregistrer :</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Valeur</th>
+                    </tr>
+                    <tr>
+                        <td>Temps de déconnexion (t_coupure)</td>
+                        <td>_______ secondes</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Tâche 2 : Calculer le temps de déroulage</h3>
+
+            <p>Une fois déconnectée, la nacelle doit tourner pour dérouler les câbles.</p>
+
+            <h4>Calcul théorique :</h4>
+            <div class="calculation-box">
+                <p><strong>Angle total à parcourir :</strong></p>
+                <p>Si la limite est de 2,5 tours dans un sens, nous devons tourner de 2,5 tours dans le sens opposé</p>
+                <p>Angle = 2,5 tours × 360°/tour = 900 degrés</p>
+
+                <p><strong>Vitesse du moteur :</strong> 0,5 °/s</p>
+
+                <p><strong>Temps de déroulage :</strong></p>
+                <p>t_déroulage = Angle total / Vitesse</p>
+                <p>t_déroulage = 900° / 0,5 °/s = <strong>1 800 secondes</strong> = <strong>30 minutes</strong></p>
+            </div>
+
+            <h4>Vérification expérimentale (optionnelle) :</h4>
+            <p>Vous pouvez observer ce processus dans le simulateur en modifiant les paramètres de vitesse de lacet :</p>
+            <ul>
+                <li>Localisez les paramètres <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C5370616E6973685C44534153575453696D756C61746F725C446573656E72726F6C6C654361626C65732E68746D6C65/">'NacelleYawing.CWYawingSpeed'</a>
+                    et <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C5370616E6973685C44534153575453696D756C61746F725C446573656E72726F6C6C654361626C65732E68746D6C65/">'NacelleYawing.CCWYawingSpeed'</a></li>
+               <li>Réglez-les à 0,5 °/s</li>
+                <li>Observez le temps réel que prend le processus complet</li>
+            </ul>
+
+            <div class="data-table">
+                <h4>Données à enregistrer :</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Valeur calculée</th>
+                        <th>Valeur observée (optionnelle)</th>
+                    </tr>
+                    <tr>
+                        <td>Temps de déroulage (t_déroulage)</td>
+                        <td>1 800 s (30 min)</td>
+                        <td>_______ secondes</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Tâche 3 : Observer le temps de reconnexion (mise en service)</h3>
+
+            <p>Après avoir terminé le déroulage, l'éolienne doit se reconnecter au réseau et atteindre une production stable.</p>
+
+            <h4>Procédure :</h4>
+            <ol>
+                <li>Une fois le déroulage terminé, démarrez le processus de mise en service</li>
+                <li>Utilisez les StripRecorders pour mesurer le temps</li>
+                <li>Enregistrez le <strong>temps depuis le début de la mise en service jusqu'à l'atteinte d'une production stable à la puissance nominale</strong></li>
+            </ol>
+
+            <p>💡 <strong>Remarque :</strong> Vous pouvez utiliser les données de l'expérience <a href="ComparisonofcutinindifferentWind.html">« Comparaison du démarrage dans différentes familles d'éoliennes »</a> si vous avez déjà effectué des mesures avec un vent supérieur à la vitesse nominale.</p>
+
+            <div class="data-table">
+                <h4>Données à enregistrer :</h4>
+                <table>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Valeur</th>
+                    </tr>
+                    <tr>
+                        <td>Temps de reconnexion (t_mise_en_service)</td>
+                        <td>_______ secondes</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <h2>Calcul du coût</h2>
+
+        <div class="important-note">
+            <h3>💶 Analyse économique</h3>
+
+            <p>Une fois tous les temps obtenus, nous pouvons calculer le coût total de l'opération de déroulage.</p>
+
+            <h4>Temps total de l'opération :</h4>
+            <div class="calculation-box">
+                <p>T_total = t_coupure + t_déroulage + t_mise_en_service</p>
+                <p>T_total = _____ s + 1 800 s + _____ s = _____ secondes</p>
+                <p>T_total en heures = _____ s / 3 600 s/h = _____ heures</p>
+            </div>
+
+            <h4>Composantes du coût :</h4>
+
+            <h5>1. Perte de production (revenus non réalisés) :</h5>
+            <div class="calculation-box">
+                <p><strong>Pendant la coupure, le déroulage et la mise en service :</strong></p>
+                <p>Énergie qui aurait été générée = Puissance nominale × Temps total</p>
+                <p>E_perdue = 1 500 kW × _____ h = _____ kWh</p>
+                <p></p>
+                <p>Revenu perdu = E_perdue × Prix</p>
+                <p>Coût_perte_production = _____ kWh × 0,10 €/kWh = <strong>_____ €</strong></p>
+            </div>
+
+            <h5>2. Consommation des moteurs de lacet (coût direct) :</h5>
+            <div class="calculation-box">
+                <p><strong>Pendant le déroulage uniquement :</strong></p>
+                <p>Énergie consommée = Puissance du moteur × Temps de déroulage</p>
+                <p>E_consommée = 5 kW × (1 800 s / 3 600 s/h) = 5 kW × 0,5 h = 2,5 kWh</p>
+                <p></p>
+                <p>Coût de consommation = E_consommée × Prix</p>
+                <p>Coût_moteurs = 2,5 kWh × 0,10 €/kWh = <strong>0,25 €</strong></p>
+            </div>
+
+            <h5>3. Coût total :</h5>
+            <div class="calculation-box">
+                <p>Coût_total = Coût_perte_production + Coût_moteurs</p>
+                <p>Coût_total = _____ € + 0,25 € = <strong>_____ €</strong></p>
+            </div>
+        </div>
+
+        <h2>Modèle de calcul</h2>
+
+        <div class="data-table">
+            <h3>📊 Résumé des résultats</h3>
+            <table>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #4caf50; color: white;">DONNÉES MESURÉES</th>
+                </tr>
+                <tr>
+                    <td>Temps de coupure (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Temps de déroulage (s)</td>
+                    <td>1 800</td>
+                </tr>
+                <tr>
+                    <td>Temps de mise en service (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #2196f3; color: white;">TEMPS CALCULÉS</th>
+                </tr>
+                <tr>
+                    <td>Temps total de l'opération (s)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Temps total de l'opération (h)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <th colspan="2" style="text-align: center; background-color: #ff9800; color: white;">COÛTS</th>
+                </tr>
+                <tr>
+                    <td>Énergie perdue (kWh)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Revenu perdu (€)</td>
+                    <td>_______</td>
+                </tr>
+                <tr>
+                    <td>Consommation des moteurs (kWh)</td>
+                    <td>2,5</td>
+                </tr>
+                <tr>
+                    <td>Coût de consommation des moteurs (€)</td>
+                    <td>0,25</td>
+                </tr>
+                <tr style="font-weight: bold; background-color: #ffeb3b;">
+                    <td>COÛT TOTAL (€)</td>
+                    <td>_______</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Analyse et réflexion</h2>
+
+        <div class="learning-objective">
+            <h3>🤔 Questions d'analyse</h3>
+            <ol>
+                <li><strong>Composante de coût dominante :</strong>
+                    <ul>
+                        <li>Quelle est la principale composante de coût : la perte de production ou la consommation des moteurs ?</li>
+                        <li>Dans quelle proportion chacune contribue-t-elle au coût total ?</li>
+                    </ul>
+                </li>
+                <li><strong>Impact de la vitesse du vent :</strong>
+                    <ul>
+                        <li>Comment le coût changerait-il si le déroulage survenait avec un vent inférieur à la vitesse nominale ?</li>
+                        <li>Serait-il plus économique d'attendre des conditions de vent faible pour effectuer le déroulage ?</li>
+                    </ul>
+                </li>
+                <li><strong>Fréquence de déroulage :</strong>
+                    <ul>
+                        <li>Si le schéma de vent provoque un déroulage chaque semaine, quel serait le coût annuel ?</li>
+                        <li>Quel pourcentage de la production annuelle cela représenterait-il ?</li>
+                    </ul>
+                </li>
+                <li><strong>Optimisation :</strong>
+                    <ul>
+                        <li>Quelles stratégies pourraient réduire ce coût ?</li>
+                        <li>Serait-il intéressant d'augmenter la limite de torsion autorisée ? Quels risques cela impliquerait-il ?</li>
+                        <li>Des moteurs de lacet plus rapides seraient-ils bénéfiques ? Quelles considérations faudrait-il prendre en compte ?</li>
+                    </ul>
+                </li>
+                <li><strong>Comparaison entre technologies :</strong>
+                    <ul>
+                        <li>Ce coût est-il le même pour tous les types d'éoliennes (DSAS, RRC, DFIG) ?</li>
+                        <li>Quelles différences pourrait-il y avoir dans les temps de coupure et de mise en service entre les technologies ?</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <h2>Considérations pratiques</h2>
+
+        <div class="didactic-box">
+            <h3>🔧 Aspects opérationnels dans les parcs éoliens réels</h3>
+            <ul>
+                <li><strong>Planification intelligente :</strong> Les systèmes SCADA modernes peuvent planifier les opérations de déroulage pendant les périodes de faible production (ex. vents nocturnes faibles)</li>
+                <li><strong>Prévision météorologique :</strong> Les prévisions sont utilisées pour éviter de dérouler juste avant des périodes de vents optimaux</li>
+                <li><strong>Surveillance continue :</strong> Systèmes d'alerte précoce lorsque l'on approche de la limite de torsion</li>
+                <li><strong>Stratégies préventives :</strong> Certains contrôleurs essaient d'équilibrer les rotations dans les deux sens pour minimiser l'accumulation</li>
+                <li><strong>Limites adaptatives :</strong> Dans certaines conceptions, la limite de tours peut être ajustée selon les conditions d'exploitation</li>
+            </ul>
+        </div>
+
+        <h2>Conclusions</h2>
+
+        <div class="important-note">
+            <h3>📌 Points clés</h3>
+            <ul>
+                <li>Le déroulage des câbles a un <strong>coût économique significatif</strong>, principalement dû à la perte de production</li>
+                <li>Le coût est beaucoup plus élevé lorsqu'il survient dans des conditions de vent optimales</li>
+                <li>La composante <strong>temps de déroulage</strong> est la partie la plus longue de l'ensemble du processus</li>
+                <li>La consommation des moteurs de lacet est relativement faible par rapport à la perte de production</li>
+                <li>Une bonne <strong>stratégie de gestion</strong> peut minimiser considérablement ces coûts</li>
+                <li>C'est un exemple de la façon dont des décisions opérationnelles apparemment simples ont un <strong>impact économique direct</strong> sur un parc éolien</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

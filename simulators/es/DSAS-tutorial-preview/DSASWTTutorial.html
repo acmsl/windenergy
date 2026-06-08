@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="generator" content="DSASWTTutorial-es">
+	<title>Tutorial - Aerogenerador Dos Velocidades Active Stall</title>
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<script type="text/javascript">
+		function escapeHtml(unsafe) {
+			return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;").replace(/:/g, "");
+		}
+		var sTopic = "";
+		if (top.location.href.lastIndexOf("?") > 0)
+			sTopic = top.location.href.substring(top.location.href.lastIndexOf("?") + 1, top.location.href.length);
+		if (sTopic == "") sTopic = "Introduccion.html";
+		sTopic = escapeHtml(sTopic);
+		document.write('<frameset cols="300,*">');
+		document.write('<frame src="toc.html" name="FrameTOC">');
+		document.write('<frame src="' + sTopic + '" name="FrameMain">');
+		document.write('</frameset>');
+		window.addEventListener('message', function(e) {
+			if (e.data && e.data.ldpTocPage && frames['FrameTOC']) {
+				try { frames['FrameTOC'].postMessage(e.data, '*'); } catch(ex) {}
+			}
+		});
+	</script>
+</head>
+<noscript>
+	<frameset cols="300,*">
+		<frame src="toc.html" name="FrameTOC">
+		<frame src="Introduccion.html" name="FrameMain">
+	</frameset>
+</noscript>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison du démarrage dans différentes familles d'éoliennes</title>
+    <meta name="description" content="Expérience comparative du processus de démarrage (mise en service) dans les éoliennes DSAS, RRC et DFIG">
+    <meta name="keywords" content="mise en service, démarrage, éoliennes, DSAS, RRC, DFIG, comparaison">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        p, li {
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .data-table {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        ol li {
+            margin-bottom: 20px;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("ComparisonofcutinindifferentWind");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Comparaison du démarrage dans différentes familles d'éoliennes</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="WhythebladesinaWindTurbineturn.html"><img src="img/arrow_left.png" alt="Précédent"/></a>
+            <a href="ComparisonofPowervsWindcurvesofW.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objectifs d'apprentissage</h3>
+            <p>À l'issue de cette expérience vous serez capable de :</p>
+            <ul>
+                <li>Comprendre le processus de mise en service (démarrage) d'une éolienne</li>
+                <li>Identifier les différences de comportement au démarrage entre les trois principales familles d'éoliennes</li>
+                <li>Analyser l'évolution des variables clés lors de la transition de l'arrêt à la production</li>
+                <li>Créer et analyser des graphiques comparatifs du temps de démarrage en fonction de la vitesse du vent</li>
+            </ul>
+        </div>
+
+        <h2>Qu'est-ce que la mise en service ou le démarrage ?</h2>
+
+        <div class="didactic-box">
+            <h3>📖 Concept : Mise en service (Démarrage)</h3>
+            <p>La <span class="key-concept">mise en service</span> est le processus par lequel une éolienne passe d'un état <strong>arrêté</strong> (chaîne cinématique au repos et générateur déconnecté du réseau) à l'état de <strong>production</strong> (génération d'électricité et alimentation du réseau électrique).</p>
+            <p>Ce processus implique plusieurs sous-systèmes de l'éolienne et varie considérablement selon la technologie utilisée.</p>
+        </div>
+
+        <h2>Importance de l'étude comparative</h2>
+
+        <p>Chaque famille d'éoliennes utilise différentes stratégies et technologies pour effectuer le démarrage. Comprendre ces différences vous permettra de :</p>
+        <ul>
+            <li>Évaluer les avantages et les limites de chaque technologie</li>
+            <li>Comprendre l'impact sur la production d'énergie</li>
+            <li>Analyser les exigences de maintenance et d'usure</li>
+            <li>Optimiser la sélection de l'éolienne selon les conditions du site</li>
+        </ul>
+
+        <h2>Méthodologie de l'expérience</h2>
+
+        <div class="important-note">
+            <h3>🔬 Objectif expérimental</h3>
+            <p>Créer un tableau de données pour chaque type d'éolienne qui relie la <strong>vitesse du vent</strong> au <strong>temps nécessaire pour compléter le démarrage</strong>.</p>
+        </div>
+
+        <div class="data-table">
+            <h3>📊 Structure du tableau de données</h3>
+            <p>Pour chaque éolienne vous créerez un tableau avec deux colonnes :</p>
+            <ul>
+                <li><strong>Vitesse du vent (m/s) :</strong> De 6 m/s à 17 m/s par incréments de 1 m/s</li>
+                <li><strong>Temps de démarrage (s) :</strong> Temps mesuré depuis le début jusqu'à la production stable</li>
+            </ul>
+        </div>
+
+        <div class="didactic-box">
+            <h3>🛠️ Outil de mesure : StripRecorders</h3>
+            <p>Vous utiliserez la fonctionnalité <span class="key-concept">StripRecorders</span> (enregistreurs graphiques) des simulateurs pour :</p>
+            <ul>
+                <li>Visualiser l'évolution temporelle des variables</li>
+                <li>Mesurer des distances de temps entre événements</li>
+                <li>Créer des copies actives des mesures</li>
+            </ul>
+            <p>📚 Consultez le tutoriel « <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C4C64505F48656C705C41637469766568617264636F706965732E68746D6C">Copies actives</a> » pour apprendre à utiliser cet outil.</p>
+        </div>
+
+        <h2>Procédure expérimentale</h2>
+
+        <div class="procedure-box">
+            <h3>📝 Expérience 1 : Éolienne DSAS</h3>
+            <h4>Type : Générateur à cage d'écureuil directement connecté au réseau avec contrôle actif par décrochage aérodynamique</h4>
+
+            <p><strong>Préparation :</strong></p>
+            <ul>
+                <li>Consultez le tutoriel « <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C53657474696E67746865636F6E646974696F6E73666F726157696E64547572622E68746D6C65">Réglage des conditions pour qu'une éolienne démarre avec une vitesse de vent faible</a> »</li>
+                <li>Familiarisez-vous avec les commandes du simulateur DSAS</li>
+                <li>Identifiez les variables clés à surveiller</li>
+            </ul>
+
+            <p><strong>Exécution :</strong></p>
+            <ol>
+                <li>Démarrez le simulateur DSAS avec une vitesse de vent de 6 m/s</li>
+                <li>Activez les StripRecorders pour les variables principales :
+                    <ul>
+                        <li>Vitesse de rotation du rotor (tr/min)</li>
+                        <li>Puissance générée (kW)</li>
+                        <li>État du générateur (connecté/déconnecté)</li>
+                    </ul>
+                </li>
+                <li>Lancez le processus de démarrage</li>
+                <li>Observez et enregistrez le temps depuis le début jusqu'à l'atteinte d'une production stable</li>
+                <li>Répétez l'expérience en augmentant la vitesse du vent par paliers de 1 m/s jusqu'à 17 m/s</li>
+                <li>Enregistrez tous les temps dans votre tableau de données</li>
+            </ol>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Expérience 2 : Éolienne RRC</h3>
+            <h4>Type : Générateur à induction à rotor bobiné avec contrôle de la résistance rotorique et angle de calage des pales</h4>
+
+            <p><strong>Préparation :</strong></p>
+            <ul>
+                <li>Ouvrez le simulateur <a href="acmsl://ldp%20-c%20rrcr12.conf">RRC</a></li>
+                <li>Consultez le tutoriel « <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C437574696E73657175656E63657769746877696E6462656C6F776E6F6D696E612E68746D6C65">Séquence de mise en service avec vent inférieur au nominal</a> »</li>
+            </ul>
+
+            <p><strong>Exécution :</strong></p>
+            <ol>
+                <li>Répétez la même procédure qu'à l'expérience 1</li>
+                <li>Portez une attention particulière à :
+                    <ul>
+                        <li>Le comportement du contrôle de la résistance rotorique</li>
+                        <li>Le mouvement du système de calage</li>
+                        <li>L'évolution de la vitesse de rotation</li>
+                    </ul>
+                </li>
+                <li>Complétez votre tableau de données pour le RRC</li>
+            </ol>
+        </div>
+
+        <div class="procedure-box">
+            <h3>📝 Expérience 3 : Éolienne DFIG</h3>
+            <h4>Type : Générateur à induction doublement alimenté avec contrôle de l'angle de calage</h4>
+
+            <p><strong>Préparation :</strong></p>
+            <ul>
+                <li>Ouvrez le simulateur <a href="acmsl://ldp%20-c%20DFIGr12_50Hz.conf">DFIG (50 Hz)</a> ou <a href="acmsl://ldp%20-c%20DFIGr12_60Hz.conf">DFIG (60 Hz)</a> selon votre région</li>
+                <li>Consultez le tutoriel « <a href="acmsl://viewertutorial%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C54435374617274557057696E6442656C6F774E6F6D696E616C2E68746D6C65">Démarrage (mise en service) avec vent inférieur au nominal</a> »</li>
+            </ul>
+
+            <p><strong>Exécution :</strong></p>
+            <ol>
+                <li>Répétez la procédure des expériences précédentes</li>
+                <li>Observez en particulier :
+                    <ul>
+                        <li>Le comportement des convertisseurs dos-à-dos</li>
+                        <li>La stratégie de contrôle à vitesse variable</li>
+                        <li>La plage de vitesses de fonctionnement</li>
+                    </ul>
+                </li>
+                <li>Complétez votre tableau de données pour le DFIG</li>
+            </ol>
+        </div>
+
+        <h2>Analyse des résultats</h2>
+
+        <div class="learning-objective">
+            <h3>📊 Activités d'analyse</h3>
+            <ol>
+                <li><strong>Créez des graphiques comparatifs :</strong>
+                    <ul>
+                        <li>Tracez les trois courbes « Temps de démarrage vs Vitesse du vent » sur le même graphique</li>
+                        <li>Utilisez des couleurs différentes pour chaque technologie</li>
+                    </ul>
+                </li>
+                <li><strong>Analysez les tendances :</strong>
+                    <ul>
+                        <li>Comment le temps de démarrage varie-t-il avec la vitesse du vent ?</li>
+                        <li>Quelle technologie démarre le plus rapidement ?</li>
+                        <li>Existe-t-il des vitesses critiques où le comportement change ?</li>
+                    </ul>
+                </li>
+                <li><strong>Comparez les technologies :</strong>
+                    <ul>
+                        <li>Quelle éolienne présente le démarrage le plus doux ?</li>
+                        <li>Laquelle génère les plus grandes contraintes mécaniques au démarrage ?</li>
+                        <li>Quel impact cela a-t-il sur la maintenance ?</li>
+                    </ul>
+                </li>
+                <li><strong>Réfléchissez aux applications :</strong>
+                    <ul>
+                        <li>Sur un site avec des vents variables, quelle technologie serait la plus efficace ?</li>
+                        <li>Comment le temps de démarrage affecte-t-il la production annuelle d'énergie ?</li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+        <div class="important-note">
+            <h3>⚡ Points clés pour votre rapport</h3>
+            <p>À la fin de l'expérience, assurez-vous de pouvoir répondre à :</p>
+            <ul>
+                <li>Quelles sont les principales différences dans le processus de démarrage de chaque technologie ?</li>
+                <li>Quels avantages et inconvénients présente chaque méthode de démarrage ?</li>
+                <li>Comment les systèmes de contrôle (calage, résistance rotorique, convertisseurs) influencent-ils le démarrage ?</li>
+                <li>Quelle est la relation entre la complexité technologique et les performances au démarrage ?</li>
+            </ul>
+        </div>
+
+        <h2>Ressources complémentaires</h2>
+
+        <div class="didactic-box">
+            <h3>📚 Pour aller plus loin</h3>
+            <p>Il est recommandé de consulter les tutoriels suivants pour comprendre chaque technologie en détail :</p>
+            <ul>
+                <li><strong>DSAS :</strong> Fondamentaux du contrôle par décrochage aérodynamique</li>
+                <li><strong>RRC :</strong> Contrôle de la résistance du rotor bobiné</li>
+                <li><strong>DFIG :</strong> Générateurs doublement alimentés et convertisseurs dos-à-dos</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

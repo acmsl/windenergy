@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observation des opérations de lacet de la nacelle</title>
+    <meta name="description" content="Étude du système de lacet de la nacelle et des facteurs qui contrôlent le processus d'orientation">
+    <meta name="keywords" content="lacet, orientation, nacelle, éolienne, vent, contrôle">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 15px;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .technical-detail {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 3px solid #666;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("ObservationoftheNacelleYawoperat");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Observation des opérations de lacet de la nacelle</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="ComparisonofPowervsWindcurvesofW.html"><img src="img/arrow_left.png" alt="Précédent"/></a>
+            <a href="CostofPowerCablesuntwisting.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objectifs d'apprentissage</h3>
+            <p>À l'issue de cette expérience vous serez capable de :</p>
+            <ul>
+                <li>Comprendre la fonction et l'importance du système de lacet dans les éoliennes</li>
+                <li>Identifier les facteurs que le système de contrôle surveille pour décider quand orienter la nacelle</li>
+                <li>Connaître les différentes méthodes de mesure du désalignement par rapport au vent</li>
+                <li>Analyser le processus de lacet et ses limites opérationnelles</li>
+                <li>Comprendre le problème de torsion des câbles de puissance</li>
+            </ul>
+        </div>
+
+        <h2>Introduction : Pourquoi le lacet est-il nécessaire ?</h2>
+
+        <div class="didactic-box">
+            <h3>📖 Concept fondamental : Orientation « face au vent »</h3>
+            <p>Dans les éoliennes <span class="key-concept">« face au vent »</span> (avec le rotor situé devant la tour, du côté au vent), la nacelle doit être maintenue <strong>face au vent</strong> pour maximiser la capture d'énergie éolienne.</p>
+            <p>Si la nacelle n'est pas correctement alignée :</p>
+            <ul>
+                <li>La puissance captée du vent est réduite</li>
+                <li>Les charges latérales sur le rotor et la tour augmentent</li>
+                <li>L'usure des composants mécaniques augmente</li>
+                <li>L'efficacité globale de l'éolienne diminue</li>
+            </ul>
+        </div>
+
+        <h2>Le système de lacet</h2>
+
+        <p>Pour maintenir la nacelle face au vent, les éoliennes incorporent un <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C596177696E6773756273797374656D2E68746D6C65/"><span class="key-concept">sous-système de lacet</span></a>.</p>
+
+        <div class="technical-detail">
+            <h3>⚙️ Composants typiques du système de lacet</h3>
+            <p>Le système comprend généralement <strong>deux ensembles de moteurs avec réducteurs</strong>, un pour chaque sens de rotation :</p>
+            <ul>
+                <li><strong>Moteurs de lacet :</strong> Fournissent la force pour faire tourner la nacelle</li>
+                <li><strong>Réducteurs :</strong> Réduisent la vitesse et augmentent le couple</li>
+                <li><strong>Couronne dentée :</strong> Montée au sommet de la tour</li>
+                <li><strong>Pignons :</strong> S'engrènent avec la couronne pour transmettre le mouvement</li>
+                <li><strong>Freins de lacet :</strong> Maintiennent la nacelle fixe lorsqu'aucune opération de lacet n'a lieu</li>
+                <li><strong>Systèmes de mesure :</strong> Capteurs qui déterminent l'orientation de la nacelle et la direction du vent</li>
+            </ul>
+        </div>
+
+        <h2>Facteurs surveillés par le processus de lacet</h2>
+		<p>Le <span class="key-concept">contrôleur de l'éolienne</span> surveille en permanence plusieurs facteurs avant de décider d'orienter la nacelle :</p>
+
+    <h3>1. Désalignement de la nacelle par rapport à la direction du vent</h3>
+
+    <div class="didactic-box">
+        <h3>📐 Méthodes de mesure du désalignement</h3>
+        <p>Cette valeur peut être obtenue de deux manières différentes :</p>
+
+        <h4>Méthode A : Utilisation d'une girouette</h4>
+        <p>Utilise une <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C57696E64646972656374696F6E77696E6476616E652E68746D6C65/"><span class="key-concept">girouette</span></a> montée sur la nacelle :</p>
+        <ul>
+            <li>L'axe de référence de la girouette doit être aligné avec le plan de symétrie vertical de la nacelle</li>
+            <li>Mesure l'angle de désalignement <strong>directement</strong></li>
+            <li><strong>Avantage :</strong> Mesure directe et simple de l'erreur d'alignement</li>
+            <li><strong>Inconvénient :</strong> Peut être affectée par les turbulences créées par le rotor lui-même</li>
+        </ul>
+
+        <h4>Méthode B : Utilisation d'un anémomètre avancé + Mesure de l'orientation absolue</h4>
+        <p>Utilise des mesures absolues par rapport au Nord géographique :</p>
+        <ul>
+            <li>Un <strong>anémomètre avancé</strong> fournit la direction du vent (par rapport au Nord)</li>
+            <li>Un système de mesure fournit l'<strong>orientation de la nacelle</strong> (par rapport au Nord)</li>
+            <li>Le contrôleur calcule la différence entre les deux mesures</li>
+            <li><strong>Avantage :</strong> Plus grande précision, moins affectée par les turbulences locales</li>
+            <li><strong>Inconvénient :</strong> Nécessite que le mécanisme de mesure d'orientation et l'anémomètre soient correctement <strong>étalonnés par rapport au Nord</strong></li>
+        </ul>
+    </div>
+
+    <div class="important-note">
+        <h3>⚠️ Importance de l'étalonnage</h3>
+        <p>Pour la Méthode B, il est absolument essentiel que le système de mesure de l'orientation de la nacelle et l'anémomètre soient <strong>correctement étalonnés et alignés sur le Nord géographique</strong>.</p>
+        <p>Toute erreur d'étalonnage entraînera une erreur systématique dans l'alignement de l'éolienne.</p>
+    </div>
+
+    <h3>2. Vitesse du vent actuelle</h3>
+
+    <p>Le système de lacet ne fonctionne que lorsque la vitesse du vent est dans une plage appropriée, définie par deux limites :</p>
+
+    <div class="technical-detail">
+        <h3>🌬️ Limites de vitesse du vent pour les opérations de lacet</h3>
+        <ul>
+            <li><strong>« Minimum pour le lacet » (Min pour l'orientation) :</strong>
+                <ul>
+                    <li>Si le vent est en dessous de cette valeur, le système n'exécute pas d'opérations de lacet</li>
+                    <li>Raison : Avec des vents très faibles, l'opération consommerait plus d'énergie que ce qui serait gagné</li>
+                    <li>De plus, avec de faibles vents, la direction est généralement très variable et instable</li>
+                </ul>
+            </li>
+            <li><strong>« Maximum pour la mise en service » (Max pour mise en service) :</strong>
+                <ul>
+                    <li>Si le vent dépasse cette valeur, l'éolienne peut être en cours d'arrêt d'urgence</li>
+                    <li>Les opérations de lacet sont suspendues pour des raisons de sécurité</li>
+                </ul>
+            </li>
+        </ul>
+    <p>📚 Pour plus de détails, consultez ce <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C57696E646C696D6974732E68746D6C65/">tutoriel sur les limites de vent</a>.</p>
+
+    </div>
+
+    <h3>3. Nombre de tours de câble accumulés</h3>
+
+    <div class="didactic-box">
+        <h3>🔌 Le problème de torsion des câbles</h3>
+        <p>Les <span class="key-concept">câbles de puissance</span> transportent l'électricité générée depuis le générateur électrique (situé dans la nacelle, qui tourne) jusqu'au point de raccordement au réseau (situé à la base de la tour, qui est fixe).</p>
+
+        <p>Au fur et à mesure que la nacelle tourne en suivant les changements de direction du vent :</p>
+        <ul>
+            <li>Les câbles se <strong>tordent progressivement sur eux-mêmes</strong></li>
+            <li>Une <strong>contrainte mécanique</strong> s'accumule dans les câbles</li>
+            <li>Il existe un risque de <strong>dommages par torsion excessive</strong> si une limite est dépassée</li>
+        </ul>
+
+        <p>Pour cette raison, le contrôleur maintient un <strong>compteur de tours accumulés</strong> (positif dans un sens, négatif dans l'autre). Lorsqu'une limite prédéfinie est atteinte, le système doit effectuer une <span class="key-concept">opération de déroulage</span>.</p>
+
+    <p>📚 Pour plus d'informations sur ce processus, consultez le <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C596177696E676F667468656E6163656C6C652E68746D6C65/">tutoriel sur le lacet de la nacelle</a>.</p>
+
+    </div>
+
+    <h3>4. État de l'éolienne</h3>
+
+    <p>Le comportement du système de lacet dépend de l'état de fonctionnement de l'éolienne :</p>
+
+    <div class="technical-detail">
+        <h3>🔄 Stratégie de lacet selon l'état</h3>
+        <ul>
+            <li><strong>En état de production :</strong>
+                <ul>
+                    <li>L'éolienne génère de l'électricité</li>
+                    <li>Le lacet est prioritaire pour maximiser la capture d'énergie</li>
+                    <li>Les seuils de désalignement sont généralement plus stricts</li>
+                </ul>
+            </li>
+            <li><strong>En état d'arrêt :</strong>
+                <ul>
+                    <li>L'éolienne ne génère pas</li>
+                    <li>Le lacet est moins critique</li>
+                    <li>Un plus grand désalignement peut être toléré</li>
+                    <li>C'est le moment idéal pour effectuer des opérations de déroulage des câbles</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Session pratique guidée recommandée</h2>
+
+    <div class="learning-objective">
+        <h3>🎓 Expérience guidée</h3>
+        <p>Pour observer en détail le processus complet de lacet dans des conditions de vent changeantes, il est vivement recommandé de suivre la session technique :</p>
+        <p>📚 <a href="shellcommand%20'C:%5CACMSL%5CWindFarmSimulator%5CViewerTutorialsWFS.exe'%20-n%20%20'C:%5CACMSL%5CWindFarmSimulator%5CHelp%5CEnglish%5CDSASWTSimulator%5CChangingthewinddirection.htmle'"><strong>« Changement de direction du vent »</strong></a></p>
+
+        <p>Dans cette session pratique vous pourrez :</p>
+        <ul>
+            <li>Observer comment le système répond aux changements progressifs de direction du vent</li>
+            <li>Analyser les seuils d'activation du contrôleur</li>
+            <li>Étudier le comportement lors de l'accumulation de tours de câble</li>
+            <li>Comprendre l'interaction entre tous les facteurs surveillés</li>
+            <li>Expérimenter avec différentes configurations de paramètres</li>
+        </ul>
+    </div>
+
+    <h2>Considérations opérationnelles importantes</h2>
+
+    <div class="important-note">
+        <h3>⚡ Aspects clés du fonctionnement</h3>
+        <ul>
+            <li><strong>Vitesse de lacet :</strong> Typiquement entre 0,3 et 0,5 degrés par seconde (très lente comparée à la rotation du rotor)</li>
+            <li><strong>Consommation d'énergie :</strong> Les moteurs de lacet consomment de l'énergie électrique ; un lacet inutile réduit la production nette</li>
+            <li><strong>Usure mécanique :</strong> Chaque opération de lacet provoque une usure des engrenages, des roulements et des composants</li>
+            <li><strong>Compromis de conception :</strong> Le contrôleur doit optimiser entre :
+                <ul>
+                    <li>Maintenir un bon alignement (capture d'énergie maximale)</li>
+                    <li>Minimiser les opérations de lacet (réduire l'usure et la consommation)</li>
+                    <li>Éviter d'atteindre les limites de torsion des câbles</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Activités d'analyse</h2>
+
+    <div class="learning-objective">
+        <h3>📝 Exercices proposés</h3>
+        <ol>
+            <li><strong>Analyse des seuils :</strong>
+                <ul>
+                    <li>Pourquoi pensez-vous qu'il existe un seuil de désalignement minimum avant d'activer le système de lacet ?</li>
+                    <li>Que se passerait-il si le système tentait de maintenir un alignement parfait (0° d'erreur) en permanence ?</li>
+                </ul>
+            </li>
+            <li><strong>Comparaison des méthodes de mesure :</strong>
+                <ul>
+                    <li>Listez les avantages et les inconvénients de chaque méthode de mesure du désalignement</li>
+                    <li>Dans quelles situations chaque méthode serait-elle préférable ?</li>
+                </ul>
+            </li>
+            <li><strong>Stratégies de déroulage :</strong>
+                <ul>
+                    <li>Vaut-il mieux dérouler les câbles pendant la production ou pendant un arrêt ?</li>
+                    <li>Quels facteurs influencent cette décision ?</li>
+                </ul>
+            </li>
+            <li><strong>Optimisation des paramètres :</strong>
+                <ul>
+                    <li>Si un site a une direction de vent très variable, comment ajusteriez-vous les paramètres ?</li>
+                    <li>Si la direction du vent est très stable, quelles modifications feriez-vous ?</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Concepts clés à retenir</h2>
+
+    <div class="didactic-box">
+        <h3>📌 Résumé</h3>
+        <ul>
+            <li>Le bon alignement de la nacelle est essentiel pour maximiser la capture d'énergie</li>
+            <li>Le système de lacet est un compromis entre performance énergétique, usure mécanique et consommation</li>
+            <li>Plusieurs facteurs (désalignement, vitesse du vent, torsion des câbles, état de l'éolienne) doivent être pris en compte avant de décider d'effectuer un lacet</li>
+            <li>Il existe deux méthodes principales de mesure du désalignement, chacune ayant des avantages et des inconvénients</li>
+            <li>La torsion des câbles impose des limites opérationnelles importantes qui nécessitent des opérations de déroulage</li>
+            <li>L'étalonnage correct des systèmes de mesure est absolument essentiel</li>
+            <li>L'état de fonctionnement de l'éolienne affecte considérablement la stratégie de lacet</li>
+        </ul>
+    </div>
+</div>
+
+<div id="topic_footer">
+    <div id="topic_footer_content">
+        Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

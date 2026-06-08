@@ -1,0 +1,127 @@
+
+
+<html>
+	
+<head>
+	<title>Control de la potencia recogida del viento</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Active Pitch, Active Stall, ">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTTutorial.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("Coeficienteaerodinmico2");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Control de la potencia recogida del viento</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="PrincipiosFisicosAerogeneradores.html">Principios f&iacute;sicos</a> &rsaquo;&rsaquo; <a href="Porqugiranlaspalas.html">Conceptos sobre la potencia extraible del viento</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Porqugiranlaspalas.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Conceptossobrelapotencia.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="Coeficienteaerodinmico.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps4"><span class="rvts11">Existen varios métodos para controlar la potencia tomada del viento: un método consiste en controlar el angulo de las palas (Pitch), ya que variando éste se modifica el valor del coeficiente aerodinámico (Cp). Ver </span><a class="rvts14" href="Conceptossobrelapotencia.html">Coeficiente aerodinámico</a><span class="rvts11"> . Esta solución exige que el soporte de cada pala al Hub debe tener capacidad para girar cada una de ellas sobre su eje longitudinal. Esta técnica se conoce en la literatura especializada como "</span><span class="rvts61">Active Pitch</span><span class="rvts11">". En documentación anglosajona este método de control de Pitch se denomina "</span><span class="rvts13">to the feathers</span><span class="rvts11">", ya que para bajar el Cp se hace que la pala "se pliegue al viento" es decir, se hace que el angulo de la pala siga al viento, de forma que ofrezca la menor superficie frente a él.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Existe otra técnica que también utiliza el mecanismo de cambio de Pitch pero que en vez de basarse en "plegarse al viento" utiliza otro efecto (ver </span><a class="rvts14" href="Stalling.html">Entrada en pérdidas (Stalling)</a><span class="rvts11"> . En las gráficos 3D del </span><a class="rvts14" href="Conceptossobrelapotencia.html">Cp</a><span class="rvts11"> esta zona corresponde a la "pared escondida" que se corresponde con valores de Pitch negativos.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">Este método de control se denomina "</span><span class="rvts61">Active Stall</span><span class="rvts11">" y es el usado en el aerogenerador en el que se basa este Simulador.</span></p>
+<p class="rvps11"><span class="rvts12">Implicaciones para un aerogenerador con Generador de jaula de ardilla.</span></p>
+<p class="rvps4"><span class="rvts11">En el caso de una máquina de inducción de jaula de ardilla utilizada como Generador (caso de este Simulador), su velocidad de funcionamiento operativo está por encima, pero muy cerca, de su velocidad de sincronismo (ver </span><a class="rvts14" href="IntoductiontotheInductionMachine.html">Introducción a las máquinas de inducción</a><span class="rvts11"> ). Esta velocidad de sincronismo, en los aerogeneradores más instalados, está típicamente entre 1000 rpms y 3000 rpms, en función de la frecuencia de la Red y del número de polos del Generador.</span></p>
+<p class="rvps4"><span class="rvts11">En el caso particular del Generador eléctrico de este Simulador dispone de dos conexiones del bobinado del estator: uno que "crea" 3 pares de polos magnéticos en el entrehierro, &nbsp;y otro que crea 2 pares de polos. Las velocidades de sincronismo cuando se conecta a una Red de 50 Hz son, por tanto: 1000 rpms ( = 50 Hz * 60 / 3) en un caso y 1500 rpms ( = 50 Hz * 60 / 2) en otro.&nbsp;</span></p>
+<p class="rvps4"><span class="rvts11">El rango de velocidades a las que este tipo de Generador produce su máxima potencia está típicamente por debajo del 2% de la velocidad de sincronismo (ver </span><a class="rvts14" href="DatosTecnicosGenerador.html">Características del Generador emulado en este Simulador</a><span class="rvts11"> ), por lo que los aerogeneradores que utilizan este tipo de Generador son conocidos como de "</span><span class="rvts28">velocidad fija</span><span class="rvts11">". Tomando en cuenta la primera conclusión de la </span><a class="rvts14" href="Coeficienteaerodinmico.html#ConclusionesPuntoFuncionamiento">sección anterior</a><span class="rvts11"> , esto implica que</span><span class="rvts28"> este aerogenerador no presenta la mejor solución para aprovechar los vientos que son inferiores al Viento Nominal</span><span class="rvts11">.</span></p>
+<p class="rvps4"><span class="rvts11">Para paliar esta inadecuación, los aerogeneradores de pala fija utilizan la idea de disponer de dos Generadores que pueden funcionar a dos velocidades diferentes, o uno solo pero que puede funcionar a dos velocidades. Con ello es posible utilizar uno de ellos para vientos cercanos o superiores al Viento Nominal y otro que hace que el TSR se alcance al optimo para un viento bastante inferior al Viento Nominal.</span></p>
+<p class="rvps4"><span class="rvts11">En el caso de este Simulador, en el que la velocidad del Viento Nominal está alrededor de 11 m/s, y la velocidad de giro de las palas, para esa potencia en 19,4 rpms, utilizando la conexión de estátor para sincronismo a 1500 rpms (2 polos). Por tanto, cuando se cambia la conexión a 3 polos el viento para el que se alcanza el TSRóptimo esta alrededor de 7,3 m/s (= 11 m/s * (1000 rpms / 1500 rpms)).</span></p>
+<p class="rvps4"><span class="rvts11">Esta técnica se ha probado muy eficiente en la práctica, de forma que esta modalidad de aerogenerador fue ampliamente difundido antes de que los aerogeneradores de velocidad variable.</span></p>
+<p class="rvps4"><span class="rvts11">En la siguiente figura se muestra la relación entre viento y Pitch en un aerogenerador que utiliza "</span><span class="rvts13">Active Pitch</span><span class="rvts11">" (</span><span class="rvts79">curva verde</span><span class="rvts11">). Se representa también la relación entre la potencia obtenida en función del viento (</span><span class="rvts80">curva gris</span><span class="rvts11">) como resultado de aplicar los valores correspondientes del Pitch para el mismo viento.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/Panel%20Potencia%20y%20Pitch%20vs%20Viento%20espanol.jpg"></p>
+<p class="rvps4"><span class="rvts11">Fig 1.</span></p>
+<p class="rvps4"><span class="rvts11">Existe otro método de control basado en el diseño de las palas, que utiliza el concepto de "entrada en pérdidas" (stalling), que se describe en </span><a class="rvts14" href="Stalling.html">Entrada en pérdidas (Stalling)</a><span class="rvts11"> .</span></p>
+<p class="rvps4"><span class="rvts11">Un tercer método consiste en forzar la entrada en pérdidas también vairando el Pitch: esta técnica se conoce como "</span><span class="rvts61">Active Stall</span><span class="rvts11">" y también se describe en </span><a class="rvts14" href="Stalling.html#PitchvsVientoActiveStall">Entrada en pérdidas (Stalling)</a><span class="rvts11"> .</span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

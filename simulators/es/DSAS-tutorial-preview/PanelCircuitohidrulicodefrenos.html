@@ -1,0 +1,124 @@
+
+
+<html>
+	
+<head>
+	<title>Panel 'RPMs + Pitch + Maquinas de Estado'</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="velocidad de giro del eje del generador el&eacute;ctrico, Generador, pitch, m&aacute;quina de estado de Seguridad, seguridad, valor actual del estado, Operaci&oacute;n, m&aacute;quina de estado de Operaci&oacute;n, protocolos de actuaci&oacute;n, Controlador">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTTutorial.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("PanelCircuitohidrulicodefrenos");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Panel 'RPMs + Pitch + Maquinas de Estado'</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Simulador de Aerogenerador con Active Stall y Dos Velocidades</a> &rsaquo;&rsaquo; <a href="Sinopticos.html">Sin&oacute;pticos usados en este simulador</a> &rsaquo;&rsaquo; <a href="Comopresentarenprimerplanoundete.html">Como presentar un Registrador y elegir un Panel predefinido en &eacute;l.</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Comopresentarenprimerplanoundete.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="PanelYawing.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="PanelRPMsPitchMaquinasdeEstado.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><span class="rvts11">La siguiente figura muestra el panel denominado 'RPMs + Pitch + Maquinas de Estado', que contiene 6 canales.</span></p>
+<p class="rvps4"><img alt="" style="padding : 1px;" src="lib/RegistradorRPMsMaqEstado.jpg"></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">En el primer 'canal' se presenta una sola señal con la</span><span class="rvts16"> velocidad de giro del eje del generador eléctrico </span><span class="rvts11">(en rpms).</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">En el segundo 'canal' se presentan dos señales:</span></p>
+<p class="rvps22" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">1.</span><span class="rvts11">Señal generada en el Controlador y que sirve como </span><span class="rvts15">valor de consigna</span><span class="rvts11"> del </span><span class="rvts16">Pitch</span><span class="rvts11"> de las palas.</span></p>
+<p class="rvps22" style="text-indent: -24px; padding-left: 24px; margin-left: 48px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">2.</span><span class="rvts11">Señal proveniente del simulador del hub, con el valor real del Pitch de las palas.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">3.</span><span class="rvts11">En el tercer 'canal' se presenta una señal que corresponde con el </span><span class="rvts16">último evento</span><span class="rvts11"> recibido por la </span><span class="rvts16">máquina de estado de Seguridad</span><span class="rvts11"> implementada en el Controlador. Ver </span><a class="rvts48" href="SecurityStateMachine.html">Maquina de Estado de Seguridad</a><span class="rvts11">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">4.</span><span class="rvts11">En el cuarto 'canal' se presenta una señal que corresponde con el </span><span class="rvts16">valor actual del estado</span><span class="rvts11"> de la máquina de estado de Seguridad.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">5.</span><span class="rvts11">En el quinto 'canal' se presenta una señal que corresponde con el </span><span class="rvts16">último evento</span><span class="rvts11"> recibido por la </span><span class="rvts16">máquina de estado de Operación</span><span class="rvts11"> implementada en el Controlador. Ver </span><a class="rvts48" href="OperationStateMachine.html">Maquina de Estado de Operación.</a></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 9pt; font-family: 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">6.</span><span class="rvts11">En el sexto 'canal' se presenta una señal que corresponde con el </span><span class="rvts16">valor actual del estado</span><span class="rvts11"> de la máquina de estado de Operación.</span></p>
+<p class="rvps4"><span class="rvts11">Este panel es muy útil para seguir los </span><span class="rvts16">protocolos de actuación</span><span class="rvts11"> implementados en el Controlador para responder a diferentes circunstancias y operaciones, en relación con variables mecánicas clave.</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

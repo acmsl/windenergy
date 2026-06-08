@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réponse aux rafales de vent</title>
+    <meta name="description" content="Analyse du comportement des différentes familles d'éoliennes en réponse aux rafales de vent">
+    <meta name="keywords" content="rafales, rafales de vent, calage, turbulence, moment d'inertie, flicker, DSAS, RRC, DFIG">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        h4 {
+            font-size: 18px;
+            line-height: 1.4;
+            margin-top: 15px;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .technology-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .technology-name {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            display: block;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("Responsetowindgusts");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Réponse aux rafales de vent</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="CostofPowerCablesuntwisting.html"><img src="img/arrow_left.png" alt="Précédent"/></a>
+            <a href="DifferencesintheElectricGenerato.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objectifs d'apprentissage</h3>
+            <p>À l'issue de cette expérience vous serez capable de :</p>
+            <ul>
+                <li>Comprendre la nature des rafales de vent et leur modélisation</li>
+                <li>Identifier les défis que les rafales posent pour le fonctionnement des éoliennes</li>
+                <li>Analyser les différentes stratégies de réponse selon la technologie d'éolienne</li>
+                <li>Évaluer le rôle du moment d'inertie du rotor comme stockage d'énergie <h2>Introduction : Le vent comme phénomène complexe</h2>
+
+    <div class="didactic-box">
+        <h3>🌪️ Caractéristiques du vent réel</h3>
+        <p>Le vent est un <span class="key-concept">phénomène atmosphérique complexe</span> difficile à modéliser avec précision. En pratique, pour la conception et l'analyse des éoliennes, trois paramètres fondamentaux sont pris en compte :</p>
+        <ul>
+            <li><strong>Direction :</strong> La direction dans laquelle souffle le vent (ex. Nord, Sud-Ouest, etc.)</li>
+            <li><strong>Vitesse moyenne :</strong> La vitesse moyenne sur une période de temps (généralement 10 minutes)</li>
+            <li><strong>Turbulence :</strong> Les variations rapides et irrégulières de vitesse et de direction superposées à la vitesse moyenne</li>
+        </ul>
+
+        <p>Du point de vue du dimensionnement structurel et opérationnel des éoliennes, ces caractéristiques sont simplifiées en deux catégories principales :</p>
+        <ul>
+            <li><span class="key-concept">Vent moyen :</span> Conditions relativement stables</li>
+            <li><span class="key-concept">Rafales de vent :</span> Changements de vitesse soudains et significatifs</li>
+        </ul>
+    </div>
+
+    <h2>Caractérisation des rafales de vent</h2>
+
+    <p>Les <span class="key-concept">rafales de vent</span> se caractérisent par plusieurs paramètres :</p>
+
+    <div class="didactic-box">
+        <h3>📊 Paramètres des rafales</h3>
+        <ul>
+            <li><strong>Vitesse maximale :</strong> La vitesse de pointe atteinte pendant la rafale</li>
+            <li><strong>Vitesse minimale :</strong> Le creux de vitesse (peut être inférieur à la vitesse moyenne précédente)</li>
+            <li><strong>Amplitude :</strong> La différence entre la vitesse maximale et minimale</li>
+            <li><strong>Taux de variation maximum :</strong> La rapidité avec laquelle la vitesse du vent change (m/s²)</li>
+            <li><strong>Durée :</strong> La durée de la rafale</li>
+        </ul>
+    </div>
+
+    <h3>Modèle de rafale standard pour les comparaisons</h3>
+
+    <p>Pour comparer le comportement de différentes éoliennes, un modèle de rafale standardisé est utilisé permettant des tests reproductibles :</p>
+
+    <div style="text-align: center; margin: 20px 0;">
+        <img alt="Modèle de rafale de vent pour DFIG" src="lib/DFIG%20WindGust%20Def%20120x4.jpg">
+        <p style="font-style: italic; font-size: 14px;">Figure 1 : Modèle de rafale de vent typique utilisé pour les tests comparatifs</p>
+    </div>
+
+    <p>Ce modèle représente une rafale idéalisée en forme de rampe caractérisée par :</p>
+    <ul>
+        <li>Une vitesse initiale stable</li>
+        <li>Une augmentation linéaire de la vitesse (rampe montante)</li>
+        <li>Une période de vitesse maximale soutenue</li>
+        <li>Une diminution linéaire de la vitesse (rampe descendante)</li>
+        <li>Retour à des conditions stables</li>
+    </ul>
+
+    <h2>Le défi des rafales</h2>
+
+    <div class="important-note">
+        <h3>⚠️ Problèmes associés aux rafales</h3>
+        <p>Les rafales de vent posent deux problèmes principaux que l'éolienne doit résoudre :</p>
+
+        <h4>1. Stabilité de la chaîne cinématique</h4>
+        <ul>
+            <li>Les changements soudains de vitesse du vent génèrent des <strong>charges dynamiques</strong> sur l'ensemble du système mécanique</li>
+            <li>Ils peuvent provoquer des <strong>oscillations de torsion</strong> sur l'arbre principal</li>
+            <li>Ils accélèrent l'<strong>usure des composants</strong> (roulements, engrenages)</li>
+            <li>Dans les cas extrêmes, ils peuvent provoquer des <strong>dommages structurels</strong></li>
+        </ul>
+
+        <h4>2. Qualité de la puissance délivrée au réseau</h4>
+        <ul>
+            <li>Les variations de vitesse du rotor se traduisent par des <strong>fluctuations de puissance</strong></li>
+            <li>Ces fluctuations peuvent provoquer des <strong>variations de tension</strong> dans le réseau</li>
+            <li>Le problème de <span class="key-concept">« flicker »</span> : variations perceptibles de l'intensité lumineuse des lampes connectées au réseau</li>
+            <li>Impact sur la <strong>qualité du service électrique</strong> pour les autres consommateurs</li>
+        </ul>
+    </div>
+
+    <h2>Stratégies de réponse générales</h2>
+
+    <div class="didactic-box">
+        <h3>🛠️ Mécanismes de compensation</h3>
+        <p>En général, la compensation des changements de vitesse du vent s'effectue par <span class="key-concept">ajustement de l'angle de calage des pales</span>. Cependant, en ce qui concerne les rafales :</p>
+
+        <div class="important-note">
+            <p><strong>Limitation fondamentale :</strong> Le mécanisme de calage peut <strong>ne pas être assez rapide</strong> pour compenser les changements de vitesse soudains caractéristiques des rafales.</p>
+        </div>
+
+        <p>Pour cette raison, les différentes familles d'éoliennes ont développé des <strong>mécanismes supplémentaires</strong> pour gérer les rafales, notamment axés sur :</p>
+        <ul>
+            <li>Maintenir la stabilité de la chaîne cinématique</li>
+            <li>Assurer la qualité de la puissance délivrée au réseau</li>
+        </ul>
+    </div>
+
+    <h2>Réponse par famille d'éoliennes</h2>
+
+    <p>La description suivante explique comment chaque technologie aborde le problème des rafales :</p>
+
+    <div class="technology-box">
+        <h3>⚙️ Éoliennes de première génération : Calage fixe et décrochage aérodynamique</h3>
+        <p class="technology-name">Technologie : Générateur à cage d'écureuil + Calage fixe + Décrochage passif</p>
+
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li>Pales avec angle de calage <strong>fixe</strong> (non réglable)</li>
+            <li>Générateur à <strong>cage d'écureuil</strong> directement connecté au réseau</li>
+            <li>Contrôle passif par <strong>décrochage aérodynamique</strong></li>
+        </ul>
+
+        <h4>Mécanisme de réponse aux rafales :</h4>
+        <p>La stabilité de la chaîne cinématique est obtenue grâce à la <strong>conception aérodynamique des pales</strong> :</p>
+        <ul>
+            <li>Lorsque la vitesse du vent dépasse la vitesse nominale, les pales entrent en <strong>décrochage aérodynamique</strong></li>
+            <li>En décrochage, l'écoulement d'air se sépare de la surface de la pale</li>
+            <li>Cela provoque une <strong>réduction automatique</strong> de la puissance éolienne captée</li>
+            <li>Agit comme un limiteur de puissance naturel</li>
+        </ul>
+
+        <p>📚 Voir la courbe caractéristique sur : <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C506F77657276657273757377696E646F6666696369616C63757276652E68746D6C65/">'Puissance vs Vitesse de vent à calage fixe'</a></p>
+
+        <h4>Contrôle de la vitesse de rotation :</h4>
+        <p>Les tours/min de la chaîne cinématique sont contrôlés par les caractéristiques du <strong>générateur à cage d'écureuil</strong> directement connecté au réseau :</p>
+        <ul>
+            <li>La vitesse de rotation est maintenue très proche de la <strong>vitesse synchrone</strong> du générateur</li>
+            <li>Variation typique : pas plus de 1 % de la vitesse synchrone</li>
+            <li>📚 Plus d'informations : <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C496E746F64756374696F6E746F746865496E64756374696F6E4D616368696E652E68746D6C65/">Introduction aux machines à induction</a> et
+                <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C47656E657261746F726368617261637465726973746963732E68746D6C65/">Caractéristiques du générateur</a></li>
+
+        </ul>
+
+        <div class="important-note">
+            <h4>⚠️ Limites de cette technologie :</h4>
+            <ul>
+                <li><strong>Puissance délivrée variable :</strong> Au-dessus de la vitesse nominale, la puissance <strong>diminue</strong> au lieu de rester constante</li>
+                <li><strong>Charges sur la tour :</strong> Le phénomène de décrochage augmente les <strong>forces horizontales</strong> que la tour doit supporter</li>
+                <li><strong>Efficacité réduite :</strong> Dans des conditions de vent fort, tout le potentiel énergétique n'est pas capté</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Éoliennes avec contrôle actif du calage</h3>
+        <p class="technology-name">Technologie : Générateur à cage d'écureuil + Calage variable actif</p>
+
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li>Pales avec <strong>angle de calage variable contrôlé activement</strong></li>
+            <li>Générateur à <strong>cage d'écureuil</strong> directement connecté au réseau</li>
+            <li>Système hydraulique ou électrique pour régler le calage</li>
+        </ul>
+
+        <h4>Mécanisme de réponse aux rafales :</h4>
+        <p>Au-dessus de la vitesse de vent nominale :</p>
+        <ul>
+            <li>Le système de contrôle <strong>ajuste l'angle de calage des pales</strong></li>
+            <li>Les pales sont orientées progressivement <strong>en mise en drapeau</strong></li>
+            <li>Cela permet au <strong>vent excédentaire de passer</strong> sans être capté</li>
+            <li>Maintient une <strong>puissance constante</strong> à la valeur nominale</li>
+        </ul>
+
+        <p>📚 Voir la courbe caractéristique sur : <a href="acmsl://viewertutorial%20-n%20-h
+433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44534153575453696D756C61746F725C506F77657276657273757377696E646F6666696369616C63757276652E68746D6C65/">'Puissance vs Vitesse de vent à calage variable et vitesse fixe'</a></p>
+
+        <h4>Contrôle de la vitesse de rotation :</h4>
+        <p>Similaire à la génération précédente :</p>
+        <ul>
+            <li>Générateur à cage d'écureuil directement connecté au réseau</li>
+            <li>Vitesse de rotation maintenue très proche de la vitesse synchrone</li>
+        </ul>
+
+        <div class="didactic-box">
+            <h4>✅ Avantages par rapport à la génération précédente :</h4>
+            <ul>
+                <li><strong>Puissance constante :</strong> Maintient la puissance nominale au-dessus de la vitesse de vent nominale</li>
+                <li><strong>Charges sur la tour plus faibles :</strong> La mise en drapeau réduit les forces horizontales par rapport au décrochage</li>
+                <li><strong>Meilleure efficacité :</strong> Meilleure utilisation du vent sur toute la plage de fonctionnement</li>
+                <li><strong>Arrêt contrôlé :</strong> Peut arrêter le rotor de manière contrôlée en tournant les pales à 90°</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Éoliennes avec contrôle de la résistance rotorique</h3>
+        <p class="technology-name">Technologie : RRC (Rotor Resistance Control) - Générateur à rotor bobiné + Calage variable</p>
+
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li>Pales avec calage variable vers la mise en drapeau</li>
+            <li>Générateur à <strong>rotor bobiné</strong> (pas à cage d'écureuil)</li>
+            <li>Dispositif électronique permettant d'insérer une <strong>résistance variable</strong> dans le circuit rotorique</li>
+            <li><span class="key-concept">Moment d'inertie élevé</span> du rotor et de la chaîne cinématique</li>
+        </ul>
+
+        <h4>Mécanisme de réponse aux rafales :</h4>
+        <p>Cette technologie introduit un concept innovant : <strong>utiliser la chaîne cinématique comme stockage d'énergie</strong> :</p>
+
+        <ol>
+            <li><strong>Pendant une rafale montante :</strong>
+                <ul>
+                    <li>Le système de calage ne peut pas répondre assez rapidement</li>
+                    <li><strong>Plus de puissance</strong> est captée du vent que ce qui peut être délivré au réseau</li>
+                    <li>L'énergie excédentaire est utilisée pour <strong>accélérer le rotor</strong></li>
+                    <li>Le rotor agit comme un <strong>volant d'inertie</strong>, stockant l'énergie cinétique</li>
+                    <li>Cela nécessite que le générateur fonctionne à des <strong>vitesses variables</strong></li>
+                </ul>
+            </li>
+            <li><strong>Pendant une rafale descendante :</strong>
+                <ul>
+                    <li>Le vent fournit moins d'énergie que nécessaire</li>
+                    <li>Le rotor <strong>décélère</strong>, libérant l'énergie cinétique stockée</li>
+                    <li>Cela aide à <strong>maintenir la puissance délivrée</strong> plus constante</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="important-note">
+            <h4>🔑 Concept clé : Le rotor comme volant d'inertie</h4>
+            <p>Le <span class="key-concept">moment d'inertie</span> du rotor est suffisamment élevé pour agir comme un <strong>stockage d'énergie à court terme</strong>.</p>
+            <p>L'énergie cinétique stockée dans un rotor en rotation est :</p>
+            <p style="text-align: center; font-family: monospace; font-size: 18px;">E = ½ × I × ω²</p>
+            <p>Où :</p>
+            <ul>
+                <li>E = Énergie cinétique (J)</li>
+                <li>I = Moment d'inertie (kg·m²)</li>
+                <li>ω = Vitesse angulaire (rad/s)</li>
+            </ul>
+            <p>Un changement de ω permet d'absorber ou de libérer de l'énergie sans changements brusques de la puissance délivrée.</p>
+        </div>
+
+        <h4>Solution technologique : Générateur à rotor bobiné</h4>
+        <p>Pour que le rotor puisse changer de vitesse de rotation tout en maintenant la connexion au réseau :</p>
+        <ul>
+            <li>Un <strong>générateur à rotor bobiné</strong> est utilisé</li>
+            <li>Un générateur à cage d'écureuil ne peut pas être utilisé (vitesse quasi fixe)</li>
+            <li>Un <strong>dispositif électronique</strong> est incorporé permettant d'insérer une résistance variable dans le circuit rotorique</li>
+            <li>Cela permet de contrôler le <strong>glissement</strong> du générateur</li>
+            <li>📚 Explication détaillée : <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C4261736963636F6E6365707473696E526F746F72526573697374616E6365436F2E68746D6C65/">'Concepts de base des éoliennes à contrôle de résistance rotorique'</a></li>
+
+        </ul>
+
+        <h4>Expériences pratiques :</h4>
+        <p>Pour explorer le comportement de ces éoliennes face aux rafales :</p>
+        <ul>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C57696E646775737473776974686C6F7777696E642E68746D6C65/">'Rafales de vent avec vent faible'</a> - Rafales avec vent faible</li>
+
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C525243575453696D756C61746F725C57696E646775737473776974686869676877696E642E68746D6C65/">'Rafales de vent avec vent fort'</a> - Rafales avec vent fort</li>
+
+        </ul>
+    </div>
+
+    <div class="technology-box">
+        <h3>⚙️ Éoliennes avec générateur à induction doublement alimenté (DFIG)</h3>
+        <p class="technology-name">Technologie : DFIG (Doubly Fed Induction Generator) - Calage variable + Vitesse variable</p>
+
+        <h4>Caractéristiques :</h4>
+        <ul>
+            <li>Pales avec calage variable vers la mise en drapeau</li>
+            <li><strong>Générateur à induction doublement alimenté (DFIG)</strong></li>
+            <li><strong>Convertisseurs dos-à-dos</strong> dans le circuit rotorique</li>
+            <li>Plage de vitesses de fonctionnement très large</li>
+            <li>Système de contrôle sophistiqué</li>
+        </ul>
+
+        <h4>Mécanisme de réponse aux rafales :</h4>
+        <p>Similaire au RRC, il utilise l'<strong>accélération et la décélération du rotor</strong> pour absorber/libérer de l'énergie et compenser les différences entre la puissance captée du vent et la puissance délivrée au réseau.</p>
+
+        <div class="didactic-box">
+            <h4>✅ Avantages par rapport au RRC :</h4>
+            <ul>
+                <li><strong>Plage de fonctionnement beaucoup plus large :</strong> Peut fonctionner efficacement sur une plage de vitesses de vent bien plus grande</li>
+                <li><strong>Contrôle plus sophistiqué :</strong> Les convertisseurs électroniques permettent un contrôle précis et rapide</li>
+                <li><strong>Meilleure efficacité :</strong> Optimise la vitesse de rotation pour chaque vitesse de vent</li>
+                <li><strong>Meilleure qualité de puissance :</strong> Contrôle indépendant de la puissance active et réactive</li>
+            </ul>
+            <p>📚 Voir le comportement détaillé : <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544265686176696F722E68746D6C65/">Comportement de l'éolienne DFIG</a></p>
+
+            <p>📚 Sur les convertisseurs : <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544261636B546F4261636B436F6E766572746572732E68746D6C65/">Convertisseurs dos-à-dos</a></p>
+
+        </div>
+
+        <h4>Expériences pratiques :</h4>
+        <p>Pour explorer le comportement du DFIG face aux rafales :</p>
+        <ul>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E6447757374734C6F7757696E64732E68746D6C65/">'Rafales de vent par vent faible'</a> - Rafales avec vent faible</li>
+            <li><a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C544357696E644775737473496E4869676857696E64732E68746D6C65/">'Rafales de vent par vent fort'</a> - Rafales avec vent fort</li>
+
+        </ul>
+    </div>
+
+    <h2>Résumé comparatif des stratégies</h2>
+
+    <div class="didactic-box">
+        <h3>📊 Comparaison des réponses aux rafales</h3>
+        <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+            <tr style="background-color: #333; color: white;">
+                <th style="padding: 12px; border: 1px solid #999;">Technologie</th>
+                <th style="padding: 12px; border: 1px solid #999;">Contrôle de la puissance</th>
+                <th style="padding: 12px; border: 1px solid #999;">Contrôle de la vitesse</th>
+                <th style="padding: 12px; border: 1px solid #999;">Réponse aux rafales</th>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>Calage fixe + Décrochage</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Décrochage aérodynamique passif</td>
+                <td style="padding: 10px; border: 1px solid #999;">Vitesse fixe (~1% de variation)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Conception aérodynamique des pales</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>Calage variable + Vitesse fixe</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Contrôle actif du calage (mise en drapeau)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Vitesse fixe (~1% de variation)</td>
+                <td style="padding: 10px; border: 1px solid #999;">Ajustement du calage (limité par la vitesse de l'actionneur)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>RRC</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Calage + Résistance rotorique</td>
+                <td style="padding: 10px; border: 1px solid #999;">Vitesse variable limitée</td>
+                <td style="padding: 10px; border: 1px solid #999;">Calage + Inertie du rotor comme stockage</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; border: 1px solid #999;"><strong>DFIG</strong></td>
+                <td style="padding: 10px; border: 1px solid #999;">Calage + Convertisseurs</td>
+                <td style="padding: 10px; border: 1px solid #999;">Vitesse largement variable</td>
+                <td style="padding: 10px; border: 1px solid #999;">Calage + Inertie du rotor + Contrôle électronique sophistiqué</td>
+            </tr>
+        </table>
+    </div>
+
+    <h2>Activités expérimentales proposées</h2>
+
+    <div class="learning-objective">
+        <h3>🔬 Expériences recommandées</h3>
+        <p>Pour chaque famille d'éoliennes, réalisez les tests suivants :</p>
+        <ol>
+            <li><strong>Configurez la rafale standard :</strong>
+                <ul>
+                    <li>Utilisez le modèle de rafale illustré à la Figure 1</li>
+                    <li>Ajustez les paramètres selon les spécifications de chaque simulateur</li>
+                </ul>
+            </li>
+            <li><strong>Surveillez les variables clés :</strong>
+                <ul>
+                    <li>Vitesse du vent (entrée)</li>
+                    <li>Vitesse de rotation du rotor (tr/min)</li>
+                    <li>Angle de calage des pales</li>
+                    <li>Puissance générée</li>
+                    <li>Couple sur l'arbre principal</li>
+                </ul>
+            </li>
+            <li><strong>Observez et enregistrez :</strong>
+                <ul>
+                    <li>Temps de réponse du système de calage</li>
+                    <li>Variation de la vitesse de rotation</li>
+                    <li>Fluctuations de la puissance délivrée</li>
+                    <li>Pics de couple mécanique</li>
+                </ul>
+            </li>
+            <li><strong>Tests avec rafales dans différentes conditions :</strong>
+                <ul>
+                    <li>Rafales avec vent moyen faible (en dessous de la vitesse nominale)</li>
+                    <li>Rafales avec vent moyen fort (au-dessus de la vitesse nominale)</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <h2>Analyse comparative</h2>
+
+    <div class="learning-objective">
+        <h3>📝 Questions d'analyse</h3>
+        <ol>
+            <li><strong>Sur la stabilité de la chaîne cinématique :</strong>
+                <ul>
+                    <li>Quelle technologie présente les plus faibles variations de vitesse de rotation ?</li>
+                    <li>Quelle technologie a les pics de couple mécanique les plus doux ?</li>
+                    <li>Comment le moment d'inertie du rotor affecte-t-il la réponse ?</li>
+                </ul>
+            </li>
+            <li><strong>Sur la qualité de la puissance :</strong>
+                <ul>
+                    <li>Quelle technologie maintient la puissance la plus constante pendant une rafale ?</li>
+                    <li>Dans quels cas des problèmes de flicker seraient-ils observés ?</li>
+                    <li>Comment la qualité de puissance du DFIG s'améliore-t-elle par rapport au RRC ?</li>
+                </ul>
+            </li>
+            <li><strong>Sur les mécanismes de contrôle :</strong>
+                <ul>
+                    <li>Le calage est-il suffisant pour compenser les rafales rapides ?</li>
+                    <li>Quel rôle joue la vitesse variable dans la réponse ?</li>
+                    <li>Pourquoi la combinaison calage + vitesse variable est-elle supérieure ?</li>
+                </ul>
+            </li>
+            <li><strong>Sur les compromis de conception :</strong>
+                <ul>
+                    <li>Quels avantages justifient la plus grande complexité du DFIG ?</li>
+                    <li>Dans quels scénarios des technologies plus simples seraient-elles acceptables ?</li>
+                    <li>Comment la réglementation électrique influence-t-elle le choix de la technologie ?</li>
+				</ul>
+			</li>
+		</ol>
+	</div>
+	<h2>Concepts clés</h2>
+
+    <div class="didactic-box">
+        <h3>📌 Résumé des concepts fondamentaux</h3>
+        <ul>
+            <li>Les rafales de vent sont des changements de vitesse soudains qui mettent à l'épreuve le contrôle des éoliennes</li>
+            <li>Le système de calage seul peut être insuffisant pour compenser les rafales rapides</li>
+            <li>Le <strong>moment d'inertie du rotor</strong> peut être utilisé comme stockage d'énergie à court terme</li>
+            <li>La capacité de <strong>vitesse variable</strong> est essentielle pour exploiter l'inertie du rotor</li>
+            <li>Chaque technologie représente un compromis entre <strong>complexité, coût et performance</strong></li>
+            <li>L'évolution technologique cherche à améliorer à la fois la <strong>stabilité mécanique</strong> et la <strong>qualité de la puissance</strong></li>
+        </ul>
+    </div>
+</div>
+
+<div id="topic_footer">
+    <div id="topic_footer_content">
+        Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+    </div>
+</div>
+</body>
+</html>

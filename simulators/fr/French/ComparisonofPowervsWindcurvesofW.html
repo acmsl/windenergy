@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparaison des courbes Puissance/Vitesse de vent dans les familles d'éoliennes</title>
+    <meta name="description" content="Expérience comparative des courbes de puissance en fonction de la vitesse du vent">
+    <meta name="keywords" content="courbe de puissance, vitesse du vent, éoliennes, DSAS, RRC, DFIG, performance">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+
+        body {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            /* Unified in base.css */
+        }
+
+        h1 {
+            font-size: 28px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 23px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 20px;
+            line-height: 1.4;
+        }
+
+        p, li {
+            font-size: 16px;
+            margin-bottom: 12px;
+        }
+
+        .learning-objective {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 18px;
+            margin: 18px 0;
+            font-size: 16px;
+        }
+
+        .didactic-box {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 18px;
+            margin: 18px 0;
+            font-size: 16px;
+        }
+
+        .procedure-box {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 18px;
+            margin: 18px 0;
+            font-size: 16px;
+        }
+
+        .important-note {
+            background-color: #ffe6e6;
+            border-left: 4px solid #cc0000;
+            padding: 18px;
+            margin: 18px 0;
+            font-size: 16px;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .data-table {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .formula-box {
+            background-color: #f9f9f9;
+            border: 2px solid #666;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("ComparisonofPowervsWindcurvesofW");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Comparaison des courbes Puissance/Vitesse de vent</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="ComparisonofcutinindifferentWind.html"><img src="img/arrow_left.png" alt="Précédent"/></a>
+            <a href="ObservationoftheNacelleYawoperat.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="learning-objective">
+            <h3>🎯 Objectifs d'apprentissage</h3>
+            <p>À l'issue de cette expérience vous serez capable de :</p>
+            <ul>
+                <li>Comprendre la courbe de puissance caractéristique d'une éolienne</li>
+                <li>Identifier les différences d'efficacité de conversion d'énergie entre les technologies</li>
+                <li>Analyser le comportement dans la plage de vitesses inférieure à la vitesse nominale</li>
+                <li>Créer des représentations graphiques normalisées pour comparer différentes éoliennes</li>
+                <li>Évaluer quelle technologie exploite le mieux le vent dans différentes conditions</li>
+            </ul>
+        </div>
+
+        <h2>Introduction : La courbe de puissance</h2>
+
+        <div class="didactic-box">
+            <h3>📖 Concept fondamental : Courbe Puissance/Vitesse de vent</h3>
+            <p>La <span class="key-concept">courbe de puissance</span> est une représentation graphique montrant la relation entre la vitesse du vent et la puissance électrique générée par une éolienne.</p>
+            <p>Cette courbe est l'« empreinte digitale » de chaque éolienne et est essentielle pour :</p>
+            <ul>
+                <li>Estimer la production annuelle d'énergie</li>
+                <li>Comparer les performances de différentes technologies</li>
+                <li>Optimiser la conception selon les conditions du site</li>
+                <li>Évaluer le retour sur investissement du projet</li>
+            </ul>
+        </div>
+
+        <h2>Caractéristiques des courbes idéales</h2>
+
+        <p>Les courbes idéales Puissance/Vitesse de vent pour les différentes familles d'éoliennes sont décrites en détail dans le tutoriel <a href="acmsl://viewertutorial%20-n%20-h433A5C41434D534C5C57696E644661726D53696D756C61746F725C48656C705C456E676C6973685C44464947575453696D756C61746F725C4446494757544265686176696F724472697665547261696E2E68746D6C65/">ici</a>.</p>
+
+        <div class="important-note">
+            <h3>⚡ Différence clé entre les technologies</h3>
+            <p>L'une des principales différences entre les familles d'éoliennes est l'<strong>efficacité du transfert d'énergie lorsque la vitesse du vent est inférieure à la vitesse nominale</strong>.</p>
+            <p>Dans cette zone de fonctionnement, la capacité à extraire efficacement l'énergie du vent détermine en grande partie la production annuelle d'énergie de l'éolienne.</p>
+        </div>
+
+        <h2>Zones caractéristiques de la courbe de puissance</h2>
+
+        <div class="didactic-box">
+            <h3>📊 Régions de la courbe de puissance</h3>
+            <p>Une courbe de puissance typique comporte quatre zones caractéristiques :</p>
+            <ol>
+                <li><strong>Zone I - En dessous de la mise en service :</strong> Vitesse insuffisante, éolienne à l'arrêt (Puissance = 0)</li>
+                <li><strong>Zone II - Entre la mise en service et la vitesse nominale :</strong> Puissance croissante, zone de captage d'énergie maximum</li>
+                <li><strong>Zone III - Entre la vitesse nominale et la vitesse de coupure :</strong> Puissance constante (Puissance nominale)</li>
+                <li><strong>Zone IV - Au-dessus de la vitesse de coupure :</strong> Éolienne à l'arrêt pour des raisons de sécurité (Puissance = 0)</li>
+            </ol>
+        </div>
+
+        <h2>Objectif de l'expérience</h2>
+
+        <div class="learning-objective">
+            <h3>🔬 But expérimental</h3>
+            <p>L'objectif de cette expérience est de <strong>créer des graphiques comparatifs</strong> des courbes Puissance/Vitesse de vent pour les trois principales familles d'éoliennes :</p>
+            <ul>
+                <li>DSAS (Direct Stall Active Stall)</li>
+                <li>RRC (Rotor Resistance Control)</li>
+                <li>DFIG (Doubly Fed Induction Generator)</li>
+            </ul>
+            <p>L'analyse se concentrera particulièrement sur la <strong>Zone II</strong>, où les plus grandes différences de performance sont observées.</p>
+        </div>
+
+        <h2>Méthodologie de l'expérience</h2>
+
+        <div class="procedure-box">
+            <h3>📋 Préparation des données</h3>
+
+            <h4>Étape 1 : Utilisez les simulateurs de l'expérience précédente</h4>
+            <p>Tirez parti des simulateurs déjà configurés dans l'expérience <a href="ComparisonofcutinindifferentWind.html">« Comparaison du démarrage dans différentes familles d'éoliennes »</a>.</p>
+
+            <h4>Étape 2 : Créez la structure de données</h4>
+            <p>Créez un tableau avec 4 colonnes :</p>
+            <div class="data-table">
+                <table style="width: 100%; border-collapse: collapse;">
+                    <tr style="background-color: #ddd;">
+                        <th style="padding: 8px; border: 1px solid #999;">Vitesse du vent (m/s)</th>
+                        <th style="padding: 8px; border: 1px solid #999;">Puissance DSAS (kW)</th>
+                        <th style="padding: 8px; border: 1px solid #999;">Puissance RRC (kW)</th>
+                        <th style="padding: 8px; border: 1px solid #999;">Puissance DFIG (kW)</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #999;">4</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #999;">5</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                        <td style="padding: 8px; border: 1px solid #999;">...</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h4>Étape 3 : Collecte des données</h4>
+            <p>Pour chaque éolienne :</p>
+            <ol>
+                <li>Réglez la vitesse du vent (commencez depuis la mise en service jusqu'aux vitesses supérieures au nominal)</li>
+                <li>Attendez que l'éolienne atteigne un fonctionnement stable</li>
+                <li>Enregistrez la puissance générée en régime permanent</li>
+                <li>Augmentez la vitesse du vent par paliers réguliers (recommandé : 0,5 ou 1 m/s)</li>
+            </ol>
+        </div>
+
+        <h2>Normalisation des données : Valeurs en unité par unité (p.u.)</h2>
+
+        <div class="important-note">
+            <h3>⚠️ Note critique sur la comparaison</h3>
+            <p>Les trois éoliennes ont des <strong>valeurs de puissance nominale différentes</strong>, ce qui rend la comparaison directe difficile. Il est donc nécessaire de <span class="key-concept">normaliser les données</span> en utilisant des valeurs « par unité » (p.u.).</p>
+        </div>
+
+        <div class="didactic-box">
+            <h3>📐 Calcul des valeurs par unité</h3>
+            <p>Pour obtenir les valeurs « par unité » (p.u.), divisez chaque valeur de puissance observée par la puissance nominale de l'éolienne correspondante :</p>
+
+            <div class="formula-box">
+                <p><strong>Puissance (p.u.) = Puissance mesurée (kW) / Puissance nominale (kW)</strong></p>
+            </div>
+
+            <p>Utilisez les valeurs de puissance nominale suivantes :</p>
+            <ul>
+                <li><strong>DSAS :</strong> 1 300 kW</li>
+                <li><strong>RRC :</strong> 660 kW</li>
+                <li><strong>DFIG :</strong> 1 500 kW</li>
+            </ul>
+
+            <h4>Exemple de calcul :</h4>
+            <p>Si l'éolienne DFIG génère 750 kW à une certaine vitesse du vent :</p>
+            <div class="formula-box">
+                Puissance (p.u.) = 750 kW / 1 500 kW = 0,5 p.u.
+            </div>
+        </div>
+
+        <h2>Création du graphique comparatif</h2>
+
+        <div class="procedure-box">
+            <h3>📊 Génération du graphique</h3>
+            <ol>
+                <li><strong>Convertissez toutes les données en valeurs p.u.</strong> selon les formules ci-dessus</li>
+                <li><strong>Créez un graphique avec :</strong>
+                    <ul>
+                        <li>Axe X : Vitesse du vent (m/s)</li>
+                        <li>Axe Y : Puissance normalisée (p.u.)</li>
+                    </ul>
+                </li>
+                <li><strong>Tracez les trois courbes</strong> sur le même graphique en utilisant des couleurs ou des styles de traits différents</li>
+                <li><strong>Ajoutez une légende</strong> identifiant chaque courbe (DSAS, RRC, DFIG)</li>
+            </ol>
+        </div>
+
+        <h2>Résultat attendu</h2>
+
+        <p>En complétant correctement l'expérience, vous devriez obtenir un graphique similaire au suivant :</p>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <img alt="Comparaison de production DSAS, RRC et DFIG" src="lib/Comparacion%20produccion%20DAS%20RRC%20y%20DFIG.jpg">
+            <p style="font-style: italic; font-size: 14px;">Figure 1 : Courbes de puissance normalisées pour les trois familles d'éoliennes</p>
+        </div>
+
+        <h2>Analyse des résultats</h2>
+
+        <div class="learning-objective">
+            <h3>🔍 Questions d'analyse</h3>
+            <p>Une fois les courbes obtenues, analysez les aspects suivants :</p>
+
+            <h4>1. Comparaison en Zone II (en dessous de la vitesse nominale) :</h4>
+            <ul>
+                <li>Quelle éolienne a la courbe la plus pentue ? Que signifie-t-il ?</li>
+                <li>Laquelle atteint en premier 50 % de sa puissance nominale ?</li>
+                <li>Quelle technologie exploite le mieux les vents faibles ?</li>
+            </ul>
+
+            <h4>2. Vitesse de vent nominale :</h4>
+            <ul>
+                <li>À quelle vitesse chaque éolienne atteint-elle sa puissance nominale ?</li>
+                <li>Pourquoi cette vitesse peut-elle différer selon les technologies ?</li>
+                <li>Quels avantages présente le fait d'atteindre la puissance nominale à des vitesses de vent plus faibles ?</li>
+            </ul>
+
+            <h4>3. Forme de la courbe :</h4>
+            <ul>
+                <li>Quelle courbe est la plus régulière ? Quelles implications cela a-t-il ?</li>
+                <li>Observez-vous des différences dans la transition entre les zones ?</li>
+                <li>Comment le système de contrôle influence-t-il la forme de la courbe ?</li>
+            </ul>
+
+            <h4>4. Efficacité de conversion :</h4>
+            <ul>
+                <li>Quelle technologie a le meilleur rendement dans la zone des vents faibles ?</li>
+                <li>Quelle technologie est la plus efficace dans la zone des vents moyens ?</li>
+                <li>Comment expliqueriez-vous ces différences d'un point de vue technique ?</li>
+            </ul>
+        </div>
+
+        <div class="didactic-box">
+            <h3>💡 Interprétation physique</h3>
+            <p>Les différences observées dans les courbes sont fondamentalement dues à :</p>
+            <ul>
+                <li><strong>Système de contrôle :</strong> Calage variable vs calage fixe vs contrôle à vitesse variable</li>
+                <li><strong>Type de générateur :</strong> Cage d'écureuil, rotor bobiné ou doublement alimenté</li>
+                <li><strong>Plage de vitesses :</strong> Vitesse fixe vs vitesse variable</li>
+                <li><strong>Stratégie de régulation :</strong> Décrochage aérodynamique vs contrôle actif</li>
+            </ul>
+            <p>Chaque technologie représente un compromis différent entre complexité, coût et performance.</p>
+        </div>
+
+        <h2>Application pratique</h2>
+
+        <div class="important-note">
+            <h3>🌍 Pertinence dans les projets réels</h3>
+            <p>La connaissance de ces courbes est essentielle pour :</p>
+            <ul>
+                <li><strong>Sélection de l'éolienne :</strong> Choisir la technologie la plus adaptée selon le profil de vent du site</li>
+                <li><strong>Estimation de la production :</strong> Calculer l'énergie annuelle estimée en combinant la courbe de puissance avec la distribution statistique du vent</li>
+                <li><strong>Analyse économique :</strong> Évaluer la rentabilité en tenant compte de l'investissement par rapport à la production attendue</li>
+                <li><strong>Optimisation du parc éolien :</strong> Décider du mix technologique optimal dans un parc éolien</li>
+            </ul>
+        </div>
+
+        <h2>Conclusions et réflexions</h2>
+
+        <div class="learning-objective">
+            <h3>📝 Résumé des concepts clés</h3>
+            <ul>
+                <li>Les courbes de puissance caractérisent les performances de chaque éolienne</li>
+                <li>La normalisation (valeurs p.u.) permet de comparer des éoliennes de différentes tailles</li>
+                <li>La zone en dessous de la vitesse nominale est critique pour la production annuelle d'énergie</li>
+                <li>Chaque technologie présente des avantages dans différentes plages de vitesses du vent</li>
+                <li>La sélection optimale dépend des caractéristiques spécifiques du site</li>
+            </ul>
+        </div>
+
+        <h2>Ressources complémentaires</h2>
+
+        <div class="didactic-box">
+            <h3>📚 Pour aller plus loin</h3>
+            <p>Il est recommandé de consulter :</p>
+            <ul>
+                <li>Des tutoriels sur le comportement spécifique de chaque technologie dans différentes conditions de vent</li>
+                <li>La documentation technique sur les systèmes de contrôle et de régulation</li>
+                <li>Des études de cas sur la sélection d'éoliennes dans des projets réels</li>
+                <li>L'analyse des distributions de vent (Weibull) et leur relation avec les courbes de puissance</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

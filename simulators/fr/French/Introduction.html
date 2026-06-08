@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction - Expériences sur les éoliennes</title>
+    <meta name="description" content="Introduction aux expériences virtuelles avec des éoliennes">
+    <meta name="keywords" content="éoliennes, simulation, expériences virtuelles, énergie éolienne">
+
+    <link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+
+    <style type="text/css">
+        #topic_header {
+            background-color: #EFEFEF;
+        }
+        #topic_header_content {
+		padding-left: 40px;    /* NEW - to align with content */
+	}
+        body {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        #topic_content {
+            font-size: 18px;
+            line-height: 1.8;
+		padding-left: 40px;    /* NEW - separation from splitter */
+		padding-right: 30px;
+        }
+
+        h1 {
+            font-size: 32px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 26px;
+            line-height: 1.4;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 22px;
+            line-height: 1.4;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .welcome-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .simulator-info {
+            background-color: #f0f8ff;
+            border-left: 4px solid #0066cc;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .key-concept {
+            font-weight: bold;
+            color: #0066cc;
+        }
+
+        .objectives-list {
+            background-color: #fff9e6;
+            border-left: 4px solid #ffcc00;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 18px;
+        }
+
+        .objectives-list li {
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/hnd.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            if (top.frames.length == 0) {
+                var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+                top.location.href = "Experiments.html?" + sTopicUrl;
+            } else {
+                var bTocSelected = false;
+                (function waitForTOC() {
+                    if (top && top.FrameTOC && top.FrameTOC.SelectTocItem) {
+                        top.FrameTOC.SelectTocItem("Introduction");
+                        bTocSelected = true;
+                    }
+                    if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+                })();
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div id="topic_header">
+        <div id="topic_header_content">
+            <h1 id="topic_header_text">Introduction aux expériences sur les éoliennes</h1>
+        </div>
+
+        <div id="topic_header_nav">
+            <a href="WhythebladesinaWindTurbineturn.html"><img src="img/arrow_right.png" alt="Suivant"/></a>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+
+    <div id="topic_content">
+        <div class="welcome-box">
+            <h2 class="welcome-title">🌬️ Bienvenue au Laboratoire Virtuel d'Éoliennes</h2>
+            <p class="welcome-highlight">Ce manuel vous guidera à travers une série d'expériences pratiques conçues pour comprendre le fonctionnement des différentes technologies d'éoliennes à travers la simulation virtuelle.</p>
+        </div>
+
+        <h2>Que trouverez-vous dans ce manuel ?</h2>
+
+        <p>Ce document contient la description détaillée des <span class="key-concept">expériences pratiques</span> que vous pouvez réaliser à l'aide de la suite <span class="key-concept">Wind Farm Simulator</span>. Ces simulateurs fonctionnent comme des <span class="key-concept">Bancs de Travail Virtuels</span> qui vous permettent d'expérimenter avec différents types d'éoliennes sans avoir besoin d'équipement physique.</p>
+
+        <div class="simulator-info">
+            <h3>💻 À propos de Wind Farm Simulator</h3>
+            <p><strong>Wind Farm Simulator</strong> est une suite de simulateurs éducatifs qui reproduit le comportement de différentes familles d'éoliennes dans des conditions réalistes. Il vous permet de :</p>
+            <ul>
+                <li>Observer le comportement du système en temps réel</li>
+                <li>Modifier les paramètres de fonctionnement et de configuration</li>
+                <li>Effectuer des mesures et des comparaisons</li>
+                <li>Expérimenter avec différentes conditions de vent</li>
+                <li>Analyser les performances de différentes technologies</li>
+            </ul>
+        </div>
+
+        <h2>Structure du manuel</h2>
+
+        <p>Chaque expérience de ce manuel comprend :</p>
+
+        <div class="objectives-list">
+            <h3>📋 Composantes de chaque expérience :</h3>
+            <ul>
+                <li><strong>Objectifs d'apprentissage :</strong> Ce que vous apprendrez en réalisant l'expérience</li>
+                <li><strong>Bases théoriques :</strong> Les concepts nécessaires pour comprendre l'expérience</li>
+                <li><strong>Procédure étape par étape :</strong> Instructions détaillées pour mener à bien l'expérience</li>
+                <li><strong>Tutoriels associés :</strong> Liens vers du matériel complémentaire approfondi</li>
+                <li><strong>Activités d'analyse :</strong> Tâches pour consolider l'apprentissage</li>
+            </ul>
+        </div>
+
+        <h2>Méthodologie d'apprentissage</h2>
+
+        <p>Ce manuel est conçu selon une méthodologie d'<span class="key-concept">apprentissage actif</span>. Ne vous contentez pas de lire : l'objectif est que vous <strong>expérimentiez, observiez, analysiez et compariez</strong> les résultats obtenus.</p>
+
+        <div class="simulator-info">
+            <h3>🎯 Approche pédagogique</h3>
+            <p>Les expériences sont organisées de manière à développer une compréhension progressive :</p>
+            <ol>
+                <li><strong>Compréhension des principes de base :</strong> Comment et pourquoi les éoliennes fonctionnent</li>
+                <li><strong>Analyse comparative :</strong> Différences entre les diverses technologies</li>
+                <li><strong>Fonctionnement et contrôle :</strong> Systèmes de lacet, de calage et de régulation</li>
+                <li><strong>Réponse dynamique :</strong> Comportement dans des conditions de vent changeantes</li>
+                <li><strong>Aspects économiques :</strong> Coûts d'exploitation et efficacité énergétique</li>
+            </ol>
+        </div>
+
+        <h2>Comment utiliser ce manuel</h2>
+
+        <div class="objectives-list">
+            <h3>📖 Recommandations pour en tirer le meilleur parti :</h3>
+            <ul>
+                <li><strong>Suivez l'ordre suggéré :</strong> Les expériences sont séquencées de façon didactique</li>
+                <li><strong>Lisez les tutoriels :</strong> Avant chaque expérience, consultez les tutoriels indiqués</li>
+                <li><strong>Prenez des notes :</strong> Enregistrez vos observations et résultats</li>
+                <li><strong>Expérimentez librement :</strong> Une fois une expérience terminée, modifiez les paramètres et observez les effets</li>
+                <li><strong>Comparez les technologies :</strong> De nombreuses expériences vous demanderont de comparer différents types d'éoliennes</li>
+            </ul>
+        </div>
+
+        <h2>Familles d'éoliennes que vous étudierez</h2>
+
+        <p>Tout au long des expériences, vous travaillerez avec trois familles principales d'éoliennes :</p>
+
+        <div class="simulator-info">
+            <h3>⚡ Technologies d'éoliennes :</h3>
+            <ol>
+                <li><strong>DSAS (Direct Stall Active Stall) :</strong> Générateur à cage d'écureuil directement connecté au réseau, avec contrôle aérodynamique actif par décrochage</li>
+                <li><strong>RRC (Rotor Resistance Control) :</strong> Générateur à rotor bobiné avec contrôle de la résistance rotorique</li>
+                <li><strong>DFIG (Doubly Fed Induction Generator) :</strong> Générateur à induction doublement alimenté avec convertisseurs dos-à-dos</li>
+            </ol>
+        </div>
+
+        <h2>Prérequis</h2>
+
+        <p>Pour tirer le meilleur parti de ces expériences, il est recommandé d'avoir des connaissances de base en :</p>
+        <ul>
+            <li>Physique (mécanique, électricité)</li>
+            <li>Machines électriques tournantes</li>
+            <li>Concepts de base de l'énergie éolienne</li>
+        </ul>
+
+        <div class="welcome-box">
+            <h3 class="welcome-title">🚀 Commençons !</h3>
+            <p class="welcome-highlight">Vous êtes sur le point de vous lancer dans un voyage fascinant à travers le monde de la technologie éolienne. Chaque expérience vous rapprochera de la compréhension du fonctionnement de ces impressionnantes machines qui transforment notre système énergétique.</p>
+            <p class="welcome-highlight"><strong>Cliquez sur « Suivant » pour commencer la première expérience.</strong></p>
+        </div>
+    </div>
+
+    <div id="topic_footer">
+        <div id="topic_footer_content">
+            Copyright &copy; 2017-2025 by AUTOMATED COMPUTING MACHINERY SL. All Rights Reserved.
+        </div>
+    </div>
+</body>
+</html>

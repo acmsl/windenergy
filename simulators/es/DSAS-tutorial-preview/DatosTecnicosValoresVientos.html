@@ -1,0 +1,181 @@
+
+
+<html>
+	
+<head>
+	<title>Valores funcionales de viento</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content="Abs max, , , , , viento m&aacute;ximo temporal, velocidad del viento">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTTutorial.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("DatosTecnicosValoresVientos");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Valores funcionales de viento</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="DatosTecnicos.html">Datos t&eacute;cnicos de los subsistemas emulados</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="DatosTecnicos.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="DatosTecnicosGen3Polos.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps2"><img alt="" style="padding : 1px;" src="lib/Curva%20de%20potencia%20con%20vientos.png"></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<div class="rvps2">
+<table width="100%" style="border-color: #000000; border-style: solid; border-width: 1px; border-spacing: 2px;">
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Min para orientación</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Viento por debajo del cual, el Controlador no pondrá en marcha el protocolo para hacer seguimiento de la dirección del viento.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Min para arranque</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Viento por debajo del cual el Controlador no iniciará la operación de conexión con la Red (cutin).</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Min para Gen Grande</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Si el Aerogenerador está en producción, teniendo conectado el Generador Grande y el viento cae por debajo de este nivel, iniciará la operación de cambio de Generador Grande a Generador Pequeño.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max para Gen Pequeño</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Si el Aerogenerador está en producción, teniendo conectado el Generador Pequeño y el viento supera este nivel, el Controlador iniciará la operación de cambio de Generador Pequeño a Generador Grande.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max para arranque</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Si el Aerogenerador está desconectado de la Red, y el viento es superior a este límite (normalmente bastante por encima del Viento Nominal: por ejemplo 18 m/s) y el Controlador recibe la orden de iniciar la conexión (cutin), no la realizará, a menos que el viento descienda por debajo de este nivel.</span></p>
+   <p class="rvps2"><span class="rvts6">Este límite no tiene influencia si el Aerogenerador está en producción y el viento supera este límite.</span></p>
+   <p class="rvps2"><span class="rvts6">La razón de este límite es estadística, por lo que hay que ajustarlo para cada parque eolico. Se trata de no poner en marcha el aerogenerador si se sospecha que el viento es tan fuerte que al poco tiempo superará el viento máximo de operación continua y por tanto tendrá que desconectarse.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max para operación continua</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Límite superior al que puede mantenerse en producción el Aerogenerador. Si el viento se mantiene en este nivel o ligeramente superior durante un determinado lapso de tiempo, el Controlador procede a la desconexión.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max para operación temporal</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Similar a "Max para operación continua", es un valor superior a él, pero más corto el tiempo que espera el Controlador para proceder a la desconexión, si el viento se mantiene igual o superior a él.</span></p>
+  </td>
+ </tr>
+ <tr style="vertical-align: top;">
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 15%;">
+   <p class="rvps2"><span class="rvts29">Max absoluto</span></p>
+  </td>
+  <td style="border-width : 1px; border-color: #000000; border-style: solid; padding: 1px; width: 56%;">
+   <p class="rvps2"><span class="rvts6">Si el viento llega a este valor el Controlador procede a desconexión de forma inmediata.</span></p>
+  </td>
+ </tr>
+</table>
+</div>
+<p></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+

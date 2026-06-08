@@ -1,0 +1,127 @@
+
+
+<html>
+	
+<head>
+	<title>Sin&oacute;ptico de Orientaci&oacute;n de la G&oacute;ndola y el Viento (SynopticWindNacelle)</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="generator" content="HelpNDoc Professional Edition 10.0.0.105">
+	<meta name="description" content="" /> 
+	<meta name="keywords" content=", nacelle orientation, pitch, viento debido a la rotacion, vector viento total, viento, direcci&oacute;n del viento, velocidad del viento, , operaci&oacute;n de orientaci&oacute;n, cables de potencia, angulo de la pala, Viento Total">
+	
+	
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico">
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "DSASWTTutorial.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("SinopticoOrientacionViento");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	
+</head>
+
+<body>
+
+
+
+	
+		<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Sin&oacute;ptico de Orientaci&oacute;n de la G&oacute;ndola y el Viento (SynopticWindNacelle)</h1>
+				
+				
+				<div id="topic_breadcrumb">
+					<a href="SimDSAS.html">Simulador de Aerogenerador con Active Stall y Dos Velocidades</a> &rsaquo;&rsaquo; <a href="Sinopticos.html">Sin&oacute;pticos usados en este simulador</a> &rsaquo;&rsaquo; 
+				</div>
+				
+			</div>
+			
+			<div id="topic_header_nav">
+				
+				
+				<a href="Sinopticos.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				
+				
+				<a href="Sistemadefrenos2.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				
+				
+				<a href="SinpticodeOrientacindelaGndolaye.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				
+			</div>
+			
+			<div class="clear"></div>
+		</div>
+	
+	
+	<div id="topic_content">
+		
+<p class="rvps25"><img alt="" style="padding : 1px;" src="lib/SynopticWindNacelle%20espaol.png"></p>
+<p class="rvps4"><span class="rvts6">Este sinóptico permite:</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts29">Cambiar la velocidad del viento y su dirección</span><span class="rvts6">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar la</span><span class="rvts29"> orientación de la Góndola</span><span class="rvts6">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar el número de vueltas sobre sí mismos de los </span><a class="rvts113" href="Mecanismodeorientacinyaw2.html">cables de potencia</a><span class="rvts6">.</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar la </span><span class="rvts29">señal de la veleta</span><span class="rvts6">.&nbsp;</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar el </span><span class="rvts29">estado de los motores de orientación</span><span class="rvts6">. "Giro Izq" y "Giro Derech"</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar el </span><span class="rvts29">error de orientación existente</span><span class="rvts6"> (panel izquierdo, diferencia entre la linea que sale de la Góndola y el centro de la flecha del viento.)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar (panel derecho) a escala relativa, el </span><span class="rvts29">viento incidente</span><span class="rvts6"> (en azul), el </span><span class="rvts29">viento debido al giro de las palas</span><span class="rvts6"> (en negro) y el </span><span class="rvts29">viento total</span><span class="rvts6"> que incide sobre el borde de la pala (en rojo.)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">El </span><span class="rvts29">angulo de la pala</span><span class="rvts6"> (</span><span class="rvts29">pitch</span><span class="rvts6">)</span></p>
+<p class="rvps4" style="text-indent: -24px; padding-left: 24px; margin-left: 0px;"><span style="font-size: 12pt; font-family: Symbola, 'Lucida Sans Unicode', 'Arial', 'Helvetica', sans-serif; color: #000000; display: inline-block; text-indent: 0px; min-width: 24px;">•</span><span class="rvts6">Mostrar </span><span class="rvts29">gráficamente la velocidad del viento</span><span class="rvts6"> en relación con el viento nominal (flecha azul en el panel izquierdo)</span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps4"><span class="rvts11"><br/></span></p>
+<p class="rvps20"><span class="rvts98"><br/></span></p>
+<p class="rvps20"><span class="rvts98"></span><span class="rvts6"></span></p>
+
+	</div>
+	
+	
+		<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; &lt;2025&gt;, &lt;Automated Computing Machinery SL&gt; ACM SL
+			</div>
+		</div>
+	
+	
+
+	
+</body>
+	
+</html>
+
