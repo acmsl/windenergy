@@ -12,6 +12,14 @@
     <meta property="og:description" content="Professional real-time simulators for wind turbine training and engineering. Covers DFIG, Active Stall, RRC families. Free 2-day evaluation." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.acm-sl.com/" />
+    <link rel="canonical" href="https://www.acm-sl.com/" />
+    <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/?lang=es" />
+    <link rel="alternate" hreflang="en" href="https://www.acm-sl.com/?lang=en" />
+    <link rel="alternate" hreflang="fr" href="https://www.acm-sl.com/?lang=fr" />
+    <link rel="alternate" hreflang="de" href="https://www.acm-sl.com/?lang=de" />
+    <link rel="alternate" hreflang="it" href="https://www.acm-sl.com/?lang=it" />
+    <link rel="alternate" hreflang="pt" href="https://www.acm-sl.com/?lang=pt" />
+    <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/" />
     <style>
       :root {
         --primary: #006699;
@@ -3771,6 +3779,10 @@
 
       if (id === "landing") _navStack = [];
       renderBreadcrumb([..._navStack, _currentSection]);
+      const sectionLabel = getBreadcrumbLabel(id);
+      document.title = (id === 'landing')
+        ? 'Wind Turbine Real-Time Simulators, Training & Engineering Tools | ACMSL'
+        : sectionLabel + ' | ACMSL Wind Turbine Simulators';
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
