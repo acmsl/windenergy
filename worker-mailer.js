@@ -66,6 +66,8 @@ export default {
       hcaptchaToken,
       website,
       elapsedMs,
+      dlpkg,
+      dlurl,
     } = data;
 
     if (!nombre || !apellidos || !email || !telefono || !ciudad || !pais || !mensaje) {
@@ -96,11 +98,28 @@ export default {
     }
 
     /* ── Build HTML email ───────────────────────────────────── */
+    const isDownload = !!(dlpkg || dlurl);
+    const emailTitle = isDownload
+      ? `Solicitud de descarga – ACM SL`
+      : `Nuevo mensaje de contacto – ACM SL`;
+    const downloadRow = isDownload ? `
+        <tr style="background:#e3f4ff">
+          <td style="padding:10px 20px;font-weight:600;color:#006699" colspan="2">&#128230; Descarga solicitada</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 20px;font-weight:600;width:160px">Paquete</td>
+          <td style="padding:10px 20px">${esc(dlpkg || '—')}</td>
+        </tr>
+        <tr style="background:#f3f7fb">
+          <td style="padding:10px 20px;font-weight:600">Enlace de descarga</td>
+          <td style="padding:10px 20px"><a href="${esc(dlurl || '')}" style="color:#006699;font-weight:600">${esc(dlurl || '—')}</a></td>
+        </tr>` : '';
     const html = `
       <table style="font-family:sans-serif;font-size:15px;color:#123047;border-collapse:collapse;width:100%;max-width:640px">
         <tr><td colspan="2" style="background:#006699;color:#fff;padding:14px 20px;font-size:18px;font-weight:700">
-          Nuevo mensaje de contacto – ACM SL
+          ${emailTitle}
         </td></tr>
+        ${downloadRow}
         <tr><td style="padding:10px 20px;font-weight:600;width:160px">Nombre</td>
             <td style="padding:10px 20px">${esc(nombre)} ${esc(apellidos)}</td></tr>
         <tr style="background:#f3f7fb">
@@ -123,12 +142,16 @@ export default {
     /* ── Call SMTP2GO API (server-side, no CORS) ────────────── */
     const visitorName = `${nombre.trim()} ${apellidos.trim()}`;
 
+    const subject = isDownload
+      ? `Solicitud de descarga: ${dlpkg ? dlpkg.slice(0, 60) : 'software'} – ${visitorName}`
+      : `Contacto web: ${visitorName}`;
+
     const payload = {
       api_key:   env.SMTP2GO_API_KEY,
       sender:    SENDER,
       to:        [RECIPIENT],
       cc:        [`${visitorName} <${email}>`],
-      subject:   `Contacto web: ${visitorName}`,
+      subject,
       html_body: html,
     };
 
