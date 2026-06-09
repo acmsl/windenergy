@@ -150,5 +150,7 @@
   "videos.p": "Select a video to watch.",
   "videos.title": "Wind Turbine related videos",
   "windfarms.p": "Wind farms serve as the fundamental production units, supplying their generated power directly to the Transmission Tetwork of the Electric Grid.",
-  "windfarms.title": "The Wind Farms and the Electric Grid"
+  "windfarms.title": "The Wind Farms and the Electric Grid",
+  "card.grid.title12": "Our Approach to Training of Wind Turbine Technologies",
+  "card.grid.href12": "our-training-approach.html"
 }
