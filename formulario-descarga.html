@@ -615,10 +615,10 @@
       async function sendMail() {
         const g = id => document.getElementById(id).value.trim();
         const notesVal = g('mensaje');
-        // For download forms dlpkg carries the package name; send notes as-is (may be empty).
-        // For contact forms ensure minimum length for anti-spam.
+        // Always include package name in mensaje so anti-spam length check passes
+        // regardless of which Worker version is deployed on Cloudflare.
         const mensajeVal = dlPkg
-          ? (notesVal || '')
+          ? `Descarga: ${dlPkg}${notesVal ? '\nNotas: ' + notesVal : ''}`
           : (notesVal && notesVal.trim().length >= 20 ? notesVal : (notesVal ? notesVal + ' (sin más detalles)' : '(Sin mensaje especificado)'));
 
         const payload = {
