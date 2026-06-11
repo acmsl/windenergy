@@ -105,9 +105,14 @@ export default {
       ? `Solicitud de descarga: ${dlpkg ? dlpkg.slice(0, 60) : 'software'} – ${visitorName}`
       : `Contacto web: ${visitorName}`;
 
-    const notesSection = mensaje && mensaje.trim()
+    // Strip the 'Descarga: <pkg>\nNotas: ' prefix injected by formulario-descarga.html
+    let userNotes = mensaje || '';
+    if (dlpkg && userNotes.startsWith(`Descarga: ${dlpkg}`)) {
+      userNotes = userNotes.slice(`Descarga: ${dlpkg}`.length).replace(/^\nNotas: /, '').trim();
+    }
+    const notesSection = userNotes
       ? `<tr><td colspan="2" style="padding:10px 20px;font-weight:600;border-top:1px solid #d0dce6">Notas adicionales</td></tr>
-         <tr><td colspan="2" style="padding:10px 20px;background:#f3f7fb;white-space:pre-wrap">${esc(mensaje)}</td></tr>`
+         <tr><td colspan="2" style="padding:10px 20px;background:#f3f7fb;white-space:pre-wrap">${esc(userNotes)}</td></tr>`
       : '';
 
     const downloadBlock = isDownload ? `
@@ -115,13 +120,10 @@ export default {
           <td style="padding:10px 20px;font-weight:600;color:#006699" colspan="2">&#128230; Descarga solicitada</td>
         </tr>
         <tr>
-          <td style="padding:10px 20px;font-weight:600;width:160px">Paquete</td>
-          <td style="padding:10px 20px">${esc(dlpkg || '—')}</td>
+          <td style="padding:10px 20px;font-weight:600;width:160px">Descarga</td>
+          <td style="padding:10px 20px"><a href="${esc(dlurl || '')}" style="color:#006699;font-weight:700">${esc(dlpkg || dlurl || '—')}</a></td>
         </tr>
-        <tr style="background:#f3f7fb">
-          <td style="padding:10px 20px;font-weight:600">Enlace de descarga</td>
-          <td style="padding:10px 20px"><a href="${esc(dlurl || '')}" style="color:#006699;font-weight:700;font-size:16px">&#11015; Descargar directamente</a></td>
-        </tr>` : '';
+` : '';
 
     const contactBlock = `
         <tr style="border-top:1px solid #d0dce6">
