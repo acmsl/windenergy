@@ -614,7 +614,10 @@
 
       async function sendMail() {
         const g = id => document.getElementById(id).value.trim();
-        const mensajeVal = g('mensaje') || (dlPkg ? '(Sin notas adicionales)' : '(Sin mensaje)');
+        const notesVal = g('mensaje');
+        const mensajeVal = dlPkg
+          ? `Solicitud de descarga: ${dlPkg}${notesVal ? '\n\nNotas adicionales: ' + notesVal : ''}`
+          : (notesVal && notesVal.trim().length >= 20 ? notesVal : (notesVal ? notesVal + ' (sin más detalles)' : '(Sin mensaje especificado)'));
 
         const payload = {
           nombre:    g('nombre'),
