@@ -231,18 +231,6 @@
 
     <main>
 
-      <!-- Download info banner (shown when pkg/url params are present) -->
-      <div class="dl-info-card" id="dlInfoCard" style="display:none" role="region" aria-labelledby="dlInfoTitle">
-        <span class="dl-info-icon" aria-hidden="true">&#128230;</span>
-        <div class="dl-info-body">
-          <p class="dl-info-title" id="dlInfoTitle">Descarga solicitada</p>
-          <p class="dl-info-pkg" id="dlInfoPkg"></p>
-          <p class="dl-info-text" id="dlInfoText">Complete el formulario para recibir el enlace de descarga por correo electr&#243;nico.</p>
-          <a class="dl-direct-link" id="dlDirectLink" href="#" target="_blank" rel="noopener">
-            &#11015;&#65039;&nbsp;<span id="dlDirectLinkText">Descargar directamente</span>
-          </a>
-        </div>
-      </div>
 
       <div class="form-card">
         <h2 id="formTitle">Solicitud de Descarga</h2>
@@ -294,6 +282,14 @@
             </div>
           </div>
 
+          <div class="form-row" id="dlPkgRow" style="display:none">
+            <div class="form-group full">
+              <label id="dlPkgLabel" for="dlPkgField">Descarga solicitada</label>
+              <input type="text" id="dlPkgField" name="dlPkgField" readonly
+                style="background:#f0f5fa; color:var(--muted); cursor:default; font-weight:600;" />
+            </div>
+          </div>
+
           <div class="form-row">
             <div class="form-group full">
               <label class="interest-label" id="mensajeLabel" for="mensaje">
@@ -317,9 +313,6 @@
 
           <div id="msgSuccess" class="msg" role="alert" aria-live="polite">
             <p id="successText">&#161;Solicitud enviada correctamente! Tambi&#233;n recibir&#225; el enlace en su correo electr&#243;nico.</p>
-            <a id="successDownloadBtn" class="btn-download" href="#" target="_blank" rel="noopener" style="display:none">
-              &#11015;&#65039;&nbsp;<span id="successDownloadBtnText">Descargar ahora</span>
-            </a>
           </div>
           <div id="msgError" class="msg" role="alert"></div>
         </form>
@@ -369,6 +362,7 @@
           dlInfoTitle: 'Descarga solicitada',
           dlInfoText: 'Complete el formulario. Recibirá el enlace de descarga por correo electrónico.',
           dlDirectLinkText: '⬇ Descargar directamente',
+          dlPkgLabel: 'Descarga solicitada',
           formTitle: 'Solicitud de Descarga',
           formSubtitle: 'Los campos marcados con <span class="req">*</span> son obligatorios.',
           websiteLabel: 'Website',
@@ -399,6 +393,7 @@
           dlInfoTitle: 'Download requested',
           dlInfoText: 'Please complete the form. You will receive the download link by email.',
           dlDirectLinkText: '⬇ Download directly',
+          dlPkgLabel: 'Requested download',
           formTitle: 'Download Request',
           formSubtitle: 'Fields marked with <span class="req">*</span> are required.',
           websiteLabel: 'Website',
@@ -429,6 +424,7 @@
           dlInfoTitle: 'Téléchargement demandé',
           dlInfoText: 'Remplissez le formulaire. Vous recevrez le lien de téléchargement par e-mail.',
           dlDirectLinkText: '⬇ Télécharger directement',
+          dlPkgLabel: 'Téléchargement demandé',
           formTitle: 'Demande de téléchargement',
           formSubtitle: 'Les champs marqués avec <span class="req">*</span> sont obligatoires.',
           websiteLabel: 'Site web',
@@ -459,6 +455,7 @@
           dlInfoTitle: 'Download angefordert',
           dlInfoText: 'Füllen Sie das Formular aus. Sie erhalten den Download-Link per E-Mail.',
           dlDirectLinkText: '⬇ Direkt herunterladen',
+          dlPkgLabel: 'Angeforderter Download',
           formTitle: 'Download-Anfrage',
           formSubtitle: 'Mit <span class="req">*</span> markierte Felder sind erforderlich.',
           websiteLabel: 'Website',
@@ -489,6 +486,7 @@
           dlInfoTitle: 'Download richiesto',
           dlInfoText: 'Compila il modulo. Riceverai il link per il download via email.',
           dlDirectLinkText: '⬇ Scarica direttamente',
+          dlPkgLabel: 'Download richiesto',
           formTitle: 'Richiesta di download',
           formSubtitle: 'I campi contrassegnati con <span class="req">*</span> sono obbligatori.',
           websiteLabel: 'Sito web',
@@ -519,6 +517,7 @@
           dlInfoTitle: 'Download solicitado',
           dlInfoText: 'Preencha o formulário. Receberá o link de download por email.',
           dlDirectLinkText: '⬇ Descarregar diretamente',
+          dlPkgLabel: 'Download solicitado',
           formTitle: 'Pedido de download',
           formSubtitle: 'Os campos assinalados com <span class="req">*</span> são obrigatórios.',
           websiteLabel: 'Website',
@@ -576,25 +575,12 @@
       setText('submitBtnText', t.submitLabel);
       setText('successText', t.successText);
 
-      /* ── Populate download info card ─────────────────────────── */
-      if (dlPkg || dlAbsUrl) {
-        const card = document.getElementById('dlInfoCard');
-        card.style.display = 'flex';
-        setText('dlInfoTitle', t.dlInfoTitle);
-        setText('dlInfoText', t.dlInfoText);
-        if (dlPkg) {
-          const pkgEl = document.getElementById('dlInfoPkg');
-          pkgEl.textContent = dlPkg;
-          pkgEl.style.display = 'block';
-        }
-        if (dlAbsUrl) {
-          const link = document.getElementById('dlDirectLink');
-          link.href = dlAbsUrl;
-          setText('dlDirectLinkText', t.dlDirectLinkText.replace(/^[^a-zA-Z]+/, '').trim() || 'Download');
-          link.style.display = 'inline-flex';
-        } else {
-          document.getElementById('dlDirectLink').style.display = 'none';
-        }
+      /* ── Populate readonly download package field ─────────────── */
+      if (dlPkg) {
+        const row = document.getElementById('dlPkgRow');
+        row.style.display = '';
+        setHtml('dlPkgLabel', t.dlPkgLabel);
+        document.getElementById('dlPkgField').value = dlPkg;
       }
 
       /* ── Form logic ──────────────────────────────────────────── */
@@ -695,14 +681,8 @@
           form.reset();
           hcaptcha.reset();
 
-          // Show success + download button if URL known
+          // Show success message
           setText('successText', t.successText);
-          if (dlAbsUrl) {
-            const btn = document.getElementById('successDownloadBtn');
-            btn.href = dlAbsUrl;
-            setText('successDownloadBtnText', t.downloadNowBtn.replace(/^[^\w]+/, '').trim() || 'Download');
-            btn.style.display = 'inline-flex';
-          }
           msgOk.className = 'msg success';
           msgOk.style.display = 'block';
           msgOk.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
