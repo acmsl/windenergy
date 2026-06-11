@@ -70,7 +70,7 @@ export default {
       dlurl,
     } = data;
 
-    if (!nombre || !apellidos || !email || !telefono || !ciudad || !pais || !mensaje) {
+    if (!nombre || !apellidos || !email || !telefono || !ciudad || !pais || (!mensaje && !dlpkg)) {
       return json({ ok: false, error: 'Missing required fields' }, 422, origin);
     }
 
@@ -82,7 +82,7 @@ export default {
       return json({ ok: false, error: 'Form submitted too quickly' }, 429, origin);
     }
 
-    if (mensaje.trim().length < 20) {
+    if (!dlpkg && mensaje.trim().length < 20) {
       return json({ ok: false, error: 'Message is too short' }, 422, origin);
     }
 
@@ -99,10 +99,18 @@ export default {
 
     /* ── Build HTML email ───────────────────────────────────── */
     const isDownload = !!(dlpkg || dlurl);
-    const emailTitle = isDownload
-      ? `Solicitud de descarga – ACM SL`
-      : `Nuevo mensaje de contacto – ACM SL`;
-    const downloadRow = isDownload ? `
+    const visitorName = `${nombre.trim()} ${apellidos.trim()}`;
+
+    const subject = isDownload
+      ? `Solicitud de descarga: ${dlpkg ? dlpkg.slice(0, 60) : 'software'} – ${visitorName}`
+      : `Contacto web: ${visitorName}`;
+
+    const notesSection = mensaje && mensaje.trim()
+      ? `<tr><td colspan="2" style="padding:10px 20px;font-weight:600;border-top:1px solid #d0dce6">Notas adicionales</td></tr>
+         <tr><td colspan="2" style="padding:10px 20px;background:#f3f7fb;white-space:pre-wrap">${esc(mensaje)}</td></tr>`
+      : '';
+
+    const downloadBlock = isDownload ? `
         <tr style="background:#e3f4ff">
           <td style="padding:10px 20px;font-weight:600;color:#006699" colspan="2">&#128230; Descarga solicitada</td>
         </tr>
@@ -112,55 +120,56 @@ export default {
         </tr>
         <tr style="background:#f3f7fb">
           <td style="padding:10px 20px;font-weight:600">Enlace de descarga</td>
-          <td style="padding:10px 20px"><a href="${esc(dlurl || '')}" style="color:#006699;font-weight:600">${esc(dlurl || '—')}</a></td>
+          <td style="padding:10px 20px"><a href="${esc(dlurl || '')}" style="color:#006699;font-weight:700;font-size:16px">&#11015; Descargar directamente</a></td>
         </tr>` : '';
+
+    const contactBlock = `
+        <tr style="border-top:1px solid #d0dce6">
+          <td style="padding:10px 20px;font-weight:600;width:160px">Nombre</td>
+          <td style="padding:10px 20px">${esc(nombre)} ${esc(apellidos)}</td>
+        </tr>
+        <tr style="background:#f3f7fb">
+          <td style="padding:10px 20px;font-weight:600">Email</td>
+          <td style="padding:10px 20px">${esc(email)}</td>
+        </tr>
+        <tr>
+          <td style="padding:10px 20px;font-weight:600">Teléfono</td>
+          <td style="padding:10px 20px">${esc(telefono)}</td>
+        </tr>
+        <tr style="background:#f3f7fb">
+          <td style="padding:10px 20px;font-weight:600">Ciudad / País</td>
+          <td style="padding:10px 20px">${esc(ciudad)}, ${esc(pais)}</td>
+        </tr>`;
+
     const html = `
       <table style="font-family:sans-serif;font-size:15px;color:#123047;border-collapse:collapse;width:100%;max-width:640px">
         <tr><td colspan="2" style="background:#006699;color:#fff;padding:14px 20px;font-size:18px;font-weight:700">
-          ${emailTitle}
+          ${isDownload ? 'Solicitud de descarga – ACM SL' : 'Nuevo mensaje de contacto – ACM SL'}
         </td></tr>
-        ${downloadRow}
-        <tr><td style="padding:10px 20px;font-weight:600;width:160px">Nombre</td>
-            <td style="padding:10px 20px">${esc(nombre)} ${esc(apellidos)}</td></tr>
-        <tr style="background:#f3f7fb">
-            <td style="padding:10px 20px;font-weight:600">Email</td>
-            <td style="padding:10px 20px">${esc(email)}</td></tr>
-        <tr><td style="padding:10px 20px;font-weight:600">Teléfono</td>
-            <td style="padding:10px 20px">${esc(telefono)}</td></tr>
-        <tr style="background:#f3f7fb">
-            <td style="padding:10px 20px;font-weight:600">Dirección</td>
-            <td style="padding:10px 20px">${esc(direccion || '—')}</td></tr>
-        <tr><td style="padding:10px 20px;font-weight:600">Ciudad</td>
-            <td style="padding:10px 20px">${esc(ciudad)}</td></tr>
-        <tr style="background:#f3f7fb">
-            <td style="padding:10px 20px;font-weight:600">País</td>
-            <td style="padding:10px 20px">${esc(pais)}</td></tr>
-        <tr><td colspan="2" style="padding:10px 20px;font-weight:600">Mensaje</td></tr>
-        <tr><td colspan="2" style="padding:10px 20px;background:#f3f7fb;white-space:pre-wrap">${esc(mensaje)}</td></tr>
+        ${downloadBlock}
+        ${notesSection}
+        ${contactBlock}
+        <tr><td colspan="2" style="padding:14px 20px;font-size:13px;color:#516272">
+          ACM SL &middot; support@acm-sl.com &middot; www.acm-sl.com
+        </td></tr>
       </table>`;
 
-    /* ── Call SMTP2GO API (server-side, no CORS) ────────────── */
-    const visitorName = `${nombre.trim()} ${apellidos.trim()}`;
-
-    const subject = isDownload
-      ? `Solicitud de descarga: ${dlpkg ? dlpkg.slice(0, 60) : 'software'} – ${visitorName}`
-      : `Contacto web: ${visitorName}`;
-
-    const payload = {
-      api_key:   env.SMTP2GO_API_KEY,
-      sender:    SENDER,
-      to:        [RECIPIENT],
-      cc:        [`${visitorName} <${email}>`],
-      subject,
-      html_body: html,
-    };
+    /* ── Send single email to both support and visitor ──────── */
+    const toList = [RECIPIENT];
+    if (email) toList.push(`${visitorName} <${email}>`);
 
     let smtpRes, smtpJson;
     try {
       smtpRes  = await fetch('https://api.smtp2go.com/v3/email/send', {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(payload),
+        body:    JSON.stringify({
+          api_key:   env.SMTP2GO_API_KEY,
+          sender:    SENDER,
+          to:        toList,
+          subject,
+          html_body: html,
+        }),
       });
       smtpJson = await smtpRes.json();
     } catch (err) {

@@ -615,8 +615,10 @@
       async function sendMail() {
         const g = id => document.getElementById(id).value.trim();
         const notesVal = g('mensaje');
+        // For download forms dlpkg carries the package name; send notes as-is (may be empty).
+        // For contact forms ensure minimum length for anti-spam.
         const mensajeVal = dlPkg
-          ? `Solicitud de descarga: ${dlPkg}${notesVal ? '\n\nNotas adicionales: ' + notesVal : ''}`
+          ? (notesVal || '')
           : (notesVal && notesVal.trim().length >= 20 ? notesVal : (notesVal ? notesVal + ' (sin más detalles)' : '(Sin mensaje especificado)'));
 
         const payload = {
