@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Farms &amp; the Electric Grid – SCADA, Grid Codes &amp; Real-Time Simulator | ACMSL</title>
+  <meta name="description" content="Understand how wind farms connect to the Electric Grid: SCADA systems, grid codes, electrical substations, and the real-time Wind Farm SCADA simulator by ACMSL." />
+  <meta name="keywords" content="wind farm SCADA, electric grid, wind farm simulator, grid codes, wind turbine control, transmission system operator, TSO, wind energy training" />
+  <meta property="og:title" content="Wind Farms &amp; the Electric Grid | ACMSL" />
+  <meta property="og:description" content="Real-time Wind Farm SCADA simulator. Learn grid connection, grid codes, and wind farm operations." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.acm-sl.com/parques-eolicos-red-electrica.html" />
+  <link rel="canonical" href="https://www.acm-sl.com/parques-eolicos-red-electrica.html" />
+  <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
+  <link rel="alternate" hreflang="en" href="https://www.acm-sl.com/parques-eolicos-red-electrica.html?lang=en" />
+  <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/parques-eolicos-red-electrica.html?lang=es" />
+  <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/parques-eolicos-red-electrica.html" />
+  <link rel="stylesheet" href="seo-topics.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a class="brand" href="index.html">
+      <img src="img/ACM_LOGO.png" alt="ACM SL Logo" />
+      <div class="brand-copy">
+        <h1>Automated Computing Machinery SL</h1>
+        <p>ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="index.html?section=windfarm" class="btn-app">Open Interactive App</a>
+      <a href="contacto.html" class="btn-outline">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span>
+      <strong>Wind Farms &amp; the Electric Grid</strong>
+    </nav>
+
+    <nav class="topic-nav" aria-label="All topics">
+      <a href="conceptos-energia-eolica.html">1. Wind Energy Concepts</a>
+      <a href="parques-eolicos-red-electrica.html" class="active">2. Wind Farms &amp; Grid</a>
+      <a href="simuladores-aerogeneradores-tiempo-real.html">3. Simulators</a>
+      <a href="analisis-tren-potencia-aerogeneradores.html">4. Drive Train</a>
+      <a href="convertidores-back-to-back-dfig.html">5. B2B Converters</a>
+      <a href="visualizacion-datos-aerogeneradores.html">6. Data Visualisation</a>
+      <a href="tutoriales-aerogeneradores.html">7. Tutorials</a>
+      <a href="mantenimiento-aerogeneradores.html">8. Maintenance</a>
+      <a href="desarrollos.html">9. Developments</a>
+      <a href="articulos-referencias-tecnicas.html">10. Articles</a>
+      <a href="descargas-simuladores-aerogeneradores.html">11. Downloads</a>
+      <a href="clientes-formacion-aerogeneradores.html">12. Clients</a>
+    </nav>
+
+    <h1 class="page-title">Wind Farms as Clients of the Electric Grid</h1>
+    <p class="lead">
+      Wind farms are the primary production units of wind energy, supplying generated power directly
+      to the Transmission Network. This section covers the SCADA control centre, grid codes,
+      and the real-time simulator that lets trainees explore every component of a wind farm.
+    </p>
+
+    <!-- 2-1 -->
+    <div class="topic-section">
+      <h2>2-1 &nbsp;Wind Farm Description and SCADA Tutorial</h2>
+      <p>
+        ACMSL provides a comprehensive tutorial covering the complete structure of a wind farm and
+        its Supervisory Control and Data Acquisition (SCADA) system. Topics include:
+      </p>
+      <ul>
+        <li>Overall architecture of a wind farm (turbines, collection grid, substation)</li>
+        <li>SCADA functionalities: monitoring, alarm management, setpoint control</li>
+        <li>Communication architecture between the control centre and individual turbines</li>
+        <li>Meteorological tower and wind resource assessment</li>
+        <li>Power curve monitoring and performance analysis</li>
+      </ul>
+      <div class="btn-row">
+        <a href="tutorials/en/simulators-and-tutorials.html" target="_blank" rel="noopener" class="btn-primary">Free Preview of the Tutorial</a>
+        <a href="index.html?section=windfarm" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 2-2 -->
+    <div class="topic-section">
+      <h2>2-2 &nbsp;The Electric Grid as Client of Wind Farms</h2>
+      <p>
+        The Transmission System Operator (TSO) imposes strict technical requirements on all generators
+        connected to the grid. For wind farms, the most relevant grid characteristics are:
+      </p>
+      <ul>
+        <li><strong>Grid Codes</strong> – minimum technical requirements for reactive power, voltage support, and fault ride-through (FRT/LVRT) capability.</li>
+        <li><strong>Frequency regulation</strong> – contribution of wind farms to primary and secondary frequency control.</li>
+        <li><strong>Voltage &amp; reactive power</strong> – wind turbines must participate in voltage regulation at the point of common coupling (PCC).</li>
+        <li><strong>Power quality</strong> – harmonics, flicker, and unbalance limits imposed by grid operators.</li>
+      </ul>
+      <p>
+        The ACMSL tutorial covers the fundamental characteristics of the Electric Grid that directly
+        impact wind farm operation and grid compliance.
+      </p>
+      <div class="btn-row">
+        <a href="index.html?section=windfarm" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 2-3 -->
+    <div class="topic-section">
+      <h2>2-3 &nbsp;Real-Time Wind Farm / SCADA Simulator</h2>
+      <p>
+        The ACMSL Wind Farm SCADA Simulator is a real-time Digital Twin of a complete wind farm
+        including its control centre. Trainees can:
+      </p>
+      <ul>
+        <li>Operate the SCADA: start/stop individual turbines, change power setpoints, acknowledge alarms</li>
+        <li>Observe real-time power flow from individual turbines to the substation and the grid</li>
+        <li>Simulate grid disturbances and observe turbine responses (voltage dip, frequency deviation)</li>
+        <li>Navigate the full tutorial within the same application</li>
+      </ul>
+      <p>
+        A free 2-day evaluation license is granted automatically on first launch. No credit card required.
+      </p>
+      <div class="btn-row">
+        <a href="descargas-simuladores-aerogeneradores.html" class="btn-accent">Download Simulator (free)</a>
+        <a href="https://youtu.be/0bZFwWSccGQ" target="_blank" rel="noopener" class="btn-secondary">▶ Video Demo</a>
+        <a href="index.html?section=windfarm" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Try the Wind Farm SCADA Simulator</h2>
+      <p>Download the real-time simulator and operate a complete virtual wind farm. Free 2-day evaluation, no credit card required.</p>
+      <a href="descargas-simuladores-aerogeneradores.html" class="btn-cta">Download Free Evaluation</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html">Contact</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+
+</body>
+</html>

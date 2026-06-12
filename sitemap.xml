@@ -102,4 +102,93 @@
     <priority>0.5</priority>
   </url>
 
+  <!-- SEO topic pages -->
+  <url>
+    <loc>https://www.acm-sl.com/conceptos-energia-eolica.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/conceptos-energia-eolica.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/conceptos-energia-eolica.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/parques-eolicos-red-electrica.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/parques-eolicos-red-electrica.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/parques-eolicos-red-electrica.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/simuladores-aerogeneradores-tiempo-real.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/simuladores-aerogeneradores-tiempo-real.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/simuladores-aerogeneradores-tiempo-real.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html?lang=es"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/convertidores-back-to-back-dfig.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/convertidores-back-to-back-dfig.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/convertidores-back-to-back-dfig.html?lang=es"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html?lang=es"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/tutoriales-aerogeneradores.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/tutoriales-aerogeneradores.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/tutoriales-aerogeneradores.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/mantenimiento-aerogeneradores.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/mantenimiento-aerogeneradores.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/mantenimiento-aerogeneradores.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/articulos-referencias-tecnicas.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/articulos-referencias-tecnicas.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/articulos-referencias-tecnicas.html?lang=es"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/descargas-simuladores-aerogeneradores.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/descargas-simuladores-aerogeneradores.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/descargas-simuladores-aerogeneradores.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.acm-sl.com/clientes-formacion-aerogeneradores.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.acm-sl.com/clientes-formacion-aerogeneradores.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://www.acm-sl.com/clientes-formacion-aerogeneradores.html?lang=es"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>

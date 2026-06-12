@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Turbine Data Visualisation &amp; Processing – LdP Datalogger Viewer | ACMSL</title>
+  <meta name="description" content="Visualise, process and export time-series data recorded by wind turbine simulators. The LdP Datalogger Viewer supports CSV export, resampling, and multi-channel signal display." />
+  <meta name="keywords" content="wind turbine data visualisation, datalogger viewer, time series signals, CSV export, wind turbine data processing, signal recording, LdP Datalogger Viewer" />
+  <meta property="og:title" content="Wind Turbine Data Visualisation &amp; Processing | ACMSL" />
+  <meta property="og:description" content="LdP Datalogger Viewer – visualise simulator recordings, export to CSV, resample signals." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html" />
+  <link rel="canonical" href="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html" />
+  <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
+  <link rel="alternate" hreflang="en" href="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html?lang=en" />
+  <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html?lang=es" />
+  <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/visualizacion-datos-aerogeneradores.html" />
+  <link rel="stylesheet" href="seo-topics.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a class="brand" href="index.html">
+      <img src="img/ACM_LOGO.png" alt="ACM SL Logo" />
+      <div class="brand-copy">
+        <h1>Automated Computing Machinery SL</h1>
+        <p>ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="index.html?section=dataviewer" class="btn-app">Open Interactive App</a>
+      <a href="contacto.html" class="btn-outline">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span>
+      <strong>Data Visualisation &amp; Processing</strong>
+    </nav>
+
+    <nav class="topic-nav" aria-label="All topics">
+      <a href="conceptos-energia-eolica.html">1. Wind Energy Concepts</a>
+      <a href="parques-eolicos-red-electrica.html">2. Wind Farms &amp; Grid</a>
+      <a href="simuladores-aerogeneradores-tiempo-real.html">3. Simulators</a>
+      <a href="analisis-tren-potencia-aerogeneradores.html">4. Drive Train</a>
+      <a href="convertidores-back-to-back-dfig.html">5. B2B Converters</a>
+      <a href="visualizacion-datos-aerogeneradores.html" class="active">6. Data Visualisation</a>
+      <a href="tutoriales-aerogeneradores.html">7. Tutorials</a>
+      <a href="mantenimiento-aerogeneradores.html">8. Maintenance</a>
+      <a href="desarrollos.html">9. Developments</a>
+      <a href="articulos-referencias-tecnicas.html">10. Articles</a>
+      <a href="descargas-simuladores-aerogeneradores.html">11. Downloads</a>
+      <a href="clientes-formacion-aerogeneradores.html">12. Clients</a>
+    </nav>
+
+    <h1 class="page-title">Data Visualisation &amp; Processing for Wind Turbine Data</h1>
+    <p class="lead">
+      ACMSL provides tools for visualising, processing and exporting time-series signal recordings
+      from simulator sessions and from field dataloggers — enabling deeper analysis beyond what is
+      visible in real-time during operation.
+    </p>
+
+    <!-- 6-1 -->
+    <div class="topic-section">
+      <h2>6-1 &nbsp;LdP Datalogger Viewer Application</h2>
+      <p>
+        The <strong>LdP Datalogger Viewer</strong> is a Windows application for visualising signal
+        evolution recordings captured during sessions with any ACMSL simulator — or from the
+        DL1300 industrial datalogger.
+      </p>
+      <p>Main capabilities:</p>
+      <ul>
+        <li><strong>Multi-channel time-series display</strong> – visualise tens of signals simultaneously with zoom, pan and cursor tools</li>
+        <li><strong>CSV export</strong> – export any selection of signals to CSV for further analysis in Excel, Python, MATLAB, etc.</li>
+        <li><strong>Resampling</strong> – resample signals to a uniform time base before export</li>
+        <li><strong>SQLite backend</strong> – recording files use SQLite, allowing direct queries and external data processing</li>
+        <li><strong>Multi-session comparison</strong> – overlay recordings from different sessions for comparative analysis</li>
+      </ul>
+      <p>
+        Available as a free download. Includes integrated help documentation in 6 languages.
+      </p>
+      <div class="btn-row">
+        <a href="descargas-simuladores-aerogeneradores.html" class="btn-accent">Download Datalogger Viewer (free)</a>
+        <a href="img/DataloggerViewer/LdP_Datalogger_Viewer_help/EN/LdP_Datalogger_Viewer_help.html" target="_blank" rel="noopener" class="btn-primary">Help Documentation</a>
+        <a href="index.html?section=dataviewer" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 6-2 -->
+    <div class="topic-section">
+      <h2>6-2 &nbsp;Visualising CSV, Excel and Other Time-Series Files</h2>
+      <p>
+        Beyond simulator recordings, the LdP Datalogger Viewer can open and visualise data from
+        standard CSV files and other tabular formats, making it useful for:
+      </p>
+      <ul>
+        <li>Post-processing SCADA data exports from operational wind farms</li>
+        <li>Analysing data collected by the <a href="datalogger-dl1300-aerogeneradores.html">DL1300 industrial datalogger</a></li>
+        <li>Visualising time-series from laboratory instrumentation</li>
+        <li>Comparing design models with measured field data</li>
+      </ul>
+      <div class="btn-row">
+        <a href="descargas-simuladores-aerogeneradores.html" class="btn-accent">Download (free)</a>
+        <a href="index.html?section=dataviewer" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Download the LdP Datalogger Viewer</h2>
+      <p>Free Windows application for visualising, processing and exporting wind turbine signal recordings.</p>
+      <a href="descargas-simuladores-aerogeneradores.html" class="btn-cta">Download Free</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html">Contact</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+
+</body>
+</html>

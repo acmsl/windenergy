@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Turbine Drive Train Analysis – MPPT &amp; Operational Curve Calculator | ACMSL</title>
+  <meta name="description" content="Engineering tools for wind turbine drive train analysis: MPPT algorithm design, Operational Curve calculation, gearbox ratio selection, and the NREL reference paper for variable-speed wind turbines." />
+  <meta name="keywords" content="wind turbine drive train, MPPT, maximum power point tracking, operational curve, variable speed wind turbine, gearbox ratio, NREL, DFIG drive train, wind turbine engineering" />
+  <meta property="og:title" content="Wind Turbine Drive Train Analysis | ACMSL" />
+  <meta property="og:description" content="MPPT algorithm design and operational curve calculator for variable-speed wind turbines. NREL reference included." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html" />
+  <link rel="canonical" href="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html" />
+  <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
+  <link rel="alternate" hreflang="en" href="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html?lang=en" />
+  <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html?lang=es" />
+  <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/analisis-tren-potencia-aerogeneradores.html" />
+  <link rel="stylesheet" href="seo-topics.css" />
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a class="brand" href="index.html">
+      <img src="img/ACM_LOGO.png" alt="ACM SL Logo" />
+      <div class="brand-copy">
+        <h1>Automated Computing Machinery SL</h1>
+        <p>ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="index.html?section=drivetrain" class="btn-app">Open Interactive App</a>
+      <a href="contacto.html" class="btn-outline">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span>
+      <strong>Drive Train Analysis</strong>
+    </nav>
+
+    <nav class="topic-nav" aria-label="All topics">
+      <a href="conceptos-energia-eolica.html">1. Wind Energy Concepts</a>
+      <a href="parques-eolicos-red-electrica.html">2. Wind Farms &amp; Grid</a>
+      <a href="simuladores-aerogeneradores-tiempo-real.html">3. Simulators</a>
+      <a href="analisis-tren-potencia-aerogeneradores.html" class="active">4. Drive Train</a>
+      <a href="convertidores-back-to-back-dfig.html">5. B2B Converters</a>
+      <a href="visualizacion-datos-aerogeneradores.html">6. Data Visualisation</a>
+      <a href="tutoriales-aerogeneradores.html">7. Tutorials</a>
+      <a href="mantenimiento-aerogeneradores.html">8. Maintenance</a>
+      <a href="desarrollos.html">9. Developments</a>
+      <a href="articulos-referencias-tecnicas.html">10. Articles</a>
+      <a href="descargas-simuladores-aerogeneradores.html">11. Downloads</a>
+      <a href="clientes-formacion-aerogeneradores.html">12. Clients</a>
+    </nav>
+
+    <h1 class="page-title">Wind Turbine Drive Train Analysis</h1>
+    <p class="lead">
+      Engineering tools for designing and studying the operational behaviour of variable-speed
+      wind turbine drive trains — from Maximum Power Point Tracking (MPPT) algorithm design
+      to gearbox ratio selection and blade coupling analysis.
+    </p>
+
+    <!-- 4-1 NREL -->
+    <div class="topic-section">
+      <h2>4-1 &nbsp;NREL Reference Documentation</h2>
+      <p>
+        The National Renewable Energy Laboratory (NREL) published in March 2008 the landmark report:
+        <em>"Advanced Control Design for Wind Turbines Part I: Control Design, Implementation,
+        and Initial Tests"</em>.
+      </p>
+      <p>
+        This paper defines the algorithms required for designing drive train control systems that
+        extract maximum available power from the wind at below-rated conditions, while limiting power
+        to rated values above the nominal wind speed. It is the de-facto reference for MPPT
+        implementation in variable-speed wind turbines.
+      </p>
+      <p>Key topics covered:</p>
+      <ul>
+        <li>Region 2 control: torque control for maximum aerodynamic efficiency (Cp maximisation)</li>
+        <li>Region 3 control: collective blade pitch control for rated power limitation</li>
+        <li>Transition strategies between regions</li>
+        <li>State-space control design and gain scheduling</li>
+        <li>Implementation and field test results</li>
+      </ul>
+      <div class="btn-row">
+        <a href="https://docs.nrel.gov/docs/fy08osti/42437.pdf" target="_blank" rel="noopener" class="btn-primary">Read the NREL Paper (PDF)</a>
+        <a href="index.html?section=drivetrain" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 4-2 App -->
+    <div class="topic-section">
+      <h2>4-2 &nbsp;Operational Curve Calculator Application</h2>
+      <p>
+        To extract maximum power from available wind, a <strong>Maximum Power Point Tracking (MPPT)</strong>
+        algorithm must control blade rotation speed proportionally to wind speed. The ACMSL
+        Operational Curve Calculator evaluates all the algorithms needed to achieve this.
+      </p>
+      <p>
+        This engineering application is designed to analyse and define the operating conditions of a
+        wind turbine drive train as a function of:
+      </p>
+      <ul>
+        <li>Blade aerodynamic profile (Cp–λ curve)</li>
+        <li>Blade length and rotor diameter</li>
+        <li>Coupling to the electrical generator (synchronous speed, pole pairs)</li>
+        <li>Selected gearbox ratio</li>
+      </ul>
+      <p>
+        The application computes the complete Operational Curve (RPM vs Wind Speed and Power vs Wind
+        Speed), the optimal torque setpoint table, and the MPPT gain. Output is compatible with
+        the ACMSL DFIG and RRC real-time simulators.
+      </p>
+      <p>
+        A free 2-day evaluation license is granted automatically on first launch.
+      </p>
+      <div class="btn-row">
+        <a href="descargas-simuladores-aerogeneradores.html" class="btn-accent">Download Application (free evaluation)</a>
+        <a href="index.html?section=drivetrain" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Engineering Tools for Wind Turbine Drive Trains</h2>
+      <p>Download the Operational Curve Calculator and explore MPPT design for variable-speed wind turbines. Free evaluation included.</p>
+      <a href="descargas-simuladores-aerogeneradores.html" class="btn-cta">Download Free Evaluation</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html">Contact</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wind Energy Concepts – Turbine Families, Components & Operating Ranges | ACMSL</title>
+  <meta name="description" content="Learn the fundamental concepts of wind energy: industrial wind turbine families, main components (nacelle, blades, generator, gearbox), operational wind speed ranges, and how real-time simulators reproduce every behaviour." />
+  <meta name="keywords" content="wind energy concepts, wind turbine families, DFIG, active stall, rotor resistance control, nacelle components, operational wind speed, cut-in cut-out, wind turbine training" />
+  <meta property="og:title" content="Wind Energy Concepts | ACMSL Wind Turbine Training" />
+  <meta property="og:description" content="Free educational resources covering wind turbine families, main components, and operational ranges. Real-time simulators available." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.acm-sl.com/conceptos-energia-eolica.html" />
+  <link rel="canonical" href="https://www.acm-sl.com/conceptos-energia-eolica.html" />
+  <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
+  <link rel="alternate" hreflang="en" href="https://www.acm-sl.com/conceptos-energia-eolica.html?lang=en" />
+  <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/conceptos-energia-eolica.html?lang=es" />
+  <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/conceptos-energia-eolica.html" />
+  <link rel="stylesheet" href="seo-topics.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Automated Computing Machinery SL",
+    "url": "https://www.acm-sl.com",
+    "description": "Real-time wind turbine simulators and training tools for industrial wind turbine technologies"
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <a class="brand" href="index.html">
+      <img src="img/ACM_LOGO.png" alt="ACM SL Logo" />
+      <div class="brand-copy">
+        <h1>Automated Computing Machinery SL</h1>
+        <p>ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
+      </div>
+    </a>
+    <div class="header-actions">
+      <a href="index.html?section=concepts" class="btn-app">Open Interactive App</a>
+      <a href="contacto.html" class="btn-outline">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <nav class="breadcrumb">
+      <a href="index.html">Home</a><span>›</span>
+      <strong>Wind Energy Concepts</strong>
+    </nav>
+
+    <nav class="topic-nav" aria-label="All topics">
+      <a href="conceptos-energia-eolica.html" class="active">1. Wind Energy Concepts</a>
+      <a href="parques-eolicos-red-electrica.html">2. Wind Farms &amp; Grid</a>
+      <a href="simuladores-aerogeneradores-tiempo-real.html">3. Simulators</a>
+      <a href="analisis-tren-potencia-aerogeneradores.html">4. Drive Train</a>
+      <a href="convertidores-back-to-back-dfig.html">5. B2B Converters</a>
+      <a href="visualizacion-datos-aerogeneradores.html">6. Data Visualisation</a>
+      <a href="tutoriales-aerogeneradores.html">7. Tutorials</a>
+      <a href="mantenimiento-aerogeneradores.html">8. Maintenance</a>
+      <a href="desarrollos.html">9. Developments</a>
+      <a href="articulos-referencias-tecnicas.html">10. Articles</a>
+      <a href="descargas-simuladores-aerogeneradores.html">11. Downloads</a>
+      <a href="clientes-formacion-aerogeneradores.html">12. Clients</a>
+    </nav>
+
+    <h1 class="page-title">Wind Energy Concepts</h1>
+    <p class="lead">
+      A structured introduction to the technical, operational and physical principles behind
+      industrial wind turbines — designed for operations and maintenance personnel, engineering
+      students, and training professionals worldwide.
+    </p>
+
+    <!-- 1-1 -->
+    <div class="topic-section">
+      <h2>1-1 &nbsp;Introductory Video and Dialogue on Wind Energy</h2>
+      <p>
+        An introductory video produced by NotebookLM presents the essential concepts of wind energy,
+        referencing ACMSL training material. A separate audio dialogue explores the same topics in depth,
+        ideal for self-study or classroom preparation.
+      </p>
+      <div class="btn-row">
+        <a href="https://youtu.be/SzV_gKR2oU8" target="_blank" rel="noopener" class="btn-primary">▶ Watch Introductory Video</a>
+        <a href="https://e.pcloud.link/publink/show?code=XZTYvrZlP3Gv41COFVa8ST9J3x33jxoMyky" target="_blank" rel="noopener" class="btn-secondary">🎙 Wind Energy Dialogue</a>
+        <a href="index.html?section=concepts" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 1-2 -->
+    <div class="topic-section">
+      <h2>1-2 &nbsp;Wind Energy Knowledge Map</h2>
+      <p>
+        A comprehensive interactive mind map presenting the structural landscape of wind energy:
+        technology families, electrical systems, drive train concepts, control strategies, grid codes,
+        and maintenance topics. An ideal reference for training planners and new learners.
+      </p>
+      <div class="btn-row">
+        <a href="tutorials/en/wind-energy-mindmap.html" target="_blank" rel="noopener" class="btn-primary">View the Knowledge Map</a>
+        <a href="index.html?section=concepts" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 1-3 -->
+    <div class="topic-section">
+      <h2>1-3 &nbsp;Industrial Wind Turbine Families</h2>
+      <p>
+        The wind energy industry has converged on five main families of industrial wind turbines,
+        each distinguished by its electrical generator type, speed regulation strategy, and power
+        electronics architecture:
+      </p>
+      <ul>
+        <li><strong>Fixed-speed Active Stall</strong> – squirrel cage induction generator, dual-speed operation, aerodynamic braking via blade pitch into stall.</li>
+        <li><strong>Rotor Resistance Controlled (RRC / OptiSlip)</strong> – wound rotor induction generator with variable external resistance; stepping stone toward variable-speed.</li>
+        <li><strong>Doubly-Fed Induction Generator (DFIG)</strong> – partial-scale Back-to-Back power electronics; dominant family worldwide (~70 % of installed capacity).</li>
+        <li><strong>Full Converter (Type 4)</strong> – full-scale converter; synchronous or permanent-magnet generator; maximum grid-decoupling.</li>
+        <li><strong>Direct Drive</strong> – no gearbox; low-speed multi-pole synchronous generator; high reliability in offshore applications.</li>
+      </ul>
+      <p>Each family has a characteristic <em>Production vs Wind Speed</em> curve (Power Curve) that defines its cut-in, nominal, and cut-out operating points.</p>
+      <div class="btn-row">
+        <a href="tutorials/en/wind-turbine-families.html" target="_blank" rel="noopener" class="btn-primary">Read the Tutorial</a>
+        <a href="index.html?section=concepts" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 1-4 -->
+    <div class="topic-section">
+      <h2>1-4 &nbsp;Main Components of Industrial Wind Turbines</h2>
+      <p>
+        Modern industrial wind turbines are complex electromechanical systems. Key subsystems include:
+      </p>
+      <ul>
+        <li><strong>Rotor &amp; Blades</strong> – aerodynamic profiles that convert kinetic wind energy into shaft torque. Blade length directly determines nominal power (P ∝ R²).</li>
+        <li><strong>Hub &amp; Pitch System</strong> – controls the angle of each blade to regulate power extraction and provide aerodynamic braking.</li>
+        <li><strong>Gearbox</strong> – increases shaft speed from ~15 RPM (rotor) to ~1500 RPM (generator); typically planetary + helical stages.</li>
+        <li><strong>Generator</strong> – converts mechanical rotation into electrical power; type varies by family (induction, wound-rotor, synchronous, PMSG).</li>
+        <li><strong>Power Electronics</strong> – Back-to-Back converters (DFIG/full-converter), soft starters (fixed-speed), external rotor resistances (RRC).</li>
+        <li><strong>Yaw System</strong> – rotates the entire nacelle to face the rotor into the wind.</li>
+        <li><strong>Controller</strong> – embedded real-time system managing all subsystems, safety logic, and grid interaction.</li>
+      </ul>
+      <div class="btn-row">
+        <a href="tutorials/en/industrial-wind-turbines.html" target="_blank" rel="noopener" class="btn-primary">Read the Tutorial</a>
+        <a href="index.html?section=concepts" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 1-5 -->
+    <div class="topic-section">
+      <h2>1-5 &nbsp;Operational Wind Speed Ranges</h2>
+      <p>
+        Every wind turbine operates within three wind speed regions defined by its power curve:
+      </p>
+      <ul>
+        <li><strong>Cut-in speed</strong> (~3–5 m/s) – minimum wind speed at which the turbine starts generating power.</li>
+        <li><strong>Nominal speed</strong> (~12–15 m/s) – wind speed at which rated (nominal) power is reached; above this, power is kept constant via pitch or stall control.</li>
+        <li><strong>Cut-out speed</strong> (~25 m/s) – maximum safe operating speed; the turbine shuts down to protect mechanical and electrical components.</li>
+      </ul>
+      <p>Understanding these regions is fundamental for operations and maintenance: most field interventions are triggered by events at the cut-in or cut-out boundaries.</p>
+      <div class="btn-row">
+        <a href="tutorials/en/operational-wind-ranges.html" target="_blank" rel="noopener" class="btn-primary">Read the Tutorial</a>
+        <a href="index.html?section=concepts" class="btn-secondary">Open in Interactive App</a>
+      </div>
+    </div>
+
+    <!-- 1-6 -->
+    <div class="topic-section">
+      <h2>1-6 &nbsp;Real-Time Simulators for Industrial Wind Turbine Families</h2>
+      <p>
+        ACMSL offers three real-time simulators — one for each of the main controllable wind turbine
+        families — allowing trainees to observe, interact with, and analyse every operational scenario
+        from a safe office environment:
+      </p>
+      <ul>
+        <li><a href="simuladores-aerogeneradores-tiempo-real.html#dsas">DSAS – Dual Speed Active Stall WT Simulator</a></li>
+        <li><a href="simuladores-aerogeneradores-tiempo-real.html#rrc">RRC – Rotor Resistance Controlled WT Simulator</a></li>
+        <li><a href="simuladores-aerogeneradores-tiempo-real.html#dfig">DFIG – Doubly-Fed Induction Generator WT Simulator</a></li>
+      </ul>
+      <div class="btn-row">
+        <a href="simuladores-aerogeneradores-tiempo-real.html" class="btn-primary">All Simulators</a>
+        <a href="descargas-simuladores-aerogeneradores.html" class="btn-accent">Download Free Evaluation</a>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h2>Explore Interactively</h2>
+      <p>All resources, tutorials, and simulators are available in the ACMSL interactive training app — free 2-day evaluation, no credit card required.</p>
+      <a href="index.html?section=concepts" class="btn-cta">Open the Training App</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html">Contact</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+</footer>
+
+</body>
+</html>
