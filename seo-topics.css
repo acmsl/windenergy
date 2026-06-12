@@ -48,7 +48,30 @@ header {
 .brand img { height: 44px; width: auto; }
 .brand-copy h1 { font-size: 1.15rem; font-weight: 700; line-height: 1.15; }
 .brand-copy p  { font-size: 0.85rem; opacity: 0.85; margin-top: 0.1rem; }
-.header-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.header-actions { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.lang-switcher {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  background: rgba(255,255,255,0.12);
+  border-radius: 6px;
+  padding: 0.2rem 0.4rem;
+}
+.lang-switcher a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  opacity: 0.7;
+  transition: opacity 0.15s, background 0.15s;
+}
+.lang-switcher a:hover {
+  opacity: 1;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
 .btn-app {
   display: inline-block;
   padding: 0.55rem 1.1rem;
@@ -95,6 +118,9 @@ main { flex: 1; }
   color: var(--dark);
   line-height: 1.2;
   margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--primary);
+  display: inline-block;
 }
 .lead {
   font-size: 1.1rem;
@@ -117,6 +143,8 @@ main { flex: 1; }
   font-weight: 700;
   color: var(--primary);
   margin-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 2px solid var(--primary-light);
 }
 .topic-section h3 {
   font-size: 1.05rem;
