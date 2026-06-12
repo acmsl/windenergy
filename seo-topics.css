@@ -173,26 +173,26 @@ main { flex: 1; }
   display: inline-block;
   padding: 0.6rem 1.2rem;
   background: var(--primary);
-  color: #fff;
+  color: var(--dark);
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   transition: background 0.2s;
 }
-.btn-primary:hover { background: var(--primary-dark); }
+.btn-primary:hover { background: var(--primary-dark); color: #fff; }
 .btn-accent {
   display: inline-block;
   padding: 0.6rem 1.2rem;
   background: var(--accent);
-  color: #fff;
+  color: var(--dark);
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.9rem;
   transition: background 0.2s;
 }
-.btn-accent:hover { background: #00956a; }
+.btn-accent:hover { background: #00956a; color: #fff; }
 .btn-secondary {
   display: inline-block;
   padding: 0.6rem 1.2rem;
