@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/tutoriales-aerogeneradores.html?lang=es" />
   <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/tutoriales-aerogeneradores.html" />
   <link rel="stylesheet" href="seo-topics.css" />
+  <script src="seo-i18n.js"></script>
 </head>
 <body>
 
@@ -25,12 +26,12 @@
       <img src="img/ACM_LOGO.png" alt="ACM SL Logo" />
       <div class="brand-copy">
         <h1>Automated Computing Machinery SL</h1>
-        <p>ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
+        <p data-i18n="header.subtitle">ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
       </div>
     </a>
     <div class="header-actions">
-      <a href="index.html?section=tutorials" class="btn-app">Open Interactive App</a>
-      <a href="contacto.html" class="btn-outline">Contact</a>
+      <a href="index.html?section=tutorials" class="btn-app" data-i18n="btn.app">Open Interactive App</a>
+      <a href="contacto.html" class="btn-outline" data-i18n="btn.contact">Contact</a>
       <div class="lang-switcher">
         <a href="index.html?lang=en" title="English">EN</a>
         <a href="index.html?lang=es" title="Español">ES</a>
@@ -47,36 +48,31 @@
   <div class="container">
 
     <nav class="breadcrumb">
-      <a href="index.html">Home</a><span>›</span>
-      <strong>Tutorials &amp; Practical Exercises</strong>
+      <a href="index.html" data-i18n="breadcrumb.home">Home</a><span>›</span>
+      <strong data-i18n="breadcrumb.current">Tutorials &amp; Practical Exercises</strong>
     </nav>
 
     <nav class="topic-nav" aria-label="All topics">
-      <a href="conceptos-energia-eolica.html">1. Wind Energy Concepts</a>
-      <a href="parques-eolicos-red-electrica.html">2. Wind Farms &amp; Grid</a>
-      <a href="simuladores-aerogeneradores-tiempo-real.html">3. Simulators</a>
-      <a href="analisis-tren-potencia-aerogeneradores.html">4. Drive Train</a>
-      <a href="convertidores-back-to-back-dfig.html">5. B2B Converters</a>
-      <a href="visualizacion-datos-aerogeneradores.html">6. Data Visualisation</a>
-      <a href="tutoriales-aerogeneradores.html" class="active">7. Tutorials</a>
-      <a href="mantenimiento-aerogeneradores.html">8. Maintenance</a>
-      <a href="desarrollos.html">9. Developments</a>
-      <a href="articulos-referencias-tecnicas.html">10. Articles</a>
-      <a href="descargas-simuladores-aerogeneradores.html">11. Downloads</a>
-      <a href="clientes-formacion-aerogeneradores.html">12. Clients</a>
+      <a href="conceptos-energia-eolica.html" data-i18n="nav.1">1. Wind Energy Concepts</a>
+      <a href="parques-eolicos-red-electrica.html" data-i18n="nav.2">2. Wind Farms &amp; Grid</a>
+      <a href="simuladores-aerogeneradores-tiempo-real.html" data-i18n="nav.3">3. Simulators</a>
+      <a href="analisis-tren-potencia-aerogeneradores.html" data-i18n="nav.4">4. Drive Train</a>
+      <a href="convertidores-back-to-back-dfig.html" data-i18n="nav.5">5. B2B Converters</a>
+      <a href="visualizacion-datos-aerogeneradores.html" data-i18n="nav.6">6. Data Visualisation</a>
+      <a href="tutoriales-aerogeneradores.html" class="active" data-i18n="nav.7">7. Tutorials</a>
+      <a href="mantenimiento-aerogeneradores.html" data-i18n="nav.8">8. Maintenance</a>
+      <a href="desarrollos.html" data-i18n="nav.9">9. Developments</a>
+      <a href="articulos-referencias-tecnicas.html" data-i18n="nav.10">10. Articles</a>
+      <a href="descargas-simuladores-aerogeneradores.html" data-i18n="nav.11">11. Downloads</a>
+      <a href="clientes-formacion-aerogeneradores.html" data-i18n="nav.12">12. Clients</a>
     </nav>
 
-    <h1 class="page-title">Wind Turbine Tutorials &amp; Practical Exercises</h1>
-    <p class="lead">
-      ACMSL tutorials are the textbooks of our training methodology: structured, progressive,
-      and richly illustrated. Each tutorial accompanies a real-time simulator, covering the
-      physical principles, components, control strategies, and operational scenarios for a
-      specific wind turbine family.
-    </p>
+    <h1 class="page-title" data-i18n="h1">Wind Turbine Tutorials &amp; Practical Exercises</h1>
+    <p class="lead" data-i18n="lead">ACMSL tutorials are the textbooks of our training methodology: structured, progressive, and richly illustrated. Each tutorial accompanies a real-time simulator, covering the physical principles, components, control strategies, and operational scenarios for a specific wind turbine family.</p>
 
     <!-- 7-1 -->
     <div class="topic-section">
-      <h2>7-1 &nbsp;DSAS – Dual Speed Active Stall WT Tutorial</h2>
+      <h2 data-i18n="s71_h2">7-1 &nbsp;DSAS – Dual Speed Active Stall WT Tutorial</h2>
       <p>
         Comprehensive tutorial describing the two-speed active stall wind turbine: aerodynamics,
         squirrel cage generator, soft starter, control strategies, alarm management, and operational
@@ -154,7 +150,7 @@
 
     <!-- 7-7 -->
     <div class="topic-section">
-      <h2>7-7 &nbsp;Wind Farm / SCADA Tutorial</h2>
+      <h2 data-i18n="s77_h2">7-7 &nbsp;Wind Farm / SCADA Tutorial</h2>
       <p>
         Tutorial covering the structure of a wind farm, the SCADA control centre, the electrical
         substation, communications with wind turbines, and the key characteristics of the Electric
@@ -180,17 +176,93 @@
     </div>
 
     <div class="cta-box">
-      <h2>Access All Tutorials with the Tutorial Viewer</h2>
-      <p>Download the ACMSL Tutorial Viewer (free, ~15 MB) to access the complete, richly illustrated tutorials for each simulator family.</p>
-      <a href="descargas-simuladores-aerogeneradores.html" class="btn-cta">Download Tutorial Viewer (free)</a>
+      <h2 data-i18n="cta_h2">Access All Tutorials with the Tutorial Viewer</h2>
+      <p data-i18n="cta_p">Download the ACMSL Tutorial Viewer (free, ~15 MB) to access the complete, richly illustrated tutorials for each simulator family.</p>
+      <a href="descargas-simuladores-aerogeneradores.html" class="btn-cta" data-i18n="cta_btn">Download Tutorial Viewer (free)</a>
     </div>
 
   </div>
 </main>
 
 <footer>
-  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html">Contact</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html" data-i18n="footer.contact">Contact</a> &nbsp;·&nbsp; <a href="index.html" data-i18n="footer.home">Home</a></p>
 </footer>
 
+<script id="pt" type="application/json">
+{
+  "en": {
+    "_title": "Wind Turbine Tutorials & Practical Exercises | ACMSL",
+    "_meta_desc": "ACMSL structured tutorials for DSAS, RRC and DFIG wind turbine simulators. Practical exercises, Wind Farm SCADA tutorial. Richly illustrated, available in English, Spanish and French.",
+    "breadcrumb.current": "Tutorials & Practical Exercises",
+    "h1": "Wind Turbine Tutorials &amp; Practical Exercises",
+    "lead": "ACMSL tutorials are the textbooks of our training methodology: structured, progressive, and richly illustrated. Each tutorial accompanies a real-time simulator, covering the physical principles, components, control strategies, and operational scenarios for a specific wind turbine family.",
+    "s71_h2": "7-1 \u00a0DSAS \u2013 Dual Speed Active Stall WT Tutorial",
+    "s77_h2": "7-7 \u00a0Wind Farm / SCADA Tutorial",
+    "cta_h2": "Access All Tutorials with the Tutorial Viewer",
+    "cta_p": "Download the ACMSL Tutorial Viewer (free, ~15 MB) to access the complete, richly illustrated tutorials for each simulator family.",
+    "cta_btn": "Download Tutorial Viewer (free)"
+  },
+  "es": {
+    "_title": "Tutoriales de Aerogeneradores y Ejercicios Pr\u00e1cticos | ACMSL",
+    "_meta_desc": "Tutoriales estructurados de ACMSL para los simuladores DSAS, RRC y DFIG. Ejercicios pr\u00e1cticos, tutorial SCADA de parque e\u00f3lico. Ricamente ilustrados, disponibles en espa\u00f1ol, ingl\u00e9s y franc\u00e9s.",
+    "breadcrumb.current": "Tutoriales y Ejercicios Pr\u00e1cticos",
+    "h1": "Tutoriales de Aerogeneradores y Ejercicios Pr\u00e1cticos",
+    "lead": "Los tutoriales de ACMSL son los libros de texto de nuestra metodolog\u00eda de formaci\u00f3n: estructurados, progresivos y ricamente ilustrados. Cada tutorial acompa\u00f1a a un simulador en tiempo real, cubriendo los principios f\u00edsicos, componentes, estrategias de control y escenarios operacionales.",
+    "s71_h2": "7-1 \u00a0DSAS \u2013 Tutorial de Aerogenerador de Doble Velocidad y Paso Activo",
+    "s77_h2": "7-7 \u00a0Tutorial del Parque E\u00f3lico / SCADA",
+    "cta_h2": "Acceda a Todos los Tutoriales con el Visor de Tutoriales",
+    "cta_p": "Descargue el Visor de Tutoriales de ACMSL (gratuito, ~15 MB) para acceder a los tutoriales completos y ricamente ilustrados de cada familia de simuladores.",
+    "cta_btn": "Descargar Visor de Tutoriales (gratis)"
+  },
+  "fr": {
+    "_title": "Tutoriels sur les \u00c9oliennes et Exercices Pratiques | ACMSL",
+    "_meta_desc": "Tutoriels structur\u00e9s d'ACMSL pour les simulateurs DSAS, RRC et DFIG. Exercices pratiques, tutoriel SCADA de parc \u00e9olien. Richement illustr\u00e9s, disponibles en anglais, espagnol et fran\u00e7ais.",
+    "breadcrumb.current": "Tutoriels et Exercices Pratiques",
+    "h1": "Tutoriels sur les \u00c9oliennes et Exercices Pratiques",
+    "lead": "Les tutoriels ACMSL sont les manuels de notre m\u00e9thodologie de formation : structur\u00e9s, progressifs et richement illustr\u00e9s. Chaque tutoriel accompagne un simulateur en temps r\u00e9el, couvrant les principes physiques, les composants, les strat\u00e9gies de contr\u00f4le et les sc\u00e9narios op\u00e9rationnels.",
+    "s71_h2": "7-1 \u00a0DSAS \u2013 Tutoriel \u00c9olienne \u00e0 Double Vitesse et D\u00e9crochage Actif",
+    "s77_h2": "7-7 \u00a0Tutoriel Parc \u00c9olien / SCADA",
+    "cta_h2": "Acc\u00e9dez \u00e0 Tous les Tutoriels avec le Lecteur de Tutoriels",
+    "cta_p": "T\u00e9l\u00e9chargez le Lecteur de Tutoriels ACMSL (gratuit, ~15 Mo) pour acc\u00e9der aux tutoriels complets et richement illustr\u00e9s de chaque famille de simulateurs.",
+    "cta_btn": "T\u00e9l\u00e9charger le Lecteur de Tutoriels (gratuit)"
+  },
+  "de": {
+    "_title": "Windturbinen-Tutorials und Praktische \u00dcbungen | ACMSL",
+    "_meta_desc": "Strukturierte ACMSL-Tutorials f\u00fcr DSAS-, RRC- und DFIG-Simulatoren. Praktische \u00dcbungen, Windpark-SCADA-Tutorial. Reich bebildert, verf\u00fcgbar auf Englisch, Spanisch und Franz\u00f6sisch.",
+    "breadcrumb.current": "Tutorials und Praktische \u00dcbungen",
+    "h1": "Windturbinen-Tutorials und Praktische \u00dcbungen",
+    "lead": "ACMSL-Tutorials sind die Lehrb\u00fccher unserer Schulungsmethodik: strukturiert, progressiv und reich bebildert. Jedes Tutorial begleitet einen Echtzeitsimulator und deckt physikalische Prinzipien, Komponenten, Regelstrategien und Betriebszust\u00e4nde ab.",
+    "s71_h2": "7-1 \u00a0DSAS \u2013 Zweig\u00e4ngige Aktiver-Str\u00f6mungsabriss-WT-Tutorial",
+    "s77_h2": "7-7 \u00a0Windpark / SCADA-Tutorial",
+    "cta_h2": "Zugriff auf alle Tutorials mit dem Tutorial-Viewer",
+    "cta_p": "Laden Sie den ACMSL-Tutorial-Viewer (kostenlos, ~15 MB) herunter, um auf die vollst\u00e4ndigen, reich bebilderten Tutorials f\u00fcr jede Simulatorfamilie zuzugreifen.",
+    "cta_btn": "Tutorial-Viewer herunterladen (kostenlos)"
+  },
+  "it": {
+    "_title": "Tutorial sulle Turbine Eoliche ed Esercizi Pratici | ACMSL",
+    "_meta_desc": "Tutorial strutturati ACMSL per i simulatori DSAS, RRC e DFIG. Esercizi pratici, tutorial SCADA di parco eolico. Riccamente illustrati, disponibili in inglese, spagnolo e francese.",
+    "breadcrumb.current": "Tutorial ed Esercizi Pratici",
+    "h1": "Tutorial sulle Turbine Eoliche ed Esercizi Pratici",
+    "lead": "I tutorial ACMSL sono i libri di testo della nostra metodologia di formazione: strutturati, progressivi e riccamente illustrati. Ogni tutorial accompagna un simulatore in tempo reale, coprendo principi fisici, componenti, strategie di controllo e scenari operativi.",
+    "s71_h2": "7-1 \u00a0DSAS \u2013 Tutorial Turbina Eolica a Doppia Velocit\u00e0 e Stallo Attivo",
+    "s77_h2": "7-7 \u00a0Tutorial Parco Eolico / SCADA",
+    "cta_h2": "Accedi a Tutti i Tutorial con il Visualizzatore di Tutorial",
+    "cta_p": "Scarica il Visualizzatore di Tutorial ACMSL (gratuito, ~15 MB) per accedere ai tutorial completi e riccamente illustrati per ogni famiglia di simulatori.",
+    "cta_btn": "Scarica Visualizzatore di Tutorial (gratuito)"
+  },
+  "pt": {
+    "_title": "Tutoriais sobre Aerogeradores e Exerc\u00edcios Pr\u00e1ticos | ACMSL",
+    "_meta_desc": "Tutoriais estruturados da ACMSL para os simuladores DSAS, RRC e DFIG. Exerc\u00edcios pr\u00e1ticos, tutorial SCADA de parque e\u00f3lico. Ricamente ilustrados, dispon\u00edveis em portugu\u00eas, ingl\u00eas e franc\u00eas.",
+    "breadcrumb.current": "Tutoriais e Exerc\u00edcios Pr\u00e1ticos",
+    "h1": "Tutoriais sobre Aerogeradores e Exerc\u00edcios Pr\u00e1ticos",
+    "lead": "Os tutoriais da ACMSL s\u00e3o os manuais da nossa metodologia de forma\u00e7\u00e3o: estruturados, progressivos e ricamente ilustrados. Cada tutorial acompanha um simulador em tempo real, cobrindo princ\u00edpios f\u00edsicos, componentes, estrat\u00e9gias de controlo e cen\u00e1rios operacionais.",
+    "s71_h2": "7-1 \u00a0DSAS \u2013 Tutorial de Aerogerador de Dupla Velocidade e Estol Ativo",
+    "s77_h2": "7-7 \u00a0Tutorial de Parque E\u00f3lico / SCADA",
+    "cta_h2": "Aceda a Todos os Tutoriais com o Visualizador de Tutoriais",
+    "cta_p": "Baixe o Visualizador de Tutoriais da ACMSL (gratuito, ~15 MB) para aceder aos tutoriais completos e ricamente ilustrados de cada fam\u00edlia de simuladores.",
+    "cta_btn": "Baixar Visualizador de Tutoriais (gratuito)"
+  }
+}
+</script>
 </body>
 </html>
