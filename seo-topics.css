@@ -138,6 +138,11 @@ main { flex: 1; }
 }
 .topic-section ul li { margin-bottom: 0.25rem; }
 .topic-section a { color: var(--primary); }
+.topic-section a.btn-primary,
+.topic-section a.btn-accent,
+.topic-section a.btn-secondary { color: var(--dark); }
+.topic-section a.btn-primary:hover,
+.topic-section a.btn-accent:hover { color: #fff; }
 .topic-section a:hover { text-decoration: underline; }
 
 /* ---- SUBTOPICS (numbered list) ---- */
