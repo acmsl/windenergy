@@ -394,6 +394,15 @@
         font-weight: 600;
         text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         font-size: 1.05rem;
+        margin: 0;
+        padding: 0.5rem 0.6rem;
+        line-height: 1.25;
+      }
+
+      a.card {
+        display: flex;
+        text-decoration: none;
+        color: inherit;
       }
 
       /* HELP TEXT ON HOVER */
@@ -1005,83 +1014,83 @@
 
         <div class="grid-6">
           <!-- 1. Introduction -->
-          <button class="card" type="button" data-target="concepts" data-keywords="wind energy,turbine concepts,energy generation,mind map">
+          <a class="card" href="conceptos-energia-eolica.html" data-target="concepts" data-keywords="wind energy,turbine concepts,energy generation,mind map">
             <div class="card-image" data-bg-lang-pattern="img/mindmapinfo-{lang}.png" style="background-image:url('img/mindmapinfo-en.png');"></div>
-            <div class="card-title" data-i18n="card.intro.title">Introduction to Wind Turbine Concepts</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.intro.title">Introduction to Wind Turbine Concepts</h3>
+          </a>
 
           <!-- 2. Wind Farms -->
-          <button class="card" type="button" data-target="windfarm">
+          <a class="card" href="parques-eolicos-red-electrica.html" data-target="windfarm">
             <div class="card-image" style="background-image:url('img/ParqueEolico.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title2">Electric Grid &amp; Wind Farm Concepts</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title2">Electric Grid &amp; Wind Farm Concepts</h3>
+          </a>
 
           <!-- 3. Simulators -->
-          <button class="card" type="button" data-target="simulators">
+          <a class="card" href="simuladores-aerogeneradores-tiempo-real.html" data-target="simulators">
             <div class="card-image" style="background-image:url('img/Aerogenerador_3d_chatgpt-reducida.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title3">Real-Time Wind Turbine Simulators</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title3">Real-Time Wind Turbine Simulators</h3>
+          </a>
 
           <!-- 4. Drive Train Analysis -->
-          <button class="card help" type="button" data-target="drivetrain">
+          <a class="card help" href="analisis-tren-potencia-aerogeneradores.html" data-target="drivetrain">
             <div class="card-image" style="background-image:url('img/powervsrpms-reducido.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title4">Drive Train Analysis Software</div>
+            <h3 class="card-title" data-i18n="card.grid.title4">Drive Train Analysis Software</h3>
             <div class="card-help-popup">
               <img src="img/OperCurveVarSpeedWTs.jpg" alt="Operational Curve" />
               <p data-i18n="card.grid.help4">Software for computing the <strong>Operational Curve of Variable Speed Wind Turbines</strong> (DFIG and Full Converter families). Engineering tool for drive train design and analysis.</p>
             </div>
-          </button>
+          </a>
 
           <!-- 5. Back-to-Back Converters -->
-          <button class="card help" type="button" data-target="b2b">
+          <a class="card help" href="convertidores-back-to-back-dfig.html" data-target="b2b">
             <div class="card-image" style="background-image:url('img/dfigradar.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title5">DFIG Back-to-Back Converters</div>
+            <h3 class="card-title" data-i18n="card.grid.title5">DFIG Back-to-Back Converters</h3>
             <div class="card-help-popup">
               <img src="img/dfigb2b.png" alt="DFIG B2B" />
               <p data-i18n="card.grid.help5">Software to compute the values of the magnetic and electric variables in the Asynchronous Induction Machine in <strong>DFIG Wind Turbines</strong>, connected to a <strong>Power Electronics Back-to-Back converter</strong>.</p>
             </div>
-          </button>
+          </a>
 
           <!-- 6. Videos -->
           <button class="card" type="button" data-target="videos">
             <div class="card-image" style="background-image:url('img/CollageImagenesVideos-reducido.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title6">Videos &amp; Demonstrations</div>
+            <h3 class="card-title" data-i18n="card.grid.title6">Videos &amp; Demonstrations</h3>
           </button>
 
           <!-- 7. Tutorials -->
-          <button class="card" type="button" data-target="tutorials">
+          <a class="card" href="tutoriales-aerogeneradores.html" data-target="tutorials">
             <div class="card-image" style="background-image:url('img/AccesoaTutoriales.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title7">Access to Tutorials</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title7">Access to Tutorials</h3>
+          </a>
 
           <!-- 8. Downloads -->
-          <button class="card" type="button" data-target="downloads">
+          <a class="card" href="descargas-simuladores-aerogeneradores.html" data-target="downloads">
             <div class="card-image" style="background-image:url('img/AccesoaGuias-2.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title8">Downloads &amp; Free Evaluation</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title8">Downloads &amp; Free Evaluation</h3>
+          </a>
 
           <!-- 9. Data Viewer -->
-          <button class="card" type="button" data-target="dataviewer">
+          <a class="card" href="visualizacion-datos-aerogeneradores.html" data-target="dataviewer">
             <div class="card-image no-filter" style="background-image:url('img/DataloggerViewer/InicioConSQLite.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title9">Data Visualizer &amp; Processing</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title9">Data Visualizer &amp; Processing</h3>
+          </a>
 
           <!-- 10. Clients -->
-          <button class="card" type="button" data-target="clients">
+          <a class="card" href="clientes-formacion-aerogeneradores.html" data-target="clients">
             <div class="card-image no-filter" style="background-image:url('img/Encuentro_con_cliente.png'); background-size:80%; background-repeat:no-repeat; background-position:center;"></div>
-            <div class="card-title" data-i18n="card.grid.title10">Our Clients</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title10">Our Clients</h3>
+          </a>
 
           <!-- 11. Wind Maintenance -->
-          <button class="card" type="button" data-target="windmaintenance">
+          <a class="card" href="mantenimiento-aerogeneradores.html" data-target="windmaintenance">
             <div class="card-image" style="background-image:url('img/Mantenimiento_aerogeneradores.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title11">Wind Turbine Maintenance</div>
-          </button>
+            <h3 class="card-title" data-i18n="card.grid.title11">Wind Turbine Maintenance</h3>
+          </a>
 
           <!-- 12. Our Training Approach -->
           <a class="card" href="our-training-approach.html" data-i18n-href="card.grid.href12" target="_blank" rel="noopener" style="text-decoration:none;">
             <div class="card-image" style="background-image:url('img/Aerogenerador_vista_interna_copilot.png');"></div>
-            <div class="card-title" data-i18n="card.grid.title12">Our Approach to Wind Turbine Technology Training</div>
+            <h3 class="card-title" data-i18n="card.grid.title12">Our Approach to Wind Turbine Technology Training</h3>
           </a>
         </div>
 
@@ -4009,7 +4018,8 @@
 
     /* ========== CARD NAVIGATION ========== */
     document.querySelectorAll('.card[data-target]').forEach(card => {
-      card.addEventListener('click', () => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
         showSection(card.getAttribute('data-target'));
       });
     });
