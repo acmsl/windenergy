@@ -1,84 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Technical Articles &amp; Conference Papers – Wind Turbine Training &amp; Instrumentation | ACMSL</title>
-  <meta name="description" content="ACMSL technical publications: wind turbine performance improvement, datalogger field experience, Formación de Formadores (Training for Trainers) and O&amp;M training programmes. AWEA 2016, Techwindgrid 2009, Greenko Group." />
-  <meta name="keywords" content="wind turbine performance, wind turbine training paper, AWEA 2016, Techwindgrid, wind turbine datalogger, O&M training publication, wind energy conference paper, continuous training wind turbine, Formación del Profesorado de Formación Profesional, Formación de Formadores, Training for Trainers, vocational training teacher Spain, wind turbine teacher training programme" />
-  <meta property="og:title" content="Technical Articles &amp; Conference Papers | ACMSL Wind Energy" />
-  <meta property="og:description" content="Published articles and conference papers on wind turbine simulation training and industrial instrumentation." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.acm-sl.com/articulos-referencias-tecnicas.html" />
-  <link rel="canonical" href="https://www.acm-sl.com/articulos-referencias-tecnicas.html" />
-  <link rel="icon" type="image/png" href="img/ACM_LOGO.png" />
-  <link rel="alternate" hreflang="en" href="https://www.acm-sl.com/articulos-referencias-tecnicas.html?lang=en" />
-  <link rel="alternate" hreflang="es" href="https://www.acm-sl.com/articulos-referencias-tecnicas.html?lang=es" />
-  <link rel="alternate" hreflang="x-default" href="https://www.acm-sl.com/articulos-referencias-tecnicas.html" />
-  <link rel="stylesheet" href="seo-topics.css" />
-  <script src="seo-i18n.js"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1XF1Z8ML9"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-T1XF1Z8ML9');
-  </script>
-</head>
-<body>
+# -*- coding: utf-8 -*-
+"""Update articulos-referencias-tecnicas.html with full i18n, new titles,
+download buttons and updated 10-4 content."""
 
-<header>
-  <div class="header-wrap">
-    <a class="brand" href="index.html">
-      <img src="img/ACM_LOGO.png" alt="ACM SL Logo" />
-      <div class="brand-copy">
-        <h1>Automated Computing Machinery SL</h1>
-        <p data-i18n="header.subtitle">ACM SL — Wind Turbine Training &amp; Engineering Tools</p>
-      </div>
-    </a>
-    <div class="header-actions">
-      <a href="index.html" class="btn-app" data-i18n="btn.app">Open Training App</a>
-      <a href="contacto.html" class="btn-outline" data-i18n="btn.contact">Contact</a>
-      <div class="lang-switcher">
-        <a href="index.html?lang=en" title="English">EN</a>
-        <a href="index.html?lang=es" title="Español">ES</a>
-        <a href="index.html?lang=fr" title="Français">FR</a>
-        <a href="index.html?lang=de" title="Deutsch">DE</a>
-        <a href="index.html?lang=it" title="Italiano">IT</a>
-        <a href="index.html?lang=pt" title="Português">PT</a>
+import re
+
+FILEPATH = "articulos-referencias-tecnicas.html"
+
+with open(FILEPATH, "r", encoding="utf-8") as f:
+    content = f.read()
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. Replace the four topic-section blocks + cta-box in the HTML body
+# ─────────────────────────────────────────────────────────────────────────────
+
+OLD_BODY = """    <!-- 10-1 AWEA 2016 -->
+    <div class="topic-section">
+      <h2 data-i18n="sa1_h2">10-1 &nbsp;AWEA 2016 – Better Wind Turbine Performance through Continuous Training</h2>
+      <p>
+        <strong>Conference:</strong> American Wind Energy Association (AWEA) WindPower 2016 Conference &amp; Exhibition, New Orleans, Louisiana, USA.
+      </p>
+      <p>
+        <strong>Title:</strong> <em>"Better Wind Turbine Performance through Continuous Training of Operations and Maintenance Personnel"</em>
+      </p>
+      <p>
+        This paper presents the case for continuous, simulation-based training of O&amp;M personnel
+        as a key factor in improving wind turbine availability and reducing unscheduled maintenance costs.
+        Key arguments include:
+      </p>
+      <ul>
+        <li>The gap between initial training and real-world operational competence</li>
+        <li>How real-time simulators reproduce fault scenarios that are rare in normal operation but critical to master</li>
+        <li>The use of ACMSL simulators at US technical colleges and European training centres</li>
+        <li>Measurable improvements in diagnostic speed after simulator-based training</li>
+      </ul>
+      <div class="btn-row">
+        <a href="contacto.html" class="btn-primary">Request a copy</a>
       </div>
     </div>
-  </div>
-</header>
 
-<main>
-  <div class="container">
+    <!-- 10-2 Techwindgrid 2009 -->
+    <div class="topic-section">
+      <h2 data-i18n="sa2_h2">10-2 &nbsp;Techwindgrid 2009 – Datalogger Field Experience in Wind Turbines</h2>
+      <p>
+        <strong>Conference:</strong> Techwindgrid 2009.
+      </p>
+      <p>
+        <strong>Title:</strong> <em>"Experiencia ganada con el uso de un datalogger de altas prestaciones en aerogeneradores"</em>
+        (Experience gained using a high-performance datalogger in wind turbines)
+      </p>
+      <p>
+        This paper documents the field experience accumulated with the ACMSL DL1300 industrial
+        datalogger deployed in real wind turbine installations. Topics covered include:
+      </p>
+      <ul>
+        <li>Challenges of acquiring multi-channel data from RS232/RS485 instrumentation in field conditions</li>
+        <li>Design decisions in the DL1300: XML configuration, fault tolerance, millisecond timestamping</li>
+        <li>Case studies: identifying hydraulic system degradation from logged data, detecting intermittent communication faults</li>
+        <li>Data volume management: selective sampling strategies for analogue vs. digital signals</li>
+      </ul>
+      <div class="btn-row">
+        <a href="datalogger-dl1300-aerogeneradores.html" class="btn-secondary">More about the DL1300 Datalogger</a>
+        <a href="contacto.html" class="btn-primary">Request a copy</a>
+      </div>
+    </div>
 
-    <nav class="breadcrumb">
-      <a href="index.html" data-i18n="breadcrumb.home">Home</a><span>›</span>
-      <strong data-i18n="breadcrumb.current">Technical Articles &amp; References</strong>
-    </nav>
+    <!-- 10-3 Greenko India -->
+    <div class="topic-section">
+      <h2 data-i18n="sa3_h2">10-3 &nbsp;Training for Wind Maintenance Team – Greenko Group (India)</h2>
+      <p>
+        ACMSL delivered a simulation-based training programme for the wind turbine operations and
+        maintenance team of <strong>Greenko Group</strong>, one of India's leading renewable energy companies.
+      </p>
+      <p>
+        The programme covered:
+      </p>
+      <ul>
+        <li>Introduction to the electrical and mechanical architecture of DFIG wind turbines</li>
+        <li>Hands-on use of the ACMSL DFIG real-time simulator for fault scenario training</li>
+        <li>Controller incidence messages: mapping alarms to root causes and maintenance actions</li>
+        <li>Data analysis: using recorded signal data for performance monitoring and fault diagnosis</li>
+      </ul>
+      <div class="btn-row">
+        <a href="simuladores-aerogeneradores-tiempo-real.html" class="btn-secondary">About ACMSL Simulators</a>
+        <a href="contacto.html" class="btn-primary">Enquire about training programmes</a>
+      </div>
+    </div>
 
-    <nav class="topic-nav" aria-label="All topics">
-      <a href="conceptos-energia-eolica.html" data-i18n="nav.1">1. Wind Energy Concepts</a>
-      <a href="parques-eolicos-red-electrica.html" data-i18n="nav.2">2. Wind Farms &amp; Grid</a>
-      <a href="simuladores-aerogeneradores-tiempo-real.html" data-i18n="nav.3">3. Simulators</a>
-      <a href="analisis-tren-potencia-aerogeneradores.html" data-i18n="nav.4">4. Drive Train</a>
-      <a href="convertidores-back-to-back-dfig.html" data-i18n="nav.5">5. B2B Converters</a>
-      <a href="visualizacion-datos-aerogeneradores.html" data-i18n="nav.6">6. Data Visualisation</a>
-      <a href="tutoriales-aerogeneradores.html" data-i18n="nav.7">7. Tutorials</a>
-      <a href="mantenimiento-aerogeneradores.html" data-i18n="nav.8">8. Maintenance</a>
-      <a href="desarrollos.html" data-i18n="nav.9">9. Developments</a>
-      <a href="articulos-referencias-tecnicas.html" class="active" data-i18n="nav.10">10. Articles</a>
-      <a href="descargas-simuladores-aerogeneradores.html" data-i18n="nav.11">11. Downloads</a>
-      <a href="clientes-formacion-aerogeneradores.html" data-i18n="nav.12">12. Clients</a>
-    </nav>
+    <!-- 10-4 Vocational Training -->
+    <div class="topic-section">
+      <h2 data-i18n="sa4_h2">10-4 &nbsp;2022–2025 – Technical Teacher's Training Programs (Spain)</h2>
+      <p>
+        Between 2022 and 2025, ACMSL participated in multiple <strong>Formación del Profesorado de
+        Formación Profesional</strong> (Vocational Training Teacher Development) programmes organised
+        by regional education authorities across Spain, including:
+      </p>
+      <ul>
+        <li>Junta de Andalucía – Centros del Profesorado</li>
+        <li>Junta de Castilla y León – Centro de Formación del Profesorado</li>
+        <li>Comunidad de Madrid – Centro de Formación del Profesorado</li>
+      </ul>
+      <p>
+        These programmes trained vocational education teachers in the use of ACMSL wind turbine
+        simulators as classroom tools, enabling them to deliver practical, hands-on wind energy
+        training within their Vocational Training (FP) programmes.
+      </p>
+      <div class="btn-row">
+        <a href="clientes-formacion-aerogeneradores.html" class="btn-secondary">Our Clients</a>
+        <a href="contacto.html" class="btn-primary">Contact ACMSL</a>
+      </div>
+    </div>
 
-    <h1 class="page-title" data-i18n="h1">Technical Articles &amp; References</h1>
-    <p class="lead" data-i18n="lead">Selected publications, conference papers and training activities from ACMSL, documenting experience with wind turbine simulation training, industrial instrumentation, and professional development programmes.</p>
+    <div class="cta-box">
+      <h2 data-i18n="cta_h2">Learn More or Request Publications</h2>
+      <p data-i18n="cta_p">Contact ACMSL for copies of technical papers, information about training programmes, or details of academic and industry partnerships.</p>
+      <a href="contacto.html" class="btn-cta" data-i18n="btn.contact-acmsl">Contact ACMSL</a>
+    </div>"""
 
-    <!-- 10-1 AWEA 2016 -->
+NEW_BODY = """    <!-- 10-1 AWEA 2016 -->
     <div class="topic-section">
       <h2 data-i18n="sa1_h2">10-1 &nbsp;AWEA 2016 – Better Wind Turbine Performance through Continuous Training</h2>
       <p data-i18n-html="sa1_conf"><strong>Conference:</strong> American Wind Energy Association (AWEA) WindPower 2016 Conference &amp; Exhibition, New Orleans, Louisiana, USA.</p>
@@ -151,16 +189,22 @@
       <h2 data-i18n="cta_h2">Learn More or Request Publications</h2>
       <p data-i18n="cta_p">Contact ACMSL for copies of technical papers, information about training programmes, or details of academic and industry partnerships.</p>
       <a href="contacto.html" class="btn-cta" data-i18n="btn.contact-acmsl">Contact ACMSL</a>
-    </div>
+    </div>"""
 
-  </div>
-</main>
+assert OLD_BODY in content, "OLD_BODY not found in file!"
+content = content.replace(OLD_BODY, NEW_BODY)
 
-<footer>
-  <p>&copy; 2025 Automated Computing Machinery SL &nbsp;·&nbsp; <a href="contacto.html" data-i18n="footer.contact">Contact</a> &nbsp;·&nbsp; <a href="index.html" data-i18n="footer.home">Home</a></p>
-</footer>
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. Replace the full i18n JSON block
+# ─────────────────────────────────────────────────────────────────────────────
 
-<script id="pt" type="application/json">
+OLD_JSON_OPEN = '<script id="pt" type="application/json">'
+OLD_JSON_CLOSE = '</script>\n</body>'
+
+json_start = content.index(OLD_JSON_OPEN)
+json_end   = content.index(OLD_JSON_CLOSE) + len(OLD_JSON_CLOSE)
+
+NEW_JSON = r"""<script id="pt" type="application/json">
 {
   "en": {
     "_title": "Technical Articles & Conference Papers \u2013 Wind Turbine Training & Instrumentation | ACMSL",
@@ -375,4 +419,11 @@
 }
 </script>
 </body>
-</html>
+</html>"""
+
+content = content[:json_start] + NEW_JSON
+
+with open(FILEPATH, "w", encoding="utf-8") as f:
+    f.write(content)
+
+print("Done.")
