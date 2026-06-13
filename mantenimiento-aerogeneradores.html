@@ -81,10 +81,8 @@
     <!-- Main maintenance guide -->
     <div class="topic-section">
       <h2 data-i18n="sm1_h2">Operations &amp; Wind Farm Maintenance Guide</h2>
-      <p>
-        A comprehensive guide covering all aspects of wind farm operations and maintenance, including:
-      </p>
-      <ul>
+      <p data-i18n="sm1_intro">A comprehensive guide covering all aspects of wind farm operations and maintenance, including:</p>
+      <ul data-i18n-html="sm1_list">
         <li><strong>Preventive maintenance</strong> – scheduled inspection and lubrication procedures, torque verification, oil analysis</li>
         <li><strong>Corrective maintenance</strong> – fault diagnosis workflow, safety lockout/tagout (LOTO), component replacement procedures</li>
         <li><strong>Safety protocols</strong> – working at height, electrical safety, fire risk management, personal protective equipment</li>
@@ -94,7 +92,7 @@
         <li><strong>Troubleshooting</strong> – structured approach to incidence diagnosis using controller messages</li>
       </ul>
       <div class="btn-row">
-        <a href="tutorials/en/wind-farm-operations-maintenance.html" target="_blank" rel="noopener" class="btn-primary" data-i18n="sm1_btn1">Read Online (free)</a>
+        <a href="tutorials/en/wind-farm-operations-maintenance.html" target="_blank" rel="noopener" class="btn-primary" data-i18n-href="sm1_btn1_href" data-i18n="sm1_btn1">Read Online (free)</a>
         <a href="index.html?section=windmaintenance" class="btn-secondary" data-i18n="btn.open-in-app">Open in Interactive App</a>
       </div>
     </div>
@@ -102,20 +100,10 @@
     <!-- Incidences tool -->
     <div class="topic-section">
       <h2 data-i18n="sm2_h2">From Alarms to Diagnosis – Controller Incidence Interpreter</h2>
-      <p>
-        Every industrial wind turbine controller generates incidence messages when a safety-critical
-        condition is detected. These messages — such as <em>"Pump starts too often"</em> or
-        <em>"Vibration sensor activated"</em> — are not diagnoses: they indicate a symptom, not its root cause.
-      </p>
-      <p>
-        Understanding the mapping between controller messages and the underlying mechanical, electrical,
-        or hydraulic fault conditions is an essential competence for O&amp;M technicians. ACMSL has
-        developed a dedicated tool — <strong>"From Incidences to Help"</strong> — that presents the
-        possible causes behind each controller message and guides the technician through the
-        diagnostic process.
-      </p>
-      <p>Key features:</p>
-      <ul>
+      <p data-i18n-html="sm2_p1">Every industrial wind turbine controller generates incidence messages when a safety-critical condition is detected. These messages — such as <em>"Pump starts too often"</em> or <em>"Vibration sensor activated"</em> — are not diagnoses: they indicate a symptom, not its root cause.</p>
+      <p data-i18n-html="sm2_p2">Understanding the mapping between controller messages and the underlying mechanical, electrical, or hydraulic fault conditions is an essential competence for O&amp;M technicians. ACMSL has developed a dedicated tool — <strong>"From Incidences to Help"</strong> — that presents the possible causes behind each controller message and guides the technician through the diagnostic process.</p>
+      <p data-i18n="sm2_features">Key features:</p>
+      <ul data-i18n-html="sm2_list">
         <li>Database of controller messages from multiple turbine families and manufacturers</li>
         <li>Possible root causes for each message, ranked by probability</li>
         <li>Diagnostic workflow: step-by-step checks to confirm or rule out each cause</li>
@@ -123,26 +111,21 @@
       </ul>
       <div class="btn-row">
         <a href="contacto.html" class="btn-primary" data-i18n="btn.contact-acmsl">Contact us for information</a>
-        <a href="index.html?section=windmaintenance" class="btn-secondary" data-i18n="btn.open-in-app">Open in Interactive App</a>
+        <a href="https://youtu.be/CPZMFcTOp-k" target="_blank" rel="noopener" class="btn-secondary" data-i18n="btn.sm2_video">Video 'From Incidence to Help'</a>
       </div>
     </div>
 
     <!-- Simulators for maintenance training -->
     <div class="topic-section">
       <h2 data-i18n="sm3_h2">Real-Time Simulators as Maintenance Training Tools</h2>
-      <p>
-        The ACMSL real-time simulators are particularly effective for maintenance training because they
-        can reproduce fault scenarios safely in an office environment:
-      </p>
-      <ul>
+      <p data-i18n="sm3_intro">The ACMSL real-time simulators are particularly effective for maintenance training because they can reproduce fault scenarios safely in an office environment:</p>
+      <ul data-i18n-html="sm3_list">
         <li>Introduce mechanical faults (gearbox vibration, rotor imbalance) and observe controller response</li>
         <li>Simulate hydraulic failures (brake system leak, pitch cylinder fault) and practice diagnosis</li>
         <li>Reproduce electrical faults (generator overtemperature, converter trips) and analyse the alarm sequence</li>
         <li>Practice emergency stop procedures and safe restart protocols</li>
       </ul>
-      <p>
-        Used by technical colleges and industry training centres in 8 countries since 2002.
-      </p>
+      <p data-i18n="sm3_used">Used by technical colleges and industry training centres in 8 countries since 2002.</p>
       <div class="btn-row">
         <a href="simuladores-aerogeneradores-tiempo-real.html" class="btn-primary" data-i18n="sm3_btn1">All Simulators</a>
         <a href="descargas-simuladores-aerogeneradores.html" class="btn-accent" data-i18n="btn.dl-free-eval">Download Free Evaluation</a>
@@ -171,9 +154,20 @@
     "h1": "Wind Turbine Operations &amp; Maintenance",
     "lead": "Effective maintenance of wind turbines requires not only technical knowledge of the subsystems but also the ability to interpret controller messages, diagnose faults quickly, and apply structured maintenance protocols. ACMSL provides training resources specifically designed for field O&amp;M teams.",
     "sm1_h2": "Operations &amp; Wind Farm Maintenance Guide",
+    "sm1_intro": "A comprehensive guide covering all aspects of wind farm operations and maintenance, including:",
+    "sm1_list": "<li><strong>Preventive maintenance</strong> \u2013 scheduled inspection and lubrication procedures, torque verification, oil analysis</li><li><strong>Corrective maintenance</strong> \u2013 fault diagnosis workflow, safety lockout/tagout (LOTO), component replacement procedures</li><li><strong>Safety protocols</strong> \u2013 working at height, electrical safety, fire risk management, personal protective equipment</li><li><strong>Mechanical subsystems</strong> \u2013 blade inspection, gearbox condition monitoring, main bearing assessment</li><li><strong>Electrical subsystems</strong> \u2013 generator, power electronics, grid connection, earthing</li><li><strong>Hydraulic systems</strong> \u2013 brake system, pitch hydraulics, oil leak detection</li><li><strong>Troubleshooting</strong> \u2013 structured approach to incidence diagnosis using controller messages</li>",
     "sm1_btn1": "Read Online (free)",
+    "sm1_btn1_href": "tutorials/en/wind-farm-operations-maintenance.html",
     "sm2_h2": "From Alarms to Diagnosis \u2013 Controller Incidence Interpreter",
+    "sm2_p1": "Every industrial wind turbine controller generates incidence messages when a safety-critical condition is detected. These messages \u2014 such as <em>\u201cPump starts too often\u201d</em> or <em>\u201cVibration sensor activated\u201d</em> \u2014 are not diagnoses: they indicate a symptom, not its root cause.",
+    "sm2_p2": "Understanding the mapping between controller messages and the underlying mechanical, electrical, or hydraulic fault conditions is an essential competence for O&amp;M technicians. ACMSL has developed a dedicated tool \u2014 <strong>\u201cFrom Incidences to Help\u201d</strong> \u2014 that presents the possible causes behind each controller message and guides the technician through the diagnostic process.",
+    "sm2_features": "Key features:",
+    "sm2_list": "<li>Database of controller messages from multiple turbine families and manufacturers</li><li>Possible root causes for each message, ranked by probability</li><li>Diagnostic workflow: step-by-step checks to confirm or rule out each cause</li><li>Maintenance history integration: correlate current message with past incidences</li>",
+    "btn.sm2_video": "Video \u2018From Incidence to Help\u2019",
     "sm3_h2": "Real-Time Simulators as Maintenance Training Tools",
+    "sm3_intro": "The ACMSL real-time simulators are particularly effective for maintenance training because they can reproduce fault scenarios safely in an office environment:",
+    "sm3_list": "<li>Introduce mechanical faults (gearbox vibration, rotor imbalance) and observe controller response</li><li>Simulate hydraulic failures (brake system leak, pitch cylinder fault) and practice diagnosis</li><li>Reproduce electrical faults (generator overtemperature, converter trips) and analyse the alarm sequence</li><li>Practice emergency stop procedures and safe restart protocols</li>",
+    "sm3_used": "Used by technical colleges and industry training centres in 8 countries since 2002.",
     "sm3_btn1": "All Simulators",
     "cta_h2": "Train Your O&amp;M Team with Real-Time Simulators",
     "cta_p": "Deploy ACMSL simulators for in-house maintenance training. Volume licensing and academic pricing available."
@@ -185,9 +179,20 @@
     "h1": "Operaci\u00f3n y Mantenimiento de Aerogeneradores",
     "lead": "El mantenimiento eficaz de los aerogeneradores requiere no solo conocimientos t\u00e9cnicos de los subsistemas, sino tambi\u00e9n la capacidad de interpretar los mensajes del controlador, diagnosticar fallos r\u00e1pidamente y aplicar protocolos de mantenimiento estructurados. ACMSL proporciona recursos de formaci\u00f3n espec\u00edficamente dise\u00f1ados para equipos de campo.",
     "sm1_h2": "Gu\u00eda de Operaci\u00f3n y Mantenimiento de Parques E\u00f3licos",
+    "sm1_intro": "Una gu\u00eda completa que cubre todos los aspectos de la operaci\u00f3n y el mantenimiento de parques e\u00f3licos, incluyendo:",
+    "sm1_list": "<li><strong>Mantenimiento preventivo</strong> \u2013 procedimientos de inspecci\u00f3n y lubricaci\u00f3n programados, verificaci\u00f3n de pares de apriete, an\u00e1lisis de aceites</li><li><strong>Mantenimiento correctivo</strong> \u2013 flujo de diagn\u00f3stico de fallos, bloqueo/etiquetado de seguridad (LOTO), procedimientos de sustituci\u00f3n de componentes</li><li><strong>Protocolos de seguridad</strong> \u2013 trabajo en altura, seguridad el\u00e9ctrica, gesti\u00f3n del riesgo de incendio, equipos de protecci\u00f3n individual</li><li><strong>Subsistemas mec\u00e1nicos</strong> \u2013 inspecci\u00f3n de palas, seguimiento del estado de la multiplicadora, evaluaci\u00f3n del cojinete principal</li><li><strong>Subsistemas el\u00e9ctricos</strong> \u2013 generador, electr\u00f3nica de potencia, conexi\u00f3n a la red, puesta a tierra</li><li><strong>Sistemas hidr\u00e1ulicos</strong> \u2013 sistema de frenos, hidr\u00e1ulica de paso de pala, detecci\u00f3n de fugas de aceite</li><li><strong>Resoluci\u00f3n de problemas</strong> \u2013 enfoque estructurado para el diagn\u00f3stico de incidencias mediante mensajes del controlador</li>",
     "sm1_btn1": "Leer en L\u00ednea (gratis)",
+    "sm1_btn1_href": "tutorials/es/OPERACI\u00d3N_Y_MANTENIMIENTO_EN_PARQUES_E\u00d3LICOS.html",
     "sm2_h2": "De Alarmas al Diagn\u00f3stico \u2013 Int\u00e9rprete de Incidencias del Controlador",
+    "sm2_p1": "Todo controlador industrial de aerogenerador genera mensajes de incidencia cuando se detecta una condici\u00f3n cr\u00edtica para la seguridad. Estos mensajes \u2014 como <em>\u00abLa bomba arranca demasiado a menudo\u00bb</em> o <em>\u00abSensor de vibraci\u00f3n activado\u00bb</em> \u2014 no son diagn\u00f3sticos: indican un s\u00edntoma, no su causa ra\u00edz.",
+    "sm2_p2": "Conocer la correspondencia entre los mensajes del controlador y los fallos mec\u00e1nicos, el\u00e9ctricos o hidr\u00e1ulicos subyacentes es una competencia esencial para los t\u00e9cnicos de O&M. ACMSL ha desarrollado una herramienta dedicada \u2014 <strong>\u00abDe Incidencias a Ayuda\u00bb</strong> \u2014 que presenta las posibles causas de cada mensaje del controlador y gu\u00eda al t\u00e9cnico a trav\u00e9s del proceso de diagn\u00f3stico.",
+    "sm2_features": "Caracter\u00edsticas principales:",
+    "sm2_list": "<li>Base de datos de mensajes del controlador de m\u00faltiples familias y fabricantes de aerogeneradores</li><li>Posibles causas ra\u00edz para cada mensaje, ordenadas por probabilidad</li><li>Flujo de diagn\u00f3stico: verificaciones paso a paso para confirmar o descartar cada causa</li><li>Integraci\u00f3n del historial de mantenimiento: correlacionar el mensaje actual con incidencias pasadas</li>",
+    "btn.sm2_video": "V\u00eddeo \u2018De Incidencias a Ayuda\u2019",
     "sm3_h2": "Simuladores en Tiempo Real como Herramientas de Formaci\u00f3n en Mantenimiento",
+    "sm3_intro": "Los simuladores en tiempo real de ACMSL son especialmente eficaces para la formaci\u00f3n en mantenimiento porque pueden reproducir escenarios de fallo de forma segura en un entorno de oficina:",
+    "sm3_list": "<li>Introducir fallos mec\u00e1nicos (vibraci\u00f3n de la multiplicadora, desequilibrio del rotor) y observar la respuesta del controlador</li><li>Simular averias hidr\u00e1ulicas (fuga en el sistema de frenos, fallo en el cilindro de paso) y practicar el diagn\u00f3stico</li><li>Reproducir fallos el\u00e9ctricos (sobretemperatura del generador, disparos del convertidor) y analizar la secuencia de alarmas</li><li>Practicar procedimientos de parada de emergencia y protocolos de rearranque seguro</li>",
+    "sm3_used": "Utilizado por colegios t\u00e9cnicos y centros de formaci\u00f3n industriales en 8 pa\u00edses desde 2002.",
     "sm3_btn1": "Todos los Simuladores",
     "cta_h2": "Forme a su Equipo de O&M con Simuladores en Tiempo Real",
     "cta_p": "Implemente los simuladores de ACMSL para la formaci\u00f3n interna en mantenimiento. Licencias por volumen y precios acad\u00e9micos disponibles."
@@ -197,11 +202,22 @@
     "_meta_desc": "Ressources de formation O&M d'ACMSL : guide de maintenance, interpr\u00e8te d'incidents du contr\u00f4leur (Des Alarmes au Diagnostic), simulateurs en temps r\u00e9el pour l'entra\u00eenement aux pannes.",
     "breadcrumb.current": "Maintenance des \u00c9oliennes",
     "h1": "Exploitation et Maintenance des \u00c9oliennes",
-    "lead": "La maintenance efficace des \u00e9oliennes n\u00e9cessite non seulement des connaissances techniques des sous-syst\u00e8mes, mais aussi la capacit\u00e9 d'interpr\u00e9ter les messages du contr\u00f4leur, de diagnostiquer rapidement les pannes et d'appliquer des protocoles de maintenance structur\u00e9s.",
+    "lead": "La maintenance efficace des \u00e9oliennes n\u00e9cessite non seulement des connaissances techniques des sous-syst\u00e8mes, mais aussi la capacit\u00e9 d\u2019interpr\u00e9ter les messages du contr\u00f4leur, de diagnostiquer rapidement les pannes et d\u2019appliquer des protocoles de maintenance structur\u00e9s.",
     "sm1_h2": "Guide d'Exploitation et de Maintenance des Parcs \u00c9oliens",
+    "sm1_intro": "Un guide complet couvrant tous les aspects de l\u2019exploitation et de la maintenance des parcs \u00e9oliens, notamment :",
+    "sm1_list": "<li><strong>Maintenance pr\u00e9ventive</strong> \u2013 proc\u00e9dures d\u2019inspection et de lubrification programm\u00e9es, v\u00e9rification des couples, analyse d\u2019huile</li><li><strong>Maintenance corrective</strong> \u2013 workflow de diagnostic des pannes, consignation \u00e9lectrique (LOTO), proc\u00e9dures de remplacement des composants</li><li><strong>Protocoles de s\u00e9curit\u00e9</strong> \u2013 travail en hauteur, s\u00e9curit\u00e9 \u00e9lectrique, gestion des risques d\u2019incendie, \u00e9quipements de protection individuelle</li><li><strong>Sous-syst\u00e8mes m\u00e9caniques</strong> \u2013 inspection des pales, surveillance du multiplicateur, \u00e9valuation du palier principal</li><li><strong>Sous-syst\u00e8mes \u00e9lectriques</strong> \u2013 g\u00e9n\u00e9rateur, \u00e9lectronique de puissance, raccordement r\u00e9seau, mise \u00e0 la terre</li><li><strong>Syst\u00e8mes hydrauliques</strong> \u2013 syst\u00e8me de freinage, hydraulique de pas, d\u00e9tection de fuites d\u2019huile</li><li><strong>D\u00e9pannage</strong> \u2013 approche structur\u00e9e du diagnostic d\u2019incidents via les messages du contr\u00f4leur</li>",
     "sm1_btn1": "Lire en Ligne (gratuit)",
+    "sm1_btn1_href": "tutorials/en/wind-farm-operations-maintenance.html",
     "sm2_h2": "Des Alarmes au Diagnostic \u2013 Interpr\u00e8te d'Incidents du Contr\u00f4leur",
+    "sm2_p1": "Tout contr\u00f4leur industriel d\u2019\u00e9olienne g\u00e9n\u00e8re des messages d\u2019incident lorsqu\u2019une condition critique est d\u00e9tect\u00e9e. Ces messages \u2014 tels que <em>\u00ab La pompe d\u00e9marre trop souvent \u00bb</em> ou <em>\u00ab Capteur de vibration activ\u00e9 \u00bb</em> \u2014 ne sont pas des diagnostics : ils indiquent un sympt\u00f4me, pas sa cause profonde.",
+    "sm2_p2": "La correspondance entre les messages du contr\u00f4leur et les d\u00e9fauts m\u00e9caniques, \u00e9lectriques ou hydrauliques sous-jacents est une comp\u00e9tence essentielle pour les techniciens O&M. ACMSL a d\u00e9velopp\u00e9 un outil d\u00e9di\u00e9 \u2014 <strong>\u00ab From Incidences to Help \u00bb</strong> \u2014 qui pr\u00e9sente les causes possibles de chaque message et guide le technicien dans le processus de diagnostic.",
+    "sm2_features": "Caract\u00e9ristiques principales :",
+    "sm2_list": "<li>Base de donn\u00e9es de messages de contr\u00f4leurs de plusieurs familles et fabricants d\u2019\u00e9oliennes</li><li>Causes profondes possibles pour chaque message, class\u00e9es par probabilit\u00e9</li><li>Workflow de diagnostic : v\u00e9rifications \u00e9tape par \u00e9tape pour confirmer ou \u00e9carter chaque cause</li><li>Int\u00e9gration de l\u2019historique de maintenance : corr\u00e9ler le message actuel avec les incidents pass\u00e9s</li>",
+    "btn.sm2_video": "Vid\u00e9o \u2018From Incidence to Help\u2019",
     "sm3_h2": "Simulateurs en Temps R\u00e9el comme Outils de Formation \u00e0 la Maintenance",
+    "sm3_intro": "Les simulateurs en temps r\u00e9el ACMSL sont particuli\u00e8rement efficaces pour la formation \u00e0 la maintenance car ils peuvent reproduire des sc\u00e9narios de pannes en toute s\u00e9curit\u00e9 dans un environnement de bureau :",
+    "sm3_list": "<li>Introduire des d\u00e9fauts m\u00e9caniques (vibration du multiplicateur, d\u00e9s\u00e9quilibre du rotor) et observer la r\u00e9ponse du contr\u00f4leur</li><li>Simuler des pannes hydrauliques (fuite du syst\u00e8me de freinage, d\u00e9faut v\u00e9rin de pas) et pratiquer le diagnostic</li><li>Reproduire des d\u00e9fauts \u00e9lectriques (surchauffe du g\u00e9n\u00e9rateur, d\u00e9clenchement du convertisseur) et analyser la s\u00e9quence d\u2019alarmes</li><li>Pratiquer les proc\u00e9dures d\u2019arr\u00eat d\u2019urgence et les protocoles de red\u00e9marrage en s\u00e9curit\u00e9</li>",
+    "sm3_used": "Utilis\u00e9 par des \u00e9coles techniques et des centres de formation industriels dans 8 pays depuis 2002.",
     "sm3_btn1": "Tous les Simulateurs",
     "cta_h2": "Formez Votre \u00c9quipe O&M avec des Simulateurs en Temps R\u00e9el",
     "cta_p": "D\u00e9ployez les simulateurs ACMSL pour la formation interne en maintenance. Licences en volume et tarifs acad\u00e9miques disponibles."
@@ -212,10 +228,21 @@
     "breadcrumb.current": "Windturbinen-Wartung",
     "h1": "Betrieb und Wartung von Windturbinen",
     "lead": "Effektive Windturbinenwartung erfordert nicht nur technisches Wissen \u00fcber die Teilsysteme, sondern auch die F\u00e4higkeit, Steuerungsmeldungen zu interpretieren, Fehler schnell zu diagnostizieren und strukturierte Wartungsprotokolle anzuwenden.",
-    "sm1_h2": "Betrieb und Wartungshandbuch f\u00fcr Windparks",
+    "sm1_h2": "Betriebs- und Wartungshandbuch f\u00fcr Windparks",
+    "sm1_intro": "Ein umfassendes Handbuch, das alle Aspekte des Windparkbetriebs und der Wartung abdeckt, einschlie\u00dflich:",
+    "sm1_list": "<li><strong>Pr\u00e4ventive Wartung</strong> \u2013 geplante Inspektions- und Schmierverfahren, Anzugsmomentpr\u00fcfung, \u00d6lanalyse</li><li><strong>Korrektive Wartung</strong> \u2013 Fehlerdiagnoseworkflow, Sicherheitsverriegelung/Kennzeichnung (LOTO), Komponentenaustauschverfahren</li><li><strong>Sicherheitsprotokolle</strong> \u2013 Arbeiten in der H\u00f6he, elektrische Sicherheit, Brandrisikomanagement, pers\u00f6nliche Schutzausr\u00fcstung</li><li><strong>Mechanische Teilsysteme</strong> \u2013 Rotorblattkontrolle, Getriebezu standsmonitoring, Hauptlagerbeurteilung</li><li><strong>Elektrische Teilsysteme</strong> \u2013 Generator, Leistungselektronik, Netzanschluss, Erdung</li><li><strong>Hydrauliksysteme</strong> \u2013 Bremssystem, Blattwinkelhydraulik, \u00d6lleckerkennung</li><li><strong>Fehlerbehebung</strong> \u2013 strukturierter Ansatz zur Inzidenzdiagnose anhand von Steuerungsmeldungen</li>",
     "sm1_btn1": "Online lesen (kostenlos)",
+    "sm1_btn1_href": "tutorials/en/wind-farm-operations-maintenance.html",
     "sm2_h2": "Von Alarmen zur Diagnose \u2013 Steuerungs-Inzidenz-Interpreter",
+    "sm2_p1": "Jede industrielle Windturbinensteuerung erzeugt Inzidenzmeldungen, wenn eine sicherheitskritische Bedingung erkannt wird. Diese Meldungen \u2014 wie <em>\u201ePumpe startet zu oft\u201c</em> oder <em>\u201eSchwingungssensor ausgel\u00f6st\u201c</em> \u2014 sind keine Diagnosen: Sie zeigen ein Symptom an, nicht seine Grundursache.",
+    "sm2_p2": "Das Verst\u00e4ndnis der Zuordnung zwischen Steuerungsmeldungen und den zugrundeliegenden mechanischen, elektrischen oder hydraulischen Fehlerursachen ist eine wesentliche Kompetenz f\u00fcr O&M-Techniker. ACMSL hat ein spezielles Tool entwickelt \u2014 <strong>\u201eFrom Incidences to Help\u201c</strong> \u2014 das die m\u00f6glichen Ursachen hinter jeder Steuerungsmeldung pr\u00e4sentiert.",
+    "sm2_features": "Hauptmerkmale:",
+    "sm2_list": "<li>Datenbank mit Steuerungsmeldungen von mehreren Turbinentypen und Herstellern</li><li>M\u00f6gliche Grundursachen f\u00fcr jede Meldung, nach Wahrscheinlichkeit geordnet</li><li>Diagnoseworkflow: Schritt-f\u00fcr-Schritt-Pr\u00fcfungen zur Best\u00e4tigung oder zum Ausschluss jeder Ursache</li><li>Wartungshistorienintegration: aktuelle Meldung mit fr\u00fcheren Inzidenzen korrelieren</li>",
+    "btn.sm2_video": "Video \u2018From Incidence to Help\u2019",
     "sm3_h2": "Echtzeitsimulatoren als Wartungsschulungswerkzeuge",
+    "sm3_intro": "Die ACMSL-Echtzeitsimulatoren sind besonders effektiv f\u00fcr die Wartungsschulung, da sie Fehlerszenarien sicher in einer B\u00fcroumgebung reproduzieren k\u00f6nnen:",
+    "sm3_list": "<li>Mechanische Fehler einf\u00fchren (Getriebevibration, Rotorunwucht) und die Steuerungsreaktion beobachten</li><li>Hydraulikausfälle simulieren (Bremssystemleck, Blattwinkelzylinderfehler) und Diagnose \u00fcben</li><li>Elektrische Fehler reproduzieren (Generatoru\u0308bertemperatur, Konverterausl\u00f6sung) und Alarmsequenz analysieren</li><li>Notabschaltverfahren und sichere Neustarteprotokolle \u00fcben</li>",
+    "sm3_used": "Seit 2002 von Fachschulen und Industrieschulungszentren in 8 L\u00e4ndern eingesetzt.",
     "sm3_btn1": "Alle Simulatoren",
     "cta_h2": "Schulen Sie Ihr O&M-Team mit Echtzeitsimulatoren",
     "cta_p": "Setzen Sie ACMSL-Simulatoren f\u00fcr die interne Wartungsschulung ein. Volumenlizenzen und akademische Preise verf\u00fcgbar."
@@ -227,9 +254,20 @@
     "h1": "Esercizio e Manutenzione delle Turbine Eoliche",
     "lead": "La manutenzione efficace delle turbine eoliche richiede non solo conoscenze tecniche dei sottosistemi, ma anche la capacit\u00e0 di interpretare i messaggi del controllore, diagnosticare rapidamente i guasti e applicare protocolli di manutenzione strutturati.",
     "sm1_h2": "Guida all'Esercizio e alla Manutenzione dei Parchi Eolici",
+    "sm1_intro": "Una guida completa che copre tutti gli aspetti dell\u2019esercizio e della manutenzione dei parchi eolici, tra cui:",
+    "sm1_list": "<li><strong>Manutenzione preventiva</strong> \u2013 procedure programmate di ispezione e lubrificazione, verifica della coppia, analisi dell\u2019olio</li><li><strong>Manutenzione correttiva</strong> \u2013 workflow di diagnosi dei guasti, blocco/etichettatura di sicurezza (LOTO), procedure di sostituzione dei componenti</li><li><strong>Protocolli di sicurezza</strong> \u2013 lavoro in quota, sicurezza elettrica, gestione del rischio incendio, dispositivi di protezione individuale</li><li><strong>Sottosistemi meccanici</strong> \u2013 ispezione delle pale, monitoraggio del riduttore, valutazione del cuscinetto principale</li><li><strong>Sottosistemi elettrici</strong> \u2013 generatore, elettronica di potenza, connessione alla rete, messa a terra</li><li><strong>Sistemi idraulici</strong> \u2013 sistema frenante, idraulica del passo, rilevamento perdite d\u2019olio</li><li><strong>Risoluzione dei problemi</strong> \u2013 approccio strutturato alla diagnosi degli incidenti mediante messaggi del controllore</li>",
     "sm1_btn1": "Leggi Online (gratuito)",
+    "sm1_btn1_href": "tutorials/en/wind-farm-operations-maintenance.html",
     "sm2_h2": "Dagli Allarmi alla Diagnosi \u2013 Interprete di Incidenze del Controllore",
+    "sm2_p1": "Ogni controllore industriale di turbina eolica genera messaggi di incidenza quando viene rilevata una condizione critica per la sicurezza. Questi messaggi \u2014 come <em>\u201cLa pompa si avvia troppo spesso\u201d</em> o <em>\u201cSensore di vibrazione attivato\u201d</em> \u2014 non sono diagnosi: indicano un sintomo, non la sua causa radice.",
+    "sm2_p2": "La corrispondenza tra i messaggi del controllore e i guasti meccanici, elettrici o idraulici sottostanti \u00e8 una competenza essenziale per i tecnici O&M. ACMSL ha sviluppato uno strumento dedicato \u2014 <strong>\u201cFrom Incidences to Help\u201d</strong> \u2014 che presenta le possibili cause di ogni messaggio e guida il tecnico nel processo diagnostico.",
+    "sm2_features": "Caratteristiche principali:",
+    "sm2_list": "<li>Database di messaggi del controllore di pi\u00f9 famiglie e produttori di turbine</li><li>Possibili cause radice per ogni messaggio, ordinate per probabilit\u00e0</li><li>Workflow diagnostico: verifiche passo-passo per confermare o escludere ogni causa</li><li>Integrazione della cronologia di manutenzione: correlare il messaggio corrente con incidenze passate</li>",
+    "btn.sm2_video": "Video \u2018From Incidence to Help\u2019",
     "sm3_h2": "Simulatori in Tempo Reale come Strumenti di Addestramento alla Manutenzione",
+    "sm3_intro": "I simulatori in tempo reale ACMSL sono particolarmente efficaci per la formazione alla manutenzione perch\u00e9 possono riprodurre scenari di guasto in modo sicuro in un ambiente d\u2019ufficio:",
+    "sm3_list": "<li>Introdurre guasti meccanici (vibrazione del riduttore, squilibrio del rotore) e osservare la risposta del controllore</li><li>Simulare guasti idraulici (perdita nel sistema frenante, guasto al cilindro di passo) e praticare la diagnosi</li><li>Riprodurre guasti elettrici (surriscaldamento del generatore, scatti del convertitore) e analizzare la sequenza degli allarmi</li><li>Esercitarsi nelle procedure di arresto di emergenza e nei protocolli di riavvio sicuro</li>",
+    "sm3_used": "Utilizzato da istituti tecnici e centri di formazione industriali in 8 paesi dal 2002.",
     "sm3_btn1": "Tutti i Simulatori",
     "cta_h2": "Forma il Tuo Team O&M con Simulatori in Tempo Reale",
     "cta_p": "Implementa i simulatori ACMSL per la formazione interna alla manutenzione. Licenze in volume e prezzi accademici disponibili."
@@ -241,9 +279,20 @@
     "h1": "Opera\u00e7\u00e3o e Manuten\u00e7\u00e3o de Aerogeradores",
     "lead": "A manuten\u00e7\u00e3o eficaz dos aerogeradores requer n\u00e3o s\u00f3 conhecimentos t\u00e9cnicos dos subsistemas, mas tamb\u00e9m a capacidade de interpretar as mensagens do controlador, diagnosticar rapidamente as falhas e aplicar protocolos de manuten\u00e7\u00e3o estruturados.",
     "sm1_h2": "Guia de Opera\u00e7\u00e3o e Manuten\u00e7\u00e3o de Parques E\u00f3licos",
+    "sm1_intro": "Um guia completo cobrindo todos os aspetos da opera\u00e7\u00e3o e manuten\u00e7\u00e3o de parques e\u00f3licos, incluindo:",
+    "sm1_list": "<li><strong>Manuten\u00e7\u00e3o preventiva</strong> \u2013 procedimentos programados de inspe\u00e7\u00e3o e lubrifica\u00e7\u00e3o, verifica\u00e7\u00e3o de binários, an\u00e1lise de \u00f3leo</li><li><strong>Manuten\u00e7\u00e3o corretiva</strong> \u2013 fluxo de diagn\u00f3stico de falhas, bloqueio/etiquetagem de seguran\u00e7a (LOTO), procedimentos de substitui\u00e7\u00e3o de componentes</li><li><strong>Protocolos de seguran\u00e7a</strong> \u2013 trabalho em altura, seguran\u00e7a el\u00e9trica, gest\u00e3o de risco de inc\u00eandio, equipamentos de prote\u00e7\u00e3o individual</li><li><strong>Subsistemas mec\u00e2nicos</strong> \u2013 inspe\u00e7\u00e3o das p\u00e1s, monitoriza\u00e7\u00e3o da caixa de velocidades, avalia\u00e7\u00e3o do rolamento principal</li><li><strong>Subsistemas el\u00e9tricos</strong> \u2013 gerador, eletrónica de pot\u00eancia, liga\u00e7\u00e3o \u00e0 rede, ligação à terra</li><li><strong>Sistemas hidr\u00e1ulicos</strong> \u2013 sistema de travagem, hidr\u00e1ulica do passo, dete\u00e7\u00e3o de fugas de \u00f3leo</li><li><strong>Resolu\u00e7\u00e3o de problemas</strong> \u2013 abordagem estruturada ao diagn\u00f3stico de incid\u00eancias atrav\u00e9s de mensagens do controlador</li>",
     "sm1_btn1": "Ler Online (gratuito)",
+    "sm1_btn1_href": "tutorials/en/wind-farm-operations-maintenance.html",
     "sm2_h2": "De Alarmes ao Diagn\u00f3stico \u2013 Int\u00e9rprete de Incid\u00eancias do Controlador",
+    "sm2_p1": "Cada controlador industrial de aerogerador gera mensagens de incid\u00eancia quando \u00e9 detetada uma condi\u00e7\u00e3o cr\u00edtica para a seguran\u00e7a. Estas mensagens \u2014 como <em>\u00abA bomba arranca demasiadas vezes\u00bb</em> ou <em>\u00abSensor de vibra\u00e7\u00e3o ativado\u00bb</em> \u2014 n\u00e3o s\u00e3o diagn\u00f3sticos: indicam um sintoma, n\u00e3o a sua causa raiz.",
+    "sm2_p2": "A correspond\u00eancia entre as mensagens do controlador e as falhas mec\u00e2nicas, el\u00e9tricas ou hidr\u00e1ulicas subjacentes \u00e9 uma compet\u00eancia essencial para os t\u00e9cnicos de O&M. A ACMSL desenvolveu uma ferramenta dedicada \u2014 <strong>\u00abFrom Incidences to Help\u00bb</strong> \u2014 que apresenta as poss\u00edveis causas de cada mensagem e orienta o t\u00e9cnico no processo de diagn\u00f3stico.",
+    "sm2_features": "Caracter\u00edsticas principais:",
+    "sm2_list": "<li>Base de dados de mensagens de controladores de m\u00faltiplas fam\u00edlias e fabricantes de aerogeradores</li><li>Poss\u00edveis causas raiz para cada mensagem, ordenadas por probabilidade</li><li>Fluxo de diagn\u00f3stico: verifica\u00e7\u00f5es passo a passo para confirmar ou excluir cada causa</li><li>Integra\u00e7\u00e3o do hist\u00f3rico de manuten\u00e7\u00e3o: correlacionar a mensagem atual com incid\u00eancias passadas</li>",
+    "btn.sm2_video": "V\u00eddeo \u2018From Incidence to Help\u2019",
     "sm3_h2": "Simuladores em Tempo Real como Ferramentas de Forma\u00e7\u00e3o em Manuten\u00e7\u00e3o",
+    "sm3_intro": "Os simuladores em tempo real da ACMSL s\u00e3o particularmente eficazes para a forma\u00e7\u00e3o em manuten\u00e7\u00e3o porque podem reproduzir cen\u00e1rios de falha com seguran\u00e7a num ambiente de escrit\u00f3rio:",
+    "sm3_list": "<li>Introduzir falhas mec\u00e2nicas (vibra\u00e7\u00e3o da caixa de velocidades, desequil\u00edbrio do rotor) e observar a resposta do controlador</li><li>Simular avarias hidr\u00e1ulicas (fuga no sistema de travagem, falha no cilindro de passo) e praticar o diagn\u00f3stico</li><li>Reproduzir falhas el\u00e9tricas (sobreaquecimento do gerador, disparo do conversor) e analisar a sequ\u00eancia de alarmes</li><li>Praticar procedimentos de paragem de emerg\u00eancia e protocolos de rearranque seguro</li>",
+    "sm3_used": "Utilizado por institutos t\u00e9cnicos e centros de forma\u00e7\u00e3o industriais em 8 pa\u00edses desde 2002.",
     "sm3_btn1": "Todos os Simuladores",
     "cta_h2": "Forme a Sua Equipa O&M com Simuladores em Tempo Real",
     "cta_p": "Implemente os simuladores da ACMSL para forma\u00e7\u00e3o interna em manuten\u00e7\u00e3o. Licen\u00e7as por volume e pre\u00e7os acad\u00e9micos dispon\u00edveis."
