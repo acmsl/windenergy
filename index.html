@@ -854,6 +854,58 @@
         padding-left: 1.5rem;
       }
 
+      /* Hover submenu: flyout to the right of the suggest dropdown */
+      .suggest-submenu {
+        position: absolute;
+        top: 0;
+        left: 100%;
+        min-width: 230px;
+        background: var(--card-bg);
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        z-index: 1002;
+        display: none;
+        overflow: hidden;
+      }
+
+      .suggest-submenu.show {
+        display: block;
+      }
+
+      .suggest-submenu .sub-header {
+        padding: 0.4rem 1rem;
+        font-size: 0.78rem;
+        color: var(--primary);
+        font-weight: 600;
+        border-bottom: 1px solid #eee;
+        font-style: italic;
+        white-space: nowrap;
+        background: var(--primary-light, #eef4ff);
+      }
+
+      .suggest-submenu .sub-item {
+        padding: 0.65rem 1rem;
+        cursor: pointer;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 0.88rem;
+        color: var(--dark);
+        transition: background 0.15s;
+        white-space: nowrap;
+      }
+
+      .suggest-submenu .sub-item:hover {
+        background: var(--primary-light);
+      }
+
+      .suggest-submenu .sub-item:last-child {
+        border-bottom: none;
+      }
+
+      .suggest .item.kw-hover {
+        background: var(--primary-light);
+      }
+
       button.card {
         position: relative;
         display: block;
@@ -4383,9 +4435,72 @@
         keywords = JSON.parse(document.getElementById('searchKeywords').textContent);
       } catch (e) {}
 
+      // ---- Hover submenu: flyout showing pages on keyword hover ----
+      const submenu = document.createElement('div');
+      submenu.className = 'suggest-submenu';
+      suggest.parentElement.appendChild(submenu);
+      let _hideTimer = null;
+
+      function getPageEntriesForKeyword(kw) {
+        const seenSections = new Set();
+        const entries = [];
+        keywords.forEach(entry => {
+          if (entry.keywords.some(k => k === kw) && !seenSections.has(entry.section)) {
+            seenSections.add(entry.section);
+            entries.push(entry);
+          }
+        });
+        return entries;
+      }
+
+      function positionSubmenu(itemEl) {
+        const wrapRect = suggest.parentElement.getBoundingClientRect();
+        const suggestRect = suggest.getBoundingClientRect();
+        const itemRect = itemEl.getBoundingClientRect();
+        submenu.style.top  = (itemRect.top - wrapRect.top) + 'px';
+        submenu.style.left = (suggestRect.left - wrapRect.left + suggest.offsetWidth) + 'px';
+      }
+
+      function showSubmenu(kw, itemEl) {
+        clearTimeout(_hideTimer);
+        const entries = getPageEntriesForKeyword(kw);
+        if (entries.length === 0) { hideSubmenuNow(); return; }
+
+        submenu.innerHTML = '';
+        const header = document.createElement('div');
+        header.className = 'sub-header';
+        header.textContent = kw;
+        submenu.appendChild(header);
+
+        entries.forEach(entry => {
+          const div = document.createElement('div');
+          div.className = 'sub-item';
+          div.textContent = entry.label || getBreadcrumbLabel(entry.section) || entry.section;
+          div.onclick = () => navigateTo(entry);
+          submenu.appendChild(div);
+        });
+
+        positionSubmenu(itemEl);
+        submenu.classList.add('show');
+      }
+
+      function hideSubmenuNow() {
+        clearTimeout(_hideTimer);
+        submenu.classList.remove('show');
+      }
+
+      function scheduleHideSubmenu() {
+        _hideTimer = setTimeout(hideSubmenuNow, 220);
+      }
+
+      submenu.addEventListener('mouseenter', () => clearTimeout(_hideTimer));
+      submenu.addEventListener('mouseleave', scheduleHideSubmenu);
+      // ---- end hover submenu ----
+
       function navigateTo(entry) {
         showSection(entry.section);
         suggest.classList.remove('show');
+        hideSubmenuNow();
         input.value = '';
         _state = 'keywords';
         _currentKwMatches = [];
@@ -4410,11 +4525,14 @@
         _currentPageMatches = [];
 
         suggest.innerHTML = '';
+        hideSubmenuNow();
         if (matchingKws.length) {
           matchingKws.forEach(kw => {
             const div = document.createElement('div');
             div.className = 'item';
             div.textContent = kw;
+            div.addEventListener('mouseenter', () => { div.classList.add('kw-hover'); showSubmenu(kw, div); });
+            div.addEventListener('mouseleave', () => { div.classList.remove('kw-hover'); scheduleHideSubmenu(); });
             div.onclick = () => showPagesForKeyword(kw, q);
             suggest.appendChild(div);
           });
@@ -4445,6 +4563,7 @@
         }
 
         suggest.innerHTML = '';
+        hideSubmenuNow();
 
         // Header row: shows selected keyword, click to go back to keyword list
         const header = document.createElement('div');
@@ -4481,18 +4600,18 @@
 
       function doSearch(query) {
         const q = query.toLowerCase().trim();
-        if (!q) { suggest.classList.remove('show'); _state = 'keywords'; return; }
+        if (!q) { suggest.classList.remove('show'); hideSubmenuNow(); _state = 'keywords'; return; }
         showKeywordMatches(q);
       }
 
       input.addEventListener('input', () => doSearch(input.value));
       input.addEventListener('keydown', e => {
-        if (e.key === 'Escape') { suggest.classList.remove('show'); }
+        if (e.key === 'Escape') { suggest.classList.remove('show'); hideSubmenuNow(); }
         else if (e.key === 'Enter') { e.preventDefault(); activateBest(); }
       });
       btn.addEventListener('click', () => activateBest());
       document.addEventListener('click', e => {
-        if (!e.target.closest('.search-wrap')) suggest.classList.remove('show');
+        if (!e.target.closest('.search-wrap')) { suggest.classList.remove('show'); hideSubmenuNow(); }
       });
     }
 
