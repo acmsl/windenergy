@@ -202,14 +202,25 @@
     var metaD = document.querySelector('meta[name="description"]');
     if (metaD && d['_meta_desc']) metaD.setAttribute('content', d['_meta_desc']);
 
-    /* Lang switcher: redirect to same page with ?lang=XX instead of index.html */
-    var curPage = window.location.pathname.split('/').pop() || 'index.html';
-    if (!curPage || curPage === '/') curPage = 'index.html';
+    /* Lang select dropdown */
+    var langSel = document.querySelector('.lang-select');
+    if (langSel) {
+      langSel.value = lang;
+      var curPage = window.location.pathname.split('/').pop() || 'index.html';
+      if (!curPage || curPage === '/') curPage = 'index.html';
+      langSel.addEventListener('change', function () {
+        window.location.href = curPage + '?lang=' + this.value;
+      });
+    }
+
+    /* Lang switcher (legacy link-based, kept for backward compat) */
+    var curPageLs = window.location.pathname.split('/').pop() || 'index.html';
+    if (!curPageLs || curPageLs === '/') curPageLs = 'index.html';
     document.querySelectorAll('.lang-switcher a').forEach(function (a) {
       var m = a.href.match(/[?&]lang=([a-z]+)/);
       var aLang = m ? m[1] : null;
       if (!aLang) return;
-      a.href = curPage + '?lang=' + aLang;
+      a.href = curPageLs + '?lang=' + aLang;
       if (aLang === lang) {
         a.style.opacity    = '1';
         a.style.fontWeight = '900';

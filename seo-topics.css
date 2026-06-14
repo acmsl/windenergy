@@ -72,6 +72,24 @@ header {
   background: rgba(255,255,255,0.2);
   text-decoration: none;
 }
+.lang-select {
+  border-radius: 999px;
+  padding: 0.45rem 0.7rem;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  appearance: auto;
+}
+.lang-select:hover {
+  background: rgba(255,255,255,0.25);
+}
+.lang-select option {
+  background: var(--primary-dark, #1262a0);
+  color: #fff;
+}
 .btn-app {
   display: inline-block;
   padding: 0.55rem 1.1rem;
@@ -81,6 +99,7 @@ header {
   border-radius: 999px;
   font-weight: 600;
   font-size: 0.9rem;
+  border: 1.5px solid transparent;
   transition: background 0.2s;
 }
 .btn-app:hover { background: #00956a; }
