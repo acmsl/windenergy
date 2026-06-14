@@ -4364,9 +4364,23 @@
       const btn = document.getElementById('searchBtn');
       let keywords = [];
 
+      // Track state: 'keywords' | 'pages'
+      let _state = 'keywords';
+      let _currentKwMatches = [];   // array of keyword strings (level 1)
+      let _currentPageMatches = []; // array of entry objects (level 2)
+
       try {
         keywords = JSON.parse(document.getElementById('searchKeywords').textContent);
       } catch (e) {}
+
+      function navigateTo(entry) {
+        showSection(entry.section);
+        suggest.classList.remove('show');
+        input.value = '';
+        _state = 'keywords';
+        _currentKwMatches = [];
+        _currentPageMatches = [];
+      }
 
       // Level 1: show list of matching keywords
       function showKeywordMatches(q) {
@@ -4380,6 +4394,10 @@
             }
           });
         });
+
+        _state = 'keywords';
+        _currentKwMatches = matchingKws;
+        _currentPageMatches = [];
 
         suggest.innerHTML = '';
         if (matchingKws.length) {
@@ -4407,6 +4425,15 @@
           }
         });
 
+        _state = 'pages';
+        _currentPageMatches = matchEntries;
+
+        // If only one page, navigate directly
+        if (matchEntries.length === 1) {
+          navigateTo(matchEntries[0]);
+          return;
+        }
+
         suggest.innerHTML = '';
 
         // Header row: shows selected keyword, click to go back to keyword list
@@ -4421,24 +4448,39 @@
           const div = document.createElement('div');
           div.className = 'item suggest-page';
           div.textContent = entry.label || getBreadcrumbLabel(entry.section) || entry.section;
-          div.onclick = () => {
-            showSection(entry.section);
-            suggest.classList.remove('show');
-            input.value = '';
-          };
+          div.onclick = () => navigateTo(entry);
           suggest.appendChild(div);
         });
+        suggest.classList.add('show');
+      }
+
+      // Action for Enter / Search button: advance to the most useful result
+      function activateBest() {
+        if (_state === 'keywords' && _currentKwMatches.length > 0) {
+          // Drill into the first (best) keyword match
+          showPagesForKeyword(_currentKwMatches[0], input.value.toLowerCase().trim());
+        } else if (_state === 'pages' && _currentPageMatches.length > 0) {
+          // Navigate to the first page
+          navigateTo(_currentPageMatches[0]);
+        } else {
+          // Nothing in dropdown yet — run a fresh search
+          const q = input.value.toLowerCase().trim();
+          if (q) showKeywordMatches(q);
+        }
       }
 
       function doSearch(query) {
         const q = query.toLowerCase().trim();
-        if (!q) { suggest.classList.remove('show'); return; }
+        if (!q) { suggest.classList.remove('show'); _state = 'keywords'; return; }
         showKeywordMatches(q);
       }
 
       input.addEventListener('input', () => doSearch(input.value));
-      input.addEventListener('keydown', e => { if (e.key === 'Escape') suggest.classList.remove('show'); });
-      btn.addEventListener('click', () => doSearch(input.value));
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Escape') { suggest.classList.remove('show'); }
+        else if (e.key === 'Enter') { e.preventDefault(); activateBest(); }
+      });
+      btn.addEventListener('click', () => activateBest());
       document.addEventListener('click', e => {
         if (!e.target.closest('.search-wrap')) suggest.classList.remove('show');
       });
