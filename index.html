@@ -825,6 +825,25 @@
         border-bottom: none;
       }
 
+      .suggest .suggest-kw-header {
+        padding: 0.5rem 1rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--primary);
+        background: var(--primary-light, #eef4ff);
+        cursor: pointer;
+        border-bottom: 1px solid #ddd;
+        letter-spacing: 0.01em;
+      }
+
+      .suggest .suggest-kw-header:hover {
+        background: #dce8ff;
+      }
+
+      .suggest .suggest-page {
+        padding-left: 1.5rem;
+      }
+
       button.card {
         position: relative;
         display: block;
@@ -4349,36 +4368,72 @@
         keywords = JSON.parse(document.getElementById('searchKeywords').textContent);
       } catch (e) {}
 
-      function doSearch(query) {
-        const q = query.toLowerCase().trim();
-        if (!q) { suggest.classList.remove('show'); return; }
-
-        const matches = [];
+      // Level 1: show list of matching keywords
+      function showKeywordMatches(q) {
+        const matchingKws = [];
+        const seen = new Set();
         keywords.forEach(entry => {
           entry.keywords.forEach(kw => {
-            if (kw.toLowerCase().includes(q) && !matches.find(m => m.section === entry.section)) {
-              matches.push(entry);
+            if (kw.toLowerCase().includes(q) && !seen.has(kw)) {
+              seen.add(kw);
+              matchingKws.push(kw);
             }
           });
         });
 
         suggest.innerHTML = '';
-        if (matches.length) {
-          matches.forEach(m => {
+        if (matchingKws.length) {
+          matchingKws.forEach(kw => {
             const div = document.createElement('div');
             div.className = 'item';
-            div.textContent = m.label || getBreadcrumbLabel(m.section) || m.section;
-            div.onclick = () => {
-              showSection(m.section);
-              suggest.classList.remove('show');
-              input.value = '';
-            };
+            div.textContent = kw;
+            div.onclick = () => showPagesForKeyword(kw, q);
             suggest.appendChild(div);
           });
           suggest.classList.add('show');
         } else {
           suggest.classList.remove('show');
         }
+      }
+
+      // Level 2: show pages/sections that contain the selected keyword
+      function showPagesForKeyword(kw, prevQuery) {
+        const seenSections = new Set();
+        const matchEntries = [];
+        keywords.forEach(entry => {
+          if (entry.keywords.some(k => k === kw) && !seenSections.has(entry.section)) {
+            seenSections.add(entry.section);
+            matchEntries.push(entry);
+          }
+        });
+
+        suggest.innerHTML = '';
+
+        // Header row: shows selected keyword, click to go back to keyword list
+        const header = document.createElement('div');
+        header.className = 'item suggest-kw-header';
+        header.innerHTML = '&#8592; <em>' + kw + '</em>';
+        header.title = 'Back to keyword list';
+        header.onclick = () => showKeywordMatches(prevQuery);
+        suggest.appendChild(header);
+
+        matchEntries.forEach(entry => {
+          const div = document.createElement('div');
+          div.className = 'item suggest-page';
+          div.textContent = entry.label || getBreadcrumbLabel(entry.section) || entry.section;
+          div.onclick = () => {
+            showSection(entry.section);
+            suggest.classList.remove('show');
+            input.value = '';
+          };
+          suggest.appendChild(div);
+        });
+      }
+
+      function doSearch(query) {
+        const q = query.toLowerCase().trim();
+        if (!q) { suggest.classList.remove('show'); return; }
+        showKeywordMatches(q);
       }
 
       input.addEventListener('input', () => doSearch(input.value));
