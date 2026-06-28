@@ -15,12 +15,62 @@
 <script type="text/javascript" src="common.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T1XF1Z8ML9"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-T1XF1Z8ML9');
+    window.gtag = function(){ window.dataLayer.push(arguments); };
+    window.__acmConsentKey = 'acm-analytics-consent';
+    window.gtag('consent', 'default', { 'analytics_storage': 'denied' });
+
+    function setConsentChoice(choice) {
+      localStorage.setItem(window.__acmConsentKey, choice);
+      const banner = document.getElementById('cookie-banner');
+      if (banner) { banner.remove(); }
+      if (choice === 'accepted') {
+        if (!document.getElementById('gtag-script')) {
+          const script = document.createElement('script');
+          script.id = 'gtag-script';
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-T1XF1Z8ML9';
+          script.onload = function() {
+            window.gtag('js', new Date());
+            window.gtag('consent', 'default', { 'analytics_storage': 'granted' });
+            window.gtag('config', 'G-T1XF1Z8ML9');
+          };
+          document.head.appendChild(script);
+        }
+      } else {
+        window.gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      }
+    }
+
+    function showConsentBanner() {
+      const style = document.createElement('style');
+      style.textContent = '#cookie-banner{position:fixed;left:0;right:0;bottom:0;z-index:4000;background:#123047;color:#fff;padding:1rem 1.25rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;box-shadow:0 -6px 24px rgba(0,0,0,.22);}#cookie-banner .cookie-content{max-width:900px;line-height:1.45;font-size:.95rem;}#cookie-banner .cookie-actions{display:flex;gap:.6rem;flex-wrap:wrap;}#cookie-banner button{border:0;border-radius:999px;padding:.6rem .95rem;font-weight:600;cursor:pointer;}#cookie-banner #cookie-accept{background:#00a878;color:#fff;}#cookie-banner #cookie-reject{background:#fff;color:#123047;}@media (max-width:768px){#cookie-banner{flex-direction:column;align-items:flex-start;}#cookie-banner .cookie-actions{width:100%;}}';
+      document.head.appendChild(style);
+
+      const banner = document.createElement('div');
+      banner.id = 'cookie-banner';
+      banner.innerHTML = '<div class="cookie-content">This site uses Google Analytics and cookies to understand traffic and improve our service. By continuing, you accept analytics cookies. You can choose to reject them at any time.</div><div class="cookie-actions"><button id="cookie-accept" type="button">Accept</button><button id="cookie-reject" type="button">Reject</button></div>';
+      document.body.appendChild(banner);
+
+      banner.querySelector('#cookie-accept').addEventListener('click', function() {
+        setConsentChoice('accepted');
+      });
+      banner.querySelector('#cookie-reject').addEventListener('click', function() {
+        setConsentChoice('rejected');
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const stored = localStorage.getItem(window.__acmConsentKey);
+      if (stored === 'accepted') {
+        setConsentChoice('accepted');
+      } else if (stored === 'rejected') {
+        window.gtag('consent', 'default', { 'analytics_storage': 'denied' });
+      } else {
+        showConsentBanner();
+      }
+    });
   </script>
 </head>
 <body class="exe-web-site exe-search-bar exe-atools" id="exe-node-11"><script type="text/javascript">document.body.className+=" js"</script>
